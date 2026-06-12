@@ -132,6 +132,20 @@ export default async function PostPage({
         className="prose prose-invert max-w-none text-zinc-300" 
         dangerouslySetInnerHTML={{ __html: formattedContent }} 
       />
+
+      {/* Google AdSense Ad Unit Slot */}
+      <div className="mt-12 p-4 rounded-lg border border-[#27272a] bg-[#09090b]/50 text-center text-xs text-zinc-500 glass-panel">
+        <div className="mb-2 uppercase tracking-widest text-[10px] text-zinc-600 font-semibold">Advertisement</div>
+        <ins className="adsbygoogle"
+             style={{ display: 'block' }}
+             data-ad-client={process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || 'ca-pub-placeholder'}
+             data-ad-slot="default-post-ad-slot"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <div className="py-6 border border-dashed border-[#27272a] rounded text-zinc-600">
+          AdSense Unit (Active upon AdSense verification)
+        </div>
+      </div>
     </article>
   );
 }

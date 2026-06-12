@@ -16,6 +16,12 @@ export default function RootLayout({
     <html lang="en" className="h-full dark antialiased">
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+        {/* Google AdSense Integration */}
+        <script 
+          async 
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || 'ca-pub-placeholder'}`} 
+          crossOrigin="anonymous"
+        ></script>
       </head>
       <body className="min-h-full flex flex-col bg-[#09090b] text-[#f4f4f5]">
         {/* Navigation */}
