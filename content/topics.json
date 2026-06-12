@@ -3,28 +3,103 @@
     "id": "money_side_hustle",
     "category": "Money",
     "topic": "How to Start an AI-Driven One-Person Business in 2026",
-    "keywords": ["one person business", "AI entrepreneurship", "side hustle 2026", "solopreneur"],
+    "keywords": [
+      "one person business",
+      "AI entrepreneurship",
+      "side hustle 2026",
+      "solopreneur"
+    ],
     "summary": "A practical guide for starting a digital service business utilizing modern AI coding tools and workflow automation with minimal capital."
   },
   {
     "id": "family_role_of_man",
     "category": "Life",
     "topic": "The Modern Patriarch: Protecting and Providing in the Digital Age",
-    "keywords": ["role of a man", "fatherhood", "family leadership", "modern masculinity"],
+    "keywords": [
+      "role of a man",
+      "fatherhood",
+      "family leadership",
+      "modern masculinity"
+    ],
     "summary": "Exploring the psychological, emotional, and financial duties of a man in the modern family structure and how to lead with integrity."
   },
   {
     "id": "personal_growth_discipline",
     "category": "Discipline",
     "topic": "The Dopamine Shield: Building Focus in a World of Distraction",
-    "keywords": ["focus hacks", "dopamine detox", "deep work habits", "self discipline"],
+    "keywords": [
+      "focus hacks",
+      "dopamine detox",
+      "deep work habits",
+      "self discipline"
+    ],
     "summary": "How to construct a daily operational routine that isolates you from passive consumption, protecting cognitive energy for high-value execution."
   },
   {
     "id": "money_wealth_mindset",
     "category": "Money",
     "topic": "Escaping the Hourly Rate: Building Leveraged Wealth Assets",
-    "keywords": ["leveraged income", "wealth assets", "financial freedom", "passive cash flow"],
+    "keywords": [
+      "leveraged income",
+      "wealth assets",
+      "financial freedom",
+      "passive cash flow"
+    ],
     "summary": "Why trading hours for dollars is a wealth bottleneck, and how to start shifting toward digital asset publishing and equity investments."
+  },
+  {
+    "id": "life_fatherhood_leadership",
+    "category": "Life",
+    "topic": "The Modern Father: Balancing Leadership and Emotional Strength in Family Life",
+    "keywords": [
+      "fatherhood",
+      "family leadership",
+      "emotional strength"
+    ],
+    "summary": "Delve into the challenges and rewards of being a modern father. This article highlights the importance of emotional intelligence and leadership skills in nurturing strong family bonds."
+  },
+  {
+    "id": "money_side_hustles_ai",
+    "category": "Money",
+    "topic": "AI-Powered Side Hustles: How to Leverage Technology for Extra Income",
+    "keywords": [
+      "side hustles",
+      "AI entrepreneurship",
+      "passive income"
+    ],
+    "summary": "Discover innovative ways to create side hustles using artificial intelligence. This article provides insights on tools and strategies to maximize your earning potential in the digital age."
+  },
+  {
+    "id": "discipline_dopamine_control",
+    "category": "Discipline",
+    "topic": "Mastering Dopamine Control: The Key to Unshakeable Discipline",
+    "keywords": [
+      "dopamine control",
+      "self-discipline",
+      "focus"
+    ],
+    "summary": "Learn how to manage dopamine levels to enhance self-control and focus. This article discusses practical methods to avoid distractions and cultivate a disciplined lifestyle."
+  },
+  {
+    "id": "life_family_duties",
+    "category": "Life",
+    "topic": "Redefining Masculinity: Embracing Duties and Responsibilities as a Family Leader",
+    "keywords": [
+      "masculinity",
+      "family duties",
+      "responsibility"
+    ],
+    "summary": "This article redefines masculinity by focusing on the importance of embracing your duties as a family leader. Explore how taking responsibility can lead to personal and familial growth."
+  },
+  {
+    "id": "discipline_physical_training",
+    "category": "Discipline",
+    "topic": "Cognitive Training Through Physical Exercise: A Dual Approach to Success",
+    "keywords": [
+      "physical training",
+      "cognitive training",
+      "success habits"
+    ],
+    "summary": "Uncover the powerful connection between physical fitness and cognitive performance. This article provides insights on how physical training can enhance mental clarity and overall success."
   }
 ]
