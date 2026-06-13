@@ -53,7 +53,12 @@ export default function RootLayout({
             <div>
               &copy; {new Date().getFullYear()} MCJP.io. All rights reserved.
             </div>
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-4 items-center justify-center md:justify-end">
+              <a href="/about" className="hover:text-zinc-300 transition-colors">About</a>
+              <a href="/contact" className="hover:text-zinc-300 transition-colors">Contact</a>
+              <a href="/privacy" className="hover:text-zinc-300 transition-colors">Privacy Policy</a>
+              <a href="/terms" className="hover:text-zinc-300 transition-colors">Terms of Service</a>
+              <span className="text-zinc-700 hidden md:inline">|</span>
               <span>Sovereign Intelligence Systems</span>
             </div>
           </div>
