@@ -25,6 +25,27 @@ export default function RootLayout({
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || 'ca-pub-1966724508656296'}`} 
           crossOrigin="anonymous"
         ></script>
+        {/* JSON-LD Structured Data Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "MCJP.io",
+              "url": "https://blog.mcjp.io",
+              "description": "Automated guide map for wealth creation, masculine family leadership, and cognitive sovereignty in the modern era.",
+              "publisher": {
+                "@type": "Organization",
+                "name": "MCJP.io",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://blog.mcjp.io/globe.svg"
+                }
+              }
+            })
+          }}
+        />
       </head>
       <body className="min-h-full flex flex-col bg-[#09090b] text-[#f4f4f5]">
         {/* Navigation */}
@@ -41,6 +62,22 @@ export default function RootLayout({
             </nav>
           </div>
         </header>
+
+        {/* Top Leaderboard Ad Unit */}
+        <div className="max-w-6xl w-full mx-auto px-6 pt-6 -mb-6">
+          <div className="p-2 rounded border border-[#27272a] bg-[#09090b]/30 text-center text-xs text-zinc-500 overflow-hidden min-h-[90px] flex flex-col justify-center items-center relative group">
+            <div className="absolute top-1 left-2 uppercase tracking-widest text-[9px] text-zinc-600 font-semibold select-none">Advertisement</div>
+            <ins className="adsbygoogle"
+                 style={{ display: 'block', width: '100%', minHeight: '90px' }}
+                 data-ad-client={process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || 'ca-pub-1966724508656296'}
+                 data-ad-slot="top-leaderboard-ad-slot"
+                 data-ad-format="horizontal"
+                 data-full-width-responsive="true"></ins>
+            <div className="py-2 text-[10px] text-zinc-600 select-none">
+              Top Banner (Active upon AdSense approval)
+            </div>
+          </div>
+        </div>
 
         {/* Main Workspace */}
         <main className="flex-grow max-w-6xl w-full mx-auto px-6 py-12">
