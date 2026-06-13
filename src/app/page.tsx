@@ -162,29 +162,50 @@ export default async function Home({
           <div className="grid md:grid-cols-2 gap-6">
             {/* Newsletter module injected dynamically as first item if browsing all */}
             {isBrowsingAll && (
-              <div className="p-6 rounded-lg glass-panel bg-white/70 flex flex-col justify-between min-h-[220px]">
-                <div className="space-y-2">
-                  <span className="text-xs font-semibold text-amber-600 uppercase tracking-widest">Newsletter</span>
-                  <h3 className="text-xl font-bold text-slate-900">Get Sovereign Blueprints</h3>
-                  <p className="text-slate-600 text-xs leading-relaxed">
-                    Join 5,000+ men receiving weekly wealth creation ideas, discipline checklists, and leadership essays.
-                  </p>
+              <>
+                <div className="p-6 rounded-lg glass-panel bg-white/70 flex flex-col justify-between min-h-[220px]">
+                  <div className="space-y-2">
+                    <span className="text-xs font-semibold text-amber-600 uppercase tracking-widest">Newsletter</span>
+                    <h3 className="text-xl font-bold text-slate-900">Get Sovereign Blueprints</h3>
+                    <p className="text-slate-600 text-xs leading-relaxed">
+                      Join 5,000+ men receiving weekly wealth creation ideas, discipline checklists, and leadership essays.
+                    </p>
+                  </div>
+                  <form className="mt-4 flex gap-2" action="/" method="GET">
+                    <input
+                      type="email"
+                      placeholder="Your email address"
+                      required
+                      className="flex-grow bg-slate-50 border border-slate-200 rounded px-3 py-2.5 text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-amber-500"
+                    />
+                    <button
+                      type="submit"
+                      className="bg-amber-600 hover:bg-amber-500 text-white px-4 py-2.5 rounded text-xs font-semibold transition-colors cursor-pointer shadow-xs"
+                    >
+                      Join
+                    </button>
+                  </form>
                 </div>
-                <form className="mt-4 flex gap-2" action="/" method="GET">
-                  <input
-                    type="email"
-                    placeholder="Your email address"
-                    required
-                    className="flex-grow bg-slate-50 border border-slate-200 rounded px-3 py-2.5 text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-amber-500"
-                  />
-                  <button
-                    type="submit"
-                    className="bg-amber-600 hover:bg-amber-500 text-white px-4 py-2.5 rounded text-xs font-semibold transition-colors cursor-pointer shadow-xs"
+
+                {/* Hostinger Partner Offer Widget */}
+                <div className="p-6 rounded-lg glass-panel bg-amber-50/20 border border-amber-200/40 flex flex-col justify-between min-h-[220px] shadow-xs">
+                  <div className="space-y-2">
+                    <span className="text-xs font-semibold text-amber-700 uppercase tracking-widest">Partner Offer</span>
+                    <h3 className="text-xl font-bold text-slate-900">Launch Your Web Asset</h3>
+                    <p className="text-slate-600 text-xs leading-relaxed">
+                      Ready to build your own digital income stream? Start hosting with Hostinger today and get an exclusive discount on premium hosting plans.
+                    </p>
+                  </div>
+                  <a
+                    href="https://www.hostinger.com?REFERRALCODE=OYBPHARMOWCY"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full text-center bg-slate-900 hover:bg-slate-800 text-white py-2.5 rounded text-xs font-semibold transition-colors mt-4 cursor-pointer shadow-sm"
                   >
-                    Join
-                  </button>
-                </form>
-              </div>
+                    Get Hostinger Discount &rarr;
+                  </a>
+                </div>
+              </>
             )}
 
             {displayPosts.map((post, index) => (

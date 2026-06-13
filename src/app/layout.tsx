@@ -95,6 +95,7 @@ export default function RootLayout({
               <a href="/contact" className="hover:text-slate-800 transition-colors">Contact</a>
               <a href="/privacy" className="hover:text-slate-800 transition-colors">Privacy Policy</a>
               <a href="/terms" className="hover:text-slate-800 transition-colors">Terms of Service</a>
+              <a href="https://www.hostinger.com?REFERRALCODE=OYBPHARMOWCY" target="_blank" rel="noopener noreferrer" className="hover:text-amber-600 transition-colors font-medium">Hosted on Hostinger (20% Off)</a>
               <span className="text-slate-300 hidden md:inline">|</span>
               <span>Sovereign Intelligence Systems</span>
             </div>

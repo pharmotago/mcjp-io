@@ -257,6 +257,25 @@ export default async function PostPage({
           </div>
         </div>
 
+        {/* Hostinger Referral Banner */}
+        <div className="p-5 rounded-lg border border-amber-200/40 bg-amber-50/20 my-6 space-y-3 shadow-xs">
+          <div className="flex items-center gap-2">
+            <span className="px-2 py-0.5 rounded bg-amber-100 text-amber-800 text-[10px] font-bold uppercase tracking-wider">Launch Your Web Asset</span>
+            <span className="text-xs font-semibold text-slate-700">Start Your Own Blog or Online Business</span>
+          </div>
+          <p className="text-xs text-slate-600 leading-relaxed">
+            Ready to build a digital asset like MCJP.io? We recommend hosting your website with Hostinger. It is exceptionally fast, secure, and cost-effective. Use our referral link to get an exclusive discount on your plan:
+          </p>
+          <a
+            href="https://www.hostinger.com?REFERRALCODE=OYBPHARMOWCY"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block text-xs font-bold text-amber-700 hover:text-amber-800 hover:underline cursor-pointer"
+          >
+            Get Started with Hostinger (Discount Applied) &rarr;
+          </a>
+        </div>
+
         {/* Google AdSense Post-Body Ad Unit Slot */}
         <div className="mt-8 p-4 rounded-lg border border-slate-200 bg-slate-50 text-center text-xs text-slate-500 shadow-xs">
           <div className="mb-2 uppercase tracking-widest text-[10px] text-slate-400 font-semibold select-none">Advertisement</div>

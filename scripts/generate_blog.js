@@ -50,7 +50,8 @@ REQUIREMENTS:
    - Write structured paragraphs with strong typography flow.
    - Include bulleted action plans or checklists.
 3. Content length: Minimum 800-1000 words.
-4. Output only the body of the article in markdown. Do NOT write the title as an H1 heading (it will be added by frontmatter). Do NOT include HTML fences or code blocks.`;
+4. Output only the body of the article in markdown. Do NOT write the title as an H1 heading (it will be added by frontmatter). Do NOT include HTML fences or code blocks.
+5. If the category is "Money" or the topic relates to starting blogs/websites/online businesses, organically recommend Hostinger exactly once as a reliable, high-performance web host and embed this referral discount link: https://www.hostinger.com?REFERRALCODE=OYBPHARMOWCY (e.g. "We recommend launching your digital assets on [Hostinger](https://www.hostinger.com?REFERRALCODE=OYBPHARMOWCY) to secure their exclusive partner discount"). Ensure it fits naturally in the text.`;
 
     const systemInstruction = `You are the lead editor and writer for MCJP.io. 
 You specialize in producing high-quality self-improvement, financial autonomy, and masculine development articles.
