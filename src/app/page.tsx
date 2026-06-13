@@ -86,10 +86,10 @@ export default async function Home({
     <div className="space-y-12">
       {/* Hero Header */}
       <section className="text-center py-6 space-y-4">
-        <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight">
-          Sovereign Guidance for the <span className="text-amber-500">Modern Man</span>
+        <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight text-slate-900">
+          Sovereign Guidance for the <span className="gold-gradient">Modern Man</span>
         </h1>
-        <p className="max-w-2xl mx-auto text-zinc-400 text-sm md:text-base leading-relaxed">
+        <p className="max-w-2xl mx-auto text-slate-600 text-sm md:text-base leading-relaxed">
           Actionable blueprints on building leveraged wealth, leading with familial integrity, and mastering mental discipline in the digital era.
         </p>
 
@@ -100,9 +100,9 @@ export default async function Home({
             name="q"
             defaultValue={searchQuery}
             placeholder="Search articles..."
-            className="w-full bg-[#18181b] border border-[#27272a] rounded-full px-5 py-2.5 pl-11 text-sm text-[#f4f4f5] focus:outline-none focus:border-amber-500 transition-colors"
+            className="w-full bg-white border border-slate-200 rounded-full px-5 py-2.5 pl-11 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all shadow-xs"
           />
-          <span className="absolute left-4 top-3.5 text-zinc-500">
+          <span className="absolute left-4 top-3.5 text-slate-400">
             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
@@ -114,28 +114,28 @@ export default async function Home({
       {/* Featured Post (Only on main page with no filters) */}
       {featuredPost && (
         <section className="space-y-4">
-          <h2 className="text-xs font-semibold uppercase tracking-widest text-zinc-500 border-b border-[#27272a] pb-2">
+          <h2 className="text-xs font-semibold uppercase tracking-widest text-slate-400 border-b border-slate-200 pb-2">
             Featured Article
           </h2>
           <a
             href={`/posts/${featuredPost.id}`}
-            className="block p-6 md:p-8 rounded-lg border border-[#27272a] bg-gradient-to-br from-[#18181b] to-amber-500/5 hover:border-amber-500/50 transition-all duration-300 space-y-4"
+            className="block p-6 md:p-8 rounded-lg glass-panel hover:border-amber-500/50 transition-all duration-300 space-y-4"
           >
             <div className="flex items-center justify-between text-xs">
-              <span className="px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-500 font-semibold uppercase tracking-wider">
+              <span className="px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-700 font-semibold uppercase tracking-wider">
                 {featuredPost.category}
               </span>
-              <span className="text-zinc-500">{featuredPost.date}</span>
+              <span className="text-slate-400">{featuredPost.date}</span>
             </div>
-            <h3 className="text-2xl md:text-4xl font-bold text-zinc-100 hover:text-amber-500 transition-colors leading-tight">
+            <h3 className="text-2xl md:text-4xl font-bold text-slate-900 hover:text-amber-600 transition-colors leading-tight">
               {featuredPost.title}
             </h3>
-            <p className="text-zinc-400 text-sm md:text-base leading-relaxed line-clamp-3">
+            <p className="text-slate-600 text-sm md:text-base leading-relaxed line-clamp-3">
               {featuredPost.description}
             </p>
             <div className="flex flex-wrap gap-2 pt-2">
               {featuredPost.keywords.map((kw, i) => (
-                <span key={i} className="text-xs text-zinc-600">
+                <span key={i} className="text-xs text-slate-400">
                   #{kw}
                 </span>
               ))}
@@ -146,7 +146,7 @@ export default async function Home({
 
       {/* Grid List */}
       <div className="space-y-6">
-        <h2 className="text-xs font-semibold uppercase tracking-widest text-zinc-500 border-b border-[#27272a] pb-2">
+        <h2 className="text-xs font-semibold uppercase tracking-widest text-slate-400 border-b border-slate-200 pb-2">
           {searchQuery
             ? `Search Results for "${searchQuery}"`
             : activeCategory
@@ -155,18 +155,18 @@ export default async function Home({
         </h2>
         
         {filteredPosts.length === 0 ? (
-          <div className="text-center py-12 text-zinc-500 text-sm">
+          <div className="text-center py-12 text-slate-400 text-sm">
             No articles found matching the query.
           </div>
         ) : (
           <div className="grid md:grid-cols-2 gap-6">
             {/* Newsletter module injected dynamically as first item if browsing all */}
             {isBrowsingAll && (
-              <div className="p-6 rounded-lg border border-[#27272a] bg-gradient-to-br from-[#18181b]/80 to-amber-500/5 flex flex-col justify-between min-h-[220px]">
+              <div className="p-6 rounded-lg glass-panel bg-white/70 flex flex-col justify-between min-h-[220px]">
                 <div className="space-y-2">
-                  <span className="text-xs font-semibold text-amber-500 uppercase tracking-widest">Newsletter</span>
-                  <h3 className="text-xl font-bold text-zinc-100">Get Sovereign Blueprints</h3>
-                  <p className="text-zinc-400 text-xs leading-relaxed">
+                  <span className="text-xs font-semibold text-amber-600 uppercase tracking-widest">Newsletter</span>
+                  <h3 className="text-xl font-bold text-slate-900">Get Sovereign Blueprints</h3>
+                  <p className="text-slate-600 text-xs leading-relaxed">
                     Join 5,000+ men receiving weekly wealth creation ideas, discipline checklists, and leadership essays.
                   </p>
                 </div>
@@ -175,11 +175,11 @@ export default async function Home({
                     type="email"
                     placeholder="Your email address"
                     required
-                    className="flex-grow bg-[#09090b] border border-[#27272a] rounded px-3 py-2.5 text-xs text-[#f4f4f5] focus:outline-none focus:border-amber-500"
+                    className="flex-grow bg-slate-50 border border-slate-200 rounded px-3 py-2.5 text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-amber-500"
                   />
                   <button
                     type="submit"
-                    className="bg-amber-500 hover:bg-amber-400 text-black px-4 py-2.5 rounded text-xs font-semibold transition-colors cursor-pointer"
+                    className="bg-amber-600 hover:bg-amber-500 text-white px-4 py-2.5 rounded text-xs font-semibold transition-colors cursor-pointer shadow-xs"
                   >
                     Join
                   </button>
@@ -191,42 +191,42 @@ export default async function Home({
               <div key={post.id} className="space-y-6 flex flex-col justify-between">
                 <a
                   href={`/posts/${post.id}`}
-                  className="block p-6 rounded-lg border border-[#27272a] bg-[#09090b]/50 hover:border-amber-500/50 transition-all duration-300 flex flex-col justify-between min-h-[220px]"
+                  className="block p-6 rounded-lg glass-panel hover:border-amber-500/50 transition-all duration-300 flex flex-col justify-between min-h-[220px]"
                 >
                   <div className="space-y-4">
                     <div className="flex items-center justify-between text-xs">
-                      <span className="px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-500 font-semibold uppercase tracking-wider">
+                      <span className="px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-700 font-semibold uppercase tracking-wider">
                         {post.category}
                       </span>
-                      <span className="text-zinc-500">{post.date}</span>
+                      <span className="text-slate-400">{post.date}</span>
                     </div>
-                    <h3 className="text-xl font-bold text-zinc-100 hover:text-amber-500 transition-colors">
+                    <h3 className="text-xl font-bold text-slate-900 hover:text-amber-600 transition-colors">
                       {post.title}
                     </h3>
-                    <p className="text-zinc-400 text-xs md:text-sm leading-relaxed line-clamp-3">
+                    <p className="text-slate-600 text-xs md:text-sm leading-relaxed line-clamp-3">
                       {post.description}
                     </p>
                   </div>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {post.keywords.map((kw, i) => (
-                      <span key={i} className="text-xs text-zinc-600">
+                      <span key={i} className="text-xs text-slate-400">
                         #{kw}
                       </span>
                     ))}
                   </div>
                 </a>
 
-                {/* Inline Ad slot injected after display post index 1 (the second post in grid) */}
+                {/* Inline Ad slot injected after display post index 1 */}
                 {index === 1 && (
-                  <div className="col-span-full p-4 rounded border border-[#27272a]/50 bg-[#09090b]/20 text-center text-xs text-zinc-500 min-h-[110px] flex flex-col justify-center items-center relative">
-                    <div className="absolute top-1 left-2 uppercase tracking-widest text-[8px] text-zinc-600 font-semibold select-none">Advertisement</div>
+                  <div className="col-span-full p-4 rounded border border-slate-200 bg-slate-50 text-center text-xs text-slate-500 min-h-[110px] flex flex-col justify-center items-center relative shadow-xs">
+                    <div className="absolute top-1 left-2 uppercase tracking-widest text-[8px] text-slate-400 font-semibold select-none">Advertisement</div>
                     <ins className="adsbygoogle"
                          style={{ display: 'block', width: '100%', minHeight: '90px' }}
                          data-ad-client={process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || 'ca-pub-1966724508656296'}
                          data-ad-slot="in-feed-ad-slot"
                          data-ad-format="fluid"
                          data-full-width-responsive="true"></ins>
-                    <div className="text-[10px] text-zinc-600 select-none py-1">In-Feed Banner (Active upon AdSense approval)</div>
+                    <div className="text-[10px] text-slate-400 select-none py-1">In-Feed Banner (Active upon AdSense approval)</div>
                   </div>
                 )}
               </div>

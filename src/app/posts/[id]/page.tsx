@@ -120,7 +120,7 @@ export default async function PostPage({
 
   const relatedPosts = getRelatedPosts(resolvedParams.id, post.data.category);
 
-  // Markdown formatter with mid-content ad slot injection
+  // Markdown formatter with mid-content ad slot injection (light theme optimized)
   const formatMarkdown = (text: string) => {
     const lines = text.split('\n');
     const midIndex = Math.floor(lines.length / 2);
@@ -130,34 +130,34 @@ export default async function PostPage({
         let formattedLine = '';
         const trimmed = line.trim();
         if (trimmed.startsWith('## ')) {
-          formattedLine = `<h2 class="text-2xl font-semibold mt-8 mb-4 text-[#f4f4f5]">${trimmed.slice(3)}</h2>`;
+          formattedLine = `<h2 class="text-2xl font-semibold mt-8 mb-4 text-slate-900">${trimmed.slice(3)}</h2>`;
         } else if (trimmed.startsWith('### ')) {
-          formattedLine = `<h3 class="text-xl font-semibold mt-6 mb-3 text-[#f4f4f5]">${trimmed.slice(4)}</h3>`;
+          formattedLine = `<h3 class="text-xl font-semibold mt-6 mb-3 text-slate-900">${trimmed.slice(4)}</h3>`;
         } else if (trimmed.startsWith('> ')) {
-          formattedLine = `<blockquote class="border-l-2 border-amber-500 pl-4 my-6 italic text-zinc-400 bg-amber-500/5 py-2 pr-2 rounded-r-md">${trimmed.slice(2)}</blockquote>`;
+          formattedLine = `<blockquote class="border-l-2 border-amber-500 pl-4 my-6 italic text-slate-600 bg-amber-500/5 py-2 pr-2 rounded-r-md">${trimmed.slice(2)}</blockquote>`;
         } else if (trimmed.startsWith('- ') || trimmed.startsWith('* ')) {
-          formattedLine = `<li class="list-disc list-inside ml-4 my-1 text-zinc-300 text-sm md:text-base leading-relaxed">${trimmed.slice(2)}</li>`;
+          formattedLine = `<li class="list-disc list-inside ml-4 my-1 text-slate-700 text-sm md:text-base leading-relaxed">${trimmed.slice(2)}</li>`;
         } else if (trimmed === '---') {
-          formattedLine = `<hr class="border-zinc-800 my-8" />`;
+          formattedLine = `<hr class="border-slate-200 my-8" />`;
         } else if (trimmed === '') {
           formattedLine = `<br />`;
         } else {
-          const formattedText = line.replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-zinc-100">$1</strong>');
-          formattedLine = `<p class="text-zinc-300 text-sm md:text-base leading-relaxed my-4">${formattedText}</p>`;
+          const formattedText = line.replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-slate-950">$1</strong>');
+          formattedLine = `<p class="text-slate-700 text-sm md:text-base leading-relaxed my-4">${formattedText}</p>`;
         }
 
         // Dynamically inject in-article ad slot right in the middle
         if (index === midIndex) {
           const midAdSlot = `
-            <div class="my-8 p-4 rounded-lg border border-[#27272a] bg-[#09090b]/50 text-center text-xs text-zinc-500 glass-panel">
-              <div class="mb-2 uppercase tracking-widest text-[9px] text-zinc-600 font-semibold select-none">Advertisement</div>
+            <div class="my-8 p-4 rounded-lg border border-slate-200 bg-slate-50 text-center text-xs text-slate-500 shadow-xs">
+              <div class="mb-2 uppercase tracking-widest text-[9px] text-slate-400 font-semibold select-none">Advertisement</div>
               <ins class="adsbygoogle"
                    style="display:block; text-align:center;"
                    data-ad-layout="in-article"
                    data-ad-format="fluid"
                    data-ad-client="${process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || 'ca-pub-1966724508656296'}"
                    data-ad-slot="mid-article-ad-slot"></ins>
-              <div class="py-6 border border-dashed border-[#27272a] rounded text-zinc-600 select-none">
+              <div class="py-6 border border-dashed border-slate-200 rounded text-slate-400 select-none">
                 In-Article Banner (Active upon AdSense approval)
               </div>
             </div>
@@ -206,35 +206,35 @@ export default async function PostPage({
 
       <article className="max-w-3xl mx-auto space-y-8">
         {/* Title Header */}
-        <header className="space-y-4 border-b border-[#27272a] pb-6">
+        <header className="space-y-4 border-b border-slate-200 pb-6">
           <div className="flex gap-2">
-            <span className="px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-500 font-semibold text-xs uppercase tracking-wider">
+            <span className="px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-700 font-semibold text-xs uppercase tracking-wider">
               {post.data.category}
             </span>
           </div>
-          <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-[#f4f4f5] leading-tight">
+          <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 leading-tight">
             {post.data.title}
           </h1>
-          <div className="text-xs text-zinc-500">
+          <div className="text-xs text-slate-400">
             Published on {post.data.date}
           </div>
         </header>
 
         {/* Body content */}
         <div 
-          className="prose prose-invert max-w-none text-zinc-300" 
+          className="prose prose-slate max-w-none text-slate-700" 
           dangerouslySetInnerHTML={{ __html: formattedContent }} 
         />
 
         {/* Social Share Bar */}
-        <div className="flex flex-wrap items-center gap-4 py-4 border-t border-b border-[#27272a] my-8">
-          <span className="text-xs font-semibold text-zinc-500 uppercase tracking-widest">Share Article:</span>
+        <div className="flex flex-wrap items-center gap-4 py-4 border-t border-b border-slate-200 my-8">
+          <span className="text-xs font-semibold text-slate-400 uppercase tracking-widest">Share Article:</span>
           <div className="flex gap-2">
             <a
               href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.data.title)}&url=${encodeURIComponent(`https://blog.mcjp.io/posts/${post.id}`)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 py-1.5 rounded bg-[#18181b] hover:bg-amber-500/10 text-zinc-400 hover:text-amber-500 transition-colors text-xs font-medium border border-[#27272a]"
+              className="px-3 py-1.5 rounded bg-white hover:bg-amber-500/10 text-slate-600 hover:text-amber-600 transition-colors text-xs font-medium border border-slate-200 shadow-xs"
             >
               Twitter/X
             </a>
@@ -242,7 +242,7 @@ export default async function PostPage({
               href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://blog.mcjp.io/posts/${post.id}`)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 py-1.5 rounded bg-[#18181b] hover:bg-amber-500/10 text-zinc-400 hover:text-amber-500 transition-colors text-xs font-medium border border-[#27272a]"
+              className="px-3 py-1.5 rounded bg-white hover:bg-amber-500/10 text-slate-600 hover:text-amber-600 transition-colors text-xs font-medium border border-slate-200 shadow-xs"
             >
               Facebook
             </a>
@@ -250,7 +250,7 @@ export default async function PostPage({
               href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://blog.mcjp.io/posts/${post.id}`)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 py-1.5 rounded bg-[#18181b] hover:bg-amber-500/10 text-zinc-400 hover:text-amber-500 transition-colors text-xs font-medium border border-[#27272a]"
+              className="px-3 py-1.5 rounded bg-white hover:bg-amber-500/10 text-slate-600 hover:text-amber-600 transition-colors text-xs font-medium border border-slate-200 shadow-xs"
             >
               LinkedIn
             </a>
@@ -258,15 +258,15 @@ export default async function PostPage({
         </div>
 
         {/* Google AdSense Post-Body Ad Unit Slot */}
-        <div className="mt-8 p-4 rounded-lg border border-[#27272a] bg-[#09090b]/50 text-center text-xs text-zinc-500 glass-panel">
-          <div className="mb-2 uppercase tracking-widest text-[10px] text-zinc-600 font-semibold select-none">Advertisement</div>
+        <div className="mt-8 p-4 rounded-lg border border-slate-200 bg-slate-50 text-center text-xs text-slate-500 shadow-xs">
+          <div className="mb-2 uppercase tracking-widest text-[10px] text-slate-400 font-semibold select-none">Advertisement</div>
           <ins className="adsbygoogle"
                style={{ display: 'block' }}
                data-ad-client={process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || 'ca-pub-1966724508656296'}
                data-ad-slot="default-post-ad-slot"
                data-ad-format="auto"
                data-full-width-responsive="true"></ins>
-          <div className="py-6 border border-dashed border-[#27272a] rounded text-zinc-600 select-none">
+          <div className="py-6 border border-dashed border-slate-200 rounded text-slate-400 select-none">
             Post-Body Banner (Active upon AdSense approval)
           </div>
         </div>
@@ -274,8 +274,8 @@ export default async function PostPage({
 
       {/* Related Posts Section */}
       {relatedPosts.length > 0 && (
-        <section className="max-w-3xl mx-auto pt-8 border-t border-[#27272a] space-y-6">
-          <h3 className="text-lg font-bold text-zinc-100 uppercase tracking-wider">
+        <section className="max-w-3xl mx-auto pt-8 border-t border-slate-200 space-y-6">
+          <h3 className="text-lg font-bold text-slate-900 uppercase tracking-wider">
             Related Articles
           </h3>
           <div className="grid md:grid-cols-3 gap-4">
@@ -283,17 +283,17 @@ export default async function PostPage({
               <a
                 key={rel.id}
                 href={`/posts/${rel.id}`}
-                className="block p-4 rounded-lg border border-[#27272a] bg-[#09090b]/30 hover:border-amber-500/30 transition-all flex flex-col justify-between min-h-[140px]"
+                className="block p-4 rounded-lg glass-panel bg-white hover:border-amber-500/30 transition-all flex flex-col justify-between min-h-[140px]"
               >
                 <div className="space-y-2">
-                  <span className="text-[10px] uppercase font-semibold text-amber-500 tracking-wider">
+                  <span className="text-[10px] uppercase font-semibold text-amber-600 tracking-wider">
                     {rel.category}
                   </span>
-                  <h4 className="text-sm font-bold text-zinc-200 hover:text-amber-500 transition-colors line-clamp-2">
+                  <h4 className="text-sm font-bold text-slate-800 hover:text-amber-600 transition-colors line-clamp-2">
                     {rel.title}
                   </h4>
                 </div>
-                <span className="text-[10px] text-zinc-500 mt-2 block">{rel.date}</span>
+                <span className="text-[10px] text-slate-400 mt-2 block">{rel.date}</span>
               </a>
             ))}
           </div>
