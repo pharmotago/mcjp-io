@@ -138,7 +138,7 @@ export default async function PostPage({
         <div className="mb-2 uppercase tracking-widest text-[10px] text-zinc-600 font-semibold">Advertisement</div>
         <ins className="adsbygoogle"
              style={{ display: 'block' }}
-             data-ad-client={process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || 'ca-pub-placeholder'}
+             data-ad-client={process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || 'ca-pub-1966724508656296'}
              data-ad-slot="default-post-ad-slot"
              data-ad-format="auto"
              data-full-width-responsive="true"></ins>

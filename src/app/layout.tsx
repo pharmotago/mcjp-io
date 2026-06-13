@@ -22,7 +22,7 @@ export default function RootLayout({
         {/* Google AdSense Integration */}
         <script 
           async 
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || 'ca-pub-placeholder'}`} 
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || 'ca-pub-1966724508656296'}`} 
           crossOrigin="anonymous"
         ></script>
       </head>
