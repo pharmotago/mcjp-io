@@ -64,10 +64,11 @@ JSON Output:`;
 async function runAutoPublish() {
     await checkAndRefillTopics();
 
-    console.log("\n🚀 Initiating Daily Organic Upload (Target: 3 Articles)...");
+    const targetCount = process.argv[2] ? parseInt(process.argv[2], 10) : 3;
+    console.log(`\n🚀 Initiating Organic Upload (Target: ${targetCount} Articles)...`);
     
     let generatedCount = 0;
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < targetCount; i++) {
         console.log(`\n--- Generation Cycle #${i + 1} ---`);
         try {
             // Re-run generateArticle which picks the next unwritten topic
