@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "MCJP.io | Master of Family, Money & Life",
@@ -19,12 +20,6 @@ export default function RootLayout({
     <html lang="en" className="h-full antialiased">
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-        {/* Google AdSense Integration */}
-        <script 
-          async 
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || 'ca-pub-1966724508656296'}`} 
-          crossOrigin="anonymous"
-        ></script>
         {/* JSON-LD Structured Data Schema */}
         <script
           type="application/ld+json"
@@ -48,6 +43,12 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col bg-[#f8fafc] text-slate-800">
+        <Script 
+          async 
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1966724508656296" 
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
         {/* Navigation */}
         <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur-md">
           <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
