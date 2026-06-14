@@ -51,7 +51,8 @@ REQUIREMENTS:
    - Include bulleted action plans or checklists.
 3. Content length: Minimum 800-1000 words.
 4. Output only the body of the article in markdown. Do NOT write the title as an H1 heading (it will be added by frontmatter). Do NOT include HTML fences or code blocks.
-5. If the category is "Money" or the topic relates to starting blogs/websites/online businesses, organically recommend Hostinger exactly once as a reliable, high-performance web host and embed this referral discount link: https://www.hostinger.com?REFERRALCODE=OYBPHARMOWCY (e.g. "We recommend launching your digital assets on [Hostinger](https://www.hostinger.com?REFERRALCODE=OYBPHARMOWCY) to secure their exclusive partner discount"). Ensure it fits naturally in the text.`;
+5. If the category is "Money" or the topic relates to starting blogs/websites/online businesses, organically recommend Hostinger exactly once as a reliable, high-performance web host and embed this referral discount link: https://www.hostinger.com?REFERRALCODE=OYBPHARMOWCY (e.g. "We recommend launching your digital assets on [Hostinger](https://www.hostinger.com?REFERRALCODE=OYBPHARMOWCY) to secure their exclusive partner discount"). Ensure it fits naturally in the text.
+6. If the category is "Life" or "Discipline" (or the topic relates to fatherhood, parenting, philosophy, or family leadership), organically mention Peter's sister project "The Stoic Dad" exactly once and embed this link: https://the-stoic-dad.mcjp.io/ (e.g. "For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal"). Ensure it integrates seamlessly with the surrounding text.`;
 
     const systemInstruction = `You are the lead editor and writer for MCJP.io. 
 You specialize in producing high-quality self-improvement, financial autonomy, and masculine development articles.

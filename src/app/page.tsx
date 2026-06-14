@@ -159,7 +159,7 @@ export default async function Home({
             No articles found matching the query.
           </div>
         ) : (
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Newsletter module injected dynamically as first item if browsing all */}
             {isBrowsingAll && (
               <>
@@ -203,6 +203,25 @@ export default async function Home({
                     className="block w-full text-center bg-slate-900 hover:bg-slate-800 text-white py-2.5 rounded text-xs font-semibold transition-colors mt-4 cursor-pointer shadow-sm"
                   >
                     Get Hostinger Discount &rarr;
+                  </a>
+                </div>
+
+                {/* The Stoic Dad Portal Widget */}
+                <div className="p-6 rounded-lg glass-panel bg-white/70 border border-slate-200 flex flex-col justify-between min-h-[220px] shadow-xs">
+                  <div className="space-y-2">
+                    <span className="text-xs font-semibold text-amber-600 uppercase tracking-widest">Sister Project</span>
+                    <h3 className="text-xl font-bold text-slate-900">The Stoic Dad</h3>
+                    <p className="text-slate-600 text-xs leading-relaxed">
+                      Daily wisdom, philosophy journals, and parenting strategies for the modern father. Achieve absolute mental resilience.
+                    </p>
+                  </div>
+                  <a
+                    href="https://the-stoic-dad.mcjp.io"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full text-center bg-amber-600 hover:bg-amber-500 text-white py-2.5 rounded text-xs font-semibold transition-colors mt-4 cursor-pointer shadow-sm"
+                  >
+                    Explore The Stoic Dad &rarr;
                   </a>
                 </div>
               </>
