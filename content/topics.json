@@ -113,5 +113,29 @@
       "resilience"
     ],
     "summary": "Uncover the importance of emotional strength in achieving life success and how it contributes to resilience, better relationships, and overall well-being."
+  },
+  {
+    "id": "money_ai_entrepreneurship",
+    "category": "Money",
+    "topic": "Thriving in the AI Era: Building Wealth through AI Entrepreneurship",
+    "keywords": [
+      "AI entrepreneurship",
+      "wealth creation",
+      "technology",
+      "startups"
+    ],
+    "summary": "Uncover the opportunities for wealth creation in the age of AI, including actionable steps to start your own AI-driven business and thrive in this evolving landscape."
+  },
+  {
+    "id": "discipline_physical_cognitive_training",
+    "category": "Discipline",
+    "topic": "Integrating Physical and Cognitive Training: A Blueprint for Optimal Performance",
+    "keywords": [
+      "physical training",
+      "cognitive training",
+      "performance",
+      "discipline"
+    ],
+    "summary": "Discover how to combine physical and cognitive training to enhance overall performance, focusing on discipline and the benefits of a holistic approach to self-improvement."
   }
 ]
