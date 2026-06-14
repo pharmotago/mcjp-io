@@ -137,5 +137,83 @@
       "discipline"
     ],
     "summary": "Discover how to combine physical and cognitive training to enhance overall performance, focusing on discipline and the benefits of a holistic approach to self-improvement."
+  },
+  {
+    "id": "money_investment_strategies",
+    "category": "Money",
+    "topic": "Mastering Investment Strategies: Build Wealth Like a Pro",
+    "keywords": [
+      "investment strategies",
+      "wealth building",
+      "financial literacy",
+      "stock market",
+      "real estate"
+    ],
+    "summary": "Explore effective investment strategies that can help you build wealth over time, from stocks to real estate, and learn the principles of financial literacy to make informed decisions."
+  },
+  {
+    "id": "life_fatherhood_success",
+    "category": "Life",
+    "topic": "The Success Formula for Fathers: Balancing Work and Family Life",
+    "keywords": [
+      "fatherhood",
+      "work-life balance",
+      "family success",
+      "leadership",
+      "parenting"
+    ],
+    "summary": "Discover how to achieve success in fatherhood while balancing your professional responsibilities and nurturing a thriving family life, with actionable tips and personal anecdotes."
+  },
+  {
+    "id": "discipline_mindset_habits",
+    "category": "Discipline",
+    "topic": "Cultivating a Success Mindset: Habits of Highly Effective Men",
+    "keywords": [
+      "success mindset",
+      "habits",
+      "personal development",
+      "discipline",
+      "self-improvement"
+    ],
+    "summary": "Uncover the daily habits and mindset shifts that highly effective men use to achieve their goals and maintain discipline in their lives, setting the foundation for long-term success."
+  },
+  {
+    "id": "money_crypto_investments",
+    "category": "Money",
+    "topic": "Cryptocurrency 101: How to Navigate the New Wealth Frontier",
+    "keywords": [
+      "cryptocurrency",
+      "investing",
+      "blockchain",
+      "wealth creation",
+      "digital assets"
+    ],
+    "summary": "Dive into the world of cryptocurrency and learn how to navigate this new frontier of wealth creation, including tips for safe investing and understanding blockchain technology."
+  },
+  {
+    "id": "life_emotional_intelligence",
+    "category": "Life",
+    "topic": "Emotional Intelligence for Men: The Key to Stronger Relationships",
+    "keywords": [
+      "emotional intelligence",
+      "relationships",
+      "communication",
+      "personal growth",
+      "masculinity"
+    ],
+    "summary": "Learn how to develop emotional intelligence as a man, enhancing your relationships through better communication and understanding, ultimately leading to personal and professional success."
+  },
+  {
+    "id": "discipline_focus_productivity",
+    "category": "Discipline",
+    "topic": "Unlocking Deep Focus: Techniques for Maximum Productivity",
+    "keywords": [
+      "deep focus",
+      "productivity",
+      "time management",
+      "distraction elimination",
+      "work efficiency"
+    ],
+    "summary": "Explore techniques to achieve deep focus and maximize productivity in your work and personal life, including methods to eliminate distractions and improve time management."
   }
 ]

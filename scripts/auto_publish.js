@@ -22,12 +22,15 @@ async function checkAndRefillTopics() {
     if (unwritten.length < 3) {
         console.log("⚠️ Too few unwritten topics. Initiating AI Topic Generation Engine...");
         
+        const existingIdsList = topics.map(t => t.id).join(', ');
         const prompt = `Generate a list of 6 new, unique blog article topics for a masculine success and wealth creation site called "MCJP.io".
+Do NOT generate any of the following already existing topic IDs: [${existingIdsList}].
+
 Focus areas:
 - Money: wealth mindset, asset building, side hustles, AI entrepreneurship.
 - Life: fatherhood, duties, family leadership, emotional strength.
 - Discipline: dopamine control, deep focus, physical/cognitive training.
-
+ 
 The output must be a valid JSON array of objects. Do not include markdown fences or explanation.
 Each object must have:
 - "id": string (unique slug like "money_stock_market")
@@ -35,7 +38,7 @@ Each object must have:
 - "topic": string (compelling article title)
 - "keywords": array of strings
 - "summary": string (brief description of what the article covers)
-
+ 
 JSON Output:`;
 
         const systemInstruction = "You are the Chief Editor of MCJP.io. You generate highly engaging, search-optimized article concepts focused on life success, money, and modern masculinity.";
