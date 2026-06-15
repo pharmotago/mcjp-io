@@ -437,5 +437,83 @@
       "self-discipline"
     ],
     "summary": "Uncover the science of habit creation and learn how establishing effective routines can serve as the foundation for achieving personal and professional success."
+  },
+  {
+    "id": "money_cryptocurrency_risks",
+    "category": "Money",
+    "topic": "Navigating the Risks and Rewards of Cryptocurrency Investment",
+    "keywords": [
+      "cryptocurrency",
+      "investment",
+      "risk management",
+      "bitcoin",
+      "blockchain"
+    ],
+    "summary": "Explore the volatile world of cryptocurrency investments, where understanding the balance between risks and rewards is crucial for building a strong financial future."
+  },
+  {
+    "id": "life_balancing_success",
+    "category": "Life",
+    "topic": "Balancing Success: The Modern Man's Guide to Juggling Career and Personal Life",
+    "keywords": [
+      "work-life balance",
+      "career success",
+      "personal life",
+      "time management",
+      "happiness"
+    ],
+    "summary": "Learn strategies for achieving equilibrium between demanding careers and fulfilling personal lives, ensuring long-term success and happiness."
+  },
+  {
+    "id": "discipline_morning_routines",
+    "category": "Discipline",
+    "topic": "Master Your Day: How Morning Routines Set the Tone for Success",
+    "keywords": [
+      "morning routine",
+      "success habits",
+      "discipline",
+      "productivity",
+      "daily routine"
+    ],
+    "summary": "Discover the power of morning routines in shaping the rest of your day, enhancing productivity, and instilling discipline."
+  },
+  {
+    "id": "money_financial_literacy",
+    "category": "Money",
+    "topic": "Financial Literacy for Men: Building a Strong Foundation for Wealth",
+    "keywords": [
+      "financial literacy",
+      "wealth building",
+      "money management",
+      "personal finance",
+      "education"
+    ],
+    "summary": "Understand the basics of financial literacy and how it can empower men to make informed decisions to build and maintain wealth."
+  },
+  {
+    "id": "life_power_of_mentorship",
+    "category": "Life",
+    "topic": "The Power of Mentorship: Learning from Those Who Lead",
+    "keywords": [
+      "mentorship",
+      "leadership",
+      "personal growth",
+      "networking",
+      "success"
+    ],
+    "summary": "Explore how mentorship can play a crucial role in personal and professional development, providing guidance and inspiration for success."
+  },
+  {
+    "id": "discipline_mindfulness_techniques",
+    "category": "Discipline",
+    "topic": "Mindfulness Techniques for Enhancing Focus and Reducing Stress",
+    "keywords": [
+      "mindfulness",
+      "focus",
+      "stress reduction",
+      "mental clarity",
+      "discipline"
+    ],
+    "summary": "Learn effective mindfulness techniques that can help improve focus, reduce stress, and promote mental clarity in daily life."
   }
 ]
