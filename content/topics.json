@@ -293,5 +293,77 @@
       "emotional strength"
     ],
     "summary": "Explore techniques to develop mental resilience, enabling you to stay strong and focused under pressure, crucial for success in both personal and professional arenas."
+  },
+  {
+    "id": "money_generational_wealth",
+    "category": "Money",
+    "topic": "Building Generational Wealth: Beyond Your Lifetime",
+    "keywords": [
+      "generational wealth",
+      "legacy",
+      "financial planning",
+      "wealth transfer"
+    ],
+    "summary": "Explore strategies for creating and preserving wealth that lasts beyond your lifetime. Learn how to set up effective financial plans to ensure your legacy continues to benefit future generations."
+  },
+  {
+    "id": "life_relationships_communication",
+    "category": "Life",
+    "topic": "Mastering Communication: The Key to Stronger Relationships",
+    "keywords": [
+      "communication skills",
+      "relationships",
+      "emotional intelligence",
+      "connection"
+    ],
+    "summary": "Discover the art of effective communication and how it can strengthen personal and professional relationships. This article delves into techniques for enhancing your communication skills to build deeper connections."
+  },
+  {
+    "id": "discipline_goal_setting",
+    "category": "Discipline",
+    "topic": "The Science of Goal Setting: Turning Dreams into Achievable Plans",
+    "keywords": [
+      "goal setting",
+      "achievement",
+      "planning",
+      "success"
+    ],
+    "summary": "Learn how to effectively set and achieve goals using scientifically-backed methods. This article covers practical steps to transform your dreams into realistic and attainable plans."
+  },
+  {
+    "id": "money_real_estate_investing",
+    "category": "Money",
+    "topic": "Real Estate Investing: Building Wealth through Property",
+    "keywords": [
+      "real estate",
+      "investing",
+      "property",
+      "wealth building"
+    ],
+    "summary": "An in-depth guide to investing in real estate as a means of building long-term wealth. Understand the steps involved and the potential pitfalls to avoid in the property market."
+  },
+  {
+    "id": "life_work_life_balance",
+    "category": "Life",
+    "topic": "Achieving Work-Life Balance: Strategies for Modern Men",
+    "keywords": [
+      "work-life balance",
+      "time management",
+      "stress reduction",
+      "lifestyle"
+    ],
+    "summary": "Explore strategies for maintaining a healthy work-life balance in today's fast-paced world. Learn techniques to manage your time effectively and reduce stress while achieving success."
+  },
+  {
+    "id": "discipline_digital_detox",
+    "category": "Discipline",
+    "topic": "Digital Detox: Reclaiming Your Focus in the Digital Age",
+    "keywords": [
+      "digital detox",
+      "focus",
+      "mental clarity",
+      "technology"
+    ],
+    "summary": "Examine the impact of digital distractions on your focus and productivity. This article offers practical tips for conducting a digital detox to improve mental clarity and regain control over your attention."
   }
 ]
