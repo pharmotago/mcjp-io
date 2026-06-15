@@ -215,5 +215,83 @@
       "work efficiency"
     ],
     "summary": "Explore techniques to achieve deep focus and maximize productivity in your work and personal life, including methods to eliminate distractions and improve time management."
+  },
+  {
+    "id": "money_asset_diversification",
+    "category": "Money",
+    "topic": "The Power of Asset Diversification: Building Wealth Beyond Stocks",
+    "keywords": [
+      "asset diversification",
+      "wealth building",
+      "investment strategy",
+      "real estate",
+      "bonds"
+    ],
+    "summary": "Explore the importance of diversifying your assets, including real estate and bonds, to create a robust investment portfolio that withstands market volatility and maximizes wealth potential."
+  },
+  {
+    "id": "life_modern_masculinity",
+    "category": "Life",
+    "topic": "Redefining Modern Masculinity: Balancing Strength and Sensitivity",
+    "keywords": [
+      "modern masculinity",
+      "emotional strength",
+      "leadership",
+      "fatherhood",
+      "sensitivity"
+    ],
+    "summary": "This article delves into the evolving definition of masculinity, focusing on how men can balance strength with emotional intelligence in leadership and fatherhood roles."
+  },
+  {
+    "id": "discipline_routine_success",
+    "category": "Discipline",
+    "topic": "Creating a Success Routine: The Daily Habits of High Achievers",
+    "keywords": [
+      "success routine",
+      "high achievers",
+      "daily habits",
+      "productivity",
+      "discipline"
+    ],
+    "summary": "Discover the daily routines and habits of successful individuals and learn how to implement these practices into your life for enhanced productivity and success."
+  },
+  {
+    "id": "money_passive_income_streams",
+    "category": "Money",
+    "topic": "Unlocking Passive Income: Strategies for Financial Freedom",
+    "keywords": [
+      "passive income",
+      "financial freedom",
+      "income streams",
+      "real estate",
+      "investments"
+    ],
+    "summary": "Learn effective strategies for generating passive income through investments and other avenues, paving the way towards achieving financial independence and security."
+  },
+  {
+    "id": "life_fatherhood_work_life_balance",
+    "category": "Life",
+    "topic": "Mastering Work-Life Balance: A Father’s Guide to Success",
+    "keywords": [
+      "work-life balance",
+      "fatherhood",
+      "time management",
+      "success",
+      "family leadership"
+    ],
+    "summary": "This article provides practical tips for fathers on how to balance work commitments with family responsibilities, ensuring success in both career and home life."
+  },
+  {
+    "id": "discipline_mental_resilience",
+    "category": "Discipline",
+    "topic": "Building Mental Resilience: Techniques for Staying Strong Under Pressure",
+    "keywords": [
+      "mental resilience",
+      "stress management",
+      "discipline",
+      "focus",
+      "emotional strength"
+    ],
+    "summary": "Explore techniques to develop mental resilience, enabling you to stay strong and focused under pressure, crucial for success in both personal and professional arenas."
   }
 ]

@@ -10,8 +10,7 @@ async function generateArticle() {
     console.log("🚀 Starting Autonomous Content Generation Pipeline for MCJP.io...");
 
     if (!fs.existsSync(TOPICS_FILE)) {
-        console.error("❌ topics.json file not found.");
-        process.exit(1);
+        throw new Error("topics.json file not found.");
     }
 
     if (!fs.existsSync(POSTS_DIR)) {
@@ -63,8 +62,7 @@ Your writing style is similar to a mix of premium essay journals (like McKinsey 
     try {
         content = await gemini.generate(prompt, systemInstruction);
     } catch (e) {
-        console.error("❌ Failed to call LLM client:", e.message);
-        process.exit(1);
+        throw new Error("Failed to call LLM client: " + e.message);
     }
 
     // Apply legal disclaimer if category is Money (Elena's Directive)
