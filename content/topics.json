@@ -731,5 +731,77 @@
       "efficiency"
     ],
     "summary": "Discover time management strategies that enhance discipline and productivity. This guide is designed for men looking to optimize their daily routines and achieve more with their time."
+  },
+  {
+    "id": "money_futureproof_investments",
+    "category": "Money",
+    "topic": "Future-Proof Investments for the Modern Man",
+    "keywords": [
+      "future investments",
+      "wealth building",
+      "financial security",
+      "investment trends"
+    ],
+    "summary": "Explore investment strategies that stand the test of time, focusing on long-term growth and stability to secure your financial future."
+  },
+  {
+    "id": "life_fatherhood_financial_teaching",
+    "category": "Life",
+    "topic": "Teaching Financial Savvy: A Father's Guide to Educating Children",
+    "keywords": [
+      "fatherhood",
+      "financial education",
+      "children",
+      "money management"
+    ],
+    "summary": "Learn effective techniques for imparting financial wisdom to your children, ensuring they grow up with the skills to manage their own wealth."
+  },
+  {
+    "id": "discipline_mental_agility_practices",
+    "category": "Discipline",
+    "topic": "Building Mental Agility: Practices for Quick Thinking",
+    "keywords": [
+      "mental agility",
+      "cognitive training",
+      "quick thinking",
+      "brain exercises"
+    ],
+    "summary": "Discover exercises and routines designed to enhance your mental agility, improving your ability to think quickly and make sound decisions."
+  },
+  {
+    "id": "money_digital_asset_management",
+    "category": "Money",
+    "topic": "Mastering Digital Asset Management: The New Wealth Frontier",
+    "keywords": [
+      "digital assets",
+      "wealth management",
+      "blockchain",
+      "cryptocurrency"
+    ],
+    "summary": "Delve into the world of digital asset management, exploring how blockchain technology and cryptocurrencies are reshaping wealth strategies."
+  },
+  {
+    "id": "life_balancing_masculinity_femininity",
+    "category": "Life",
+    "topic": "Harmony in Masculinity and Femininity: Finding Balance in Modern Relationships",
+    "keywords": [
+      "masculinity",
+      "femininity",
+      "relationship balance",
+      "gender roles"
+    ],
+    "summary": "Examine the importance of balancing masculine and feminine traits in personal relationships, promoting understanding and harmony."
+  },
+  {
+    "id": "discipline_self_awareness_journey",
+    "category": "Discipline",
+    "topic": "The Journey to Self-Awareness: A Discipline-Driven Approach",
+    "keywords": [
+      "self-awareness",
+      "personal growth",
+      "discipline",
+      "self-improvement"
+    ],
+    "summary": "Investigate the path to self-awareness, focusing on disciplined practices that foster personal growth and self-improvement."
   }
 ]
