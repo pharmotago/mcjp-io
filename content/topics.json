@@ -515,5 +515,77 @@
       "discipline"
     ],
     "summary": "Learn effective mindfulness techniques that can help improve focus, reduce stress, and promote mental clarity in daily life."
+  },
+  {
+    "id": "money_hybrid_investing",
+    "category": "Money",
+    "topic": "Hybrid Investing: Bridging Traditional and Digital Wealth",
+    "keywords": [
+      "hybrid investing",
+      "traditional assets",
+      "digital wealth",
+      "investment strategy"
+    ],
+    "summary": "Explore the innovative world of hybrid investing, where traditional assets meet digital platforms, and learn how to diversify your portfolio for long-term success."
+  },
+  {
+    "id": "life_masculine_emotional_balance",
+    "category": "Life",
+    "topic": "The Masculine Journey to Emotional Balance: A Modern Perspective",
+    "keywords": [
+      "emotional balance",
+      "masculinity",
+      "mental health",
+      "modern man"
+    ],
+    "summary": "Delve into the complexities of achieving emotional balance as a modern man, and discover strategies to enhance your mental health and overall wellbeing."
+  },
+  {
+    "id": "discipline_neuroplasticity_growth",
+    "category": "Discipline",
+    "topic": "Harnessing the Power of Neuroplasticity for Personal Growth",
+    "keywords": [
+      "neuroplasticity",
+      "personal growth",
+      "brain training",
+      "mental discipline"
+    ],
+    "summary": "Learn how to leverage the science of neuroplasticity to foster personal development and cultivate the discipline needed for success."
+  },
+  {
+    "id": "money_international_business_expansion",
+    "category": "Money",
+    "topic": "Expanding Your Business Internationally: Key Strategies for Success",
+    "keywords": [
+      "international business",
+      "expansion strategies",
+      "global market",
+      "business growth"
+    ],
+    "summary": "Discover the essential strategies for taking your business to international markets and achieving sustainable growth in the global economy."
+  },
+  {
+    "id": "life_resilient_fatherhood",
+    "category": "Life",
+    "topic": "Resilient Fatherhood: Building a Legacy of Strength and Support",
+    "keywords": [
+      "fatherhood",
+      "resilience",
+      "family legacy",
+      "support"
+    ],
+    "summary": "Explore the pillars of resilient fatherhood and learn how to cultivate a family legacy built on strength, support, and unwavering leadership."
+  },
+  {
+    "id": "discipline_mind_body_alignment",
+    "category": "Discipline",
+    "topic": "Aligning Mind and Body: The Discipline of Holistic Success",
+    "keywords": [
+      "mind-body alignment",
+      "holistic success",
+      "discipline",
+      "personal harmony"
+    ],
+    "summary": "Investigate the principles of aligning mind and body to achieve holistic success and maintain discipline in every aspect of life."
   }
 ]
