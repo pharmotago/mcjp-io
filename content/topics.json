@@ -803,5 +803,77 @@
       "self-improvement"
     ],
     "summary": "Investigate the path to self-awareness, focusing on disciplined practices that foster personal growth and self-improvement."
+  },
+  {
+    "id": "life_masculine_self_reliance",
+    "category": "Life",
+    "topic": "The Art of Self-Reliance: Building Independence in Modern Masculinity",
+    "keywords": [
+      "self-reliance",
+      "masculinity",
+      "independence",
+      "modern man"
+    ],
+    "summary": "Explore how self-reliance is a cornerstone of modern masculinity, offering strategies to foster independence and self-sufficiency in various aspects of life."
+  },
+  {
+    "id": "money_digital_currency_impact",
+    "category": "Money",
+    "topic": "Digital Currency: The Future of Wealth and Its Impact on Modern Men",
+    "keywords": [
+      "digital currency",
+      "wealth",
+      "cryptocurrency",
+      "future finance"
+    ],
+    "summary": "Discuss the transformative role of digital currencies in wealth creation and how modern men can leverage these new financial tools for future growth."
+  },
+  {
+    "id": "discipline_emotional_stability_practices",
+    "category": "Discipline",
+    "topic": "Emotional Stability: Practices for Building Resilience and Focus",
+    "keywords": [
+      "emotional stability",
+      "resilience",
+      "focus",
+      "discipline"
+    ],
+    "summary": "Delve into effective practices that enhance emotional stability, helping modern men build resilience and maintain focus in high-pressure situations."
+  },
+  {
+    "id": "life_modern_masculine_influence",
+    "category": "Life",
+    "topic": "The Influence of Modern Masculinity on Family and Society",
+    "keywords": [
+      "modern masculinity",
+      "family influence",
+      "society",
+      "role of men"
+    ],
+    "summary": "Examine how contemporary masculine ideals shape family dynamics and societal roles, influencing the next generation of leaders."
+  },
+  {
+    "id": "money_impact_investment_opportunities",
+    "category": "Money",
+    "topic": "Impact Investing: Aligning Profits with Purpose for the Modern Man",
+    "keywords": [
+      "impact investing",
+      "profits",
+      "purpose",
+      "wealth creation"
+    ],
+    "summary": "Explore how impact investing allows modern men to align their wealth-building strategies with personal values, creating both financial and social returns."
+  },
+  {
+    "id": "discipline_mental_toughness_training",
+    "category": "Discipline",
+    "topic": "Mental Toughness: Training the Mind for Unyielding Success",
+    "keywords": [
+      "mental toughness",
+      "training",
+      "success",
+      "discipline"
+    ],
+    "summary": "Learn techniques for developing mental toughness, enabling modern men to overcome challenges and achieve sustained success in any field."
   }
 ]
