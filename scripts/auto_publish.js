@@ -67,8 +67,34 @@ JSON Output:`;
 async function runAutoPublish() {
     await checkAndRefillTopics();
 
-    const targetCount = process.argv[2] ? parseInt(process.argv[2], 10) : 3;
-    console.log(`\n🚀 Initiating Organic Upload (Target: ${targetCount} Articles)...`);
+    // Check if we already have 5 posts published today to enforce the daily limit
+    const todayStr = new Date().toISOString().split('T')[0];
+    let todayCount = 0;
+    if (fs.existsSync(POSTS_DIR)) {
+        const files = fs.readdirSync(POSTS_DIR).filter(f => f.endsWith('.md'));
+        for (const file of files) {
+            try {
+                const content = fs.readFileSync(path.join(POSTS_DIR, file), 'utf8');
+                const dateMatch = content.match(/^date:\s*['"]?(\d{4}-\d{2}-\d{2})['"]?/m);
+                if (dateMatch && dateMatch[1] === todayStr) {
+                    todayCount++;
+                }
+            } catch (e) {
+                console.error(`⚠️ Failed to parse date from ${file}:`, e.message);
+            }
+        }
+    }
+    
+    console.log(`📅 Articles published today (${todayStr}): ${todayCount}`);
+    const maxDaily = 5;
+    if (todayCount >= maxDaily) {
+        console.log(`⚠️ Daily limit of ${maxDaily} articles reached. Skipping auto-publish today.`);
+        return;
+    }
+
+    const requestedCount = process.argv[2] ? parseInt(process.argv[2], 10) : 3;
+    const targetCount = Math.min(requestedCount, maxDaily - todayCount);
+    console.log(`\n🚀 Initiating Organic Upload (Target: ${targetCount} Articles, Requested: ${requestedCount})...`);
     
     let generatedCount = 0;
     for (let i = 0; i < targetCount; i++) {
@@ -86,7 +112,7 @@ async function runAutoPublish() {
         console.log(`\n💾 Successfully generated ${generatedCount} articles. Committing and pushing to remote origin...`);
         try {
             execSync('git add .', { cwd: ROOT_DIR });
-            execSync('git commit -m "chore(blog): daily auto-publish 3 articles"', { cwd: ROOT_DIR });
+            execSync(`git commit -m "chore(blog): daily auto-publish ${generatedCount} articles"`, { cwd: ROOT_DIR });
             execSync('git push origin main', { cwd: ROOT_DIR });
             console.log("✅ Codebase and articles successfully pushed to GitHub! Vercel will rebuild now.");
         } catch (e) {
