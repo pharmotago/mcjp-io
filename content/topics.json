@@ -875,5 +875,77 @@
       "discipline"
     ],
     "summary": "Learn techniques for developing mental toughness, enabling modern men to overcome challenges and achieve sustained success in any field."
+  },
+  {
+    "id": "money_art_of_negotiation",
+    "category": "Money",
+    "topic": "Mastering the Art of Negotiation: Unlocking Wealth through Strategic Deals",
+    "keywords": [
+      "negotiation",
+      "wealth creation",
+      "strategic deals",
+      "financial growth"
+    ],
+    "summary": "Explore how mastering negotiation skills can significantly boost your wealth and success. Learn strategies and techniques used by top entrepreneurs to secure better deals and increase financial gains."
+  },
+  {
+    "id": "life_masculine_mentorship",
+    "category": "Life",
+    "topic": "The Role of Mentorship in Modern Masculinity: Guiding the Next Generation",
+    "keywords": [
+      "mentorship",
+      "modern masculinity",
+      "guidance",
+      "leadership"
+    ],
+    "summary": "Discover how mentorship can shape the journey of modern masculinity, offering guidance and leadership to the next generation. Learn the benefits of being both a mentor and a mentee in today's world."
+  },
+  {
+    "id": "discipline_focus_fasting",
+    "category": "Discipline",
+    "topic": "Focus Fasting: How Temporary Abstinence Can Sharpen Your Mind",
+    "keywords": [
+      "focus fasting",
+      "mental clarity",
+      "discipline",
+      "productivity"
+    ],
+    "summary": "Uncover the concept of focus fasting and how temporary abstinence from distractions can enhance mental clarity and productivity. Dive into techniques that promote deep focus and concentration."
+  },
+  {
+    "id": "money_entrepreneurial_networks",
+    "category": "Money",
+    "topic": "Building Entrepreneurial Networks: The Key to Unlocking Hidden Wealth",
+    "keywords": [
+      "entrepreneurial networks",
+      "wealth building",
+      "networking",
+      "business growth"
+    ],
+    "summary": "Learn how building strong entrepreneurial networks can open doors to new opportunities and hidden wealth. Discover tips and strategies for effective networking and relationship building."
+  },
+  {
+    "id": "life_masculine_health",
+    "category": "Life",
+    "topic": "Masculine Health: Balancing Physical and Emotional Well-being",
+    "keywords": [
+      "masculine health",
+      "physical well-being",
+      "emotional balance",
+      "wellness"
+    ],
+    "summary": "Explore the importance of balancing physical and emotional well-being in masculine health. Gain insights into practices that promote overall wellness and enhance quality of life."
+  },
+  {
+    "id": "discipline_creative_routines",
+    "category": "Discipline",
+    "topic": "Creative Routines: How Discipline Fuels Innovation and Success",
+    "keywords": [
+      "creative routines",
+      "discipline",
+      "innovation",
+      "success habits"
+    ],
+    "summary": "Discover how establishing disciplined creative routines can lead to innovation and personal success. Learn about habits and practices that stimulate creativity while maintaining focus and productivity."
   }
 ]
