@@ -66,20 +66,16 @@ export default function RootLayout({
         </header>
 
         {/* Top Leaderboard Ad Unit */}
-        <div className="max-w-6xl w-full mx-auto px-6 pt-6 -mb-6">
-          <div className="p-2 rounded border border-slate-200 bg-slate-50 text-center text-xs text-slate-500 overflow-hidden min-h-[90px] flex flex-col justify-center items-center relative group shadow-xs">
-            <div className="absolute top-1 left-2 uppercase tracking-widest text-[9px] text-slate-400 font-semibold select-none">Advertisement</div>
+        {process.env.NEXT_PUBLIC_ADSENSE_TOP_SLOT && (
+          <div className="max-w-6xl w-full mx-auto px-6 pt-6 -mb-6">
             <ins className="adsbygoogle"
-                 style={{ display: 'block', width: '100%', minHeight: '90px' }}
+                 style={{ display: 'block', width: '100%' }}
                  data-ad-client={process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || 'ca-pub-1966724508656296'}
-                 data-ad-slot="top-leaderboard-ad-slot"
+                 data-ad-slot={process.env.NEXT_PUBLIC_ADSENSE_TOP_SLOT}
                  data-ad-format="horizontal"
                  data-full-width-responsive="true"></ins>
-            <div className="py-2 text-[10px] text-slate-400 select-none">
-              Top Banner (Active upon AdSense approval)
-            </div>
           </div>
-        </div>
+        )}
 
         {/* Main Workspace */}
         <main className="flex-grow max-w-6xl w-full mx-auto px-6 py-12">

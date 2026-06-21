@@ -125,41 +125,55 @@ export default async function PostPage({
     const lines = text.split('\n');
     const midIndex = Math.floor(lines.length / 2);
     
+    const parseInline = (lineText: string) => {
+      return lineText
+        .replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-slate-950">$1</strong>')
+        .replace(/\*(.*?)\*/g, '<em class="italic text-slate-800">$1</em>')
+        .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-amber-600 hover:underline font-semibold">$1</a>');
+    };
+
     return lines
       .map((line, index) => {
         let formattedLine = '';
         const trimmed = line.trim();
-        if (trimmed.startsWith('## ')) {
-          formattedLine = `<h2 class="text-2xl font-semibold mt-8 mb-4 text-slate-900">${trimmed.slice(3)}</h2>`;
+        if (trimmed.startsWith('![') && trimmed.endsWith(')')) {
+          const match = trimmed.match(/^!\[(.*?)\]\((.*?)\)$/);
+          if (match) {
+            const alt = match[1];
+            const src = match[2];
+            formattedLine = `
+              <div class="my-8 overflow-hidden rounded-xl border border-slate-200 bg-slate-50 shadow-xs max-w-2xl mx-auto">
+                <img src="${src}" alt="${alt}" class="w-full h-auto object-cover" />
+                ${alt ? `<div class="p-3 text-center text-[11px] text-slate-500 border-t border-slate-100 bg-white italic">${alt}</div>` : ''}
+              </div>
+            `;
+          }
+        } else if (trimmed.startsWith('## ')) {
+          formattedLine = `<h2 class="text-2xl font-semibold mt-8 mb-4 text-slate-900">${parseInline(trimmed.slice(3))}</h2>`;
         } else if (trimmed.startsWith('### ')) {
-          formattedLine = `<h3 class="text-xl font-semibold mt-6 mb-3 text-slate-900">${trimmed.slice(4)}</h3>`;
+          formattedLine = `<h3 class="text-xl font-semibold mt-6 mb-3 text-slate-900">${parseInline(trimmed.slice(4))}</h3>`;
         } else if (trimmed.startsWith('> ')) {
-          formattedLine = `<blockquote class="border-l-2 border-amber-500 pl-4 my-6 italic text-slate-600 bg-amber-500/5 py-2 pr-2 rounded-r-md">${trimmed.slice(2)}</blockquote>`;
+          formattedLine = `<blockquote class="border-l-2 border-amber-500 pl-4 my-6 italic text-slate-600 bg-amber-500/5 py-2 pr-2 rounded-r-md">${parseInline(trimmed.slice(2))}</blockquote>`;
         } else if (trimmed.startsWith('- ') || trimmed.startsWith('* ')) {
-          formattedLine = `<li class="list-disc list-inside ml-4 my-1 text-slate-700 text-sm md:text-base leading-relaxed">${trimmed.slice(2)}</li>`;
+          formattedLine = `<li class="list-disc list-inside ml-4 my-1 text-slate-700 text-sm md:text-base leading-relaxed">${parseInline(trimmed.slice(2))}</li>`;
         } else if (trimmed === '---') {
           formattedLine = `<hr class="border-slate-200 my-8" />`;
         } else if (trimmed === '') {
           formattedLine = `<br />`;
         } else {
-          const formattedText = line.replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-slate-950">$1</strong>');
-          formattedLine = `<p class="text-slate-700 text-sm md:text-base leading-relaxed my-4">${formattedText}</p>`;
+          formattedLine = `<p class="text-slate-700 text-sm md:text-base leading-relaxed my-4">${parseInline(line)}</p>`;
         }
 
-        // Dynamically inject in-article ad slot right in the middle
-        if (index === midIndex) {
+        // Dynamically inject in-article ad slot right in the middle if environment variable is defined
+        if (index === midIndex && process.env.NEXT_PUBLIC_ADSENSE_MID_SLOT) {
           const midAdSlot = `
-            <div class="my-8 p-4 rounded-lg border border-slate-200 bg-slate-50 text-center text-xs text-slate-500 shadow-xs">
-              <div class="mb-2 uppercase tracking-widest text-[9px] text-slate-400 font-semibold select-none">Advertisement</div>
+            <div class="my-8">
               <ins class="adsbygoogle"
                    style="display:block; text-align:center;"
                    data-ad-layout="in-article"
                    data-ad-format="fluid"
                    data-ad-client="${process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || 'ca-pub-1966724508656296'}"
-                   data-ad-slot="mid-article-ad-slot"></ins>
-              <div class="py-6 border border-dashed border-slate-200 rounded text-slate-400 select-none">
-                In-Article Banner (Active upon AdSense approval)
-              </div>
+                   data-ad-slot="${process.env.NEXT_PUBLIC_ADSENSE_MID_SLOT}"></ins>
             </div>
           `;
           return formattedLine + midAdSlot;
@@ -277,18 +291,16 @@ export default async function PostPage({
         </div>
 
         {/* Google AdSense Post-Body Ad Unit Slot */}
-        <div className="mt-8 p-4 rounded-lg border border-slate-200 bg-slate-50 text-center text-xs text-slate-500 shadow-xs">
-          <div className="mb-2 uppercase tracking-widest text-[10px] text-slate-400 font-semibold select-none">Advertisement</div>
-          <ins className="adsbygoogle"
-               style={{ display: 'block' }}
-               data-ad-client={process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || 'ca-pub-1966724508656296'}
-               data-ad-slot="default-post-ad-slot"
-               data-ad-format="auto"
-               data-full-width-responsive="true"></ins>
-          <div className="py-6 border border-dashed border-slate-200 rounded text-slate-400 select-none">
-            Post-Body Banner (Active upon AdSense approval)
+        {process.env.NEXT_PUBLIC_ADSENSE_POST_SLOT && (
+          <div className="mt-8">
+            <ins className="adsbygoogle"
+                 style={{ display: 'block' }}
+                 data-ad-client={process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || 'ca-pub-1966724508656296'}
+                 data-ad-slot={process.env.NEXT_PUBLIC_ADSENSE_POST_SLOT}
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
           </div>
-        </div>
+        )}
       </article>
 
       {/* Related Posts Section */}
