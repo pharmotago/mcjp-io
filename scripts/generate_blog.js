@@ -44,10 +44,11 @@ Summary of Intent: "${selectedTopic.summary}"
 
 REQUIREMENTS:
 1. Tone: Deep, authoritative, inspiring, and direct. Emphasize self-discipline, long-term asset building, integrity, and actionable strategies.
-2. Structure:
+2. Structure & Visual Aids:
    - Use clean, semantic markdown headings (##, ###).
    - Write structured paragraphs with strong typography flow.
    - Include bulleted action plans or checklists.
+   - **Visual Aids**: Embed exactly two relevant high-quality images from Unsplash using markdown format \`![Alt text describing image and matching context](https://images.unsplash.com/photo-...-...)\`. Match the alt text to the context (e.g. \`![Focus and determination in digital workspace](https://images.unsplash.com/photo-1516321318423-f06f85e504b3)\` or \`![Calm meditation outdoors](https://images.unsplash.com/photo-1506126613408-eca07ce68773)\`). Ensure one image is placed in the first third of the article, and the second is in the final third. Use real, high-quality, high-aesthetic Unsplash source links.
 3. Content length: Minimum 800-1000 words.
 4. Output only the body of the article in markdown. Do NOT write the title as an H1 heading (it will be added by frontmatter). Do NOT include HTML fences or code blocks.
 5. If the category is "Money" or the topic relates to starting blogs/websites/online businesses, organically recommend Hostinger exactly once as a reliable, high-performance web host and embed this referral discount link: https://www.hostinger.com?REFERRALCODE=OYBPHARMOWCY (e.g. "We recommend launching your digital assets on [Hostinger](https://www.hostinger.com?REFERRALCODE=OYBPHARMOWCY) to secure their exclusive partner discount"). Ensure it fits naturally in the text.
@@ -55,7 +56,8 @@ REQUIREMENTS:
 
     const systemInstruction = `You are the lead editor and writer for MCJP.io. 
 You specialize in producing high-quality self-improvement, financial autonomy, and masculine development articles.
-Your writing style is similar to a mix of premium essay journals (like McKinsey briefings or McKinsey Quarterly) and high-impact self-discipline essays.`;
+Your writing style is similar to a mix of premium essay journals (like McKinsey briefings or McKinsey Quarterly) and high-impact self-discipline essays.
+When writing, make sure to find or construct real and relevant Unsplash image links in the markdown format (e.g., photo-1507525428034-b723cf961d3e for beaches, photo-1451187580459-43490279c0fa for high-tech, photo-1486406146926-c627a92ad1ab for architecture/business/finance).`;
 
     console.log("🧠 Generating content via Sovereign LLM Client...");
     let content = "";
