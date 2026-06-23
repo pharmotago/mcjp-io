@@ -14,7 +14,7 @@ In a world that often blurs the lines of identity and purpose, the quest for a m
 
 Masculinity, when understood in its most authentic form, transcends mere gender roles. It encompasses traits such as responsibility, courage, integrity, and the drive for personal development. A masculine legacy is not just about personal achievements; it is about the impact one leaves on family, community, and the world at large. 
 
-![Determined man reflecting on his journey](https://images.unsplash.com/photo-1492562080023-9e3c0a6a8c5a)
+![Determined man reflecting on his journey](/images/life_masculine_legacy_building_determined.png)
 
 ### Pillar 1: Family Leadership
 
@@ -55,7 +55,7 @@ The legacy you build will inevitably influence others. By embodying the principl
 - **Engage in Community Service**: Contribute to causes that resonate with your values and beliefs.
 - **Network with Purpose**: Surround yourself with individuals who share your vision for a better future and can help amplify your impact.
 
-![Focused thinking and reflection outdoors](https://images.unsplash.com/photo-1506126613408-eca07ce68773)
+![Focused thinking and reflection outdoors](/images/life_masculine_legacy_building_reflection.png)
 
 ### Conclusion: A Call to Action
 

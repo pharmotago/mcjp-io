@@ -10,7 +10,7 @@ keywords: ["mental fortitude","focus strategies","discipline","resilience"]
 
 In an era characterized by relentless distractions and a fast-paced lifestyle, the cultivation of mental fortitude stands as a crucial asset. Mental fortitude is not merely about enduring life's challenges; it is about developing the resilience to maintain unwavering focus, discipline, and integrity in the face of adversity. This article explores actionable strategies that can enhance your mental resilience and concentration, ultimately empowering you to thrive in both personal and professional domains.
 
-![Focus and determination in digital workspace](https://images.unsplash.com/photo-1516321318423-f06f85e504b3)
+![Focus and determination in digital workspace](/images/discipline_mental_fortitude_development_focus.png)
 
 ### Understanding Mental Fortitude
 
@@ -65,7 +65,7 @@ Discipline is the backbone of mental fortitude. It is the ability to persist in 
 - **Track Your Progress**: Use a journal or an app to monitor your achievements. Reflecting on your progress reinforces your commitment and encourages continued effort.
 - **Reward Yourself**: Establish a reward system for reaching milestones. Acknowledging your achievements can enhance motivation and reinforce positive behaviors.
 
-![Calm meditation outdoors](https://images.unsplash.com/photo-1506126613408-eca07ce68773)
+![Calm meditation outdoors](/images/discipline_mental_fortitude_development_meditation.png)
 
 ### Conclusion: The Journey to Mental Fortitude
 

@@ -20,7 +20,7 @@ Physical well-being is often considered the cornerstone of masculine health. It 
 - **Sleep Hygiene**: Prioritize 7-8 hours of quality sleep each night to support recovery and hormonal balance.
 - **Hydration**: Ensure adequate water intake throughout the day to maintain optimal bodily functions.
 
-![Focus and determination in digital workspace](https://images.unsplash.com/photo-1516321318423-f06f85e504b3)
+![Focus and determination in digital workspace](/images/life_masculine_health_focus.png)
 
 ## Emotional Balance: The Core of Resilience
 
@@ -46,4 +46,4 @@ The interplay between physical and emotional health is profound. A disciplined e
 
 Embracing masculine health as a balance of physical and emotional wellness is not a destination but a lifelong journey. It demands commitment, self-discipline, and a willingness to evolve. By cultivating this balance, men can enhance their quality of life, build long-term resilience, and foster an integrity-driven existence. The pursuit of this harmony not only benefits the individual but enriches communities and relationships, leading to a more fulfilled and empowered life.
 
-![Calm meditation outdoors](https://images.unsplash.com/photo-1506126613408-eca07ce68773)
+![Calm meditation outdoors](/images/life_masculine_health_meditation.png)

@@ -10,7 +10,7 @@ keywords: ["creative routines","discipline","innovation","success habits"]
 
 In an age where distractions abound and the pace of life accelerates, the intersection of creativity and discipline has never been more critical. There exists a common misconception that creativity is a spontaneous phenomenon—an ethereal spark that ignites the mind. However, true innovation is often born out of structured routines and disciplined habits. By establishing creative routines, individuals can harness their innate creativity, leading to personal success that is both sustainable and impactful.
 
-![Focus and determination in digital workspace](https://images.unsplash.com/photo-1516321318423-f06f85e504b3)
+![Focus and determination in digital workspace](/images/discipline_creative_routines_focus.png)
 
 ### The Power of Discipline in Creativity
 
@@ -70,7 +70,7 @@ The relationship between discipline and success is profound. Successful individu
 
 Incorporating creative routines into your life will not only enhance your innovative capabilities but also translate into tangible success in your endeavors. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal, which offers invaluable resources for personal growth and development.
 
-![Inspiration through nature](https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0)
+![Inspiration through nature](/images/discipline_creative_routines_nature.png)
 
 ### Conclusion
 

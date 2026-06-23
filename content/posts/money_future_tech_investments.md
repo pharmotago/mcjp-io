@@ -14,7 +14,7 @@ The landscape of investing is undergoing a seismic shift, marked by rapid advanc
 
 The tech industry has consistently proven to be a robust driver of economic growth. From cloud computing to artificial intelligence (AI), the innovations reshaping our world are not just fleeting trends; they represent foundational shifts that will define economic landscapes for decades to come. According to recent forecasts, global technology spending is poised to reach over $5 trillion by 2025, underscoring the importance of these sectors for investors seeking long-term financial growth.
 
-![Focus and determination in digital workspace](https://images.unsplash.com/photo-1516321318423-f06f85e504b3)
+![Focus and determination in digital workspace](/images/money_future_tech_investments_focus.png)
 
 ### Key Sectors to Monitor
 
@@ -60,7 +60,7 @@ As we look ahead, the potential for tech investments is vast. Emerging technolog
 
 In conclusion, navigating the future of tech investments requires a deep understanding of emerging trends, a commitment to ethical practices, and a long-term vision. By focusing on key sectors, employing actionable strategies, and maintaining integrity, you can successfully build wealth in this dynamic landscape. As you embark on this journey, remember that the most successful investors are those who embrace change, remain disciplined, and are willing to learn continuously.
 
-![Tech investments driving change](https://images.unsplash.com/photo-1588702542155-f4c8aa0d3fbe)
+![Tech investments driving change](/images/money_future_tech_investments_tech.png)
 
 For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal, where principles of discipline and long-term planning are emphasized, aligning with the foundational qualities needed for successful investing. Embrace the future with confidence, discipline, and a commitment to continuous growth.
 
