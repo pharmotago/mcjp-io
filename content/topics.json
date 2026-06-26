@@ -1169,5 +1169,77 @@
       "endurance"
     ],
     "summary": "Examining how intentional physical stressors like heavy lifting, endurance challenges, and extreme conditions build unbreakable psychological resilience that translates to business and life success."
+  },
+  {
+    "id": "money_financial_independence_blueprint",
+    "category": "Money",
+    "topic": "Building Your Financial Independence Blueprint",
+    "keywords": [
+      "financial independence",
+      "wealth building",
+      "financial strategy",
+      "budgeting"
+    ],
+    "summary": "Explore the essential steps and strategies to achieve financial independence, including effective budgeting, smart investing, and wealth accumulation techniques."
+  },
+  {
+    "id": "life_modern_masculine_identity_crisis",
+    "category": "Life",
+    "topic": "Navigating the Modern Masculine Identity Crisis",
+    "keywords": [
+      "masculinity",
+      "identity",
+      "modern challenges",
+      "personal growth"
+    ],
+    "summary": "Delve into the complexities of modern masculinity, exploring how contemporary societal changes are reshaping masculine identities and what it means for personal growth."
+  },
+  {
+    "id": "discipline_self_discipline_in_digital_age",
+    "category": "Discipline",
+    "topic": "Cultivating Self-Discipline in the Digital Age",
+    "keywords": [
+      "self-discipline",
+      "digital distractions",
+      "focus",
+      "time management"
+    ],
+    "summary": "Learn how to strengthen self-discipline amidst digital distractions by mastering focus and effective time management techniques."
+  },
+  {
+    "id": "money_investing_for_long_term_weath",
+    "category": "Money",
+    "topic": "Investing for Long-Term Wealth: Strategies and Tips",
+    "keywords": [
+      "long-term investing",
+      "wealth creation",
+      "investment strategies",
+      "financial growth"
+    ],
+    "summary": "Discover practical strategies and tips for long-term investing aimed at building substantial wealth and ensuring financial security over time."
+  },
+  {
+    "id": "life_resilience_in_modern_fatherhood",
+    "category": "Life",
+    "topic": "Building Resilience in Modern Fatherhood",
+    "keywords": [
+      "resilience",
+      "fatherhood",
+      "parenting",
+      "emotional strength"
+    ],
+    "summary": "Explore how modern fathers can develop resilience and emotional strength to effectively navigate the challenges of parenting in today's world."
+  },
+  {
+    "id": "discipline_harnessing_the_power_of_habits",
+    "category": "Discipline",
+    "topic": "Harnessing the Power of Habits for Success",
+    "keywords": [
+      "habits",
+      "success",
+      "routine development",
+      "self-improvement"
+    ],
+    "summary": "Uncover the science of habit formation and learn how to build powerful routines that drive success and personal development."
   }
 ]
