@@ -1,0 +1,81 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B0F19" />
+      <stop offset="50%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#070A10" />
+    </linearGradient>
+    <linearGradient id="glowBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F0FF" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#312E81" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#00F0FF" stop-opacity="0.8" />
+    </linearGradient>
+    <linearGradient id="panelBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1F2937" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#111827" stop-opacity="0.9" />
+    </linearGradient>
+    <filter id="blur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="60" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bg)" />
+
+  <!-- Neon Glowing Orbs -->
+  <circle cx="150" cy="150" r="130" fill="#00F0FF" opacity="0.15" filter="url(#blur)" />
+  <circle cx="1050" cy="480" r="150" fill="#00F0FF" opacity="0.12" filter="url(#blur)" />
+
+  <!-- Subtly Elegant Grid Overlay -->
+  <path d="M 0,105 L 1200,105 M 0,210 L 1200,210 M 0,315 L 1200,315 M 0,420 L 1200,420 M 0,525 L 1200,525 M 200,0 L 200,630 M 400,0 L 400,630 M 600,0 L 600,630 M 800,0 L 800,630 M 1000,0 L 1000,630" stroke="#FFFFFF" stroke-opacity="0.02" stroke-width="1" />
+
+  <!-- Glassmorphic Outer Card Container -->
+  <rect x="100" y="80" width="1000" height="470" rx="24" fill="url(#panelBg)" stroke="url(#glowBorder)" stroke-width="1.5" style="backdrop-filter: blur(20px);" />
+
+  <!-- Header Badge -->
+  <g transform="translate(150, 140)">
+    <rect width="220" height="36" rx="18" fill="#00F0FF" fill-opacity="0.1" stroke="#00F0FF" stroke-opacity="0.4" stroke-width="1" />
+    <text x="110" y="22" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="800" fill="#00F0FF" letter-spacing="3" text-anchor="middle">MCJP ASSET HUB</text>
+  </g>
+
+  <!-- Book Title -->
+  <text x="150" y="250" font-family="system-ui, -apple-system, sans-serif" font-size="44" font-weight="900" fill="#FFFFFF" width="650">
+    The Low-Friction ADHD Planner
+  </text>
+
+  <!-- Author and Format metadata -->
+  <text x="150" y="320" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="400" fill="#9CA3AF">
+    By <tspan fill="#FFFFFF" font-weight="700">Josh Smith</tspan> | Format: <tspan fill="#00F0FF" font-weight="700">Paperback</tspan>
+  </text>
+
+  <!-- Divider Line -->
+  <line x1="150" y1="360" x2="750" y2="360" stroke="#374151" stroke-width="1" />
+
+  <!-- Action Subtitle description -->
+  <text x="150" y="410" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="800" fill="#00F0FF" letter-spacing="5">OFFICIAL BOOK RELEASE</text>
+  <text x="150" y="445" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="300" fill="#D1D5DB" width="600">
+    Reclaiming sovereignty, building physical and mental wealth.
+  </text>
+
+  <!-- Glowing Book Placeholder / Cover Panel on the Right -->
+  <g transform="translate(820, 130)">
+    <!-- Book Shadow -->
+    <rect x="10" y="10" width="220" height="330" rx="16" fill="#000000" opacity="0.5" filter="url(#blur)" />
+    <!-- Book Body -->
+    <rect width="220" height="330" rx="16" fill="#1F2937" stroke="url(#glowBorder)" stroke-width="2" />
+    <!-- Cover inner gradient highlight -->
+    <rect x="8" y="8" width="204" height="314" rx="10" fill="none" stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="1" />
+    
+    <!-- Cover text -->
+    <text x="110" y="90" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="800" fill="#00F0FF" letter-spacing="4" text-anchor="middle">AMAZON LIVE</text>
+    <text x="110" y="150" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#FFFFFF" text-anchor="middle">MCJP</text>
+    <text x="110" y="180" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">MASTERCLASS</text>
+    
+    <!-- Gold/Cyan Glow line on spine -->
+    <line x1="15" y1="20" x2="15" y2="310" stroke="#00F0FF" stroke-opacity="0.6" stroke-width="2" />
+    
+    <!-- Price Badge inside Cover -->
+    <rect x="65" y="235" width="90" height="30" rx="15" fill="#111827" stroke="#00F0FF" stroke-opacity="0.3" stroke-width="1" />
+    <text x="110" y="255" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#4ADE80" text-anchor="middle">$12.99</text>
+  </g>
+</svg>
