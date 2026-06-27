@@ -8,11 +8,11 @@ keywords: ["mental agility","cognitive training","quick thinking","brain exercis
 
 ## Building Mental Agility: Practices for Quick Thinking
 
-In an increasingly complex world, the ability to think quickly and adaptively is not merely an asset; it is a necessity. Mental agility refers to the capacity to rapidly process information, assess situations, and make informed decisions. As we navigate our lives—whether in personal relationships or professional environments—enhancing our mental agility can significantly improve our effectiveness. This article delves into actionable strategies and exercises designed to sharpen your cognitive abilities, enabling you to respond adeptly to challenges.
+In an increasingly complex world, the ability to think quickly and adaptively is not merely an asset; it is a necessity. [Mental agility](/posts/discipline_neuroplasticity_enhancement) refers to the capacity to rapidly process information, assess situations, and make informed decisions. As we navigate our lives—whether in personal [relationships](/posts/life_emotional_intelligence) or professional environments—enhancing our mental agility can significantly improve our effectiveness. This article delves into actionable strategies and exercises designed to sharpen your cognitive abilities, enabling you to respond adeptly to challenges.
 
 ### Understanding Mental Agility
 
-Mental agility encompasses various cognitive functions, including flexibility in thinking, speed of processing information, and the ability to pivot in response to new information. Developing this skill requires a combination of practice, discipline, and an understanding of how our brain operates. By embracing cognitive training, we can cultivate a mindset that not only reacts quickly but also thinks critically.
+Mental agility encompasses various cognitive functions, including flexibility in thinking, speed of processing information, and the ability to pivot in response to new information. Developing this skill requires a combination of practice, [discipline](/posts/book_90_day_habit_system), and an understanding of how our brain operates. By embracing cognitive training, we can cultivate a mindset that not only reacts quickly but also thinks critically.
 
 ### The Importance of Mental Agility
 

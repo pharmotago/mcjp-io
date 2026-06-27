@@ -8,11 +8,11 @@ keywords: ["masculinity","family duties","responsibility"]
 
 ## Redefining Masculinity: Embracing Duties and Responsibilities as a Family Leader
 
-In contemporary discussions surrounding masculinity, a pivotal shift is underway. The traditional archetype of the male as merely a provider or protector is evolving into a more nuanced understanding that emphasizes the importance of responsibilities and duties within the family unit. This redefinition is not merely an academic exercise but a call to action for men everywhere to embrace their roles as family leaders with integrity and self-discipline. 
+In contemporary discussions surrounding [masculinity](/posts/life_balancing_masculinity_femininity), a pivotal shift is underway. The traditional archetype of the male as merely a provider or protector is evolving into a more nuanced understanding that emphasizes the importance of responsibilities and duties within the family unit. This redefinition is not merely an academic exercise but a call to action for men everywhere to embrace their roles as family leaders with integrity and self-[discipline](/posts/book_90_day_habit_system). 
 
 ### The Essence of Modern Masculinity
 
-At its core, modern masculinity is about responsibility—responsibility to oneself, to one’s family, and to the broader community. This involves a profound understanding that leadership in the family context is not about dominance but rather about nurturing, guiding, and supporting those we love. 
+At its core, [modern masculinity](/posts/family_role_of_man) is about responsibility—responsibility to oneself, to one’s family, and to the broader community. This involves a profound understanding that leadership in the family context is not about dominance but rather about nurturing, guiding, and supporting those we love. 
 
 Men are often taught to equate strength with emotional stoicism, but true strength lies in vulnerability and the willingness to shoulder familial duties. Embracing this aspect of masculinity allows for personal growth and cultivates a healthy family environment. 
 

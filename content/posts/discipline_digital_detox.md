@@ -8,7 +8,7 @@ keywords: ["digital detox","focus","mental clarity","technology"]
 
 ## Digital Detox: Reclaiming Your Focus in the Digital Age
 
-In an era defined by constant connectivity and a relentless barrage of information, our attention spans are being stretched thinner than ever. The digital landscape, while brimming with opportunities, is also fraught with distractions that can significantly impair our ability to focus, think critically, and engage in meaningful work. This article delves into the profound impact of digital distractions on our productivity and mental clarity, offering a roadmap for executing a digital detox that empowers you to regain control over your attention.
+In an era defined by constant connectivity and a relentless barrage of information, our attention spans are being stretched thinner than ever. The digital landscape, while brimming with opportunities, is also fraught with distractions that can significantly impair our ability to [focus](/posts/discipline_dopamine_control), think critically, and engage in meaningful work. This article delves into the profound impact of digital distractions on our [productivity](/posts/discipline_flow_state_optimization) and [mental clarity](/posts/discipline_focus_fasting), offering a roadmap for executing a digital detox that empowers you to regain control over your attention.
 
 ### Understanding the Digital Distraction Dilemma
 

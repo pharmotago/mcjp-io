@@ -8,7 +8,7 @@ keywords: ["the 90-day longevity protocol log", "josh smith", "life", "self impr
 
 ## The Art of Longevity: Mastering Your Healthspan with "The 90-Day Longevity Protocol Log"
 
-In a world that often prioritizes instant gratification over sustainable outcomes, the pursuit of a long, fulfilling life can feel like a daunting task. However, true masculinity is rooted in the discipline to pursue greatness, not just in wealth and career, but in health and longevity. With the release of *The 90-Day Longevity Protocol Log* by Josh Smith, men have a powerful tool at their disposal to transform this pursuit into actionable strategies. 
+In a world that often prioritizes instant gratification over sustainable outcomes, the pursuit of a long, fulfilling life can feel like a daunting task. However, true masculinity is rooted in the [discipline](/posts/book_hybrid_performance_log) to pursue greatness, not just in [wealth](/posts/book_let_them_let_me) and career, but in health and longevity. With the release of *The 90-Day Longevity Protocol Log* by [Josh Smith](/posts/book_90_day_habit_system), men have a powerful tool at their disposal to transform this pursuit into actionable strategies. 
 
 ### Understanding Longevity and Health Optimization
 
@@ -51,7 +51,7 @@ Men, it’s time to take ownership of your health. The journey to longevity is n
 
 Don’t wait for tomorrow to start your journey. Invest in yourself today. 
 
-[Buy on Amazon](https://www.amazon.com/dp/B0H36TC1PB)
+[Buy on Amazon](https://www.amazon.com/dp/B0H36TC1PB?tag=mcjpio-20)
 
 ![Official Release Asset](/images/book_90_day_longevity_protocol_log_theme.svg)
 

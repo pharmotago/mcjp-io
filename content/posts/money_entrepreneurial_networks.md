@@ -8,7 +8,7 @@ keywords: ["entrepreneurial networks","wealth building","networking","business g
 
 ## Building Entrepreneurial Networks: The Key to Unlocking Hidden Wealth
 
-In the realm of entrepreneurship, the adage "it's not what you know, but who you know" holds particularly true. While skills, knowledge, and hard work are undeniably essential for business success, the ability to forge and nurture entrepreneurial networks is often the catalyst that unlocks hidden wealth and opportunities. Building a robust network is not merely an ancillary task; it is a strategic endeavor that requires self-discipline, integrity, and a long-term vision. 
+In the realm of entrepreneurship, the adage "it's not what you know, but who you know" holds particularly true. While skills, knowledge, and hard work are undeniably essential for business [success](/posts/discipline_goal_setting), the ability to forge and nurture entrepreneurial networks is often the catalyst that unlocks hidden [wealth](/posts/book_90_day_longevity_protocol_log) and opportunities. Building a robust network is not merely an ancillary task; it is a strategic endeavor that requires self-[discipline](/posts/book_90_day_habit_system), integrity, and a long-term vision. 
 
 ### The Wealth in Connections
 

@@ -8,7 +8,7 @@ keywords: ["the hybrid performance log", "josh smith", "discipline", "self impro
 
 ## Unleashing Your Potential: The Power of Hybrid Athletic Training
 
-In a world saturated with fitness trends, the concept of hybrid athletic training emerges as an undeniable beacon of efficiency and effectiveness. As men striving for excellence in every aspect of life, we must recognize that true strength lies not just in physical prowess but in the ability to fuse various disciplines to create a resilient and adaptable body. This is where "The Hybrid Performance Log," authored by Josh Smith, becomes an indispensable resource for those committed to elevating their physical discipline.
+In a world saturated with fitness trends, the concept of hybrid athletic training emerges as an undeniable beacon of efficiency and effectiveness. As men striving for excellence in every aspect of [life](/posts/book_let_them_let_me), we must recognize that true strength lies not just in physical prowess but in the ability to fuse various disciplines to create a resilient and adaptable body. This is where "The Hybrid Performance Log," authored by [Josh Smith](/posts/book_90_day_habit_system), becomes an indispensable resource for those committed to elevating their physical [discipline](/posts/book_90_day_longevity_protocol_log).
 
 ### The Essence of Hybrid Training
 
@@ -62,4 +62,4 @@ The path to excellence in both body and mind is not a solitary endeavor. It is a
 
 Don’t let opportunity pass you by. Equip yourself with the strategies and insights contained in this book, and take the first step toward a transformative journey. 
 
-[Buy on Amazon](https://www.amazon.com/dp/B0H38J3S4M) and commit to building the resilient body and disciplined life you deserve.
+[Buy on Amazon](https://www.amazon.com/dp/B0H38J3S4M?tag=mcjpio-20) and commit to building the resilient body and disciplined life you deserve.

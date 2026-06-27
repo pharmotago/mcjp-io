@@ -165,10 +165,10 @@ export default async function Home({
               <>
                 <div className="p-6 rounded-lg glass-panel bg-white/70 flex flex-col justify-between min-h-[220px]">
                   <div className="space-y-2">
-                    <span className="text-xs font-semibold text-amber-600 uppercase tracking-widest">Newsletter</span>
-                    <h3 className="text-xl font-bold text-slate-900">Get Sovereign Blueprints</h3>
+                    <span className="text-xs font-semibold text-amber-600 uppercase tracking-widest">Free Guide</span>
+                    <h3 className="text-xl font-bold text-slate-900">Get The Sovereign Morning Checklist</h3>
                     <p className="text-slate-600 text-xs leading-relaxed">
-                      Join 5,000+ men receiving weekly wealth creation ideas, discipline checklists, and leadership essays.
+                      Download our step-by-step cognitive blueprint to eliminate morning friction, optimize dopamine levels, and win the day.
                     </p>
                   </div>
                   <form className="mt-4 flex gap-2" action="/" method="GET">
@@ -182,7 +182,7 @@ export default async function Home({
                       type="submit"
                       className="bg-amber-600 hover:bg-amber-500 text-white px-4 py-2.5 rounded text-xs font-semibold transition-colors cursor-pointer shadow-xs"
                     >
-                      Join
+                      Get Free PDF
                     </button>
                   </form>
                 </div>
@@ -190,10 +190,10 @@ export default async function Home({
                 {/* Hostinger Partner Offer Widget */}
                 <div className="p-6 rounded-lg glass-panel bg-amber-50/20 border border-amber-200/40 flex flex-col justify-between min-h-[220px] shadow-xs">
                   <div className="space-y-2">
-                    <span className="text-xs font-semibold text-amber-700 uppercase tracking-widest">Partner Offer</span>
-                    <h3 className="text-xl font-bold text-slate-900">Launch Your Web Asset</h3>
+                    <span className="text-xs font-semibold text-amber-700 uppercase tracking-widest">Recommended Setup</span>
+                    <h3 className="text-xl font-bold text-slate-900">Launch Your Digital Income Stream</h3>
                     <p className="text-slate-600 text-xs leading-relaxed">
-                      Ready to build your own digital income stream? Start hosting with Hostinger today and get an exclusive discount on premium hosting plans.
+                      We host MCJP.io on Hostinger for its superior speed, security, and affordability. Host your assets with our partner link to claim 20% off plus a free domain.
                     </p>
                   </div>
                   <a
@@ -202,7 +202,7 @@ export default async function Home({
                     rel="noopener noreferrer"
                     className="block w-full text-center bg-slate-900 hover:bg-slate-800 text-white py-2.5 rounded text-xs font-semibold transition-colors mt-4 cursor-pointer shadow-sm"
                   >
-                    Get Hostinger Discount &rarr;
+                    Claim 20% Discount &rarr;
                   </a>
                 </div>
 
@@ -257,16 +257,15 @@ export default async function Home({
                 </a>
 
                 {/* Inline Ad slot injected after display post index 1 */}
-                {index === 1 && (
+                {index === 1 && process.env.NEXT_PUBLIC_ADSENSE_IN_FEED_SLOT && (
                   <div className="col-span-full p-4 rounded border border-slate-200 bg-slate-50 text-center text-xs text-slate-500 min-h-[110px] flex flex-col justify-center items-center relative shadow-xs">
                     <div className="absolute top-1 left-2 uppercase tracking-widest text-[8px] text-slate-400 font-semibold select-none">Advertisement</div>
                     <ins className="adsbygoogle"
                          style={{ display: 'block', width: '100%', minHeight: '90px' }}
                          data-ad-client={process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || 'ca-pub-1966724508656296'}
-                         data-ad-slot="in-feed-ad-slot"
+                         data-ad-slot={process.env.NEXT_PUBLIC_ADSENSE_IN_FEED_SLOT}
                          data-ad-format="fluid"
                          data-full-width-responsive="true"></ins>
-                    <div className="text-[10px] text-slate-400 select-none py-1">In-Feed Banner (Active upon AdSense approval)</div>
                   </div>
                 )}
               </div>

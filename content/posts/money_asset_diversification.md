@@ -8,7 +8,7 @@ keywords: ["asset diversification","wealth building","investment strategy","real
 
 ## The Power of Asset Diversification: Building Wealth Beyond Stocks
 
-In the pursuit of financial autonomy and wealth creation, the mantra often echoes: "Invest in what you know." Unfortunately, for many, this translates solely to the stock market. While equities can be a significant component of an investment strategy, relying on them exclusively is akin to sailing a ship with a single sail; when the winds of market volatility shift, that vessel can capsize. To cultivate a robust investment portfolio, it is imperative to embrace the principle of asset diversification.
+In the pursuit of financial autonomy and [wealth](/posts/book_90_day_habit_system) creation, the mantra often echoes: "Invest in what you know." Unfortunately, for many, this translates solely to the stock market. While equities can be a significant component of an [investment](/posts/money_cryptocurrency_risks) strategy, relying on them exclusively is akin to sailing a ship with a single sail; when the winds of market volatility shift, that vessel can capsize. To cultivate a robust investment portfolio, it is imperative to embrace the principle of asset [diversification](/posts/money_global_investing).
 
 ### Understanding Asset Diversification
 

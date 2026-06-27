@@ -8,7 +8,7 @@ keywords: ["unburden your brain", "jordan r clark", "life", "self improvement", 
 
 ## Reclaim Your Mental Clarity: Mastering Life Admin with "Unburden Your Brain"
 
-In the relentless pace of modern life, the weight of 'life admin' can feel crushing. For many professionals, the silent burden of cognitive overload hampers productivity and drains energy. In "Unburden Your Brain," author Jordan R Clark dives deep into this pervasive issue, offering a structured methodology designed to help you offload administrative tasks, streamline your domestic systems, and reclaim your focus. This book is not just a guide; it is a definitive master manual for those seeking to free themselves from the invisible chains of cognitive clutter.
+In the relentless pace of modern [life](/posts/book_90_day_longevity_protocol_log), the weight of 'life admin' can feel crushing. For many professionals, the silent burden of cognitive overload hampers productivity and drains energy. In "Unburden Your Brain," author [Jordan R Clark](/posts/book_let_them_let_me) dives deep into this pervasive issue, offering a structured methodology designed to help you offload administrative tasks, streamline your domestic systems, and reclaim your [focus](/posts/discipline_digital_detox). This book is not just a guide; it is a definitive master manual for those seeking to free themselves from the invisible chains of cognitive clutter.
 
 ### The Hidden Drain of Life Admin
 
@@ -55,6 +55,6 @@ In addition to mastering life admin, embracing efficient systems is crucial for 
 
 "Unburden Your Brain" is more than just a book; it is a transformative tool designed to help you reclaim your mental clarity and elevate your life. By adopting the principles outlined in this compelling guide, you will not only enhance your productivity but also cultivate a sense of peace and purpose in your daily life.
 
-Don’t let the invisible burdens of life admin weigh you down any longer. Take the first step toward a more organized and fulfilling life today. [Buy on Amazon](https://www.amazon.com/dp/B0GHMGFK1W) and start your journey to mental freedom and enhanced productivity. 
+Don’t let the invisible burdens of life admin weigh you down any longer. Take the first step toward a more organized and fulfilling life today. [Buy on Amazon](https://www.amazon.com/dp/B0GHMGFK1W?tag=mcjpio-20) and start your journey to mental freedom and enhanced productivity. 
 
 ![Official Release Asset](/images/book_unburden_your_brain_theme.svg)

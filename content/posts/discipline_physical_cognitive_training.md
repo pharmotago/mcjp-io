@@ -8,7 +8,7 @@ keywords: ["physical training","cognitive training","performance","discipline"]
 
 ## Integrating Physical and Cognitive Training: A Blueprint for Optimal Performance
 
-In the pursuit of excellence, the synthesis of physical and cognitive training emerges as a cornerstone of optimal performance. This holistic approach not only cultivates discipline but also fosters resilience and integrity, forming a robust foundation for self-improvement. As we delve into the intricacies of this integration, the focus will be on actionable strategies that enhance both physical prowess and mental acuity.
+In the pursuit of excellence, the synthesis of physical and cognitive training emerges as a cornerstone of optimal performance. This holistic approach not only cultivates [discipline](/posts/book_90_day_habit_system) but also fosters [resilience](/posts/discipline_emotional_stability_practices) and integrity, forming a robust foundation for self-improvement. As we delve into the intricacies of this integration, the [focus](/posts/discipline_digital_detox) will be on actionable strategies that enhance both physical prowess and mental acuity.
 
 ### Understanding the Synergy: Why Integrate?
 

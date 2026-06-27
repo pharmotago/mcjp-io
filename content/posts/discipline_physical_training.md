@@ -8,7 +8,7 @@ keywords: ["physical training","cognitive training","success habits"]
 
 ## The Intertwined Path of Physical and Cognitive Mastery
 
-In our fast-paced world, the pursuit of success often veers into the territory of multitasking and overextending oneself. However, a more profound and effective approach lies in recognizing the powerful connection between physical fitness and cognitive performance. The dual approach of cognitive training through physical exercise not only enhances mental clarity but also fortifies the foundation of success habits that can lead to lasting achievement. 
+In our fast-paced world, the pursuit of success often veers into the territory of multitasking and overextending oneself. However, a more profound and effective approach lies in recognizing the powerful connection between physical fitness and cognitive performance. The dual approach of [cognitive training](/posts/discipline_flow_state_optimization) through physical exercise not only enhances [mental clarity](/posts/discipline_digital_detox) but also fortifies the foundation of [success habits](/posts/discipline_creative_routines) that can lead to lasting achievement. 
 
 ### The Science Behind the Connection
 

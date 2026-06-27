@@ -8,7 +8,7 @@ keywords: ["emotional strength","masculinity","mental health","resilience"]
 
 ## Building Emotional Strength: The Unsung Hero of Masculine Success
 
-In a world that often equates masculinity with stoicism, strength, and the suppression of emotions, the true essence of masculine success is frequently overlooked—emotional strength. This critical component not only influences our personal and professional relationships but also serves as the bedrock for resilience, mental health, and overall well-being. Understanding and developing this emotional prowess is a transformative journey that can redefine the narrative of what it means to be a successful man today.
+In a world that often equates masculinity with stoicism, strength, and the suppression of emotions, the true essence of masculine [success](/posts/discipline_goal_setting) is frequently overlooked—[emotional strength](/posts/discipline_mental_resilience). This critical component not only influences our personal and professional relationships but also serves as the bedrock for [resilience](/posts/discipline_emotional_stability_practices), mental health, and overall well-being. Understanding and developing this emotional prowess is a transformative journey that can redefine the narrative of what it means to be a successful man today.
 
 ### The Foundation of Emotional Strength
 

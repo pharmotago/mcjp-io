@@ -88,7 +88,20 @@ keywords: ${JSON.stringify(selectedTopic.keywords)}
 
 `;
 
-    const fullContent = frontmatter + content;
+    // Dynamically inject internal links before writing to file
+    const { injectLinksIntoContent, buildPostIndex } = require('./inject_internal_links');
+    let linkedContent = content;
+    try {
+        console.log("🔗 Injecting internal links into new content...");
+        const postIndex = buildPostIndex();
+        const linkResult = injectLinksIntoContent(selectedTopic.id, content, postIndex);
+        linkedContent = linkResult.content;
+        console.log(`🔗 Injected ${linkResult.linksAdded} links.`);
+    } catch (e) {
+        console.error("⚠️ Failed to inject internal links:", e.message);
+    }
+
+    const fullContent = frontmatter + linkedContent;
     const postFile = path.join(POSTS_DIR, `${selectedTopic.id}.md`);
     fs.writeFileSync(postFile, fullContent, 'utf8');
 

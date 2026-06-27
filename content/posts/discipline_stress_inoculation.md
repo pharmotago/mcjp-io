@@ -8,7 +8,7 @@ keywords: ["stress inoculation","mental fortitude","physical training","resilien
 
 ## Stress Inoculation: Using Physical Hardship to Forge Mental Fortitude
 
-In a world awash with distractions and challenges, the pursuit of mental fortitude has never been more paramount. The concept of stress inoculation—introducing controlled stressors to build resilience—has emerged as an essential strategy for those seeking to elevate their personal and professional lives. By intentionally subjecting ourselves to physical hardship through rigorous training, we can forge an unbreakable psychological foundation that not only withstands adversity but thrives in its presence.
+In a world awash with distractions and challenges, the pursuit of [mental fortitude](/posts/discipline_mental_fortitude_development) has never been more paramount. The concept of stress inoculation—introducing controlled stressors to build [resilience](/posts/discipline_emotional_stability_practices)—has emerged as an essential strategy for those seeking to elevate their personal and professional lives. By intentionally subjecting ourselves to physical hardship through rigorous [training](/posts/discipline_mental_toughness_training), we can forge an unbreakable psychological foundation that not only withstands adversity but thrives in its presence.
 
 ### Understanding Stress Inoculation
 

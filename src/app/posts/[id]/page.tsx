@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { notFound } from 'next/navigation';
+import type { Metadata } from 'next';
 
 interface PostData {
   title: string;
@@ -62,6 +63,29 @@ function getPost(id: string) {
       keywords: data.keywords || [],
     } as PostData,
     content,
+  };
+}
+
+export async function generateMetadata(
+  { params }: { params: Promise<{ id: string }> }
+): Promise<Metadata> {
+  const resolvedParams = await params;
+  const post = getPost(resolvedParams.id);
+  if (!post) {
+    return {
+      title: "Post Not Found | MCJP.io"
+    };
+  }
+  return {
+    title: `${post.data.title} | MCJP.io`,
+    description: post.data.description || 'MCJP.io - Master of Family, Money & Life',
+    keywords: post.data.keywords || [],
+    openGraph: {
+      title: `${post.data.title} | MCJP.io`,
+      description: post.data.description,
+      type: 'article',
+      url: `https://blog.mcjp.io/posts/${resolvedParams.id}`,
+    }
   };
 }
 

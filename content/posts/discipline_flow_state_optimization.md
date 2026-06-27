@@ -8,7 +8,7 @@ keywords: ["deep work","flow state","focus optimization","cognitive training","p
 
 ## Engineering the Flow State: Deep Work Tactics for High-Level Execution
 
-In a world awash with distractions, mastering the art of deep work is not merely an option but a necessity for achieving peak cognitive performance and executing professional goals. The flow state—a term popularized by psychologist Mihaly Csikszentmihalyi—refers to that optimal state of consciousness where individuals experience complete immersion in an activity. This article delves deep into the neuroscience behind flow states and offers actionable protocols to facilitate uninterrupted focus, ultimately leading to enhanced productivity and superior execution of tasks.
+In a world awash with distractions, mastering the art of deep work is not merely an option but a necessity for achieving peak cognitive [performance](/posts/discipline_physical_cognitive_training) and executing professional goals. The flow state—a term popularized by psychologist Mihaly Csikszentmihalyi—refers to that optimal state of consciousness where individuals experience complete immersion in an activity. This article delves deep into the neuroscience behind flow states and offers actionable protocols to facilitate uninterrupted [focus](/posts/discipline_digital_detox), ultimately leading to enhanced [productivity](/posts/discipline_focus_fasting) and superior execution of tasks.
 
 ![A visual representation of focus optimization techniques and strategies for achieving flow state](/images/discipline_flow_state_optimization_focus.png)
 

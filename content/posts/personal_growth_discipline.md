@@ -8,7 +8,7 @@ keywords: ["focus hacks","dopamine detox","deep work habits","self discipline"]
 
 ## The Dopamine Shield: Building Focus in a World of Distraction
 
-In an age characterized by relentless notifications, constant connectivity, and an abundance of information, the ability to maintain focus is both a rare skill and an essential asset. The distractions of modern life can erode cognitive energy, leading to a perpetual cycle of passive consumption that stifles creativity and productivity. To combat this, one must construct a "Dopamine Shield"—a robust operational routine that not only protects cognitive resources but also channels them towards high-value execution.
+In an age characterized by relentless notifications, constant connectivity, and an abundance of information, the ability to maintain [focus](/posts/discipline_digital_detox) is both a rare skill and an essential asset. The distractions of modern [life](/posts/book_90_day_longevity_protocol_log) can erode cognitive energy, leading to a perpetual cycle of passive consumption that stifles creativity and [productivity](/posts/discipline_flow_state_optimization). To combat this, one must construct a "Dopamine Shield"—a robust operational routine that not only protects cognitive resources but also channels them towards high-value execution.
 
 ### Understanding the Dopamine Economy
 

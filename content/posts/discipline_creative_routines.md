@@ -8,7 +8,7 @@ keywords: ["creative routines","discipline","innovation","success habits"]
 
 ## Creative Routines: How Discipline Fuels Innovation and Success
 
-In an age where distractions abound and the pace of life accelerates, the intersection of creativity and discipline has never been more critical. There exists a common misconception that creativity is a spontaneous phenomenon—an ethereal spark that ignites the mind. However, true innovation is often born out of structured routines and disciplined habits. By establishing creative routines, individuals can harness their innate creativity, leading to personal success that is both sustainable and impactful.
+In an age where distractions abound and the pace of [life](/posts/book_90_day_longevity_protocol_log) accelerates, the intersection of creativity and [discipline](/posts/book_90_day_habit_system) has never been more critical. There exists a common misconception that creativity is a spontaneous phenomenon—an ethereal spark that ignites the mind. However, true innovation is often born out of structured routines and disciplined habits. By establishing creative routines, individuals can harness their innate creativity, leading to personal [success](/posts/discipline_goal_setting) that is both sustainable and impactful.
 
 ![Focus and determination in digital workspace](/images/discipline_creative_routines_focus.png)
 

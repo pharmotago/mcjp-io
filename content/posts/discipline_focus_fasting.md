@@ -8,7 +8,7 @@ keywords: ["focus fasting","mental clarity","discipline","productivity"]
 
 ## Focus Fasting: How Temporary Abstinence Can Sharpen Your Mind
 
-In an age where distractions are omnipresent, the concept of focus fasting emerges as a revolutionary approach to mental clarity and productivity. Much like how intermittent fasting can rejuvenate the body, focus fasting is about temporarily abstaining from distractions to sharpen your cognitive faculties. This practice not only enhances concentration but also cultivates a profound sense of discipline—an essential quality for anyone aspiring to build long-term success.
+In an age where distractions are omnipresent, the concept of [focus](/posts/discipline_dopamine_control) fasting emerges as a revolutionary approach to [mental clarity](/posts/discipline_digital_detox) and productivity. Much like how intermittent fasting can rejuvenate the body, focus fasting is about temporarily abstaining from distractions to sharpen your cognitive faculties. This practice not only enhances concentration but also cultivates a profound sense of [discipline](/posts/book_90_day_habit_system)—an essential quality for anyone aspiring to build long-term success.
 
 ### Understanding Focus Fasting
 

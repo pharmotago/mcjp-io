@@ -8,7 +8,7 @@ keywords: ["generational wealth","legacy","financial planning","wealth transfer"
 
 ## Building Generational Wealth: Beyond Your Lifetime
 
-Creating generational wealth is not merely an aspiration; it is a profound responsibility that requires vision, discipline, and intentionality. True wealth transcends personal financial success; it is about establishing a legacy that enriches the lives of future generations. In an era where financial literacy is paramount, understanding how to build and preserve wealth is crucial for anyone looking to ensure that their hard-earned assets benefit their descendants.
+Creating generational [wealth](/posts/book_90_day_longevity_protocol_log) is not merely an aspiration; it is a profound responsibility that requires vision, [discipline](/posts/book_90_day_habit_system), and intentionality. True [wealth](/posts/book_hybrid_performance_log) transcends personal financial success; it is about establishing a legacy that enriches the lives of future generations. In an era where financial literacy is paramount, understanding how to build and preserve wealth is crucial for anyone looking to ensure that their hard-earned assets benefit their descendants.
 
 ### The Importance of Generational Wealth
 

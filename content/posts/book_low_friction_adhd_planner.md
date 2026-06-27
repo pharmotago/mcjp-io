@@ -8,7 +8,7 @@ keywords: ["the low-friction adhd planner", "josh smith", "discipline", "self im
 
 ## Navigating the Neurodivergent Labyrinth: Mastering ADHD with Low-Friction Strategies
 
-In the relentless pursuit of productivity, neurodivergent individuals often find themselves battling the unseen tides of executive dysfunction and cognitive overload. For men striving to balance life, work, and personal growth, these challenges can seem insurmountable. Enter Josh Smith's "The Low-Friction ADHD Planner," a beacon for those seeking to transform their daily struggles into streamlined success.
+In the relentless pursuit of [productivity](/posts/discipline_flow_state_optimization), neurodivergent individuals often find themselves battling the unseen tides of executive dysfunction and cognitive overload. For men striving to balance [life](/posts/book_90_day_longevity_protocol_log), work, and personal growth, these challenges can seem insurmountable. Enter [Josh Smith](/posts/book_90_day_habit_system)'s "The Low-Friction ADHD Planner," a beacon for those seeking to transform their daily struggles into streamlined success.
 
 ### Understanding the Neurodivergent Mind
 
@@ -45,4 +45,4 @@ Smith's planner isn't just a tool; it's a philosophy of mastery. It encourages a
 
 In a world where distractions are rife and attention is the most valuable currency, "The Low-Friction ADHD Planner" offers a lifeline to those determined to break free from the shackles of executive dysfunction. Whether you're stepping into the world of entrepreneurship, managing a burgeoning career, or simply striving for personal excellence, this planner is your ally.
 
-Seize control of your life today. Transform your productivity from chaos to clarity by getting your copy of "The Low-Friction ADHD Planner" by Josh Smith. [Buy on Amazon](https://www.amazon.com/dp/B0H36TC1FP) and embark on a journey of disciplined success.
+Seize control of your life today. Transform your productivity from chaos to clarity by getting your copy of "The Low-Friction ADHD Planner" by Josh Smith. [Buy on Amazon](https://www.amazon.com/dp/B0H36TC1FP?tag=mcjpio-20) and embark on a journey of disciplined success.

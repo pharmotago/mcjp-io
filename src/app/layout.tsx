@@ -4,10 +4,15 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "MCJP.io | Master of Family, Money & Life",
   description: "Automated guide map for wealth creation, masculine family leadership, and cognitive sovereignty in the modern era.",
-  keywords: ["personal success", "wealth creation", "family leadership", "masculine duties", "mindset"],
   verification: {
     google: "MnMKxjqywGXoQaPoGH1ZbuIRcSDvmw2y0JuwsPeuPKQ",
   },
+  openGraph: {
+    title: "MCJP.io | Master of Family, Money & Life",
+    description: "Automated guide map for wealth creation, masculine family leadership, and cognitive sovereignty in the modern era.",
+    url: "https://blog.mcjp.io",
+    type: "website",
+  }
 };
 
 export default function RootLayout({
