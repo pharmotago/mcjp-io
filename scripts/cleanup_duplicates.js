@@ -110,13 +110,29 @@ function runCleanup() {
         console.log(`📝 Updated title in discipline_habit_creation.md to "Habit Mastery...".`);
     }
 
+    // 4. Focus & Productivity Merge
+    mergePosts(
+        'discipline_focus_productivity',
+        'discipline_focus_techniques',
+        'Advanced Focus and Attention Control Techniques'
+    );
+
+    // 5. Neuroplasticity Merge
+    mergePosts(
+        'discipline_neuroplasticity_enhancement',
+        'discipline_neuroplasticity_growth',
+        'Accelerating Neuroplasticity: Actionable Growth Protocols'
+    );
+
     console.log(`\n🎉 Duplicate Content Cleanup complete!`);
     console.log(`👉 Please update next.config.ts with the following redirects:`);
     console.log(JSON.stringify([
         { source: '/posts/money_cryptocurrency_risks', destination: '/posts/money_crypto_investments', permanent: true },
         { source: '/posts/life_work_life_balance', destination: '/posts/life_fatherhood_work_life_balance', permanent: true },
         { source: '/posts/life_balancing_career_family', destination: '/posts/life_fatherhood_work_life_balance', permanent: true },
-        { source: '/posts/discipline_habit_breaking', destination: '/posts/discipline_habit_creation', permanent: true }
+        { source: '/posts/discipline_habit_breaking', destination: '/posts/discipline_habit_creation', permanent: true },
+        { source: '/posts/discipline_focus_techniques', destination: '/posts/discipline_focus_productivity', permanent: true },
+        { source: '/posts/discipline_neuroplasticity_growth', destination: '/posts/discipline_neuroplasticity_enhancement', permanent: true }
     ], null, 2));
 }
 

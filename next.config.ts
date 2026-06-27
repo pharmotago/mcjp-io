@@ -34,6 +34,16 @@ const nextConfig: NextConfig = {
         destination: '/posts/discipline_habit_creation',
         permanent: true,
       },
+      {
+        source: '/posts/discipline_focus_techniques',
+        destination: '/posts/discipline_focus_productivity',
+        permanent: true,
+      },
+      {
+        source: '/posts/discipline_neuroplasticity_growth',
+        destination: '/posts/discipline_neuroplasticity_enhancement',
+        permanent: true,
+      },
     ];
   },
 };

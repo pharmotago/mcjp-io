@@ -12,13 +12,13 @@ In the pursuit of financial autonomy and [wealth](/posts/book_90_day_habit_syste
 
 ### Understanding Asset Diversification
 
-Asset diversification is the practice of spreading investments across various asset classes—such as stocks, real estate, and bonds—to mitigate risk and enhance potential returns. By not putting all your eggs in one basket, you safeguard your financial future against the unpredictable tides of market fluctuations. 
+Asset [diversification](/posts/money_global_investing) is the practice of spreading investments across various asset classes—such as stocks, [real estate](/posts/money_investment_strategies), and bonds—to mitigate risk and enhance potential returns. By not putting all your eggs in one basket, you safeguard your financial future against the unpredictable tides of market fluctuations. 
 
-Historically, diversified portfolios have demonstrated resilience during economic downturns. The 2008 financial crisis serves as a stark reminder of the dangers of concentrated investments. Those who leaned heavily on stocks experienced severe losses, whereas those with a well-rounded portfolio that included real estate and bonds often fared better.
+Historically, diversified portfolios have demonstrated [resilience](/posts/discipline_emotional_stability_practices) during economic downturns. The 2008 financial crisis serves as a stark reminder of the dangers of concentrated investments. Those who leaned heavily on stocks experienced severe losses, whereas those with a well-rounded portfolio that included real estate and bonds often fared better.
 
 ### The Case for Real Estate
 
-Real estate is a compelling asset class for diversification. Unlike stocks, real estate often provides tangible value and can generate passive income through rental yields. Furthermore, properties tend to appreciate over time, making them a reliable hedge against inflation.
+[Real estate](/posts/money_investment_strategies) is a compelling asset class for [diversification](/posts/money_global_investing). Unlike stocks, [real estate](/posts/money_real_estate_investing) often provides tangible value and can generate passive income through rental yields. Furthermore, properties tend to appreciate over time, making them a reliable hedge against inflation.
 
 #### Key Advantages of Real Estate Investments:
 

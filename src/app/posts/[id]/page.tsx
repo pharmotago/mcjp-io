@@ -76,15 +76,40 @@ export async function generateMetadata(
       title: "Post Not Found | MCJP.io"
     };
   }
+
+  // Check if post-specific focus image exists in public folder
+  const focusImgPath = path.join(process.cwd(), 'public', 'images', `${resolvedParams.id}_focus.png`);
+  const ogImageUrl = fs.existsSync(focusImgPath)
+    ? `https://blog.mcjp.io/images/${resolvedParams.id}_focus.png`
+    : 'https://blog.mcjp.io/og-image.png';
+
+  const title = `${post.data.title} | MCJP.io`;
+  const description = post.data.description || 'MCJP.io - Master of Family, Money & Life';
+
   return {
-    title: `${post.data.title} | MCJP.io`,
-    description: post.data.description || 'MCJP.io - Master of Family, Money & Life',
+    title,
+    description,
     keywords: post.data.keywords || [],
     openGraph: {
-      title: `${post.data.title} | MCJP.io`,
-      description: post.data.description,
+      title,
+      description,
       type: 'article',
       url: `https://blog.mcjp.io/posts/${resolvedParams.id}`,
+      siteName: 'MCJP.io',
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: post.data.title,
+        }
+      ]
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [ogImageUrl],
     }
   };
 }

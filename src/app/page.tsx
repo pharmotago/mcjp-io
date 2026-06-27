@@ -165,16 +165,20 @@ export default async function Home({
               <>
                 <div className="p-6 rounded-lg glass-panel bg-white/70 flex flex-col justify-between min-h-[220px]">
                   <div className="space-y-2">
-                    <span className="text-xs font-semibold text-amber-600 uppercase tracking-widest">Free Guide</span>
-                    <h3 className="text-xl font-bold text-slate-900">Get The Sovereign Morning Checklist</h3>
+                    <span className="text-xs font-semibold text-amber-600 uppercase tracking-widest">🔒 The Sovereign Morning Stack</span>
+                    <h3 className="text-xl font-bold text-slate-900">7 Non-Negotiable Habits of High-Performing Men</h3>
+                    <p className="text-slate-700 text-xs font-medium">Free PDF Checklist — Instant Download</p>
                     <p className="text-slate-600 text-xs leading-relaxed">
-                      Download our step-by-step cognitive blueprint to eliminate morning friction, optimize dopamine levels, and win the day.
+                      Join 5,000+ men who've replaced aimless mornings with a structured sovereignty protocol.
+                    </p>
+                    <p className="text-slate-500 text-[10px] italic">
+                      ✓ No fluff  ✓ No motivation porn  ✓ Just the protocol
                     </p>
                   </div>
                   <form className="mt-4 flex gap-2" action="/" method="GET">
                     <input
                       type="email"
-                      placeholder="Your email address"
+                      placeholder="Enter your email address"
                       required
                       className="flex-grow bg-slate-50 border border-slate-200 rounded px-3 py-2.5 text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-amber-500"
                     />
@@ -182,7 +186,7 @@ export default async function Home({
                       type="submit"
                       className="bg-amber-600 hover:bg-amber-500 text-white px-4 py-2.5 rounded text-xs font-semibold transition-colors cursor-pointer shadow-xs"
                     >
-                      Get Free PDF
+                      Get the Free PDF &rarr;
                     </button>
                   </form>
                 </div>

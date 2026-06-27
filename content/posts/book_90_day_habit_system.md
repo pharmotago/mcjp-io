@@ -1,10 +1,12 @@
 ---
-title: "Mastering sovereignty: The 90-Day Habit System"
+title: "The 90-Day Habit System Review: Does Josh Smith's Framework Actually Rewire Your Brain?"
 date: "2026-06-26"
 category: "Discipline"
-description: "An in-depth article exploring the neurological mechanics of habit loop formation. It explains how to program the brain for high productivity, eliminate dopamine"
-keywords: ["the 90-day habit system", "josh smith", "discipline", "self improvement", "wealth", "discipline"]
+description: "Discover how The 90-Day Habit System uses neuroscience-backed habit loops to rewire your brain for lasting productivity. A complete review of Josh Smith's 90-day framework."
+keywords: ["90-day habit system review","josh smith","discipline","self improvement"]
 ---
+
+> Disclosure: This post contains affiliate links. If you purchase through our links, we may earn a small commission at no extra cost to you.
 
 ## Unlocking Potential: The Science of Habit Formation
 
@@ -12,17 +14,17 @@ In a world rife with distractions and instant gratifications, the ability to cul
 
 ### The Neuroscience of Habits
 
-At the core of habit formation lies neuroplasticity, the brain's remarkable ability to reorganize itself by forming new neural connections throughout life. This capacity means that you are not merely a product of your past behaviors; you are capable of reshaping your brain to adapt and thrive. “The 90-Day Habit System” delves deep into this concept, offering readers an insightful exploration of the habit loop—cue, routine, and reward. By understanding how these components interact, you can reprogram your brain to replace unproductive habits with those that foster success.
+At the core of habit formation lies neuroplasticity, the brain's remarkable ability to reorganize itself by forming new neural connections throughout [life](/posts/book_let_them_let_me). This capacity means that you are not merely a product of your past behaviors; you are capable of reshaping your brain to adapt and thrive. “The 90-Day Habit System” delves deep into this concept, offering readers an insightful exploration of the habit loop—cue, routine, and reward. By understanding how these components interact, you can reprogram your brain to replace unproductive [habits](/posts/discipline_mindset_habits) with those that foster [success](/posts/discipline_goal_setting).
 
 ### The 90-Day Framework
 
-The structure of a 90-day system is not arbitrary; it’s grounded in science. Research indicates that it takes an average of 66 days to form a new habit, but this can vary. Smith meticulously outlines a tailored approach that not only helps you establish new habits but also locks them in for the long term. Through practical exercises and actionable strategies, readers learn to harness the power of consistency and discipline.
+The structure of a 90-day system is not arbitrary; it’s grounded in science. Research indicates that it takes an average of 66 days to form a new habit, but this can vary. Smith meticulously outlines a tailored approach that not only helps you establish new [habits](/posts/discipline_mindset_habits) but also locks them in for the long term. Through practical exercises and actionable strategies, readers learn to harness the power of consistency and [discipline](/posts/book_hybrid_performance_log).
 
 ![Mastery Focus and Framework](/images/book_90_day_habit_system_focus.svg)
 
 ### Breaking Free from Dopamine Traps
 
-In our hyper-connected age, it’s all too easy to fall into dopamine traps—behaviors that provide short-term pleasure but lead to long-term dissatisfaction and distraction. “The 90-Day Habit System” arms you with the knowledge to identify these traps and offers alternatives that promote sustained happiness and productivity. By understanding how to manage dopamine effectively, you can elevate your focus and reach unprecedented levels of achievement.
+In our hyper-connected age, it’s all too easy to fall into dopamine traps—behaviors that provide short-term pleasure but lead to long-term dissatisfaction and distraction. “The 90-Day Habit System” arms you with the knowledge to identify these traps and offers alternatives that promote sustained happiness and productivity. By understanding how to manage dopamine effectively, you can elevate your [focus](/posts/discipline_digital_detox) and reach unprecedented levels of achievement.
 
 ### Cultivating Self-Discipline
 

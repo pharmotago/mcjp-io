@@ -14,9 +14,9 @@ In an era characterized by relentless distractions and a fast-paced lifestyle, t
 
 ### Understanding Mental Fortitude
 
-Mental fortitude encompasses a set of psychological skills that enable individuals to persevere through difficulties. It involves three key components: resilience, focus, and discipline. Resilience allows you to bounce back from setbacks; focus helps you concentrate on your goals; discipline ensures that you remain committed to your objectives despite temptations to stray.
+Mental fortitude encompasses a set of psychological skills that enable individuals to persevere through difficulties. It involves three key components: resilience, [focus](/posts/discipline_digital_detox), and [discipline](/posts/book_90_day_habit_system). Resilience allows you to bounce back from setbacks; focus helps you concentrate on your goals; [discipline](/posts/book_hybrid_performance_log) ensures that you remain committed to your objectives despite temptations to stray.
 
-The importance of mental fortitude cannot be overstated—it is the bedrock of success in any endeavor. Whether you are striving for personal growth, career advancement, or financial autonomy, the ability to maintain focus and discipline is pivotal.
+The importance of mental fortitude cannot be overstated—it is the bedrock of [success](/posts/discipline_goal_setting) in any endeavor. Whether you are striving for personal growth, career advancement, or financial autonomy, the ability to maintain [focus](/posts/discipline_digital_detox) and [discipline](/posts/book_90_day_habit_system) is pivotal.
 
 ### Strategies for Enhancing Mental Resilience
 

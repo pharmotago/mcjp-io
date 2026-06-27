@@ -12,11 +12,11 @@ In the contemporary landscape where [technology](/posts/discipline_digital_detox
 
 ### The Digital Dilemma
 
-Technology, with its limitless potential, offers both opportunities and challenges. The dilemma rests in its dual nature: a powerful enabler when mastered, and a relentless distractor when it masters you. For the modern man, who is committed to building long-term assets such as career, family, and personal development, digital discipline is not optional—it is essential.
+[Technology](/posts/discipline_digital_detox), with its limitless potential, offers both opportunities and challenges. The dilemma rests in its dual nature: a powerful enabler when mastered, and a relentless distractor when it masters you. For the modern man, who is committed to building long-term assets such as career, family, and [personal development](/posts/discipline_mindset_habits), digital [discipline](/posts/book_90_day_habit_system) is not optional—it is essential.
 
 ### The Importance of Mindful Technology
 
-Mindfulness in technology use is not just a trendy buzzword; it is a critical component of self-discipline. It involves being fully present and intentional with how you engage with digital tools. This approach not only enhances focus but also significantly boosts productivity. By consciously choosing when and how to interact with technology, you create space for deep work and meaningful connections.
+Mindfulness in [technology](/posts/discipline_digital_detox) use is not just a trendy buzzword; it is a critical component of self-[discipline](/posts/book_90_day_habit_system). It involves being fully present and intentional with how you engage with digital tools. This approach not only enhances [focus](/posts/discipline_emotional_stability_practices) but also significantly boosts productivity. By consciously choosing when and how to interact with technology, you create space for deep work and meaningful connections.
 
 ### Action Plan for Digital Discipline
 

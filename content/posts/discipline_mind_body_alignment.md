@@ -16,7 +16,7 @@ Mind-body alignment refers to the harmonious interaction between mental facultie
 
 #### The Importance of Discipline
 
-Discipline is the cornerstone of achieving mind-body alignment. It involves establishing routines and practices that foster both mental clarity and physical vitality. Without discipline, even the most well-intentioned goals may falter. Here are key principles to consider:
+[Discipline](/posts/book_90_day_habit_system) is the cornerstone of achieving mind-body alignment. It involves establishing routines and practices that foster both [mental clarity](/posts/discipline_digital_detox) and physical vitality. Without [discipline](/posts/book_hybrid_performance_log), even the most well-intentioned goals may falter. Here are key principles to consider:
 
 - **Consistency**: Regularly engaging in activities that promote mental and physical health is essential. Consistency builds momentum and reinforces positive habits.
   
@@ -26,7 +26,7 @@ Discipline is the cornerstone of achieving mind-body alignment. It involves esta
 
 ### Principles of Holistic Success
 
-Achieving holistic success involves integrating various life dimensions, including career, relationships, and personal growth. Each of these domains requires attention and intentional alignment of mind and body.
+Achieving holistic [success](/posts/discipline_goal_setting) involves integrating various [life](/posts/book_let_them_let_me) dimensions, including career, relationships, and [personal growth](/posts/discipline_self_awareness_journey). Each of these domains requires attention and intentional alignment of mind and body.
 
 #### 1. Career and Professional Development
 
