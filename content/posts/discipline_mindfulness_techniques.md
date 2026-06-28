@@ -1,6 +1,6 @@
 ---
 title: "Mindfulness Techniques for Enhancing Focus and Reducing Stress"
-date: "2026-09-14"
+date: "2026-09-21"
 category: "Discipline"
 description: "Learn effective mindfulness techniques that can help improve focus, reduce stress, and promote mental clarity in daily life."
 keywords: ["mindfulness","focus","stress reduction","mental clarity","discipline"]

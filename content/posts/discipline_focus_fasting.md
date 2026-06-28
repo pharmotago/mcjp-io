@@ -1,6 +1,6 @@
 ---
 title: "Focus Fasting: How Temporary Abstinence Can Sharpen Your Mind"
-date: "2026-11-18"
+date: "2026-11-25"
 category: "Discipline"
 description: "Uncover the concept of focus fasting and how temporary abstinence from distractions can enhance mental clarity and productivity. Dive into techniques that promote deep focus and concentration."
 keywords: ["focus fasting","mental clarity","discipline","productivity"]

@@ -1,6 +1,6 @@
 ---
 title: "Future-Proof Investments for the Modern Man"
-date: "2026-10-16"
+date: "2026-10-23"
 category: "Money"
 description: "Explore investment strategies that stand the test of time, focusing on long-term growth and stability to secure your financial future."
 keywords: ["future investments","wealth building","financial security","investment trends"]

@@ -1,6 +1,6 @@
 ---
 title: "The Power of Modern Mentorship: Building Bridges Across Generations"
-date: "2026-08-26"
+date: "2026-09-02"
 category: "Life"
 description: "Explore the transformative potential of modern mentorship and how building relationships across generations can foster personal growth and professional success."
 keywords: ["mentorship","generational bridges","personal growth","guidance"]

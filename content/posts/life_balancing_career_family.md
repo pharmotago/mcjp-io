@@ -1,6 +1,6 @@
 ---
 title: "Balancing Career and Family"
-date: "2027-01-25"
+date: "2027-02-01"
 category: "Life"
 description: "A guide to achieving harmony and balance between your career commitments and family duties."
 keywords: ["career", "family", "work life balance"]

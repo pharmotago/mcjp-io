@@ -1,6 +1,6 @@
 ---
 title: "Thriving in the AI Era: Building Wealth through AI Entrepreneurship"
-date: "2026-07-20"
+date: "2026-07-27"
 category: "Money"
 description: "Uncover the opportunities for wealth creation in the age of AI, including actionable steps to start your own AI-driven business and thrive in this evolving landscape."
 keywords: ["AI entrepreneurship","wealth creation","technology","startups"]

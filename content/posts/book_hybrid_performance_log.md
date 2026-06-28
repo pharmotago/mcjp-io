@@ -1,6 +1,6 @@
 ---
 title: "Hybrid Performance Log Review: The Strength + Endurance Training System for Modern Men"
-date: "2027-01-08"
+date: "2027-01-15"
 category: "Discipline"
 description: "A comprehensive guide on hybrid athletic performance, discussing why combining strength training and cardiovascular endurance is the ultimate physical standard."
 keywords: ["hybrid performance log review hybrid athlete","josh smith","discipline"]

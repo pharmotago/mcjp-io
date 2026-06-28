@@ -1,6 +1,6 @@
 ---
 title: "Teaching Financial Savvy: A Father's Guide to Educating Children"
-date: "2026-09-25"
+date: "2026-10-02"
 category: "Life"
 description: "Learn effective techniques for imparting financial wisdom to your children, ensuring they grow up with the skills to manage their own wealth."
 keywords: ["fatherhood","financial education","children","money management"]

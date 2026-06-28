@@ -1,6 +1,6 @@
 ---
 title: "The Science of Goal Setting: Turning Dreams into Achievable Plans"
-date: "2026-07-29"
+date: "2026-08-05"
 category: "Discipline"
 description: "Learn how to effectively set and achieve goals using scientifically-backed methods. This article covers practical steps to transform your dreams into realistic and attainable plans."
 keywords: ["goal setting","achievement","planning","success"]

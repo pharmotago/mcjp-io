@@ -1,6 +1,6 @@
 ---
 title: "Hybrid Investing: Bridging Traditional and Digital Wealth"
-date: "2026-10-19"
+date: "2026-10-26"
 category: "Money"
 description: "Explore the innovative world of hybrid investing, where traditional assets meet digital platforms, and learn how to diversify your portfolio for long-term success."
 keywords: ["hybrid investing","traditional assets","digital wealth","investment strategy"]
