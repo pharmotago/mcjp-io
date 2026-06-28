@@ -9,6 +9,9 @@ interface PostData {
   category: string;
   description: string;
   keywords: string[];
+  canonical?: string;
+  ogImage?: string;
+  readingTime?: number;
 }
 
 interface Post {
@@ -18,6 +21,7 @@ interface Post {
   category: string;
   description: string;
   keywords: string[];
+  readingTime?: number;
 }
 
 function parseMarkdown(fileContent: string) {
@@ -53,6 +57,11 @@ function getPost(id: string) {
   
   const fileContent = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = parseMarkdown(fileContent);
+
+  // Calculate reading time based on word count
+  const wordCount = content.trim().split(/\s+/).length;
+  const readingTime = Math.ceil(wordCount / 200);
+
   return {
     id,
     data: {
@@ -61,6 +70,9 @@ function getPost(id: string) {
       category: data.category || 'General',
       description: data.description || '',
       keywords: data.keywords || [],
+      canonical: data.canonical || undefined,
+      ogImage: data['og:image'] || data.ogImage || undefined,
+      readingTime,
     } as PostData,
     content,
   };
@@ -77,11 +89,18 @@ export async function generateMetadata(
     };
   }
 
-  // Check if post-specific focus image exists in public folder
-  const focusImgPath = path.join(process.cwd(), 'public', 'images', `${resolvedParams.id}_focus.png`);
-  const ogImageUrl = fs.existsSync(focusImgPath)
-    ? `https://blog.mcjp.io/images/${resolvedParams.id}_focus.png`
-    : 'https://blog.mcjp.io/og-image.png';
+  // Check if post-specific focus image exists in public folder or if frontmatter has ogImage
+  let ogImageUrl = 'https://blog.mcjp.io/og-image.png';
+  if (post.data.ogImage) {
+    ogImageUrl = post.data.ogImage.startsWith('http')
+      ? post.data.ogImage
+      : `https://blog.mcjp.io${post.data.ogImage.startsWith('/') ? '' : '/'}${post.data.ogImage}`;
+  } else {
+    const focusImgPath = path.join(process.cwd(), 'public', 'images', `${resolvedParams.id}_focus.png`);
+    if (fs.existsSync(focusImgPath)) {
+      ogImageUrl = `https://blog.mcjp.io/images/${resolvedParams.id}_focus.png`;
+    }
+  }
 
   const title = `${post.data.title} | MCJP.io`;
   const description = post.data.description || 'MCJP.io - Master of Family, Money & Life';
@@ -90,6 +109,7 @@ export async function generateMetadata(
     title,
     description,
     keywords: post.data.keywords || [],
+    alternates: post.data.canonical ? { canonical: post.data.canonical } : undefined,
     openGraph: {
       title,
       description,
@@ -125,7 +145,11 @@ function getRelatedPosts(currentId: string, category: string): Post[] {
       const id = file.replace(/\.md$/, '');
       const fullPath = path.join(postsDir, file);
       const fileContent = fs.readFileSync(fullPath, 'utf8');
-      const { data } = parseMarkdown(fileContent);
+      const { data, content } = parseMarkdown(fileContent);
+
+      const wordCount = content.trim().split(/\s+/).length;
+      const readingTime = Math.ceil(wordCount / 200);
+
       return {
         id,
         title: data.title || id,
@@ -133,6 +157,7 @@ function getRelatedPosts(currentId: string, category: string): Post[] {
         category: data.category || 'General',
         description: data.description || '',
         keywords: data.keywords || [],
+        readingTime,
       };
     });
     
@@ -214,7 +239,7 @@ export default async function PostPage({
         }
 
         // Dynamically inject in-article ad slot right in the middle if environment variable is defined
-        if (index === midIndex && process.env.NEXT_PUBLIC_ADSENSE_MID_SLOT) {
+        if (index === midIndex && process.env.NEXT_PUBLIC_ADSENSE_APPROVED === 'true' && process.env.NEXT_PUBLIC_ADSENSE_MID_SLOT) {
           const midAdSlot = `
             <div class="my-8">
               <ins class="adsbygoogle"
@@ -278,10 +303,18 @@ export default async function PostPage({
           <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 leading-tight">
             {post.data.title}
           </h1>
-          <div className="text-xs text-slate-400">
-            Published on {post.data.date}
+          <div className="flex justify-between items-center text-xs text-slate-400">
+            <span>Published on {post.data.date}</span>
+            {post.data.readingTime && (
+              <span className="font-medium text-slate-500">{post.data.readingTime} min read</span>
+            )}
           </div>
         </header>
+
+        {/* FTC Affiliate Disclosure */}
+        <div className="text-xs text-slate-500 bg-slate-50 border border-slate-200 rounded-lg p-4 italic leading-relaxed">
+          <strong>Disclosure:</strong> This post may contain affiliate links. If you make a purchase through our links, we may earn a small commission at no extra cost to you. We only recommend products and services we genuinely believe in.
+        </div>
 
         {/* Body content */}
         <div 
@@ -340,7 +373,7 @@ export default async function PostPage({
         </div>
 
         {/* Google AdSense Post-Body Ad Unit Slot */}
-        {process.env.NEXT_PUBLIC_ADSENSE_POST_SLOT && (
+        {process.env.NEXT_PUBLIC_ADSENSE_APPROVED === 'true' && process.env.NEXT_PUBLIC_ADSENSE_POST_SLOT && (
           <div className="mt-8">
             <ins className="adsbygoogle"
                  style={{ display: 'block' }}
@@ -373,7 +406,12 @@ export default async function PostPage({
                     {rel.title}
                   </h4>
                 </div>
-                <span className="text-[10px] text-slate-400 mt-2 block">{rel.date}</span>
+                <div className="flex items-center justify-between text-[10px] text-slate-400 mt-2">
+                  <span>{rel.date}</span>
+                  {rel.readingTime && (
+                    <span className="font-medium text-slate-500">{rel.readingTime} min read</span>
+                  )}
+                </div>
               </a>
             ))}
           </div>

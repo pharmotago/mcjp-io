@@ -42,20 +42,22 @@ function buildPostIndex() {
         const fileContent = fs.readFileSync(fullPath, 'utf8');
         const { data } = parseMarkdown(fileContent);
         
-        // Collect search phrases: title, and keywords
+        // Collect search phrases: title, and keywords (enforcing 2+ words to avoid spammy single-word links)
         const phrases = new Set();
+        const addPhraseIfValid = (p) => {
+            if (p && p.trim().split(/\s+/).length >= 2) {
+                phrases.add(p.toLowerCase().trim());
+            }
+        };
+
         if (data.title) {
-            // Clean title for phrases, e.g. "Master Your Day: How Morning Routines..." -> "Morning Routines"
-            phrases.add(data.title.toLowerCase());
-            // Extract core concepts
-            const cleanedTitle = data.title.replace(/[:&|?]/g, '').toLowerCase();
-            phrases.add(cleanedTitle);
+            addPhraseIfValid(data.title);
+            const cleanedTitle = data.title.replace(/[:&|?]/g, '');
+            addPhraseIfValid(cleanedTitle);
         }
         if (data.keywords && Array.isArray(data.keywords)) {
             data.keywords.forEach(kw => {
-                if (kw.length > 3) {
-                    phrases.add(kw.toLowerCase().trim());
-                }
+                addPhraseIfValid(kw);
             });
         }
 
@@ -144,19 +146,20 @@ function runInternalLinking() {
         const fileContent = fs.readFileSync(fullPath, 'utf8');
         const parsed = parseMarkdown(fileContent);
 
-        // Strip existing links before injecting to prevent double links
-        let cleanBody = parsed.content;
+        // Strip existing single-word links (e.g. [discipline](/posts/...)) before injecting new ones
+        let cleanBody = parsed.content.replace(/\[([^\]\s]+)\]\(([^)]+)\)/g, '$1');
         
         const result = injectLinksIntoContent(id, cleanBody, postIndex);
-        if (result.linksAdded > 0) {
-            // Reconstruct frontmatter + body
+        
+        // Reconstruct frontmatter and body if content changed
+        if (result.content !== parsed.content) {
             const frontmatterMatch = fileContent.match(/^(---\r?\n[\s\S]+?\r?\n---\r?\n)/);
             if (frontmatterMatch) {
                 const newFullContent = frontmatterMatch[1] + result.content;
                 fs.writeFileSync(fullPath, newFullContent, 'utf8');
                 totalLinksAdded += result.linksAdded;
                 modifiedFiles++;
-                console.log(`✅ Injected ${result.linksAdded} links into: ${file}`);
+                console.log(`✅ Cleaned & Updated links in: ${file} (New links: ${result.linksAdded})`);
             }
         }
     }

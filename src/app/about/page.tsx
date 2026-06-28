@@ -1,3 +1,29 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About MCJP.io — Sovereign Blueprints for the Modern Man",
+  description: "MCJP.io publishes actionable systems for building leveraged wealth, mastering discipline, and leading your family with integrity. No fluff — just the blueprints.",
+  openGraph: {
+    title: "About MCJP.io — Sovereign Blueprints for the Modern Man",
+    description: "MCJP.io publishes actionable systems for building leveraged wealth, mastering discipline, and leading your family with integrity. No fluff — just the blueprints.",
+    images: [
+      {
+        url: 'https://blog.mcjp.io/og/about-mcjpio.png',
+        width: 1200,
+        height: 630,
+        alt: "About MCJP.io — Sovereign Blueprints for the Modern Man",
+      }
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "About MCJP.io — Sovereign Blueprints for the Modern Man",
+    description: "MCJP.io publishes actionable systems for building leveraged wealth, mastering discipline, and leading your family with integrity. No fluff — just the blueprints.",
+    images: ['https://blog.mcjp.io/og/about-mcjpio.png'],
+  }
+};
+
 export default function AboutPage() {
   return (
     <div className="max-w-3xl mx-auto space-y-10 py-8 px-4">

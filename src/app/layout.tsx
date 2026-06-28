@@ -71,7 +71,7 @@ export default function RootLayout({
         </header>
 
         {/* Top Leaderboard Ad Unit */}
-        {process.env.NEXT_PUBLIC_ADSENSE_TOP_SLOT && (
+        {process.env.NEXT_PUBLIC_ADSENSE_APPROVED === 'true' && process.env.NEXT_PUBLIC_ADSENSE_TOP_SLOT && (
           <div className="max-w-6xl w-full mx-auto px-6 pt-6 -mb-6">
             <ins className="adsbygoogle"
                  style={{ display: 'block', width: '100%' }}

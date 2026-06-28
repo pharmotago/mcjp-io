@@ -1,22 +1,24 @@
 ---
 title: "Mastering Mindful Technology Use: A Discipline for the Modern Man"
-date: "2026-06-16"
+date: "2026-09-16"
 category: "Discipline"
 description: "Learn how to cultivate a disciplined approach to technology use that enhances focus and productivity. This guide provides practical tips for modern men seeking to balance tech use with mindfulness."
 keywords: ["mindful technology","digital discipline","focus","productivity"]
+author: "Peter Kim"
+lastUpdated: "2026-09-16"
 ---
 
 ## Mastering Mindful Technology Use: A Discipline for the Modern Man
 
-In the contemporary landscape where [technology](/posts/discipline_digital_detox) infiltrates every crevice of our lives, mastering mindful technology use stands as a formidable [discipline](/posts/book_90_day_habit_system) for the modern man. This is not merely about installing another app to curb your screen time but about cultivating an inner [discipline](/posts/book_90_day_longevity_protocol_log) that transforms technology from a distraction into a tool for growth. This article delves into the strategies necessary to enhance focus and productivity while maintaining integrity in your digital engagement.
+In the contemporary landscape where technology infiltrates every crevice of our lives, mastering mindful technology use stands as a formidable discipline for the [modern man](/posts/life_masculine_emotional_balance). This is not merely about installing another app to curb your screen time but about cultivating an inner discipline that transforms technology from a distraction into a tool for growth. This article delves into the strategies necessary to enhance focus and productivity while maintaining integrity in your digital engagement.
 
 ### The Digital Dilemma
 
-[Technology](/posts/discipline_digital_detox), with its limitless potential, offers both opportunities and challenges. The dilemma rests in its dual nature: a powerful enabler when mastered, and a relentless distractor when it masters you. For the modern man, who is committed to building long-term assets such as career, family, and [personal development](/posts/discipline_mindset_habits), digital [discipline](/posts/book_90_day_habit_system) is not optional—it is essential.
+Technology, with its limitless potential, offers both opportunities and challenges. The dilemma rests in its dual nature: a powerful enabler when mastered, and a relentless distractor when it masters you. For the modern man, who is committed to building long-term assets such as career, family, and [personal development](/posts/discipline_mindset_habits), digital discipline is not optional—it is essential.
 
 ### The Importance of Mindful Technology
 
-Mindfulness in [technology](/posts/discipline_digital_detox) use is not just a trendy buzzword; it is a critical component of self-[discipline](/posts/book_90_day_habit_system). It involves being fully present and intentional with how you engage with digital tools. This approach not only enhances [focus](/posts/discipline_emotional_stability_practices) but also significantly boosts productivity. By consciously choosing when and how to interact with technology, you create space for deep work and meaningful connections.
+Mindfulness in technology use is not just a trendy buzzword; it is a critical component of self-discipline. It involves being fully present and intentional with how you engage with digital tools. This approach not only enhances focus but also significantly boosts productivity. By consciously choosing when and how to interact with technology, you create space for deep work and meaningful connections.
 
 ### Action Plan for Digital Discipline
 

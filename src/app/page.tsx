@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import NewsletterForm from '../components/NewsletterForm';
 
 interface Post {
   id: string;
@@ -8,6 +9,7 @@ interface Post {
   category: string;
   description: string;
   keywords: string[];
+  readingTime?: number;
 }
 
 function parseMarkdown(fileContent: string) {
@@ -40,13 +42,18 @@ function getPosts(): Post[] {
   if (!fs.existsSync(postsDir)) return [];
   
   const files = fs.readdirSync(postsDir);
-  return files
+  const allPosts = files
     .filter(file => file.endsWith('.md'))
     .map(file => {
       const id = file.replace(/\.md$/, '');
       const fullPath = path.join(postsDir, file);
       const fileContent = fs.readFileSync(fullPath, 'utf8');
-      const { data } = parseMarkdown(fileContent);
+      const { data, content } = parseMarkdown(fileContent);
+
+      // Calculate reading time based on word count
+      const wordCount = content.trim().split(/\s+/).length;
+      const readingTime = Math.ceil(wordCount / 200);
+
       return {
         id,
         title: data.title || id,
@@ -54,9 +61,16 @@ function getPosts(): Post[] {
         category: data.category || 'General',
         description: data.description || '',
         keywords: data.keywords || [],
+        readingTime,
       };
-    })
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    });
+
+  // Filter out future posts, unless in development mode
+  const todayStr = new Date().toISOString().split('T')[0];
+  const isDev = process.env.NODE_ENV === 'development';
+  const filtered = isDev ? allPosts : allPosts.filter(post => post.date <= todayStr);
+
+  return filtered.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
 export default async function Home({
@@ -100,15 +114,51 @@ export default async function Home({
             name="q"
             defaultValue={searchQuery}
             placeholder="Search articles..."
-            className="w-full bg-white border border-slate-200 rounded-full px-5 py-2.5 pl-11 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all shadow-xs"
+            className="w-full bg-white border border-slate-200 rounded-full px-5 py-2.5 pl-11 pr-10 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all shadow-xs"
           />
           <span className="absolute left-4 top-3.5 text-slate-400">
             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
           </span>
+          {searchQuery && (
+            <a
+              href="/"
+              className="absolute right-4 top-3.5 text-slate-400 hover:text-slate-600 cursor-pointer flex items-center justify-center"
+              title="Clear search"
+            >
+              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </a>
+          )}
           {activeCategory && <input type="hidden" name="category" value={activeCategory} />}
         </form>
+
+        {/* Category Tabs */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mt-8 border-b border-slate-200 pb-6">
+          {[
+            { name: "All", href: "/" },
+            { name: "Money", href: "/?category=Money" },
+            { name: "Life", href: "/?category=Life" },
+            { name: "Discipline", href: "/?category=Discipline" }
+          ].map((tab) => {
+            const isActive = tab.name === "All" ? !activeCategory : activeCategory.toLowerCase() === tab.name.toLowerCase();
+            return (
+              <a
+                key={tab.name}
+                href={tab.href}
+                className={`px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 shadow-xs border ${
+                  isActive
+                    ? "bg-amber-600 border-amber-600 text-white"
+                    : "bg-white border-slate-200 text-slate-500 hover:text-slate-800 hover:border-slate-300"
+                }`}
+              >
+                {tab.name}
+              </a>
+            );
+          })}
+        </div>
       </section>
 
       {/* Featured Post (Only on main page with no filters) */}
@@ -122,9 +172,14 @@ export default async function Home({
             className="block p-6 md:p-8 rounded-lg glass-panel hover:border-amber-500/50 transition-all duration-300 space-y-4"
           >
             <div className="flex items-center justify-between text-xs">
-              <span className="px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-700 font-semibold uppercase tracking-wider">
-                {featuredPost.category}
-              </span>
+              <div className="flex items-center gap-3">
+                <span className="px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-700 font-semibold uppercase tracking-wider">
+                  {featuredPost.category}
+                </span>
+                {featuredPost.readingTime && (
+                  <span className="text-slate-500 font-medium">{featuredPost.readingTime} min read</span>
+                )}
+              </div>
               <span className="text-slate-400">{featuredPost.date}</span>
             </div>
             <h3 className="text-2xl md:text-4xl font-bold text-slate-900 hover:text-amber-600 transition-colors leading-tight">
@@ -163,33 +218,7 @@ export default async function Home({
             {/* Newsletter module injected dynamically as first item if browsing all */}
             {isBrowsingAll && (
               <>
-                <div className="p-6 rounded-lg glass-panel bg-white/70 flex flex-col justify-between min-h-[220px]">
-                  <div className="space-y-2">
-                    <span className="text-xs font-semibold text-amber-600 uppercase tracking-widest">🔒 The Sovereign Morning Stack</span>
-                    <h3 className="text-xl font-bold text-slate-900">7 Non-Negotiable Habits of High-Performing Men</h3>
-                    <p className="text-slate-700 text-xs font-medium">Free PDF Checklist — Instant Download</p>
-                    <p className="text-slate-600 text-xs leading-relaxed">
-                      Join 5,000+ men who've replaced aimless mornings with a structured sovereignty protocol.
-                    </p>
-                    <p className="text-slate-500 text-[10px] italic">
-                      ✓ No fluff  ✓ No motivation porn  ✓ Just the protocol
-                    </p>
-                  </div>
-                  <form className="mt-4 flex gap-2" action="/" method="GET">
-                    <input
-                      type="email"
-                      placeholder="Enter your email address"
-                      required
-                      className="flex-grow bg-slate-50 border border-slate-200 rounded px-3 py-2.5 text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-amber-500"
-                    />
-                    <button
-                      type="submit"
-                      className="bg-amber-600 hover:bg-amber-500 text-white px-4 py-2.5 rounded text-xs font-semibold transition-colors cursor-pointer shadow-xs"
-                    >
-                      Get the Free PDF &rarr;
-                    </button>
-                  </form>
-                </div>
+                <NewsletterForm />
 
                 {/* Hostinger Partner Offer Widget */}
                 <div className="p-6 rounded-lg glass-panel bg-amber-50/20 border border-amber-200/40 flex flex-col justify-between min-h-[220px] shadow-xs">
@@ -239,9 +268,14 @@ export default async function Home({
                 >
                   <div className="space-y-4">
                     <div className="flex items-center justify-between text-xs">
-                      <span className="px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-700 font-semibold uppercase tracking-wider">
-                        {post.category}
-                      </span>
+                      <div className="flex items-center gap-2">
+                        <span className="px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-700 font-semibold uppercase tracking-wider">
+                          {post.category}
+                        </span>
+                        {post.readingTime && (
+                          <span className="text-slate-500 font-medium">{post.readingTime} min read</span>
+                        )}
+                      </div>
                       <span className="text-slate-400">{post.date}</span>
                     </div>
                     <h3 className="text-xl font-bold text-slate-900 hover:text-amber-600 transition-colors">
@@ -261,7 +295,7 @@ export default async function Home({
                 </a>
 
                 {/* Inline Ad slot injected after display post index 1 */}
-                {index === 1 && process.env.NEXT_PUBLIC_ADSENSE_IN_FEED_SLOT && (
+                {index === 1 && process.env.NEXT_PUBLIC_ADSENSE_APPROVED === 'true' && process.env.NEXT_PUBLIC_ADSENSE_IN_FEED_SLOT && (
                   <div className="col-span-full p-4 rounded border border-slate-200 bg-slate-50 text-center text-xs text-slate-500 min-h-[110px] flex flex-col justify-center items-center relative shadow-xs">
                     <div className="absolute top-1 left-2 uppercase tracking-widest text-[8px] text-slate-400 font-semibold select-none">Advertisement</div>
                     <ins className="adsbygoogle"

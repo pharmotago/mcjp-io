@@ -12,6 +12,7 @@ const IMAGES_DIR = path.join(ROOT_DIR, 'public', 'images');
 const LIVE_BOOKS = [
   {
     title: "The Hybrid Performance Log",
+    optimizedTitle: "Hybrid Performance Log Review: The Strength + Endurance Training System for Modern Men",
     author: "Josh Smith",
     format: "Paperback",
     price: "12.99",
@@ -19,10 +20,13 @@ const LIVE_BOOKS = [
     slug: "book_hybrid_performance_log",
     category: "Discipline",
     focus: "Hybrid athletic training, strength and endurance tracking, physical discipline",
-    summary: "A comprehensive guide on hybrid athletic performance, discussing why combining strength training and cardiovascular endurance is the ultimate physical standard. It introduces the Hybrid Performance Log as the essential tool to track metrics, break plateaus, and build a resilient body."
+    summary: "A comprehensive guide on hybrid athletic performance, discussing why combining strength training and cardiovascular endurance is the ultimate physical standard. It introduces the Hybrid Performance Log as the essential tool to track metrics, break plateaus, and build a resilient body.",
+    optimizedDescription: "A comprehensive guide on hybrid athletic performance, discussing why combining strength training and cardiovascular endurance is the ultimate physical standard.",
+    targetKeyword: "hybrid performance log review hybrid athlete"
   },
   {
     title: "The 90-Day Habit System",
+    optimizedTitle: "The 90-Day Habit System Review: Does Josh Smith's Framework Actually Rewire Your Brain?",
     author: "Josh Smith",
     format: "Kindle eBook",
     price: "14.99",
@@ -30,10 +34,13 @@ const LIVE_BOOKS = [
     slug: "book_90_day_habit_system",
     category: "Discipline",
     focus: "Habit formation, neuroplasticity, self-discipline, and deep focus",
-    summary: "An in-depth article exploring the neurological mechanics of habit loop formation. It explains how to program the brain for high productivity, eliminate dopamine traps, and utilize a structured 90-day system to lock in lifelong success habits."
+    summary: "An in-depth article exploring the neurological mechanics of habit loop formation. It explains how to program the brain for high productivity, eliminate dopamine traps, and utilize a structured 90-day system to lock in lifelong success habits.",
+    optimizedDescription: "Discover how The 90-Day Habit System uses neuroscience-backed habit loops to rewire your brain for lasting productivity. A complete review of Josh Smith's 90-day framework.",
+    targetKeyword: "90 day habit system review josh smith"
   },
   {
     title: "The 90-Day Longevity Protocol Log",
+    optimizedTitle: "90-Day Longevity Protocol Review: The Biomarker-Based Healthspan System Explained",
     author: "Josh Smith",
     format: "Paperback",
     price: "14.99",
@@ -41,10 +48,13 @@ const LIVE_BOOKS = [
     slug: "book_90_day_longevity_protocol_log",
     category: "Life",
     focus: "Longevity, health optimization, biomarkers, and active physical protocol tracking",
-    summary: "Focuses on the science of healthspan and cellular longevity. Discusses critical biomarkers, diet/exercise protocols that delay aging, and how a rigorous 90-day tracking framework allows men to optimize their physical age and maintain peak vitality."
+    summary: "Focuses on the science of healthspan and cellular longevity. Discusses critical biomarkers, diet/exercise protocols that delay aging, and how a rigorous 90-day tracking framework allows men to optimize their physical age and maintain peak vitality.",
+    optimizedDescription: "Focuses on the science of healthspan and cellular longevity. Discusses critical biomarkers, diet/exercise protocols that delay aging, and how a rigorous 90-day protocol is tracked.",
+    targetKeyword: "90 day longevity protocol review"
   },
   {
     title: "The Low-Friction ADHD Planner",
+    optimizedTitle: "Low-Friction ADHD Planner Review: Productivity Systems That Actually Work for ADHD Brains",
     author: "Josh Smith",
     format: "Paperback",
     price: "12.99",
@@ -52,10 +62,13 @@ const LIVE_BOOKS = [
     slug: "book_low_friction_adhd_planner",
     category: "Discipline",
     focus: "ADHD productivity, reducing executive dysfunction, and managing cognitive load",
-    summary: "Addresses the unique productivity challenges faced by neurodivergent individuals. It details practical systems to bypass executive dysfunction, lower friction for starting tasks, and leverage the Low-Friction ADHD Planner to gain daily control without burnout."
+    summary: "Addresses the unique productivity challenges faced by neurodivergent individuals. It details practical systems to bypass executive dysfunction, lower friction for starting tasks, and leverage the Low-Friction ADHD Planner to gain daily control without burnout.",
+    optimizedDescription: "Addresses the unique productivity challenges faced by neurodivergent individuals. It details practical systems to bypass executive dysfunction and manage cognitive load.",
+    targetKeyword: "ADHD planner productivity system review"
   },
   {
     title: "Unburden Your Brain",
+    optimizedTitle: "Unburden Your Brain Review: Jordan Clark's System to Eliminate Mental Load and Life Admin",
     author: "Jordan R Clark",
     format: "Kindle eBook",
     price: "7.99",
@@ -63,10 +76,13 @@ const LIVE_BOOKS = [
     slug: "book_unburden_your_brain",
     category: "Life",
     focus: "Mastering life admin, reducing the mental load, and cognitive organization systems",
-    summary: "Exposes the hidden drain of 'life admin' and mental load on modern professionals. It offers a structured methodology to offload administrative tasks, streamline domestic systems, and reclaim focus, promoting the book as the definitive master manual."
+    summary: "Exposes the hidden drain of 'life admin' and mental load on modern professionals. It offers a structured methodology to offload administrative tasks, streamline domestic systems, and reclaim focus, promoting the book as the definitive master manual.",
+    optimizedDescription: "Exposes the hidden drain of 'life admin' and mental load on modern professionals. It offers a structured methodology to offload administrative tasks and reclaim focus.",
+    targetKeyword: "unburden your brain review mental load"
   },
   {
     title: "Let Them + Let Me: The Boundary Reset Guide",
+    optimizedTitle: "Let Them Let Me Review: Jordan Clark's Boundary Reset Philosophy for Emotional Sovereignty",
     author: "Jordan R Clark",
     format: "Kindle eBook",
     price: "7.99",
@@ -74,7 +90,9 @@ const LIVE_BOOKS = [
     slug: "book_let_them_let_me",
     category: "Life",
     focus: "Boundary setting, relationship health, emotional sovereignty, and self-assertion",
-    summary: "A powerful treatise on emotional sovereignty and relational boundaries. It details the 'Let Them + Let Me' philosophy, explaining how letting others make their choices while establishing firm personal boundaries is the key to respect, peace of mind, and healthy leadership."
+    summary: "A powerful treatise on emotional sovereignty and relational boundaries. It details the 'Let Them + Let Me' philosophy, explaining how letting others make their choices while establishing firm personal boundaries is the key to respect, peace of mind, and healthy leadership.",
+    optimizedDescription: "A powerful treatise on emotional sovereignty and relational boundaries. It details the 'Let Them + Let Me' philosophy and how letting others make their choices is key.",
+    targetKeyword: "let them let me book review jordan clark"
   }
 ];
 
@@ -208,7 +226,7 @@ Focus Theme: "${book.focus}"
 Summary of Book Intent: "${book.summary}"
 
 RESOURCES & LINKS:
-- Amazon Book Purchase Link: Use exactly: [Buy on Amazon](https://www.amazon.com/dp/${book.asin})
+- Amazon Book Purchase Link: Use exactly: [Buy on Amazon](https://www.amazon.com/dp/${book.asin}?tag=mcjpio-20)
 - Peter's sister project: Mention "The Stoic Dad" (https://the-stoic-dad.mcjp.io/) exactly once if relevant to life, masculinity, or parenting.
 - Hostinger web host: Mention Hostinger (https://www.hostinger.com?REFERRALCODE=OYBPHARMOWCY) exactly once if relevant to wealth creation, digital assets, or starting online.
 
@@ -245,13 +263,19 @@ Ensure you embed the exact SVG image markup paths and the Amazon purchase link e
       }
 
       const today = new Date().toISOString().split('T')[0];
+      const title = book.optimizedTitle || `Mastering sovereignty: ${book.title}`;
+      const description = book.optimizedDescription || book.summary.substring(0, 160);
+      const keywords = [book.targetKeyword || book.title.toLowerCase(), book.author.toLowerCase(), book.category.toLowerCase(), "self improvement", "wealth", "discipline"];
+      
       const frontmatter = `---
-title: "Mastering sovereignty: ${book.title}"
+title: "${title}"
 date: "${today}"
 category: "${book.category}"
-description: "${book.summary.substring(0, 160)}"
-keywords: ["${book.title.toLowerCase()}", "${book.author.toLowerCase()}", "${book.category.toLowerCase()}", "self improvement", "wealth", "discipline"]
+description: "${description}"
+keywords: ${JSON.stringify(keywords)}
 ---
+
+> **Disclosure:** This post contains affiliate links. If you purchase a book through our links, we may earn a small commission at no extra cost to you. We only recommend books we've genuinely reviewed and believe provide real value.
 
 `;
 
