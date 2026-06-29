@@ -1,6 +1,6 @@
 ---
 title: "The Anchor in the Storm: Leading Your Family Through Crisis"
-date: "2027-01-08"
+date: "2027-01-27"
 category: "Life"
 description: "How modern men can step up as steadfast leaders during unexpected family hardships, providing emotional stability, tactical problem-solving, and clear direction when it matters most."
 keywords: ["family leadership","crisis management","masculine duty","emotional strength","fatherhood"]

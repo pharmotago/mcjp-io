@@ -1,6 +1,6 @@
 ---
 title: "Raising Capable Men: Fatherhood Strategies for Raising Resilient Sons"
-date: "2027-01-11"
+date: "2027-01-29"
 category: "Life"
 description: "A guide for fathers on instilling grit, accountability, and emotional intelligence in their sons, preparing them for the realities of modern masculinity and self-reliance."
 keywords: ["raising sons","fatherhood","resilience","masculine development","parenting"]

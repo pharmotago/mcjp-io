@@ -1,6 +1,6 @@
 ---
 title: "Cryptocurrency 101: How to Navigate the New Wealth Frontier"
-date: "2026-09-09"
+date: "2026-09-28"
 category: "Money"
 description: "Dive into the world of cryptocurrency and learn how to navigate this new frontier of wealth creation, including tips for safe investing and understanding blockchain technology."
 keywords: ["cryptocurrency","investing","blockchain","wealth creation","digital assets"]

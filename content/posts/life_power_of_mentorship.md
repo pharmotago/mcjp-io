@@ -1,6 +1,6 @@
 ---
 title: "The Power of Mentorship: Learning from Those Who Lead"
-date: "2026-10-12"
+date: "2026-10-30"
 category: "Life"
 description: "Explore how mentorship can play a crucial role in personal and professional development, providing guidance and inspiration for success."
 keywords: ["mentorship","leadership","personal growth","networking","success"]

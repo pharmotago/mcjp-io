@@ -1,6 +1,6 @@
 ---
 title: "Cognitive Training Through Physical Exercise: A Dual Approach to Success"
-date: "2026-07-22"
+date: "2026-08-10"
 category: "Discipline"
 description: "Uncover the powerful connection between physical fitness and cognitive performance. This article provides insights on how physical training can enhance mental clarity and overall success."
 keywords: ["physical training","cognitive training","success habits"]

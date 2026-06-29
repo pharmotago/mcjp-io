@@ -1,9 +1,11 @@
 ---
 title: "Building Resilience in Modern Fatherhood"
-date: "2026-06-28"
+date: "2026-07-03"
 category: "Life"
 description: "Explore how modern fathers can develop resilience and emotional strength to effectively navigate the challenges of parenting in today's world."
 keywords: ["resilience","fatherhood","parenting","emotional strength"]
+author: "Peter Kim"
+lastUpdated: "2026-07-03"
 ---
 
 ## Building Resilience in Modern Fatherhood

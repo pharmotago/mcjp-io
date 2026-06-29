@@ -1,6 +1,6 @@
 ---
 title: "90-Day Longevity Protocol Review: The Biomarker-Based Healthspan System Explained"
-date: "2027-01-13"
+date: "2027-02-01"
 category: "Life"
 description: "Focuses on the science of healthspan and cellular longevity. Discusses critical biomarkers, diet/exercise protocols that delay aging, and how a rigorous 90-day "
 keywords: ["90 day longevity protocol review","josh smith","longevity"]

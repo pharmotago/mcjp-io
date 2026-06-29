@@ -1,9 +1,11 @@
 ---
 title: "Training the Mind: Building Mental Strength for Success"
-date: "2026-06-29"
+date: "2026-07-10"
 category: "Discipline"
 description: "Delve into methods and exercises designed to build mental fortitude and resilience, crucial for achieving success in various life aspects."
 keywords: ["mental strength","success training","resilience building"]
+author: "Peter Kim"
+lastUpdated: "2026-07-10"
 ---
 
 ## Training the Mind: Building Mental Strength for Success
