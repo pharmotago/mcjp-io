@@ -1,6 +1,6 @@
 ---
 title: "Creative Routines: How Discipline Fuels Innovation and Success"
-date: "2026-12-25"
+date: "2027-01-13"
 category: "Discipline"
 description: "Discover how establishing disciplined creative routines can lead to innovation and personal success. Learn about habits and practices that stimulate creativity while maintaining focus and productivity."
 keywords: ["creative routines","discipline","innovation","success habits"]

@@ -1,9 +1,11 @@
 ---
 title: "Building Wealth through Impactful Investments"
-date: "2026-06-30"
+date: "2026-07-17"
 category: "Money"
 description: "Discover how investing in impactful ventures not only contributes to societal change but also builds personal wealth. This article examines opportunities and benefits of socially responsible investing."
 keywords: ["impact investments","wealth building","social responsibility","financial growth"]
+author: "Peter Kim"
+lastUpdated: "2026-07-17"
 ---
 
 ## Building Wealth through Impactful Investments

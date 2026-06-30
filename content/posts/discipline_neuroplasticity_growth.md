@@ -1,6 +1,6 @@
 ---
 title: "Harnessing the Power of Neuroplasticity for Personal Growth"
-date: "2027-02-12"
+date: "2027-03-03"
 category: "Discipline"
 description: "Learn how to leverage the science of neuroplasticity to foster personal development and cultivate the discipline needed for success."
 keywords: ["neuroplasticity","personal growth","brain training","mental discipline"]

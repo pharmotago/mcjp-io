@@ -1,6 +1,6 @@
 ---
 title: "Digital Detox: Reclaiming Your Focus in the Digital Age"
-date: "2026-08-19"
+date: "2026-09-07"
 category: "Discipline"
 description: "Examine the impact of digital distractions on your focus and productivity. This article offers practical tips for conducting a digital detox to improve mental clarity and regain control over your attention."
 keywords: ["digital detox","focus","mental clarity","technology"]

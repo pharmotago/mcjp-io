@@ -1,6 +1,6 @@
 ---
 title: "Harnessing the Power of Habits for Success"
-date: "2026-07-08"
+date: "2026-07-27"
 category: "Discipline"
 description: "Uncover the science of habit formation and learn how to build powerful routines that drive success and personal development."
 keywords: ["habits","success","routine development","self-improvement"]

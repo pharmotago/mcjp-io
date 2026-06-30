@@ -1,9 +1,11 @@
 ---
 title: "The Role of Emotional Intelligence in Modern Masculinity"
-date: "2026-06-29"
+date: "2026-07-03"
 category: "Life"
 description: "Examine the importance of emotional intelligence in the development of modern masculinity and its impact on personal and professional relationships."
 keywords: ["emotional intelligence","masculinity","personal growth"]
+author: "Peter Kim"
+lastUpdated: "2026-07-03"
 ---
 
 ## The Role of Emotional Intelligence in Modern Masculinity

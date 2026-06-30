@@ -1,9 +1,11 @@
 ---
 title: "Harnessing Quantitative Investing for Modern Wealth Growth"
-date: "2026-06-29"
+date: "2026-07-06"
 category: "Money"
 description: "Explore how quantitative investing can be a powerful tool for building wealth in today's financial landscape. This article delves into strategies, models, and tools to maximize investment returns."
 keywords: ["quantitative investing","wealth growth","financial strategies","investment models"]
+author: "Peter Kim"
+lastUpdated: "2026-07-06"
 ---
 
 ## Harnessing Quantitative Investing for Modern Wealth Growth

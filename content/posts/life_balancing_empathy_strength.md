@@ -1,9 +1,11 @@
 ---
 title: "Balancing Empathy and Strength: The Modern Man's Guide"
-date: "2026-06-30"
+date: "2026-07-13"
 category: "Life"
 description: "Explore the dynamic balance between empathy and strength in modern masculinity. This article offers insights into how men can develop these qualities harmoniously for personal and professional success."
 keywords: ["empathy","strength","masculinity","balance"]
+author: "Peter Kim"
+lastUpdated: "2026-07-13"
 ---
 
 ## Understanding the Dual Forces: Empathy and Strength

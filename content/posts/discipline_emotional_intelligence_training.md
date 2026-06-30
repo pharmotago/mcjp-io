@@ -1,16 +1,18 @@
 ---
 title: "Emotional Intelligence Training for Enhanced Personal Discipline"
-date: "2026-06-30"
+date: "2026-07-08"
 category: "Discipline"
 description: "This article provides a framework for using emotional intelligence to boost personal discipline. Learn how to harness your emotions to improve self-control and achieve your goals."
 keywords: ["emotional intelligence","discipline","self-control","personal growth"]
+author: "Peter Kim"
+lastUpdated: "2026-07-08"
 ---
 
 ## Emotional Intelligence Training for Enhanced Personal Discipline
 
 In an age where distractions abound and the pressures of modern life often lead to impulsive behavior, the need for personal discipline has never been more crucial. At the intersection of self-control and [personal growth](/posts/discipline_habit_breaking) lies [emotional intelligence](/posts/life_emotional_intelligence) (EI)—a powerful tool that can transform our ability to manage emotions, improve decision-making, and ultimately enhance our discipline. This article explores how [emotional intelligence](/posts/life_masculine_emotional_intelligence) training can serve as a framework for cultivating self-control and achieving long-term goals.
 
-![Focused individual engaging in training for emotional intelligence](images/discipline_emotional_intelligence_training_focus.png)
+![Focused individual engaging in training for emotional intelligence](/images/discipline_emotional_intelligence_training_focus.png)
 
 ### Understanding Emotional Intelligence
 
@@ -94,7 +96,7 @@ By committing to emotional intelligence training, you not only enhance your disc
 - Enhanced leadership capabilities—both personally and professionally.
 - A deeper understanding of oneself and others, fostering a supportive community.
 
-![Individuals engaged in emotional intelligence training together, fostering discipline](images/discipline_emotional_intelligence_training_theme.png)
+![Individuals engaged in emotional intelligence training together, fostering discipline](/images/discipline_emotional_intelligence_training_theme.png)
 
 ### Conclusion
 

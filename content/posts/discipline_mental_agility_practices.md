@@ -1,6 +1,6 @@
 ---
 title: "Building Mental Agility: Practices for Quick Thinking"
-date: "2026-11-23"
+date: "2026-12-11"
 category: "Discipline"
 description: "Discover exercises and routines designed to enhance your mental agility, improving your ability to think quickly and make sound decisions."
 keywords: ["mental agility","cognitive training","quick thinking","brain exercises"]

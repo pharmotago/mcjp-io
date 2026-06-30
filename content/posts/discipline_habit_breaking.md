@@ -1,6 +1,6 @@
 ---
 title: "Breaking Bad Habits: A Step-by-Step Approach to Discipline and Success"
-date: "2026-07-22"
+date: "2026-08-10"
 category: "Discipline"
 description: "This article offers a comprehensive guide to identifying and breaking bad habits. Learn about the psychology behind habits and actionable steps to cultivate better ones for long-term success."
 keywords: ["habit breaking","self-discipline","personal growth","behavior change"]

@@ -1,6 +1,6 @@
 ---
 title: "The Modern Patriarch: Protecting and Providing in the Digital Age"
-date: "2026-07-27"
+date: "2026-08-14"
 category: "Life"
 description: "Exploring the psychological, emotional, and financial duties of a man in the modern family structure and how to lead with integrity."
 keywords: ["role of a man","fatherhood","family leadership","modern masculinity"]

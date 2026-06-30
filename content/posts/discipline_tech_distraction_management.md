@@ -1,9 +1,11 @@
 ---
 title: "Mastering Technology Distraction for Optimal Focus"
-date: "2026-06-30"
+date: "2026-07-10"
 category: "Discipline"
 description: "Learn techniques to manage and minimize technology distractions to improve focus and productivity. This guide provides actionable strategies to maintain discipline in the digital age."
 keywords: ["technology distraction","focus","productivity","discipline"]
+author: "Peter Kim"
+lastUpdated: "2026-07-10"
 ---
 
 ## Mastering Technology Distraction for Optimal Focus
