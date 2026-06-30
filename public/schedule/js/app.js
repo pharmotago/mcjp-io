@@ -1,5 +1,5 @@
 /**
- * BriskSchedules Core Frontend Application Logic
+ * BriskSchedules Upgraded Core Frontend Application Logic
  */
 
 // Application State
@@ -10,29 +10,42 @@ let state = {
   shifts: [],
   timecards: [],
   leaveRequests: [],
-  settings: {}
+  settings: {},
+  currentUser: null // Stores session user
 };
 
-// Map day index to English names
 const DAY_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 // On Page Load
-document.addEventListener('DOMContentLoaded', () => {
-  // Initialize Database
-  BriskDB.init();
-  
+document.addEventListener('DOMContentLoaded', async () => {
   // Set current week to this week
   state.currentWeekStart = getMondayOfCurrentWeek(new Date());
   
-  // Load State from Database
-  loadDataFromDB();
+  // Check login state
+  state.currentUser = BriskDB.getSession();
+  
+  if (!state.currentUser) {
+    // Show login screen
+    showLoginScreen();
+    
+    // Check for invitation code in URL parameter (e.g. ?invite=XXXX)
+    const urlParams = new URLSearchParams(window.location.search);
+    const inviteCode = urlParams.get('invite');
+    if (inviteCode) {
+      showRegisterCard();
+      document.getElementById('reg-invite-code').value = inviteCode.toUpperCase();
+    }
+  } else {
+    // Session exists, boot application
+    await bootApplication();
+  }
 
   // Setup Sidebar Tab Events
   document.querySelectorAll('.menu-item').forEach(btn => {
     btn.addEventListener('click', () => {
       const tab = btn.getAttribute('data-tab');
-      switchTab(tab);
+      if (tab) switchTab(tab);
     });
   });
 
@@ -41,25 +54,84 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Initialize Clock in Header
   startLiveClock();
-  
-  // Render current panel
-  renderActivePanel();
-
-  // Bind DB import file handler
-  document.getElementById('database-import-file').addEventListener('change', handleDatabaseImportChange);
 });
 
-// Load all arrays from DB
-function loadDataFromDB() {
+// Boot the application: load data and apply role-based views
+async function bootApplication() {
+  // Show app layout, hide login
+  document.getElementById('login-screen').classList.remove('active');
+  document.getElementById('app-root').style.display = 'grid';
+
+  // Set user badges
+  document.getElementById('sidebar-user-name').textContent = state.currentUser.name;
+  document.getElementById('dash-user-name').textContent = state.currentUser.name;
+
+  // Sync data from cloud
+  await BriskDB.syncFromServer();
+  loadDataFromState();
+
+  // Apply Role-Based Access Control (RBAC)
+  applyRoleAccessControl();
+
+  // Render active panel
+  renderActivePanel();
+}
+
+function loadDataFromState() {
   state.employees = BriskDB.getEmployees();
   state.shifts = BriskDB.getShifts();
   state.timecards = BriskDB.getTimecards();
   state.leaveRequests = BriskDB.getLeaveRequests();
   state.settings = BriskDB.getSettings();
 
-  // Update UI Elements
   document.getElementById('sidebar-company-name').textContent = state.settings.companyName || 'Brisk Pharmacy Group';
   document.getElementById('settings-company-name').value = state.settings.companyName || 'Brisk Pharmacy Group';
+}
+
+// Role-Based UI visibility
+function applyRoleAccessControl() {
+  const role = state.currentUser.role;
+
+  const menuEmployees = document.getElementById('menu-employees');
+  const menuReports = document.getElementById('menu-reports');
+  const menuSettings = document.getElementById('menu-settings');
+  const schedulerControls = document.getElementById('scheduler-manager-controls');
+  const quickActionsCard = document.getElementById('dash-quick-actions-card');
+  const clockTerminalDesc = document.getElementById('clock-terminal-description');
+  const clockEmpSelect = document.getElementById('clock-emp-select');
+  const adminPanel = document.getElementById('timeclock-admin-panel');
+  const leaveSelectorGroup = document.getElementById('leave-employee-selector-group');
+
+  if (role === 'employee') {
+    // Hide manager menus
+    if (menuEmployees) menuEmployees.classList.add('hide');
+    if (menuReports) menuReports.classList.add('hide');
+    if (menuSettings) menuSettings.classList.add('hide');
+    if (schedulerControls) schedulerControls.classList.add('hide');
+    if (quickActionsCard) quickActionsCard.classList.add('hide');
+    if (adminPanel) adminPanel.classList.add('hide');
+    if (leaveSelectorGroup) leaveSelectorGroup.classList.add('hide');
+
+    // Restrict clock actions only to self
+    if (clockTerminalDesc) clockTerminalDesc.textContent = 'Register your clock stamps here.';
+    if (clockEmpSelect) {
+      clockEmpSelect.disabled = true;
+    }
+  } else {
+    // Show manager menus
+    if (menuEmployees) menuEmployees.classList.remove('hide');
+    if (menuReports) menuReports.classList.remove('hide');
+    if (menuSettings) menuSettings.classList.remove('hide');
+    if (schedulerControls) schedulerControls.classList.remove('hide');
+    if (quickActionsCard) quickActionsCard.classList.remove('hide');
+    if (adminPanel) adminPanel.classList.remove('hide');
+    if (leaveSelectorGroup) leaveSelectorGroup.classList.remove('hide');
+    
+    if (clockTerminalDesc) clockTerminalDesc.textContent = 'Select your name to log clock stamps.';
+    if (clockEmpSelect) {
+      clockEmpSelect.disabled = false;
+    }
+  }
 }
 
 // Switch tabs routing
@@ -102,8 +174,7 @@ function switchTab(tabName) {
 
 // Render active panel based on routing state
 function renderActivePanel() {
-  // Always refresh lists in case DB modified
-  loadDataFromDB();
+  loadDataFromState();
 
   switch (state.currentTab) {
     case 'dashboard':
@@ -125,9 +196,113 @@ function renderActivePanel() {
       renderReportsPanel();
       break;
     case 'settings':
-      // Elements loaded in loadDataFromDB
       break;
   }
+}
+
+/* ==========================================================================
+   AUTHENTICATION VIEW HANDLERS
+   ========================================================================== */
+
+function showLoginScreen() {
+  document.getElementById('login-screen').classList.add('active');
+  document.getElementById('app-root').style.display = 'none';
+  showLoginCard();
+}
+
+function showLoginCard() {
+  document.getElementById('login-card').classList.remove('hide');
+  document.getElementById('register-card').classList.add('hide');
+}
+
+function showRegisterCard() {
+  document.getElementById('login-card').classList.add('hide');
+  document.getElementById('register-card').classList.remove('hide');
+}
+
+async function handleLoginSubmit(event) {
+  event.preventDefault();
+  const email = document.getElementById('login-email').value;
+  const password = document.getElementById('login-password').value;
+
+  const res = await BriskDB.apiLogin(email, password);
+
+  if (res.error) {
+    alert(res.error);
+    return;
+  }
+
+  if (res.bootstrap) {
+    // DB is empty, guide to register as Owner
+    alert('This BriskSchedules database is fresh. You will be registered as the primary Administrator / Owner.');
+    showRegisterCard();
+    document.getElementById('invite-code-group').classList.add('hide'); // hide code field
+    document.getElementById('reg-email').value = email;
+    return;
+  }
+
+  if (res.success && res.user) {
+    BriskDB.setSession(res.user);
+    state.currentUser = res.user;
+    document.getElementById('login-form').reset();
+    await bootApplication();
+  }
+}
+
+async function handleRegisterSubmit(event) {
+  event.preventDefault();
+  const inviteCode = document.getElementById('reg-invite-code').value;
+  const name = document.getElementById('reg-name').value;
+  const email = document.getElementById('reg-email').value;
+  const password = document.getElementById('reg-password').value;
+
+  const res = await BriskDB.apiRegister(email, password, name, inviteCode);
+
+  if (res.error) {
+    alert(res.error);
+    return;
+  }
+
+  alert('Registration successful! Logging you in...');
+  BriskDB.setSession(res.user);
+  state.currentUser = res.user;
+  document.getElementById('register-form').reset();
+  document.getElementById('invite-code-group').classList.remove('hide'); // restore field
+  await bootApplication();
+}
+
+function handleLogout() {
+  if (confirm('Are you sure you want to log out?')) {
+    BriskDB.setSession(null);
+    state.currentUser = null;
+    showLoginScreen();
+  }
+}
+
+// Manager generate invitation submit
+async function handleInviteSubmit(event) {
+  event.preventDefault();
+  const email = document.getElementById('invite-email').value;
+  const role = document.getElementById('invite-role').value;
+
+  const res = await BriskDB.apiGenerateInvite(email, role);
+
+  if (res.error) {
+    alert(res.error);
+    return;
+  }
+
+  document.getElementById('invite-code-val').textContent = res.code;
+  document.getElementById('invite-url-val').value = res.inviteUrl;
+  document.getElementById('invite-result-box').classList.remove('hide');
+  document.getElementById('invite-form').reset();
+}
+
+function copyInviteUrl() {
+  const urlEl = document.getElementById('invite-url-val');
+  urlEl.select();
+  document.execCommand('copy');
+  alert('Invitation link copied to clipboard!');
 }
 
 /* ==========================================================================
@@ -137,7 +312,7 @@ function renderActivePanel() {
 function getMondayOfCurrentWeek(d) {
   const date = new Date(d);
   const day = date.getDay();
-  const diff = date.getDate() - day + (day === 0 ? -6 : 1); // adjust when day is sunday
+  const diff = date.getDate() - day + (day === 0 ? -6 : 1);
   const mon = new Date(date.setDate(diff));
   mon.setHours(0,0,0,0);
   return mon;
@@ -148,7 +323,11 @@ function formatDateISO(date) {
 }
 
 function getFormattedDateString(date) {
-  return date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+  const y = date.getFullYear();
+  const m = MONTH_NAMES[date.getMonth()];
+  const d = String(date.getDate()).padStart(2, '0');
+  const dayName = DAY_NAMES[date.getDay()];
+  return `${dayName}, ${m} ${d}, ${y}`;
 }
 
 function getWeekRangeText(monday) {
@@ -156,17 +335,12 @@ function getWeekRangeText(monday) {
   sunday.setDate(monday.getDate() + 6);
   
   const formatDate = (d) => {
-    const month = MONTH_NAMES[d.getMonth()];
-    const day = String(d.getDate()).padStart(2, '0');
-    const year = d.getFullYear();
-    return `${month} ${day}, ${year}`;
+    return `${MONTH_NAMES[d.getMonth()]} ${String(d.getDate()).padStart(2, '0')}, ${d.getFullYear()}`;
   };
   return `${formatDate(monday)} - ${formatDate(sunday)}`;
 }
 
-// Set up week selection buttons
 function setupWeekPickers() {
-  // Scheduler week picker
   document.getElementById('btn-prev-week').addEventListener('click', () => {
     state.currentWeekStart.setDate(state.currentWeekStart.getDate() - 7);
     renderScheduler();
@@ -176,7 +350,6 @@ function setupWeekPickers() {
     renderScheduler();
   });
 
-  // Report week picker
   document.getElementById('btn-report-prev-week').addEventListener('click', () => {
     state.currentWeekStart.setDate(state.currentWeekStart.getDate() - 7);
     renderReportsPanel();
@@ -186,12 +359,10 @@ function setupWeekPickers() {
     renderReportsPanel();
   });
 
-  // Bind auto scheduler click
   document.getElementById('btn-auto-schedule').addEventListener('click', triggerAutoScheduler);
   document.getElementById('btn-clear-week').addEventListener('click', triggerClearWeek);
 }
 
-// Header live time tick
 function startLiveClock() {
   const clockTime = document.getElementById('clock-time');
   const clockDate = document.getElementById('clock-date');
@@ -219,11 +390,9 @@ function renderDashboard() {
   const todayStr = formatDateISO(new Date());
   document.getElementById('dash-today-date').textContent = todayStr;
 
-  // Active employees count
   const activeEmployees = state.employees.filter(e => e.active);
-  document.getElementById('dash-emp-count').textContent = `${activeEmployees.length} Employee${activeEmployees.length !== 1 ? 's' : ''}`;
+  document.getElementById('dash-emp-count').textContent = activeEmployees.length;
 
-  // Filter shifts for this week
   const mon = new Date(state.currentWeekStart);
   const sun = new Date(mon);
   sun.setDate(mon.getDate() + 6);
@@ -235,20 +404,22 @@ function renderDashboard() {
     sDate.setHours(0,0,0,0);
     return sDate >= mon && sDate <= sun;
   });
-  document.getElementById('dash-shifts-count').textContent = `${weekShifts.length} Shift${weekShifts.length !== 1 ? 's' : ''}`;
+  document.getElementById('dash-shifts-count').textContent = weekShifts.length;
 
-  // Active clock ins count
   const todayActiveClockins = state.timecards.filter(tc => {
     return tc.date === todayStr && tc.clockIn && !tc.clockOut;
   });
-  document.getElementById('dash-active-clockins').textContent = `${todayActiveClockins.length} Employee${todayActiveClockins.length !== 1 ? 's' : ''}`;
+  document.getElementById('dash-active-clockins').textContent = todayActiveClockins.length;
 
-  // Pending leave requests count
   const pendingLeaves = state.leaveRequests.filter(r => r.status === 'Pending');
-  document.getElementById('dash-pending-leaves').textContent = `${pendingLeaves.length} Request${pendingLeaves.length !== 1 ? 's' : ''}`;
+  document.getElementById('dash-pending-leaves').textContent = pendingLeaves.length;
 
-  // Render today's shift list
-  const todayShifts = state.shifts.filter(s => s.date === todayStr);
+  // Today's roster list (restricted based on role)
+  let todayShifts = state.shifts.filter(s => s.date === todayStr);
+  if (state.currentUser.role === 'employee') {
+    // Employees can see everyone working today (team awareness)
+  }
+
   const tbody = document.getElementById('dash-today-shifts');
   tbody.innerHTML = '';
 
@@ -261,14 +432,13 @@ function renderDashboard() {
     const emp = state.employees.find(e => e.id === shift.employeeId);
     const empName = emp ? emp.name : '<span class="text-danger">Unassigned</span>';
     
-    // Check clock in status for today
     let statusBadge = '<span class="badge">Not Clocked In</span>';
     if (emp) {
       const tc = state.timecards.find(t => t.employeeId === emp.id && t.date === todayStr);
       if (tc) {
         if (tc.clockOut) {
-          statusBadge = '<span class="badge badge-success">Clocked Out</span>';
-        } else if (tc.breaks.length > 0 && tc.breaks[tc.breaks.length - 1].start && !tc.breaks[tc.breaks.length - 1].end) {
+          statusBadge = '<span class="badge badge-success">Finished</span>';
+        } else if (tc.breaks && tc.breaks.length > 0 && tc.breaks[tc.breaks.length - 1].start && !tc.breaks[tc.breaks.length - 1].end) {
           statusBadge = '<span class="badge badge-warning">On Break</span>';
         } else if (tc.clockIn) {
           statusBadge = '<span class="badge badge-info">Working</span>';
@@ -295,14 +465,12 @@ function renderDashboard() {
 function renderScheduler() {
   document.getElementById('scheduler-week-range').textContent = getWeekRangeText(state.currentWeekStart);
 
-  // Set header column dates
   for (let i = 0; i < 7; i++) {
     const d = new Date(state.currentWeekStart);
     d.setDate(state.currentWeekStart.getDate() + i);
     const mm = String(d.getMonth() + 1).padStart(2, '0');
     const dd = String(d.getDate()).padStart(2, '0');
     
-    // Grid Header elements: head-date-1 (Mon), head-date-2 (Tue)... head-date-0 (Sun)
     const elId = `head-date-${(i + 1) % 7}`;
     const headerEl = document.getElementById(elId);
     if (headerEl) {
@@ -313,28 +481,24 @@ function renderScheduler() {
   const tbody = document.getElementById('scheduler-grid-body');
   tbody.innerHTML = '';
 
-  // Get active employees list
   const activeEmployees = state.employees.filter(e => e.active);
 
-  // Generate a row for each employee
+  // If user is employee, they see all staff rosters, but cannot click to add or edit
   activeEmployees.forEach(emp => {
     const tr = document.createElement('tr');
     
-    // First column: Profile details
     const tdProfile = document.createElement('td');
     tdProfile.className = 'grid-employee-cell';
     
-    // Calculate total scheduled hours for this employee this week
     const empWeekHours = calculateEmployeeWeekHours(emp.id, state.currentWeekStart);
 
     tdProfile.innerHTML = `
-      <span class="grid-emp-name" onclick="openEditEmployeeModal('${emp.id}')" style="cursor:pointer; text-decoration: underline;">${emp.name}</span>
+      <span class="grid-emp-name" ${state.currentUser.role !== 'employee' ? `onclick="openEditEmployeeModal('${emp.id}')" style="cursor:pointer; text-decoration: underline;"` : ''}>${emp.name}</span>
       <span class="grid-emp-role">${emp.role}</span>
       <span class="grid-emp-hours"><i class="fa-solid fa-clock"></i> ${empWeekHours.toFixed(1)}h / ${emp.maxHours}h</span>
     `;
     tr.appendChild(tdProfile);
 
-    // Seven weekday columns (Mon = index 0, ..., Sun = index 6)
     for (let i = 0; i < 7; i++) {
       const tdDay = document.createElement('td');
       tdDay.className = 'calendar-grid-cell';
@@ -343,7 +507,6 @@ function renderScheduler() {
       d.setDate(state.currentWeekStart.getDate() + i);
       const dateStr = formatDateISO(d);
       
-      // Render shifts in cell
       const cellShifts = state.shifts.filter(s => s.employeeId === emp.id && s.date === dateStr);
       cellShifts.forEach(shift => {
         const div = document.createElement('div');
@@ -353,14 +516,15 @@ function renderScheduler() {
           <div class="shift-card-time"><i class="fa-regular fa-clock"></i> ${shift.startTime} - ${shift.endTime}</div>
           ${shift.notes ? `<div class="shift-card-notes">${shift.notes}</div>` : ''}
         `;
-        div.addEventListener('click', (e) => {
-          e.stopPropagation();
-          openEditShiftModal(shift);
-        });
+        if (state.currentUser.role !== 'employee') {
+          div.addEventListener('click', (e) => {
+            e.stopPropagation();
+            openEditShiftModal(shift);
+          });
+        }
         tdDay.appendChild(div);
       });
 
-      // Check if employee is on approved leave
       const isLeave = checkLeaveStatus(emp.id, dateStr);
       if (isLeave) {
         const leaveDiv = document.createElement('div');
@@ -371,8 +535,7 @@ function renderScheduler() {
         leaveDiv.style.marginTop = '4px';
         leaveDiv.textContent = '🏖️ On Leave';
         tdDay.appendChild(leaveDiv);
-      } else {
-        // Render add button
+      } else if (state.currentUser.role !== 'employee') {
         const addBtn = document.createElement('div');
         addBtn.className = 'cell-add-btn';
         addBtn.innerHTML = '<i class="fa-solid fa-plus"></i>';
@@ -387,56 +550,57 @@ function renderScheduler() {
     tbody.appendChild(tr);
   });
 
-  // Render one more row for Unassigned shifts
-  const trUnassigned = document.createElement('tr');
-  const tdUnassignedProfile = document.createElement('td');
-  tdUnassignedProfile.className = 'grid-employee-cell';
-  tdUnassignedProfile.style.background = 'rgba(231, 76, 60, 0.05)';
-  tdUnassignedProfile.innerHTML = `
-    <span class="grid-emp-name text-danger">⚠️ Unassigned Shift</span>
-    <span class="grid-emp-role">Pending employee assignment</span>
-  `;
-  trUnassigned.appendChild(tdUnassignedProfile);
+  // Render Unassigned row (only managers see or manipulate this)
+  if (state.currentUser.role !== 'employee') {
+    const trUnassigned = document.createElement('tr');
+    const tdUnassignedProfile = document.createElement('td');
+    tdUnassignedProfile.className = 'grid-employee-cell';
+    tdUnassignedProfile.style.background = 'rgba(231, 76, 60, 0.05)';
+    tdUnassignedProfile.innerHTML = `
+      <span class="grid-emp-name text-danger">⚠️ Unassigned Shifts</span>
+      <span class="grid-emp-role">Awaiting placement</span>
+    `;
+    trUnassigned.appendChild(tdUnassignedProfile);
 
-  for (let i = 0; i < 7; i++) {
-    const tdDay = document.createElement('td');
-    tdDay.className = 'calendar-grid-cell';
-    tdDay.style.background = 'rgba(231, 76, 60, 0.02)';
-    
-    const d = new Date(state.currentWeekStart);
-    d.setDate(state.currentWeekStart.getDate() + i);
-    const dateStr = formatDateISO(d);
+    for (let i = 0; i < 7; i++) {
+      const tdDay = document.createElement('td');
+      tdDay.className = 'calendar-grid-cell';
+      tdDay.style.background = 'rgba(231, 76, 60, 0.02)';
+      
+      const d = new Date(state.currentWeekStart);
+      d.setDate(state.currentWeekStart.getDate() + i);
+      const dateStr = formatDateISO(d);
 
-    const cellShifts = state.shifts.filter(s => s.employeeId === null && s.date === dateStr);
-    cellShifts.forEach(shift => {
-      const div = document.createElement('div');
-      div.className = 'shift-card unassigned';
-      div.innerHTML = `
-        <div class="shift-card-header">${shift.role}</div>
-        <div class="shift-card-time">${shift.startTime} - ${shift.endTime}</div>
-        ${shift.notes ? `<div class="shift-card-notes">${shift.notes}</div>` : ''}
-      `;
-      div.addEventListener('click', (e) => {
-        e.stopPropagation();
-        openEditShiftModal(shift);
+      const cellShifts = state.shifts.filter(s => s.employeeId === null && s.date === dateStr);
+      cellShifts.forEach(shift => {
+        const div = document.createElement('div');
+        div.className = 'shift-card unassigned';
+        div.innerHTML = `
+          <div class="shift-card-header">${shift.role}</div>
+          <div class="shift-card-time">${shift.startTime} - ${shift.endTime}</div>
+          ${shift.notes ? `<div class="shift-card-notes">${shift.notes}</div>` : ''}
+        `;
+        div.addEventListener('click', (e) => {
+          e.stopPropagation();
+          openEditShiftModal(shift);
+        });
+        tdDay.appendChild(div);
       });
-      tdDay.appendChild(div);
-    });
 
-    const addBtn = document.createElement('div');
-    addBtn.className = 'cell-add-btn';
-    addBtn.innerHTML = '<i class="fa-solid fa-plus"></i>';
-    addBtn.addEventListener('click', () => {
-      openAddShiftModal('', dateStr);
-    });
-    tdDay.appendChild(addBtn);
+      const addBtn = document.createElement('div');
+      addBtn.className = 'cell-add-btn';
+      addBtn.innerHTML = '<i class="fa-solid fa-plus"></i>';
+      addBtn.addEventListener('click', () => {
+        openAddShiftModal('', dateStr);
+      });
+      tdDay.appendChild(addBtn);
 
-    trUnassigned.appendChild(tdDay);
+      trUnassigned.appendChild(tdDay);
+    }
+    tbody.appendChild(trUnassigned);
   }
-  tbody.appendChild(trUnassigned);
 }
 
-// Calculate total hours scheduled for an employee in a week
 function calculateEmployeeWeekHours(employeeId, weekStart) {
   const mon = new Date(weekStart);
   const sun = new Date(mon);
@@ -458,7 +622,6 @@ function calculateEmployeeWeekHours(employeeId, weekStart) {
   return total;
 }
 
-// Helper: check if employee is on leave on date
 function checkLeaveStatus(employeeId, dateStr) {
   const date = new Date(dateStr);
   date.setHours(0,0,0,0);
@@ -473,9 +636,8 @@ function checkLeaveStatus(employeeId, dateStr) {
   });
 }
 
-// Trigger Clear Week
-function triggerClearWeek() {
-  if (!confirm('Are you sure you want to clear all employee assignments for the current week?')) return;
+async function triggerClearWeek() {
+  if (!confirm('Are you sure you want to unassign all employee shifts for this week?')) return;
 
   const mon = new Date(state.currentWeekStart);
   const sun = new Date(mon);
@@ -493,24 +655,20 @@ function triggerClearWeek() {
     s.employeeId = null;
   });
 
-  BriskDB.saveShifts(state.shifts);
+  await BriskDB.syncToServer();
   renderScheduler();
 }
 
-// Run client-side Auto-Scheduling engine
-function triggerAutoScheduler() {
+async function triggerAutoScheduler() {
   const targetWeekStr = formatDateISO(state.currentWeekStart);
-  
-  // Execute algorithm
   const result = BriskScheduler.run(state.shifts, state.employees, state.leaveRequests, targetWeekStr);
   
   if (result.success) {
-    BriskDB.saveShifts(result.shifts);
-    loadDataFromDB();
+    state.shifts = result.shifts;
+    await BriskDB.syncToServer();
     renderScheduler();
     
-    // Print logic log inside a visual alerts box
-    alert(`📅 Auto-Scheduler Complete!\n\n- Successfully assigned shifts: ${result.assignedCount}\n- Unassigned shifts remaining: ${result.unassignedCount}\n\n[Detailed Placement Logs]\n${result.logs.slice(0, 10).join('\n')}\n${result.logs.length > 10 ? '...truncated' : ''}`);
+    alert(`📅 Auto-Scheduler Complete!\n\n- Shifts successfully assigned: ${result.assignedCount}\n- Shifts left unassigned: ${result.unassignedCount}\n\n[Placement Logs]\n${result.logs.slice(0, 10).join('\n')}\n${result.logs.length > 10 ? '...and more' : ''}`);
   } else {
     alert(result.message);
   }
@@ -527,14 +685,10 @@ function openAddShiftModal(employeeId = '', dateStr = '') {
   document.getElementById('shift-notes').value = '';
   document.getElementById('btn-delete-shift').classList.add('hide');
 
-  // Populate date
   document.getElementById('shift-date').value = dateStr || formatDateISO(new Date());
-  
-  // Set default hours
   document.getElementById('shift-start').value = '09:00';
   document.getElementById('shift-end').value = '17:00';
 
-  // Populate Employee Dropdown
   const select = document.getElementById('shift-employee');
   select.innerHTML = '<option value="">-- Unassigned --</option>';
   
@@ -560,7 +714,6 @@ function openEditShiftModal(shift) {
   
   document.getElementById('btn-delete-shift').classList.remove('hide');
 
-  // Populate Employee Dropdown
   const select = document.getElementById('shift-employee');
   select.innerHTML = '<option value="">-- Unassigned --</option>';
   
@@ -579,7 +732,7 @@ function closeShiftModal() {
   document.getElementById('modal-shift').classList.remove('active');
 }
 
-function handleShiftSubmit(event) {
+async function handleShiftSubmit(event) {
   event.preventDefault();
 
   const id = document.getElementById('shift-id').value;
@@ -590,26 +743,22 @@ function handleShiftSubmit(event) {
   const end = document.getElementById('shift-end').value;
   const notes = document.getElementById('shift-notes').value;
 
-  // Basic validation check
   if (start >= end) {
-    alert('Start time must be before end time.');
+    alert('Start time must be earlier than end time.');
     return;
   }
 
-  // Check if employee is on leave on this date
   if (empId && checkLeaveStatus(empId, date)) {
-    if (!confirm('This employee has approved leave on this date. Are you sure you want to force schedule this shift?')) {
+    if (!confirm('This employee has an approved leave request on this date. Force schedule this shift anyway?')) {
       return;
     }
   }
 
-  // Check if scheduled hours exceed max hours limit
   if (empId) {
     const emp = state.employees.find(e => e.id === empId);
     const duration = BriskScheduler.getShiftDuration(start, end);
     const currentWeekHours = calculateEmployeeWeekHours(empId, getMondayOfCurrentWeek(new Date(date)));
     
-    // If it's an edit, subtract the previous shift duration first
     let prevDuration = 0;
     if (id) {
       const prevShift = state.shifts.find(s => s.id === id);
@@ -619,7 +768,7 @@ function handleShiftSubmit(event) {
     }
 
     if (currentWeekHours - prevDuration + duration > emp.maxHours) {
-      if (!confirm(`Adding this shift will exceed ${emp.name}'s maximum weekly hours (${emp.maxHours}h). Do you want to proceed?`)) {
+      if (!confirm(`Adding this shift will exceed ${emp.name}'s weekly limit of ${emp.maxHours} hours. Continue?`)) {
         return;
       }
     }
@@ -635,22 +784,20 @@ function handleShiftSubmit(event) {
   };
 
   if (id) {
-    // Edit existing
     shiftData.id = id;
-    BriskDB.updateShift(shiftData);
+    await BriskDB.updateShift(shiftData);
   } else {
-    // Create new
-    BriskDB.addShift(shiftData);
+    await BriskDB.addShift(shiftData);
   }
 
   closeShiftModal();
   renderActivePanel();
 }
 
-function handleShiftDelete() {
+async function handleShiftDelete() {
   const id = document.getElementById('shift-id').value;
-  if (id && confirm('Are you sure you want to delete this shift?')) {
-    BriskDB.deleteShift(id);
+  if (id && confirm('Delete this shift permanently?')) {
+    await BriskDB.deleteShift(id);
     closeShiftModal();
     renderActivePanel();
   }
@@ -674,7 +821,7 @@ function renderEmployeesList() {
   });
 
   if (filtered.length === 0) {
-    container.innerHTML = `<div class="glass-card text-center text-muted" style="grid-column: 1/-1; padding: 3rem;">No registered employees found matching the criteria.</div>`;
+    container.innerHTML = `<div class="glass-card text-center text-muted" style="grid-column: 1/-1; padding: 3rem;">No active employees found.</div>`;
     return;
   }
 
@@ -682,7 +829,6 @@ function renderEmployeesList() {
     const card = document.createElement('div');
     card.className = 'employee-card';
 
-    // Build availability visual dots
     let availBubbles = '';
     const dayInitialList = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
     for (let i = 0; i < 7; i++) {
@@ -700,11 +846,11 @@ function renderEmployeesList() {
       </div>
       <div class="employee-card-meta">
         <span>Email: <strong>${emp.email}</strong></span>
-        <span>Hourly Rate: <strong>$${emp.hourlyRate.toFixed(2)} / hr</strong></span>
-        <span>Weekly Limit: <strong>${emp.maxHours} hrs/week</strong></span>
+        <span>Rate: <strong>$${emp.hourlyRate.toFixed(2)} / hr</strong></span>
+        <span>Limit: <strong>Max ${emp.maxHours}h / week</strong></span>
       </div>
       <div class="employee-card-avail">
-        <span>Weekly Availability:</span>
+        <span>Work Availability:</span>
         <div class="avail-list">
           ${availBubbles}
         </div>
@@ -719,7 +865,6 @@ function renderEmployeesList() {
   });
 }
 
-// Generate the day-by-day availability selector fields inside Employee modal
 function renderAvailabilityFormInputs(availability = {}) {
   const container = document.querySelector('.availability-inputs-grid');
   container.innerHTML = '';
@@ -765,7 +910,7 @@ function toggleAvailTimeInputs(dayIdx) {
    ========================================================================== */
 
 function openAddEmployeeModal() {
-  document.getElementById('employee-modal-title').textContent = 'Add New Employee';
+  document.getElementById('employee-modal-title').textContent = 'Register New Employee';
   document.getElementById('employee-id').value = '';
   document.getElementById('emp-name').value = '';
   document.getElementById('emp-role').value = '';
@@ -774,7 +919,6 @@ function openAddEmployeeModal() {
   document.getElementById('emp-max-hours').value = '38';
   document.getElementById('btn-delete-employee').classList.add('hide');
 
-  // Default availability: Mon-Fri active, Sun/Sat unavailable
   const defaultAvail = {
     0: null,
     1: { start: '09:00', end: '17:00' },
@@ -793,7 +937,7 @@ function openEditEmployeeModal(empId) {
   const emp = state.employees.find(e => e.id === empId);
   if (!emp) return;
 
-  document.getElementById('employee-modal-title').textContent = 'Edit Employee Details';
+  document.getElementById('employee-modal-title').textContent = 'Edit Employee Profile';
   document.getElementById('employee-id').value = emp.id;
   document.getElementById('emp-name').value = emp.name;
   document.getElementById('emp-role').value = emp.role;
@@ -801,9 +945,8 @@ function openEditEmployeeModal(empId) {
   document.getElementById('emp-rate').value = emp.hourlyRate;
   document.getElementById('emp-max-hours').value = emp.maxHours;
   
-  // Protect system accounts or allow delete
-  if (emp.id === 'emp_1') {
-    document.getElementById('btn-delete-employee').classList.add('hide'); // Cannot delete primary owner
+  if (emp.id === state.currentUser.employeeId) {
+    document.getElementById('btn-delete-employee').classList.add('hide'); 
   } else {
     document.getElementById('btn-delete-employee').classList.remove('hide');
   }
@@ -817,7 +960,7 @@ function closeEmployeeModal() {
   document.getElementById('modal-employee').classList.remove('active');
 }
 
-function handleEmployeeSubmit(event) {
+async function handleEmployeeSubmit(event) {
   event.preventDefault();
 
   const id = document.getElementById('employee-id').value;
@@ -827,7 +970,6 @@ function handleEmployeeSubmit(event) {
   const hourlyRate = parseFloat(document.getElementById('emp-rate').value);
   const maxHours = parseInt(document.getElementById('emp-max-hours').value);
 
-  // Extract day-by-day Availability inputs
   const availability = {};
   for (let i = 0; i < 7; i++) {
     const isChecked = document.getElementById(`avail-check-${i}`).checked;
@@ -836,7 +978,7 @@ function handleEmployeeSubmit(event) {
       const end = document.getElementById(`avail-end-${i}`).value;
       
       if (start >= end) {
-        alert(`Invalid availability time on ${DAY_NAMES[i]} (Start time cannot be after end time).`);
+        alert(`Availability times for ${DAY_NAMES[i]} are invalid.`);
         return;
       }
       availability[i] = { start: start, end: end };
@@ -856,27 +998,23 @@ function handleEmployeeSubmit(event) {
 
   if (id) {
     employeeData.id = id;
-    BriskDB.updateEmployee(employeeData);
+    await BriskDB.updateEmployee(employeeData);
   } else {
-    BriskDB.addEmployee(employeeData);
+    await BriskDB.addEmployee(employeeData);
   }
 
   closeEmployeeModal();
   renderActivePanel();
 }
 
-function handleEmployeeDelete() {
+async function handleEmployeeDelete() {
   const id = document.getElementById('employee-id').value;
-  if (id && confirm('Are you sure you want to completely delete this employee from the database?\nAny scheduled shifts for this employee will be set to unassigned.')) {
-    
-    // Clear employee shifts
+  if (id && confirm('Delete this employee permanently? The shifts assigned to them will be unassigned.')) {
     state.shifts.forEach(s => {
       if (s.employeeId === id) s.employeeId = null;
     });
-    BriskDB.saveShifts(state.shifts);
-
-    // Delete employee
-    BriskDB.deleteEmployee(id);
+    await BriskDB.saveShifts(state.shifts);
+    await BriskDB.deleteEmployee(id);
     closeEmployeeModal();
     renderActivePanel();
   }
@@ -884,35 +1022,54 @@ function handleEmployeeDelete() {
 
 
 /* ==========================================================================
-   PANEL: TIME CLOCK
+   PANEL: TIME CLOCK (출퇴근기록)
    ========================================================================== */
 
 function renderTimeClockPanel() {
-  // Populate dropdowns
   const select = document.getElementById('clock-emp-select');
   select.innerHTML = '';
   
-  state.employees.filter(e => e.active).forEach(emp => {
+  const role = state.currentUser.role;
+  
+  if (role === 'employee') {
+    // Only add self
     const opt = document.createElement('option');
-    opt.value = emp.id;
-    opt.textContent = `${emp.name} (${emp.role})`;
+    opt.value = state.currentUser.employeeId;
+    opt.textContent = state.currentUser.name;
+    opt.selected = true;
     select.appendChild(opt);
-  });
+  } else {
+    // Add all active employees
+    state.employees.filter(e => e.active).forEach(emp => {
+      const opt = document.createElement('option');
+      opt.value = emp.id;
+      opt.textContent = `${emp.name} (${emp.role})`;
+      if (emp.id === state.currentUser.employeeId) opt.selected = true;
+      select.appendChild(opt);
+    });
+  }
 
-  // Load employee for leave select dropdown as well
+  // Populate leave request select dropdown
   const leaveSelect = document.getElementById('leave-emp-select');
   leaveSelect.innerHTML = '';
-  state.employees.filter(e => e.active).forEach(emp => {
+  
+  if (role === 'employee') {
     const opt = document.createElement('option');
-    opt.value = emp.id;
-    opt.textContent = emp.name;
+    opt.value = state.currentUser.employeeId;
+    opt.textContent = state.currentUser.name;
+    opt.selected = true;
     leaveSelect.appendChild(opt);
-  });
+  } else {
+    state.employees.filter(e => e.active).forEach(emp => {
+      const opt = document.createElement('option');
+      opt.value = emp.id;
+      opt.textContent = emp.name;
+      if (emp.id === state.currentUser.employeeId) opt.selected = true;
+      leaveSelect.appendChild(opt);
+    });
+  }
 
-  // Refresh status
   updateTerminalStatus();
-
-  // Render weekly admin timesheet reviewer table
   renderAdminTimesheets();
 }
 
@@ -932,17 +1089,15 @@ function updateTerminalStatus() {
   const btnBStart = document.getElementById('btn-start-break');
   const btnBEnd = document.getElementById('btn-end-break');
 
-  // Clear disabled states
   btnIn.disabled = false;
   btnOut.disabled = false;
   btnBStart.disabled = false;
   btnBEnd.disabled = false;
 
   if (!tc) {
-    // Clocked Out (No record today)
     dot.className = 'status-indicator status-offline';
     txt.textContent = 'Not Clocked In';
-    sub.textContent = 'No clock-in record for today.';
+    sub.textContent = 'No stamps recorded today.';
 
     btnOut.disabled = true;
     btnBStart.disabled = true;
@@ -954,33 +1109,29 @@ function updateTerminalStatus() {
     };
 
     if (tc.clockOut) {
-      // Finished work
       dot.className = 'status-indicator status-offline';
       txt.textContent = 'Clocked Out';
-      sub.textContent = `Shift completed today (In: ${formatTime(tc.clockIn)} ~ Out: ${formatTime(tc.clockOut)})`;
+      sub.textContent = `Completed today (In: ${formatTime(tc.clockIn)} ~ Out: ${formatTime(tc.clockOut)})`;
 
       btnIn.disabled = true;
       btnOut.disabled = true;
       btnBStart.disabled = true;
       btnBEnd.disabled = true;
     } else {
-      // Active clock in
-      const lastBreak = tc.breaks[tc.breaks.length - 1];
+      const lastBreak = tc.breaks && tc.breaks.length > 0 ? tc.breaks[tc.breaks.length - 1] : null;
       const onBreak = lastBreak && lastBreak.start && !lastBreak.end;
 
       if (onBreak) {
-        // Currently on break
         dot.className = 'status-indicator status-break';
         txt.textContent = 'On Break';
-        sub.textContent = `Break started at: ${formatTime(lastBreak.start)}`;
+        sub.textContent = `Break began at: ${formatTime(lastBreak.start)}`;
 
         btnIn.disabled = true;
         btnOut.disabled = true;
         btnBStart.disabled = true;
       } else {
-        // Clocked in and working
         dot.className = 'status-indicator status-online';
-        txt.textContent = 'Working';
+        txt.textContent = 'Working (Clocked In)';
         sub.textContent = `Clocked in at: ${formatTime(tc.clockIn)}`;
 
         btnIn.disabled = true;
@@ -990,7 +1141,7 @@ function updateTerminalStatus() {
   }
 }
 
-function handleClockAction(action) {
+async function handleClockAction(action) {
   const empId = document.getElementById('clock-emp-select').value;
   if (!empId) return;
 
@@ -1000,7 +1151,7 @@ function handleClockAction(action) {
   const nowISO = new Date().toISOString();
 
   if (action === 'in') {
-    if (tc) return; // already exists
+    if (tc) return;
     tc = {
       employeeId: empId,
       date: todayStr,
@@ -1011,11 +1162,10 @@ function handleClockAction(action) {
       approved: false,
       approvedBy: ''
     };
-    BriskDB.addTimecard(tc);
+    await BriskDB.addTimecard(tc);
   } else if (action === 'out') {
     if (!tc || tc.clockOut) return;
     
-    // Close break if open
     const lastBreak = tc.breaks[tc.breaks.length - 1];
     if (lastBreak && !lastBreak.end) {
       lastBreak.end = nowISO;
@@ -1023,25 +1173,24 @@ function handleClockAction(action) {
 
     tc.clockOut = nowISO;
     tc.totalHours = calculateTimecardHours(tc);
-    BriskDB.updateTimecard(tc);
+    await BriskDB.updateTimecard(tc);
   } else if (action === 'break-start') {
     if (!tc || tc.clockOut) return;
     tc.breaks.push({
       start: nowISO,
       end: null
     });
-    BriskDB.updateTimecard(tc);
+    await BriskDB.updateTimecard(tc);
   } else if (action === 'break-end') {
     if (!tc || tc.clockOut) return;
     const lastBreak = tc.breaks[tc.breaks.length - 1];
     if (lastBreak && !lastBreak.end) {
       lastBreak.end = nowISO;
     }
-    BriskDB.updateTimecard(tc);
+    await BriskDB.updateTimecard(tc);
   }
 
-  // Reload & Refresh views
-  loadDataFromDB();
+  loadDataFromState();
   updateTerminalStatus();
   renderAdminTimesheets();
 }
@@ -1051,44 +1200,47 @@ function calculateTimecardHours(tc) {
 
   const start = new Date(tc.clockIn);
   const end = new Date(tc.clockOut);
-  let diffMs = end - start;
+  let diffMs = end.getTime() - start.getTime();
 
-  // Subtract break duration
   let breakMs = 0;
-  tc.breaks.forEach(b => {
-    if (b.start && b.end) {
-      breakMs += (new Date(b.end) - new Date(b.start));
-    }
-  });
+  if (tc.breaks) {
+    tc.breaks.forEach(b => {
+      if (b.start && b.end) {
+        breakMs += (new Date(b.end).getTime() - new Date(b.start).getTime());
+      }
+    });
+  }
 
   const netHours = (diffMs - breakMs) / (1000 * 60 * 60);
   return Math.max(0, parseFloat(netHours.toFixed(2)));
 }
 
-// Render Manager admin review panel
 function renderAdminTimesheets() {
   const tbody = document.getElementById('timesheet-table-body');
   tbody.innerHTML = '';
 
-  // Get active timesheets for this current week range
   const mon = new Date(state.currentWeekStart);
   const sun = new Date(mon);
   sun.setDate(mon.getDate() + 6);
   mon.setHours(0,0,0,0);
   sun.setHours(23,59,59,999);
 
-  const weekCards = state.timecards.filter(tc => {
+  let weekCards = state.timecards.filter(tc => {
     const tcDate = new Date(tc.date);
     tcDate.setHours(0,0,0,0);
     return tcDate >= mon && tcDate <= sun;
   });
 
-  if (weekCards.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="7" class="text-center text-muted" style="padding: 2rem;">No time clock records for this week.</td></tr>`;
+  if (state.currentUser.role === 'employee') {
+    // Employees can't see the admin panel list at all (handled in applyRoleAccessControl)
     return;
   }
 
-  // Sort descending by date
+  if (weekCards.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="7" class="text-center text-muted" style="padding: 2rem;">No timesheets recorded this week.</td></tr>`;
+    return;
+  }
+
   weekCards.sort((a,b) => b.date.localeCompare(a.date));
 
   weekCards.forEach(tc => {
@@ -1106,9 +1258,9 @@ function renderAdminTimesheets() {
 
     if (tc.approved) {
       statusHtml = `<span class="badge badge-success"><i class="fa-solid fa-check"></i> Approved</span>`;
-      actionHtml = `<span class="text-muted" style="font-size:12px;">Approved by: ${tc.approvedBy}</span>`;
+      actionHtml = `<span class="text-muted" style="font-size:11px;">Manager: ${tc.approvedBy}</span>`;
     } else {
-      statusHtml = `<span class="badge badge-warning">Pending Approval</span>`;
+      statusHtml = `<span class="badge badge-warning">Pending</span>`;
       actionHtml = `
         <button class="btn btn-success" style="padding:4px 8px; font-size:11px;" onclick="approveTimecard('${tc.id}')">
           Approve
@@ -1116,7 +1268,6 @@ function renderAdminTimesheets() {
       `;
     }
 
-    // Allow manual correction of hours if they make mistakes
     const tr = document.createElement('tr');
     tr.innerHTML = `
       <td>${tc.date}</td>
@@ -1133,31 +1284,31 @@ function renderAdminTimesheets() {
   });
 }
 
-function approveTimecard(tcId) {
+async function approveTimecard(tcId) {
   const tc = state.timecards.find(t => t.id === tcId);
   if (!tc) return;
 
   tc.approved = true;
-  tc.approvedBy = 'Sung Joo Peter Kim';
+  tc.approvedBy = state.currentUser.name;
   
-  BriskDB.updateTimecard(tc);
-  loadDataFromDB();
+  await BriskDB.updateTimecard(tc);
+  loadDataFromState();
   renderAdminTimesheets();
 }
 
-function changeTimecardHours(tcId, newVal) {
+async function changeTimecardHours(tcId, newVal) {
   const tc = state.timecards.find(t => t.id === tcId);
   if (!tc) return;
 
   const hours = parseFloat(newVal);
   if (isNaN(hours) || hours < 0) {
-    alert('Please enter a valid number of hours.');
+    alert('Please enter a valid hours count.');
     return;
   }
 
   tc.totalHours = hours;
-  BriskDB.updateTimecard(tc);
-  loadDataFromDB();
+  await BriskDB.updateTimecard(tc);
+  loadDataFromState();
 }
 
 
@@ -1170,15 +1321,24 @@ function renderTimeOffPanel() {
   tbody.innerHTML = '';
 
   const requests = [...state.leaveRequests];
-  // Sort pending requests first
+  
   requests.sort((a,b) => {
     if (a.status === 'Pending' && b.status !== 'Pending') return -1;
     if (a.status !== 'Pending' && b.status === 'Pending') return 1;
     return b.startDate.localeCompare(a.startDate);
   });
 
+  const isManager = state.currentUser.role !== 'employee';
+  
+  // Hide Decisions header column if employee
+  const thDec = document.querySelector('.manager-action-th');
+  if (thDec) {
+    if (isManager) thDec.classList.remove('hide');
+    else thDec.classList.add('hide');
+  }
+
   if (requests.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="5" class="text-center text-muted" style="padding: 2rem;">No time off requests found.</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="${isManager ? 5 : 4}" class="text-center text-muted" style="padding: 2rem;">No leave requests filed.</td></tr>`;
     return;
   }
 
@@ -1197,10 +1357,10 @@ function renderTimeOffPanel() {
       `;
     } else if (req.status === 'Approved') {
       statusBadge = '<span class="badge badge-success">Approved</span>';
-      actionsHtml = `<button class="btn btn-outline" style="padding: 4px 8px; font-size:11px;" onclick="decideLeaveRequest('${req.id}', 'Pending')">Change to Pending</button>`;
+      actionsHtml = `<button class="btn btn-outline" style="padding: 4px 8px; font-size:11px;" onclick="decideLeaveRequest('${req.id}', 'Pending')">Set Pending</button>`;
     } else {
       statusBadge = '<span class="badge badge-danger">Rejected</span>';
-      actionsHtml = `<button class="btn btn-outline" style="padding: 4px 8px; font-size:11px;" onclick="decideLeaveRequest('${req.id}', 'Pending')">Change to Pending</button>`;
+      actionsHtml = `<button class="btn btn-outline" style="padding: 4px 8px; font-size:11px;" onclick="decideLeaveRequest('${req.id}', 'Pending')">Set Pending</button>`;
     }
 
     const tr = document.createElement('tr');
@@ -1209,26 +1369,23 @@ function renderTimeOffPanel() {
       <td>${req.startDate} ~ ${req.endDate}</td>
       <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${req.reason}</td>
       <td>${statusBadge}</td>
-      <td>
-        <div style="display:flex; gap: 4px;">
-          ${actionsHtml}
-        </div>
-      </td>
+      ${isManager ? `<td><div style="display:flex; gap: 4px;">${actionsHtml}</div></td>` : ''}
     `;
     tbody.appendChild(tr);
   });
 }
 
-function handleLeaveSubmit(event) {
+async function handleLeaveSubmit(event) {
   event.preventDefault();
 
-  const empId = document.getElementById('leave-emp-select').value;
+  // If employee role, automatically set empId to current user employeeId
+  const empId = state.currentUser.role === 'employee' ? state.currentUser.employeeId : document.getElementById('leave-emp-select').value;
   const start = document.getElementById('leave-start-date').value;
   const end = document.getElementById('leave-end-date').value;
   const reason = document.getElementById('leave-reason').value;
 
   if (start > end) {
-    alert('End date cannot be before start date.');
+    alert('End date cannot be earlier than start date.');
     return;
   }
 
@@ -1239,21 +1396,20 @@ function handleLeaveSubmit(event) {
     reason: reason
   };
 
-  BriskDB.addLeaveRequest(req);
+  await BriskDB.addLeaveRequest(req);
   document.getElementById('leave-request-form').reset();
   
-  loadDataFromDB();
+  loadDataFromState();
   renderTimeOffPanel();
 }
 
-function decideLeaveRequest(reqId, decision) {
+async function decideLeaveRequest(reqId, decision) {
   const req = state.leaveRequests.find(r => r.id === reqId);
   if (!req) return;
 
   req.status = decision;
-  BriskDB.updateLeaveRequest(req);
+  await BriskDB.updateLeaveRequest(req);
 
-  // If approved, verify if there are any conflicting shifts scheduled for this person
   if (decision === 'Approved') {
     const start = new Date(req.startDate);
     const end = new Date(req.endDate);
@@ -1268,17 +1424,17 @@ function decideLeaveRequest(reqId, decision) {
     });
 
     if (conflictingShifts.length > 0) {
-      alert(`⚠️ Notice: Time off has been approved.\nHowever, there are already ${conflictingShifts.length} scheduled shifts during this approved period.\nPlease manually adjust these assignments in the Scheduler tab.`);
+      alert(`⚠️ Roster Conflict Warning: Leave approved.\nHowever, this employee already has ${conflictingShifts.length} shifts scheduled during this leave period. Please adjust their roster shifts.`);
     }
   }
 
-  loadDataFromDB();
+  loadDataFromState();
   renderTimeOffPanel();
 }
 
 
 /* ==========================================================================
-   PANEL: REPORTS & PAYROLL
+   PANEL: REPORTS & PAYROLL (Roster Emailing Trigger)
    ========================================================================== */
 
 function renderReportsPanel() {
@@ -1304,11 +1460,9 @@ function renderReportsPanel() {
   const activeEmployees = state.employees.filter(e => e.active);
 
   activeEmployees.forEach(emp => {
-    // 1. Scheduled Hours
     const empWeekHours = calculateEmployeeWeekHours(emp.id, state.currentWeekStart);
     const expectedCost = empWeekHours * emp.hourlyRate;
 
-    // 2. Actual Clocked & Approved Hours
     const empTimecards = state.timecards.filter(tc => {
       if (tc.employeeId !== emp.id) return false;
       const tcDate = new Date(tc.date);
@@ -1322,7 +1476,6 @@ function renderReportsPanel() {
     });
     const actualCost = actualHours * emp.hourlyRate;
 
-    // Sums
     totalSchedHoursSum += empWeekHours;
     totalActualHoursSum += actualHours;
     totalSchedCostSum += expectedCost;
@@ -1336,23 +1489,88 @@ function renderReportsPanel() {
       <td class="text-right">${actualHours.toFixed(1)}h</td>
       <td class="text-right">$${expectedCost.toFixed(2)}</td>
       <td class="text-right text-neon">$${actualCost.toFixed(2)}</td>
+      <td class="text-center print-hide">
+        <button class="btn btn-outline" style="padding:4px 8px; font-size:11px;" onclick="openEmailRosterModal('${emp.id}')" ${empWeekHours === 0 ? 'disabled' : ''}>
+          <i class="fa-solid fa-envelope"></i> Email Roster
+        </button>
+      </td>
     `;
     tbody.appendChild(tr);
   });
 
-  // Set sums in tfoot
-  document.getElementById('rep-total-sched-hours').textContent = `${totalSchedHoursSum.toFixed(1)} hrs`;
-  document.getElementById('rep-total-actual-hours').textContent = `${totalActualHoursSum.toFixed(1)} hrs`;
+  document.getElementById('rep-total-sched-hours').textContent = `${totalSchedHoursSum.toFixed(1)}h`;
+  document.getElementById('rep-total-actual-hours').textContent = `${totalActualHoursSum.toFixed(1)}h`;
   document.getElementById('rep-total-sched-cost').textContent = `$${totalSchedCostSum.toFixed(2)}`;
   document.getElementById('rep-total-actual-cost').textContent = `$${totalActualCostSum.toFixed(2)}`;
 }
 
-// Generate the copyable text email format for schedule briefing
+// Open specific staff member's roster email modal
+function openEmailRosterModal(employeeId) {
+  const emp = state.employees.find(e => e.id === employeeId);
+  if (!emp) return;
+
+  const mon = new Date(state.currentWeekStart);
+  const weekStartStr = formatDateISO(mon);
+
+  document.getElementById('email-roster-emp-id').value = employeeId;
+  document.getElementById('email-roster-emp-name').textContent = emp.name;
+
+  let text = `Here is your roster for the week of ${getWeekRangeText(mon)}:\n\n`;
+
+  for (let i = 0; i < 7; i++) {
+    const d = new Date(mon);
+    d.setDate(mon.getDate() + i);
+    const dateStr = formatDateISO(d);
+    
+    const dayShifts = state.shifts.filter(s => s.employeeId === employeeId && s.date === dateStr);
+    if (dayShifts.length > 0) {
+      dayShifts.forEach(s => {
+        text += `📅 [${DAY_NAMES[d.getDay()]}] ${dateStr}\n`;
+        text += `   - Time: ${s.startTime} ~ ${s.endTime}\n`;
+        text += `   - Role: ${s.role}\n`;
+        if (s.notes) text += `   - Notes: ${s.notes}\n`;
+        text += `\n`;
+      });
+    }
+  }
+
+  document.getElementById('email-roster-textarea').value = text;
+  document.getElementById('modal-email-roster').classList.add('active');
+}
+
+function closeEmailRosterModal() {
+  document.getElementById('modal-email-roster').classList.remove('active');
+}
+
+// Call backend API route to send SMTP email
+async function sendRosterEmail() {
+  const empId = document.getElementById('email-roster-emp-id').value;
+  const text = document.getElementById('email-roster-textarea').value;
+  const weekStart = formatDateISO(state.currentWeekStart);
+
+  const btn = document.querySelector('#modal-email-roster .btn-neon');
+  const originalText = btn.innerHTML;
+  btn.disabled = true;
+  btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+
+  const res = await BriskDB.apiSendRosterEmail(empId, weekStart, text);
+
+  btn.disabled = false;
+  btn.innerHTML = originalText;
+
+  if (res.error) {
+    alert(`Error: ${res.error}`);
+  } else {
+    alert(res.message);
+    closeEmailRosterModal();
+  }
+}
+
+// Generate full roster briefing to copy
 function openEmailScheduleModal() {
   const area = document.getElementById('email-schedule-textarea');
-  
   const mon = new Date(state.currentWeekStart);
-  let text = `Hello team,\nHere is the weekly work schedule for the week of ${getWeekRangeText(mon)} from BriskSchedules.\n\n`;
+  let text = `Hi Team,\nHere is the roster schedule for the week of ${getWeekRangeText(mon)}:\n\n`;
 
   for (let i = 0; i < 7; i++) {
     const d = new Date(mon);
@@ -1363,24 +1581,23 @@ function openEmailScheduleModal() {
     
     const dayShifts = state.shifts.filter(s => s.date === dateStr);
     if (dayShifts.length === 0) {
-      text += ` - (No shifts scheduled)\n`;
+      text += ` - No shifts scheduled\n`;
     } else {
       dayShifts.forEach(s => {
         const emp = state.employees.find(e => e.id === s.employeeId);
         const name = emp ? emp.name : '⚠️ Unassigned';
-        text += ` - ${s.startTime} ~ ${s.endTime} : ${name} (${s.role}) ${s.notes ? `[Note: ${s.notes}]` : ''}\n`;
+        text += ` - ${s.startTime} ~ ${s.endTime} : ${name} (${s.role}) ${s.notes ? `[Notes: ${s.notes}]` : ''}\n`;
       });
     }
     text += `\n`;
   }
 
-  text += `Please check your scheduled times and make sure to use the Time Clock when clocking in and out. For any questions, please contact the manager.\nThank you.`;
+  text += `Please check your shifts and make sure to clock in/out on time. Contact management for any shift swap inquiries.\nThanks!`;
   
   area.value = text;
   document.getElementById('modal-email-schedule').classList.add('active');
 }
 
-// Close modal
 function closeEmailScheduleModal() {
   document.getElementById('modal-email-schedule').classList.remove('active');
 }
@@ -1389,7 +1606,7 @@ function copyEmailScheduleText() {
   const area = document.getElementById('email-schedule-textarea');
   area.select();
   document.execCommand('copy');
-  alert('Email schedule template text successfully copied to clipboard!');
+  alert(' Roster schedule text copied to clipboard!');
   closeEmailScheduleModal();
 }
 
@@ -1398,27 +1615,15 @@ function copyEmailScheduleText() {
    PANEL: SETTINGS & DATABASE
    ========================================================================== */
 
-function saveCompanySetting() {
+async function saveCompanySetting() {
   const name = document.getElementById('settings-company-name').value;
   if (!name.trim()) return;
 
   state.settings.companyName = name;
   BriskDB.saveSettings(state.settings);
   
-  // Reload
-  loadDataFromDB();
-  alert('Company name has been successfully saved.');
-}
-
-function resetDatabaseToDemo() {
-  if (!confirm('Warning: Are you sure you want to perform a factory reset on the database?\nThis action will erase all manual data and settings, and overwrite them with the initial sample demo data.')) {
-    return;
-  }
-
-  BriskDB.clearAll();
-  loadDataFromDB();
-  switchTab('dashboard');
-  alert('Database has been successfully reset to default demo values.');
+  loadDataFromState();
+  alert('Organization name saved.');
 }
 
 function exportDatabaseFile() {
@@ -1434,34 +1639,4 @@ function exportDatabaseFile() {
   
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
-}
-
-function handleDatabaseImportChange(e) {
-  // Just updates UI or does check
-}
-
-function importDatabaseFile() {
-  const fileInput = document.getElementById('database-import-file');
-  if (!fileInput.files || fileInput.files.length === 0) {
-    alert('Please select a JSON backup file to import.');
-    return;
-  }
-
-  const file = fileInput.files[0];
-  const reader = new FileReader();
-  
-  reader.onload = function(evt) {
-    const content = evt.target.result;
-    const success = BriskDB.importData(content);
-    if (success) {
-      loadDataFromDB();
-      switchTab('dashboard');
-      alert('Database has been successfully restored from the backup file!');
-      fileInput.value = ''; // Reset input
-    } else {
-      alert('Database restore failed: The JSON file format is invalid or corrupted.');
-    }
-  };
-
-  reader.readAsText(file);
 }

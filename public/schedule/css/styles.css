@@ -1104,3 +1104,46 @@ select.form-control option {
     text-shadow: none !important;
   }
 }
+
+/* =====================================
+   LOGIN & REGISTRATION STYLES
+   ===================================== */
+.login-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--bg-dark);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1.5rem;
+}
+.login-overlay.active {
+  display: flex;
+}
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 2.5rem;
+  border: 1px solid var(--border-active);
+  background: linear-gradient(135deg, rgba(230, 126, 34, 0.05), var(--bg-surface));
+  animation: slideInModal 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+.login-header h2 {
+  font-family: var(--font-title);
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin-top: 8px;
+}
+.login-header span {
+  font-size: 0.85rem;
+  color: var(--accent-gold);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+

@@ -4,9 +4,13 @@
   "description": "BriskSchedules - Premium Free Employee Scheduling & Time Clock System",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "vercel": "vercel"
   },
   "dependencies": {
     "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "vercel": "^54.18.5"
   }
 }

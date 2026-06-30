@@ -1,5 +1,5 @@
 /**
- * BriskSchedules Local Database Layer (LocalStorage-backed)
+ * BriskSchedules Cloud Database & Sync Layer
  */
 const BriskDB = (function() {
   const STORAGE_KEYS = {
@@ -7,416 +7,346 @@ const BriskDB = (function() {
     SHIFTS: 'brisk_shifts',
     TIMECARDS: 'brisk_timecards',
     LEAVE_REQUESTS: 'brisk_leave_requests',
-    SETTINGS: 'brisk_settings'
+    SETTINGS: 'brisk_settings',
+    SESSION: 'brisk_session'
   };
 
-  // Helper to save to local storage
-  function save(key, data) {
-    localStorage.setItem(key, JSON.stringify(data));
+  // Local memory cache
+  let _employees = [];
+  let _shifts = [];
+  let _timecards = [];
+  let _leaveRequests = [];
+  let _settings = { companyName: 'Brisk Pharmacy Group' };
+  
+  // Track deletions for server sync
+  let _deletedShifts = [];
+  let _deletedEmployees = [];
+
+  // Helper to load session
+  function getSession() {
+    const val = localStorage.getItem(STORAGE_KEYS.SESSION);
+    return val ? JSON.parse(val) : null;
   }
 
-  // Helper to load from local storage
-  function load(key, defaultVal = []) {
-    const val = localStorage.getItem(key);
-    return val ? JSON.parse(val) : defaultVal;
-  }
-
-  // Initialize DB with Seed Data if empty
-  function init() {
-    if (!localStorage.getItem(STORAGE_KEYS.EMPLOYEES)) {
-      seedDatabase();
+  function setSession(session) {
+    if (session) {
+      localStorage.setItem(STORAGE_KEYS.SESSION, JSON.stringify(session));
+    } else {
+      localStorage.removeItem(STORAGE_KEYS.SESSION);
+      // Clear data on logout
+      _employees = [];
+      _shifts = [];
+      _timecards = [];
+      _leaveRequests = [];
+      localStorage.removeItem(STORAGE_KEYS.EMPLOYEES);
+      localStorage.removeItem(STORAGE_KEYS.SHIFTS);
+      localStorage.removeItem(STORAGE_KEYS.TIMECARDS);
+      localStorage.removeItem(STORAGE_KEYS.LEAVE_REQUESTS);
     }
   }
 
-  function seedDatabase() {
-    // 1. Employees Seed
-    const employees = [
-      {
-        id: 'emp_1',
-        name: 'Sung Joo Peter Kim',
-        email: 'peter@mcjp.io',
-        role: 'Pharmacist Manager',
-        hourlyRate: 85.00,
-        maxHours: 45,
-        availability: {
-          0: null, // Sunday
-          1: { start: '08:00', end: '18:00' }, // Monday
-          2: { start: '08:00', end: '18:00' },
-          3: { start: '08:00', end: '18:00' },
-          4: { start: '08:00', end: '18:00' },
-          5: { start: '08:00', end: '18:00' },
-          6: { start: '09:00', end: '13:00' }  // Saturday
-        },
-        active: true
-      },
-      {
-        id: 'emp_2',
-        name: 'Maddie Kim',
-        email: 'maddie@mcjp.io',
-        role: 'Pharmacy Intern',
-        hourlyRate: 35.00,
-        maxHours: 20,
-        availability: {
-          0: null,
-          1: { start: '09:00', end: '17:00' },
-          2: { start: '09:00', end: '17:00' },
-          3: { start: '09:00', end: '17:00' },
-          4: { start: '09:00', end: '17:00' },
-          5: { start: '09:00', end: '17:00' },
-          6: null
-        },
-        active: true
-      },
-      {
-        id: 'emp_3',
-        name: 'Charlie Kim',
-        email: 'charlie@mcjp.io',
-        role: 'Junior Assistant',
-        hourlyRate: 25.00,
-        maxHours: 15,
-        availability: {
-          0: null,
-          1: null,
-          2: { start: '15:30', end: '18:00' },
-          3: null,
-          4: { start: '15:30', end: '18:00' },
-          5: null,
-          6: { start: '09:00', end: '13:00' }
-        },
-        active: true
-      },
-      {
-        id: 'emp_4',
-        name: 'John Smith',
-        email: 'john.smith@gmail.com',
-        role: 'Dispense Technician',
-        hourlyRate: 42.50,
-        maxHours: 38,
-        availability: {
-          0: null,
-          1: { start: '08:30', end: '17:30' },
-          2: { start: '08:30', end: '17:30' },
-          3: { start: '08:30', end: '17:30' },
-          4: { start: '08:30', end: '17:30' },
-          5: { start: '08:30', end: '17:30' },
-          6: null
-        },
-        active: true
-      },
-      {
-        id: 'emp_5',
-        name: 'Sarah Connor',
-        email: 'sarah.c@gmail.com',
-        role: 'Retail Associate',
-        hourlyRate: 28.50,
-        maxHours: 30,
-        availability: {
-          0: null,
-          1: { start: '09:00', end: '18:00' },
-          2: { start: '09:00', end: '18:00' },
-          3: { start: '09:00', end: '18:00' },
-          4: { start: '09:00', end: '18:00' },
-          5: { start: '09:00', end: '18:00' },
-          6: { start: '09:00', end: '13:00' }
-        },
-        active: true
-      }
-    ];
-
-    // Get dates for this current week (Monday to Sunday)
-    const today = new Date();
-    const currentDay = today.getDay(); // 0 is Sun, 1 is Mon...
-    const mondayOffset = currentDay === 0 ? -6 : 1 - currentDay;
-    const monday = new Date(today);
-    monday.setDate(today.getDate() + mondayOffset);
-
-    function getFormattedDate(offsetDays) {
-      const d = new Date(monday);
-      d.setDate(monday.getDate() + offsetDays);
-      return d.toISOString().split('T')[0];
-    }
-
-    // 2. Shifts Seed (This week)
-    const shifts = [
-      {
-        id: 'shift_1',
-        employeeId: 'emp_1',
-        date: getFormattedDate(0), // Monday
-        startTime: '08:30',
-        endTime: '17:30',
-        role: 'Pharmacist Manager',
-        notes: 'Opening shift, check orders.'
-      },
-      {
-        id: 'shift_2',
-        employeeId: 'emp_4',
-        date: getFormattedDate(0),
-        startTime: '08:30',
-        endTime: '17:30',
-        role: 'Dispense Technician',
-        notes: 'Help with dispensing.'
-      },
-      {
-        id: 'shift_3',
-        employeeId: 'emp_1',
-        date: getFormattedDate(1), // Tuesday
-        startTime: '08:30',
-        endTime: '17:30',
-        role: 'Pharmacist Manager',
-        notes: ''
-      },
-      {
-        id: 'shift_4',
-        employeeId: 'emp_5',
-        date: getFormattedDate(1),
-        startTime: '09:00',
-        endTime: '17:00',
-        role: 'Retail Associate',
-        notes: 'Customer service counter.'
-      },
-      {
-        id: 'shift_5',
-        employeeId: 'emp_2',
-        date: getFormattedDate(2), // Wednesday
-        startTime: '09:00',
-        endTime: '17:00',
-        role: 'Pharmacy Intern',
-        notes: 'Maddie - clinical case review and dispensary practice.'
-      },
-      {
-        id: 'shift_6',
-        employeeId: 'emp_1',
-        date: getFormattedDate(2),
-        startTime: '08:30',
-        endTime: '17:30',
-        role: 'Pharmacist Manager',
-        notes: ''
-      },
-      {
-        id: 'shift_7',
-        employeeId: 'emp_3',
-        date: getFormattedDate(3), // Thursday
-        startTime: '15:30',
-        endTime: '18:00',
-        role: 'Junior Assistant',
-        notes: 'Charlie - restocking and shelf hygiene.'
-      },
-      {
-        id: 'shift_8',
-        employeeId: 'emp_1',
-        date: getFormattedDate(4), // Friday
-        startTime: '08:30',
-        endTime: '17:30',
-        role: 'Pharmacist Manager',
-        notes: ''
-      },
-      {
-        id: 'shift_9',
-        employeeId: 'emp_4',
-        date: getFormattedDate(4),
-        startTime: '08:30',
-        endTime: '17:30',
-        role: 'Dispense Technician',
-        notes: ''
-      }
-    ];
-
-    // 3. Timecard Logs Seed (Previous days of current week, e.g., Monday and Tuesday)
-    const timecards = [
-      {
-        id: 'tc_1',
-        employeeId: 'emp_1',
-        date: getFormattedDate(0),
-        clockIn: `${getFormattedDate(0)}T08:25:00.000Z`,
-        clockOut: `${getFormattedDate(0)}T17:35:00.000Z`,
-        breaks: [
-          { start: `${getFormattedDate(0)}T13:00:00.000Z`, end: `${getFormattedDate(0)}T13:30:00.000Z` }
-        ],
-        totalHours: 8.67,
-        approved: true,
-        approvedBy: 'System'
-      },
-      {
-        id: 'tc_2',
-        employeeId: 'emp_4',
-        date: getFormattedDate(0),
-        clockIn: `${getFormattedDate(0)}T08:32:00.000Z`,
-        clockOut: `${getFormattedDate(0)}T17:30:00.000Z`,
-        breaks: [
-          { start: `${getFormattedDate(0)}T12:30:00.000Z`, end: `${getFormattedDate(0)}T13:00:00.000Z` }
-        ],
-        totalHours: 8.47,
-        approved: true,
-        approvedBy: 'Sung Joo Peter Kim'
-      },
-      {
-        id: 'tc_3',
-        employeeId: 'emp_1',
-        date: getFormattedDate(1),
-        clockIn: `${getFormattedDate(1)}T08:28:00.000Z`,
-        clockOut: `${getFormattedDate(1)}T17:31:00.000Z`,
-        breaks: [
-          { start: `${getFormattedDate(1)}T13:10:00.000Z`, end: `${getFormattedDate(1)}T13:40:00.000Z` }
-        ],
-        totalHours: 8.55,
-        approved: false,
-        approvedBy: ''
-      }
-    ];
-
-    // 4. Leave Requests Seed
-    const leaveRequests = [
-      {
-        id: 'leave_1',
-        employeeId: 'emp_4',
-        startDate: getFormattedDate(7), // Next Monday
-        endDate: getFormattedDate(9),   // Next Wednesday
-        reason: 'Dentist appointment & family visit',
-        status: 'Pending'
-      },
-      {
-        id: 'leave_2',
-        employeeId: 'emp_5',
-        startDate: getFormattedDate(14), // Week after next
-        endDate: getFormattedDate(14),
-        reason: 'Personal administration',
-        status: 'Approved'
-      }
-    ];
-
-    // Save everything
-    save(STORAGE_KEYS.EMPLOYEES, employees);
-    save(STORAGE_KEYS.SHIFTS, shifts);
-    save(STORAGE_KEYS.TIMECARDS, timecards);
-    save(STORAGE_KEYS.LEAVE_REQUESTS, leaveRequests);
-    save(STORAGE_KEYS.SETTINGS, { companyName: 'Brisk Pharmacy Group' });
+  // Get HTTP headers for authenticated requests
+  function getAuthHeaders() {
+    const session = getSession();
+    if (!session) return {};
+    return {
+      'Content-Type': 'application/json',
+      'x-user-role': session.role,
+      'x-employee-id': session.employeeId || '',
+      'x-user-email': session.email
+    };
   }
 
-  // Database API
+  // Fetch data from Vercel API and sync local cache
+  async function syncFromServer() {
+    const session = getSession();
+    if (!session) return false;
+
+    try {
+      const res = await fetch('/api/schedule/data', {
+        method: 'GET',
+        headers: getAuthHeaders()
+      });
+
+      if (!res.ok) {
+        throw new Error('Failed to fetch data from cloud server.');
+      }
+
+      const data = await res.json();
+      
+      _employees = data.employees || [];
+      _shifts = data.shifts || [];
+      _timecards = data.timecards || [];
+      _leaveRequests = data.leaveRequests || [];
+
+      // Save a local storage backup copy for offline/fallback
+      localStorage.setItem(STORAGE_KEYS.EMPLOYEES, JSON.stringify(_employees));
+      localStorage.setItem(STORAGE_KEYS.SHIFTS, JSON.stringify(_shifts));
+      localStorage.setItem(STORAGE_KEYS.TIMECARDS, JSON.stringify(_timecards));
+      localStorage.setItem(STORAGE_KEYS.LEAVE_REQUESTS, JSON.stringify(_leaveRequests));
+
+      // Reset deletions tracking
+      _deletedShifts = [];
+      _deletedEmployees = [];
+
+      return true;
+    } catch (err) {
+      console.error('[CloudSync] Sync GET failed. Falling back to local storage cache.', err);
+      // Fallback
+      _employees = JSON.parse(localStorage.getItem(STORAGE_KEYS.EMPLOYEES) || '[]');
+      _shifts = JSON.parse(localStorage.getItem(STORAGE_KEYS.SHIFTS) || '[]');
+      _timecards = JSON.parse(localStorage.getItem(STORAGE_KEYS.TIMECARDS) || '[]');
+      _leaveRequests = JSON.parse(localStorage.getItem(STORAGE_KEYS.LEAVE_REQUESTS) || '[]');
+      return false;
+    }
+  }
+
+  // Post updates to Vercel API
+  async function syncToServer(itemType = null, singleItem = null) {
+    const session = getSession();
+    if (!session) return false;
+
+    try {
+      let payload = {};
+
+      if (session.role === 'owner' || session.role === 'manager') {
+        // Manager syncs the whole batch
+        payload = {
+          employees: _employees,
+          shifts: _shifts,
+          timecards: _timecards,
+          leaveRequests: _leaveRequests,
+          deletedShifts: _deletedShifts,
+          deletedEmployees: _deletedEmployees
+        };
+      } else {
+        // Employee only syncs individual timecard or leave request
+        if (!itemType || !singleItem) return false;
+        payload = {
+          type: itemType,
+          data: singleItem
+        };
+      }
+
+      const res = await fetch('/api/schedule/data', {
+        method: 'POST',
+        headers: getAuthHeaders(),
+        body: JSON.stringify(payload)
+      });
+
+      if (!res.ok) {
+        const errData = await res.json();
+        throw new Error(errData.error || 'Failed to save data to cloud server.');
+      }
+
+      // Reset deleted trackers on success
+      _deletedShifts = [];
+      _deletedEmployees = [];
+
+      return true;
+    } catch (err: any) {
+      console.error('[CloudSync] Sync POST failed.', err);
+      alert(`Cloud sync warning: ${err.message}`);
+      return false;
+    }
+  }
+
+  // Cloud API Call wrapper for Login
+  async function apiLogin(email, password) {
+    try {
+      const res = await fetch('/api/schedule/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Login failed.');
+      return data;
+    } catch (err: any) {
+      return { error: err.message };
+    }
+  }
+
+  // Cloud API Call wrapper for Registration
+  async function apiRegister(email, password, name, inviteCode) {
+    try {
+      const res = await fetch('/api/schedule/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password, name, inviteCode })
+      });
+
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Registration failed.');
+      return data;
+    } catch (err: any) {
+      return { error: err.message };
+    }
+  }
+
+  // Cloud API Call wrapper for Invitation Generation
+  async function apiGenerateInvite(email, role) {
+    try {
+      const res = await fetch('/api/schedule/auth/invite', {
+        method: 'POST',
+        headers: getAuthHeaders(),
+        body: JSON.stringify({ email, role })
+      });
+
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Failed to generate invitation.');
+      return data;
+    } catch (err: any) {
+      return { error: err.message };
+    }
+  }
+
+  // Cloud API Call wrapper for sending Roster Email
+  async function apiSendRosterEmail(employeeId, weekStart, rosterText) {
+    try {
+      const res = await fetch('/api/schedule/email', {
+        method: 'POST',
+        headers: getAuthHeaders(),
+        body: JSON.stringify({ employeeId, weekStart, rosterText })
+      });
+
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Failed to send roster email.');
+      return data;
+    } catch (err: any) {
+      return { error: err.message };
+    }
+  }
+
   return {
-    init: init,
-    clearAll: function() {
-      localStorage.clear();
-      seedDatabase();
+    // Session API
+    getSession,
+    setSession,
+    syncFromServer,
+    syncToServer,
+    
+    // Auth Wrappers
+    apiLogin,
+    apiRegister,
+    apiGenerateInvite,
+    apiSendRosterEmail,
+
+    // Local getters (fed from syncFromServer)
+    getEmployees: function() { return _employees; },
+    getShifts: function() { return _shifts; },
+    getTimecards: function() { return _timecards; },
+    getLeaveRequests: function() { return _leaveRequests; },
+    getSettings: function() { return _settings; },
+    
+    // DB Modifiers
+    addEmployee: async function(emp) {
+      emp.id = 'emp_temp_' + Date.now(); // temporary client-side ID, replaced by UUID in postgres
+      emp.active = true;
+      _employees.push(emp);
+      await syncToServer();
+      await syncFromServer(); // pull down generated UUIDs
     },
-    // Employees
-    getEmployees: function() { return load(STORAGE_KEYS.EMPLOYEES); },
-    saveEmployees: function(data) { save(STORAGE_KEYS.EMPLOYEES, data); },
-    addEmployee: function(employee) {
-      const employees = this.getEmployees();
-      employee.id = 'emp_' + Date.now();
-      employee.active = true;
-      employees.push(employee);
-      this.saveEmployees(employees);
-      return employee;
-    },
-    updateEmployee: function(updated) {
-      const employees = this.getEmployees();
-      const idx = employees.findIndex(e => e.id === updated.id);
+    updateEmployee: async function(updated) {
+      const idx = _employees.findIndex(e => e.id === updated.id);
       if (idx !== -1) {
-        employees[idx] = { ...employees[idx], ...updated };
-        this.saveEmployees(employees);
+        _employees[idx] = { ..._employees[idx], ...updated };
+        await syncToServer();
       }
     },
-    deleteEmployee: function(id) {
-      const employees = this.getEmployees();
-      const filtered = employees.filter(e => e.id !== id);
-      this.saveEmployees(filtered);
+    deleteEmployee: async function(id) {
+      if (!id.startsWith('emp_temp_')) {
+        _deletedEmployees.push(id);
+      }
+      _employees = _employees.filter(e => e.id !== id);
+      await syncToServer();
     },
 
-    // Shifts
-    getShifts: function() { return load(STORAGE_KEYS.SHIFTS); },
-    saveShifts: function(data) { save(STORAGE_KEYS.SHIFTS, data); },
-    addShift: function(shift) {
-      const shifts = this.getShifts();
-      shift.id = 'shift_' + Date.now();
-      shifts.push(shift);
-      this.saveShifts(shifts);
-      return shift;
+    // Shifts CRUD
+    addShift: async function(shift) {
+      shift.id = 'shift_temp_' + Date.now();
+      _shifts.push(shift);
+      await syncToServer();
+      await syncFromServer();
     },
-    updateShift: function(updated) {
-      const shifts = this.getShifts();
-      const idx = shifts.findIndex(s => s.id === updated.id);
+    updateShift: async function(updated) {
+      const idx = _shifts.findIndex(s => s.id === updated.id);
       if (idx !== -1) {
-        shifts[idx] = { ...shifts[idx], ...updated };
-        this.saveShifts(shifts);
+        _shifts[idx] = { ..._shifts[idx], ...updated };
+        await syncToServer();
       }
     },
-    deleteShift: function(id) {
-      const shifts = this.getShifts();
-      const filtered = shifts.filter(s => s.id !== id);
-      this.saveShifts(filtered);
-    },
-
-    // Timecards
-    getTimecards: function() { return load(STORAGE_KEYS.TIMECARDS); },
-    saveTimecards: function(data) { save(STORAGE_KEYS.TIMECARDS, data); },
-    addTimecard: function(tc) {
-      const timecards = this.getTimecards();
-      tc.id = 'tc_' + Date.now();
-      timecards.push(tc);
-      this.saveTimecards(timecards);
-      return tc;
-    },
-    updateTimecard: function(updated) {
-      const timecards = this.getTimecards();
-      const idx = timecards.findIndex(t => t.id === updated.id);
-      if (idx !== -1) {
-        timecards[idx] = { ...timecards[idx], ...updated };
-        this.saveTimecards(timecards);
+    deleteShift: async function(id) {
+      if (!id.startsWith('shift_temp_')) {
+        _deletedShifts.push(id);
       }
+      _shifts = _shifts.filter(s => s.id !== id);
+      await syncToServer();
     },
 
-    // Leave Requests
-    getLeaveRequests: function() { return load(STORAGE_KEYS.LEAVE_REQUESTS); },
-    saveLeaveRequests: function(data) { save(STORAGE_KEYS.LEAVE_REQUESTS, data); },
-    addLeaveRequest: function(req) {
-      const requests = this.getLeaveRequests();
-      req.id = 'leave_' + Date.now();
-      req.status = 'Pending';
-      requests.push(req);
-      this.saveLeaveRequests(requests);
-      return req;
+    // Timecards CRUD
+    addTimecard: async function(tc) {
+      tc.id = 'tc_temp_' + Date.now();
+      _timecards.push(tc);
+      const session = getSession();
+      if (session.role === 'employee') {
+        await syncToServer('timecard', tc);
+      } else {
+        await syncToServer();
+      }
+      await syncFromServer();
     },
-    updateLeaveRequest: function(updated) {
-      const requests = this.getLeaveRequests();
-      const idx = requests.findIndex(r => r.id === updated.id);
+    updateTimecard: async function(updated) {
+      const idx = _timecards.findIndex(t => t.id === updated.id);
       if (idx !== -1) {
-        requests[idx] = { ...requests[idx], ...updated };
-        this.saveLeaveRequests(requests);
+        _timecards[idx] = { ..._timecards[idx], ...updated };
+        const session = getSession();
+        if (session.role === 'employee') {
+          await syncToServer('timecard', _timecards[idx]);
+        } else {
+          await syncToServer();
+        }
       }
     },
 
-    // Settings
-    getSettings: function() { return load(STORAGE_KEYS.SETTINGS, { companyName: 'Brisk Pharmacy Group' }); },
-    saveSettings: function(settings) { save(STORAGE_KEYS.SETTINGS, settings); },
+    // Leave Requests CRUD
+    addLeaveRequest: async function(lr) {
+      lr.id = 'leave_temp_' + Date.now();
+      lr.status = 'Pending';
+      _leaveRequests.push(lr);
+      const session = getSession();
+      if (session.role === 'employee') {
+        await syncToServer('leave_request', lr);
+      } else {
+        await syncToServer();
+      }
+      await syncFromServer();
+    },
+    updateLeaveRequest: async function(updated) {
+      const idx = _leaveRequests.findIndex(r => r.id === updated.id);
+      if (idx !== -1) {
+        _leaveRequests[idx] = { ..._leaveRequests[idx], ...updated };
+        await syncToServer();
+      }
+    },
 
-    // Export/Import JSON
+    // settings
+    saveSettings: function(settings) {
+      _settings = settings;
+      localStorage.setItem(STORAGE_KEYS.SETTINGS, JSON.stringify(settings));
+    },
+
+    // Backup
     exportData: function() {
       const exportObj = {
-        employees: this.getEmployees(),
-        shifts: this.getShifts(),
-        timecards: this.getTimecards(),
-        leaveRequests: this.getLeaveRequests(),
-        settings: this.getSettings(),
+        employees: _employees,
+        shifts: _shifts,
+        timecards: _timecards,
+        leaveRequests: _leaveRequests,
         version: '1.0.0',
         exportedAt: new Date().toISOString()
       };
       return JSON.stringify(exportObj, null, 2);
-    },
-    importData: function(jsonString) {
-      try {
-        const importObj = JSON.parse(jsonString);
-        if (importObj.employees) save(STORAGE_KEYS.EMPLOYEES, importObj.employees);
-        if (importObj.shifts) save(STORAGE_KEYS.SHIFTS, importObj.shifts);
-        if (importObj.timecards) save(STORAGE_KEYS.TIMECARDS, importObj.timecards);
-        if (importObj.leaveRequests) save(STORAGE_KEYS.LEAVE_REQUESTS, importObj.leaveRequests);
-        if (importObj.settings) save(STORAGE_KEYS.SETTINGS, importObj.settings);
-        return true;
-      } catch (err) {
-        console.error('Import database parse error:', err);
-        return false;
-      }
     }
   };
 })();
