@@ -16,7 +16,7 @@ const BriskDB = (function() {
   let _shifts = JSON.parse(localStorage.getItem(STORAGE_KEYS.SHIFTS) || '[]');
   let _timecards = JSON.parse(localStorage.getItem(STORAGE_KEYS.TIMECARDS) || '[]');
   let _leaveRequests = JSON.parse(localStorage.getItem(STORAGE_KEYS.LEAVE_REQUESTS) || '[]');
-  let _settings = { companyName: 'Brisk Pharmacy Group' };
+  let _settings = { companyName: 'Amcal Pharmacy Woywoy Rosters' };
   
   // Track deletions for server sync
   let _deletedShifts = [];

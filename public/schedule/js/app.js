@@ -84,8 +84,8 @@ function loadDataFromState() {
   state.leaveRequests = BriskDB.getLeaveRequests();
   state.settings = BriskDB.getSettings();
 
-  document.getElementById('sidebar-company-name').textContent = state.settings.companyName || 'Brisk Pharmacy Group';
-  document.getElementById('settings-company-name').value = state.settings.companyName || 'Brisk Pharmacy Group';
+  document.getElementById('sidebar-company-name').textContent = state.settings.companyName || 'Amcal Pharmacy Woywoy Rosters';
+  document.getElementById('settings-company-name').value = state.settings.companyName || 'Amcal Pharmacy Woywoy Rosters';
 }
 
 // Role-Based UI visibility
