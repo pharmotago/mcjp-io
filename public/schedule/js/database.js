@@ -94,12 +94,10 @@ const BriskDB = (function() {
   // Get HTTP headers for authenticated requests
   function getAuthHeaders() {
     const session = getSession();
-    if (!session) return {};
+    if (!session || !session.token) return {};
     return {
       'Content-Type': 'application/json',
-      'x-user-role': session.role,
-      'x-employee-id': session.employeeId || '',
-      'x-user-email': session.email
+      'Authorization': 'Bearer ' + session.token
     };
   }
 
@@ -190,7 +188,7 @@ const BriskDB = (function() {
       _deletedEmployees = [];
 
       return true;
-    } catch (err: any) {
+    } catch (err) {
       console.error('[CloudSync] Sync POST failed.', err);
       return false;
     }
@@ -208,7 +206,7 @@ const BriskDB = (function() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Login failed.');
       return data;
-    } catch (err: any) {
+    } catch (err) {
       return { error: err.message };
     }
   }
@@ -225,7 +223,7 @@ const BriskDB = (function() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Registration failed.');
       return data;
-    } catch (err: any) {
+    } catch (err) {
       return { error: err.message };
     }
   }
@@ -242,7 +240,7 @@ const BriskDB = (function() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Failed to generate invitation.');
       return data;
-    } catch (err: any) {
+    } catch (err) {
       return { error: err.message };
     }
   }
@@ -259,7 +257,7 @@ const BriskDB = (function() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Failed to send roster email.');
       return data;
-    } catch (err: any) {
+    } catch (err) {
       return { error: err.message };
     }
   }

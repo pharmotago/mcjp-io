@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 import { supabase } from '../../../supabase';
-import { hashPassword, jsonResponse } from '../../utils';
+import { hashPassword, jsonResponse, signToken } from '../../utils';
 
 export async function OPTIONS() {
   return jsonResponse({}, 200);
@@ -14,21 +14,7 @@ export async function POST(req: NextRequest) {
       return jsonResponse({ error: 'Email and password are required.' }, 400);
     }
 
-    // Check if the database has any users
-    const { count, error: countError } = await supabase
-      .from('brisk_users')
-      .select('*', { count: 'exact', head: true });
-
-    if (countError) {
-      return jsonResponse({ error: `Database error: ${countError.message}` }, 500);
-    }
-
-    // Bootstrap check: If no users exist, notify client that they can register directly as Owner
-    if (count === 0) {
-      return jsonResponse({ bootstrap: true, message: 'Database is empty. Register the first owner user.' }, 200);
-    }
-
-    // Query user
+    // Query user matching credentials
     const passwordHash = hashPassword(password);
     const { data: user, error: userError } = await supabase
       .from('brisk_users')
@@ -41,7 +27,7 @@ export async function POST(req: NextRequest) {
           name
         )
       `)
-      .eq('email', email.toLowerCase())
+      .eq('email', email.toLowerCase().trim())
       .eq('password_hash', passwordHash)
       .single();
 
@@ -49,11 +35,19 @@ export async function POST(req: NextRequest) {
       return jsonResponse({ error: 'Invalid email or password.' }, 401);
     }
 
-    // Format return payload
-    const name = user.brisk_employees ? (user.brisk_employees as any).name : 'Owner';
+    // Extract employee name
+    const name = user.brisk_employees ? (user.brisk_employees as any).name : 'Pharmacist Manager';
     
+    // Generate secure stateless JWT token
+    const token = signToken({
+      email: user.email,
+      role: user.role,
+      employeeId: user.employee_id || ''
+    });
+
     return jsonResponse({
       success: true,
+      token,
       user: {
         email: user.email,
         role: user.role,

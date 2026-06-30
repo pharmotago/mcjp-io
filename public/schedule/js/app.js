@@ -232,18 +232,13 @@ async function handleLoginSubmit(event) {
     return;
   }
 
-  if (res.bootstrap) {
-    // DB is empty, guide to register as Owner
-    alert('This BriskSchedules database is fresh. You will be registered as the primary Administrator / Owner.');
-    showRegisterCard();
-    document.getElementById('invite-code-group').classList.add('hide'); // hide code field
-    document.getElementById('reg-email').value = email;
-    return;
-  }
-
   if (res.success && res.user) {
-    BriskDB.setSession(res.user);
-    state.currentUser = res.user;
+    const sessionData = {
+      ...res.user,
+      token: res.token
+    };
+    BriskDB.setSession(sessionData);
+    state.currentUser = sessionData;
     document.getElementById('login-form').reset();
     await bootApplication();
   }
@@ -264,8 +259,12 @@ async function handleRegisterSubmit(event) {
   }
 
   alert('Registration successful! Logging you in...');
-  BriskDB.setSession(res.user);
-  state.currentUser = res.user;
+  const sessionData = {
+    ...res.user,
+    token: res.token
+  };
+  BriskDB.setSession(sessionData);
+  state.currentUser = sessionData;
   document.getElementById('register-form').reset();
   document.getElementById('invite-code-group').classList.remove('hide'); // restore field
   await bootApplication();

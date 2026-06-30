@@ -1,4 +1,4 @@
--- BriskSchedules Database Schema
+-- Amcal Pharmacy Woywoy Rosters Database Schema
 -- Run this in your Supabase SQL Editor to initialize the tables.
 
 -- 1. Create brisk_employees table
@@ -14,9 +14,10 @@ CREATE TABLE IF NOT EXISTS public.brisk_employees (
     created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now())
 );
 
--- Enable RLS
+-- Enable Row Level Security (RLS)
+-- With RLS enabled and no public policies defined, all public client (anon key) read/write access is blocked by default.
+-- Only serverless functions using the SUPABASE_SERVICE_ROLE_KEY can read and write.
 ALTER TABLE public.brisk_employees ENABLE ROW LEVEL SECURITY;
-CREATE POLICY "Allow all public access for demo service" ON public.brisk_employees FOR ALL USING (true) WITH CHECK (true);
 
 -- 2. Create brisk_users table
 CREATE TABLE IF NOT EXISTS public.brisk_users (
@@ -29,7 +30,6 @@ CREATE TABLE IF NOT EXISTS public.brisk_users (
 );
 
 ALTER TABLE public.brisk_users ENABLE ROW LEVEL SECURITY;
-CREATE POLICY "Allow all public access for demo service" ON public.brisk_users FOR ALL USING (true) WITH CHECK (true);
 
 -- 3. Create brisk_shifts table
 CREATE TABLE IF NOT EXISTS public.brisk_shifts (
@@ -44,7 +44,6 @@ CREATE TABLE IF NOT EXISTS public.brisk_shifts (
 );
 
 ALTER TABLE public.brisk_shifts ENABLE ROW LEVEL SECURITY;
-CREATE POLICY "Allow all public access for demo service" ON public.brisk_shifts FOR ALL USING (true) WITH CHECK (true);
 
 -- 4. Create brisk_timecards table
 CREATE TABLE IF NOT EXISTS public.brisk_timecards (
@@ -61,7 +60,6 @@ CREATE TABLE IF NOT EXISTS public.brisk_timecards (
 );
 
 ALTER TABLE public.brisk_timecards ENABLE ROW LEVEL SECURITY;
-CREATE POLICY "Allow all public access for demo service" ON public.brisk_timecards FOR ALL USING (true) WITH CHECK (true);
 
 -- 5. Create brisk_leave_requests table
 CREATE TABLE IF NOT EXISTS public.brisk_leave_requests (
@@ -75,7 +73,6 @@ CREATE TABLE IF NOT EXISTS public.brisk_leave_requests (
 );
 
 ALTER TABLE public.brisk_leave_requests ENABLE ROW LEVEL SECURITY;
-CREATE POLICY "Allow all public access for demo service" ON public.brisk_leave_requests FOR ALL USING (true) WITH CHECK (true);
 
 -- 6. Create brisk_invitations table
 CREATE TABLE IF NOT EXISTS public.brisk_invitations (
@@ -88,4 +85,11 @@ CREATE TABLE IF NOT EXISTS public.brisk_invitations (
 );
 
 ALTER TABLE public.brisk_invitations ENABLE ROW LEVEL SECURITY;
-CREATE POLICY "Allow all public access for demo service" ON public.brisk_invitations FOR ALL USING (true) WITH CHECK (true);
+
+-- CLEANUP SQL: Run this block to clean up any legacy public access policies in existing installations:
+-- DROP POLICY IF EXISTS "Allow all public access for demo service" ON public.brisk_employees;
+-- DROP POLICY IF EXISTS "Allow all public access for demo service" ON public.brisk_users;
+-- DROP POLICY IF EXISTS "Allow all public access for demo service" ON public.brisk_shifts;
+-- DROP POLICY IF EXISTS "Allow all public access for demo service" ON public.brisk_timecards;
+-- DROP POLICY IF EXISTS "Allow all public access for demo service" ON public.brisk_leave_requests;
+-- DROP POLICY IF EXISTS "Allow all public access for demo service" ON public.brisk_invitations;

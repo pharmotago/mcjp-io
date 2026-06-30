@@ -13,12 +13,13 @@ if (!supabaseUrl || !supabaseKey) {
 const supabase = createClient(supabaseUrl, supabaseKey);
 const SALT = 'brisk_salt_key_2026';
 
+// Match password hashing iterations to 100,000 to match production utils.ts
 function hashPassword(password) {
-  return crypto.pbkdf2Sync(password, SALT, 1000, 64, 'sha512').toString('hex');
+  return crypto.pbkdf2Sync(password, SALT, 100000, 64, 'sha512').toString('hex');
 }
 
 async function seedPeter() {
-  console.log('🧹 Clearing all existing BriskSchedules data...');
+  console.log('🧹 Clearing all existing data for Amcal Pharmacy Woywoy Rosters...');
   
   // 1. Delete all records (cascade constraints will handle foreign keys, but deleting in reverse order is safer)
   await supabase.from('brisk_invitations').delete().neq('id', '00000000-0000-0000-0000-000000000000');
@@ -60,8 +61,8 @@ async function seedPeter() {
     process.exit(1);
   }
 
-  // 3. Create User Account
-  const defaultPassword = 'peter123';
+  // 3. Create User Account (reads ADMIN_PASSWORD from env for safety, defaults to 'peter123')
+  const defaultPassword = process.env.ADMIN_PASSWORD || 'peter123';
   const passwordHash = hashPassword(defaultPassword);
 
   const { error: userError } = await supabase
@@ -84,7 +85,7 @@ async function seedPeter() {
   console.log(' 🎉 Peter Kim registered successfully! 🎉');
   console.log('==========================================');
   console.log(' 📧 Email: pharmotago@gmail.com');
-  console.log(' 🔑 Temporary Password: peter123');
+  console.log(` 🔑 Password: ${process.env.ADMIN_PASSWORD ? '******** (configured via env)' : 'peter123 (default)'}`);
   console.log(' 💼 Role: Pharmacist Manager (Owner)');
   console.log('==========================================');
 }
