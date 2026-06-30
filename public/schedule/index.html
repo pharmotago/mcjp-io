@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BriskSchedules — Premium Free Operations Scheduler & Time Clock</title>
+  <meta name="description" content="Local-first employee scheduling, auto scheduling algorithm, time tracking, and leave management system.">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Background Glowing Orbs -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-icon">
+          <i class="fa-solid fa-clock-rotate-left"></i>
+        </div>
+        <div class="brand-text">
+          <h2>BRISK</h2>
+          <span>Schedules Free</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-menu">
+        <button class="menu-item active" data-tab="dashboard">
+          <i class="fa-solid fa-chart-simple"></i> <span>Dashboard</span>
+        </button>
+        <button class="menu-item" data-tab="scheduler">
+          <i class="fa-solid fa-calendar-days"></i> <span>Scheduler</span>
+        </button>
+        <button class="menu-item" data-tab="employees">
+          <i class="fa-solid fa-users"></i> <span>Employees</span>
+        </button>
+        <button class="menu-item" data-tab="timeclock">
+          <i class="fa-solid fa-business-time"></i> <span>Time Clock</span>
+        </button>
+        <button class="menu-item" data-tab="timeoff">
+          <i class="fa-solid fa-umbrella-beach"></i> <span>Time Off</span>
+        </button>
+        <button class="menu-item" data-tab="reports">
+          <i class="fa-solid fa-file-invoice-dollar"></i> <span>Reports & Payroll</span>
+        </button>
+        <button class="menu-item" data-tab="settings">
+          <i class="fa-solid fa-database"></i> <span>Data & Backup</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="company-badge">
+          <i class="fa-solid fa-building-shield"></i>
+          <span id="sidebar-company-name">Brisk Pharmacy Group</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      
+      <!-- Top Bar -->
+      <header class="topbar">
+        <div class="page-title">
+          <h1 id="current-panel-title">Dashboard</h1>
+        </div>
+        <div class="topbar-actions">
+          <div class="live-clock">
+            <span id="clock-date">Tuesday, June 30, 2026</span>
+            <span id="clock-time" class="text-neon">16:51:33</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- ===================================== -->
+      <!-- PANEL: DASHBOARD -->
+      <!-- ===================================== -->
+      <section id="panel-dashboard" class="tab-panel active">
+        <!-- Welcome Banner -->
+        <div class="glass-card welcome-banner">
+          <div class="welcome-text">
+            <h2>Welcome, Manager! 👋</h2>
+            <p>Keep your business running smoothly with smart employee scheduling.</p>
+          </div>
+          <div class="welcome-actions">
+            <button class="btn btn-primary" onclick="switchTab('timeclock')">
+              <i class="fa-solid fa-desktop"></i> Open Time Clock Terminal
+            </button>
+          </div>
+        </div>
+
+        <!-- Metrics Grid -->
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-icon bg-orange"><i class="fa-solid fa-users"></i></div>
+            <div class="metric-content">
+              <span class="metric-label">Total Employees</span>
+              <h3 class="metric-value" id="dash-emp-count">5</h3>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-icon bg-neon"><i class="fa-solid fa-calendar-check"></i></div>
+            <div class="metric-content">
+              <span class="metric-label">Shifts Scheduled This Week</span>
+              <h3 class="metric-value" id="dash-shifts-count">9</h3>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-icon bg-cyan"><i class="fa-solid fa-user-clock"></i></div>
+            <div class="metric-content">
+              <span class="metric-label">Currently Clocked In</span>
+              <h3 class="metric-value" id="dash-active-clockins">0</h3>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-icon bg-purple"><i class="fa-solid fa-plane-departure"></i></div>
+            <div class="metric-content">
+              <span class="metric-label">Pending Time Off Requests</span>
+              <h3 class="metric-value" id="dash-pending-leaves">1</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dashboard Layout Split -->
+        <div class="dashboard-split">
+          <!-- Today's Schedule -->
+          <div class="glass-card flex-2">
+            <div class="card-header">
+              <h3><i class="fa-solid fa-calendar-day text-orange"></i> Today's Scheduled Shifts</h3>
+              <span class="badge" id="dash-today-date">2026-06-30</span>
+            </div>
+            <div class="shift-list-scroll">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Employee Name</th>
+                    <th>Assigned Role</th>
+                    <th>Time</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="dash-today-shifts">
+                  <!-- JS dynamically populates -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Quick Actions & Links -->
+          <div class="glass-card flex-1">
+            <div class="card-header">
+              <h3><i class="fa-solid fa-rocket text-cyan"></i> Quick Actions</h3>
+            </div>
+            <div class="quick-action-buttons">
+              <button class="btn btn-outline" onclick="openAddShiftModal()">
+                <i class="fa-solid fa-plus"></i> Add New Shift
+              </button>
+              <button class="btn btn-outline" onclick="openAddEmployeeModal()">
+                <i class="fa-solid fa-user-plus"></i> Register New Employee
+              </button>
+              <button class="btn btn-outline" onclick="switchTab('scheduler')">
+                <i class="fa-solid fa-wand-magic-sparkles text-neon"></i> Run Auto Scheduler
+              </button>
+              <button class="btn btn-outline" onclick="switchTab('reports')">
+                <i class="fa-solid fa-calculator"></i> View Weekly Payroll Report
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================== -->
+      <!-- PANEL: SCHEDULER -->
+      <!-- ===================================== -->
+      <section id="panel-scheduler" class="tab-panel">
+        <div class="action-bar glass-card">
+          <div class="week-picker">
+            <button class="btn btn-icon" id="btn-prev-week"><i class="fa-solid fa-chevron-left"></i></button>
+            <span id="scheduler-week-range" class="week-range-text">June 29, 2026 - July 5, 2026</span>
+            <button class="btn btn-icon" id="btn-next-week"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+          <div class="scheduler-controls">
+            <button class="btn btn-outline" onclick="openAddShiftModal()">
+              <i class="fa-solid fa-plus"></i> Add Shift
+            </button>
+            <button class="btn btn-danger" id="btn-clear-week">
+              <i class="fa-solid fa-trash-can"></i> Clear All
+            </button>
+            <button class="btn btn-neon" id="btn-auto-schedule">
+              <i class="fa-solid fa-wand-magic-sparkles"></i> <strong>Auto-Schedule</strong>
+            </button>
+          </div>
+        </div>
+
+        <!-- Schedule Grid Wrapper -->
+        <div class="glass-card calendar-workspace">
+          <div class="scheduler-grid-container">
+            <table class="scheduler-grid-table">
+              <thead>
+                <tr>
+                  <th class="col-employee">Employee Profile</th>
+                  <th class="col-day">Mon <span class="day-date" id="head-date-1">06/29</span></th>
+                  <th class="col-day">Tue <span class="day-date" id="head-date-2">06/30</span></th>
+                  <th class="col-day">Wed <span class="day-date" id="head-date-3">07/01</span></th>
+                  <th class="col-day">Thu <span class="day-date" id="head-date-4">07/02</span></th>
+                  <th class="col-day">Fri <span class="day-date" id="head-date-5">07/03</span></th>
+                  <th class="col-day">Sat <span class="day-date" id="head-date-6">07/04</span></th>
+                  <th class="col-day text-sunday">Sun <span class="day-date" id="head-date-0">07/05</span></th>
+                </tr>
+              </thead>
+              <tbody id="scheduler-grid-body">
+                <!-- Dynamically populated row per employee + unassigned row -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================== -->
+      <!-- PANEL: EMPLOYEES -->
+      <!-- ===================================== -->
+      <section id="panel-employees" class="tab-panel">
+        <div class="action-bar glass-card">
+          <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="employee-search-input" placeholder="Search by employee name or role..." oninput="renderEmployeesList()">
+          </div>
+          <button class="btn btn-primary" onclick="openAddEmployeeModal()">
+            <i class="fa-solid fa-user-plus"></i> Add Employee
+          </button>
+        </div>
+
+        <div class="employees-grid" id="employees-cards-container">
+          <!-- Dynamically populated employee cards -->
+        </div>
+      </section>
+
+      <!-- ===================================== -->
+      <!-- PANEL: TIME CLOCK -->
+      <!-- ===================================== -->
+      <section id="panel-timeclock" class="tab-panel">
+        <div class="timeclock-layout">
+          <!-- Public Terminal Card -->
+          <div class="glass-card timeclock-terminal">
+            <div class="card-header text-center">
+              <h3><i class="fa-solid fa-desktop text-neon"></i> Public Time Clock Terminal</h3>
+              <p>Select your name and update your attendance status.</p>
+            </div>
+            
+            <div class="terminal-body">
+              <div class="form-group">
+                <label for="clock-emp-select">Select Employee</label>
+                <select id="clock-emp-select" class="form-control" onchange="updateTerminalStatus()">
+                  <!-- Dynamically populated -->
+                </select>
+              </div>
+
+              <div class="terminal-status-box" id="terminal-status-container">
+                <span class="status-indicator status-offline" id="terminal-status-dot"></span>
+                <span class="status-text" id="terminal-status-text">Not Clocked In</span>
+                <div class="sub-status" id="terminal-sub-status">No clock in record found.</div>
+              </div>
+
+              <div class="terminal-actions-grid">
+                <button class="btn btn-success btn-lg" id="btn-clock-in" onclick="handleClockAction('in')">
+                  <i class="fa-solid fa-arrow-right-to-bracket"></i> Clock In
+                </button>
+                <button class="btn btn-warning btn-lg" id="btn-start-break" onclick="handleClockAction('break-start')">
+                  <i class="fa-solid fa-mug-hot"></i> Start Break
+                </button>
+                <button class="btn btn-outline btn-lg" id="btn-end-break" onclick="handleClockAction('break-end')">
+                  <i class="fa-solid fa-circle-play"></i> End Break
+                </button>
+                <button class="btn btn-danger btn-lg" id="btn-clock-out" onclick="handleClockAction('out')">
+                  <i class="fa-solid fa-arrow-right-from-bracket"></i> Clock Out
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Manager Timesheet Review Panel -->
+          <div class="glass-card timeclock-admin flex-1">
+            <div class="card-header">
+              <h3><i class="fa-solid fa-user-shield text-orange"></i> Review Weekly Time Clock (Manager)</h3>
+            </div>
+            <div class="timesheet-scroll">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Employee Name</th>
+                    <th>Clock In Time</th>
+                    <th>Clock Out Time</th>
+                    <th>Total Hours</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="timesheet-table-body">
+                  <!-- Dynamically populated timecard rows -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================== -->
+      <!-- PANEL: TIME OFF -->
+      <!-- ===================================== -->
+      <section id="panel-timeoff" class="tab-panel">
+        <div class="timeoff-layout">
+          <!-- Request Leave Form -->
+          <div class="glass-card leave-form-card">
+            <div class="card-header">
+              <h3><i class="fa-solid fa-paper-plane text-cyan"></i> Request Time Off</h3>
+            </div>
+            <form id="leave-request-form" onsubmit="handleLeaveSubmit(event)">
+              <div class="form-group">
+                <label for="leave-emp-select">Employee</label>
+                <select id="leave-emp-select" class="form-control" required>
+                  <!-- Dynamically populated -->
+                </select>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="leave-start-date">Start Date</label>
+                  <input type="date" id="leave-start-date" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label for="leave-end-date">End Date</label>
+                  <input type="date" id="leave-end-date" class="form-control" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="leave-reason">Reason</label>
+                <textarea id="leave-reason" class="form-control" rows="3" placeholder="e.g. Sick Leave, Vacation, Personal Business, etc." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Submit Time Off Request</button>
+            </form>
+          </div>
+
+          <!-- Leave Approvals List -->
+          <div class="glass-card leave-list-card">
+            <div class="card-header">
+              <h3><i class="fa-solid fa-clipboard-question text-purple"></i> Pending Time Off Requests</h3>
+            </div>
+            <div class="leave-list-scroll">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Employee Name</th>
+                    <th>Period</th>
+                    <th>Reason</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="leave-table-body">
+                  <!-- Dynamically populated -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================== -->
+      <!-- PANEL: REPORTS -->
+      <!-- ===================================== -->
+      <section id="panel-reports" class="tab-panel">
+        <div class="action-bar glass-card print-hide">
+          <div class="week-picker">
+            <button class="btn btn-icon" id="btn-report-prev-week"><i class="fa-solid fa-chevron-left"></i></button>
+            <span id="report-week-range" class="week-range-text">June 29, 2026 - July 5, 2026</span>
+            <button class="btn btn-icon" id="btn-report-next-week"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+          <div class="report-controls">
+            <button class="btn btn-outline" onclick="openEmailScheduleModal()">
+              <i class="fa-solid fa-envelope"></i> Copy Schedule Email
+            </button>
+            <button class="btn btn-primary" onclick="window.print()">
+              <i class="fa-solid fa-print"></i> Print / Download PDF
+            </button>
+          </div>
+        </div>
+
+        <!-- Weekly Payroll & Hours Summary -->
+        <div class="glass-card report-workspace">
+          <div class="report-header-print text-center">
+            <h2>BriskSchedules Weekly Reports & Payroll</h2>
+            <p id="report-print-dates">Period: 2026-06-29 ~ 2026-07-05</p>
+          </div>
+          
+          <table class="data-table text-left" style="margin-top: 1rem;">
+            <thead>
+              <tr>
+                <th>Employee Name (Role)</th>
+                <th class="text-right">Hourly Rate</th>
+                <th class="text-right">Scheduled Shift (Hours)</th>
+                <th class="text-right">Actual Shift (Hours)</th>
+                <th class="text-right">Estimated Labor Cost (Scheduled)</th>
+                <th class="text-right text-neon">Confirmed Labor Cost (Actual)</th>
+              </tr>
+            </thead>
+            <tbody id="report-table-body">
+              <!-- Dynamically populated -->
+            </tbody>
+            <tfoot>
+              <tr class="row-total">
+                <td>Total</td>
+                <td>-</td>
+                <td class="text-right" id="rep-total-sched-hours">0.0 hours</td>
+                <td class="text-right" id="rep-total-actual-hours">0.0 hours</td>
+                <td class="text-right" id="rep-total-sched-cost">$0.00</td>
+                <td class="text-right text-neon" id="rep-total-actual-cost">$0.00</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </section>
+
+      <!-- ===================================== -->
+      <!-- PANEL: SETTINGS / BACKUP -->
+      <!-- ===================================== -->
+      <section id="panel-settings" class="tab-panel">
+        <div class="settings-grid">
+          <!-- Database Backup Card -->
+          <div class="glass-card">
+            <div class="card-header">
+              <h3><i class="fa-solid fa-download text-orange"></i> Local Data Backup & Management</h3>
+            </div>
+            <div class="settings-body">
+              <p>All data is saved in the browser's local storage (`localStorage`) and will be kept indefinitely for free. You can safely back up your data or move it between devices.</p>
+              
+              <div class="settings-actions">
+                <button class="btn btn-primary" onclick="exportDatabaseFile()">
+                  <i class="fa-solid fa-file-arrow-down"></i> Export Database to JSON
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Database Restore Card -->
+          <div class="glass-card">
+            <div class="card-header">
+              <h3><i class="fa-solid fa-upload text-cyan"></i> Restore Data (Import JSON)</h3>
+            </div>
+            <div class="settings-body">
+              <p>You can upload a previously backed up JSON file to restore the database. <strong>Warning: Existing data will be overwritten.</strong></p>
+              
+              <div class="form-group" style="margin-top: 1rem;">
+                <input type="file" id="database-import-file" class="form-control" accept=".json" style="padding: 10px;">
+              </div>
+              <div class="settings-actions">
+                <button class="btn btn-outline" onclick="importDatabaseFile()">
+                  <i class="fa-solid fa-file-arrow-up"></i> Restore Backup File Data
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Danger Zone -->
+          <div class="glass-card flex-2">
+            <div class="card-header">
+              <h3><i class="fa-solid fa-triangle-exclamation text-danger"></i> Data Reset & Manager Settings</h3>
+            </div>
+            <div class="settings-body">
+              <div class="form-group">
+                <label for="settings-company-name">Company Name Settings</label>
+                <div class="flex-row">
+                  <input type="text" id="settings-company-name" class="form-control" style="max-width: 300px;">
+                  <button class="btn btn-primary" onclick="saveCompanySetting()">Save</button>
+                </div>
+              </div>
+              <hr class="divider">
+              <p>Restore the application to its initial state (including demo data) and reset all data.</p>
+              <button class="btn btn-danger" onclick="resetDatabaseToDemo()">
+                <i class="fa-solid fa-rotate-left"></i> Factory Reset Database
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ===================================== -->
+  <!-- MODAL: ADD/EDIT SHIFT -->
+  <!-- ===================================== -->
+  <div id="modal-shift" class="modal">
+    <div class="modal-content glass-card">
+      <div class="modal-header">
+        <h3 id="shift-modal-title">Add Shift</h3>
+        <button class="btn btn-icon modal-close" onclick="closeShiftModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <form id="shift-form" onsubmit="handleShiftSubmit(event)">
+        <input type="hidden" id="shift-id">
+        <div class="form-group">
+          <label for="shift-employee">Select Employee</label>
+          <select id="shift-employee" class="form-control" required>
+            <!-- Dynamically populated -->
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="shift-role">Assigned Position / Role</label>
+          <input type="text" id="shift-role" class="form-control" placeholder="e.g. Pharmacist Manager, Dispense Technician, etc." required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="shift-date">Date</label>
+            <input type="date" id="shift-date" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="shift-start">Start Time</label>
+            <input type="time" id="shift-start" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="shift-end">End Time</label>
+            <input type="time" id="shift-end" class="form-control" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="shift-notes">Notes / Exceptions</label>
+          <textarea id="shift-notes" class="form-control" rows="2" placeholder="Enter notes/remarks"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger btn-left hide" id="btn-delete-shift" onclick="handleShiftDelete()">Delete Shift</button>
+          <button type="button" class="btn btn-outline" onclick="closeShiftModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===================================== -->
+  <!-- MODAL: ADD/EDIT EMPLOYEE -->
+  <!-- ===================================== -->
+  <div id="modal-employee" class="modal">
+    <div class="modal-content glass-card max-w-lg">
+      <div class="modal-header">
+        <h3 id="employee-modal-title">Register Employee</h3>
+        <button class="btn btn-icon modal-close" onclick="closeEmployeeModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <form id="employee-form" onsubmit="handleEmployeeSubmit(event)">
+        <input type="hidden" id="employee-id">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="emp-name">Name</label>
+            <input type="text" id="emp-name" class="form-control" placeholder="Enter full name" required>
+          </div>
+          <div class="form-group">
+            <label for="emp-role">Default Title / Position</label>
+            <input type="text" id="emp-role" class="form-control" placeholder="e.g. Dispense Technician" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="emp-email">Email Address</label>
+            <input type="email" id="emp-email" class="form-control" placeholder="example@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="emp-rate">Hourly Rate ($)</label>
+            <input type="number" id="emp-rate" class="form-control" step="0.01" min="0" placeholder="Enter hourly rate" required>
+          </div>
+          <div class="form-group">
+            <label for="emp-max-hours">Weekly Max Hours</label>
+            <input type="number" id="emp-max-hours" class="form-control" min="1" max="168" placeholder="38" required>
+          </div>
+        </div>
+        
+        <!-- Availability Management Grid -->
+        <div class="form-group">
+          <label style="margin-bottom: 8px; display: block; font-weight: 600;">Default Weekly Availability (By Day)</label>
+          <div class="availability-inputs-grid">
+            <!-- Dynamically populated via JS to keep HTML clean -->
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger btn-left hide" id="btn-delete-employee" onclick="handleEmployeeDelete()">Permanently Delete Employee</button>
+          <button type="button" class="btn btn-outline" onclick="closeEmployeeModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===================================== -->
+  <!-- MODAL: EMAIL SCHEDULE GENERATOR -->
+  <!-- ===================================== -->
+  <div id="modal-email-schedule" class="modal">
+    <div class="modal-content glass-card">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-paper-plane text-neon"></i> Copy Email Schedule Briefing</h3>
+        <button class="btn btn-icon modal-close" onclick="closeEmailScheduleModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        <p>The selected weekly schedule has been organized in a clean email format. Copy the content below to announce the schedule to all employees.</p>
+        <textarea id="email-schedule-textarea" class="form-control" rows="12" style="font-family: monospace; font-size: 12px; margin-top: 1rem;"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" onclick="closeEmailScheduleModal()">Close</button>
+        <button class="btn btn-neon" onclick="copyEmailScheduleText()">
+          <i class="fa-solid fa-copy"></i> Copy
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Javascript Core -->
+  <script src="js/database.js"></script>
+  <script src="js/scheduler.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

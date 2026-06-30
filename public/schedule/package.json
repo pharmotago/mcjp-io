@@ -1,0 +1,12 @@
+{
+  "name": "brisk-schedules",
+  "version": "1.0.0",
+  "description": "BriskSchedules - Premium Free Employee Scheduling & Time Clock System",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
