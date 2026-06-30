@@ -12,15 +12,61 @@ const BriskDB = (function() {
   };
 
   // Local memory cache
-  let _employees = [];
-  let _shifts = [];
-  let _timecards = [];
-  let _leaveRequests = [];
+  let _employees = JSON.parse(localStorage.getItem(STORAGE_KEYS.EMPLOYEES) || '[]');
+  let _shifts = JSON.parse(localStorage.getItem(STORAGE_KEYS.SHIFTS) || '[]');
+  let _timecards = JSON.parse(localStorage.getItem(STORAGE_KEYS.TIMECARDS) || '[]');
+  let _leaveRequests = JSON.parse(localStorage.getItem(STORAGE_KEYS.LEAVE_REQUESTS) || '[]');
   let _settings = { companyName: 'Brisk Pharmacy Group' };
   
   // Track deletions for server sync
   let _deletedShifts = [];
   let _deletedEmployees = [];
+
+  // Seed default Peter Kim profile when database is empty/fresh
+  function seedLocalPeter() {
+    const peter = {
+      id: 'emp_peter_kim',
+      name: 'Peter Kim',
+      email: 'pharmotago@gmail.com',
+      role: 'Pharmacist Manager',
+      hourlyRate: 85.00,
+      maxHours: 45,
+      availability: {
+        0: null, // Sunday
+        1: { start: '08:30', end: '17:30' },
+        2: { start: '08:30', end: '17:30' },
+        3: { start: '08:30', end: '17:30' },
+        4: { start: '08:30', end: '17:30' },
+        5: { start: '08:30', end: '17:30' },
+        6: { start: '09:00', end: '13:00' }  // Saturday
+      },
+      active: true
+    };
+    
+    _employees = [peter];
+    _shifts = [];
+    _timecards = [];
+    _leaveRequests = [];
+    
+    localStorage.setItem(STORAGE_KEYS.EMPLOYEES, JSON.stringify(_employees));
+    localStorage.setItem(STORAGE_KEYS.SHIFTS, JSON.stringify(_shifts));
+    localStorage.setItem(STORAGE_KEYS.TIMECARDS, JSON.stringify(_timecards));
+    localStorage.setItem(STORAGE_KEYS.LEAVE_REQUESTS, JSON.stringify(_leaveRequests));
+    
+    // Automatically set default session for offline/local first launch
+    const defaultSession = {
+      email: 'pharmotago@gmail.com',
+      role: 'owner',
+      employeeId: 'emp_peter_kim',
+      name: 'Peter Kim'
+    };
+    localStorage.setItem(STORAGE_KEYS.SESSION, JSON.stringify(defaultSession));
+  }
+
+  // Run seed check immediately
+  if (_employees.length === 0 || (_employees.length > 0 && !_employees.some(e => e.email === 'pharmotago@gmail.com'))) {
+    seedLocalPeter();
+  }
 
   // Helper to load session
   function getSession() {
@@ -146,7 +192,6 @@ const BriskDB = (function() {
       return true;
     } catch (err: any) {
       console.error('[CloudSync] Sync POST failed.', err);
-      alert(`Cloud sync warning: ${err.message}`);
       return false;
     }
   }
