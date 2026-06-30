@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
-import { supabase } from '../../supabase';
-import { hashPassword, jsonResponse } from '../utils';
+import { supabase } from '../../../supabase';
+import { hashPassword, jsonResponse } from '../../utils';
 
 export async function OPTIONS() {
   return jsonResponse({}, 200);

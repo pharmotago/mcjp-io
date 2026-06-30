@@ -1,7 +1,7 @@
 import { NextRequest } from 'next/server';
 import crypto from 'crypto';
-import { supabase } from '../../supabase';
-import { getRequestUser, jsonResponse } from '../utils';
+import { supabase } from '../../../supabase';
+import { getRequestUser, jsonResponse } from '../../utils';
 
 export async function OPTIONS() {
   return jsonResponse({}, 200);
