@@ -1451,5 +1451,77 @@
       "discipline"
     ],
     "summary": "Discover focus techniques tailored for men to enhance concentration and achieve peak performance in personal and professional pursuits."
+  },
+  {
+    "id": "money_masculine_financial_legacy",
+    "category": "Money",
+    "topic": "Building a Masculine Financial Legacy: Strategies for Success",
+    "keywords": [
+      "financial legacy",
+      "wealth building",
+      "masculine success",
+      "investment strategies"
+    ],
+    "summary": "Explore how modern men can create a lasting financial legacy through smart investment strategies and wealth-building techniques tailored to masculine success."
+  },
+  {
+    "id": "life_masculine_community_leadership",
+    "category": "Life",
+    "topic": "The Role of Community Leadership in Modern Masculinity",
+    "keywords": [
+      "community leadership",
+      "masculinity",
+      "social influence",
+      "fatherhood"
+    ],
+    "summary": "Delve into the importance of community leadership for modern men and how it shapes masculine identity and family influence."
+  },
+  {
+    "id": "discipline_masculine_mental_focus",
+    "category": "Discipline",
+    "topic": "Mastering Masculine Mental Focus: Techniques for Elite Success",
+    "keywords": [
+      "mental focus",
+      "discipline",
+      "masculine success",
+      "elite performance"
+    ],
+    "summary": "Learn effective techniques to enhance mental focus and discipline, empowering men to achieve elite success in personal and professional realms."
+  },
+  {
+    "id": "money_masculine_investing_mindset",
+    "category": "Money",
+    "topic": "Cultivating a Masculine Investing Mindset for Financial Growth",
+    "keywords": [
+      "investing mindset",
+      "financial growth",
+      "masculine approach",
+      "investment strategies"
+    ],
+    "summary": "Uncover ways to cultivate a robust investing mindset tailored to masculine perspectives, focusing on strategies for sustainable financial growth."
+  },
+  {
+    "id": "life_masculine_emotional_adaptability",
+    "category": "Life",
+    "topic": "Embracing Emotional Adaptability: A Key to Modern Masculine Success",
+    "keywords": [
+      "emotional adaptability",
+      "masculinity",
+      "personal growth",
+      "success"
+    ],
+    "summary": "Understand the significance of emotional adaptability in modern masculinity and how it contributes to personal and professional success."
+  },
+  {
+    "id": "discipline_masculine_mental_resilience",
+    "category": "Discipline",
+    "topic": "Building Masculine Mental Resilience: Strategies for Today's Challenges",
+    "keywords": [
+      "mental resilience",
+      "discipline",
+      "masculine strength",
+      "challenges"
+    ],
+    "summary": "Explore strategies for developing mental resilience in men, equipping them to face modern challenges with strength and confidence."
   }
 ]

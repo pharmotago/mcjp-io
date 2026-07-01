@@ -43,13 +43,13 @@ export async function POST(req: NextRequest) {
       port: 465,
       secure: true, // true for port 465
       auth: {
-        user: 'welcome@mcjp.io',
-        pass: 'Lynden5620968.'
+        user: process.env.SMTP_USER || 'welcome@mcjp.io',
+        pass: process.env.SMTP_PASS || 'Lynden5620968.'
       }
     });
 
     const mailOptions = {
-      from: '"BriskSchedules" <welcome@mcjp.io>',
+      from: `"BriskSchedules" <${process.env.SMTP_USER || 'welcome@mcjp.io'}>`,
       to: employee.email,
       subject: `📅 Your Work Schedule Briefing — Week of ${weekStart}`,
       text: rosterText,
