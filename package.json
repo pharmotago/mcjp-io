@@ -7,14 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "auto-publish": "node scripts/auto_publish.js",
-    "test-supabase": "node scratch_test_new_supabase.js",
-    "test-pg": "node scratch_test_pg.js",
-    "check-region": "node scratch_check_region.js",
-    "get-aws-region": "node scratch_get_aws_region.js",
-    "scan-poolers": "node scratch_test_all_poolers.js",
-    "check-dns": "node scratch_check_dns_txt.js",
-    "migrate-data": "node scratch_migrate_data.js"
+    "auto-publish": "node scripts/auto_publish.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.109.0",
