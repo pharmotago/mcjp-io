@@ -147,8 +147,8 @@
         </div>
         <div class="topbar-actions">
           <div class="live-clock">
-            <span id="clock-date">Tuesday, June 30, 2026</span>
-            <span id="clock-time" class="text-neon">16:51:33</span>
+            <span id="clock-date"></span>
+            <span id="clock-time" class="text-neon"></span>
           </div>
         </div>
       </header>
@@ -208,7 +208,7 @@
           <div class="glass-card flex-2">
             <div class="card-header">
               <h3><i class="fa-solid fa-calendar-day text-orange"></i> Today's Schedule</h3>
-              <span class="badge" id="dash-today-date">2026-06-30</span>
+              <span class="badge" id="dash-today-date">Loading...</span>
             </div>
             <div class="shift-list-scroll">
               <table class="data-table">
@@ -257,7 +257,7 @@
         <div class="action-bar glass-card">
           <div class="week-picker">
             <button class="btn btn-icon" id="btn-prev-week"><i class="fa-solid fa-chevron-left"></i></button>
-            <span id="scheduler-week-range" class="week-range-text">2026-06-29 - 2026-07-05</span>
+            <span id="scheduler-week-range" class="week-range-text"></span>
             <button class="btn btn-icon" id="btn-next-week"><i class="fa-solid fa-chevron-right"></i></button>
           </div>
           <div class="scheduler-controls" id="scheduler-manager-controls">
@@ -453,7 +453,7 @@
         <div class="action-bar glass-card print-hide">
           <div class="week-picker">
             <button class="btn btn-icon" id="btn-report-prev-week"><i class="fa-solid fa-chevron-left"></i></button>
-            <span id="report-week-range" class="week-range-text">2026-06-29 - 2026-07-05</span>
+            <span id="report-week-range" class="week-range-text"></span>
             <button class="btn btn-icon" id="btn-report-next-week"><i class="fa-solid fa-chevron-right"></i></button>
           </div>
           <div class="report-controls">
@@ -470,7 +470,7 @@
         <div class="glass-card report-workspace">
           <div class="report-header-print text-center">
             <h2>Amcal Pharmacy Woywoy Rosters Weekly Payroll & Roster Report</h2>
-            <p id="report-print-dates">Period: 2026-06-29 ~ 2026-07-05</p>
+            <p id="report-print-dates"></p>
           </div>
           
           <table class="data-table text-left" style="margin-top: 1rem;">
@@ -723,8 +723,8 @@
   </div>
 
   <!-- Javascript Core -->
-  <script src="js/database.js"></script>
+  <script type="module" src="js/database.js"></script>
   <script src="js/scheduler.js"></script>
-  <script src="js/app.js"></script>
+  <script type="module" src="js/app.js"></script>
 </body>
 </html>

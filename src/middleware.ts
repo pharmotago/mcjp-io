@@ -5,6 +5,12 @@ export function middleware(request: NextRequest) {
   const url = request.nextUrl.clone();
   const host = request.headers.get('host');
 
+  // Redirect /schedule to /schedule/ on any host to ensure relative assets load correctly
+  if (url.pathname === '/schedule') {
+    url.pathname = '/schedule/';
+    return NextResponse.redirect(url);
+  }
+
   // If host is schedule.mcjp.io, rewrite requests to /schedule
   if (host === 'schedule.mcjp.io') {
     // If it's looking for root, serve index.html directly

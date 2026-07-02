@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 import nodemailer from 'nodemailer';
-import { supabase } from '../../supabase';
+import { adminDb } from '../../firebase-admin';
 import { getRequestUser, jsonResponse } from '../utils';
 
 export async function OPTIONS() {
@@ -9,7 +9,7 @@ export async function OPTIONS() {
 
 export async function POST(req: NextRequest) {
   try {
-    const user = getRequestUser(req);
+    const user = await getRequestUser(req);
 
     // Permission check: Only managers or owners can send roster emails
     if (!user.isAuthenticated || (user.role !== 'owner' && user.role !== 'manager')) {
@@ -22,18 +22,20 @@ export async function POST(req: NextRequest) {
       return jsonResponse({ error: 'employeeId and rosterText are required.' }, 400);
     }
 
-    // Fetch employee details
-    const { data: employee, error: empError } = await supabase
-      .from('brisk_employees')
-      .select('name, email')
-      .eq('id', employeeId)
-      .single();
+    // Fetch employee details from Firestore
+    const employeeDoc = await adminDb
+      .collection('organizations')
+      .doc('amcal_woywoy')
+      .collection('employees')
+      .doc(employeeId)
+      .get();
 
-    if (empError || !employee) {
-      return jsonResponse({ error: `Employee not found: ${empError?.message}` }, 404);
+    if (!employeeDoc.exists) {
+      return jsonResponse({ error: 'Employee not found.' }, 404);
     }
 
-    if (!employee.email) {
+    const employee = employeeDoc.data();
+    if (!employee || !employee.email) {
       return jsonResponse({ error: 'Employee profile has no email address.' }, 400);
     }
 

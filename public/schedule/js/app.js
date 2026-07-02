@@ -54,6 +54,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   
   // Initialize Clock in Header
   startLiveClock();
+
+  // Listen for real-time Firebase changes
+  window.addEventListener('brisk-db-updated', () => {
+    loadDataFromState();
+    renderActivePanel();
+  });
 });
 
 // Boot the application: load data and apply role-based views
@@ -232,13 +238,10 @@ async function handleLoginSubmit(event) {
     return;
   }
 
-  if (res.success && res.user) {
-    const sessionData = {
-      ...res.user,
-      token: res.token
-    };
-    BriskDB.setSession(sessionData);
-    state.currentUser = sessionData;
+  // apiLogin now returns the session object directly (Firebase Auth flow)
+  if (res.email) {
+    BriskDB.setSession(res);
+    state.currentUser = res;
     document.getElementById('login-form').reset();
     await bootApplication();
   }
@@ -318,7 +321,10 @@ function getMondayOfCurrentWeek(d) {
 }
 
 function formatDateISO(date) {
-  return date.toISOString().split('T')[0];
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, '0');
+  const d = String(date.getDate()).padStart(2, '0');
+  return `${y}-${m}-${d}`;
 }
 
 function getFormattedDateString(date) {
@@ -386,7 +392,9 @@ function startLiveClock() {
    ========================================================================== */
 
 function renderDashboard() {
-  const todayStr = formatDateISO(new Date());
+  const now = new Date();
+  const todayStr = formatDateISO(now);
+  // Always re-compute today's date on each render — never cache or hardcode
   document.getElementById('dash-today-date').textContent = todayStr;
 
   const activeEmployees = state.employees.filter(e => e.active);
@@ -1639,3 +1647,38 @@ function exportDatabaseFile() {
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
 }
+
+/* ==========================================================================
+   GLOBAL WINDOW BINDINGS — Required because app.js is loaded as type="module"
+   which scopes all functions to the module. Inline HTML handlers (onclick,
+   onsubmit) can only call functions on the global window object.
+   ========================================================================== */
+window.handleLoginSubmit = handleLoginSubmit;
+window.handleRegisterSubmit = handleRegisterSubmit;
+window.handleLogout = handleLogout;
+window.handleInviteSubmit = handleInviteSubmit;
+window.handleShiftSubmit = handleShiftSubmit;
+window.handleShiftDelete = handleShiftDelete;
+window.handleEmployeeSubmit = handleEmployeeSubmit;
+window.handleEmployeeDelete = handleEmployeeDelete;
+window.handleClockAction = handleClockAction;
+window.handleLeaveSubmit = handleLeaveSubmit;
+window.showLoginCard = showLoginCard;
+window.showRegisterCard = showRegisterCard;
+window.switchTab = switchTab;
+window.openAddShiftModal = openAddShiftModal;
+window.openEditShiftModal = openEditShiftModal;
+window.closeShiftModal = closeShiftModal;
+window.openAddEmployeeModal = openAddEmployeeModal;
+window.openEditEmployeeModal = openEditEmployeeModal;
+window.closeEmployeeModal = closeEmployeeModal;
+window.openEmailRosterModal = openEmailRosterModal;
+window.closeEmailRosterModal = closeEmailRosterModal;
+window.sendRosterEmail = sendRosterEmail;
+window.openEmailScheduleModal = openEmailScheduleModal;
+window.closeEmailScheduleModal = closeEmailScheduleModal;
+window.copyEmailScheduleText = copyEmailScheduleText;
+window.copyInviteUrl = copyInviteUrl;
+window.exportDatabaseFile = exportDatabaseFile;
+window.saveCompanySetting = saveCompanySetting;
+window.toggleAvailTimeInputs = toggleAvailTimeInputs;

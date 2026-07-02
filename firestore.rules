@@ -1,0 +1,65 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    function userRole(orgId) {
+      return get(/databases/$(database)/documents/organizations/$(orgId)/users/$(request.auth.uid)).data.role;
+    }
+    function isManager(orgId) {
+      return userRole(orgId) in ['owner', 'manager'];
+    }
+    function isOwner(orgId) {
+      return userRole(orgId) == 'owner';
+    }
+
+    // Organization
+    match /organizations/{orgId} {
+      allow read: if isSignedIn();
+      allow write: if isOwner(orgId);
+
+      // Employees — managers can read/write, employees read-only
+      match /employees/{empId} {
+        allow read: if isSignedIn();
+        allow write: if isManager(orgId);
+      }
+
+      // Shifts — managers write, employees read
+      match /shifts/{shiftId} {
+        allow read: if isSignedIn();
+        allow write: if isManager(orgId);
+      }
+
+      // Timecards — employees write their own, managers write all
+      match /timecards/{cardId} {
+        allow read: if isSignedIn();
+        allow create: if isSignedIn() && request.resource.data.employeeId == get(/databases/$(database)/documents/organizations/$(orgId)/employees/$(request.auth.uid)).data.id;
+        allow update: if isManager(orgId) || (isSignedIn() && resource.data.employeeId == request.auth.uid);
+        allow delete: if isManager(orgId);
+      }
+
+      // Leave requests — employees create their own, managers update status
+      match /leave_requests/{reqId} {
+        allow read: if isSignedIn();
+        allow create: if isSignedIn();
+        allow update: if isManager(orgId);
+        allow delete: if isManager(orgId);
+      }
+
+      // Invitations — only managers create, anyone can read to validate
+      match /invitations/{code} {
+        allow read: if true; // needed during registration before auth
+        allow write: if isManager(orgId);
+      }
+
+      // User roles — only owners can set roles
+      match /users/{uid} {
+        allow read: if isSignedIn() && request.auth.uid == uid;
+        allow write: if isOwner(orgId);
+      }
+    }
+  }
+}

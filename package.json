@@ -7,10 +7,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "auto-publish": "node scripts/auto_publish.js"
+    "auto-publish": "node scripts/auto_publish.js",
+    "vercel-deploy": "node c:/Antigravity/BriskSchedules/node_modules/vercel/dist/index.js --prod --force --yes"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.109.0",
+    "dotenv": "^17.4.2",
+    "firebase": "^12.15.0",
+    "firebase-admin": "^14.1.0",
     "next": "16.2.9",
     "nodemailer": "^9.0.3",
     "pg": "^8.22.0",

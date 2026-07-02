@@ -1,72 +1,32 @@
 /**
- * BriskSchedules Cloud Database & Sync Layer
+ * BriskSchedules Cloud Database & Sync Layer — Firebase Firestore Real-time implementation
  */
+import { auth, db, ORG_ID, signInWithEmailAndPassword, signOut, onAuthStateChanged,
+         collection, doc, getDoc, getDocs, setDoc, addDoc, updateDoc, deleteDoc,
+         onSnapshot, query, where, serverTimestamp } from './firebase.js';
+
 const BriskDB = (function() {
   const STORAGE_KEYS = {
-    EMPLOYEES: 'brisk_employees',
-    SHIFTS: 'brisk_shifts',
-    TIMECARDS: 'brisk_timecards',
-    LEAVE_REQUESTS: 'brisk_leave_requests',
-    SETTINGS: 'brisk_settings',
     SESSION: 'brisk_session'
   };
 
-  // Local memory cache
-  let _employees = JSON.parse(localStorage.getItem(STORAGE_KEYS.EMPLOYEES) || '[]');
-  let _shifts = JSON.parse(localStorage.getItem(STORAGE_KEYS.SHIFTS) || '[]');
-  let _timecards = JSON.parse(localStorage.getItem(STORAGE_KEYS.TIMECARDS) || '[]');
-  let _leaveRequests = JSON.parse(localStorage.getItem(STORAGE_KEYS.LEAVE_REQUESTS) || '[]');
+  let _employees = [];
+  let _shifts = [];
+  let _timecards = [];
+  let _leaveRequests = [];
   let _settings = { companyName: 'Amcal Pharmacy Woywoy Rosters' };
-  
-  // Track deletions for server sync
-  let _deletedShifts = [];
-  let _deletedEmployees = [];
 
-  // Seed default Peter Kim profile when database is empty/fresh
-  function seedLocalPeter() {
-    const peter = {
-      id: 'emp_peter_kim',
-      name: 'Peter Kim',
-      email: 'pharmotago@gmail.com',
-      role: 'Pharmacist Manager',
-      hourlyRate: 85.00,
-      maxHours: 45,
-      availability: {
-        0: null, // Sunday
-        1: { start: '08:30', end: '17:30' },
-        2: { start: '08:30', end: '17:30' },
-        3: { start: '08:30', end: '17:30' },
-        4: { start: '08:30', end: '17:30' },
-        5: { start: '08:30', end: '17:30' },
-        6: { start: '09:00', end: '13:00' }  // Saturday
-      },
-      active: true
-    };
-    
-    _employees = [peter];
-    _shifts = [];
-    _timecards = [];
-    _leaveRequests = [];
-    
-    localStorage.setItem(STORAGE_KEYS.EMPLOYEES, JSON.stringify(_employees));
-    localStorage.setItem(STORAGE_KEYS.SHIFTS, JSON.stringify(_shifts));
-    localStorage.setItem(STORAGE_KEYS.TIMECARDS, JSON.stringify(_timecards));
-    localStorage.setItem(STORAGE_KEYS.LEAVE_REQUESTS, JSON.stringify(_leaveRequests));
-    
-    // Automatically set default session for offline/local first launch
-    const defaultSession = {
-      email: 'pharmotago@gmail.com',
-      role: 'owner',
-      employeeId: 'emp_peter_kim',
-      name: 'Peter Kim'
-    };
-    localStorage.setItem(STORAGE_KEYS.SESSION, JSON.stringify(defaultSession));
-  }
-
-  // Run seed check immediately
-  if (_employees.length === 0 || (_employees.length > 0 && !_employees.some(e => e.email === 'pharmotago@gmail.com'))) {
-    seedLocalPeter();
-  }
+  let _listeners = [];
+  let _initialLoadCompleted = {
+    employees: false,
+    shifts: false,
+    timecards: false,
+    leaveRequests: false
+  };
+  let _resolveInitialLoad = null;
+  const _initialLoadPromise = new Promise((resolve) => {
+    _resolveInitialLoad = resolve;
+  });
 
   // Helper to load session
   function getSession() {
@@ -84,134 +44,137 @@ const BriskDB = (function() {
       _shifts = [];
       _timecards = [];
       _leaveRequests = [];
-      localStorage.removeItem(STORAGE_KEYS.EMPLOYEES);
-      localStorage.removeItem(STORAGE_KEYS.SHIFTS);
-      localStorage.removeItem(STORAGE_KEYS.TIMECARDS);
-      localStorage.removeItem(STORAGE_KEYS.LEAVE_REQUESTS);
+      // Detach all listeners
+      _listeners.forEach(unsub => unsub());
+      _listeners = [];
+      signOut(auth).catch(err => console.warn('Firebase signOut failed:', err));
     }
   }
 
-  // Get HTTP headers for authenticated requests
-  function getAuthHeaders() {
-    const session = getSession();
-    if (!session || !session.token) return {};
-    return {
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + session.token
-    };
+  function checkInitialLoadCompletion() {
+    if (_initialLoadCompleted.employees &&
+        _initialLoadCompleted.shifts &&
+        _initialLoadCompleted.timecards &&
+        _initialLoadCompleted.leaveRequests) {
+      if (_resolveInitialLoad) {
+        _resolveInitialLoad(true);
+      }
+    }
   }
 
-  // Fetch data from Vercel API and sync local cache
+  // Set up real-time onSnapshot listeners
+  function setupListeners() {
+    const session = getSession();
+    if (!session) return;
+
+    // Clear previous listeners
+    _listeners.forEach(unsub => unsub());
+    _listeners = [];
+
+    const employeesCol = collection(db, 'organizations', ORG_ID, 'employees');
+    const shiftsCol = collection(db, 'organizations', ORG_ID, 'shifts');
+    const timecardsCol = collection(db, 'organizations', ORG_ID, 'timecards');
+    const leaveRequestsCol = collection(db, 'organizations', ORG_ID, 'leave_requests');
+
+    // 1. Employees Listener
+    const unsubEmployees = onSnapshot(employeesCol, (snapshot) => {
+      _employees = [];
+      snapshot.forEach(doc => {
+        _employees.push({ ...doc.data(), id: doc.id });
+      });
+      _initialLoadCompleted.employees = true;
+      checkInitialLoadCompletion();
+      window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'employees' } }));
+    }, (err) => console.error('Employees listener error:', err));
+    _listeners.push(unsubEmployees);
+
+    // 2. Shifts Listener
+    const unsubShifts = onSnapshot(shiftsCol, (snapshot) => {
+      _shifts = [];
+      snapshot.forEach(doc => {
+        _shifts.push({ ...doc.data(), id: doc.id });
+      });
+      _initialLoadCompleted.shifts = true;
+      checkInitialLoadCompletion();
+      window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'shifts' } }));
+    }, (err) => console.error('Shifts listener error:', err));
+    _listeners.push(unsubShifts);
+
+    // 3. Timecards Listener
+    const unsubTimecards = onSnapshot(timecardsCol, (snapshot) => {
+      _timecards = [];
+      snapshot.forEach(doc => {
+        _timecards.push({ ...doc.data(), id: doc.id });
+      });
+      _initialLoadCompleted.timecards = true;
+      checkInitialLoadCompletion();
+      window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'timecards' } }));
+    }, (err) => console.error('Timecards listener error:', err));
+    _listeners.push(unsubTimecards);
+
+    // 4. Leave Requests Listener
+    const unsubLeave = onSnapshot(leaveRequestsCol, (snapshot) => {
+      _leaveRequests = [];
+      snapshot.forEach(doc => {
+        _leaveRequests.push({ ...doc.data(), id: doc.id });
+      });
+      _initialLoadCompleted.leaveRequests = true;
+      checkInitialLoadCompletion();
+      window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'leave_requests' } }));
+    }, (err) => console.error('Leave requests listener error:', err));
+    _listeners.push(unsubLeave);
+  }
+
+  // Triggered on app load
   async function syncFromServer() {
     const session = getSession();
     if (!session) return false;
 
-    try {
-      const res = await fetch('/api/schedule/data', {
-        method: 'GET',
-        headers: getAuthHeaders()
-      });
+    setupListeners();
 
-      if (!res.ok) {
-        throw new Error('Failed to fetch data from cloud server.');
-      }
-
-      const data = await res.json();
-      
-      _employees = data.employees || [];
-      _shifts = data.shifts || [];
-      _timecards = data.timecards || [];
-      _leaveRequests = data.leaveRequests || [];
-
-      // Save a local storage backup copy for offline/fallback
-      localStorage.setItem(STORAGE_KEYS.EMPLOYEES, JSON.stringify(_employees));
-      localStorage.setItem(STORAGE_KEYS.SHIFTS, JSON.stringify(_shifts));
-      localStorage.setItem(STORAGE_KEYS.TIMECARDS, JSON.stringify(_timecards));
-      localStorage.setItem(STORAGE_KEYS.LEAVE_REQUESTS, JSON.stringify(_leaveRequests));
-
-      // Reset deletions tracking
-      _deletedShifts = [];
-      _deletedEmployees = [];
-
-      return true;
-    } catch (err) {
-      console.error('[CloudSync] Sync GET failed. Falling back to local storage cache.', err);
-      // Fallback
-      _employees = JSON.parse(localStorage.getItem(STORAGE_KEYS.EMPLOYEES) || '[]');
-      _shifts = JSON.parse(localStorage.getItem(STORAGE_KEYS.SHIFTS) || '[]');
-      _timecards = JSON.parse(localStorage.getItem(STORAGE_KEYS.TIMECARDS) || '[]');
-      _leaveRequests = JSON.parse(localStorage.getItem(STORAGE_KEYS.LEAVE_REQUESTS) || '[]');
-      return false;
-    }
+    // Await either initial snapshot trigger or max 2 seconds fallback
+    const timeoutPromise = new Promise((resolve) => setTimeout(() => resolve(true), 2000));
+    await Promise.race([_initialLoadPromise, timeoutPromise]);
+    return true;
   }
 
-  // Post updates to Vercel API
-  async function syncToServer(itemType = null, singleItem = null) {
-    const session = getSession();
-    if (!session) return false;
-
-    try {
-      let payload = {};
-
-      if (session.role === 'owner' || session.role === 'manager') {
-        // Manager syncs the whole batch
-        payload = {
-          employees: _employees,
-          shifts: _shifts,
-          timecards: _timecards,
-          leaveRequests: _leaveRequests,
-          deletedShifts: _deletedShifts,
-          deletedEmployees: _deletedEmployees
-        };
-      } else {
-        // Employee only syncs individual timecard or leave request
-        if (!itemType || !singleItem) return false;
-        payload = {
-          type: itemType,
-          data: singleItem
-        };
-      }
-
-      const res = await fetch('/api/schedule/data', {
-        method: 'POST',
-        headers: getAuthHeaders(),
-        body: JSON.stringify(payload)
-      });
-
-      if (!res.ok) {
-        const errData = await res.json();
-        throw new Error(errData.error || 'Failed to save data to cloud server.');
-      }
-
-      // Reset deleted trackers on success
-      _deletedShifts = [];
-      _deletedEmployees = [];
-
-      return true;
-    } catch (err) {
-      console.error('[CloudSync] Sync POST failed.', err);
-      return false;
-    }
+  // Dummy function for compatibility
+  async function syncToServer() {
+    return true;
   }
 
-  // Cloud API Call wrapper for Login
+  // Cloud API Call wrapper for Login using Client SDK
   async function apiLogin(email, password) {
     try {
-      const res = await fetch('/api/schedule/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
-      });
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+      const idToken = await user.getIdToken();
 
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Login failed.');
-      return data;
+      // Get user role document from Firestore
+      const userDocRef = doc(db, 'organizations', ORG_ID, 'users', user.uid);
+      const userDoc = await getDoc(userDocRef);
+      if (!userDoc.exists()) {
+        throw new Error('User profile record not found in database.');
+      }
+
+      const userData = userDoc.data();
+      const session = {
+        email: user.email,
+        role: userData.role,
+        employeeId: userData.employeeId || null,
+        name: userData.name || 'Staff Member',
+        token: idToken
+      };
+
+      setSession(session);
+      setupListeners();
+      return session;
     } catch (err) {
       return { error: err.message };
     }
   }
 
-  // Cloud API Call wrapper for Registration
+  // Registration uses Next.js API route
   async function apiRegister(email, password, name, inviteCode) {
     try {
       const res = await fetch('/api/schedule/auth/register', {
@@ -228,12 +191,16 @@ const BriskDB = (function() {
     }
   }
 
-  // Cloud API Call wrapper for Invitation Generation
+  // Generate Invite
   async function apiGenerateInvite(email, role) {
     try {
+      const session = getSession();
       const res = await fetch('/api/schedule/auth/invite', {
         method: 'POST',
-        headers: getAuthHeaders(),
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + (session ? session.token : '')
+        },
         body: JSON.stringify({ email, role })
       });
 
@@ -245,12 +212,16 @@ const BriskDB = (function() {
     }
   }
 
-  // Cloud API Call wrapper for sending Roster Email
+  // Send Roster Email
   async function apiSendRosterEmail(employeeId, weekStart, rosterText) {
     try {
+      const session = getSession();
       const res = await fetch('/api/schedule/email', {
         method: 'POST',
-        headers: getAuthHeaders(),
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + (session ? session.token : '')
+        },
         body: JSON.stringify({ employeeId, weekStart, rosterText })
       });
 
@@ -262,134 +233,94 @@ const BriskDB = (function() {
     }
   }
 
+  // Auto setup listeners on script load if session exists
+  if (getSession()) {
+    setupListeners();
+  }
+
   return {
-    // Session API
     getSession,
     setSession,
     syncFromServer,
     syncToServer,
-    
-    // Auth Wrappers
     apiLogin,
     apiRegister,
     apiGenerateInvite,
     apiSendRosterEmail,
 
-    // Local getters (fed from syncFromServer)
-    getEmployees: function() { return _employees; },
-    getShifts: function() { return _shifts; },
-    getTimecards: function() { return _timecards; },
-    getLeaveRequests: function() { return _leaveRequests; },
-    getSettings: function() { return _settings; },
-    
-    // DB Modifiers
+    getEmployees: () => _employees,
+    getShifts: () => _shifts,
+    getTimecards: () => _timecards,
+    getLeaveRequests: () => _leaveRequests,
+    getSettings: () => _settings,
+
     addEmployee: async function(emp) {
-      emp.id = 'emp_temp_' + Date.now(); // temporary client-side ID, replaced by UUID in postgres
-      emp.active = true;
-      _employees.push(emp);
-      await syncToServer();
-      await syncFromServer(); // pull down generated UUIDs
+      const colRef = collection(db, 'organizations', ORG_ID, 'employees');
+      const docRef = doc(colRef);
+      const newEmp = { ...emp, id: docRef.id, active: true };
+      await setDoc(docRef, newEmp);
     },
     updateEmployee: async function(updated) {
-      const idx = _employees.findIndex(e => e.id === updated.id);
-      if (idx !== -1) {
-        _employees[idx] = { ..._employees[idx], ...updated };
-        await syncToServer();
-      }
+      const docRef = doc(db, 'organizations', ORG_ID, 'employees', updated.id);
+      await updateDoc(docRef, updated);
     },
     deleteEmployee: async function(id) {
-      if (!id.startsWith('emp_temp_')) {
-        _deletedEmployees.push(id);
-      }
-      _employees = _employees.filter(e => e.id !== id);
-      await syncToServer();
+      const docRef = doc(db, 'organizations', ORG_ID, 'employees', id);
+      await deleteDoc(docRef);
     },
 
-    // Shifts CRUD
     addShift: async function(shift) {
-      shift.id = 'shift_temp_' + Date.now();
-      _shifts.push(shift);
-      await syncToServer();
-      await syncFromServer();
+      const colRef = collection(db, 'organizations', ORG_ID, 'shifts');
+      const docRef = doc(colRef);
+      const newShift = { ...shift, id: docRef.id };
+      await setDoc(docRef, newShift);
     },
     updateShift: async function(updated) {
-      const idx = _shifts.findIndex(s => s.id === updated.id);
-      if (idx !== -1) {
-        _shifts[idx] = { ..._shifts[idx], ...updated };
-        await syncToServer();
-      }
+      const docRef = doc(db, 'organizations', ORG_ID, 'shifts', updated.id);
+      await updateDoc(docRef, updated);
     },
     deleteShift: async function(id) {
-      if (!id.startsWith('shift_temp_')) {
-        _deletedShifts.push(id);
-      }
-      _shifts = _shifts.filter(s => s.id !== id);
-      await syncToServer();
+      const docRef = doc(db, 'organizations', ORG_ID, 'shifts', id);
+      await deleteDoc(docRef);
     },
 
-    // Timecards CRUD
     addTimecard: async function(tc) {
-      tc.id = 'tc_temp_' + Date.now();
-      _timecards.push(tc);
-      const session = getSession();
-      if (session.role === 'employee') {
-        await syncToServer('timecard', tc);
-      } else {
-        await syncToServer();
-      }
-      await syncFromServer();
+      const colRef = collection(db, 'organizations', ORG_ID, 'timecards');
+      const docRef = doc(colRef);
+      const newTc = { ...tc, id: docRef.id };
+      await setDoc(docRef, newTc);
     },
     updateTimecard: async function(updated) {
-      const idx = _timecards.findIndex(t => t.id === updated.id);
-      if (idx !== -1) {
-        _timecards[idx] = { ..._timecards[idx], ...updated };
-        const session = getSession();
-        if (session.role === 'employee') {
-          await syncToServer('timecard', _timecards[idx]);
-        } else {
-          await syncToServer();
-        }
-      }
+      const docRef = doc(db, 'organizations', ORG_ID, 'timecards', updated.id);
+      await updateDoc(docRef, updated);
     },
 
-    // Leave Requests CRUD
     addLeaveRequest: async function(lr) {
-      lr.id = 'leave_temp_' + Date.now();
-      lr.status = 'Pending';
-      _leaveRequests.push(lr);
-      const session = getSession();
-      if (session.role === 'employee') {
-        await syncToServer('leave_request', lr);
-      } else {
-        await syncToServer();
-      }
-      await syncFromServer();
+      const colRef = collection(db, 'organizations', ORG_ID, 'leave_requests');
+      const docRef = doc(colRef);
+      const newLr = { ...lr, id: docRef.id, status: 'Pending' };
+      await setDoc(docRef, newLr);
     },
     updateLeaveRequest: async function(updated) {
-      const idx = _leaveRequests.findIndex(r => r.id === updated.id);
-      if (idx !== -1) {
-        _leaveRequests[idx] = { ..._leaveRequests[idx], ...updated };
-        await syncToServer();
-      }
+      const docRef = doc(db, 'organizations', ORG_ID, 'leave_requests', updated.id);
+      await updateDoc(docRef, updated);
     },
 
-    // settings
     saveSettings: function(settings) {
       _settings = settings;
-      localStorage.setItem(STORAGE_KEYS.SETTINGS, JSON.stringify(settings));
     },
 
-    // Backup
     exportData: function() {
-      const exportObj = {
+      return JSON.stringify({
         employees: _employees,
         shifts: _shifts,
         timecards: _timecards,
         leaveRequests: _leaveRequests,
-        version: '1.0.0',
         exportedAt: new Date().toISOString()
-      };
-      return JSON.stringify(exportObj, null, 2);
+      }, null, 2);
     }
   };
 })();
+
+window.BriskDB = BriskDB;
+export default BriskDB;

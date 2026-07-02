@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 import crypto from 'crypto';
-import { supabase } from '../../../supabase';
+import { adminDb } from '../../../firebase-admin';
 import { getRequestUser, jsonResponse } from '../../utils';
 
 export async function OPTIONS() {
@@ -9,7 +9,7 @@ export async function OPTIONS() {
 
 export async function POST(req: NextRequest) {
   try {
-    const requester = getRequestUser(req);
+    const requester = await getRequestUser(req);
 
     // Permission check: Only managers or owners can create invitations
     if (!requester.isAuthenticated || (requester.role !== 'owner' && requester.role !== 'manager')) {
@@ -29,18 +29,19 @@ export async function POST(req: NextRequest) {
     // Generate unique 6 character code
     const code = crypto.randomBytes(3).toString('hex').toUpperCase();
 
-    const { error } = await supabase
-      .from('brisk_invitations')
-      .insert({
+    // Store in Firestore: /organizations/amcal_woywoy/invitations/{code}
+    await adminDb
+      .collection('organizations')
+      .doc('amcal_woywoy')
+      .collection('invitations')
+      .doc(code)
+      .set({
         code,
         email: email.toLowerCase(),
         role,
-        used: false
+        used: false,
+        createdAt: new Date().toISOString()
       });
-
-    if (error) {
-      return jsonResponse({ error: `Database error: ${error.message}` }, 500);
-    }
 
     return jsonResponse({
       success: true,

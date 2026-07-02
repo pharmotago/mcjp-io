@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
-import { supabase } from '../../../supabase';
-import { hashPassword, jsonResponse, signToken } from '../../utils';
+import { adminAuth, adminDb } from '../../../firebase-admin';
+import { jsonResponse } from '../../utils';
 
 export async function OPTIONS() {
   return jsonResponse({}, 200);
@@ -8,7 +8,7 @@ export async function OPTIONS() {
 
 export async function POST(req: NextRequest) {
   try {
-    const { email, password, name, role, inviteCode } = await req.json();
+    const { email, password, name, inviteCode } = await req.json();
 
     if (!email || !password || !name) {
       return jsonResponse({ error: 'Email, password, and name are required.' }, 400);
@@ -18,35 +18,61 @@ export async function POST(req: NextRequest) {
       return jsonResponse({ error: 'An invitation code is required to register.' }, 400);
     }
 
-    let targetEmail = email.toLowerCase().trim();
+    const targetEmail = email.toLowerCase().trim();
 
-    // 1. Verify invitation code
-    const { data: invite, error: inviteError } = await supabase
-      .from('brisk_invitations')
-      .select('*')
-      .eq('code', inviteCode.toUpperCase().trim())
-      .eq('used', false)
-      .single();
+    // 1. Verify invitation code in Firestore
+    const inviteDoc = await adminDb
+      .collection('organizations')
+      .doc('amcal_woywoy')
+      .collection('invitations')
+      .doc(inviteCode.toUpperCase().trim())
+      .get();
 
-    if (inviteError || !invite) {
-      return jsonResponse({ error: 'Invalid or already used invitation code.' }, 400);
+    if (!inviteDoc.exists) {
+      return jsonResponse({ error: 'Invalid invitation code.' }, 400);
     }
 
-    // Force matching email if invite specifies one (or allow any if email is empty/matching)
-    const targetRole = invite.role;
+    const invite = inviteDoc.data();
+    if (!invite || invite.used) {
+      return jsonResponse({ error: 'This invitation code has already been used.' }, 400);
+    }
+
+    // Force matching email if invite specifies one
     if (invite.email && invite.email.toLowerCase().trim() !== targetEmail) {
       return jsonResponse({ error: `This invitation code is registered for email: ${invite.email}` }, 400);
     }
 
-    // 2. Create Employee Profile
-    const { data: employee, error: empError } = await supabase
-      .from('brisk_employees')
-      .insert({
+    const targetRole = invite.role; // 'manager' or 'employee'
+
+    // 2. Create Auth User in Firebase
+    let userRecord;
+    try {
+      userRecord = await adminAuth.createUser({
+        email: targetEmail,
+        password: password,
+        displayName: name
+      });
+    } catch (createErr: any) {
+      return jsonResponse({ error: `Failed to create Firebase Auth user: ${createErr.message}` }, 400);
+    }
+
+    // 3. Create Employee Profile Document
+    const employeeRef = adminDb
+      .collection('organizations')
+      .doc('amcal_woywoy')
+      .collection('employees')
+      .doc();
+
+    const employeeId = employeeRef.id;
+
+    try {
+      await employeeRef.set({
+        id: employeeId,
         name,
         email: targetEmail,
         role: targetRole === 'manager' ? 'Pharmacist Manager' : 'Pharmacy Staff',
-        hourly_rate: targetRole === 'manager' ? 85.00 : 25.00,
-        max_hours: 38,
+        hourlyRate: targetRole === 'manager' ? 85.00 : 25.00,
+        maxHours: 38,
         availability: {
           0: null,
           1: { start: '09:00', end: '17:00' },
@@ -56,55 +82,42 @@ export async function POST(req: NextRequest) {
           5: { start: '09:00', end: '17:00' },
           6: null
         },
-        active: true
-      })
-      .select()
-      .single();
-
-    if (empError || !employee) {
-      return jsonResponse({ error: `Failed to create employee profile: ${empError?.message}` }, 500);
-    }
-
-    // 3. Create User Credentials
-    const passwordHash = hashPassword(password);
-    const { error: userError } = await supabase
-      .from('brisk_users')
-      .insert({
-        email: targetEmail,
-        password_hash: passwordHash,
-        role: targetRole, // 'manager' or 'employee'
-        employee_id: employee.id
+        active: true,
+        uid: userRecord.uid
       });
-
-    if (userError) {
-      // Rollback employee to keep consistency
-      await supabase.from('brisk_employees').delete().eq('id', employee.id);
-      return jsonResponse({ error: `Failed to create user account: ${userError.message}` }, 500);
+    } catch (empErr: any) {
+      // Rollback user creation to maintain consistency
+      await adminAuth.deleteUser(userRecord.uid);
+      return jsonResponse({ error: `Failed to create employee profile: ${empErr.message}` }, 500);
     }
 
-    // 4. Mark Invitation Code as Used
-    await supabase
-      .from('brisk_invitations')
-      .update({ used: true })
-      .eq('code', inviteCode.toUpperCase().trim());
+    // 4. Create User Role mapping
+    try {
+      await adminDb
+        .collection('organizations')
+        .doc('amcal_woywoy')
+        .collection('users')
+        .doc(userRecord.uid)
+        .set({
+          role: targetRole, // 'manager' or 'employee'
+          employeeId,
+          name,
+          email: targetEmail,
+          createdAt: new Date().toISOString()
+        });
+    } catch (roleErr: any) {
+      // Rollback employee document and auth user
+      await employeeRef.delete();
+      await adminAuth.deleteUser(userRecord.uid);
+      return jsonResponse({ error: `Failed to register user roles: ${roleErr.message}` }, 500);
+    }
 
-    // 5. Generate secure JWT token
-    const token = signToken({
-      email: targetEmail,
-      role: targetRole,
-      employeeId: employee.id
-    });
+    // 5. Mark invitation as used
+    await inviteDoc.ref.update({ used: true });
 
     return jsonResponse({
       success: true,
-      message: 'Account registered successfully.',
-      token,
-      user: {
-        email: targetEmail,
-        role: targetRole,
-        employeeId: employee.id,
-        name: name
-      }
+      message: 'Account registered successfully.'
     }, 200);
 
   } catch (err: any) {
