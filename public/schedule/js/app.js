@@ -90,8 +90,10 @@ function loadDataFromState() {
   state.leaveRequests = BriskDB.getLeaveRequests();
   state.settings = BriskDB.getSettings();
 
-  document.getElementById('sidebar-company-name').textContent = state.settings.companyName || 'Amcal Pharmacy Woywoy Rosters';
-  document.getElementById('settings-company-name').value = state.settings.companyName || 'Amcal Pharmacy Woywoy Rosters';
+  const sidebarName = document.getElementById('sidebar-company-name');
+  if (sidebarName) sidebarName.textContent = state.settings.companyName || 'Amcal Pharmacy Woywoy Rosters';
+  const settingsName = document.getElementById('settings-company-name');
+  if (settingsName) settingsName.value = state.settings.companyName || 'Amcal Pharmacy Woywoy Rosters';
 }
 
 // Role-Based UI visibility
