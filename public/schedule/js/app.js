@@ -2,6 +2,10 @@
  * BriskSchedules Upgraded Core Frontend Application Logic
  */
 
+// Import database layer — sets window.BriskDB and initialises Firebase
+import BriskDB from './database.js';
+window.BriskDB = BriskDB;
+
 // Application State
 let state = {
   currentTab: 'dashboard',
@@ -1154,51 +1158,58 @@ async function handleClockAction(action) {
   const empId = document.getElementById('clock-emp-select').value;
   if (!empId) return;
 
+  // Disable all clock buttons immediately to prevent double-tap
+  const btns = ['btn-clock-in','btn-clock-out','btn-start-break','btn-end-break'];
+  btns.forEach(id => { const el = document.getElementById(id); if (el) el.disabled = true; });
+
   const todayStr = formatDateISO(new Date());
-  let tc = state.timecards.find(t => t.employeeId === empId && t.date === todayStr);
+  // Use BriskDB's live data, not stale state
+  let tc = BriskDB.getTimecards().find(t => t.employeeId === empId && t.date === todayStr);
 
   const nowISO = new Date().toISOString();
 
-  if (action === 'in') {
-    if (tc) return;
-    tc = {
-      employeeId: empId,
-      date: todayStr,
-      clockIn: nowISO,
-      clockOut: null,
-      breaks: [],
-      totalHours: 0,
-      approved: false,
-      approvedBy: ''
-    };
-    await BriskDB.addTimecard(tc);
-  } else if (action === 'out') {
-    if (!tc || tc.clockOut) return;
-    
-    const lastBreak = tc.breaks[tc.breaks.length - 1];
-    if (lastBreak && !lastBreak.end) {
-      lastBreak.end = nowISO;
-    }
+  try {
+    if (action === 'in') {
+      if (tc) return; // already clocked in
+      tc = {
+        employeeId: empId,
+        date: todayStr,
+        clockIn: nowISO,
+        clockOut: null,
+        breaks: [],
+        totalHours: 0,
+        approved: false,
+        approvedBy: ''
+      };
+      await BriskDB.addTimecard(tc);
+      // Optimistically update local state so UI reflects instantly
+      state.timecards.push(tc);
 
-    tc.clockOut = nowISO;
-    tc.totalHours = calculateTimecardHours(tc);
-    await BriskDB.updateTimecard(tc);
-  } else if (action === 'break-start') {
-    if (!tc || tc.clockOut) return;
-    tc.breaks.push({
-      start: nowISO,
-      end: null
-    });
-    await BriskDB.updateTimecard(tc);
-  } else if (action === 'break-end') {
-    if (!tc || tc.clockOut) return;
-    const lastBreak = tc.breaks[tc.breaks.length - 1];
-    if (lastBreak && !lastBreak.end) {
-      lastBreak.end = nowISO;
+    } else if (action === 'out') {
+      if (!tc || tc.clockOut) return;
+      const lastBreak = tc.breaks && tc.breaks.length > 0 ? tc.breaks[tc.breaks.length - 1] : null;
+      if (lastBreak && !lastBreak.end) lastBreak.end = nowISO;
+      tc.clockOut = nowISO;
+      tc.totalHours = calculateTimecardHours(tc);
+      await BriskDB.updateTimecard(tc);
+
+    } else if (action === 'break-start') {
+      if (!tc || tc.clockOut) return;
+      if (!tc.breaks) tc.breaks = [];
+      tc.breaks.push({ start: nowISO, end: null });
+      await BriskDB.updateTimecard(tc);
+
+    } else if (action === 'break-end') {
+      if (!tc || tc.clockOut) return;
+      const lastBreak = tc.breaks && tc.breaks.length > 0 ? tc.breaks[tc.breaks.length - 1] : null;
+      if (lastBreak && !lastBreak.end) lastBreak.end = nowISO;
+      await BriskDB.updateTimecard(tc);
     }
-    await BriskDB.updateTimecard(tc);
+  } catch (err) {
+    alert('Clock action failed: ' + err.message);
   }
 
+  // Refresh UI immediately from live BriskDB data
   loadDataFromState();
   updateTerminalStatus();
   renderAdminTimesheets();

@@ -289,10 +289,18 @@ const BriskDB = (function() {
       const docRef = doc(colRef);
       const newTc = { ...tc, id: docRef.id };
       await setDoc(docRef, newTc);
+      // Optimistically update local cache so UI responds before onSnapshot fires
+      const existing = _timecards.findIndex(t => t.id === newTc.id);
+      if (existing === -1) _timecards.push(newTc);
+      return newTc;
     },
     updateTimecard: async function(updated) {
       const docRef = doc(db, 'organizations', ORG_ID, 'timecards', updated.id);
       await updateDoc(docRef, updated);
+      // Optimistically update local cache
+      const idx = _timecards.findIndex(t => t.id === updated.id);
+      if (idx !== -1) _timecards[idx] = { ..._timecards[idx], ...updated };
+      else _timecards.push(updated);
     },
 
     addLeaveRequest: async function(lr) {
