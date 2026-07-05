@@ -89,6 +89,22 @@
   <!-- MAIN APPLICATION LAYOUT -->
   <!-- ===================================== -->
   <div class="app-container" id="app-root" style="display: none;">
+    <!-- Mobile Overlay -->
+    <div id="mobile-overlay" class="mobile-overlay" onclick="toggleSidebar()"></div>
+
+    <!-- Mobile Header -->
+    <div class="mobile-header">
+      <div class="brand-text" style="display: flex; align-items: center; gap: 10px;">
+        <div class="brand-icon" style="width: 32px; height: 32px; font-size: 1rem;">
+          <i class="fa-solid fa-clock-rotate-left"></i>
+        </div>
+        <h2 style="font-size: 1.1rem; margin: 0;">AMCAL</h2>
+      </div>
+      <button class="mobile-menu-btn" onclick="toggleSidebar()">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+
     <!-- Sidebar Navigation -->
     <aside class="sidebar">
       <div class="sidebar-brand">

@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "auto-publish": "node scripts/auto_publish.js",
-    "vercel-deploy": "node c:/Antigravity/BriskSchedules/node_modules/vercel/dist/index.js --prod --force --yes"
+    "vercel-deploy": "node c:/Antigravity/BriskSchedules/node_modules/vercel/dist/index.js --prod --force --yes",
+    "seed:firebase": "node firebase-seed.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.109.0",

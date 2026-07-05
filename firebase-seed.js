@@ -1,5 +1,5 @@
 require('dotenv').config({ path: '../.env' }); // Load root .env
-const { initializeApp, cert } = require('firebase-admin');
+const admin = require('firebase-admin');
 const { getAuth } = require('firebase-admin/auth');
 const { getFirestore } = require('firebase-admin/firestore');
 
@@ -14,8 +14,8 @@ if (!password) {
 const privateKey = process.env.FIREBASE_ADMIN_PRIVATE_KEY;
 const formattedPrivateKey = privateKey ? privateKey.replace(/\\n/g, '\n') : undefined;
 
-initializeApp({
-  credential: cert({
+admin.initializeApp({
+  credential: admin.credential.cert({
     projectId: process.env.FIREBASE_ADMIN_PROJECT_ID,
     clientEmail: process.env.FIREBASE_ADMIN_CLIENT_EMAIL,
     privateKey: formattedPrivateKey,

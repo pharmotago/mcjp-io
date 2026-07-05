@@ -178,11 +178,27 @@ function switchTab(tabName) {
     reports: 'Reports & Payroll',
     settings: 'Data & Backup'
   };
-  document.getElementById('current-panel-title').textContent = titles[tabName] || 'Dashboard';
+  const titleEl = document.getElementById('current-panel-title');
+  if (titleEl) titleEl.textContent = titles[tabName] || 'Dashboard';
 
   // Render active panel
   renderActivePanel();
+  
+  // Close sidebar on mobile after navigating
+  if (window.innerWidth <= 768) toggleSidebar();
 }
+
+// Mobile Sidebar Toggle
+function toggleSidebar() {
+  const sidebar = document.querySelector('.sidebar');
+  const overlay = document.getElementById('mobile-overlay');
+  
+  if (sidebar && overlay) {
+    sidebar.classList.toggle('open');
+    overlay.classList.toggle('active');
+  }
+}
+window.toggleSidebar = toggleSidebar;
 
 // Render active panel based on routing state
 function renderActivePanel() {
@@ -484,7 +500,7 @@ function renderScheduler() {
     const mm = String(d.getMonth() + 1).padStart(2, '0');
     const dd = String(d.getDate()).padStart(2, '0');
     
-    const elId = `head-date-${(i + 1) % 7}`;
+    const elId = `head-date-${d.getDay()}`;
     const headerEl = document.getElementById(elId);
     if (headerEl) {
       headerEl.textContent = `${mm}/${dd}`;
@@ -664,11 +680,8 @@ async function triggerClearWeek() {
     return sDate >= mon && sDate <= sun;
   });
 
-  weekShifts.forEach(s => {
-    s.employeeId = null;
-  });
-
-  await BriskDB.syncToServer();
+  // Update each shift individually in Firestore (no batch saveShifts in Firebase version)
+  await Promise.all(weekShifts.map(s => BriskDB.updateShift({ ...s, employeeId: null })));
   renderScheduler();
 }
 
@@ -1022,11 +1035,10 @@ async function handleEmployeeSubmit(event) {
 
 async function handleEmployeeDelete() {
   const id = document.getElementById('employee-id').value;
-  if (id && confirm('Delete this employee permanently? The shifts assigned to them will be unassigned.')) {
-    state.shifts.forEach(s => {
-      if (s.employeeId === id) s.employeeId = null;
-    });
-    await BriskDB.saveShifts(state.shifts);
+  if (id && confirm('Delete this employee permanently? Their shifts will be unassigned.')) {
+    // Unassign all shifts for this employee individually (Firebase has no batch saveShifts)
+    const empShifts = state.shifts.filter(s => s.employeeId === id);
+    await Promise.all(empShifts.map(s => BriskDB.updateShift({ ...s, employeeId: null })));
     await BriskDB.deleteEmployee(id);
     closeEmployeeModal();
     renderActivePanel();
