@@ -7,7 +7,10 @@ import BriskDB from './database.js';
 window.BriskDB = BriskDB;
 
 // Application State
+import BriskScheduler from './scheduler.js';
+
 let state = {
+
   currentTab: 'dashboard',
   currentWeekStart: null, // Date object (Monday)
   employees: [],
@@ -68,23 +71,35 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 // Boot the application: load data and apply role-based views
 async function bootApplication() {
-  // Show app layout, hide login
-  document.getElementById('login-screen').classList.remove('active');
-  document.getElementById('app-root').style.display = 'grid';
+  try {
+    // Show app layout, hide login
+    document.getElementById('login-screen').classList.remove('active');
+    document.getElementById('app-root').style.display = 'grid';
 
-  // Set user badges
-  document.getElementById('sidebar-user-name').textContent = state.currentUser.name;
-  document.getElementById('dash-user-name').textContent = state.currentUser.name;
+    // Set user badges
+    document.getElementById('sidebar-user-name').textContent = state.currentUser.name;
+    document.getElementById('dash-user-name').textContent = state.currentUser.name;
 
-  // Sync data from cloud
-  await BriskDB.syncFromServer();
-  loadDataFromState();
+    // Sync data from cloud
+    await BriskDB.syncFromServer();
+    loadDataFromState();
 
-  // Apply Role-Based Access Control (RBAC)
-  applyRoleAccessControl();
+    // Apply Role-Based Access Control (RBAC)
+    applyRoleAccessControl();
 
-  // Render active panel
-  renderActivePanel();
+    // Render active panel
+    renderActivePanel();
+  } catch (err) {
+    console.error('Failed to sync from server on boot:', err);
+  } finally {
+    // Hide loading overlay
+    const loadingOverlay = document.getElementById('loading-overlay');
+    if (loadingOverlay) loadingOverlay.classList.add('hide');
+  }
+
+  // Set the main layout mode (clear inline 'none' to allow CSS to control display via flex/grid)
+  document.getElementById('app-root').style.display = '';
+  document.getElementById('login-root').style.display = 'none';
 }
 
 function loadDataFromState() {
@@ -284,12 +299,14 @@ async function handleRegisterSubmit(event) {
   }
 
   alert('Registration successful! Logging you in...');
-  const sessionData = {
-    ...res.user,
-    token: res.token
-  };
-  BriskDB.setSession(sessionData);
-  state.currentUser = sessionData;
+  
+  // Call apiLogin to get proper session data
+  const loginRes = await BriskDB.apiLogin(email, password);
+  if (loginRes.error) {
+    alert(loginRes.error);
+    return;
+  }
+
   document.getElementById('register-form').reset();
   document.getElementById('invite-code-group').classList.remove('hide'); // restore field
   await bootApplication();
@@ -322,11 +339,17 @@ async function handleInviteSubmit(event) {
   document.getElementById('invite-form').reset();
 }
 
-function copyInviteUrl() {
-  const urlEl = document.getElementById('invite-url-val');
-  urlEl.select();
-  document.execCommand('copy');
-  alert('Invitation link copied to clipboard!');
+async function copyInviteUrl() {
+  const code = document.getElementById('settings-invite-code').textContent;
+  if (!code || code === 'None') return;
+  
+  const url = `${window.location.origin}?invite=${code}`;
+  try {
+    await navigator.clipboard.writeText(url);
+    alert('Invite link copied to clipboard!');
+  } catch (err) {
+    alert('Failed to copy to clipboard.');
+  }
 }
 
 /* ==========================================================================
@@ -545,12 +568,19 @@ function renderScheduler() {
           <div class="shift-card-time"><i class="fa-regular fa-clock"></i> ${shift.startTime} - ${shift.endTime}</div>
           ${shift.notes ? `<div class="shift-card-notes">${shift.notes}</div>` : ''}
         `;
-        if (state.currentUser.role !== 'employee') {
-          div.addEventListener('click', (e) => {
-            e.stopPropagation();
-            openEditShiftModal(shift);
-          });
+        
+        const btnGroup = document.createElement('div');
+        btnGroup.className = 'flex gap-2 align-center';
+
+        if (state.currentUser.role === 'owner' || state.currentUser.role === 'manager') {
+          const editBtn = document.createElement('button');
+          editBtn.className = 'btn-icon';
+          editBtn.innerHTML = '<i class="fa-solid fa-pen"></i>';
+          editBtn.onclick = (e) => { e.stopPropagation(); openEditShiftModal(shift); };
+          btnGroup.appendChild(editBtn);
         }
+
+        div.appendChild(btnGroup);
         tdDay.appendChild(div);
       });
 
@@ -691,7 +721,9 @@ async function triggerAutoScheduler() {
   
   if (result.success) {
     state.shifts = result.shifts;
-    await BriskDB.syncToServer();
+    
+    // Save generated shifts to Firestore
+    await Promise.all(state.shifts.map(s => BriskDB.updateShift(s)));
     renderScheduler();
     
     alert(`📅 Auto-Scheduler Complete!\n\n- Shifts successfully assigned: ${result.assignedCount}\n- Shifts left unassigned: ${result.unassignedCount}\n\n[Placement Logs]\n${result.logs.slice(0, 10).join('\n')}\n${result.logs.length > 10 ? '...and more' : ''}`);
@@ -1074,25 +1106,7 @@ function renderTimeClockPanel() {
     });
   }
 
-  // Populate leave request select dropdown
-  const leaveSelect = document.getElementById('leave-emp-select');
-  leaveSelect.innerHTML = '';
-  
-  if (role === 'employee') {
-    const opt = document.createElement('option');
-    opt.value = state.currentUser.employeeId;
-    opt.textContent = state.currentUser.name;
-    opt.selected = true;
-    leaveSelect.appendChild(opt);
-  } else {
-    state.employees.filter(e => e.active).forEach(emp => {
-      const opt = document.createElement('option');
-      opt.value = emp.id;
-      opt.textContent = emp.name;
-      if (emp.id === state.currentUser.employeeId) opt.selected = true;
-      leaveSelect.appendChild(opt);
-    });
-  }
+
 
   updateTerminalStatus();
   renderAdminTimesheets();
@@ -1585,16 +1599,20 @@ async function sendRosterEmail() {
   btn.disabled = true;
   btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
 
-  const res = await BriskDB.apiSendRosterEmail(empId, weekStart, text);
+  try {
+    const res = await BriskDB.apiSendRosterEmail(empId, weekStart, text);
 
-  btn.disabled = false;
-  btn.innerHTML = originalText;
-
-  if (res.error) {
-    alert(`Error: ${res.error}`);
-  } else {
-    alert(res.message);
-    closeEmailRosterModal();
+    if (res.error) {
+      alert(`Error: ${res.error}`);
+    } else {
+      alert(res.message);
+      closeEmailRosterModal();
+    }
+  } catch (err) {
+    alert(`Unexpected error: ${err.message || err}`);
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = originalText;
   }
 }
 
@@ -1634,12 +1652,16 @@ function closeEmailScheduleModal() {
   document.getElementById('modal-email-schedule').classList.remove('active');
 }
 
-function copyEmailScheduleText() {
-  const area = document.getElementById('email-schedule-textarea');
-  area.select();
-  document.execCommand('copy');
-  alert(' Roster schedule text copied to clipboard!');
-  closeEmailScheduleModal();
+async function copyEmailScheduleText() {
+  const textarea = document.getElementById('email-schedule-textarea');
+  if (textarea) {
+    try {
+      await navigator.clipboard.writeText(textarea.value);
+      alert('Roster copied to clipboard!');
+    } catch (err) {
+      alert('Failed to copy.');
+    }
+  }
 }
 
 
@@ -1658,8 +1680,8 @@ async function saveCompanySetting() {
   alert('Organization name saved.');
 }
 
-function exportDatabaseFile() {
-  const jsonStr = BriskDB.exportData();
+async function exportDatabaseFile() {
+  const jsonStr = await BriskDB.exportData();
   const blob = new Blob([jsonStr], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
   

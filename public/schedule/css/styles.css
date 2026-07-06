@@ -581,7 +581,6 @@ body {
 /* Scheduler Workspace Layout */
 .calendar-workspace {
   padding: 0 !important;
-  overflow: hidden;
 }
 .scheduler-grid-container {
   overflow-x: auto;
@@ -1294,10 +1293,10 @@ select.form-control option {
   .login-card {
     padding: 2rem 1.5rem;
   }
-}
 
-.modal-content {
-  max-height: 90vh;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  .modal-content {
+    max-height: 90vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }

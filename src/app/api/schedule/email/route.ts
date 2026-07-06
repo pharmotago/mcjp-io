@@ -11,9 +11,18 @@ export async function POST(req: NextRequest) {
   try {
     const user = await getRequestUser(req);
 
-    // Permission check: Only managers or owners can send roster emails
-    if (!user.isAuthenticated || (user.role !== 'owner' && user.role !== 'manager')) {
+    // Issue 4: Separate 401 (expired/missing token) from 403 (wrong role)
+    if (!user.isAuthenticated) {
+      return jsonResponse({ error: 'Session expired or invalid. Please log in again.' }, 401);
+    }
+
+    if (user.role !== 'owner' && user.role !== 'manager') {
       return jsonResponse({ error: 'Access denied. Managers or owners only.' }, 403);
+    }
+
+    // Issue 3: Pre-flight check for SMTP credentials
+    if (!process.env.SMTP_PASS) {
+      return jsonResponse({ error: 'Email service is not configured. SMTP credentials are missing on the server.' }, 503);
     }
 
     const { employeeId, weekStart, rosterText } = await req.json();
@@ -46,7 +55,7 @@ export async function POST(req: NextRequest) {
       secure: true, // true for port 465
       auth: {
         user: process.env.SMTP_USER || 'welcome@mcjp.io',
-        pass: process.env.SMTP_PASS || 'Lynden5620968.'
+        pass: process.env.SMTP_PASS || ''
       }
     });
 
@@ -75,7 +84,7 @@ export async function POST(req: NextRequest) {
       message: `Roster email successfully sent to ${employee.name} (${employee.email}).`
     }, 200);
 
-  } catch (err: any) {
-    return jsonResponse({ error: err.message }, 500);
+  } catch (err: unknown) {
+    return jsonResponse({ error: err instanceof Error ? err.message : String(err) }, 500);
   }
 }

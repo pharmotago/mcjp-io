@@ -51,6 +51,28 @@ const BriskDB = (function() {
     }
   }
 
+  // Get a fresh Firebase ID token (auto-refreshes if expired)
+  async function getFreshToken() {
+    const user = auth.currentUser;
+    if (!user) {
+      console.warn('getFreshToken: No Firebase user signed in.');
+      return '';
+    }
+    try {
+      const freshToken = await user.getIdToken(/* forceRefresh */ false);
+      // Update stored session with the fresh token
+      const session = getSession();
+      if (session && session.token !== freshToken) {
+        session.token = freshToken;
+        localStorage.setItem(STORAGE_KEYS.SESSION, JSON.stringify(session));
+      }
+      return freshToken;
+    } catch (err) {
+      console.error('getFreshToken failed:', err);
+      return '';
+    }
+  }
+
   function checkInitialLoadCompletion() {
     if (_initialLoadCompleted.employees &&
         _initialLoadCompleted.shifts &&
@@ -123,6 +145,23 @@ const BriskDB = (function() {
       window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'leave_requests' } }));
     }, (err) => console.error('Leave requests listener error:', err));
     _listeners.push(unsubLeave);
+
+    // Token refresh listener: keeps stored session token in sync with Firebase
+    const unsubAuth = onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        try {
+          const freshToken = await user.getIdToken();
+          const session = getSession();
+          if (session) {
+            session.token = freshToken;
+            localStorage.setItem(STORAGE_KEYS.SESSION, JSON.stringify(session));
+          }
+        } catch (err) {
+          console.warn('Auth token refresh failed:', err);
+        }
+      }
+    });
+    _listeners.push(unsubAuth);
   }
 
   // Triggered on app load
@@ -194,12 +233,12 @@ const BriskDB = (function() {
   // Generate Invite
   async function apiGenerateInvite(email, role) {
     try {
-      const session = getSession();
+      const token = await getFreshToken();
       const res = await fetch('/api/schedule/auth/invite', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + (session ? session.token : '')
+          'Authorization': 'Bearer ' + token
         },
         body: JSON.stringify({ email, role })
       });
@@ -215,12 +254,12 @@ const BriskDB = (function() {
   // Send Roster Email
   async function apiSendRosterEmail(employeeId, weekStart, rosterText) {
     try {
-      const session = getSession();
+      const token = await getFreshToken();
       const res = await fetch('/api/schedule/email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + (session ? session.token : '')
+          'Authorization': 'Bearer ' + token
         },
         body: JSON.stringify({ employeeId, weekStart, rosterText })
       });

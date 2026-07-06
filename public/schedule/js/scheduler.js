@@ -168,3 +168,5 @@ const BriskScheduler = (function() {
     getShiftDuration: getShiftDuration
   };
 })();
+
+export default BriskScheduler;
