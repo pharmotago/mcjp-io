@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { adminAuth, adminDb } from '../firebase-admin';
+import { supabaseAdmin } from '../supabase-admin';
 
 // Simple Helper to return JSON Response with CORS Headers
-export function jsonResponse(data: any, status = 200) {
+export function jsonResponse(data: unknown, status = 200) {
   return NextResponse.json(data, {
     status,
     headers: {
@@ -13,7 +13,7 @@ export function jsonResponse(data: any, status = 200) {
   });
 }
 
-// Authentication Check Helper - extracts and verifies Firebase ID Token from Authorization header
+// Authentication Check Helper - extracts and verifies Supabase JWT Token from Authorization header
 export async function getRequestUser(req: NextRequest) {
   const authHeader = req.headers.get('Authorization') || '';
   if (!authHeader.startsWith('Bearer ')) {
@@ -27,30 +27,29 @@ export async function getRequestUser(req: NextRequest) {
   
   const token = authHeader.substring(7); // strip "Bearer "
   try {
-    const decodedToken = await adminAuth.verifyIdToken(token);
+    const { data: { user }, error: authErr } = await supabaseAdmin.auth.getUser(token);
+    if (authErr || !user) throw authErr || new Error('No user found');
     
-    // Fetch the user role document from Firestore to get their role and employeeId
-    const userDoc = await adminDb
-      .collection('organizations')
-      .doc('amcal_woywoy')
-      .collection('users')
-      .doc(decodedToken.uid)
-      .get();
+    // Fetch the user role document from brisk_users table
+    const { data: userData, error: dbErr } = await supabaseAdmin
+      .from('brisk_users')
+      .select('*')
+      .eq('email', user.email?.toLowerCase().trim())
+      .maybeSingle();
       
-    if (!userDoc.exists) {
+    if (dbErr || !userData) {
       return {
         role: '',
         employeeId: '',
-        email: decodedToken.email || '',
+        email: user.email || '',
         isAuthenticated: false
       };
     }
     
-    const userData = userDoc.data() || {};
     return {
       role: userData.role || '',
-      employeeId: userData.employeeId || '',
-      email: decodedToken.email || '',
+      employeeId: userData.employee_id || '',
+      email: user.email || '',
       isAuthenticated: true
     };
   } catch (err) {

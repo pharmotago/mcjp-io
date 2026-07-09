@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 import crypto from 'crypto';
-import { adminDb } from '../../../firebase-admin';
+import { supabaseAdmin } from '../../../supabase-admin';
 import { getRequestUser, jsonResponse } from '../../utils';
 
 export async function OPTIONS() {
@@ -29,19 +29,17 @@ export async function POST(req: NextRequest) {
     // Generate unique 6 character code
     const code = crypto.randomBytes(3).toString('hex').toUpperCase();
 
-    // Store in Firestore: /organizations/amcal_woywoy/invitations/{code}
-    await adminDb
-      .collection('organizations')
-      .doc('amcal_woywoy')
-      .collection('invitations')
-      .doc(code)
-      .set({
+    // Store in Supabase brisk_invitations table
+    const { error } = await supabaseAdmin
+      .from('brisk_invitations')
+      .insert({
         code,
-        email: email.toLowerCase(),
+        email: email.toLowerCase().trim(),
         role,
-        used: false,
-        createdAt: new Date().toISOString()
+        used: false
       });
+
+    if (error) throw error;
 
     return jsonResponse({
       success: true,
@@ -49,7 +47,8 @@ export async function POST(req: NextRequest) {
       inviteUrl: `https://schedule.mcjp.io/?invite=${code}`
     }, 200);
 
-  } catch (err: any) {
-    return jsonResponse({ error: err.message }, 500);
+  } catch (err) {
+    const message = err instanceof Error ? err.message : 'Unknown error';
+    return jsonResponse({ error: message }, 500);
   }
 }

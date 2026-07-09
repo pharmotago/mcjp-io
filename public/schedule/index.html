@@ -21,6 +21,12 @@
   <div class="orb orb-2"></div>
   <div class="orb orb-3"></div>
 
+  <!-- Global Loading Overlay -->
+  <div id="loading-overlay" class="loading-overlay hide">
+    <div class="spinner"></div>
+    <p>Loading data...</p>
+  </div>
+
   <!-- ===================================== -->
   <!-- LOGIN & REGISTRATION SCREEN -->
   <!-- ===================================== -->
@@ -39,7 +45,8 @@
         </div>
         <div class="form-group">
           <label for="login-password">Password</label>
-          <input type="password" id="login-password" class="form-control" placeholder="••••••••" required>
+          <input type="password" id="login-password" class="form-control" placeholder="••••••••" autocomplete="current-password" required>
+          <a href="#" onclick="openResetPasswordModal(event)" style="color:var(--accent-gold); font-size:12px; display:block; margin-top:0.5rem; text-align:right; text-decoration:none;">Forgot Password?</a>
         </div>
         <button type="submit" class="btn btn-primary btn-block" style="margin-top: 1rem;">Log In</button>
         
@@ -72,7 +79,7 @@
         </div>
         <div class="form-group">
           <label for="reg-password">Password</label>
-          <input type="password" id="reg-password" class="form-control" placeholder="••••••••" required>
+          <input type="password" id="reg-password" class="form-control" placeholder="••••••••" autocomplete="new-password" required>
         </div>
         <button type="submit" class="btn btn-neon btn-block" style="margin-top: 1rem;">Register Account</button>
         
@@ -90,17 +97,15 @@
   <!-- ===================================== -->
   <div class="app-container" id="app-root" style="display: none;">
     <!-- Mobile Overlay -->
-    <div id="loading-overlay" class="loading-overlay hide">
-    <div class="spinner"></div>
-    <p>Loading data...</p>
-  </div>
+    <div id="mobile-overlay" class="mobile-overlay" onclick="toggleSidebar()"></div>
 
-  <div class="mobile-header">
+    <!-- Mobile Header -->
+    <div class="mobile-header">
     <div class="brand">
-      <i class="fa-solid fa-plus-square"></i> BriskSchedules
+      <i class="fa-solid fa-clock-rotate-left"></i> AMCAL Rosters
     </div>
     <div class="live-clock mobile-clock" id="mobile-live-clock">--:--:--</div>
-    <button class="menu-btn" onclick="toggleSidebar()">
+    <button class="mobile-menu-btn" aria-label="Toggle Menu" onclick="toggleSidebar()">
       <i class="fa-solid fa-bars"></i>
     </button>
   </div>
@@ -117,26 +122,28 @@
         </div>
       </div>
 
-      <nav class="sidebar-menu">
-        <button class="menu-item active" data-tab="dashboard">
+      <nav class="sidebar-menu" role="tablist">
+        <button class="menu-item active" data-tab="dashboard" role="tab" aria-selected="true">
           <i class="fa-solid fa-chart-simple"></i> <span>Dashboard</span>
         </button>
-        <button class="menu-item" data-tab="scheduler">
+        <button class="menu-item" data-tab="scheduler" role="tab" aria-selected="false">
           <i class="fa-solid fa-calendar-days"></i> <span>Scheduler</span>
         </button>
-        <button class="menu-item" data-tab="employees" id="menu-employees">
+        <button class="menu-item" data-tab="employees" id="menu-employees" role="tab" aria-selected="false">
           <i class="fa-solid fa-users"></i> <span>Employees</span>
         </button>
-        <button class="menu-item" data-tab="timeclock">
+        <button class="menu-item" data-tab="timeclock" role="tab" aria-selected="false">
           <i class="fa-solid fa-business-time"></i> <span>Time Clock</span>
+          <span class="nav-badge" id="badge-timeclock" style="display:none">0</span>
         </button>
-        <button class="menu-item" data-tab="timeoff">
+        <button class="menu-item" data-tab="timeoff" role="tab" aria-selected="false">
           <i class="fa-solid fa-umbrella-beach"></i> <span>Time Off</span>
+          <span class="nav-badge" id="badge-timeoff" style="display:none">0</span>
         </button>
-        <button class="menu-item" data-tab="reports" id="menu-reports">
+        <button class="menu-item" data-tab="reports" id="menu-reports" role="tab" aria-selected="false">
           <i class="fa-solid fa-file-invoice-dollar"></i> <span>Reports & Payroll</span>
         </button>
-        <button class="menu-item" data-tab="settings" id="menu-settings">
+        <button class="menu-item" data-tab="settings" id="menu-settings" role="tab" aria-selected="false">
           <i class="fa-solid fa-database"></i> <span>Data & Backup</span>
         </button>
       </nav>
@@ -162,6 +169,9 @@
           <h1 id="current-panel-title">Dashboard</h1>
         </div>
         <div class="topbar-actions">
+          <button id="theme-toggle" class="btn btn-icon" onclick="toggleTheme()" aria-label="Toggle Theme">
+            <i class="fa-solid fa-moon"></i>
+          </button>
           <div class="live-clock">
             <span id="clock-date"></span>
             <span id="clock-time" class="text-neon"></span>
@@ -238,20 +248,38 @@
             </div>
           </div>
 
-          <!-- Quick Actions & Links -->
-          <div class="glass-card dash-quick-actions-card">
+          <!-- Quick Actions & Links (Manager) -->
+          <div class="glass-card dash-quick-actions-card flex-1" id="dash-quick-actions-card">
             <div class="card-header">
               <h3><i class="fa-solid fa-bolt text-yellow"></i> Manager Actions</h3>
             </div>
-            <div class="flex gap-2" style="flex-wrap: wrap;">
-              <button class="btn btn-primary flex-1" onclick="switchTab('employees'); openAddEmployeeModal();">
+            <div class="flex gap-2" style="flex-direction: column;">
+              <button class="btn btn-primary btn-block" onclick="switchTab('employees'); openAddEmployeeModal();">
                 <i class="fa-solid fa-user-plus"></i> Add Staff
               </button>
-              <button class="btn btn-outline flex-1" onclick="switchTab('scheduler'); openAddShiftModal();">
+              <button class="btn btn-outline btn-block" onclick="switchTab('scheduler'); openAddShiftModal();">
                 <i class="fa-solid fa-calendar-plus"></i> Add Shift
               </button>
-              <button class="btn btn-outline flex-1" onclick="switchTab('timeclock')">
+              <button class="btn btn-outline btn-block" onclick="switchTab('timeclock')">
                 <i class="fa-solid fa-stopwatch"></i> Terminal
+              </button>
+            </div>
+          </div>
+
+          <!-- Quick Actions & Links (Staff/Employee) -->
+          <div class="glass-card dash-quick-actions-card flex-1 hide" id="dash-staff-actions-card">
+            <div class="card-header">
+              <h3><i class="fa-solid fa-bolt text-yellow"></i> Staff Actions</h3>
+            </div>
+            <div class="flex gap-2" style="flex-direction: column;">
+              <button class="btn btn-neon btn-block" onclick="switchTab('timeclock')">
+                <i class="fa-solid fa-stopwatch"></i> Clock Terminal
+              </button>
+              <button class="btn btn-outline btn-block" onclick="switchTab('timeoff')">
+                <i class="fa-solid fa-umbrella-beach"></i> Request Time Off
+              </button>
+              <button class="btn btn-outline btn-block" onclick="switchTab('scheduler')">
+                <i class="fa-solid fa-calendar-days"></i> View My Schedule
               </button>
             </div>
           </div>
@@ -282,7 +310,7 @@
         </div>
 
         <!-- Schedule Grid Wrapper -->
-        <div class="glass-card calendar-workspace">
+        <div class="glass-card calendar-workspace desktop-only-grid">
           <div class="scheduler-grid-container">
             <table class="scheduler-grid-table">
               <thead>
@@ -303,6 +331,11 @@
             </table>
           </div>
         </div>
+
+        <!-- Mobile Timeline View (Visible only on mobile <= 768px) -->
+        <div class="mobile-only-timeline" id="scheduler-mobile-view">
+          <!-- Dynamically populated vertical day cards -->
+        </div>
       </section>
 
       <!-- ===================================== -->
@@ -312,7 +345,7 @@
         <div class="action-bar glass-card">
           <div class="search-box">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" id="employee-search-input" placeholder="Search by name or role..." oninput="renderEmployeesList()">
+            <input type="text" id="employee-search-input" placeholder="Search by name or role..." aria-label="Search employees" oninput="renderEmployeesList()">
           </div>
           <button class="btn btn-primary" onclick="openAddEmployeeModal()">
             <i class="fa-solid fa-user-plus"></i> Add Employee
@@ -465,8 +498,8 @@
             <button class="btn btn-icon" id="btn-report-next-week"><i class="fa-solid fa-chevron-right"></i></button>
           </div>
           <div class="report-controls">
-            <button class="btn btn-outline" onclick="openEmailScheduleModal()">
-              <i class="fa-solid fa-envelope"></i> Copy Schedule Email
+            <button class="btn btn-outline" onclick="publishSchedule()">
+              <i class="fa-solid fa-paper-plane"></i> Publish Schedule
             </button>
             <button class="btn btn-primary" onclick="window.print()">
               <i class="fa-solid fa-print"></i> PDF Print / Download
@@ -488,8 +521,7 @@
                 <th class="text-right">Hourly Rate</th>
                 <th class="text-right">Scheduled Hours</th>
                 <th class="text-right">Approved Hours</th>
-                <th class="text-right">Expected Cost (Roster)</th>
-                <th class="text-right text-neon">Actual Cost (Clocked)</th>
+                <th class="text-right text-neon">Gross Pay</th>
                 <th class="text-center print-hide">Staff Notifications</th>
               </tr>
             </thead>
@@ -499,10 +531,9 @@
             <tfoot>
               <tr class="row-total">
                 <td>Total Sums</td>
-                <td>-</td>
+                <td class="text-right">-</td>
                 <td class="text-right" id="rep-total-sched-hours">0.0h</td>
                 <td class="text-right" id="rep-total-actual-hours">0.0h</td>
-                <td class="text-right" id="rep-total-sched-cost">$0.00</td>
                 <td class="text-right text-neon" id="rep-total-actual-cost">$0.00</td>
                 <td class="print-hide">-</td>
               </tr>
@@ -553,13 +584,31 @@
               <h3><i class="fa-solid fa-cloud-arrow-down text-orange"></i> Cloud Database Operations</h3>
             </div>
             <div class="settings-body">
-              <p>Your database is synchronized in real-time to your central Firebase cloud workspace. You can also save a localized JSON backup of your current cloud snapshot.</p>
+              <p>Your database is synchronized in real-time to your central Supabase cloud workspace. You can also save a localized JSON backup of your current cloud snapshot.</p>
               
               <div class="settings-actions">
                 <button class="btn btn-primary btn-block" onclick="exportDatabaseFile()">
                   <i class="fa-solid fa-file-arrow-down"></i> Download JSON Database Backup
                 </button>
               </div>
+            </div>
+          </div>
+
+          <!-- Roster Positions & Color Customization -->
+          <div class="glass-card flex-2">
+            <div class="card-header">
+              <h3><i class="fa-solid fa-tags text-purple"></i> Custom Roster Roles & Colors</h3>
+            </div>
+            <div class="settings-body">
+              <p style="margin-bottom:1rem;">Manage the roles/positions available for scheduling and choose custom colors to distinguish them on the roster grid.</p>
+              <div id="roles-settings-list" style="margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 8px;">
+                <!-- Dynamically populated -->
+              </div>
+              <form id="add-role-form" onsubmit="handleAddRoleSubmit(event)" style="display: flex; gap: 8px; align-items: center;">
+                <input type="text" id="new-role-name" class="form-control" placeholder="e.g. Dispense Technician" required style="flex: 1; height: 38px;">
+                <input type="color" id="new-role-color" value="#3b82f6" style="width: 45px; padding: 0 4px; height: 38px; cursor: pointer; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: var(--bg-card);">
+                <button type="submit" class="btn btn-primary" style="height: 38px; padding: 0 16px;"><i class="fa-solid fa-plus"></i> Add Role</button>
+              </form>
             </div>
           </div>
 
@@ -584,26 +633,51 @@
     </main>
   </div>
 
+  <!-- Mobile Bottom Navigation (Visible only on mobile <= 768px) -->
+  <nav class="mobile-bottom-nav">
+    <button class="mobile-nav-item active" data-mobile-tab="dashboard" onclick="switchTab('dashboard')">
+      <i class="fa-solid fa-chart-simple"></i>
+      <span>Home</span>
+    </button>
+    <button class="mobile-nav-item" data-mobile-tab="scheduler" onclick="switchTab('scheduler')">
+      <i class="fa-solid fa-calendar-days"></i>
+      <span>Schedule</span>
+    </button>
+    <button class="mobile-nav-item" data-mobile-tab="timeclock" onclick="switchTab('timeclock')">
+      <i class="fa-solid fa-business-time"></i>
+      <span>Clock</span>
+    </button>
+    <button class="mobile-nav-item" data-mobile-tab="timeoff" onclick="switchTab('timeoff')">
+      <i class="fa-solid fa-umbrella-beach"></i>
+      <span>Leave</span>
+    </button>
+  </nav>
+
   <!-- ===================================== -->
   <!-- MODAL: ADD/EDIT SHIFT -->
   <!-- ===================================== -->
   <div id="modal-shift" class="modal">
-    <div class="modal-content glass-card">
+    <div class="modal-content glass-card" role="dialog" aria-modal="true">
       <div class="modal-header">
         <h3 id="shift-modal-title">Add Shift</h3>
-        <button class="btn btn-icon modal-close" onclick="closeShiftModal()"><i class="fa-solid fa-xmark"></i></button>
+        <button class="btn btn-icon modal-close" aria-label="Close Modal" onclick="closeShiftModal()"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <form id="shift-form" onsubmit="handleShiftSubmit(event)">
         <input type="hidden" id="shift-id">
         <div class="form-group">
           <label for="shift-employee">Select Employee</label>
-          <select id="shift-employee" class="form-control" required>
+          <select id="shift-employee" class="form-control">
             <!-- Dynamically populated -->
           </select>
         </div>
+        <div class="form-group animate-slide-in" id="shift-paste-container" style="display:none; margin-bottom:12px;">
+          <!-- Dynamically populated paste button if copy exists -->
+        </div>
         <div class="form-group">
           <label for="shift-role">Roster Position / Role</label>
-          <input type="text" id="shift-role" class="form-control" placeholder="Pharmacist Manager, Dispense Technician..." required>
+          <select id="shift-role" class="form-control" required>
+            <!-- Dynamically populated -->
+          </select>
         </div>
         <div class="form-row">
           <div class="form-group">
@@ -636,10 +710,10 @@
   <!-- MODAL: ADD/EDIT EMPLOYEE -->
   <!-- ===================================== -->
   <div id="modal-employee" class="modal">
-    <div class="modal-content glass-card max-w-lg">
+    <div class="modal-content glass-card max-w-lg" role="dialog" aria-modal="true">
       <div class="modal-header">
         <h3 id="employee-modal-title">Employee Profile</h3>
-        <button class="btn btn-icon modal-close" onclick="closeEmployeeModal()"><i class="fa-solid fa-xmark"></i></button>
+        <button class="btn btn-icon modal-close" aria-label="Close Modal" onclick="closeEmployeeModal()"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <form id="employee-form" onsubmit="handleEmployeeSubmit(event)">
         <input type="hidden" id="employee-id">
@@ -650,7 +724,9 @@
           </div>
           <div class="form-group">
             <label for="emp-role">Default Position</label>
-            <input type="text" id="emp-role" class="form-control" placeholder="Retail Associate" required>
+            <select id="emp-role" class="form-control" required>
+              <!-- Dynamically populated -->
+            </select>
           </div>
         </div>
         <div class="form-row">
@@ -658,9 +734,9 @@
             <label for="emp-email">Email Address</label>
             <input type="email" id="emp-email" class="form-control" placeholder="staff@company.com" required>
           </div>
-          <div class="form-group">
+          <div class="form-group" style="display: none;">
             <label for="emp-rate">Hourly Rate ($)</label>
-            <input type="number" id="emp-rate" class="form-control" step="0.01" min="0" placeholder="Hourly Rate" required>
+            <input type="number" id="emp-rate" class="form-control" step="0.01" min="0" placeholder="Hourly Rate" value="0">
           </div>
           <div class="form-group">
             <label for="emp-max-hours">Weekly Target Hours Limit</label>
@@ -689,10 +765,10 @@
   <!-- MODAL: EMAIL ROSTER MODAL -->
   <!-- ===================================== -->
   <div id="modal-email-roster" class="modal">
-    <div class="modal-content glass-card">
+    <div class="modal-content glass-card" role="dialog" aria-modal="true">
       <div class="modal-header">
         <h3><i class="fa-solid fa-paper-plane text-neon"></i> Email Roster to Staff</h3>
-        <button class="btn btn-icon modal-close" onclick="closeEmailRosterModal()"><i class="fa-solid fa-xmark"></i></button>
+        <button class="btn btn-icon modal-close" aria-label="Close Modal" onclick="closeEmailRosterModal()"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="modal-body">
         <input type="hidden" id="email-roster-emp-id">
@@ -708,27 +784,80 @@
     </div>
   </div>
 
+
   <!-- ===================================== -->
-  <!-- MODAL: EMAIL SCHEDULE GENERATOR -->
+  <!-- MODAL: TIMECARD EDIT -->
   <!-- ===================================== -->
-  <div id="modal-email-schedule" class="modal">
-    <div class="modal-content glass-card">
+  <div id="modal-timecard-edit" class="modal">
+    <div class="modal-content glass-card" role="dialog" aria-modal="true">
       <div class="modal-header">
-        <h3><i class="fa-solid fa-copy text-neon"></i> Copy Full Schedule Briefing</h3>
-        <button class="btn btn-icon modal-close" onclick="closeEmailScheduleModal()"><i class="fa-solid fa-xmark"></i></button>
+        <h3><i class="fa-solid fa-clock-rotate-left text-neon"></i> Edit Timecard</h3>
+        <button class="btn btn-icon modal-close" aria-label="Close Modal" onclick="closeTimecardEditModal()"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="modal-body">
-        <p>Your weekly roster is compiled below. You can copy this text to distribute it manually.</p>
-        <textarea id="email-schedule-textarea" class="form-control" rows="12" style="font-family: monospace; font-size: 12px; margin-top: 1rem;"></textarea>
+        <input type="hidden" id="timecard-edit-id">
+        <div class="form-group">
+          <label>Clock In</label>
+          <input type="datetime-local" id="timecard-edit-in" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Clock Out</label>
+          <input type="datetime-local" id="timecard-edit-out" class="form-control">
+        </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-outline" onclick="closeEmailScheduleModal()">Close</button>
-        <button class="btn btn-neon" onclick="copyEmailScheduleText()">
-          <i class="fa-solid fa-copy"></i> Copy to Clipboard
-        </button>
+        <button class="btn btn-outline" onclick="closeTimecardEditModal()">Cancel</button>
+        <button class="btn btn-primary" onclick="saveTimecardEdit()">Save Changes</button>
       </div>
     </div>
   </div>
+
+  <!-- Reset Password Request Modal -->
+  <div id="modal-reset-password" class="modal">
+    <div class="modal-content glass-card" role="dialog" aria-modal="true" style="max-width: 400px;">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-key text-neon"></i> Reset Password</h3>
+        <button class="btn btn-icon modal-close" onclick="closeResetPasswordModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <form onsubmit="handleResetPasswordSubmit(event)">
+        <div class="modal-body">
+          <p class="text-muted" style="font-size: 13px;">Enter your email address and we'll send you a link to reset your password.</p>
+          <div class="form-group" style="margin-top: 1rem;">
+            <label for="reset-email">Email Address</label>
+            <input type="email" id="reset-email" class="form-control" required placeholder="name@company.com">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" onclick="closeResetPasswordModal()">Cancel</button>
+          <button type="submit" class="btn btn-neon">Send Reset Link</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Update Password Modal -->
+  <div id="modal-update-password" class="modal">
+    <div class="modal-content glass-card" role="dialog" aria-modal="true" style="max-width: 400px;">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-lock text-neon"></i> Set New Password</h3>
+      </div>
+      <form onsubmit="handleUpdatePasswordSubmit(event)">
+        <div class="modal-body">
+          <p class="text-muted" style="font-size: 13px;">Your identity has been verified. Please set a new password for your account.</p>
+          <div class="form-group" style="margin-top: 1rem;">
+            <label for="update-new-password">New Password</label>
+            <input type="password" id="update-new-password" class="form-control" required minlength="6" placeholder="Enter new password (min 6 chars)">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-neon btn-block">Save Password</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
 
   <!-- Javascript Core -->
   <script type="module" src="js/database.js"></script>

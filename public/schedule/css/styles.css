@@ -27,9 +27,9 @@
   --bg-warning: rgba(241, 196, 15, 0.15);
   --text-warning: #f1c40f;
   --bg-danger: rgba(231, 76, 60, 0.15);
-  --text-danger: #e74c3c;
+  --text-danger: #ff6b6b;
   --bg-info: rgba(52, 152, 219, 0.15);
-  --text-info: #3498db;
+  --text-info: #5dade2;
   
   /* Font Families */
   --font-title: 'Outfit', 'Inter', system-ui, sans-serif;
@@ -58,8 +58,27 @@ body {
   color: var(--text-primary);
   min-height: 100vh;
   overflow-x: hidden;
+  background-image: radial-gradient(circle at 15% 50%, rgba(243, 156, 18, 0.04), transparent 50%),
+                    radial-gradient(circle at 85% 30%, rgba(0, 229, 255, 0.04), transparent 50%);
+  transition: background-color 0.3s ease, color 0.3s ease;
   position: relative;
   line-height: 1.5;
+}
+
+body.theme-light {
+  --bg-dark: #f8fafc;
+  --bg-surface: rgba(255, 255, 255, 0.94);
+  --bg-surface-2: rgba(241, 245, 249, 0.98);
+  --border-glass: rgba(0, 0, 0, 0.1);
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --bg-success: rgba(46, 204, 113, 0.2);
+  --text-success: #27ae60;
+  --bg-warning: rgba(241, 196, 15, 0.25);
+  --text-warning: #d4ac0d;
+  --bg-danger: rgba(231, 76, 60, 0.15);
+  --text-danger: #c0392b;
 }
 
 /* Glowing Background Orbs */
@@ -443,6 +462,10 @@ body {
 .search-box input:focus {
   outline: none;
 }
+.search-box:focus-within {
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 10px rgba(243, 156, 18, 0.25);
+}
 
 /* Data Table UI styling */
 .data-table {
@@ -643,6 +666,21 @@ body {
   border-right: 2px solid var(--border-glass) !important;
   padding: 8px 12px !important;
 }
+.menu-item span {
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.nav-badge {
+  background-color: #e74c3c;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 12px;
+  margin-left: auto;
+  line-height: 1;
+}
 .grid-emp-name {
   font-weight: 600;
   font-size: 0.9rem;
@@ -816,10 +854,14 @@ body {
   display: grid;
   grid-template-columns: 1.2fr 2fr;
   gap: 1.5rem;
+  min-width: 0;
+  width: 100%;
 }
 @media (max-width: 1024px) {
   .timeclock-layout {
     grid-template-columns: 1fr;
+    width: 100%;
+    overflow: hidden;
   }
 }
 
@@ -875,10 +917,17 @@ body {
 /* Timeclock Admin Panel */
 .timesheet-scroll, .leave-list-scroll, .shift-list-scroll {
   overflow-y: auto;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   max-height: 480px;
   border: 1px solid var(--border-glass);
   border-radius: var(--radius-md);
   background: rgba(0, 0, 0, 0.15);
+}
+.timesheet-scroll .data-table,
+.leave-list-scroll .data-table,
+.shift-list-scroll .data-table {
+  min-width: 650px;
 }
 
 /* Time Off Layout Split */
@@ -886,10 +935,14 @@ body {
   display: grid;
   grid-template-columns: 1.2fr 2fr;
   gap: 1.5rem;
+  min-width: 0;
+  width: 100%;
 }
 @media (max-width: 1024px) {
   .timeoff-layout {
     grid-template-columns: 1fr;
+    width: 100%;
+    overflow: hidden;
   }
 }
 
@@ -954,6 +1007,25 @@ select.form-control option {
 }
 
 /* Availability Input Row inside Add Employee Modal */
+body.theme-light {
+  --bg-dark: #ffffff;
+  --text-primary: #1a1a1a;
+}
+
+.avail-input.flex-row {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.action-group {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .avail-input-row {
   display: flex;
   align-items: center;
@@ -987,9 +1059,10 @@ select.form-control option {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(4px);
-  z-index: 100;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 10000; /* Set above mobile bottom nav (999) */
   align-items: center;
   justify-content: center;
   animation: fadeInModal 0.2s ease-in-out;
@@ -1000,6 +1073,13 @@ select.form-control option {
 @keyframes fadeInModal {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+@keyframes fadeOutModal {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+.modal.closing {
+  animation: fadeOutModal 0.2s ease-in-out forwards;
 }
 
 .modal-content {
@@ -1014,6 +1094,13 @@ select.form-control option {
 @keyframes slideInModal {
   from { transform: translateY(-30px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
+}
+@keyframes slideOutModal {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-30px); opacity: 0; }
+}
+.modal.closing .modal-content {
+  animation: slideOutModal 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .modal-header {
@@ -1109,10 +1196,9 @@ select.form-control option {
    ===================================== */
 .login-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   background: var(--bg-dark);
   display: none;
   align-items: center;
@@ -1169,19 +1255,20 @@ select.form-control option {
 }
 .mobile-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   background: rgba(0, 0, 0, 0.6);
   z-index: 25;
-  display: none;
+  visibility: hidden;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s;
 }
 .mobile-overlay.active {
-  display: block;
+  visibility: visible;
   opacity: 1;
+  pointer-events: auto;
 }
 
 /* Tablet and Smaller */
@@ -1189,10 +1276,23 @@ select.form-control option {
   .dashboard-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .dashboard-split {
+    flex-direction: column;
+    gap: 16px;
+  }
 }
 
 /* Mobile Screens */
 @media (max-width: 768px) {
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .card-header h3 {
+    width: 100%;
+  }
+
   .app-container {
     display: flex;
     flex-direction: column;
@@ -1206,7 +1306,7 @@ select.form-control option {
     position: fixed;
     top: 0;
     left: 0;
-    width: 280px;
+    width: 190px;
     height: 100vh;
     z-index: 30;
     transform: translateX(-100%);
@@ -1214,6 +1314,14 @@ select.form-control option {
   }
   .sidebar.open {
     transform: translateX(0);
+  }
+  
+  .sidebar-brand h2 {
+    font-size: 1.25rem;
+  }
+  .sidebar-menu .menu-item {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
   }
 
   .main-content {
@@ -1247,11 +1355,14 @@ select.form-control option {
     width: 100px;
   }
 
-  .schedule-container {
+  .schedule-container,
+  .report-workspace {
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
-  .schedule-grid {
-    min-width: 800px; /* Force horizontal scroll for schedule */
+  .schedule-grid,
+  .report-workspace table {
+    min-width: 800px; /* Force horizontal scroll for schedule/reports */
   }
 
   .clock-panel {
@@ -1259,7 +1370,7 @@ select.form-control option {
   }
 
   .terminal-actions-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 8px;
   }
   .terminal-actions-grid button {
@@ -1278,10 +1389,20 @@ select.form-control option {
     min-width: 600px;
   }
 
-  .leave-list-scroll, .timesheet-scroll {
+  .leave-list-scroll, .timesheet-scroll, .shift-list-scroll {
     display: block;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+  }
+  .shift-list-scroll .data-table,
+  .timesheet-scroll .data-table,
+  .leave-list-scroll .data-table {
+    min-width: 600px;
+  }
+  
+  .form-row {
+    display: flex;
+    flex-direction: column;
   }
 
   .topbar {
@@ -1299,4 +1420,369 @@ select.form-control option {
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
   }
+  
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .employees-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .action-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .action-bar .scheduler-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .form-control, input, select, textarea {
+    font-size: 16px !important;
+  }
+
+  /* Prevent Safari from intercepting touch events with huge blurred orbs */
+  .orb {
+    display: none !important;
+  }
+}
+
+/* =====================================
+   LOADING OVERLAY
+   ===================================== */
+.loading-overlay { position:fixed; inset:0; background:var(--bg-dark); display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:999; gap:1rem; backdrop-filter: blur(8px); opacity: 1; visibility: visible; transition: opacity 0.3s ease, visibility 0.3s ease; }
+.loading-overlay.hide { opacity: 0; visibility: hidden; }
+.spinner { width:40px; height:40px; border:3px solid rgba(255,255,255,0.1); border-top-color:var(--accent-gold); border-radius:50%; animation:spin 0.8s linear infinite; }
+@keyframes spin { to { transform:rotate(360deg); } }
+
+/* =====================================
+   TOAST NOTIFICATIONS
+   ===================================== */
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.toast {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  padding: 16px 24px;
+  border-radius: 8px;
+  border-left: 4px solid var(--accent);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 300px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  pointer-events: auto;
+}
+
+.toast.toast-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast.error {
+  border-left-color: var(--danger);
+}
+
+.toast.success {
+  border-left-color: var(--success);
+}
+
+.toast-icon {
+  font-size: 1.2rem;
+}
+
+.toast.error .toast-icon {
+  color: var(--danger);
+}
+
+.toast.success .toast-icon {
+  color: var(--success);
+}
+
+.form-control.invalid {
+  border-color: var(--danger) !important;
+  background-color: rgba(220, 53, 69, 0.1) !important;
+}
+
+.validation-msg {
+  color: var(--danger);
+  font-size: 0.85rem;
+  margin-top: 4px;
+  display: none;
+}
+.validation-msg.show {
+  display: block;
+}
+
+/* UX Audit Iteration 3 Additions */
+
+/* 1. Empty State UI */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--border-glass);
+}
+.empty-state i {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  opacity: 0.7;
+}
+.empty-state h4 {
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  font-family: var(--font-title);
+}
+.empty-state p {
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  max-width: 300px;
+}
+
+/* 2. Micro-Animations */
+.btn:active, .shift-card:active {
+  transform: scale(0.96);
+  transition: transform 0.1s;
+}
+
+/* 3. Accessibility Focus */
+*:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 3px;
+  border-radius: inherit;
+}
+
+/* 4. Mobile Scheduler Timeline Styles */
+.mobile-only-timeline {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktop-only-grid {
+    display: none !important;
+  }
+  .mobile-only-timeline {
+    display: flex !important;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 1rem;
+  }
+}
+
+.mobile-day-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.mobile-day-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-glass);
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.mobile-day-name {
+  font-family: var(--font-title);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+}
+
+.mobile-day-date {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.mobile-shift-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 4px solid var(--accent-cyan);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.75rem;
+  position: relative;
+}
+
+.mobile-shift-item.unassigned {
+  border-left-color: var(--text-danger);
+  background: rgba(231, 76, 60, 0.05);
+}
+
+.mobile-shift-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobile-shift-staff {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.mobile-shift-role {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.mobile-shift-time {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.mobile-shift-notes {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.mobile-shift-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+/* Roster Custom Roles, Drag & Drop styling */
+.calendar-grid-cell {
+  position: relative;
+  transition: background-color var(--transition-fast), outline var(--transition-fast);
+}
+
+.calendar-grid-cell.drag-hover {
+  background-color: rgba(0, 229, 255, 0.12) !important;
+  outline: 2px dashed var(--accent-cyan) !important;
+  outline-offset: -2px;
+}
+
+.shift-card {
+  transition: transform var(--transition-fast), opacity var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.shift-card.dragging {
+  opacity: 0.4;
+  transform: scale(0.96);
+  cursor: grabbing !important;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3) !important;
+}
+
+.role-item-row {
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.role-item-row:hover {
+  border-color: var(--accent-cyan) !important;
+  box-shadow: 0 0 8px rgba(0, 229, 255, 0.1);
+}
+
+.shift-card .btn-icon {
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.shift-card:hover .btn-icon {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .shift-card .btn-icon {
+    opacity: 1;
+  }
+}
+
+/* 5. Mobile Bottom Navigation Styling */
+.mobile-bottom-nav {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-bottom-nav {
+    display: flex !important;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 62px;
+    background: rgba(18, 18, 26, 0.85);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-top: 1px solid var(--border-glass);
+    justify-content: space-around;
+    align-items: center;
+    z-index: 999;
+    padding-bottom: env(safe-area-inset-bottom);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4);
+  }
+  
+  .main-content {
+    padding-bottom: 90px !important; /* Spacing to prevent tab bar overlapping dashboard elements */
+  }
+}
+
+.mobile-nav-item {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  font-size: 0.72rem;
+  font-family: var(--font-title);
+  cursor: pointer;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+  flex: 1;
+  padding: 6px 0;
+  height: 100%;
+}
+
+.mobile-nav-item i {
+  font-size: 1.15rem;
+}
+
+.mobile-nav-item:active {
+  transform: scale(0.92);
+}
+
+.mobile-nav-item.active {
+  color: var(--accent-cyan);
+  text-shadow: 0 0 10px rgba(0, 229, 255, 0.4);
 }

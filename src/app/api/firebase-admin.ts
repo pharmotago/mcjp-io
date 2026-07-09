@@ -15,8 +15,9 @@ if (!getApps().length) {
         privateKey: formattedPrivateKey,
       }),
     });
-  } catch (err: any) {
-    console.error('Firebase admin initialization failed:', err.message);
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : String(err);
+    console.error('Firebase admin initialization failed:', msg);
   }
 }
 

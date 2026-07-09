@@ -3,7 +3,7 @@
  */
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
-import { getFirestore, collection, doc, getDoc, getDocs, setDoc, addDoc, updateDoc, deleteDoc, onSnapshot, query, where, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+import { initializeFirestore, persistentLocalCache, persistentMultipleTabManager, collection, doc, getDoc, getDocs, setDoc, addDoc, updateDoc, deleteDoc, onSnapshot, query, where, serverTimestamp, writeBatch } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBRtY7_zvbJqlTwDuq7eUb84S1Z5hCtWPw",
@@ -17,16 +17,11 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-export const db = getFirestore(app);
-export const ORG_ID = 'amcal_woywoy';
-
-// Enable offline persistence
-import { enableIndexedDbPersistence } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
-enableIndexedDbPersistence(db).catch((err) => {
-  if (err.code === 'failed-precondition') console.warn('Firestore offline persistence failed: multiple tabs open.');
-  else if (err.code === 'unimplemented') console.warn('Browser does not support offline persistence.');
+export const db = initializeFirestore(app, {
+  localCache: persistentLocalCache({tabManager: persistentMultipleTabManager()})
 });
+export const ORG_ID = 'amcal_woywoy';
 
 export { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged,
          collection, doc, getDoc, getDocs, setDoc, addDoc, updateDoc, deleteDoc,
-         onSnapshot, query, where, serverTimestamp };
+         onSnapshot, query, where, serverTimestamp, writeBatch };
