@@ -129,6 +129,9 @@
         <button class="menu-item" data-tab="scheduler" role="tab" aria-selected="false">
           <i class="fa-solid fa-calendar-days"></i> <span>Scheduler</span>
         </button>
+        <button class="menu-item" data-tab="daily" role="tab" aria-selected="false">
+          <i class="fa-solid fa-calendar-day"></i> <span>Daily View</span>
+        </button>
         <button class="menu-item" data-tab="employees" id="menu-employees" role="tab" aria-selected="false">
           <i class="fa-solid fa-users"></i> <span>Employees</span>
         </button>
@@ -303,6 +306,9 @@
             <button class="btn btn-icon" id="btn-prev-week"><i class="fa-solid fa-chevron-left"></i></button>
             <span id="scheduler-week-range" class="week-range-text"></span>
             <button class="btn btn-icon" id="btn-next-week"><i class="fa-solid fa-chevron-right"></i></button>
+            <button class="btn btn-outline" onclick="window.print()" style="margin-left: 12px; height: 38px; display: inline-flex; align-items: center; gap: 8px;">
+              <i class="fa-solid fa-print"></i> Print Roster
+            </button>
           </div>
           <div class="scheduler-controls" id="scheduler-manager-controls">
             <button class="btn btn-outline" onclick="openAddShiftModal()">
@@ -336,6 +342,9 @@
               <tbody id="scheduler-grid-body">
                 <!-- Dynamically populated row per employee + unassigned row -->
               </tbody>
+              <tfoot id="scheduler-grid-foot">
+                <!-- Dynamically populated daily summary rows -->
+              </tfoot>
             </table>
           </div>
         </div>
@@ -343,6 +352,58 @@
         <!-- Mobile Timeline View (Visible only on mobile <= 768px) -->
         <div class="mobile-only-timeline" id="scheduler-mobile-view">
           <!-- Dynamically populated vertical day cards -->
+        </div>
+      </section>
+
+      <!-- ===================================== -->
+      <!-- PANEL: DAILY VIEW -->
+      <!-- ===================================== -->
+      <section id="panel-daily" class="tab-panel">
+        <div class="action-bar glass-card">
+          <div class="week-picker">
+            <button class="btn btn-icon" onclick="adjustDailyDate(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+            <span id="daily-date-display" class="week-range-text"></span>
+            <button class="btn btn-icon" onclick="adjustDailyDate(1)"><i class="fa-solid fa-chevron-right"></i></button>
+            <button class="btn btn-outline" onclick="setDailyDateToday()" style="margin-left: 12px; height: 38px; display: inline-flex; align-items: center; gap: 8px;">
+              Today
+            </button>
+          </div>
+          <div class="scheduler-controls">
+            <button class="btn btn-outline" onclick="window.print()" style="height: 38px; display: inline-flex; align-items: center; gap: 8px;">
+              <i class="fa-solid fa-print"></i> Print Daily Roster
+            </button>
+          </div>
+        </div>
+
+        <!-- Daily Roster Workspace -->
+        <div class="glass-card" style="padding: 24px;">
+          <!-- Timeline Visualization -->
+          <div class="daily-timeline-container" style="margin-bottom: 24px; overflow-x: auto;">
+            <div id="daily-timeline-visual" class="daily-timeline-visual" style="min-width: 600px; position: relative; height: 60px; background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: var(--radius-md); margin-top: 10px;">
+              <!-- Dynamically rendered timeline bars -->
+            </div>
+            <!-- Timeline hours labels -->
+            <div id="daily-timeline-labels" class="daily-timeline-labels" style="min-width: 600px; display: flex; justify-content: space-between; padding: 6px 12px; font-size: 0.75rem; color: var(--text-muted);">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <!-- Daily Shifts List/Cards Table -->
+          <div style="overflow-x: auto;">
+            <table class="scheduler-grid-table" style="min-width: 600px;">
+              <thead>
+                <tr>
+                  <th style="width: 200px; text-align: left; padding-left: 16px;">Employee</th>
+                  <th style="width: 150px;">Time</th>
+                  <th style="width: 150px;">Role / Task</th>
+                  <th style="text-align: left; padding-left: 16px;">Notes / Instructions</th>
+                </tr>
+              </thead>
+              <tbody id="daily-shifts-tbody">
+                <!-- Dynamically populated daily list -->
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 
@@ -637,6 +698,108 @@
             </div>
           </div>
 
+          <!-- Pharmacy Trading Hours Configuration -->
+          <div class="glass-card flex-2">
+            <div class="card-header">
+              <h3><i class="fa-solid fa-store text-success"></i> Pharmacy Trading Hours</h3>
+            </div>
+            <div class="settings-body">
+              <p style="margin-bottom:1rem;">Configure the pharmacy's weekly trading hours. Rostering outside these hours will trigger warning prompts.</p>
+              
+              <form id="trading-hours-form" onsubmit="saveTradingHours(event)" style="display: flex; flex-direction: column; gap: 12px;">
+                <!-- Days grid -->
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                  <!-- Monday -->
+                  <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 6px 0; border-bottom: 1px solid var(--border-color);">
+                    <strong style="width: 100px;">Monday</strong>
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                      <label style="display: flex; align-items: center; gap: 4px; font-size: 0.85rem; margin: 0; cursor: pointer;">
+                        <input type="checkbox" id="trading-closed-1" onchange="toggleTradingDayClosed(1)"> Closed
+                      </label>
+                      <input type="time" id="trading-open-1" class="form-control" style="width: 100px; height: 32px; padding: 2px 8px;">
+                      <span>to</span>
+                      <input type="time" id="trading-close-1" class="form-control" style="width: 100px; height: 32px; padding: 2px 8px;">
+                    </div>
+                  </div>
+                  <!-- Tuesday -->
+                  <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 6px 0; border-bottom: 1px solid var(--border-color);">
+                    <strong style="width: 100px;">Tuesday</strong>
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                      <label style="display: flex; align-items: center; gap: 4px; font-size: 0.85rem; margin: 0; cursor: pointer;">
+                        <input type="checkbox" id="trading-closed-2" onchange="toggleTradingDayClosed(2)"> Closed
+                      </label>
+                      <input type="time" id="trading-open-2" class="form-control" style="width: 100px; height: 32px; padding: 2px 8px;">
+                      <span>to</span>
+                      <input type="time" id="trading-close-2" class="form-control" style="width: 100px; height: 32px; padding: 2px 8px;">
+                    </div>
+                  </div>
+                  <!-- Wednesday -->
+                  <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 6px 0; border-bottom: 1px solid var(--border-color);">
+                    <strong style="width: 100px;">Wednesday</strong>
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                      <label style="display: flex; align-items: center; gap: 4px; font-size: 0.85rem; margin: 0; cursor: pointer;">
+                        <input type="checkbox" id="trading-closed-3" onchange="toggleTradingDayClosed(3)"> Closed
+                      </label>
+                      <input type="time" id="trading-open-3" class="form-control" style="width: 100px; height: 32px; padding: 2px 8px;">
+                      <span>to</span>
+                      <input type="time" id="trading-close-3" class="form-control" style="width: 100px; height: 32px; padding: 2px 8px;">
+                    </div>
+                  </div>
+                  <!-- Thursday -->
+                  <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 6px 0; border-bottom: 1px solid var(--border-color);">
+                    <strong style="width: 100px;">Thursday</strong>
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                      <label style="display: flex; align-items: center; gap: 4px; font-size: 0.85rem; margin: 0; cursor: pointer;">
+                        <input type="checkbox" id="trading-closed-4" onchange="toggleTradingDayClosed(4)"> Closed
+                      </label>
+                      <input type="time" id="trading-open-4" class="form-control" style="width: 100px; height: 32px; padding: 2px 8px;">
+                      <span>to</span>
+                      <input type="time" id="trading-close-4" class="form-control" style="width: 100px; height: 32px; padding: 2px 8px;">
+                    </div>
+                  </div>
+                  <!-- Friday -->
+                  <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 6px 0; border-bottom: 1px solid var(--border-color);">
+                    <strong style="width: 100px;">Friday</strong>
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                      <label style="display: flex; align-items: center; gap: 4px; font-size: 0.85rem; margin: 0; cursor: pointer;">
+                        <input type="checkbox" id="trading-closed-5" onchange="toggleTradingDayClosed(5)"> Closed
+                      </label>
+                      <input type="time" id="trading-open-5" class="form-control" style="width: 100px; height: 32px; padding: 2px 8px;">
+                      <span>to</span>
+                      <input type="time" id="trading-close-5" class="form-control" style="width: 100px; height: 32px; padding: 2px 8px;">
+                    </div>
+                  </div>
+                  <!-- Saturday -->
+                  <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 6px 0; border-bottom: 1px solid var(--border-color);">
+                    <strong style="width: 100px;">Saturday</strong>
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                      <label style="display: flex; align-items: center; gap: 4px; font-size: 0.85rem; margin: 0; cursor: pointer;">
+                        <input type="checkbox" id="trading-closed-6" onchange="toggleTradingDayClosed(6)"> Closed
+                      </label>
+                      <input type="time" id="trading-open-6" class="form-control" style="width: 100px; height: 32px; padding: 2px 8px;">
+                      <span>to</span>
+                      <input type="time" id="trading-close-6" class="form-control" style="width: 100px; height: 32px; padding: 2px 8px;">
+                    </div>
+                  </div>
+                  <!-- Sunday -->
+                  <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 6px 0; border-bottom: 1px solid var(--border-color);">
+                    <strong style="width: 100px; color: var(--text-danger);">Sunday</strong>
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                      <label style="display: flex; align-items: center; gap: 4px; font-size: 0.85rem; margin: 0; cursor: pointer;">
+                        <input type="checkbox" id="trading-closed-0" onchange="toggleTradingDayClosed(0)"> Closed
+                      </label>
+                      <input type="time" id="trading-open-0" class="form-control" style="width: 100px; height: 32px; padding: 2px 8px;">
+                      <span>to</span>
+                      <input type="time" id="trading-close-0" class="form-control" style="width: 100px; height: 32px; padding: 2px 8px;">
+                    </div>
+                  </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="margin-top: 8px;"><i class="fa-solid fa-floppy-disk"></i> Save Trading Hours</button>
+              </form>
+            </div>
+          </div>
+
           <!-- Danger Zone -->
           <div class="glass-card flex-2">
             <div class="card-header">
@@ -667,6 +830,10 @@
     <button class="mobile-nav-item" data-mobile-tab="scheduler" onclick="switchTab('scheduler')">
       <i class="fa-solid fa-calendar-days"></i>
       <span>Schedule</span>
+    </button>
+    <button class="mobile-nav-item" data-mobile-tab="daily" onclick="switchTab('daily')">
+      <i class="fa-solid fa-calendar-day"></i>
+      <span>Daily</span>
     </button>
     <button class="mobile-nav-item" data-mobile-tab="timeclock" onclick="switchTab('timeclock')">
       <i class="fa-solid fa-business-time"></i>

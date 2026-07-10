@@ -15,7 +15,16 @@ const BriskDB = (function() {
   let _historicalTimecards = [];
   let _leaveRequests = [];
   let _historicalLeaveRequests = [];
-  let _settings = { companyName: 'Amcal Pharmacy Woywoy Rosters' };
+  const DEFAULT_TRADING_HOURS = {
+    "1": { "open": "08:30", "close": "17:30", "closed": false },
+    "2": { "open": "08:30", "close": "17:30", "closed": false },
+    "3": { "open": "08:30", "close": "17:30", "closed": false },
+    "4": { "open": "08:30", "close": "17:30", "closed": false },
+    "5": { "open": "08:30", "close": "17:30", "closed": false },
+    "6": { "open": "09:00", "close": "13:00", "closed": false },
+    "0": { "open": "00:00", "close": "00:00", "closed": true }
+  };
+  let _settings = { companyName: 'Amcal Pharmacy Woywoy Rosters', tradingHours: DEFAULT_TRADING_HOURS };
   
   let _roles = [];
   const DEFAULT_ROLES = [
@@ -176,6 +185,22 @@ const BriskDB = (function() {
       endDate: lr.end_date,
       reason: lr.reason,
       status: lr.status
+    };
+  }
+
+  function mapSettingsToDb(settings) {
+    return {
+      id: 'global_settings',
+      company_name: settings.companyName,
+      trading_hours: settings.tradingHours
+    };
+  }
+
+  function mapSettingsFromDb(settings) {
+    if (!settings) return null;
+    return {
+      companyName: settings.company_name,
+      tradingHours: settings.trading_hours || DEFAULT_TRADING_HOURS
     };
   }
 
@@ -383,7 +408,11 @@ const BriskDB = (function() {
 
       // 5. Settings Load
       const { data: sets } = await supabase.from('brisk_settings').select('*').limit(1).maybeSingle();
-      if (sets) _settings = sets;
+      if (sets) {
+        _settings = mapSettingsFromDb(sets);
+      } else {
+        _settings = { companyName: 'Amcal Pharmacy Woywoy Rosters', tradingHours: DEFAULT_TRADING_HOURS };
+      }
 
       // 6. Roles & Positions Load
       let loadedRoles = null;
@@ -726,11 +755,8 @@ const BriskDB = (function() {
     },
 
     saveSettings: async function(settings) {
-      _settings = settings;
-      const { error } = await supabase.from('brisk_settings').upsert({
-        id: 'global_settings', // single row settings
-        company_name: settings.companyName
-      });
+      _settings = { ..._settings, ...settings };
+      const { error } = await supabase.from('brisk_settings').upsert(mapSettingsToDb(_settings));
       if (error) console.error('Failed to save settings to Supabase:', error);
     },
 

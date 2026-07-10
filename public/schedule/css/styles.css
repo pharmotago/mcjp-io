@@ -1843,4 +1843,152 @@ body.theme-light {
   text-shadow: 0 0 10px rgba(0, 229, 255, 0.4);
 }
 
+/* Weekly summary rows styles */
+.scheduler-grid-table tfoot tr {
+  background: rgba(255, 255, 255, 0.02);
+  font-weight: 500;
+  border-top: 1px solid var(--border-color);
+}
+.scheduler-grid-table tfoot tr.grand-total {
+  background: rgba(0, 229, 255, 0.05);
+  font-weight: 700;
+  color: var(--accent-cyan);
+}
+.scheduler-grid-table tfoot td {
+  padding: 10px 12px;
+  text-align: center;
+  font-size: 0.85rem;
+  border-top: 1px solid var(--border-color);
+}
+.scheduler-grid-table tfoot td:first-child {
+  text-align: left;
+  font-weight: 600;
+  padding-left: 16px;
+}
+
+/* Daily View timeline and layout styles */
+.daily-timeline-container {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  border: 1px solid var(--border-glass);
+}
+.daily-timeline-visual {
+  transition: height 0.3s ease;
+}
+.timeline-bar {
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: all 0.2s ease;
+}
+.timeline-bar:hover {
+  filter: brightness(1.2);
+  transform: translateY(-1px);
+  z-index: 10;
+}
+
+/* Print layout optimizations */
+@media print {
+  body, .app-root, .main-content, .app-container {
+    background: #fff !important;
+    color: #000 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    height: auto !important;
+  }
+  
+  .sidebar,
+  .app-header,
+  .week-picker button:not(#scheduler-week-range),
+  .scheduler-controls,
+  .cell-add-btn,
+  .btn-icon,
+  .mobile-only-timeline,
+  .mobile-bottom-nav,
+  .desktop-only-grid + *,
+  #btn-global-refresh,
+  .loading-overlay,
+  .orb,
+  .action-bar button,
+  #trading-hours-form,
+  .glass-card:not(.calendar-workspace):not(#panel-daily .glass-card) {
+    display: none !important;
+  }
+
+  #panel-scheduler, #panel-daily {
+    display: block !important;
+    opacity: 1 !important;
+  }
+  
+  .glass-card, .calendar-workspace, #panel-daily .glass-card {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .scheduler-grid-container {
+    overflow: visible !important;
+  }
+
+  .scheduler-grid-table {
+    border-collapse: collapse !important;
+    width: 100% !important;
+    color: #000 !important;
+  }
+
+  .scheduler-grid-table th, 
+  .scheduler-grid-table td {
+    border: 1px solid #000 !important;
+    color: #000 !important;
+    font-size: 9pt !important;
+    padding: 6px !important;
+    background: transparent !important;
+    text-align: center !important;
+  }
+
+  .scheduler-grid-table th:first-child,
+  .scheduler-grid-table td:first-child {
+    text-align: left !important;
+  }
+
+  .scheduler-grid-table th {
+    background: #f0f0f0 !important;
+    font-weight: bold !important;
+  }
+
+  .shift-card {
+    border: 1px solid #555 !important;
+    border-left: 4px solid #000 !important;
+    background: #f9f9f9 !important;
+    color: #000 !important;
+    padding: 4px !important;
+    margin: 4px 0 !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+  }
+
+  .shift-card-header {
+    font-weight: bold !important;
+  }
+  
+  .shift-card-time {
+    font-size: 8pt !important;
+  }
+  
+  .shift-card-notes {
+    font-style: italic !important;
+    font-size: 7.5pt !important;
+  }
+
+  .scheduler-grid-table tfoot tr {
+    background: #f5f5f5 !important;
+  }
+  .scheduler-grid-table tfoot tr.grand-total {
+    background: #e0e0e0 !important;
+    font-weight: bold !important;
+  }
+}
+
 

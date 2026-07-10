@@ -34,6 +34,7 @@ window.showToast = function(message, type = 'success') {
 let state = {
   currentTab: 'dashboard',
   currentWeekStart: null, // Date object (Monday)
+  dailyDate: new Date(),  // Date object for Daily View
   employees: [],
   shifts: [],
   timecards: [],
@@ -281,6 +282,7 @@ function switchTab(tabName) {
   const titles = {
     dashboard: 'Dashboard',
     scheduler: 'Scheduler',
+    daily: 'Daily View',
     employees: 'Employees',
     timeclock: 'Time Clock',
     timeoff: 'Time Off',
@@ -325,6 +327,9 @@ function renderActivePanel() {
     case 'scheduler':
       renderScheduler();
       break;
+    case 'daily':
+      renderDailyPanel();
+      break;
     case 'employees':
       renderEmployeesList();
       break;
@@ -338,6 +343,7 @@ function renderActivePanel() {
       renderReportsPanel();
       break;
     case 'settings':
+      renderSettingsPanel(); // Let's also render settings inputs on load
       break;
   }
 }
@@ -694,6 +700,33 @@ function renderScheduler() {
 
   const activeEmployees = state.employees.filter(e => e.active);
 
+  const dispTotals = Array(7).fill(0);
+  const frontTotals = Array(7).fill(0);
+  const websterTotals = Array(7).fill(0);
+  const grandTotals = Array(7).fill(0);
+
+  // Accumulate hours for table cells during rendering or via preprocessing
+  for (let i = 0; i < 7; i++) {
+    const d = new Date(state.currentWeekStart);
+    d.setDate(state.currentWeekStart.getDate() + i);
+    const dateStr = formatDateISO(d);
+    const dayShifts = state.shifts.filter(s => s.date === dateStr);
+    
+    dayShifts.forEach(s => {
+      const hours = calculateShiftHours(s.startTime, s.endTime);
+      const roleLower = s.role.toLowerCase();
+      
+      if (roleLower.includes('dispensary') || roleLower === 'pharmacist' || roleLower === 'pharmacist manager' || roleLower === 'dispense technician') {
+        dispTotals[i] += hours;
+      } else if (roleLower.includes('webster')) {
+        websterTotals[i] += hours;
+      } else {
+        frontTotals[i] += hours;
+      }
+      grandTotals[i] += hours;
+    });
+  }
+
   // If user is employee, they see all staff rosters, but cannot click to add or edit
   activeEmployees.forEach(emp => {
     const tr = document.createElement('tr');
@@ -1008,6 +1041,28 @@ function renderScheduler() {
     tbody.appendChild(trUnassigned);
   }
 
+  const tfoot = document.getElementById('scheduler-grid-foot');
+  if (tfoot) {
+    tfoot.innerHTML = `
+      <tr class="summary-row">
+        <td>Dispensary Hours</td>
+        ${dispTotals.map(h => `<td>${h > 0 ? h.toFixed(1) + 'h' : '-'}</td>`).join('')}
+      </tr>
+      <tr class="summary-row">
+        <td>Front of Shop Hours</td>
+        ${frontTotals.map(h => `<td>${h > 0 ? h.toFixed(1) + 'h' : '-'}</td>`).join('')}
+      </tr>
+      <tr class="summary-row">
+        <td>Webster Hours</td>
+        ${websterTotals.map(h => `<td>${h > 0 ? h.toFixed(1) + 'h' : '-'}</td>`).join('')}
+      </tr>
+      <tr class="summary-row grand-total">
+        <td>Total Scheduled Hours</td>
+        ${grandTotals.map(h => `<td>${h > 0 ? h.toFixed(1) + 'h' : '-'}</td>`).join('')}
+      </tr>
+    `;
+  }
+
   // --- MOBILE TIMELINE RENDERING ---
   const mobileContainer = document.getElementById('scheduler-mobile-view');
   if (mobileContainer) {
@@ -1108,6 +1163,36 @@ function renderScheduler() {
         `;
       }
 
+      let dispHours = 0;
+      let frontHours = 0;
+      let websterHours = 0;
+      
+      const dayAllShifts = state.shifts.filter(s => s.date === dateStr);
+      dayAllShifts.forEach(s => {
+        const hours = calculateShiftHours(s.startTime, s.endTime);
+        const roleLower = s.role.toLowerCase();
+        
+        if (roleLower.includes('dispensary') || roleLower === 'pharmacist' || roleLower === 'pharmacist manager' || roleLower === 'dispense technician') {
+          dispHours += hours;
+        } else if (roleLower.includes('webster')) {
+          websterHours += hours;
+        } else {
+          frontHours += hours;
+        }
+      });
+      const totalHoursForDay = dispHours + frontHours + websterHours;
+      let hoursSummaryHtml = '';
+      if (totalHoursForDay > 0) {
+        hoursSummaryHtml = `
+          <div class="mobile-day-summary" style="margin-top: 12px; padding: 10px; border-top: 1px solid var(--border-color); font-size: 0.8rem; display: flex; flex-wrap: wrap; gap: 8px; background: rgba(255,255,255,0.01); border-radius: var(--radius-sm);">
+            <div style="flex: 1 1 40%;">Disp: <strong style="color: #10b981;">${dispHours.toFixed(1)}h</strong></div>
+            <div style="flex: 1 1 40%;">Front: <strong style="color: #f59e0b;">${frontHours.toFixed(1)}h</strong></div>
+            <div style="flex: 1 1 40%;">Webster: <strong style="color: #a855f7;">${websterHours.toFixed(1)}h</strong></div>
+            <div style="flex: 1 1 40%;">Total: <strong style="color: var(--accent-cyan); font-weight: 700;">${totalHoursForDay.toFixed(1)}h</strong></div>
+          </div>
+        `;
+      }
+
       dayCard.innerHTML = `
         <div class="mobile-day-header">
           <span class="mobile-day-name">${dayName}</span>
@@ -1117,6 +1202,7 @@ function renderScheduler() {
           ${shiftsHtml}
           ${leaveHtml}
         </div>
+        ${hoursSummaryHtml}
         ${addBtnHtml}
       `;
       mobileContainer.appendChild(dayCard);
@@ -1347,60 +1433,86 @@ async function handleShiftSubmit(event) {
   const originalBtnText = submitBtn ? submitBtn.innerHTML : 'Save Shift';
   if (submitBtn) { submitBtn.disabled = true; submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Saving...'; }
 
-  const id = document.getElementById('shift-id').value;
-  const empId = document.getElementById('shift-employee').value || null;
-  const role = document.getElementById('shift-role').value;
-  const date = document.getElementById('shift-date').value;
-  const start = document.getElementById('shift-start').value;
-  const end = document.getElementById('shift-end').value;
-  const notes = document.getElementById('shift-notes').value;
+  try {
+    const id = document.getElementById('shift-id').value;
+    const empId = document.getElementById('shift-employee').value || null;
+    const role = document.getElementById('shift-role').value;
+    const date = document.getElementById('shift-date').value;
+    const start = document.getElementById('shift-start').value;
+    const end = document.getElementById('shift-end').value;
+    const notes = document.getElementById('shift-notes').value;
 
-  if (empId) {
-    // Strict Overlap validation only if assigned
-    const empShifts = state.shifts.filter(s => s.employeeId === empId && s.id !== id);
-    const hasOverlap = empShifts.some(s => BriskScheduler.isOverlapping(date, start, end, s.date, s.startTime, s.endTime));
-    if (hasOverlap) {
-      showToast('This shift overlaps with another shift for this employee.', 'error');
-      return;
-    }
-  }
-
-  if (empId && checkLeaveStatus(empId, date)) {
-    if (!confirm('This employee has an approved leave request on this date. Force schedule this shift anyway?')) {
-      return;
-    }
-  }
-
-  if (empId) {
-    const emp = state.employees.find(e => e.id === empId);
-    const duration = BriskScheduler.getShiftDuration(start, end);
-    const currentWeekHours = calculateEmployeeWeekHours(empId, getMondayOfCurrentWeek(new Date(date)));
-    
-    let prevDuration = 0;
-    if (id) {
-      const prevShift = state.shifts.find(s => s.id === id);
-      if (prevShift && prevShift.employeeId === empId) {
-        prevDuration = BriskScheduler.getShiftDuration(prevShift.startTime, prevShift.endTime);
-      }
-    }
-
-    if (currentWeekHours - prevDuration + duration > emp.maxHours) {
-      if (!confirm(`Adding this shift will exceed ${emp.name}'s weekly limit of ${emp.maxHours} hours. Continue?`)) {
+    if (empId) {
+      // Strict Overlap validation only if assigned
+      const empShifts = state.shifts.filter(s => s.employeeId === empId && s.id !== id);
+      const hasOverlap = empShifts.some(s => BriskScheduler.isOverlapping(date, start, end, s.date, s.startTime, s.endTime));
+      if (hasOverlap) {
+        showToast('This shift overlaps with another shift for this employee.', 'error');
         return;
       }
     }
-  }
 
-  const shiftData = {
-    employeeId: empId,
-    role: role,
-    date: date,
-    startTime: start,
-    endTime: end,
-    notes: notes
-  };
+    if (empId && checkLeaveStatus(empId, date)) {
+      if (!confirm('This employee has an approved leave request on this date. Force schedule this shift anyway?')) {
+        return;
+      }
+    }
 
-  try {
+    // Trading Hours Validation
+    if (state.settings && state.settings.tradingHours) {
+      const shiftDateObj = new Date(date);
+      const dayOfWeek = shiftDateObj.getDay();
+      const tradingHours = state.settings.tradingHours[String(dayOfWeek)];
+      
+      if (tradingHours) {
+        if (tradingHours.closed) {
+          if (!confirm(`Warning: The pharmacy is marked as CLOSED on this day (${shiftDateObj.toLocaleDateString('en-AU', { weekday: 'long' })}). Do you want to schedule this shift anyway?`)) {
+            return;
+          }
+        } else {
+          const shiftStartDec = timeToDecimal(start);
+          const shiftEndDec = timeToDecimal(end);
+          const tradingOpenDec = timeToDecimal(tradingHours.open);
+          const tradingCloseDec = timeToDecimal(tradingHours.close);
+          
+          if (shiftStartDec < tradingOpenDec || shiftEndDec > tradingCloseDec) {
+            if (!confirm(`Warning: Shift hours (${start} - ${end}) fall outside the pharmacy trading hours (${tradingHours.open} - ${tradingHours.close}) on this day. Do you want to schedule this shift anyway?`)) {
+              return;
+            }
+          }
+        }
+      }
+    }
+
+    if (empId) {
+      const emp = state.employees.find(e => e.id === empId);
+      const duration = BriskScheduler.getShiftDuration(start, end);
+      const currentWeekHours = calculateEmployeeWeekHours(empId, getMondayOfCurrentWeek(new Date(date)));
+      
+      let prevDuration = 0;
+      if (id) {
+        const prevShift = state.shifts.find(s => s.id === id);
+        if (prevShift && prevShift.employeeId === empId) {
+          prevDuration = BriskScheduler.getShiftDuration(prevShift.startTime, prevShift.endTime);
+        }
+      }
+
+      if (currentWeekHours - prevDuration + duration > emp.maxHours) {
+        if (!confirm(`Adding this shift will exceed ${emp.name}'s weekly limit of ${emp.maxHours} hours. Continue?`)) {
+          return;
+        }
+      }
+    }
+
+    const shiftData = {
+      employeeId: empId,
+      role: role,
+      date: date,
+      startTime: start,
+      endTime: end,
+      notes: notes
+    };
+
     if (id) {
       shiftData.id = id;
       await BriskDB.updateShift(shiftData);
@@ -1412,9 +1524,13 @@ async function handleShiftSubmit(event) {
     closeShiftModal();
     loadDataFromState();
   } catch (err) {
-    showToast('Failed to save shift.', 'error');
+    console.error('Save Shift Error:', err);
+    showToast(err.message || 'Failed to save shift.', 'error');
   } finally {
-    if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = originalBtnText; }
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnText;
+    }
   }
 }
 
@@ -2874,4 +2990,276 @@ window.triggerGlobalRefresh = async function() {
     }
   }
 };
+
+// --- Trading Hours and Daily View Helpers ---
+
+const DEFAULT_TRADING_HOURS = {
+  "1": { "open": "08:30", "close": "17:30", "closed": false },
+  "2": { "open": "08:30", "close": "17:30", "closed": false },
+  "3": { "open": "08:30", "close": "17:30", "closed": false },
+  "4": { "open": "08:30", "close": "17:30", "closed": false },
+  "5": { "open": "08:30", "close": "17:30", "closed": false },
+  "6": { "open": "09:00", "close": "13:00", "closed": false },
+  "0": { "open": "00:00", "close": "00:00", "closed": true }
+};
+
+function timeToDecimal(timeStr) {
+  if (!timeStr) return 0;
+  const [h, m] = timeStr.split(':').map(Number);
+  return h + m / 60;
+}
+window.timeToDecimal = timeToDecimal;
+
+function calculateShiftHours(start, end) {
+  if (!start || !end) return 0;
+  const [sh, sm] = start.split(':').map(Number);
+  const [eh, em] = end.split(':').map(Number);
+  const diffMinutes = (eh * 60 + em) - (sh * 60 + sm);
+  return Math.max(0, diffMinutes / 60);
+}
+window.calculateShiftHours = calculateShiftHours;
+
+function renderSettingsPanel() {
+  if (!state.settings) state.settings = {};
+  if (!state.settings.tradingHours) {
+    state.settings.tradingHours = DEFAULT_TRADING_HOURS;
+  }
+  const th = state.settings.tradingHours;
+  
+  for (let d = 0; d < 7; d++) {
+    const dayData = th[String(d)] || DEFAULT_TRADING_HOURS[String(d)];
+    if (!dayData) continue;
+    
+    const closedCheckbox = document.getElementById(`trading-closed-${d}`);
+    const openInput = document.getElementById(`trading-open-${d}`);
+    const closeInput = document.getElementById(`trading-close-${d}`);
+    
+    if (closedCheckbox) closedCheckbox.checked = !!dayData.closed;
+    if (openInput) {
+      openInput.value = dayData.open || '08:30';
+      openInput.disabled = !!dayData.closed;
+    }
+    if (closeInput) {
+      closeInput.value = dayData.close || '17:30';
+      closeInput.disabled = !!dayData.closed;
+    }
+  }
+
+  // Also prefill Organization Name
+  const settingsName = document.getElementById('settings-company-name');
+  if (settingsName) settingsName.value = state.settings.companyName || 'Amcal Pharmacy Woywoy Rosters';
+}
+window.renderSettingsPanel = renderSettingsPanel;
+
+function toggleTradingDayClosed(dayNum) {
+  const closedCheckbox = document.getElementById(`trading-closed-${dayNum}`);
+  const openInput = document.getElementById(`trading-open-${dayNum}`);
+  const closeInput = document.getElementById(`trading-close-${dayNum}`);
+  
+  if (closedCheckbox && openInput && closeInput) {
+    const isClosed = closedCheckbox.checked;
+    openInput.disabled = isClosed;
+    closeInput.disabled = isClosed;
+  }
+}
+window.toggleTradingDayClosed = toggleTradingDayClosed;
+
+async function saveTradingHours(event) {
+  event.preventDefault();
+  const th = {};
+  
+  for (let d = 0; d < 7; d++) {
+    const closedCheckbox = document.getElementById(`trading-closed-${d}`);
+    const openInput = document.getElementById(`trading-open-${d}`);
+    const closeInput = document.getElementById(`trading-close-${d}`);
+    
+    th[String(d)] = {
+      closed: closedCheckbox ? closedCheckbox.checked : false,
+      open: openInput ? openInput.value : '08:30',
+      close: closeInput ? closeInput.value : '17:30'
+    };
+  }
+  
+  const submitBtn = event.target.querySelector('button[type="submit"]');
+  const origText = submitBtn ? submitBtn.innerHTML : 'Save Trading Hours';
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Saving...';
+  }
+  
+  try {
+    const updatedSettings = {
+      ...state.settings,
+      tradingHours: th
+    };
+    await BriskDB.saveSettings(updatedSettings);
+    state.settings = updatedSettings;
+    showToast('Pharmacy Trading Hours saved successfully!', 'success');
+  } catch (err) {
+    console.error('Save Trading Hours Error:', err);
+    showToast('Failed to save trading hours: ' + err.message, 'error');
+  } finally {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = origText;
+    }
+  }
+}
+window.saveTradingHours = saveTradingHours;
+
+function adjustDailyDate(offset) {
+  const d = new Date(state.dailyDate);
+  d.setDate(state.dailyDate.getDate() + offset);
+  state.dailyDate = d;
+  renderDailyPanel();
+}
+window.adjustDailyDate = adjustDailyDate;
+
+function setDailyDateToday() {
+  state.dailyDate = new Date();
+  renderDailyPanel();
+}
+window.setDailyDateToday = setDailyDateToday;
+
+function renderDailyPanel() {
+  const dateDisplay = document.getElementById('daily-date-display');
+  if (dateDisplay) {
+    // Australian Date Format: Friday, 10 July 2026
+    const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+    dateDisplay.textContent = state.dailyDate.toLocaleDateString('en-AU', options);
+  }
+  
+  const dateStr = formatDateISO(state.dailyDate);
+  const dayShifts = state.shifts.filter(s => s.date === dateStr);
+  
+  // Sort shifts by start time
+  dayShifts.sort((a, b) => {
+    return timeToDecimal(a.startTime) - timeToDecimal(b.startTime);
+  });
+  
+  // Render timeline visual
+  const timelineVisual = document.getElementById('daily-timeline-visual');
+  const timelineLabels = document.getElementById('daily-timeline-labels');
+  
+  if (timelineVisual && timelineLabels) {
+    timelineVisual.innerHTML = '';
+    timelineLabels.innerHTML = '';
+    
+    // Get trading hours for the active day of week
+    const dayOfWeek = state.dailyDate.getDay();
+    const th = (state.settings && state.settings.tradingHours) 
+      ? state.settings.tradingHours[String(dayOfWeek)] 
+      : DEFAULT_TRADING_HOURS[String(dayOfWeek)];
+    
+    if (th && th.closed) {
+      timelineVisual.innerHTML = `
+        <div style="text-align: center; line-height: 60px; color: var(--text-danger); font-weight: 600;">
+          <i class="fa-solid fa-store-slash"></i> Pharmacy Closed Today
+        </div>
+      `;
+      timelineVisual.style.height = '60px';
+    } else {
+      // Determine timeline range: start 30m before open, end 30m after close (default to 8am - 6pm if closed/missing)
+      const openHour = th ? timeToDecimal(th.open) : 8.5;
+      const closeHour = th ? timeToDecimal(th.close) : 17.5;
+      const timelineStart = Math.floor(openHour - 0.5);
+      const timelineEnd = Math.ceil(closeHour + 0.5);
+      const span = timelineEnd - timelineStart;
+      
+      // Render hours markers/labels
+      for (let h = timelineStart; h <= timelineEnd; h++) {
+        const spanLabel = document.createElement('span');
+        const hour12 = h % 12 === 0 ? 12 : h % 12;
+        const ampm = h >= 12 ? 'pm' : 'am';
+        spanLabel.textContent = `${hour12}${ampm}`;
+        timelineLabels.appendChild(spanLabel);
+      }
+      
+      // Render visual timeline bars stacked vertically to handle overlap
+      let rowCount = 0;
+      dayShifts.forEach((s, idx) => {
+        const emp = state.employees.find(e => e.id === s.employeeId);
+        const empName = emp ? emp.name : 'Unassigned Shift';
+        
+        const left = Math.max(0, Math.min(100, ((timeToDecimal(s.startTime) - timelineStart) / span) * 100));
+        const width = Math.max(1, Math.min(100 - left, ((timeToDecimal(s.endTime) - timeToDecimal(s.startTime)) / span) * 100));
+        const roleColor = state.roles.find(r => r.name.toLowerCase() === s.role.toLowerCase())?.color || '#ef4444';
+        
+        const rowTop = 10 + (idx * 28);
+        rowCount++;
+        
+        const bar = document.createElement('div');
+        bar.className = 'timeline-bar';
+        bar.style.position = 'absolute';
+        bar.style.left = `${left}%`;
+        bar.style.width = `${width}%`;
+        bar.style.top = `${rowTop}px`;
+        bar.style.height = '22px';
+        bar.style.background = roleColor;
+        bar.style.opacity = '0.9';
+        bar.style.borderRadius = 'var(--radius-sm)';
+        bar.style.fontSize = '0.75rem';
+        bar.style.color = '#fff';
+        bar.style.padding = '0 8px';
+        bar.style.whiteSpace = 'nowrap';
+        bar.style.overflow = 'hidden';
+        bar.style.textOverflow = 'ellipsis';
+        bar.style.lineHeight = '22px';
+        bar.style.fontWeight = '500';
+        bar.title = `${empName}: ${s.startTime} - ${s.endTime} (${s.role})`;
+        bar.textContent = `${empName} (${s.role})`;
+        
+        timelineVisual.appendChild(bar);
+      });
+      
+      // Adjust timeline container height dynamically
+      timelineVisual.style.height = `${Math.max(60, rowCount * 28 + 20)}px`;
+    }
+  }
+  
+  // Render table checklist body
+  const tbody = document.getElementById('daily-shifts-tbody');
+  if (tbody) {
+    tbody.innerHTML = '';
+    
+    if (dayShifts.length === 0) {
+      tbody.innerHTML = `
+        <tr>
+          <td colspan="4" class="text-muted" style="text-align: center; padding: 24px;">
+            No shifts scheduled for this date.
+          </td>
+        </tr>
+      `;
+    } else {
+      dayShifts.forEach(s => {
+        const emp = state.employees.find(e => e.id === s.employeeId);
+        const empName = emp ? emp.name : '<span style="color:var(--text-danger);"><i class="fa-solid fa-triangle-exclamation"></i> Unassigned</span>';
+        const empRole = emp ? emp.role : 'N/A';
+        const roleColor = state.roles.find(r => r.name.toLowerCase() === s.role.toLowerCase())?.color || '#ef4444';
+        
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td style="padding-left: 16px; font-weight: 500;">
+            <div>${empName}</div>
+            <div style="font-size: 0.75rem; color: var(--text-muted); font-weight: 400;">${empRole}</div>
+          </td>
+          <td style="text-align: center; font-weight: 600;">
+            <i class="fa-regular fa-clock" style="margin-right: 4px; color: var(--accent-cyan);"></i> ${s.startTime} - ${s.endTime}
+          </td>
+          <td style="text-align: center;">
+            <span class="badge" style="background: rgba(${hexToRgb(roleColor)}, 0.12); color: ${roleColor}; border: 1px solid rgba(${hexToRgb(roleColor)}, 0.25); font-weight: 600;">
+              ${s.role}
+            </span>
+          </td>
+          <td style="padding-left: 16px; font-size: 0.85rem; color: var(--text-muted); font-style: ${s.notes ? 'normal' : 'italic'};">
+            ${s.notes ? s.notes : 'No special notes/instructions for this shift.'}
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+  }
+}
+window.renderDailyPanel = renderDailyPanel;
+
 
