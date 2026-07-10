@@ -15,8 +15,6 @@ CREATE TABLE IF NOT EXISTS public.brisk_employees (
 );
 
 -- Enable Row Level Security (RLS)
--- With RLS enabled and no public policies defined, all public client (anon key) read/write access is blocked by default.
--- Only serverless functions using the SUPABASE_SERVICE_ROLE_KEY can read and write.
 ALTER TABLE public.brisk_employees ENABLE ROW LEVEL SECURITY;
 
 -- 2. Create brisk_users table
@@ -26,6 +24,7 @@ CREATE TABLE IF NOT EXISTS public.brisk_users (
     password_hash TEXT NOT NULL,
     role TEXT NOT NULL CHECK (role IN ('owner', 'manager', 'employee')),
     employee_id UUID REFERENCES public.brisk_employees(id) ON DELETE SET NULL,
+    name TEXT,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now())
 );
 
@@ -39,6 +38,7 @@ CREATE TABLE IF NOT EXISTS public.brisk_shifts (
     start_time TIME NOT NULL,
     end_time TIME NOT NULL,
     role TEXT NOT NULL,
+    status TEXT NOT NULL DEFAULT 'draft',
     notes TEXT,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now())
 );
@@ -86,10 +86,37 @@ CREATE TABLE IF NOT EXISTS public.brisk_invitations (
 
 ALTER TABLE public.brisk_invitations ENABLE ROW LEVEL SECURITY;
 
--- CLEANUP SQL: Run this block to clean up any legacy public access policies in existing installations:
--- DROP POLICY IF EXISTS "Allow all public access for demo service" ON public.brisk_employees;
--- DROP POLICY IF EXISTS "Allow all public access for demo service" ON public.brisk_users;
--- DROP POLICY IF EXISTS "Allow all public access for demo service" ON public.brisk_shifts;
--- DROP POLICY IF EXISTS "Allow all public access for demo service" ON public.brisk_timecards;
--- DROP POLICY IF EXISTS "Allow all public access for demo service" ON public.brisk_leave_requests;
--- DROP POLICY IF EXISTS "Allow all public access for demo service" ON public.brisk_invitations;
+-- 7. Create brisk_settings table
+CREATE TABLE IF NOT EXISTS public.brisk_settings (
+    id TEXT PRIMARY KEY DEFAULT 'global_settings',
+    company_name TEXT NOT NULL DEFAULT 'Amcal Pharmacy Woywoy Rosters'
+);
+
+ALTER TABLE public.brisk_settings ENABLE ROW LEVEL SECURITY;
+
+-- =====================================
+-- ROW LEVEL SECURITY (RLS) POLICIES
+-- =====================================
+
+-- Drop any existing conflicting policies
+DROP POLICY IF EXISTS "auth_all" ON public.brisk_employees;
+DROP POLICY IF EXISTS "auth_all" ON public.brisk_shifts;
+DROP POLICY IF EXISTS "auth_all" ON public.brisk_timecards;
+DROP POLICY IF EXISTS "auth_all" ON public.brisk_leave_requests;
+DROP POLICY IF EXISTS "auth_all" ON public.brisk_users;
+DROP POLICY IF EXISTS "auth_all" ON public.brisk_invitations;
+DROP POLICY IF EXISTS "auth_all" ON public.brisk_settings;
+
+-- Create policies allowing full access to authenticated users
+CREATE POLICY "auth_all" ON public.brisk_employees FOR ALL USING (auth.role() = 'authenticated') WITH CHECK (auth.role() = 'authenticated');
+CREATE POLICY "auth_all" ON public.brisk_shifts FOR ALL USING (auth.role() = 'authenticated') WITH CHECK (auth.role() = 'authenticated');
+CREATE POLICY "auth_all" ON public.brisk_timecards FOR ALL USING (auth.role() = 'authenticated') WITH CHECK (auth.role() = 'authenticated');
+CREATE POLICY "auth_all" ON public.brisk_leave_requests FOR ALL USING (auth.role() = 'authenticated') WITH CHECK (auth.role() = 'authenticated');
+CREATE POLICY "auth_all" ON public.brisk_users FOR SELECT USING (auth.role() = 'authenticated');
+CREATE POLICY "auth_all" ON public.brisk_invitations FOR ALL USING (auth.role() = 'authenticated') WITH CHECK (auth.role() = 'authenticated');
+CREATE POLICY "auth_all" ON public.brisk_settings FOR ALL USING (auth.role() = 'authenticated') WITH CHECK (auth.role() = 'authenticated');
+
+-- Insert default global settings row
+INSERT INTO public.brisk_settings (id, company_name) 
+VALUES ('global_settings', 'Amcal Pharmacy Woywoy Rosters') 
+ON CONFLICT (id) DO NOTHING;

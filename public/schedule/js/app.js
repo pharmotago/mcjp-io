@@ -186,7 +186,7 @@ function loadDataFromState() {
     const badgeTc = document.getElementById('badge-timeclock');
     if (badgeTc) { badgeTc.style.display = pendingTimecards > 0 ? 'inline-block' : 'none'; badgeTc.textContent = pendingTimecards; }
     
-    const pendingLeave = state.leaveRequests.filter(lr => lr.status === 'pending').length;
+    const pendingLeave = state.leaveRequests.filter(lr => lr.status === 'Pending').length;
     const badgeLeave = document.getElementById('badge-timeoff');
     if (badgeLeave) { badgeLeave.style.display = pendingLeave > 0 ? 'inline-block' : 'none'; badgeLeave.textContent = pendingLeave; }
   }
@@ -433,6 +433,7 @@ async function handleInviteSubmit(event) {
   document.getElementById('invite-url-val').value = res.inviteUrl;
   document.getElementById('invite-result-box').classList.remove('hide');
   document.getElementById('invite-form').reset();
+  showToast(`Invitation sent to ${email}!`, 'success');
 }
 
 async function copyInviteUrl() {
@@ -593,14 +594,20 @@ function renderDashboard() {
     // Employees can see everyone working today (team awareness)
   }
 
+  // Fetch today's approved leave requests
+  const todayLeaveRequests = state.leaveRequests.filter(r => {
+    return r.status === 'approved' && todayStr >= r.startDate && todayStr <= r.endDate;
+  });
+
   const tbody = document.getElementById('dash-today-shifts');
   tbody.innerHTML = '';
 
-  if (todayShifts.length === 0) {
+  if (todayShifts.length === 0 && todayLeaveRequests.length === 0) {
     tbody.innerHTML = `<tr><td colspan="4" style="padding: 0;"><div class="empty-state"><i class="fa-solid fa-calendar-xmark"></i><h4>No shifts scheduled</h4><p>You have no shifts scheduled for today.</p></div></td></tr>`;
     return;
   }
 
+  // Render active shifts
   todayShifts.forEach(shift => {
     const emp = state.employees.find(e => e.id === shift.employeeId);
     const empName = emp ? emp.name : '<span class="text-danger">Unassigned</span>';
@@ -625,6 +632,22 @@ function renderDashboard() {
       <td>${shift.role}</td>
       <td>${shift.startTime} - ${shift.endTime}</td>
       <td>${statusBadge}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+
+  // Render employees on leave today
+  todayLeaveRequests.forEach(req => {
+    const emp = state.employees.find(e => e.id === req.employeeId);
+    if (!emp) return;
+    
+    const tr = document.createElement('tr');
+    tr.style.opacity = '0.82';
+    tr.innerHTML = `
+      <td><strong>${emp.name}</strong></td>
+      <td><span style="color:var(--text-muted); font-size:0.85rem;">Leave</span></td>
+      <td><span style="font-size:0.85rem; color:var(--accent-gold);"><i class="fa-solid fa-umbrella-beach"></i> Vacation</span></td>
+      <td><span class="badge" style="background:rgba(168, 85, 247, 0.12); color:#a855f7; border:1px solid rgba(168, 85, 247, 0.25);">On Leave</span></td>
     `;
     tbody.appendChild(tr);
   });
@@ -1049,8 +1072,8 @@ function renderScheduler() {
         const isLeave = checkLeaveStatus(emp.id, dateStr);
         if (isLeave) {
           leaveHtml += `
-            <div class="badge badge-danger" style="margin-top: 4px; display: inline-block; font-size: 10px; padding: 4px 8px;">
-              🏖️ ${emp.name} (On Leave)
+            <div class="badge" style="margin-top: 6px; display: inline-block; font-size: 10px; padding: 4px 8px; background: rgba(168, 85, 247, 0.12); color: #a855f7; border: 1px solid rgba(168, 85, 247, 0.25); border-radius: 4px; font-weight: 500;">
+              🌴 ${emp.name} (On Leave)
             </div>
           `;
         }
@@ -2669,6 +2692,8 @@ window.handleRoleDelete = handleRoleDelete;
 window.pasteCopiedShiftDetails = pasteCopiedShiftDetails;
 window.hexToRgb = hexToRgb;
 window.updatePasteButtonState = updatePasteButtonState;
+window.approveTimecard = approveTimecard;
+window.decideLeaveRequest = decideLeaveRequest;
 
 window.openChangePasswordModal = function() {
   document.getElementById('modal-change-password').classList.add('active');
