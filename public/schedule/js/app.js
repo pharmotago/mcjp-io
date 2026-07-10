@@ -103,6 +103,33 @@ document.addEventListener('DOMContentLoaded', async () => {
     }, 50);
   });
 
+  // Listen for offline queue sync status updates
+  window.addEventListener('brisk-sync-status', (e) => {
+    const pendingCount = e.detail.pending;
+    const badge = document.getElementById('sync-pending-badge');
+    const countSpan = document.getElementById('sync-pending-count');
+    
+    if (badge && countSpan) {
+      if (pendingCount > 0) {
+        countSpan.textContent = pendingCount;
+        badge.style.display = 'inline-flex';
+      } else {
+        badge.style.display = 'none';
+      }
+    }
+  });
+
+  // Check initial offline queue
+  if (typeof BriskDB !== 'undefined' && BriskDB.getOfflineQueueLength) {
+    const initialPending = BriskDB.getOfflineQueueLength();
+    const badge = document.getElementById('sync-pending-badge');
+    const countSpan = document.getElementById('sync-pending-count');
+    if (badge && countSpan && initialPending > 0) {
+      countSpan.textContent = initialPending;
+      badge.style.display = 'inline-flex';
+    }
+  }
+
   // Form Validation UX limits
   document.getElementById('shift-start')?.addEventListener('change', function(e) {
     document.getElementById('shift-end').min = e.target.value;

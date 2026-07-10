@@ -177,6 +177,9 @@
           <h1 id="current-panel-title">Dashboard</h1>
         </div>
         <div class="topbar-actions">
+          <div id="sync-pending-badge" style="display: none; align-items: center; gap: 6px; padding: 4px 10px; background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.3); color: #f59e0b; border-radius: 12px; font-size: 0.75rem; font-weight: 600; margin-right: 8px;">
+            <i class="fa-solid fa-cloud-arrow-up fa-bounce"></i> Syncing <span id="sync-pending-count">0</span>...
+          </div>
           <button id="btn-global-refresh" class="btn btn-icon" onclick="triggerGlobalRefresh()" aria-label="Refresh Data" title="Refresh Data">
             <i class="fa-solid fa-arrows-rotate"></i>
           </button>

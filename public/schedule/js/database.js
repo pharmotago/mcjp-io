@@ -204,6 +204,86 @@ const BriskDB = (function() {
     };
   }
 
+  // Offline Sync Queue Management
+  let _offlineQueue = [];
+  try {
+    if (typeof localStorage !== 'undefined') {
+      const saved = localStorage.getItem('brisk_offline_queue');
+      if (saved) _offlineQueue = JSON.parse(saved);
+    }
+  } catch (e) {
+    console.error('Failed to load offline queue:', e);
+  }
+
+  function saveOfflineQueue() {
+    try {
+      if (typeof localStorage !== 'undefined') {
+        localStorage.setItem('brisk_offline_queue', JSON.stringify(_offlineQueue));
+      }
+    } catch (e) {
+      console.error('Failed to save offline queue:', e);
+    }
+  }
+
+  function enqueueOfflineOperation(type, timecard) {
+    const existingIdx = _offlineQueue.findIndex(op => op.timecard.id === timecard.id);
+    if (existingIdx !== -1) {
+      const existingOp = _offlineQueue[existingIdx];
+      if (existingOp.type === 'add') {
+        _offlineQueue[existingIdx] = { type: 'add', timecard: { ...existingOp.timecard, ...timecard } };
+      } else {
+        _offlineQueue[existingIdx] = { type, timecard: { ...existingOp.timecard, ...timecard } };
+      }
+    } else {
+      _offlineQueue.push({ type, timecard });
+    }
+    saveOfflineQueue();
+    
+    // Dispatch event to notify UI
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('brisk-sync-status', { detail: { pending: _offlineQueue.length } }));
+    }
+  }
+
+  async function processOfflineQueue() {
+    if (_offlineQueue.length === 0) return;
+    
+    const session = getSession();
+    if (!session) return;
+    
+    console.log(`[BriskDB] Processing ${_offlineQueue.length} offline operations...`);
+    const queueToProcess = [..._offlineQueue];
+    
+    for (const op of queueToProcess) {
+      try {
+        if (op.type === 'add') {
+          const { error } = await supabase.from('brisk_timecards').insert(mapTimecardToDb(op.timecard));
+          if (error) throw error;
+        } else if (op.type === 'update') {
+          const { error } = await supabase.from('brisk_timecards').update(mapTimecardToDb(op.timecard)).eq('id', op.timecard.id);
+          if (error) throw error;
+        }
+        
+        // Remove successfully processed operation
+        _offlineQueue = _offlineQueue.filter(item => item.timecard.id !== op.timecard.id);
+        saveOfflineQueue();
+      } catch (err) {
+        console.error('[BriskDB] Failed to sync offline operation:', err);
+        break; // retry on next interval
+      }
+    }
+    
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('brisk-sync-status', { detail: { pending: _offlineQueue.length } }));
+    }
+  }
+
+  // Setup background sync workers
+  if (typeof window !== 'undefined') {
+    setInterval(processOfflineQueue, 15000); // Check every 15 seconds
+    window.addEventListener('online', processOfflineQueue);
+  }
+
   // Set up real-time postgres_changes listeners
   function setupListeners() {
     const session = getSession();
@@ -729,19 +809,40 @@ const BriskDB = (function() {
     },
 
     addTimecard: async function(tc) {
-      const { data, error } = await supabase.from('brisk_timecards').insert(mapTimecardToDb(tc)).select().single();
-      if (error) throw error;
-      const mapped = mapTimecardFromDb(data);
-      const existing = _timecards.findIndex(t => t.id === mapped.id);
-      if (existing === -1) _timecards.push(mapped);
-      return mapped;
+      if (!tc.id) {
+        tc.id = (typeof crypto !== 'undefined' && crypto.randomUUID) ? crypto.randomUUID() : 'temp-' + Date.now() + '-' + Math.random().toString(36).substring(2, 9);
+      }
+      try {
+        const { data, error } = await supabase.from('brisk_timecards').insert(mapTimecardToDb(tc)).select().single();
+        if (error) throw error;
+        const mapped = mapTimecardFromDb(data);
+        const existing = _timecards.findIndex(t => t.id === mapped.id);
+        if (existing !== -1) _timecards[existing] = mapped;
+        else _timecards.push(mapped);
+        return mapped;
+      } catch (err) {
+        console.warn('[BriskDB] addTimecard offline fallback:', err);
+        const existing = _timecards.findIndex(t => t.id === tc.id);
+        if (existing !== -1) _timecards[existing] = tc;
+        else _timecards.push(tc);
+        enqueueOfflineOperation('add', tc);
+        return tc;
+      }
     },
     updateTimecard: async function(updated) {
-      const { error } = await supabase.from('brisk_timecards').update(mapTimecardToDb(updated)).eq('id', updated.id);
-      if (error) throw error;
-      const idx = _timecards.findIndex(t => t.id === updated.id);
-      if (idx !== -1) _timecards[idx] = { ..._timecards[idx], ...updated };
-      else _timecards.push(updated);
+      try {
+        const { error } = await supabase.from('brisk_timecards').update(mapTimecardToDb(updated)).eq('id', updated.id);
+        if (error) throw error;
+        const idx = _timecards.findIndex(t => t.id === updated.id);
+        if (idx !== -1) _timecards[idx] = { ..._timecards[idx], ...updated };
+        else _timecards.push(updated);
+      } catch (err) {
+        console.warn('[BriskDB] updateTimecard offline fallback:', err);
+        const idx = _timecards.findIndex(t => t.id === updated.id);
+        if (idx !== -1) _timecards[idx] = { ..._timecards[idx], ...updated };
+        else _timecards.push(updated);
+        enqueueOfflineOperation('update', updated);
+      }
     },
 
     addLeaveRequest: async function(lr) {
@@ -790,6 +891,14 @@ const BriskDB = (function() {
         leaveRequests: _leaveRequests,
         exportedAt: new Date().toISOString()
       }, null, 2);
+    },
+
+    getOfflineQueueLength: function() {
+      return _offlineQueue.length;
+    },
+
+    syncOfflineQueue: async function() {
+      await processOfflineQueue();
     }
   };
 })();
