@@ -41,6 +41,7 @@ let state = {
   settings: {},
   currentUser: null, // Stores session user
   roles: [],
+  positions: [],
   copiedShift: null
 };
 
@@ -171,9 +172,13 @@ function loadDataFromState() {
   state.leaveRequests = BriskDB.getLeaveRequests();
   state.settings = BriskDB.getSettings();
   state.roles = BriskDB.getRoles();
+  state.positions = BriskDB.getPositions();
   
   if (typeof renderRolesSettingsList === 'function') {
     renderRolesSettingsList();
+  }
+  if (typeof renderPositionsSettingsList === 'function') {
+    renderPositionsSettingsList();
   }
 
   const sidebarName = document.getElementById('sidebar-company-name');
@@ -419,21 +424,31 @@ function handleLogout() {
 // Manager generate invitation submit
 async function handleInviteSubmit(event) {
   event.preventDefault();
+  const submitBtn = event.target.querySelector('button[type="submit"]');
+  const originalBtnText = submitBtn ? submitBtn.innerHTML : 'Generate Invite';
+  if (submitBtn) { submitBtn.disabled = true; submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Generating...'; }
+
   const email = document.getElementById('invite-email').value;
   const role = document.getElementById('invite-role').value;
 
-  const res = await BriskDB.apiGenerateInvite(email, role);
+  try {
+    const res = await BriskDB.apiGenerateInvite(email, role);
 
-  if (res.error) {
-    showToast(res.error, 'error');
-    return;
+    if (res.error) {
+      showToast(res.error, 'error');
+      return;
+    }
+
+    document.getElementById('invite-code-val').textContent = res.code;
+    document.getElementById('invite-url-val').value = res.inviteUrl;
+    document.getElementById('invite-result-box').classList.remove('hide');
+    document.getElementById('invite-form').reset();
+    showToast(`Invitation sent to ${email}!`, 'success');
+  } catch (err) {
+    showToast('Failed to generate invitation.', 'error');
+  } finally {
+    if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = originalBtnText; }
   }
-
-  document.getElementById('invite-code-val').textContent = res.code;
-  document.getElementById('invite-url-val').value = res.inviteUrl;
-  document.getElementById('invite-result-box').classList.remove('hide');
-  document.getElementById('invite-form').reset();
-  showToast(`Invitation sent to ${email}!`, 'success');
 }
 
 async function copyInviteUrl() {
@@ -1533,10 +1548,10 @@ function openAddEmployeeModal() {
 
   const roleSelect = document.getElementById('emp-role');
   roleSelect.innerHTML = '<option value="">-- Select Default Position --</option>';
-  state.roles.forEach(role => {
+  state.positions.forEach(pos => {
     const opt = document.createElement('option');
-    opt.value = role.name;
-    opt.textContent = role.name;
+    opt.value = pos.name;
+    opt.textContent = pos.name;
     roleSelect.appendChild(opt);
   });
 
@@ -1567,10 +1582,10 @@ function openEditEmployeeModal(empId) {
   
   const roleSelect = document.getElementById('emp-role');
   roleSelect.innerHTML = '<option value="">-- Select Default Position --</option>';
-  state.roles.forEach(role => {
+  state.positions.forEach(pos => {
     const opt = document.createElement('option');
-    opt.value = role.name;
-    opt.textContent = role.name;
+    opt.value = pos.name;
+    opt.textContent = pos.name;
     roleSelect.appendChild(opt);
   });
   roleSelect.value = emp.role;
@@ -2650,6 +2665,102 @@ async function handleRoleDelete(id) {
   }
 }
 
+function renderPositionsSettingsList() {
+  const container = document.getElementById('positions-settings-list');
+  if (!container) return;
+
+  container.innerHTML = '';
+  
+  if (state.positions.length === 0) {
+    container.innerHTML = '<div class="text-muted">No custom positions defined.</div>';
+    return;
+  }
+
+  state.positions.forEach(pos => {
+    const div = document.createElement('div');
+    div.className = 'position-item-row';
+    div.style.display = 'flex';
+    div.style.alignItems = 'center';
+    div.style.gap = '8px';
+    div.style.padding = '8px';
+    div.style.background = 'var(--bg-card)';
+    div.style.border = '1px solid var(--border-color)';
+    div.style.borderRadius = 'var(--radius-sm)';
+
+    div.innerHTML = `
+      <input type="text" value="${pos.name}" class="form-control" style="flex:1; height:34px; font-size:0.9rem;" onchange="handlePositionNameChange('${pos.id}', this.value)">
+      <button class="btn btn-danger btn-icon" style="height:34px; width:34px; padding:0; display:flex; align-items:center; justify-content:center;" onclick="handlePositionDelete('${pos.id}')"><i class="fa-solid fa-trash-can"></i></button>
+    `;
+    container.appendChild(div);
+  });
+}
+
+async function handleAddPositionSubmit(event) {
+  event.preventDefault();
+  const nameInput = document.getElementById('new-position-name');
+  if (!nameInput) return;
+
+  const name = nameInput.value.trim();
+  if (!name) return;
+
+  if (state.positions.some(p => p.name.toLowerCase() === name.toLowerCase())) {
+    showToast('A position with this name already exists.', 'error');
+    return;
+  }
+
+  try {
+    await BriskDB.addPosition(name);
+    nameInput.value = '';
+    showToast('Position added successfully.', 'success');
+    loadDataFromState();
+    renderPositionsSettingsList();
+  } catch (err) {
+    showToast('Failed to add position.', 'error');
+  }
+}
+
+async function handlePositionNameChange(id, newName) {
+  const name = newName.trim();
+  if (!name) return;
+
+  const pos = state.positions.find(p => p.id === id);
+  if (!pos) return;
+
+  if (pos.name === name) return;
+
+  if (state.positions.some(p => p.id !== id && p.name.toLowerCase() === name.toLowerCase())) {
+    showToast('Another position already has this name.', 'error');
+    loadDataFromState();
+    renderPositionsSettingsList();
+    return;
+  }
+
+  try {
+    pos.name = name;
+    await BriskDB.updatePosition(pos);
+    showToast('Position name updated.', 'success');
+    loadDataFromState();
+    renderPositionsSettingsList();
+  } catch (err) {
+    showToast('Failed to update position name.', 'error');
+  }
+}
+
+async function handlePositionDelete(id) {
+  if (!confirm('Are you sure you want to delete this position? Employees with this default position will remain assigned, but it will no longer show in the register options.')) {
+    return;
+  }
+
+  try {
+    await BriskDB.deletePosition(id);
+    showToast('Position deleted successfully.', 'success');
+    loadDataFromState();
+    renderPositionsSettingsList();
+  } catch (err) {
+    showToast('Failed to delete position.', 'error');
+  }
+}
+
 function updatePasteButtonState() {
   const pasteContainer = document.getElementById('shift-paste-container');
   if (!pasteContainer) return;
@@ -2689,6 +2800,10 @@ window.handleAddRoleSubmit = handleAddRoleSubmit;
 window.handleRoleNameChange = handleRoleNameChange;
 window.handleRoleColorChange = handleRoleColorChange;
 window.handleRoleDelete = handleRoleDelete;
+window.renderPositionsSettingsList = renderPositionsSettingsList;
+window.handleAddPositionSubmit = handleAddPositionSubmit;
+window.handlePositionNameChange = handlePositionNameChange;
+window.handlePositionDelete = handlePositionDelete;
 window.pasteCopiedShiftDetails = pasteCopiedShiftDetails;
 window.hexToRgb = hexToRgb;
 window.updatePasteButtonState = updatePasteButtonState;
@@ -2733,6 +2848,30 @@ window.handleChangePasswordSubmit = async function(event) {
   } finally {
     submitBtn.disabled = false;
     submitBtn.innerHTML = origText;
+  }
+};
+
+window.triggerGlobalRefresh = async function() {
+  const refreshBtn = document.getElementById('btn-global-refresh');
+  const icon = refreshBtn ? refreshBtn.querySelector('i') : null;
+  
+  if (icon) icon.classList.add('fa-spin');
+  showToast('Refreshing data from Supabase...', 'info');
+
+  try {
+    // Force sync and reload
+    await BriskDB.syncFromServer();
+    loadDataFromState();
+    renderActivePanel();
+    showToast('Data refreshed successfully!', 'success');
+  } catch (err) {
+    showToast('Failed to refresh: ' + err.message, 'error');
+  } finally {
+    if (icon) {
+      setTimeout(() => {
+        icon.classList.remove('fa-spin');
+      }, 700);
+    }
   }
 };
 

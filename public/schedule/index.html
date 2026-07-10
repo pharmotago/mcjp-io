@@ -174,6 +174,9 @@
           <h1 id="current-panel-title">Dashboard</h1>
         </div>
         <div class="topbar-actions">
+          <button id="btn-global-refresh" class="btn btn-icon" onclick="triggerGlobalRefresh()" aria-label="Refresh Data" title="Refresh Data">
+            <i class="fa-solid fa-arrows-rotate"></i>
+          </button>
           <button id="theme-toggle" class="btn btn-icon" onclick="toggleTheme()" aria-label="Toggle Theme">
             <i class="fa-solid fa-moon"></i>
           </button>
@@ -613,6 +616,23 @@
                 <input type="text" id="new-role-name" class="form-control" placeholder="e.g. Dispense Technician" required style="flex: 1; height: 38px;">
                 <input type="color" id="new-role-color" value="#3b82f6" style="width: 45px; padding: 0 4px; height: 38px; cursor: pointer; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: var(--bg-card);">
                 <button type="submit" class="btn btn-primary" style="height: 38px; padding: 0 16px;"><i class="fa-solid fa-plus"></i> Add Role</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Employee Positions Customization -->
+          <div class="glass-card flex-2">
+            <div class="card-header">
+              <h3><i class="fa-solid fa-user-gear text-cyan"></i> Custom Employee Positions</h3>
+            </div>
+            <div class="settings-body">
+              <p style="margin-bottom:1rem;">Manage the job positions/titles available for employee profiles (e.g. Pharmacist, Tech, Assistant).</p>
+              <div id="positions-settings-list" style="margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 8px;">
+                <!-- Dynamically populated -->
+              </div>
+              <form id="add-position-form" onsubmit="handleAddPositionSubmit(event)" style="display: flex; gap: 8px; align-items: center;">
+                <input type="text" id="new-position-name" class="form-control" placeholder="e.g. Retail Pharmacist" required style="flex: 1; height: 38px;">
+                <button type="submit" class="btn btn-primary" style="height: 38px; padding: 0 16px;"><i class="fa-solid fa-plus"></i> Add Position</button>
               </form>
             </div>
           </div>

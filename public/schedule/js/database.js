@@ -19,12 +19,19 @@ const BriskDB = (function() {
   
   let _roles = [];
   const DEFAULT_ROLES = [
-    { id: 'role_pm', name: 'Pharmacist Manager', color: '#10b981' },
-    { id: 'role_rm', name: 'Retail Manager', color: '#f59e0b' },
-    { id: 'role_pa', name: 'Pharmacy Assistant', color: '#3b82f6' },
-    { id: 'role_o', name: 'Owner', color: '#ec4899' },
-    { id: 'role_dt', name: 'Dispense Technician', color: '#a855f7' },
-    { id: 'role_ra', name: 'Retail Associate', color: '#06b6d4' }
+    { id: 'role_dispensary', name: 'Dispensary', color: '#10b981' },
+    { id: 'role_tills', name: 'Tills', color: '#f59e0b' },
+    { id: 'role_webster', name: 'Webster', color: '#a855f7' },
+    { id: 'role_floor', name: 'Floor', color: '#3b82f6' }
+  ];
+
+  let _positions = [];
+  const DEFAULT_POSITIONS = [
+    { id: 'pos_owner', name: 'Owner' },
+    { id: 'pos_pm', name: 'Pharmacist Manager' },
+    { id: 'pos_pharmacist', name: 'Pharmacist' },
+    { id: 'pos_dt', name: 'Dispense Technician' },
+    { id: 'pos_pa', name: 'Pharmacy Assistant' }
   ];
 
   let _listeners = [];
@@ -188,9 +195,17 @@ const BriskDB = (function() {
         
         // Handle virtual roles employee update
         if (newRec && newRec.email === 'system_roles@brisk.internal') {
-          if (newRec.availability && Array.isArray(newRec.availability.roles)) {
-            _roles = newRec.availability.roles;
+          if (newRec.availability) {
+            if (Array.isArray(newRec.availability.roles)) {
+              _roles = newRec.availability.roles;
+              localStorage.setItem('brisk_roles', JSON.stringify(_roles));
+            }
+            if (Array.isArray(newRec.availability.positions)) {
+              _positions = newRec.availability.positions;
+              localStorage.setItem('brisk_positions', JSON.stringify(_positions));
+            }
             window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'roles' } }));
+            window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'positions' } }));
           }
           return;
         }
@@ -287,7 +302,7 @@ const BriskDB = (function() {
     _listeners.push(() => supabase.removeChannel(roleChannel));
   }
 
-  async function createOrUpdateSystemRolesInDb(rolesList) {
+  async function createOrUpdateSystemRolesInDb(rolesList, positionsList) {
     try {
       const { data: existing } = await supabase
         .from('brisk_employees')
@@ -295,11 +310,16 @@ const BriskDB = (function() {
         .eq('email', 'system_roles@brisk.internal')
         .maybeSingle();
 
+      const availabilityObj = {
+        roles: rolesList || _roles,
+        positions: positionsList || _positions
+      };
+
       if (existing) {
         await supabase
           .from('brisk_employees')
           .update({
-            availability: { roles: rolesList }
+            availability: availabilityObj
           })
           .eq('email', 'system_roles@brisk.internal');
       } else {
@@ -312,7 +332,7 @@ const BriskDB = (function() {
             role: 'system',
             hourly_rate: 0.00,
             max_hours: 0,
-            availability: { roles: rolesList },
+            availability: availabilityObj,
             active: false
           });
       }
@@ -365,23 +385,23 @@ const BriskDB = (function() {
       const { data: sets } = await supabase.from('brisk_settings').select('*').limit(1).maybeSingle();
       if (sets) _settings = sets;
 
-      // 6. Roles Load
+      // 6. Roles & Positions Load
       let loadedRoles = null;
-      try {
-        const { data: rls, error: rlsErr } = await supabase.from('brisk_roles').select('*').order('name');
-        if (!rlsErr && rls && rls.length > 0) {
-          loadedRoles = rls;
+      let loadedPositions = null;
+
+      if (systemRolesEmp && systemRolesEmp.availability) {
+        if (Array.isArray(systemRolesEmp.availability.roles)) {
+          loadedRoles = systemRolesEmp.availability.roles;
         }
-      } catch (err) {
-        // Table doesn't exist
+        if (Array.isArray(systemRolesEmp.availability.positions)) {
+          loadedPositions = systemRolesEmp.availability.positions;
+        }
       }
 
-      if (!loadedRoles && systemRolesEmp && systemRolesEmp.availability && Array.isArray(systemRolesEmp.availability.roles)) {
-        loadedRoles = systemRolesEmp.availability.roles;
-      }
-
+      // Handle Roles
       if (loadedRoles) {
         _roles = loadedRoles;
+        localStorage.setItem('brisk_roles', JSON.stringify(_roles));
       } else {
         const cachedRoles = localStorage.getItem('brisk_roles');
         if (cachedRoles) {
@@ -390,7 +410,25 @@ const BriskDB = (function() {
           _roles = [...DEFAULT_ROLES];
           localStorage.setItem('brisk_roles', JSON.stringify(_roles));
         }
-        createOrUpdateSystemRolesInDb(_roles).catch(console.error);
+      }
+
+      // Handle Positions
+      if (loadedPositions) {
+        _positions = loadedPositions;
+        localStorage.setItem('brisk_positions', JSON.stringify(_positions));
+      } else {
+        const cachedPositions = localStorage.getItem('brisk_positions');
+        if (cachedPositions) {
+          _positions = JSON.parse(cachedPositions);
+        } else {
+          _positions = [...DEFAULT_POSITIONS];
+          localStorage.setItem('brisk_positions', JSON.stringify(_positions));
+        }
+      }
+
+      // Push back to database if missing from server roles record
+      if (systemRolesEmp && (!systemRolesEmp.availability || !systemRolesEmp.availability.roles || !systemRolesEmp.availability.positions)) {
+        createOrUpdateSystemRolesInDb(_roles, _positions).catch(console.error);
       }
 
       setupListeners();
@@ -559,13 +597,38 @@ const BriskDB = (function() {
     getLeaveRequests: () => [..._leaveRequests, ..._historicalLeaveRequests],
     getSettings: () => _settings,
     getRoles: () => _roles.length > 0 ? _roles : DEFAULT_ROLES,
+    getPositions: () => _positions.length > 0 ? _positions : DEFAULT_POSITIONS,
+    addPosition: async function(name) {
+      const newPos = { id: 'pos_' + Date.now(), name };
+      _positions.push(newPos);
+      _positions.sort((a,b) => a.name.localeCompare(b.name));
+      
+      localStorage.setItem('brisk_positions', JSON.stringify(_positions));
+      await createOrUpdateSystemRolesInDb(_roles, _positions);
+      return newPos;
+    },
+    updatePosition: async function(updated) {
+      const idx = _positions.findIndex(p => p.id === updated.id);
+      if (idx !== -1) {
+        _positions[idx] = { ..._positions[idx], ...updated };
+        _positions.sort((a,b) => a.name.localeCompare(b.name));
+      }
+      
+      localStorage.setItem('brisk_positions', JSON.stringify(_positions));
+      await createOrUpdateSystemRolesInDb(_roles, _positions);
+    },
+    deletePosition: async function(id) {
+      _positions = _positions.filter(p => p.id !== id);
+      localStorage.setItem('brisk_positions', JSON.stringify(_positions));
+      await createOrUpdateSystemRolesInDb(_roles, _positions);
+    },
     addRole: async function(role) {
       const newRole = { id: 'role_' + Date.now(), ...role };
       _roles.push(newRole);
       _roles.sort((a,b) => a.name.localeCompare(b.name));
       
       localStorage.setItem('brisk_roles', JSON.stringify(_roles));
-      createOrUpdateSystemRolesInDb(_roles).catch(console.error);
+      createOrUpdateSystemRolesInDb(_roles, _positions).catch(console.error);
 
       try {
         await supabase.from('brisk_roles').insert(role);
@@ -582,7 +645,7 @@ const BriskDB = (function() {
       }
       
       localStorage.setItem('brisk_roles', JSON.stringify(_roles));
-      createOrUpdateSystemRolesInDb(_roles).catch(console.error);
+      createOrUpdateSystemRolesInDb(_roles, _positions).catch(console.error);
 
       try {
         await supabase.from('brisk_roles').update({ name: updated.name, color: updated.color }).eq('id', updated.id);
@@ -593,7 +656,7 @@ const BriskDB = (function() {
     deleteRole: async function(id) {
       _roles = _roles.filter(r => r.id !== id);
       localStorage.setItem('brisk_roles', JSON.stringify(_roles));
-      createOrUpdateSystemRolesInDb(_roles).catch(console.error);
+      createOrUpdateSystemRolesInDb(_roles, _positions).catch(console.error);
 
       try {
         await supabase.from('brisk_roles').delete().eq('id', id);
