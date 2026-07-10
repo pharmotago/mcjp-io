@@ -2670,3 +2670,44 @@ window.pasteCopiedShiftDetails = pasteCopiedShiftDetails;
 window.hexToRgb = hexToRgb;
 window.updatePasteButtonState = updatePasteButtonState;
 
+window.openChangePasswordModal = function() {
+  document.getElementById('modal-change-password').classList.add('active');
+};
+
+window.closeChangePasswordModal = function() {
+  document.getElementById('modal-change-password').classList.remove('active');
+  const newPass = document.getElementById('change-new-password');
+  const confirmPass = document.getElementById('change-confirm-password');
+  if (newPass) newPass.value = '';
+  if (confirmPass) confirmPass.value = '';
+};
+
+window.handleChangePasswordSubmit = async function(event) {
+  event.preventDefault();
+  const newPass = document.getElementById('change-new-password').value;
+  const confirmPass = document.getElementById('change-confirm-password').value;
+
+  if (newPass !== confirmPass) {
+    showToast('Passwords do not match.', 'error');
+    return;
+  }
+
+  const submitBtn = event.target.querySelector('button[type="submit"]');
+  const origText = submitBtn.innerHTML;
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Updating...';
+
+  try {
+    const res = await BriskDB.apiUpdatePassword(newPass);
+    if (res.error) throw new Error(res.error);
+
+    showToast('Password changed successfully!', 'success');
+    closeChangePasswordModal();
+  } catch (err) {
+    showToast(err.message || 'Failed to update password.', 'error');
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = origText;
+  }
+};
+

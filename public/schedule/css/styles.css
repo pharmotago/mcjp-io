@@ -865,6 +865,15 @@ body.theme-light {
   }
 }
 
+.timeclock-terminal,
+.timeclock-admin,
+.leave-form-card,
+.leave-list-card,
+.report-workspace {
+  min-width: 0;
+  width: 100%;
+}
+
 .timeclock-terminal {
   display: flex;
   flex-direction: column;
@@ -905,13 +914,53 @@ body.theme-light {
   margin-top: 6px;
 }
 
+/* Clock Terminal Button Interactions */
 .terminal-actions-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
 }
+
 .terminal-actions-grid button {
-  height: 64px;
+  height: 68px;
+  font-size: 0.98rem;
+  font-weight: 600;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all var(--transition-fast) !important;
+  position: relative;
+}
+
+.terminal-actions-grid button i {
+  font-size: 1.25rem;
+}
+
+.terminal-actions-grid button:disabled {
+  opacity: 0.22 !important;
+  filter: grayscale(85%) blur(0.3px);
+  transform: scale(0.95);
+  box-shadow: none !important;
+  pointer-events: none;
+}
+
+.terminal-actions-grid button:not(:disabled) {
+  transform: scale(1.02);
+  animation: activeTerminalPulse 1.8s infinite alternate;
+}
+
+@keyframes activeTerminalPulse {
+  0% {
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.05);
+  }
+  100% {
+    box-shadow: 0 0 16px rgba(0, 229, 255, 0.2);
+    border-color: var(--accent-cyan) !important;
+  }
 }
 
 /* Timeclock Admin Panel */
@@ -1296,10 +1345,13 @@ body.theme-light {
   .app-container {
     display: flex;
     flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
   }
   
   .mobile-header {
     display: flex;
+    flex-shrink: 0;
   }
 
   .sidebar {
@@ -1325,8 +1377,12 @@ body.theme-light {
   }
 
   .main-content {
-    padding: 1.25rem 1rem;
+    padding: 1.25rem 1rem 80px 1rem !important; /* Extra bottom padding for bottom nav */
     gap: 1.5rem;
+    flex: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
   }
 
   .topbar .live-clock {
@@ -1786,3 +1842,5 @@ body.theme-light {
   color: var(--accent-cyan);
   text-shadow: 0 0 10px rgba(0, 229, 255, 0.4);
 }
+
+
