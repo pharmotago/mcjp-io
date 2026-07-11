@@ -6,10 +6,18 @@
   "scripts": {
     "start": "node server.js",
     "vercel": "vercel",
-    "seed": "node seed.js"
+    "seed": "node seed.js",
+    "seed:firebase": "node firebase-seed.js",
+    "deploy:rules": "firebase deploy --only firestore:rules",
+    "replace": "node replace.js",
+    "test:supabase": "node test-supabase.js",
+    "find-db": "node search-db-conn.js",
+    "try-rpc": "node scratch/try_rpc.js"
   },
   "dependencies": {
-    "express": "^4.19.2"
+    "dotenv": "^17.4.2",
+    "express": "^4.19.2",
+    "firebase-admin": "^14.1.0"
   },
   "devDependencies": {
     "vercel": "^54.18.5"

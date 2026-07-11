@@ -1157,22 +1157,65 @@ function renderScheduler() {
         const emp = state.employees.find(e => e.id === shift.employeeId);
         if (!emp || !emp.active) return;
 
+        const isNeedsCover = shift.notes && shift.notes.startsWith('[NEEDS COVER]');
+        const cleanNotes = isNeedsCover ? shift.notes.replace('[NEEDS COVER]', '').trim() : (shift.notes || '');
         const roleColor = state.roles.find(r => r.name.toLowerCase() === shift.role.toLowerCase())?.color || '#4f46e5';
+
+        const borderLeftStyle = isNeedsCover ? '4px solid #f97316' : `4px solid ${roleColor}`;
+        const bgStyle = isNeedsCover ? 'rgba(249, 115, 22, 0.04)' : `rgba(${hexToRgb(roleColor)}, 0.04)`;
+
+        let actionBtnHtml = '';
+        if (state.currentUser.role !== 'employee') {
+          actionBtnHtml = `
+            <button class="btn btn-outline" style="padding: 2px 8px; font-size: 11px;" onclick="openEditShiftModalById('${shift.id}')">
+              <i class="fa-solid fa-pen"></i> Edit
+            </button>
+          `;
+        } else {
+          const isMyShift = shift.employeeId === state.currentUser.employeeId;
+          if (isMyShift) {
+            if (isNeedsCover) {
+              actionBtnHtml = `
+                <button class="btn btn-outline" style="padding: 2px 8px; font-size: 11px; border-color:var(--border-glass);" onclick="cancelShiftCover('${shift.id}')">
+                  <i class="fa-solid fa-xmark"></i> Cancel Request
+                </button>
+              `;
+            } else {
+              actionBtnHtml = `
+                <button class="btn btn-outline" style="padding: 2px 8px; font-size: 11px; color:#f97316; border-color:rgba(249,115,22,0.4);" onclick="requestShiftCover('${shift.id}')">
+                  <i class="fa-solid fa-hand-holding-hand"></i> Request Cover
+                </button>
+              `;
+            }
+          } else if (isNeedsCover) {
+            actionBtnHtml = `
+              <button class="btn btn-neon" style="padding: 2px 8px; font-size: 11px;" onclick="offerToCover('${shift.id}')">
+                <i class="fa-solid fa-handshake"></i> Cover Shift
+              </button>
+            `;
+          }
+        }
+
         shiftsHtml += `
-          <div class="mobile-shift-item" style="border-left: 4px solid ${roleColor}; background: rgba(${hexToRgb(roleColor)}, 0.04);">
+          <div class="mobile-shift-item" style="border-left: ${borderLeftStyle}; background: ${bgStyle};">
             <div class="mobile-shift-header">
               <span class="mobile-shift-staff">${emp.name}</span>
               <span class="mobile-shift-role">${shift.role}</span>
             </div>
-            <div class="mobile-shift-time">
+            ${isNeedsCover ? `
+              <div>
+                <span class="badge" style="background:rgba(249,115,22,0.12); color:#f97316; border:1px solid rgba(249,115,22,0.25); font-size:10px; padding:2px 6px; border-radius:4px; margin-top:2px; display:inline-block; font-weight:600;">
+                  <i class="fa-solid fa-triangle-exclamation"></i> Cover Requested
+                </span>
+              </div>
+            ` : ''}
+            <div class="mobile-shift-time" style="margin-top: 6px;">
               <i class="fa-regular fa-clock"></i> ${shift.startTime} - ${shift.endTime}
             </div>
-            ${shift.notes ? `<div class="mobile-shift-notes">${shift.notes}</div>` : ''}
-            ${state.currentUser.role !== 'employee' ? `
-              <div class="mobile-shift-actions">
-                <button class="btn btn-outline" style="padding: 2px 8px; font-size: 11px;" onclick="openEditShiftModalById('${shift.id}')">
-                  <i class="fa-solid fa-pen"></i> Edit
-                </button>
+            ${cleanNotes ? `<div class="mobile-shift-notes">${cleanNotes}</div>` : ''}
+            ${actionBtnHtml ? `
+              <div class="mobile-shift-actions" style="margin-top: 8px;">
+                ${actionBtnHtml}
               </div>
             ` : ''}
           </div>
@@ -3417,6 +3460,65 @@ window.openStaffDirectoryModal = function() {
 
 window.closeStaffDirectoryModal = function() {
   document.getElementById('modal-staff-directory').classList.remove('active');
+};
+
+window.requestShiftCover = async function(shiftId) {
+  const shift = state.shifts.find(s => s.id === shiftId);
+  if (!shift) return;
+
+  const originalNotes = shift.notes || '';
+  if (originalNotes.startsWith('[NEEDS COVER]')) return;
+
+  try {
+    shift.notes = `[NEEDS COVER] ${originalNotes}`.trim();
+    await BriskDB.updateShift(shift);
+    showToast('Cover request submitted to board!', 'success');
+    loadDataFromState();
+    renderActivePanel();
+  } catch (err) {
+    showToast('Failed to submit cover request.', 'error');
+  }
+};
+
+window.cancelShiftCover = async function(shiftId) {
+  const shift = state.shifts.find(s => s.id === shiftId);
+  if (!shift) return;
+
+  if (!shift.notes || !shift.notes.startsWith('[NEEDS COVER]')) return;
+
+  try {
+    shift.notes = shift.notes.replace('[NEEDS COVER]', '').trim();
+    await BriskDB.updateShift(shift);
+    showToast('Cover request cancelled.', 'info');
+    loadDataFromState();
+    renderActivePanel();
+  } catch (err) {
+    showToast('Failed to cancel cover request.', 'error');
+  }
+};
+
+window.offerToCover = async function(shiftId) {
+  const shift = state.shifts.find(s => s.id === shiftId);
+  if (!shift) return;
+
+  const currentEmp = state.employees.find(e => e.id === state.currentUser.employeeId);
+  const currentEmpName = currentEmp ? currentEmp.name : 'Someone';
+
+  try {
+    // Roster Cover Match: Assign to covering employee and log approval notes
+    shift.employeeId = state.currentUser.employeeId;
+    // Strip needs cover tag and record cover logs
+    const cleanedNotes = (shift.notes || '').replace('[NEEDS COVER]', '').trim();
+    shift.notes = `[COVERED BY ${currentEmpName}] ${cleanedNotes}`.trim();
+    
+    await BriskDB.updateShift(shift);
+    showToast(` Roster Cover matched! You are now scheduled for this shift.`, 'success');
+    
+    loadDataFromState();
+    renderActivePanel();
+  } catch (err) {
+    showToast('Failed to cover this shift.', 'error');
+  }
 };
 
 
