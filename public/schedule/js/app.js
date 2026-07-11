@@ -163,6 +163,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 // Boot the application: load data and apply role-based views
 async function bootApplication() {
+  state.currentWeekStart = getMondayOfCurrentWeek(new Date());
   try {
     // Show app layout, hide login
     document.getElementById('login-screen').classList.remove('active');
