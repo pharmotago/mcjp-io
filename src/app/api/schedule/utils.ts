@@ -46,8 +46,20 @@ export async function getRequestUser(req: NextRequest) {
       };
     }
     
+    let resolvedRole = userData.role || '';
+    if (userData.employee_id) {
+      const { data: empData } = await supabaseAdmin
+        .from('brisk_employees')
+        .select('role')
+        .eq('id', userData.employee_id)
+        .maybeSingle();
+      if (empData && empData.role && empData.role.toLowerCase().trim() === 'pharmacist manager') {
+        resolvedRole = 'manager';
+      }
+    }
+    
     return {
-      role: userData.role || '',
+      role: resolvedRole,
       employeeId: userData.employee_id || '',
       email: user.email || '',
       isAuthenticated: true

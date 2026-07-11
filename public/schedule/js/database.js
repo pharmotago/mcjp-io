@@ -573,9 +573,21 @@ const BriskDB = (function() {
         throw new Error('User profile record not found in database.');
       }
 
+      let resolvedRole = userProfile.role;
+      if (userProfile.employee_id) {
+        const { data: empData } = await supabase
+          .from('brisk_employees')
+          .select('role')
+          .eq('id', userProfile.employee_id)
+          .maybeSingle();
+        if (empData && empData.role && empData.role.toLowerCase().trim() === 'pharmacist manager') {
+          resolvedRole = 'manager';
+        }
+      }
+
       const session = {
         email: data.user.email,
-        role: userProfile.role,
+        role: resolvedRole,
         employeeId: userProfile.employee_id || null,
         name: userProfile.name || 'Staff Member',
         token: data.session.access_token

@@ -1,8 +1,37 @@
 -- 1. Create Helper Function to get current user role
 CREATE OR REPLACE FUNCTION public.get_current_user_role()
 RETURNS TEXT AS $$
-  SELECT role FROM public.brisk_users WHERE id = auth.uid() LIMIT 1;
-$$ LANGUAGE sql SECURITY DEFINER;
+DECLARE
+  user_role TEXT;
+  emp_id UUID;
+  emp_role TEXT;
+BEGIN
+  -- Get user role and employee_id
+  SELECT role, employee_id INTO user_role, emp_id 
+  FROM public.brisk_users 
+  WHERE id = auth.uid() 
+  LIMIT 1;
+  
+  -- If user is owner or manager, return that role
+  IF user_role IN ('owner', 'manager') THEN
+    RETURN user_role;
+  END IF;
+
+  -- Otherwise, check the employee's role/position
+  IF emp_id IS NOT NULL THEN
+    SELECT role INTO emp_role 
+    FROM public.brisk_employees 
+    WHERE id = emp_id 
+    LIMIT 1;
+    
+    IF emp_role = 'Pharmacist Manager' THEN
+      RETURN 'manager';
+    END IF;
+  END IF;
+
+  RETURN user_role;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
 
 -- Enable RLS on all tables
 ALTER TABLE public.brisk_users ENABLE ROW LEVEL SECURITY;

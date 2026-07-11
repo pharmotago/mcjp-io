@@ -651,7 +651,7 @@ function renderDashboard() {
   tbody.innerHTML = '';
 
   if (todayShifts.length === 0 && todayLeaveRequests.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="4" style="padding: 0;"><div class="empty-state"><i class="fa-solid fa-calendar-xmark"></i><h4>No shifts scheduled</h4><p>You have no shifts scheduled for today.</p></div></td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="4" style="padding: 0;"><div class="empty-state"><i class="fa-solid fa-mug-hot text-neon" style="animation: activeTerminalPulse 1.8s infinite alternate;"></i><h4>No shifts today</h4><p>Enjoy your day! All staff are scheduled off today.</p></div></td></tr>`;
     return;
   }
 
