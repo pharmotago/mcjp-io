@@ -3289,4 +3289,64 @@ function renderDailyPanel() {
 }
 window.renderDailyPanel = renderDailyPanel;
 
+window.openStaffDirectoryModal = function() {
+  const listContainer = document.getElementById('staff-directory-list');
+  if (listContainer) {
+    listContainer.innerHTML = '';
+    
+    // Sort active employees by name
+    const activeEmps = state.employees.filter(e => e.active !== false).sort((a, b) => a.name.localeCompare(b.name));
+    
+    if (activeEmps.length === 0) {
+      listContainer.innerHTML = '<div class="text-muted text-center" style="font-size: 0.9rem; padding: 1rem 0;">No active staff records found.</div>';
+    } else {
+      activeEmps.forEach(emp => {
+        const phone = emp.phone || 'No phone recorded';
+        const email = emp.email || 'No email recorded';
+        const roleColor = state.roles.find(r => r.name.toLowerCase() === emp.role.toLowerCase())?.color || '#a855f7';
+        
+        const card = document.createElement('div');
+        card.style.background = 'rgba(255, 255, 255, 0.03)';
+        card.style.padding = '12px 16px';
+        card.style.borderRadius = '8px';
+        card.style.border = '1px solid var(--border-glass)';
+        card.style.display = 'flex';
+        card.style.justifyContent = 'space-between';
+        card.style.alignItems = 'center';
+        card.style.gap = '12px';
+        
+        card.innerHTML = `
+          <div style="flex: 1;">
+            <div style="font-weight: 600; font-size: 0.95rem; display: flex; align-items: center; gap: 8px;">
+              ${emp.name}
+              <span style="font-size: 0.72rem; padding: 2px 6px; border-radius: 4px; background: rgba(${hexToRgb(roleColor)}, 0.1); color: ${roleColor}; border: 1px solid rgba(${hexToRgb(roleColor)}, 0.2); font-weight: 500;">
+                ${emp.role}
+              </span>
+            </div>
+            <div style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 5px;">
+              <i class="fa-solid fa-phone" style="font-size: 11px; margin-right: 4px; color: var(--accent-cyan);"></i> ${phone}
+            </div>
+            <div style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 3px;">
+              <i class="fa-solid fa-envelope" style="font-size: 11px; margin-right: 4px; color: var(--accent-gold);"></i> ${email}
+            </div>
+          </div>
+          <div>
+            ${emp.phone ? `
+              <a href="tel:${emp.phone}" class="btn btn-icon" style="background: rgba(0, 229, 255, 0.1); color: var(--accent-cyan); width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px;">
+                <i class="fa-solid fa-phone"></i>
+              </a>
+            ` : ''}
+          </div>
+        `;
+        listContainer.appendChild(card);
+      });
+    }
+  }
+  document.getElementById('modal-staff-directory').classList.add('active');
+};
+
+window.closeStaffDirectoryModal = function() {
+  document.getElementById('modal-staff-directory').classList.remove('active');
+};
+
 

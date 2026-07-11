@@ -118,21 +118,21 @@ CREATE POLICY "Users can read timecards"
 ON public.brisk_timecards FOR SELECT TO authenticated 
 USING (
   public.get_current_user_role() IN ('manager', 'owner') OR
-  employee_id IN (SELECT id FROM public.brisk_employees WHERE email = auth.email())
+  employee_id = (SELECT employee_id FROM public.brisk_users WHERE id = auth.uid())
 );
 
 CREATE POLICY "Employees can insert their own timecards" 
 ON public.brisk_timecards FOR INSERT TO authenticated 
 WITH CHECK (
-  employee_id IN (SELECT id FROM public.brisk_employees WHERE email = auth.email())
+  employee_id = (SELECT employee_id FROM public.brisk_users WHERE id = auth.uid())
 );
 
 CREATE POLICY "Employees can update their own timecards" 
 ON public.brisk_timecards FOR UPDATE TO authenticated 
 USING (
-  employee_id IN (SELECT id FROM public.brisk_employees WHERE email = auth.email())
+  employee_id = (SELECT employee_id FROM public.brisk_users WHERE id = auth.uid())
 ) WITH CHECK (
-  employee_id IN (SELECT id FROM public.brisk_employees WHERE email = auth.email())
+  employee_id = (SELECT employee_id FROM public.brisk_users WHERE id = auth.uid())
 );
 
 CREATE POLICY "Managers can modify all timecards" 
@@ -146,13 +146,13 @@ CREATE POLICY "Users can read leave requests"
 ON public.brisk_leave_requests FOR SELECT TO authenticated 
 USING (
   public.get_current_user_role() IN ('manager', 'owner') OR
-  employee_id IN (SELECT id FROM public.brisk_employees WHERE email = auth.email())
+  employee_id = (SELECT employee_id FROM public.brisk_users WHERE id = auth.uid())
 );
 
 CREATE POLICY "Employees can insert/modify their own leave requests" 
 ON public.brisk_leave_requests FOR ALL TO authenticated 
 USING (
-  employee_id IN (SELECT id FROM public.brisk_employees WHERE email = auth.email())
+  employee_id = (SELECT employee_id FROM public.brisk_users WHERE id = auth.uid())
 );
 
 CREATE POLICY "Managers can modify all leave requests" 

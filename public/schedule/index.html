@@ -295,6 +295,9 @@
               <button class="btn btn-outline btn-block" onclick="switchTab('scheduler')">
                 <i class="fa-solid fa-calendar-days"></i> View My Schedule
               </button>
+              <button class="btn btn-outline btn-block" onclick="openStaffDirectoryModal()">
+                <i class="fa-solid fa-address-book"></i> Team Directory
+              </button>
             </div>
           </div>
         </div>
@@ -1054,6 +1057,25 @@
           <button type="submit" class="btn btn-primary">Update Password</button>
         </div>
       </form>
+    </div>
+  </div>
+
+  <!-- Staff Contact Directory Modal -->
+  <div id="modal-staff-directory" class="modal">
+    <div class="modal-content glass-card" role="dialog" aria-modal="true" style="max-width: 500px; max-height: 80vh; overflow-y: auto;">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-address-book text-neon"></i> Staff Directory</h3>
+        <button class="btn btn-icon modal-close" onclick="closeStaffDirectoryModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body" style="padding-top: 0.5rem;">
+        <p class="text-muted" style="font-size: 13px; margin-bottom: 1.25rem;">Get in touch with your team members for shift swaps or coverage.</p>
+        <div id="staff-directory-list" style="display: flex; flex-direction: column; gap: 12px; max-height: 50vh; overflow-y: auto; padding-right: 4px;">
+          <!-- Dynamically populated via JS -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline btn-block" onclick="closeStaffDirectoryModal()">Close</button>
+      </div>
     </div>
   </div>
 
