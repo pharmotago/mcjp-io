@@ -99,7 +99,8 @@ export async function POST(req: NextRequest) {
         email: targetEmail,
         role: targetRole,
         employee_id: employeeId,
-        name: name
+        name: name,
+        password_hash: 'auth-managed'
       });
 
     if (roleErr) {

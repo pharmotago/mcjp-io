@@ -296,7 +296,7 @@ const BriskDB = (function() {
     // 1. Employees Listener
     const empChannel = supabase.channel('realtime:brisk_employees')
       .on('postgres_changes', { event: '*', schema: 'public', table: 'brisk_employees' }, payload => {
-        const { eventType, new: newRec } = payload;
+        const { eventType, new: newRec, old: oldRec } = payload;
         
         // Handle virtual roles employee update
         if (newRec && newRec.email === 'system_roles@brisk.internal') {
@@ -311,6 +311,14 @@ const BriskDB = (function() {
             }
             window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'roles' } }));
             window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'positions' } }));
+          }
+          return;
+        }
+
+        if (eventType === 'DELETE') {
+          if (oldRec && oldRec.id) {
+            _employees = _employees.filter(e => e.id !== oldRec.id);
+            window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'employees' } }));
           }
           return;
         }
@@ -334,17 +342,24 @@ const BriskDB = (function() {
     const shiftChannel = supabase.channel('realtime:brisk_shifts')
       .on('postgres_changes', { event: '*', schema: 'public', table: 'brisk_shifts' }, payload => {
         const { eventType, new: newRec, old: oldRec } = payload;
-        const mappedNew = mapShiftFromDb(newRec);
-        if (eventType === 'INSERT') {
-          if (!_shifts.some(s => s.id === mappedNew.id)) _shifts.push(mappedNew);
-        } else if (eventType === 'UPDATE') {
-          const idx = _shifts.findIndex(s => s.id === mappedNew.id);
-          if (idx !== -1) _shifts[idx] = mappedNew;
-          else _shifts.push(mappedNew);
-        } else if (eventType === 'DELETE') {
-          _shifts = _shifts.filter(s => s.id !== oldRec.id);
+        if (eventType === 'DELETE') {
+          if (oldRec && oldRec.id) {
+            _shifts = _shifts.filter(s => s.id !== oldRec.id);
+            window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'shifts' } }));
+          }
+          return;
         }
-        window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'shifts' } }));
+        const mappedNew = mapShiftFromDb(newRec);
+        if (mappedNew) {
+          if (eventType === 'INSERT') {
+            if (!_shifts.some(s => s.id === mappedNew.id)) _shifts.push(mappedNew);
+          } else if (eventType === 'UPDATE') {
+            const idx = _shifts.findIndex(s => s.id === mappedNew.id);
+            if (idx !== -1) _shifts[idx] = mappedNew;
+            else _shifts.push(mappedNew);
+          }
+          window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'shifts' } }));
+        }
       })
       .subscribe();
     _listeners.push(() => supabase.removeChannel(shiftChannel));
@@ -353,15 +368,24 @@ const BriskDB = (function() {
     const tcChannel = supabase.channel('realtime:brisk_timecards')
       .on('postgres_changes', { event: '*', schema: 'public', table: 'brisk_timecards' }, payload => {
         const { eventType, new: newRec, old: oldRec } = payload;
-        const mappedNew = mapTimecardFromDb(newRec);
-        if (eventType === 'INSERT') {
-          if (!_timecards.some(t => t.id === mappedNew.id)) _timecards.push(mappedNew);
-        } else if (eventType === 'UPDATE') {
-          const idx = _timecards.findIndex(t => t.id === mappedNew.id);
-          if (idx !== -1) _timecards[idx] = mappedNew;
-          else _timecards.push(mappedNew);
+        if (eventType === 'DELETE') {
+          if (oldRec && oldRec.id) {
+            _timecards = _timecards.filter(t => t.id !== oldRec.id);
+            window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'timecards' } }));
+          }
+          return;
         }
-        window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'timecards' } }));
+        const mappedNew = mapTimecardFromDb(newRec);
+        if (mappedNew) {
+          if (eventType === 'INSERT') {
+            if (!_timecards.some(t => t.id === mappedNew.id)) _timecards.push(mappedNew);
+          } else if (eventType === 'UPDATE') {
+            const idx = _timecards.findIndex(t => t.id === mappedNew.id);
+            if (idx !== -1) _timecards[idx] = mappedNew;
+            else _timecards.push(mappedNew);
+          }
+          window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'timecards' } }));
+        }
       })
       .subscribe();
     _listeners.push(() => supabase.removeChannel(tcChannel));
@@ -370,15 +394,24 @@ const BriskDB = (function() {
     const leaveChannel = supabase.channel('realtime:brisk_leave_requests')
       .on('postgres_changes', { event: '*', schema: 'public', table: 'brisk_leave_requests' }, payload => {
         const { eventType, new: newRec, old: oldRec } = payload;
-        const mappedNew = mapLeaveRequestFromDb(newRec);
-        if (eventType === 'INSERT') {
-          if (!_leaveRequests.some(l => l.id === mappedNew.id)) _leaveRequests.push(mappedNew);
-        } else if (eventType === 'UPDATE') {
-          const idx = _leaveRequests.findIndex(l => l.id === mappedNew.id);
-          if (idx !== -1) _leaveRequests[idx] = mappedNew;
-          else _leaveRequests.push(mappedNew);
+        if (eventType === 'DELETE') {
+          if (oldRec && oldRec.id) {
+            _leaveRequests = _leaveRequests.filter(l => l.id !== oldRec.id);
+            window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'leave_requests' } }));
+          }
+          return;
         }
-        window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'leave_requests' } }));
+        const mappedNew = mapLeaveRequestFromDb(newRec);
+        if (mappedNew) {
+          if (eventType === 'INSERT') {
+            if (!_leaveRequests.some(l => l.id === mappedNew.id)) _leaveRequests.push(mappedNew);
+          } else if (eventType === 'UPDATE') {
+            const idx = _leaveRequests.findIndex(l => l.id === mappedNew.id);
+            if (idx !== -1) _leaveRequests[idx] = mappedNew;
+            else _leaveRequests.push(mappedNew);
+          }
+          window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'leave_requests' } }));
+        }
       })
       .subscribe();
     _listeners.push(() => supabase.removeChannel(leaveChannel));
