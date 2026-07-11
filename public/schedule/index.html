@@ -245,6 +245,26 @@
               <h3><i class="fa-solid fa-calendar-day text-orange"></i> Today's Schedule</h3>
               <span class="badge" id="dash-today-date">Loading...</span>
             </div>
+
+            <!-- Personal Weekly Summary Card (Visible only to employees) -->
+            <div class="glass-card hide" id="dash-personal-summary-card" style="margin: 0 1.25rem 1.25rem 1.25rem; background: linear-gradient(135deg, rgba(0, 229, 255, 0.08) 0%, rgba(168, 85, 247, 0.04) 100%); border: 1px solid rgba(0, 229, 255, 0.25);">
+              <div class="card-header" style="border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 0.5rem; margin-bottom: 0.75rem;">
+                <h3><i class="fa-solid fa-wallet text-neon"></i> My Weekly Summary</h3>
+                <span class="text-muted" style="font-size: 11px;" id="personal-summary-week-range">This Week</span>
+              </div>
+              <div class="flex-row" style="justify-content: space-around; gap: 1rem; padding: 0.5rem 0;">
+                <div class="text-center" style="flex: 1;">
+                  <div class="text-muted" style="font-size: 0.78rem; margin-bottom: 4px;">Scheduled Hours</div>
+                  <div style="font-size: 1.4rem; font-weight: 700; color: var(--accent-cyan);" id="personal-summary-hours">0.0h</div>
+                </div>
+                <div style="width: 1px; background: rgba(255, 255, 255, 0.1); height: 40px; align-self: center;"></div>
+                <div class="text-center" style="flex: 1;">
+                  <div class="text-muted" style="font-size: 0.78rem; margin-bottom: 4px;">Estimated Earnings</div>
+                  <div style="font-size: 1.4rem; font-weight: 700; color: #10b981;" id="personal-summary-pay" class="text-neon">$0.00</div>
+                </div>
+              </div>
+            </div>
+
             <div class="shift-list-scroll">
               <table class="data-table">
                 <thead>
@@ -1104,6 +1124,7 @@
   <div id="toast-container" class="toast-container" aria-live="polite"></div>
 
   <!-- Javascript Core -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script type="module" src="js/database.js?v=2.0.0"></script>
   <script type="module" src="js/app.js?v=2.0.0"></script>
 </body>

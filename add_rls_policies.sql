@@ -1,6 +1,10 @@
 -- 1. Create Helper Function to get current user role
 CREATE OR REPLACE FUNCTION public.get_current_user_role()
-RETURNS TEXT AS $$
+RETURNS TEXT
+LANGUAGE plpgsql
+SECURITY INVOKER
+SET search_path = public
+AS $$
 DECLARE
   user_role TEXT;
   emp_id UUID;
@@ -31,7 +35,7 @@ BEGIN
 
   RETURN user_role;
 END;
-$$ LANGUAGE plpgsql SECURITY DEFINER;
+$$;
 
 -- Enable RLS on all tables
 ALTER TABLE public.brisk_users ENABLE ROW LEVEL SECURITY;

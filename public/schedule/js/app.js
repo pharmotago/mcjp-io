@@ -246,6 +246,7 @@ function applyRoleAccessControl() {
   const schedulerControls = document.getElementById('scheduler-manager-controls');
   const quickActionsCard = document.getElementById('dash-quick-actions-card');
   const staffActionsCard = document.getElementById('dash-staff-actions-card');
+  const personalSummaryCard = document.getElementById('dash-personal-summary-card');
   const clockTerminalDesc = document.getElementById('clock-terminal-description');
   const clockEmpSelect = document.getElementById('clock-emp-select');
   const adminPanel = document.getElementById('timeclock-admin-panel');
@@ -259,6 +260,7 @@ function applyRoleAccessControl() {
     if (schedulerControls) schedulerControls.classList.add('hide');
     if (quickActionsCard) quickActionsCard.classList.add('hide');
     if (staffActionsCard) staffActionsCard.classList.remove('hide');
+    if (personalSummaryCard) personalSummaryCard.classList.remove('hide');
     if (adminPanel) adminPanel.classList.add('hide');
     if (leaveSelectorGroup) leaveSelectorGroup.classList.add('hide');
 
@@ -275,6 +277,7 @@ function applyRoleAccessControl() {
     if (schedulerControls) schedulerControls.classList.remove('hide');
     if (quickActionsCard) quickActionsCard.classList.remove('hide');
     if (staffActionsCard) staffActionsCard.classList.add('hide');
+    if (personalSummaryCard) personalSummaryCard.classList.add('hide');
     if (adminPanel) adminPanel.classList.remove('hide');
     if (leaveSelectorGroup) leaveSelectorGroup.classList.remove('hide');
     
@@ -628,6 +631,44 @@ function renderDashboard() {
     return sDate >= mon && sDate <= sun;
   });
   document.getElementById('dash-shifts-count').textContent = weekShifts.length;
+
+  // Calculate employee personal weekly summary
+  if (state.currentUser.role === 'employee') {
+    const empRecord = state.employees.find(e => e.id === state.currentUser.employeeId);
+    const hourlyRate = empRecord ? Number(empRecord.hourlyRate || 0) : 0;
+    
+    // Filter shifts for this specific employee this week
+    const myWeekShifts = weekShifts.filter(s => s.employeeId === state.currentUser.employeeId);
+    
+    let totalHours = 0;
+    myWeekShifts.forEach(s => {
+      const startParts = s.startTime.split(':');
+      const endParts = s.endTime.split(':');
+      if (startParts.length === 2 && endParts.length === 2) {
+        const startDec = Number(startParts[0]) + Number(startParts[1]) / 60;
+        const endDec = Number(endParts[0]) + Number(endParts[1]) / 60;
+        let diff = endDec - startDec;
+        if (diff < 0) diff += 24; // overnight shift Failsafe
+        totalHours += diff;
+      }
+    });
+
+    const estEarnings = totalHours * hourlyRate;
+    
+    const summaryHoursEl = document.getElementById('personal-summary-hours');
+    const summaryPayEl = document.getElementById('personal-summary-pay');
+    const summaryRangeEl = document.getElementById('personal-summary-week-range');
+    
+    if (summaryHoursEl) summaryHoursEl.textContent = `${totalHours.toFixed(1)}h`;
+    if (summaryPayEl) summaryPayEl.textContent = `$${estEarnings.toFixed(2)}`;
+    if (summaryRangeEl) {
+      const formatDateShort = (d) => {
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        return `${d.getDate()} ${months[d.getMonth()]}`;
+      };
+      summaryRangeEl.textContent = `${formatDateShort(mon)} - ${formatDateShort(sun)}`;
+    }
+  }
 
   const todayActiveClockins = state.timecards.filter(tc => {
     return tc.date === todayStr && tc.clockIn && !tc.clockOut;
