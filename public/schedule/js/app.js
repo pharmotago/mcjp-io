@@ -1332,36 +1332,64 @@ async function triggerClearWeek() {
 }
 
 async function triggerAutoScheduler() {
-  const targetWeekStr = formatDateISO(state.currentWeekStart);
-  const clonedShifts = structuredClone(state.shifts);
-  const result = BriskScheduler.run(clonedShifts, state.employees, state.leaveRequests, targetWeekStr, state.timecards, true);
+  const submitBtn = document.getElementById('btn-auto-schedule');
+  const origText = submitBtn ? submitBtn.innerHTML : 'Auto-Schedule';
   
-  if (result.success) {
-    // Save generated shifts to Firestore for target week only
-    const targetWeekStart = new Date(targetWeekStr);
-    const targetWeekEnd = new Date(targetWeekStart);
-    targetWeekEnd.setDate(targetWeekStart.getDate() + 6);
-    targetWeekStart.setHours(0,0,0,0);
-    targetWeekEnd.setHours(23,59,59,999);
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Scheduling...';
+  }
 
-    const weekShifts = result.shifts.filter(s => {
-      const sDate = new Date(s.date);
-      sDate.setHours(0,0,0,0);
-      return sDate >= targetWeekStart && sDate <= targetWeekEnd;
-    });
+  try {
+    const targetWeekStr = formatDateISO(state.currentWeekStart);
+    const clonedShifts = structuredClone(state.shifts);
+    const result = BriskScheduler.run(clonedShifts, state.employees, state.leaveRequests, targetWeekStr, state.timecards, true);
+    
+    if (result.success) {
+      // Save generated shifts to Supabase for target week only
+      const targetWeekStart = new Date(targetWeekStr);
+      const targetWeekEnd = new Date(targetWeekStart);
+      targetWeekEnd.setDate(targetWeekStart.getDate() + 6);
+      targetWeekStart.setHours(0,0,0,0);
+      targetWeekEnd.setHours(23,59,59,999);
 
-    try {
-      await BriskDB.batchUpdateShifts(weekShifts);
-      state.shifts = result.shifts;
-      renderScheduler();
-      
-      showToast(`📅 Auto-Scheduler Complete!\n\n- Shifts successfully assigned: ${result.assignedCount}\n- Shifts left unassigned: ${result.unassignedCount}\n\n[Placement Logs]\n${result.logs.slice(0, 10).join('\n')}\n${result.logs.length > 10 ? '...and more' : ''}`, 'success');
-    } catch (err) {
-      console.error('Auto-Scheduler Save Error:', err);
-      showToast('Auto-Scheduler calculated the schedule, but failed to save to the database. Please try again.', 'error');
+      const weekShifts = result.shifts.filter(s => {
+        const sDate = new Date(s.date);
+        sDate.setHours(0,0,0,0);
+        return sDate >= targetWeekStart && sDate <= targetWeekEnd;
+      });
+
+      try {
+        await BriskDB.batchUpdateShifts(weekShifts);
+        
+        // Update state.shifts in-place with the assigned shifts
+        result.shifts.forEach(updatedShift => {
+          const idx = state.shifts.findIndex(s => s.id === updatedShift.id);
+          if (idx !== -1) {
+            state.shifts[idx] = updatedShift;
+          } else {
+            state.shifts.push(updatedShift);
+          }
+        });
+
+        renderScheduler();
+        
+        showToast(`📅 Auto-Scheduler Complete!\n\n- Shifts successfully assigned: ${result.assignedCount}\n- Shifts left unassigned: ${result.unassignedCount}\n\n[Placement Logs]\n${result.logs.slice(0, 10).join('\n')}\n${result.logs.length > 10 ? '...and more' : ''}`, 'success');
+      } catch (err) {
+        console.error('Auto-Scheduler Save Error:', err);
+        showToast('Auto-Scheduler calculated the schedule, but failed to save to the database. Please try again.', 'error');
+      }
+    } else {
+      showToast(result.message, 'success');
     }
-  } else {
-    showToast(result.message, 'success');
+  } catch (err) {
+    console.error('Auto-Scheduler Run Error:', err);
+    showToast(`Auto-Scheduler error: ${err.message}`, 'error');
+  } finally {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = origText;
+    }
   }
 }
 

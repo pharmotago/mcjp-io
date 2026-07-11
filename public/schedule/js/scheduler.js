@@ -5,8 +5,13 @@ const BriskScheduler = (function() {
   
   // Helper: Convert shift to absolute start and end dates
   function shiftToDateRanges(dateStr, startStr, endStr) {
-    const start = new Date(`${dateStr}T${startStr}:00`);
-    const end = new Date(`${dateStr}T${endStr}:00`);
+    const sStr = startStr || '00:00';
+    const eStr = endStr || '00:00';
+    const start = new Date(`${dateStr}T${sStr}:00`);
+    const end = new Date(`${dateStr}T${eStr}:00`);
+    if (isNaN(start.getTime()) || isNaN(end.getTime())) {
+      return { start: new Date(0), end: new Date(0) };
+    }
     if (end <= start) {
       end.setDate(end.getDate() + 1); // Overnight shift
     }
@@ -17,6 +22,7 @@ const BriskScheduler = (function() {
   function isOverlapping(date1, start1, end1, date2, start2, end2) {
     const r1 = shiftToDateRanges(date1, start1, end1);
     const r2 = shiftToDateRanges(date2, start2, end2);
+    if (r1.start.getTime() === 0 || r2.start.getTime() === 0) return false;
     return r1.start < r2.end && r2.start < r1.end;
   }
 
@@ -37,10 +43,12 @@ const BriskScheduler = (function() {
   // Helper: Check if date falls in a leave range
   function isEmployeeOnLeave(employeeId, dateStr, leaveRequests) {
     const date = new Date(dateStr);
+    if (isNaN(date.getTime())) return false;
     return leaveRequests.some(req => {
-      if (req.employeeId !== employeeId || req.status !== 'Approved') return false;
+      if (req.employeeId !== employeeId || req.status !== 'Approved' || !req.startDate || !req.endDate) return false;
       const start = new Date(req.startDate);
       const end = new Date(req.endDate);
+      if (isNaN(start.getTime()) || isNaN(end.getTime())) return false;
       // Set hours to zero for clean comparison
       date.setHours(0,0,0,0);
       start.setHours(0,0,0,0);
@@ -51,10 +59,34 @@ const BriskScheduler = (function() {
 
   // Helper: Get day of week index (0 = Sun, 1 = Mon, ..., 6 = Sat)
   function getDayOfWeekIndex(dateStr) {
-    // Treat dateStr "YYYY-MM-DD" local time properly
     const [year, month, day] = dateStr.split('-').map(Number);
     const d = new Date(year, month - 1, day);
     return d.getDay();
+  }
+
+  // Helper: Map Position to Daily Roles
+  function getRolesForPosition(position) {
+    const pos = (position || '').trim().toLowerCase();
+    
+    // 1. Owner can do everything
+    if (pos === 'owner') {
+      return ['dispensary', 'tills', 'webster', 'floor', 'floating/floors', 'juniors', 'scripts in/out', 'delivery'];
+    }
+    // 2. Pharmacist Manager & Pharmacist
+    if (pos === 'pharmacist manager' || pos === 'pharmacist') {
+      return ['dispensary', 'webster', 'scripts in/out', 'floating/floors', 'floor', 'tills'];
+    }
+    // 3. Dispense Technician
+    if (pos === 'dispense technician') {
+      return ['dispensary', 'webster', 'tills', 'floor', 'floating/floors', 'scripts in/out'];
+    }
+    // 4. Pharmacy Assistant
+    if (pos === 'pharmacy assistant') {
+      return ['tills', 'floor', 'floating/floors', 'juniors', 'scripts in/out', 'delivery'];
+    }
+    
+    // Default fallback: split by comma to support comma-separated position list or direct daily roles
+    return pos.split(',').map(r => r.trim());
   }
 
   // Heuristic Solver for Employee Shift Assignment
@@ -84,13 +116,15 @@ const BriskScheduler = (function() {
     
     // Precompute Leaves for O(1) lookup
     leaveRequests.forEach(req => {
-      if (req.status !== 'Approved') return;
+      if (req.status !== 'Approved' || !req.startDate || !req.endDate) return;
       let d = new Date(req.startDate);
       const end = new Date(req.endDate);
+      if (isNaN(d.getTime()) || isNaN(end.getTime())) return;
       d.setHours(0,0,0,0);
       end.setHours(0,0,0,0);
       while(d <= end) {
-        const localDateStr = new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().split('T')[0];
+        const offset = d.getTimezoneOffset();
+        const localDateStr = new Date(d.getTime() - offset * 60000).toISOString().split('T')[0];
         employeeLeaves.add(`${req.employeeId}_${localDateStr}`);
         d.setDate(d.getDate() + 1);
       }
@@ -100,6 +134,12 @@ const BriskScheduler = (function() {
 
     const today = new Date();
     today.setHours(0,0,0,0);
+
+    // Save original employee ids to detect modifications correctly (fixes reference comparison bug)
+    const originalEmployeeIds = {};
+    weekShifts.forEach(s => {
+      originalEmployeeIds[s.id] = s.employeeId;
+    });
 
     employees.forEach(emp => {
       let pastHours = 0;
@@ -180,15 +220,13 @@ const BriskScheduler = (function() {
         const candidates = employees.filter(emp => {
           if (!emp.active) return false;
 
-          // Constraint A: Role match (strict array inclusion)
-          const employeeRoles = Array.isArray(emp.role) 
-            ? emp.role.map(r => r.toLowerCase()) 
-            : (emp.role || '').split(',').map(r => r.trim().toLowerCase());
+          // Constraint A: Role match (via Position-to-DailyRoles mapping)
+          const employeeRoles = getRolesForPosition(emp.role);
           const shiftRole = shift.role ? shift.role.toLowerCase() : '';
           if (!employeeRoles.includes(shiftRole)) return false;
 
           // Constraint B: Availability for that day of the week
-          const dayAvail = emp.availability[dayIdx];
+          const dayAvail = (emp.availability && typeof emp.availability === 'object') ? emp.availability[dayIdx] : null;
           if (!dayAvail) return false; // Unavailable on this weekday
 
           let empStartDec = timeToDecimal(dayAvail.start);
@@ -245,11 +283,10 @@ const BriskScheduler = (function() {
       }
     });
 
-    // 3. Apply changes back to the original shifts array and track modified
+    // 3. Apply changes back to the original shifts array and track modified (fixes reference comparison bug)
     shifts.forEach(origShift => {
-      const matched = weekShifts.find(s => s.id === origShift.id);
-      if (matched && origShift.employeeId !== matched.employeeId) {
-        origShift.employeeId = matched.employeeId;
+      const originalId = originalEmployeeIds[origShift.id];
+      if (origShift.employeeId !== originalId) {
         modifiedShifts.push(origShift);
       }
     });
