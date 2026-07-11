@@ -33,12 +33,13 @@
   <div id="login-screen" class="login-overlay active">
     <!-- Login Card -->
     <div id="login-card" class="glass-card login-card">
-      <div class="login-header text-center">
-        <div class="brand-icon" style="margin: 0 auto 12px;">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 2C8.45 2 8 2.45 8 3V8H3C2.45 8 2 8.45 2 9V15C2 15.55 2.45 16 3 16H8V21C8 21.55 8.45 22 9 22H15C15.55 22 16 21.55 16 21V16H21C21.55 16 22 15.55 22 15V9C22 8.45 21.55 8 21 8H16V3C16 2.45 15.55 2 15 2H9Z" fill="currentColor"/></svg>
-        </div>
-        <h2>AMCAL</h2>
-        <span>Pharmacy Woywoy Rosters</span>
+      <div class="login-header text-center" style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+        <svg width="180" height="42" viewBox="0 0 150 35" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin: 0 auto;">
+          <polygon points="5,4 12,4 5,30 -2,30" fill="#C95B60" />
+          <polygon points="16,4 23,4 16,30 9,30" fill="#D5B147" />
+          <text x="30" y="25" font-family="'Outfit', 'Inter', system-ui, sans-serif" font-weight="900" font-size="24" fill="#3CA7E1" letter-spacing="-0.5px">Amcal+</text>
+        </svg>
+        <span style="font-size: 0.85rem; color: var(--accent-gold); letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; margin-top: 2px;">Woywoy Rosters</span>
       </div>
       <form id="login-form" onsubmit="handleLoginSubmit(event)" style="margin-top: 1.5rem;">
         <div class="form-group">
@@ -104,8 +105,12 @@
     <!-- Mobile Header -->
     <div class="mobile-header">
     <div class="brand" style="display: flex; align-items: center; gap: 8px;">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: #0061AB;"><path d="M9 2C8.45 2 8 2.45 8 3V8H3C2.45 8 2 8.45 2 9V15C2 15.55 2.45 16 3 16H8V21C8 21.55 8.45 22 9 22H15C15.55 22 16 21.55 16 21V16H21C21.55 16 22 15.55 22 15V9C22 8.45 21.55 8 21 8H16V3C16 2.45 15.55 2 15 2H9Z" fill="currentColor"/></svg>
-      AMCAL Rosters
+      <svg width="65" height="18" viewBox="0 0 150 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="5,4 12,4 5,30 -2,30" fill="#C95B60" />
+        <polygon points="16,4 23,4 16,30 9,30" fill="#D5B147" />
+        <text x="30" y="25" font-family="'Outfit', 'Inter', system-ui, sans-serif" font-weight="900" font-size="24" fill="#3CA7E1" letter-spacing="-0.5px">Amcal+</text>
+      </svg>
+      <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600; margin-left: 2px;">Rosters</span>
     </div>
     <div class="live-clock mobile-clock" id="mobile-live-clock">--:--:--</div>
     <button class="mobile-menu-btn" aria-label="Toggle Menu" onclick="toggleSidebar()">
@@ -114,14 +119,13 @@
   </div>
 
     <aside class="sidebar">
-      <div class="sidebar-brand">
-        <div class="brand-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 2C8.45 2 8 2.45 8 3V8H3C2.45 8 2 8.45 2 9V15C2 15.55 2.45 16 3 16H8V21C8 21.55 8.45 22 9 22H15C15.55 22 16 21.55 16 21V16H21C21.55 16 22 15.55 22 15V9C22 8.45 21.55 8 21 8H16V3C16 2.45 15.55 2 15 2H9Z" fill="currentColor"/></svg>
-        </div>
-        <div class="brand-text">
-          <h2>AMCAL</h2>
-          <span>Woywoy Rosters</span>
-        </div>
+      <div class="sidebar-brand" style="flex-direction: column; align-items: flex-start; gap: 4px; margin-bottom: 2rem;">
+        <svg width="150" height="35" viewBox="0 0 150 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="5,4 12,4 5,30 -2,30" fill="#C95B60" />
+          <polygon points="16,4 23,4 16,30 9,30" fill="#D5B147" />
+          <text x="30" y="25" font-family="'Outfit', 'Inter', system-ui, sans-serif" font-weight="900" font-size="24" fill="#3CA7E1" letter-spacing="-0.5px">Amcal+</text>
+        </svg>
+        <span style="font-size: 0.75rem; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; font-weight: 600; padding-left: 30px; margin-top: -6px;">Woywoy Rosters</span>
       </div>
 
       <nav class="sidebar-menu" role="tablist">
