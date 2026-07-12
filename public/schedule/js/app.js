@@ -414,9 +414,8 @@ async function handleLoginSubmit(event) {
     return;
   }
 
-  // apiLogin now returns the session object directly (Firebase Auth flow)
+  // apiLogin already calls setSession internally (database.js:621)
   if (res.email) {
-    BriskDB.setSession(res);
     state.currentUser = res;
     document.getElementById('login-form').reset();
     await bootApplication();

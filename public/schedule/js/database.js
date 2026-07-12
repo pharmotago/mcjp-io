@@ -114,8 +114,7 @@ const BriskDB = (function() {
   }
 
   function mapShiftToDb(shift) {
-    return {
-      id: shift.id,
+    const obj = {
       employee_id: shift.employeeId,
       date: shift.date,
       start_time: shift.startTime,
@@ -124,6 +123,8 @@ const BriskDB = (function() {
       status: shift.status || 'draft',
       notes: shift.notes
     };
+    if (shift.id) obj.id = shift.id;
+    return obj;
   }
 
   function mapShiftFromDb(shift) {
@@ -141,8 +142,7 @@ const BriskDB = (function() {
   }
 
   function mapTimecardToDb(tc) {
-    return {
-      id: tc.id,
+    const obj = {
       employee_id: tc.employeeId,
       date: tc.date,
       clock_in: tc.clockIn,
@@ -152,6 +152,8 @@ const BriskDB = (function() {
       approved: tc.approved,
       approved_by: tc.approvedBy
     };
+    if (tc.id) obj.id = tc.id;
+    return obj;
   }
 
   function mapTimecardFromDb(tc) {
@@ -170,14 +172,15 @@ const BriskDB = (function() {
   }
 
   function mapLeaveRequestToDb(lr) {
-    return {
-      id: lr.id,
+    const obj = {
       employee_id: lr.employeeId,
       start_date: lr.startDate,
       end_date: lr.endDate,
       reason: lr.reason,
       status: lr.status
     };
+    if (lr.id) obj.id = lr.id;
+    return obj;
   }
 
   function mapLeaveRequestFromDb(lr) {
