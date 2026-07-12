@@ -1,6 +1,6 @@
 const { createClient } = require('@supabase/supabase-js');
 const crypto = require('crypto');
-require('dotenv').config({ path: 'C:\\Antigravity\\BriskSchedules\\.env' });
+require('dotenv').config({ path: 'C:\\Antigravity\\BriskSchedules\\.env', override: true });
 
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -32,41 +32,96 @@ async function seedPeter() {
 
   console.log('✅ All tables cleared.');
 
-  console.log('👤 Registering Peter Kim as primary Owner...');
+  console.log('👤 Registering Peter Kim and default staff (Wendy Lobb, Laynie, Emersyn)...');
 
-  // 2. Insert Employee Profile
-  const { data: employee, error: empError } = await supabase
+  // 2. Insert Employee Profiles
+  const { data: insertedEmployees, error: empsError } = await supabase
     .from('brisk_employees')
-    .insert({
-      name: 'Peter Kim',
-      email: 'pharmotago@gmail.com',
-      role: 'Pharmacist Manager',
-      hourly_rate: 85.00,
-      max_hours: 45,
-      availability: {
-        0: null, // Sunday
-        1: { start: '08:30', end: '17:30' }, // Monday
-        2: { start: '08:30', end: '17:30' },
-        3: { start: '08:30', end: '17:30' },
-        4: { start: '08:30', end: '17:30' },
-        5: { start: '08:30', end: '17:30' },
-        6: { start: '09:00', end: '13:00' }  // Saturday
+    .insert([
+      {
+        name: 'Peter Kim',
+        email: 'pharmotago@gmail.com',
+        role: 'Pharmacist Manager',
+        hourly_rate: 85.00,
+        max_hours: 45,
+        availability: {
+          0: null, // Sunday
+          1: { start: '08:30', end: '17:30' }, // Monday
+          2: { start: '08:30', end: '17:30' },
+          3: { start: '08:30', end: '17:30' },
+          4: { start: '08:30', end: '17:30' },
+          5: { start: '08:30', end: '17:30' },
+          6: { start: '09:00', end: '13:00' }  // Saturday
+        },
+        active: true
       },
-      active: true
-    })
-    .select()
-    .single();
+      {
+        name: 'Wendy Lobb',
+        email: 'wendy@mcjp.io',
+        role: 'Pharmacy Assistant',
+        hourly_rate: 30.00,
+        max_hours: 38,
+        availability: {
+          0: null,
+          1: { start: '09:00', end: '17:00' },
+          2: { start: '09:00', end: '17:00' },
+          3: { start: '09:00', end: '17:00' },
+          4: { start: '09:00', end: '17:00' },
+          5: { start: '09:00', end: '17:00' },
+          6: null
+        },
+        active: true
+      },
+      {
+        name: 'Laynie',
+        email: 'laynie@mcjp.io',
+        role: 'Pharmacy Assistant',
+        hourly_rate: 30.00,
+        max_hours: 38,
+        availability: {
+          0: null,
+          1: { start: '09:00', end: '17:00' },
+          2: { start: '09:00', end: '17:00' },
+          3: { start: '09:00', end: '17:00' },
+          4: { start: '09:00', end: '17:00' },
+          5: { start: '09:00', end: '17:00' },
+          6: null
+        },
+        active: true
+      },
+      {
+        name: 'Emersyn',
+        email: 'emersyn@mcjp.io',
+        role: 'Pharmacy Assistant',
+        hourly_rate: 30.00,
+        max_hours: 38,
+        availability: {
+          0: null,
+          1: { start: '09:00', end: '17:00' },
+          2: { start: '09:00', end: '17:00' },
+          3: { start: '09:00', end: '17:00' },
+          4: { start: '09:00', end: '17:00' },
+          5: { start: '09:00', end: '17:00' },
+          6: null
+        },
+        active: true
+      }
+    ])
+    .select();
 
-  if (empError || !employee) {
-    console.error('❌ Failed to create employee profile:', empError?.message);
+  if (empsError || !insertedEmployees || insertedEmployees.length === 0) {
+    console.error('❌ Failed to create employee profiles:', empsError?.message);
     process.exit(1);
   }
+
+  const employee = insertedEmployees.find(e => e.email === 'pharmotago@gmail.com');
+  const insertedIds = insertedEmployees.map(e => e.id);
 
   // 3. Create User Account — ADMIN_PASSWORD must be set in environment variables
   const defaultPassword = process.env.ADMIN_PASSWORD;
   if (!defaultPassword) {
     console.error('❌ ADMIN_PASSWORD environment variable is not set. Aborting for security.');
-    await supabase.from('brisk_employees').delete().eq('id', employee.id);
+    await supabase.from('brisk_employees').delete().in('id', insertedIds);
     process.exit(1);
   }
 
@@ -92,8 +147,8 @@ async function seedPeter() {
 
   if (authError || !authUser || !authUser.user) {
     console.error('❌ Failed to create auth user:', authError?.message);
-    // Cleanup employee
-    await supabase.from('brisk_employees').delete().eq('id', employee.id);
+    // Cleanup employees
+    await supabase.from('brisk_employees').delete().in('id', insertedIds);
     process.exit(1);
   }
 
@@ -113,8 +168,8 @@ async function seedPeter() {
 
   if (userError) {
     console.error('❌ Failed to create user account:', userError.message);
-    // Cleanup employee and auth user
-    await supabase.from('brisk_employees').delete().eq('id', employee.id);
+    // Cleanup employees and auth user
+    await supabase.from('brisk_employees').delete().in('id', insertedIds);
     await supabase.auth.admin.deleteUser(uid);
     process.exit(1);
   }

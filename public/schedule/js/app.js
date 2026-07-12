@@ -3157,9 +3157,13 @@ window.handleChangePasswordSubmit = async function(event) {
 };
 
 window.triggerGlobalRefresh = async function() {
+  if (state.isRefreshing) return; // Prevent duplicate concurrent sync requests
+  state.isRefreshing = true;
+
   const refreshBtn = document.getElementById('btn-global-refresh');
   const icon = refreshBtn ? refreshBtn.querySelector('i') : null;
   
+  if (refreshBtn) refreshBtn.disabled = true;
   if (icon) icon.classList.add('fa-spin');
   showToast('Refreshing data from Supabase...', 'info');
 
@@ -3172,6 +3176,8 @@ window.triggerGlobalRefresh = async function() {
   } catch (err) {
     showToast('Failed to refresh: ' + err.message, 'error');
   } finally {
+    state.isRefreshing = false;
+    if (refreshBtn) refreshBtn.disabled = false;
     if (icon) {
       setTimeout(() => {
         icon.classList.remove('fa-spin');
