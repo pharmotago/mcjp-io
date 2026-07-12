@@ -85,17 +85,18 @@ const BriskDB = (function() {
 
   // --- SQL Mapper Functions to resolve DB Snake Case vs JS Camel Case ---
   function mapEmployeeToDb(emp) {
-    return {
-      id: emp.id,
+    const obj = {
       name: emp.name,
       email: emp.email,
       role: emp.role,
-      phone: emp.phone,
+      phone: emp.phone || null,
       hourly_rate: emp.hourlyRate,
       max_hours: emp.maxHours,
       availability: emp.availability,
       active: emp.active
     };
+    if (emp.id) obj.id = emp.id;
+    return obj;
   }
 
   function mapEmployeeFromDb(emp) {
