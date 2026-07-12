@@ -8,51 +8,69 @@ export const runtime = 'nodejs';
 
 export async function GET(req: NextRequest) {
   const results: Record<string, string> = {};
+  const passwords = ['R0E7E8tbnSCOJlI1', 'Lynden5620968.', 'peter123'];
 
-  // Standard Vercel auto-injected environment variables from Supabase Integration
-  const connectionStrings = [
-    process.env.POSTGRES_URL,
-    process.env.POSTGRES_URL_NON_POOLING,
-    process.env.POSTGRES_PRISMA_URL,
-    // Sometimes prefixed
-    process.env.mcjp_POSTGRES_URL,
-    process.env.mcjp_POSTGRES_URL_NON_POOLING
-  ].filter(Boolean) as string[];
+  // Test permutations for Seoul Region Pooler
+  const dbConfigs: Array<{
+    host: string;
+    port: number;
+    user: string;
+    pass: string;
+  }> = [];
 
-  for (const connStr of connectionStrings) {
-    const displayStr = connStr.replace(/:([^@:]+)@/, ':****@'); // Hide password
+  for (const password of passwords) {
+    // Both port 5432 and 6543
+    dbConfigs.push({
+      host: 'aws-1-ap-northeast-2.pooler.supabase.com',
+      port: 5432,
+      user: 'postgres.gcslfkujlfnznedatrsn',
+      pass: password
+    });
+    dbConfigs.push({
+      host: 'aws-1-ap-northeast-2.pooler.supabase.com',
+      port: 6543,
+      user: 'postgres.gcslfkujlfnznedatrsn',
+      pass: password
+    });
+    // In case pooler allows direct postgres user
+    dbConfigs.push({
+      host: 'aws-1-ap-northeast-2.pooler.supabase.com',
+      port: 5432,
+      user: 'postgres',
+      pass: password
+    });
+  }
+
+  for (const config of dbConfigs) {
+    const displayLabel = `host=${config.host} port=${config.port} user=${config.user} pass=****`;
     const client = new Client({
-      connectionString: connStr,
+      host: config.host,
+      port: config.port,
+      user: config.user,
+      password: config.pass,
+      database: 'postgres',
       ssl: {
         rejectUnauthorized: false
       }
     });
+
     try {
       await client.connect();
       const res = await client.query('ALTER TABLE public.brisk_employees ADD COLUMN IF NOT EXISTS phone TEXT;');
-      results[displayStr] = 'SUCCESS: ' + JSON.stringify(res);
+      results[displayLabel] = 'SUCCESS: ' + JSON.stringify(res);
       await client.end();
-      return NextResponse.json({ success: true, message: 'Altered successfully via Vercel Supabase integration!', results }, { status: 200 });
+      return NextResponse.json({ success: true, message: 'Altered successfully via Seoul Pooler!', results }, { status: 200 });
     } catch (err) {
-      results[displayStr] = 'FAILED: ' + (err instanceof Error ? err.message : String(err));
+      results[displayLabel] = 'FAILED: ' + (err instanceof Error ? err.message : String(err));
       try {
         await client.end();
       } catch (e) {}
     }
   }
 
-  // Diagnostic dump of keys
-  const injectedKeys = Object.keys(process.env).filter(key => 
-    key.includes('POSTGRES') || key.includes('SUPABASE') || key.includes('DATABASE')
-  );
-
   return NextResponse.json({
     success: false,
-    message: 'Could not connect using any of the available environment variables. Please check Vercel deployment logs.',
-    results,
-    diagnostics: {
-      injectedKeys,
-      hasPostgresUrl: !!process.env.POSTGRES_URL
-    }
+    message: 'All connection attempts to Seoul Pooler failed.',
+    results
   }, { status: 500 });
 }
