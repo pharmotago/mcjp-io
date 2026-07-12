@@ -1,88 +1,35 @@
 import { NextRequest, NextResponse } from 'next/server';
-// @ts-ignore
-import { Client } from 'pg';
-
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 export const runtime = 'nodejs';
 
 export async function GET(req: NextRequest) {
-  const results: Record<string, string> = {};
+  const supabaseUrl = process.env.SUPABASE_URL || 'https://gcslfkujlfnznedatrsn.supabase.co';
+  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdjc2xma3VqbGZuem5lZGF0cnNuIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NjQ5MTA4OSwiZXhwIjoyMDkyMDY3MDg5fQ.RLVurx-xFrtJJ87k9OuovJ4nH9sWWi1kfjSyt5GWpO4';
 
-  // Vercel auto-injected environment variables from Supabase Integration
-  const vercelEnvUrls = [
-    process.env.POSTGRES_URL,
-    process.env.POSTGRES_URL_NON_POOLING,
-    process.env.POSTGRES_PRISMA_URL,
-    // Sometimes prefixed or slightly different based on integration name
-    process.env.mcjp_POSTGRES_URL,
-    process.env.mcjp_POSTGRES_URL_NON_POOLING
-  ].filter(Boolean) as string[];
-
-  // 1. Try Vercel's auto-injected integration credentials first
-  for (const connStr of vercelEnvUrls) {
-    const displayStr = connStr.replace(/:([^@:]+)@/, ':****@'); // Hide password
-    const client = new Client({
-      connectionString: connStr,
-      ssl: {
-        rejectUnauthorized: false
+  try {
+    const res = await fetch(`${supabaseUrl}/rest/v1/`, {
+      headers: {
+        'apikey': serviceKey,
+        'Authorization': `Bearer ${serviceKey}`,
+        'Accept': 'application/json'
       }
     });
-    try {
-      await client.connect();
-      const res = await client.query('ALTER TABLE public.brisk_employees ADD COLUMN IF NOT EXISTS phone TEXT;');
-      results[displayStr] = 'SUCCESS: ' + JSON.stringify(res);
-      await client.end();
-      return NextResponse.json({ success: true, message: 'Altered via Vercel env integration', results }, { status: 200 });
-    } catch (err) {
-      results[displayStr] = 'FAILED: ' + (err instanceof Error ? err.message : String(err));
-      try {
-        await client.end();
-      } catch (e) {}
-    }
+
+    const schema = await res.json();
+    const rpcPaths = Object.keys(schema.paths || {}).filter(path => path.startsWith('/rpc/'));
+
+    return NextResponse.json({
+      success: true,
+      message: 'Retrieved PostgREST OpenAPI schema successfully',
+      supabaseUrl,
+      rpcPaths,
+      allPaths: Object.keys(schema.paths || {})
+    }, { status: 200 });
+
+  } catch (err) {
+    return NextResponse.json({
+      success: false,
+      error: err instanceof Error ? err.message : String(err)
+    }, { status: 500 });
   }
-
-  // 2. Fallback to hardcoded IPv6 direct mapping
-  const passwords = ['R0E7E8tbnSCOJlI1', 'Lynden5620968.', 'peter123'];
-  for (const password of passwords) {
-    const connectionStrings = [
-      `postgres://postgres:${password}@[2406:da12:557:f800:464b:f0dd:2b1e:53d6]:5432/postgres`,
-      `postgres://postgres.gcslfkujlfnznedatrsn:${password}@[2406:da12:557:f800:464b:f0dd:2b1e:53d6]:6543/postgres`
-    ];
-
-    for (const connStr of connectionStrings) {
-      const displayStr = connStr.replace(password, '****');
-      const client = new Client({
-        connectionString: connStr,
-        ssl: {
-          rejectUnauthorized: false
-        }
-      });
-      try {
-        await client.connect();
-        const res = await client.query('ALTER TABLE public.brisk_employees ADD COLUMN IF NOT EXISTS phone TEXT;');
-        results[displayStr] = 'SUCCESS: ' + JSON.stringify(res);
-        await client.end();
-        return NextResponse.json({ success: true, message: 'Altered via IPv6 Direct Bypass', results }, { status: 200 });
-      } catch (err) {
-        results[displayStr] = 'FAILED: ' + (err instanceof Error ? err.message : String(err));
-        try {
-          await client.end();
-        } catch (e) {}
-      }
-    }
-  }
-
-  // Diagnostic environmental keys dump to see what was injected
-  const envKeys = Object.keys(process.env).filter(key => key.includes('POSTGRES') || key.includes('SUPABASE') || key.includes('DATABASE'));
-
-  return NextResponse.json({ 
-    success: false, 
-    message: 'All connection attempts failed.', 
-    results,
-    diagnostics: {
-      injectedKeys: envKeys,
-      envTestUrl: process.env.POSTGRES_URL ? 'PRESENT' : 'MISSING'
-    }
-  }, { status: 500 });
 }
