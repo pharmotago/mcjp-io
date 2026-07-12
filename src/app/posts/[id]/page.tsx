@@ -109,7 +109,9 @@ export async function generateMetadata(
     title,
     description,
     keywords: post.data.keywords || [],
-    alternates: post.data.canonical ? { canonical: post.data.canonical } : undefined,
+    alternates: {
+      canonical: post.data.canonical || `/posts/${resolvedParams.id}`,
+    },
     openGraph: {
       title,
       description,

@@ -1,3 +1,13 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Terms of Service | MCJP.io",
+  description: "Read the Terms of Service for MCJP.io. Understand our guidelines, disclaimer, and user terms.",
+  alternates: {
+    canonical: "/terms",
+  },
+};
+
 export default function TermsPage() {
   return (
     <div className="max-w-3xl mx-auto space-y-8 py-6">

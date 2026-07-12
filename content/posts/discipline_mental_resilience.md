@@ -10,7 +10,7 @@ lastUpdated: "2026-08-05"
 
 ## Building Mental Resilience: Techniques for Staying Strong Under Pressure
 
-In a world characterized by rapid change and unforeseen challenges, the ability to maintain composure and clarity under pressure has never been more critical. Mental resilience is not merely a trait; it is a skill that can be cultivated through deliberate practice and discipline. This article delves into actionable techniques designed to foster mental resilience, equipping you with the tools necessary to navigate life's inevitable adversities while remaining focused and emotionally strong.
+In a world characterized by rapid change and unforeseen challenges, the ability to maintain composure and clarity under pressure has never been more critical. [Mental resilience](/posts/discipline_masculine_mental_resilience) is not merely a trait; it is a skill that can be cultivated through deliberate practice and discipline. This article delves into actionable techniques designed to foster mental resilience, equipping you with the tools necessary to navigate life's inevitable adversities while remaining focused and emotionally strong.
 
 ### Understanding Mental Resilience
 

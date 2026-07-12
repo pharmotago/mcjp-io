@@ -16,13 +16,13 @@ Dopamine is often misunderstood as the "pleasure" chemical. In reality, it is th
 
 In our natural state, dopamine is released in response to effortful, meaningful achievements. However, modern technology—social media feeds, algorithmic video platforms, and instant messaging—provides unnaturally high concentrations of dopamine with zero effort. When you endlessly scroll, you flood your brain with cheap dopamine. Over time, through a process known as neuroplasticity, your brain adapts to this toxic abundance by down-regulating dopamine receptors. Your baseline for stimulation rises. Consequently, tasks that require sustained effort but offer delayed gratification—like writing, coding, strategic planning, or studying—become neurologically agonizing.
 
-To engage in deep work, you must lower your baseline stimulation. You must make the difficult feel easy again by making the easy feel boring.
+To engage in [deep work](/posts/discipline_deep_work_protocols), you must lower your baseline stimulation. You must make the difficult feel easy again by making the easy feel boring.
 
 ![A minimalist workspace featuring a closed laptop and a single open notebook, symbolizing a deliberate break from digital distractions to cultivate elite focus](/images/discipline_dopamine_fasting_deep_work_focus.png)
 
 ### The Architecture of Elite Deep Work
 
-Deep work is the ability to focus without distraction on a cognitively demanding task. It is the crucible in which elite cognitive performance is forged. When you achieve a state of deep work, you produce at your absolute peak capacity. But you cannot enter this state if your brain is subconsciously waiting for the next notification. 
+Deep work is the ability to focus without distraction on a cognitively demanding task. It is the crucible in which elite [cognitive performance](/posts/discipline_flow_state_optimization) is forged. When you achieve a state of deep work, you produce at your absolute peak capacity. But you cannot enter this state if your brain is subconsciously waiting for the next notification. 
 
 Elite deep work requires a brain that is starved of cheap thrills. When you practice dopamine fasting, you restore the receptor density required to find deep satisfaction in complex problem-solving. The friction of concentration dissolves, replaced by a state of flow. This is where true [asset building](/posts/money_content_site_acquisitions) occurs. Whether you are architecting a business model, writing a thesis, or developing software, the value you create is directly proportional to the depth of your focus.
 

@@ -12,7 +12,7 @@ The objective of raising kids is not to shield them from the world, but to forge
 
 ### The Architecture of Mental Toughness
 
-Mental toughness is frequently misunderstood as a callous suppression of emotion. In reality, it is the ability to persist through discomfort, regulate emotional responses under pressure, and maintain forward momentum when motivation wanes. It is the ultimate intangible asset. Just as you would systematically build a financial portfolio to withstand market volatility, a father must systematically build psychological capital in his children to withstand life’s volatility.
+[Mental toughness](/posts/discipline_mental_toughness_training) is frequently misunderstood as a callous suppression of emotion. In reality, it is the ability to persist through discomfort, regulate emotional responses under pressure, and maintain forward momentum when motivation wanes. It is the ultimate intangible asset. Just as you would systematically build a financial portfolio to withstand market volatility, a father must systematically build psychological capital in his children to withstand life’s volatility.
 
 This process begins with a paradigm shift. We must abandon the cultural obsession with hyper-protection. When we constantly intervene to save our children from failure, we send a debilitating message: *you are not capable of handling this*. Resilience is forged in the crucible of manageable failure. 
 
@@ -22,7 +22,7 @@ This process begins with a paradigm shift. We must abandon the cultural obsessio
 
 Accountability is the bedrock of resilience. Children who are shielded from the consequences of their actions develop a victim mentality, looking externally for the source of their failures. Children who are held accountable develop an internal locus of control, recognizing that their responses dictate their outcomes.
 
-To cultivate this, a father must practice restraint. When your child forgets their homework, leaves their sports equipment at home, or faces a natural consequence of poor time management, do not rush in to fix it. Allow the friction to occur. The temporary discomfort of a late grade or a missed practice is a small price to pay for the lifelong lesson of causality.
+To cultivate this, a father must practice restraint. When your child forgets their homework, leaves their sports equipment at home, or faces a natural consequence of poor [time management](/posts/discipline_focus_productivity), do not rush in to fix it. Allow the friction to occur. The temporary discomfort of a late grade or a missed practice is a small price to pay for the lifelong lesson of causality.
 
 **Actionable Steps for Accountability:**
 *   **Audit Your Interventions:** Track how many times you "rescue" your child in a given week. Aim to reduce this number by 50%.
@@ -39,7 +39,7 @@ Modeling emotional regulation requires you to narrate your internal processes. W
 
 ### Pillar III: Engineering Productive Struggle
 
-Long-term asset building applies to human capital just as much as it applies to financial capital. To build resilience, you must intentionally engineer environments where your child is required to struggle. This is the concept of "productive struggle"—placing children in situations that are slightly beyond their current level of competence, requiring them to stretch, adapt, and grow.
+Long-term [asset building](/posts/money_content_site_acquisitions) applies to human capital just as much as it applies to financial capital. To build resilience, you must intentionally engineer environments where your child is required to struggle. This is the concept of "productive struggle"—placing children in situations that are slightly beyond their current level of competence, requiring them to stretch, adapt, and grow.
 
 This can take the form of demanding physical sports, learning a complex musical instrument, or taking on significant household responsibilities. The goal is not to break their spirit, but to expand their capacity. When a child realizes they can endure physical exhaustion or master a complex cognitive task, their baseline for what they believe they can achieve shifts permanently.
 

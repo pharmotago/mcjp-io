@@ -18,7 +18,7 @@ Technology, with its limitless potential, offers both opportunities and challeng
 
 ### The Importance of Mindful Technology
 
-Mindfulness in technology use is not just a trendy buzzword; it is a critical component of self-discipline. It involves being fully present and intentional with how you engage with digital tools. This approach not only enhances focus but also significantly boosts productivity. By consciously choosing when and how to interact with technology, you create space for deep work and meaningful connections.
+Mindfulness in technology use is not just a trendy buzzword; it is a critical component of self-discipline. It involves being fully present and intentional with how you engage with digital tools. This approach not only enhances focus but also significantly boosts productivity. By consciously choosing when and how to interact with technology, you create space for [deep work](/posts/discipline_deep_work_protocols) and meaningful connections.
 
 ### Action Plan for Digital Discipline
 

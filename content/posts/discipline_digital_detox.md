@@ -20,7 +20,7 @@ Research indicates that multitasking, often glorified in our hyper-connected soc
 
 ### The Importance of a Digital Detox
 
-A digital detox is more than just a break from screens; it’s a conscious decision to step back from the distractions of technology to reevaluate our relationship with it. The benefits of undertaking a digital detox are manifold:
+A [digital detox](/posts/discipline_solitude_cognitive_clarity) is more than just a break from screens; it’s a conscious decision to step back from the distractions of technology to reevaluate our relationship with it. The benefits of undertaking a digital detox are manifold:
 
 - **Enhanced Focus**: By reducing digital distractions, you can hone your ability to concentrate on tasks, leading to improved performance and productivity.
 - **Mental Clarity**: A break from the noise allows for clearer thinking, enabling you to process information more effectively and make better decisions.

@@ -9,7 +9,11 @@
     "lint": "eslint",
     "auto-publish": "node scripts/auto_publish.js",
     "vercel-deploy": "node c:/Antigravity/BriskSchedules/node_modules/vercel/dist/index.js --prod --force --yes",
-    "seed:firebase": "node firebase-seed.js"
+    "seed:firebase": "node firebase-seed.js",
+    "copy-images": "node scratch/copy_images.js",
+    "inject-links": "node scripts/inject_internal_links.js",
+    "unzip-coverage": "powershell -Command \"Expand-Archive -Path 'C:\\Users\\Sung\\Downloads\\http___blog.mcjp.io_-Coverage-2026-07-12.zip' -DestinationPath 'C:\\Antigravity\\mcjp-io\\scratch\\coverage' -Force\"",
+    "cleanup-duplicates": "node scripts/cleanup_duplicates.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.109.0",

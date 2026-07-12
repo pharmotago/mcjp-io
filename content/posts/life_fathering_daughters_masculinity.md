@@ -28,7 +28,7 @@ Furthermore, the standard you set is the standard she will accept. If you are a 
 
 ## The Architecture of Boundaries
 
-A woman without boundaries is a fortress without walls. One of the most vital family duties a father has is teaching his daughter how to construct, enforce, and defend her personal boundaries. This education begins not with her interactions with others, but with her interactions with you.
+A woman without boundaries is a fortress without walls. One of the most vital [family duties](/posts/life_family_duties) a father has is teaching his daughter how to construct, enforce, and defend her personal boundaries. This education begins not with her interactions with others, but with her interactions with you.
 
 If you playfully override her "no" when she is a child, you teach her that her boundaries are negotiable. If you respect her physical and emotional limits, you teach her that her autonomy is sacred. 
 

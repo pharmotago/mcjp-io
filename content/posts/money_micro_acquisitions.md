@@ -15,9 +15,9 @@ This is not about flipping digital [real estate](/posts/money_asset_diversificat
 
 ### The Thesis of Buying Over Building
 
-In traditional finance, private equity firms acquire mature companies, optimize their operations, and scale them for a profitable exit. The exact same methodology is now available to individual operators in the digital space. Content sites, SaaS micro-tools, newsletters, and e-commerce storefronts are routinely traded on open marketplaces.
+In traditional finance, private equity firms acquire mature companies, optimize their operations, and scale them for a profitable exit. The exact same methodology is now available to individual operators in the digital space. [Content sites](/posts/money_content_site_acquisitions), SaaS micro-tools, newsletters, and e-commerce storefronts are routinely traded on open marketplaces.
 
-The thesis is simple: it is often cheaper to buy an audience and a proven product than it is to build one from zero. An existing business comes with historical data, an established customer base, and existing cash flow. Your job as the acquirer is not to create the machine, but to oil it, tune it, and scale it. 
+The thesis is simple: it is often cheaper to buy an audience and a proven product than it is to build one from zero. An existing business comes with historical data, an established customer base, and existing [cash flow](/posts/money_digital_real_estate_empire). Your job as the acquirer is not to create the machine, but to oil it, tune it, and scale it. 
 
 ![A disciplined entrepreneur analyzing financial charts and online business acquisition metrics on a dual-monitor setup](/images/money_micro_acquisitions_focus.png)
 

@@ -24,7 +24,7 @@ In an increasingly complex world, the ability to think quickly and adaptively is
 
 3. **Increased Adaptability**: Life is inherently unpredictable. Those who can think on their feet are often better equipped to embrace change and turn challenges into opportunities.
 
-4. **Greater Resilience**: Developing mental agility fosters resilience, allowing individuals to bounce back from setbacks more swiftly and effectively.
+4. **Greater Resilience**: Developing [mental agility](/posts/discipline_neuroplasticity_enhancement) fosters resilience, allowing individuals to bounce back from setbacks more swiftly and effectively.
 
 ### Cognitive Training Exercises for Mental Agility
 

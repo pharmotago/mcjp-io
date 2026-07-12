@@ -18,7 +18,7 @@ Mental resilience refers to the ability to adapt to stress, adversity, trauma, o
 
 ### The Importance of Self-Discipline
 
-Self-discipline serves as the backbone of mental resilience. It allows individuals to make choices that align with their long-term goals rather than succumbing to immediate temptations or distractions. Here are several ways to enhance self-discipline:
+Self-discipline serves as the backbone of [mental resilience](/posts/discipline_mental_resilience). It allows individuals to make choices that align with their long-term goals rather than succumbing to immediate temptations or distractions. Here are several ways to enhance self-discipline:
 
 - **Establish Clear Goals**: Define what success looks like for you. Be specific about your objectives, whether personal, professional, or relational.
 - **Create Routines**: Develop daily practices that reinforce discipline. Morning routines, exercise regimens, and dedicated work hours can create a structured environment conducive to resilience.
@@ -30,7 +30,7 @@ Building mental resilience requires intention and practice. Here are actionable 
 
 #### 1. Embrace Challenges
 
-View challenges as opportunities for growth. Instead of avoiding discomfort, lean into it. Each challenge faced and overcome builds mental fortitude.
+View challenges as opportunities for growth. Instead of avoiding discomfort, lean into it. Each challenge faced and overcome builds [mental fortitude](/posts/discipline_mental_fortitude_development).
 
 - **Action Plan**:
   - Identify a recent challenge.
@@ -47,7 +47,7 @@ Mindfulness cultivates awareness of the present moment, reducing anxiety about t
 
 #### 3. Foster a Support Network
 
-Building resilient mental health does not have to be a solitary journey. Surround yourself with individuals who uplift and support you. Engage in meaningful conversations that challenge your perspectives yet provide encouragement.
+Building resilient [mental health](/posts/life_emotional_strength) does not have to be a solitary journey. Surround yourself with individuals who uplift and support you. Engage in meaningful conversations that challenge your perspectives yet provide encouragement.
 
 - **Action Plan**:
   - Identify three people you trust and can share your challenges with.

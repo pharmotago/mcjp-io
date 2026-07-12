@@ -16,11 +16,11 @@ In the dynamic landscape of [modern masculinity](/posts/family_role_of_man), the
 
 ### Understanding Emotional Health
 
-Emotional health encompasses our ability to manage feelings, cope with challenges, and build meaningful relationships. For men, acknowledging and addressing emotional health can be particularly challenging due to societal norms that often equate masculinity with emotional suppression. However, embracing emotional health is not a sign of weakness; rather, it is an essential aspect of personal growth and resilience.
+[Emotional health](/posts/life_masculine_mental_wellbeing) encompasses our ability to manage feelings, cope with challenges, and build meaningful relationships. For men, acknowledging and addressing emotional health can be particularly challenging due to societal norms that often equate masculinity with emotional suppression. However, embracing emotional health is not a sign of weakness; rather, it is an essential aspect of [personal growth](/posts/discipline_emotional_intelligence_training) and resilience.
 
 #### The Impact of Modern Masculinity on Emotional Health
 
-Modern masculinity requires men to navigate a delicate balance between traditional expectations and contemporary ideals. This landscape is characterized by:
+[Modern masculinity](/posts/family_role_of_man) requires men to navigate a delicate balance between traditional expectations and contemporary ideals. This landscape is characterized by:
 
 - **Increased vulnerability:** Today's men are encouraged to express their emotions openly, which can lead to newfound strength but may also create anxiety about societal perceptions.
 - **Changing roles:** With evolving family structures and workplace dynamics, men are increasingly taking on roles that demand emotional intelligence and empathy, challenging conventional notions of masculinity.

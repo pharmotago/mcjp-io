@@ -18,7 +18,7 @@ Building this legacy requires a multifaceted approach:
 
 1. **Self-Discipline**: The cornerstone of any successful financial plan. It involves making informed decisions and resisting the temptation of immediate gratification.
 2. **Integrity**: Conducting financial affairs transparently and ethically ensures that your legacy is respected and valued.
-3. **Long-term Asset Building**: Focusing on investments that appreciate over time rather than quick wins.
+3. **Long-term [Asset Building](/posts/money_content_site_acquisitions)**: Focusing on investments that appreciate over time rather than quick wins.
 
 ![Focused man contemplating his financial legacy](/images/money_masculine_financial_legacy_focus.png)
 

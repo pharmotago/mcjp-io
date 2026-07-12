@@ -62,6 +62,6 @@ To effectively implement [time management](/posts/life_fatherhood_work_life_bala
 
 ### Final Thoughts
 
-Mastering time management is not merely about fitting more tasks into your day; it is about making deliberate choices that align with your values and aspirations. The disciplined man recognizes that time is his most valuable asset, and he treats it with the respect and intention it deserves. By implementing these strategies, you can elevate your productivity and efficiency, ultimately leading to a more fulfilling life.
+Mastering [time management](/posts/discipline_focus_productivity) is not merely about fitting more tasks into your day; it is about making deliberate choices that align with your values and aspirations. The disciplined man recognizes that time is his most valuable asset, and he treats it with the respect and intention it deserves. By implementing these strategies, you can elevate your productivity and efficiency, ultimately leading to a more fulfilling life.
 
 For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal. Remember, the journey to effective time management requires consistent effort and a commitment to personal growth. Embrace this journey, and you will find yourself achieving more than you ever thought possible.

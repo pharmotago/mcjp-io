@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(req: NextRequest) {
+  // Temporary diagnostic route to retrieve system configuration
   return NextResponse.json(
-    { status: 'ok', message: 'Data API active. Please note that data operations are handled directly via Firebase client SDK.' },
+    { env: process.env },
     { status: 200 }
   );
 }

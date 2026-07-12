@@ -58,7 +58,7 @@ In our digital age, technology can both enhance and hinder communication. To str
 
 ### Building Long-Term Assets through Communication
 
-Effective communication is not just a skill; it is an investment in your family's future. By fostering open dialogue and emotional intelligence, you are equipping your children with tools that will serve them throughout their lives. Just as you would invest in tangible assets, prioritize building communication skills as a long-term asset for your family.
+Effective communication is not just a skill; it is an investment in your family's future. By fostering open dialogue and [emotional intelligence](/posts/discipline_emotional_intelligence_training), you are equipping your children with tools that will serve them throughout their lives. Just as you would invest in tangible assets, prioritize building [communication skills](/posts/life_relationships_communication) as a long-term asset for your family.
 
 ### The Role of Integrity in Communication
 

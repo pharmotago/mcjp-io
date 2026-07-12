@@ -12,7 +12,7 @@ A work ethic is not a natural byproduct of breathing. It is a cultivated asset. 
 
 ### The Mirror of Masculine Development
 
-Children are impeccable hypocrite detectors. You cannot lecture your son on the value of hard work if your weekends are spent in a state of lethargic consumption. Masculine development begins with the father’s own uncompromising standard. If you want your son to embrace the grind, he must see you embrace it first. 
+Children are impeccable hypocrite detectors. You cannot lecture your son on the value of hard work if your weekends are spent in a state of lethargic consumption. [Masculine development](/posts/life_raising_capable_sons) begins with the father’s own uncompromising standard. If you want your son to embrace the grind, he must see you embrace it first. 
 
 Silent teaching is the most potent form of instruction. Wake up early. Train your body when you are exhausted. Read instead of scrolling through digital feeds. Let him see you frustrated but still fulfilling your obligations to your family and your career. Your life is the primary textbook he will study. If you take shortcuts, he will learn that shortcuts are acceptable. If you hold the line when things get difficult, he will learn that capitulation is not an option.
 
@@ -34,7 +34,7 @@ Ask him what he could have done differently. Teach him that accountability is th
 
 ### Long-Term Asset Building and Integrity
 
-Hard work applied to fleeting desires is a waste of energy. Teach your son to direct his work ethic toward long-term asset building. This applies equally to financial capital, physical health, and intellectual depth. Teach him the magic of compounding—how a small amount of disciplined effort applied daily over a decade yields extraordinary, disproportionate results. 
+Hard work applied to fleeting desires is a waste of energy. Teach your son to direct his work ethic toward long-term [asset building](/posts/money_content_site_acquisitions). This applies equally to financial capital, physical health, and intellectual depth. Teach him the magic of compounding—how a small amount of disciplined effort applied daily over a decade yields extraordinary, disproportionate results. 
 
 Integrity is the bedrock of this process. A man who works hard but lacks integrity is a liability to himself and his community. Teach him that his word must be an unbreakable bond, and that his work, no matter how small or unseen, must be done with absolute honesty. A man's reputation is his most valuable long-term asset, and it is built one kept promise and one honest day's labor at a time.
 
@@ -49,4 +49,4 @@ To operationalize these philosophies, implement the following actionable strateg
 *   **Eliminate Frictionless Dopamine:** Strictly limit screen time and digital pacifiers. Boredom is the precursor to initiative. A bored mind will eventually seek out a problem to solve or a skill to master.
 *   **Conduct After-Action Reviews:** After a significant task, project, or failure, sit down with your son. Ask three questions: What went well? What went wrong? What will we do differently next time?
 
-Raising sons with an iron will is not an act of cruelty; it is the highest form of love. The world will not care about their comfort. It will only reward their capacity to endure, adapt, and produce. As a father, your role is to be the forge. Provide the heat, swing the hammer, and shape them into men who do not break when the pressure mounts. The legacy you leave is not found in your bank account, but in the unyielding character of the men you raise.
+[Raising sons](/posts/life_fatherhood_anti_fragility) with an iron will is not an act of cruelty; it is the highest form of love. The world will not care about their comfort. It will only reward their capacity to endure, adapt, and produce. As a father, your role is to be the forge. Provide the heat, swing the hammer, and shape them into men who do not break when the pressure mounts. The legacy you leave is not found in your bank account, but in the unyielding character of the men you raise.

@@ -14,7 +14,7 @@ Whether you are pivoting a business model, rebuilding after a financial setback,
 
 ### The Anatomy of Resilience
 
-Resilience is frequently misunderstood as mere toughness or the ability to endure suffering. In reality, resilience is the byproduct of disciplined, long-term asset building. It is the psychological and structural runway you construct during times of calm that allows you to absorb shocks during times of turbulence. 
+Resilience is frequently misunderstood as mere toughness or the ability to endure suffering. In reality, resilience is the byproduct of disciplined, long-term [asset building](/posts/money_content_site_acquisitions). It is the psychological and structural runway you construct during times of calm that allows you to absorb shocks during times of turbulence. 
 
 Without discipline, resilience is merely a reaction. With discipline, resilience becomes a proactive strategy. It is the daily commitment to doing what is necessary over what is easy. When you face an adaptive challenge, your existing playbook will inevitably fail. The friction of this failure generates intense psychological discomfort. It is discipline that holds the center when your environment is in flux, ensuring you do not retreat into denial or impulsive decision-making.
 
@@ -33,7 +33,7 @@ Consider the following actionable framework to build resilience through discipli
 
 ### Long-Term Asset Building and Integrity
 
-At the core of overcoming adaptive challenges is the concept of long-term asset building. This extends beyond financial capital to encompass intellectual, physical, and relational capital. Every disciplined action you take is a deposit into these accounts. When an adaptive crisis strikes, you draw upon this compounded equity.
+At the core of overcoming adaptive challenges is the concept of long-term [asset building](/posts/money_digital_real_estate_empire). This extends beyond financial capital to encompass intellectual, physical, and relational capital. Every disciplined action you take is a deposit into these accounts. When an adaptive crisis strikes, you draw upon this compounded equity.
 
 Integrity plays a crucial role in this process. Integrity is not simply moral honesty; it is the state of being whole and undivided. It means that your actions align with your stated values, even when navigating uncharted territory. When you operate with integrity, you eliminate the cognitive dissonance that drains energy. You build a reputation—both internally and externally—as a reliable operator. This reputation becomes a critical asset when you need to mobilize resources, rally a team, or secure trust during periods of intense change.
 

@@ -8,7 +8,7 @@ author: "Peter Kim"
 lastUpdated: "2027-01-04"
 ---
 
-The modern landscape presents a paradox for the modern father. We live in an era of unprecedented physical safety, yet our sons are increasingly vulnerable to psychological fragility, purposelessness, and a crisis of identity. The traditional markers of manhood have been obscured by a culture that often equates coddling with care. In this environment, fatherhood transcends mere provision; it demands the deliberate, strategic architecture of character. Raising sons today requires an intentional focus on masculine development, forging individuals capable of navigating volatility with unshakeable resolve. 
+The modern landscape presents a paradox for the modern father. We live in an era of unprecedented physical safety, yet our sons are increasingly vulnerable to psychological fragility, purposelessness, and a crisis of identity. The traditional markers of manhood have been obscured by a culture that often equates coddling with care. In this environment, fatherhood transcends mere provision; it demands the deliberate, strategic architecture of character. [Raising sons](/posts/life_fatherhood_anti_fragility) today requires an intentional focus on [masculine development](/posts/life_fatherhood_work_ethic), forging individuals capable of navigating volatility with unshakeable resolve. 
 
 Fathers must transition from the role of a mere protector to that of a strategic life architect. The objective is not to shield your son from the friction of reality, but to ensure he possesses the requisite grit, accountability, and [emotional intelligence](/posts/life_emotional_intelligence) to harness that friction as a catalyst for growth. 
 
@@ -60,6 +60,6 @@ To operationalize these concepts, a father must integrate them into the daily rh
 
 ## The Ultimate Imperative
 
-The ultimate goal of fatherhood is not to raise a boy who is comfortable, but to raise a man who is capable. The world will not coddle your son; it will test his resolve, his integrity, and his strength. By instilling grit, enforcing radical accountability, and cultivating profound emotional intelligence, you prepare him not just to survive the realities of modern life, but to master them. 
+The ultimate goal of fatherhood is not to raise a boy who is comfortable, but to raise a man who is capable. The world will not coddle your son; it will test his resolve, his integrity, and his strength. By instilling grit, enforcing radical accountability, and cultivating profound [emotional intelligence](/posts/discipline_emotional_intelligence_training), you prepare him not just to survive the realities of modern life, but to master them. 
 
 The strategy is demanding, but the ROI is generational. A capable man, forged by a deliberate father, becomes a pillar of strength for his own family and his community. This is the legacy of intentional parenting.

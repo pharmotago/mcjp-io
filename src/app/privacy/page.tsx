@@ -1,3 +1,13 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy | MCJP.io",
+  description: "Read the Privacy Policy for MCJP.io. Learn how we handle your personal data and respect your privacy.",
+  alternates: {
+    canonical: "/privacy",
+  },
+};
+
 export default function PrivacyPage() {
   return (
     <div className="max-w-3xl mx-auto space-y-8 py-6">

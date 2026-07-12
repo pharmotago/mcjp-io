@@ -16,7 +16,7 @@ True [family leadership](/posts/family_role_of_man) begins internally. When fina
 
 You must create a psychological firewall between the brutal realities of the market and the sanctuary of your home. Process the stress during your morning runs, in your private journal, or in the quiet of your office. When you step into the living room, your demeanor must communicate competence. Your family does not need to see you sweat; they need to see you steer. 
 
-Emotional strength in fatherhood is the deliberate choice to filter chaos into order. It is the commitment to saying, "The landscape has changed, and here is our map," rather than, "We are lost." 
+[Emotional strength](/posts/discipline_mental_resilience) in fatherhood is the deliberate choice to filter chaos into order. It is the commitment to saying, "The landscape has changed, and here is our map," rather than, "We are lost." 
 
 ![A father looking thoughtfully out a window while reviewing family finances, symbolizing calm leadership during economic stress](/images/life_family_financial_leadership_focus.png)
 
@@ -50,7 +50,7 @@ For older children, financial hardship can be a profound teaching moment. It is 
 
 ## The Action Plan: Navigating the Downturn
 
-To operationalize your family leadership during financial hardship, execute the following checklist:
+To operationalize your [family leadership](/posts/family_role_of_man) during financial hardship, execute the following checklist:
 
 *   **Conduct a 48-Hour Financial Audit:** Track every penny spent over two days. Identify the immediate leaks in your budget and seal them.
 *   **Establish the War Room:** Sit down with your spouse to review the restructured budget. Present the plan clearly and assign operational roles (e.g., who handles grocery budgeting, who manages bill negotiations).
@@ -63,4 +63,4 @@ To operationalize your family leadership during financial hardship, execute the 
 
 Financial hardship is a forge. It burns away the frivolous and tempers the essential. Men who shy away from this fire leave their families vulnerable to the elements. Men who stand firmly within it emerge with a refined sense of purpose and an unshakable household.
 
-Your family does not need a perfect man; they need a present, steady, and decisive one. By embodying emotional strength, executing strategic financial triage, and maintaining unyielding integrity, you transform an economic downturn from a crisis into a defining chapter of your family leadership. The storm will eventually pass, and when the waters calm, your family will look back and recognize that the ship stayed afloat because the captain never abandoned the wheel.
+Your family does not need a perfect man; they need a present, steady, and decisive one. By embodying [emotional strength](/posts/life_emotional_strength), executing strategic financial triage, and maintaining unyielding integrity, you transform an economic downturn from a crisis into a defining chapter of your family leadership. The storm will eventually pass, and when the waters calm, your family will look back and recognize that the ship stayed afloat because the captain never abandoned the wheel.

@@ -23,7 +23,7 @@ To build a solid financial independence blueprint, consider the following pillar
 
 1. **Budgeting**: The foundation of financial health.
 2. **Investing**: Growing your wealth over time.
-3. **Debt Management**: Reducing liabilities to increase cash flow.
+3. **Debt Management**: Reducing liabilities to increase [cash flow](/posts/money_content_site_acquisitions).
 4. **Income Diversification**: Creating multiple streams of income.
 5. **Emergency Fund**: Safeguarding against unforeseen expenses.
 

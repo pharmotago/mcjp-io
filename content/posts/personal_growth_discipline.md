@@ -13,13 +13,13 @@ In an age characterized by relentless notifications, constant connectivity, and 
 
 ### Understanding the Dopamine Economy
 
-Dopamine, often referred to as the "feel-good" neurotransmitter, plays a crucial role in motivating behavior and decision-making. In our hyper-connected world, instant gratification is ubiquitous—social media likes, binge-watching series, and endless scrolling through news feeds provide quick bursts of pleasure. However, these fleeting moments of satisfaction come at a cost: they drain our cognitive energy and diminish our capacity for deep work.
+Dopamine, often referred to as the "feel-good" neurotransmitter, plays a crucial role in motivating behavior and decision-making. In our hyper-connected world, instant gratification is ubiquitous—social media likes, binge-watching series, and endless scrolling through news feeds provide quick bursts of pleasure. However, these fleeting moments of satisfaction come at a cost: they drain our cognitive energy and diminish our capacity for [deep work](/posts/discipline_deep_work_protocols).
 
-To reclaim control over our focus, we must first understand the impact of dopamine on our behavior. The key lies in recognizing how our habits shape our neural pathways, reinforcing patterns of passive consumption. This understanding forms the foundation of the Dopamine Shield, allowing us to cultivate self-discipline and develop deep work habits.
+To reclaim control over our focus, we must first understand the impact of dopamine on our behavior. The key lies in recognizing how our habits shape our neural pathways, reinforcing patterns of passive consumption. This understanding forms the foundation of the Dopamine Shield, allowing us to cultivate self-discipline and develop [deep work](/posts/discipline_dopamine_fasting_deep_work) habits.
 
 ### The Pillars of the Dopamine Shield
 
-Building an effective Dopamine Shield requires a multifaceted approach. The following pillars serve as a roadmap to enhance focus and foster a disciplined work ethic.
+Building an effective Dopamine Shield requires a multifaceted approach. The following pillars serve as a roadmap to enhance focus and foster a disciplined [work ethic](/posts/life_fatherhood_work_ethic).
 
 #### 1. **Dopamine Detox: Recalibrating Your Brain**
 

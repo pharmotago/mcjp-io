@@ -22,9 +22,9 @@ Research indicates that our cognitive resources are finite. Each time we switch 
 
 1. **Enhanced [Mental Clarity](/posts/discipline_mental_clarity)**: By abstaining from distractions, your mind becomes a blank canvas. This clarity allows for innovative thinking and problem-solving.
 
-2. **Increased Productivity**: With fewer interruptions, you can immerse yourself in deep work, leading to higher quality outputs in less time.
+2. **Increased Productivity**: With fewer interruptions, you can immerse yourself in [deep work](/posts/discipline_deep_work_protocols), leading to higher quality outputs in less time.
 
-3. **Strengthened Self-Discipline**: Practicing focus fasting cultivates the discipline necessary for long-term asset building in both personal and professional realms.
+3. **Strengthened Self-Discipline**: Practicing focus fasting cultivates the discipline necessary for long-term [asset building](/posts/money_content_site_acquisitions) in both personal and professional realms.
 
 4. **Reduced Stress**: A cluttered mind often leads to anxiety. Focus fasting helps streamline your thoughts, promoting a sense of calm and control.
 

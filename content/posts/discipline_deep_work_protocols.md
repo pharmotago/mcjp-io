@@ -14,7 +14,7 @@ In today’s fast-paced world, the ability to engage in [deep work](/posts/disci
 
 ## Understanding Deep Work
 
-Deep work, a term popularized by Cal Newport, refers to the ability to focus without distraction on a cognitively demanding task. This state of concentration allows individuals to produce high-quality work efficiently. The benefits of deep work extend beyond productivity; they include:
+[Deep work](/posts/discipline_dopamine_fasting_deep_work), a term popularized by Cal Newport, refers to the ability to focus without distraction on a cognitively demanding task. This state of concentration allows individuals to produce high-quality work efficiently. The benefits of deep work extend beyond productivity; they include:
 
 - Enhanced cognitive capabilities
 - Greater satisfaction in work

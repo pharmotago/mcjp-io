@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About MCJP.io — Sovereign Blueprints for the Modern Man",
   description: "MCJP.io publishes actionable systems for building leveraged wealth, mastering discipline, and leading your family with integrity. No fluff — just the blueprints.",
+  alternates: {
+    canonical: "/about",
+  },
   openGraph: {
     title: "About MCJP.io — Sovereign Blueprints for the Modern Man",
     description: "MCJP.io publishes actionable systems for building leveraged wealth, mastering discipline, and leading your family with integrity. No fluff — just the blueprints.",

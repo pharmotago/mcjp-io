@@ -26,7 +26,7 @@ Family duties encompass a wide array of responsibilities, from financial provisi
    
 2. **Emotional Availability**: As a leader, it is crucial to be emotionally present. This means actively listening, engaging in meaningful conversations, and being available during times of need.
 
-3. **Role Modeling**: Children learn through observation. By embodying integrity, discipline, and a strong work ethic, men can instill these values in their children.
+3. **Role Modeling**: Children learn through observation. By embodying integrity, discipline, and a strong [work ethic](/posts/life_fatherhood_work_ethic), men can instill these values in their children.
 
 4. **Conflict Resolution**: Family life is not devoid of conflict. A responsible family leader must navigate disagreements constructively, fostering an environment of respect and understanding.
 

@@ -14,7 +14,7 @@ In a world where distractions abound and time seems to slip through our fingers,
 
 ### The Foundation of a Success Routine
 
-At its core, a success routine is built on the principles of self-discipline, integrity, and long-term asset building. It involves creating a structured framework for how you approach each day, ensuring that your actions align with your goals. Here are some key components that define a successful routine:
+At its core, a success routine is built on the principles of self-discipline, integrity, and long-term [asset building](/posts/money_content_site_acquisitions). It involves creating a structured framework for how you approach each day, ensuring that your actions align with your goals. Here are some key components that define a successful routine:
 
 1. **Morning Rituals**: High achievers often rise early, utilizing the quiet of the morning to set a positive tone for the day. This could involve meditation, journaling, or physical exercise, all of which contribute to [mental clarity](/posts/discipline_digital_detox) and emotional resilience.
 

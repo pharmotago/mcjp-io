@@ -28,7 +28,7 @@ This imperative extends beyond personal ambition; it forms the bedrock of family
 
 ## The Environment of Execution
 
-A transformed mindset cannot thrive in a chaotic environment. Modern self-improvement requires a ruthless audit of your physical and digital surroundings. This means engineering your workspace for deep work, practicing intentional digital detoxes, and eliminating the friction that derails your daily routines. 
+A transformed mindset cannot thrive in a chaotic environment. Modern self-improvement requires a ruthless audit of your physical and digital surroundings. This means engineering your workspace for [deep work](/posts/discipline_deep_work_protocols), practicing intentional digital detoxes, and eliminating the friction that derails your daily routines. 
 
 If your environment supports your discipline, your discipline will support your goals. When you sit down to execute your most critical tasks, your infrastructure should facilitate flow rather than fight against it. For a seamless and high-speed home office connection that eliminates technical excuses and supports deep, uninterrupted work, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee. When your connectivity is reliable, your mind has no room left for external excuses.
 

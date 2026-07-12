@@ -66,7 +66,7 @@ In the quest to raise anti-fragile sons, focus on cultivating lifelong skills th
 
 As we embrace the complexities of [modern fatherhood](/posts/life_fatherhood_modern_challenges), our mission is clear: to raise sons who are not merely survivors of chaos but who thrive in it. By fostering anti-fragility through exploration, [emotional intelligence](/posts/life_emotional_intelligence), and community support, we empower them to face life’s uncertainties with confidence and resilience.
 
-In the face of modern challenges, it is our duty to guide our sons, equipping them with the tools and mindset needed to navigate an unpredictable world. Let us embrace this profound responsibility with integrity and purpose.
+In the face of [modern challenges](/posts/life_modern_masculine_ethics), it is our duty to guide our sons, equipping them with the tools and mindset needed to navigate an unpredictable world. Let us embrace this profound responsibility with integrity and purpose.
 
 ![A father teaching his son valuable life lessons, emphasizing growth and resilience](./images/life_fatherhood_anti_fragility_theme.png)
 

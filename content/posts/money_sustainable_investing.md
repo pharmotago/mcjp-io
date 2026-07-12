@@ -88,7 +88,7 @@ In a world increasingly aware of its environmental and social responsibilities, 
 
 For those looking to build a digital presence alongside their investment journey, we recommend launching your [digital assets](/posts/money_crypto_investments) on Hostinger to secure their exclusive partner discount and ensure your ideas reach a wider audience.
 
-As you pursue sustainable investment strategies, remember that you possess the power to shape a better future for yourself and the planet. Embrace this opportunity with integrity and discipline, for the rewards—both financial and ethical—are well worth the effort.
+As you pursue sustainable [investment strategies](/posts/money_investing_for_long_term_weath), remember that you possess the power to shape a better future for yourself and the planet. Embrace this opportunity with integrity and discipline, for the rewards—both financial and ethical—are well worth the effort.
 
 ---
 > **Legal Disclaimer:** The information provided on MCJP.io, including but not limited to business models, financial assets, and wealth strategies, is for general educational and informational purposes only. It does not constitute professional financial, legal, or investment advice. Always consult with a certified financial planner or legal professional before making any financial decisions.

@@ -14,22 +14,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
-      url: `${baseUrl}/?category=Money`,
+      url: `${baseUrl}/about`,
       lastModified: new Date().toISOString(),
-      changeFrequency: 'weekly' as const,
+      changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/?category=Life`,
+      url: `${baseUrl}/contact`,
       lastModified: new Date().toISOString(),
-      changeFrequency: 'weekly' as const,
-      priority: 0.8,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
     },
     {
-      url: `${baseUrl}/?category=Discipline`,
+      url: `${baseUrl}/privacy`,
       lastModified: new Date().toISOString(),
-      changeFrequency: 'weekly' as const,
-      priority: 0.8,
+      changeFrequency: 'monthly' as const,
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/terms`,
+      lastModified: new Date().toISOString(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.3,
     },
   ];
 

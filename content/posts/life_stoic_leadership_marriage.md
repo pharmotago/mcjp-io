@@ -28,7 +28,7 @@ Stoicism teaches the cultivation of inner strength and the mastery of one's emot
 
 ## Building Emotional Strength
 
-To lead effectively, one must first cultivate personal resilience. Emotional strength is not about suppressing emotions but understanding and channeling them constructively.
+To lead effectively, one must first cultivate personal resilience. [Emotional strength](/posts/discipline_mental_resilience) is not about suppressing emotions but understanding and channeling them constructively.
 
 ### Strategies for Cultivating Emotional Resilience
 
@@ -61,4 +61,4 @@ True leadership in marriage involves a delicate dance between being a pillar of 
 
 ![A harmonious, balanced marital relationship where stoic leadership and empathy coexist](/images/life_stoic_leadership_marriage_theme.png)
 
-In conclusion, stoic leadership in marriage is about embracing a dual role: one of strength and empathy. By cultivating emotional resilience and fostering deep connections, men can lead their families with wisdom and compassion. The journey is continuous, but with the right mindset and tools, it's one that enriches not just the marriage but the entire family dynamic.
+In conclusion, stoic leadership in marriage is about embracing a dual role: one of strength and empathy. By cultivating [emotional resilience](/posts/life_fatherhood_mental_health) and fostering deep connections, men can lead their families with wisdom and compassion. The journey is continuous, but with the right mindset and tools, it's one that enriches not just the marriage but the entire family dynamic.
