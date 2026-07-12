@@ -281,6 +281,16 @@
               </div>
             </div>
 
+            <!-- Personal Time Off Requests (Visible only to employees) -->
+            <div class="glass-card hide" id="dash-personal-leaves-card" style="margin: 0 1.25rem 1.25rem 1.25rem; border: 1px solid rgba(0, 229, 255, 0.2); background: rgba(0, 229, 255, 0.01);">
+              <div class="card-header" style="border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 0.5rem; margin-bottom: 0.75rem;">
+                <h3><i class="fa-solid fa-plane-departure text-neon"></i> My Time Off Requests</h3>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 8px; max-height: 180px; overflow-y: auto; padding: 0 4px;" id="personal-leaves-list">
+                <span class="text-muted" style="font-size: 0.85rem;">No recent time off requests.</span>
+              </div>
+            </div>
+
             <div class="shift-list-scroll">
               <table class="data-table">
                 <thead>

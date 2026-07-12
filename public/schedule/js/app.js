@@ -248,6 +248,7 @@ function applyRoleAccessControl() {
   const staffActionsCard = document.getElementById('dash-staff-actions-card');
   const personalSummaryCard = document.getElementById('dash-personal-summary-card');
   const nextShiftCard = document.getElementById('dash-next-shift-card');
+  const personalLeavesCard = document.getElementById('dash-personal-leaves-card');
   const clockTerminalDesc = document.getElementById('clock-terminal-description');
   const clockEmpSelect = document.getElementById('clock-emp-select');
   const adminPanel = document.getElementById('timeclock-admin-panel');
@@ -263,6 +264,7 @@ function applyRoleAccessControl() {
     if (staffActionsCard) staffActionsCard.classList.remove('hide');
     if (personalSummaryCard) personalSummaryCard.classList.remove('hide');
     if (nextShiftCard) nextShiftCard.classList.remove('hide');
+    if (personalLeavesCard) personalLeavesCard.classList.remove('hide');
     if (adminPanel) adminPanel.classList.add('hide');
     if (leaveSelectorGroup) leaveSelectorGroup.classList.add('hide');
 
@@ -281,6 +283,7 @@ function applyRoleAccessControl() {
     if (staffActionsCard) staffActionsCard.classList.add('hide');
     if (personalSummaryCard) personalSummaryCard.classList.add('hide');
     if (nextShiftCard) nextShiftCard.classList.add('hide');
+    if (personalLeavesCard) personalLeavesCard.classList.add('hide');
     if (adminPanel) adminPanel.classList.remove('hide');
     if (leaveSelectorGroup) leaveSelectorGroup.classList.remove('hide');
     
@@ -711,6 +714,57 @@ function renderDashboard() {
         `;
       } else {
         nextShiftDetailsEl.innerHTML = `<span class="text-muted" style="font-size: 0.85rem;">No upcoming shifts scheduled.</span>`;
+      }
+    }
+
+    // Render employee personal leave requests
+    const personalLeavesListEl = document.getElementById('personal-leaves-list');
+    if (personalLeavesListEl) {
+      const myLeaves = state.leaveRequests
+        .filter(r => r.employeeId === state.currentUser.employeeId)
+        .sort((a, b) => b.startDate.localeCompare(a.startDate)) // Show newest first
+        .slice(0, 3); // Top 3
+
+      if (myLeaves.length === 0) {
+        personalLeavesListEl.innerHTML = '<span class="text-muted" style="font-size: 0.85rem; padding: 4px 0; display:block;">No recent time off requests.</span>';
+      } else {
+        personalLeavesListEl.innerHTML = '';
+        myLeaves.forEach(lv => {
+          let badgeColor = '#f97316'; // Pending (Orange)
+          let badgeColorRgb = '249, 115, 22';
+          if (lv.status === 'Approved') {
+            badgeColor = '#10b981'; // Green
+            badgeColorRgb = '16, 185, 129';
+          } else if (lv.status === 'Rejected') {
+            badgeColor = '#ef4444'; // Red
+            badgeColorRgb = '239, 68, 68';
+          }
+
+          const container = document.createElement('div');
+          container.style.display = 'flex';
+          container.style.justifyContent = 'space-between';
+          container.style.alignItems = 'center';
+          container.style.padding = '8px 12px';
+          container.style.background = 'rgba(255, 255, 255, 0.02)';
+          container.style.borderRadius = '6px';
+          container.style.border = '1px solid var(--border-glass)';
+          container.style.fontSize = '0.85rem';
+
+          const dateStr = lv.startDate === lv.endDate || !lv.endDate 
+            ? lv.startDate 
+            : `${lv.startDate} ~ ${lv.endDate}`;
+
+          container.innerHTML = `
+            <div>
+              <div style="font-weight:600; color: var(--text-primary);">${dateStr}</div>
+              <div style="font-size:0.75rem; color:var(--text-muted); margin-top:2px;">Type: ${lv.type}</div>
+            </div>
+            <span class="badge" style="background:rgba(${badgeColorRgb}, 0.12); color:${badgeColor}; border:1px solid rgba(${badgeColorRgb}, 0.25); font-size: 10px; font-weight:600; padding: 2px 6px; border-radius:4px;">
+              ${lv.status}
+            </span>
+          `;
+          personalLeavesListEl.appendChild(container);
+        });
       }
     }
   }
