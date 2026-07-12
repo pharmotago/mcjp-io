@@ -90,8 +90,8 @@ const BriskDB = (function() {
       email: emp.email,
       role: emp.role,
       phone: emp.phone || null,
-      hourly_rate: emp.hourlyRate,
-      max_hours: emp.maxHours,
+      hourly_rate: (emp.hourlyRate != null && !isNaN(emp.hourlyRate)) ? emp.hourlyRate : 0,
+      max_hours: (emp.maxHours != null && !isNaN(emp.maxHours)) ? emp.maxHours : 38,
       availability: emp.availability,
       active: emp.active
     };
