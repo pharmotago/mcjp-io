@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 // @ts-ignore
 import { Client } from 'pg';
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
 export const runtime = 'nodejs';
 
 export async function GET(req: NextRequest) {
@@ -11,8 +13,8 @@ export async function GET(req: NextRequest) {
   for (const password of passwords) {
     // Direct port 5432 uses user 'postgres', pooler port 6543 uses 'postgres.gcslfkujlfnznedatrsn'
     const connectionStrings = [
-      `postgres://postgres.gcslfkujlfnznedatrsn:${password}@aws-0-ap-southeast-2.pooler.supabase.com:6543/postgres?sslmode=require`,
-      `postgres://postgres:${password}@db.gcslfkujlfnznedatrsn.supabase.co:5432/postgres?sslmode=require`
+      `postgres://postgres.gcslfkujlfnznedatrsn:${password}@aws-0-ap-southeast-2.pooler.supabase.com:6543/postgres`,
+      `postgres://postgres:${password}@db.gcslfkujlfnznedatrsn.supabase.co:5432/postgres`
     ];
 
     for (const connStr of connectionStrings) {
