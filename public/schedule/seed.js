@@ -105,6 +105,40 @@ async function seedPeter() {
           6: null
         },
         active: true
+      },
+      {
+        name: 'Vicki',
+        email: 'vicki@mcjp.io',
+        role: 'Pharmacy Assistant',
+        hourly_rate: 30.00,
+        max_hours: 38,
+        availability: {
+          0: null,
+          1: { start: '09:00', end: '17:00' },
+          2: { start: '09:00', end: '17:00' },
+          3: { start: '09:00', end: '17:00' },
+          4: { start: '09:00', end: '17:00' },
+          5: { start: '09:00', end: '17:00' },
+          6: null
+        },
+        active: true
+      },
+      {
+        name: 'Katherine',
+        email: 'katherine@mcjp.io',
+        role: 'Pharmacy Assistant',
+        hourly_rate: 30.00,
+        max_hours: 38,
+        availability: {
+          0: null,
+          1: { start: '09:00', end: '17:00' },
+          2: { start: '09:00', end: '17:00' },
+          3: { start: '09:00', end: '17:00' },
+          4: { start: '09:00', end: '17:00' },
+          5: { start: '09:00', end: '17:00' },
+          6: null
+        },
+        active: true
       }
     ])
     .select();
