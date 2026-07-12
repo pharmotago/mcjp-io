@@ -8,24 +8,16 @@ export const runtime = 'nodejs';
 
 export async function GET(req: NextRequest) {
   const passwords = ['R0E7E8tbnSCOJlI1', 'Lynden5620968.', 'peter123'];
-  const regions = [
-    'ap-southeast-2', // Sydney
-    'ap-southeast-1', // Singapore
-    'us-east-1',      // N. Virginia
-    'us-east-2',      // Ohio
-    'us-west-1',      // N. California
-    'us-west-2',      // Oregon
-    'eu-central-1',   // Frankfurt
-    'eu-west-1'       // Ireland
-  ];
-  
   const results: Record<string, string> = {};
 
   for (const password of passwords) {
-    for (const region of regions) {
-      const connStr = `postgres://postgres.gcslfkujlfnznedatrsn:${password}@aws-0-${region}.pooler.supabase.com:6543/postgres`;
-      const displayStr = `postgres://postgres.gcslfkujlfnznedatrsn:****@aws-0-${region}.pooler.supabase.com:6543/postgres`;
-      
+    const connectionStrings = [
+      `postgres://postgres:${password}@[2406:da12:557:f800:464b:f0dd:2b1e:53d6]:5432/postgres`,
+      `postgres://postgres.gcslfkujlfnznedatrsn:${password}@[2406:da12:557:f800:464b:f0dd:2b1e:53d6]:6543/postgres`
+    ];
+
+    for (const connStr of connectionStrings) {
+      const displayStr = connStr.replace(password, '****');
       const client = new Client({
         connectionString: connStr,
         ssl: {
