@@ -1,6 +1,6 @@
 const { createClient } = require('@supabase/supabase-js');
 const crypto = require('crypto');
-require('dotenv').config({ path: 'C:\\Antigravity\\.env' });
+require('dotenv').config({ path: 'C:\\Antigravity\\BriskSchedules\\.env' });
 
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -11,11 +11,12 @@ if (!supabaseUrl || !supabaseKey) {
 }
 
 const supabase = createClient(supabaseUrl, supabaseKey);
-const SALT = 'brisk_salt_key_2026';
 
-// Match password hashing iterations to 100,000 to match production utils.ts
+// Hash with unique random salt — matches production utils.ts 'salt:hash' format
 function hashPassword(password) {
-  return crypto.pbkdf2Sync(password, SALT, 100000, 64, 'sha512').toString('hex');
+  const salt = crypto.randomBytes(16).toString('hex');
+  const hash = crypto.pbkdf2Sync(password, salt, 100000, 64, 'sha512').toString('hex');
+  return `${salt}:${hash}`;
 }
 
 async function seedPeter() {
@@ -61,23 +62,60 @@ async function seedPeter() {
     process.exit(1);
   }
 
-  // 3. Create User Account (reads ADMIN_PASSWORD from env for safety, defaults to 'peter123')
-  const defaultPassword = process.env.ADMIN_PASSWORD || 'peter123';
+  // 3. Create User Account — ADMIN_PASSWORD must be set in environment variables
+  const defaultPassword = process.env.ADMIN_PASSWORD;
+  if (!defaultPassword) {
+    console.error('❌ ADMIN_PASSWORD environment variable is not set. Aborting for security.');
+    await supabase.from('brisk_employees').delete().eq('id', employee.id);
+    process.exit(1);
+  }
+
+  const email = 'pharmotago@gmail.com';
+  
+  // 먼저 기존 auth.users 에 동일 메일이 있으면 삭제 처리 (클리어 목적)
+  const { data: usersList, error: listError } = await supabase.auth.admin.listUsers();
+  if (!listError && usersList && usersList.users) {
+    const existingUser = usersList.users.find(u => u.email.toLowerCase() === email.toLowerCase());
+    if (existingUser) {
+      console.log(`🧹 Removing existing auth user ${email}...`);
+      await supabase.auth.admin.deleteUser(existingUser.id);
+    }
+  }
+
+  console.log(`🔑 Creating Supabase Auth account for ${email}...`);
+  const { data: authUser, error: authError } = await supabase.auth.admin.createUser({
+    email: email,
+    password: defaultPassword,
+    email_confirm: true,
+    user_metadata: { name: 'Peter Kim' }
+  });
+
+  if (authError || !authUser || !authUser.user) {
+    console.error('❌ Failed to create auth user:', authError?.message);
+    // Cleanup employee
+    await supabase.from('brisk_employees').delete().eq('id', employee.id);
+    process.exit(1);
+  }
+
+  const uid = authUser.user.id;
   const passwordHash = hashPassword(defaultPassword);
 
   const { error: userError } = await supabase
     .from('brisk_users')
     .insert({
-      email: 'pharmotago@gmail.com',
+      id: uid, // Auth user ID와 매핑
+      email: email,
       password_hash: passwordHash,
       role: 'owner',
-      employee_id: employee.id
+      employee_id: employee.id,
+      name: 'Peter Kim' // name 필드 추가
     });
 
   if (userError) {
     console.error('❌ Failed to create user account:', userError.message);
-    // Cleanup employee
+    // Cleanup employee and auth user
     await supabase.from('brisk_employees').delete().eq('id', employee.id);
+    await supabase.auth.admin.deleteUser(uid);
     process.exit(1);
   }
 
@@ -85,7 +123,7 @@ async function seedPeter() {
   console.log(' 🎉 Peter Kim registered successfully! 🎉');
   console.log('==========================================');
   console.log(' 📧 Email: pharmotago@gmail.com');
-  console.log(` 🔑 Password: ${process.env.ADMIN_PASSWORD ? '******** (configured via env)' : 'peter123 (default)'}`);
+  console.log(' 🔑 Password: ******** (set via ADMIN_PASSWORD env variable)');
   console.log(' 💼 Role: Pharmacist Manager (Owner)');
   console.log('==========================================');
 }

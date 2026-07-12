@@ -90,6 +90,7 @@ const BriskDB = (function() {
       name: emp.name,
       email: emp.email,
       role: emp.role,
+      phone: emp.phone,
       hourly_rate: emp.hourlyRate,
       max_hours: emp.maxHours,
       availability: emp.availability,
@@ -104,6 +105,7 @@ const BriskDB = (function() {
       name: emp.name,
       email: emp.email,
       role: emp.role,
+      phone: emp.phone,
       hourlyRate: parseFloat(emp.hourly_rate),
       maxHours: parseInt(emp.max_hours),
       availability: emp.availability,
@@ -119,6 +121,7 @@ const BriskDB = (function() {
       start_time: shift.startTime,
       end_time: shift.endTime,
       role: shift.role,
+      status: shift.status || 'draft',
       notes: shift.notes
     };
   }
@@ -132,6 +135,7 @@ const BriskDB = (function() {
       startTime: shift.start_time,
       endTime: shift.end_time,
       role: shift.role,
+      status: shift.status || 'draft',
       notes: shift.notes
     };
   }
@@ -415,29 +419,6 @@ const BriskDB = (function() {
       })
       .subscribe();
     _listeners.push(() => supabase.removeChannel(leaveChannel));
-
-    // 5. Roles Listener
-    const roleChannel = supabase.channel('realtime:brisk_roles')
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'brisk_roles' }, payload => {
-        const { eventType, new: newRec, old: oldRec } = payload;
-        if (eventType === 'INSERT') {
-          if (!_roles.some(r => r.id === newRec.id)) {
-            _roles.push(newRec);
-            _roles.sort((a,b) => a.name.localeCompare(b.name));
-          }
-        } else if (eventType === 'UPDATE') {
-          const idx = _roles.findIndex(r => r.id === newRec.id);
-          if (idx !== -1) {
-            _roles[idx] = newRec;
-            _roles.sort((a,b) => a.name.localeCompare(b.name));
-          }
-        } else if (eventType === 'DELETE') {
-          _roles = _roles.filter(r => r.id !== oldRec.id);
-        }
-        window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'roles' } }));
-      })
-      .subscribe();
-    _listeners.push(() => supabase.removeChannel(roleChannel));
   }
 
   async function createOrUpdateSystemRolesInDb(rolesList, positionsList) {
@@ -782,13 +763,7 @@ const BriskDB = (function() {
       _roles.sort((a,b) => a.name.localeCompare(b.name));
       
       localStorage.setItem('brisk_roles', JSON.stringify(_roles));
-      createOrUpdateSystemRolesInDb(_roles, _positions).catch(console.error);
-
-      try {
-        await supabase.from('brisk_roles').insert(role);
-      } catch (err) {
-        // Table doesn't exist, ignore
-      }
+      await createOrUpdateSystemRolesInDb(_roles, _positions);
       return newRole;
     },
     updateRole: async function(updated) {
@@ -799,24 +774,12 @@ const BriskDB = (function() {
       }
       
       localStorage.setItem('brisk_roles', JSON.stringify(_roles));
-      createOrUpdateSystemRolesInDb(_roles, _positions).catch(console.error);
-
-      try {
-        await supabase.from('brisk_roles').update({ name: updated.name, color: updated.color }).eq('id', updated.id);
-      } catch (err) {
-        // Table doesn't exist, ignore
-      }
+      await createOrUpdateSystemRolesInDb(_roles, _positions);
     },
     deleteRole: async function(id) {
       _roles = _roles.filter(r => r.id !== id);
       localStorage.setItem('brisk_roles', JSON.stringify(_roles));
-      createOrUpdateSystemRolesInDb(_roles, _positions).catch(console.error);
-
-      try {
-        await supabase.from('brisk_roles').delete().eq('id', id);
-      } catch (err) {
-        // Table doesn't exist, ignore
-      }
+      await createOrUpdateSystemRolesInDb(_roles, _positions);
     },
 
     addEmployee: async function(emp) {
@@ -931,9 +894,10 @@ const BriskDB = (function() {
     exportData: function() {
       return JSON.stringify({
         employees: _employees,
-        shifts: _shifts,
-        timecards: _timecards,
-        leaveRequests: _leaveRequests,
+        shifts: [..._shifts, ..._historicalShifts],
+        timecards: [..._timecards, ..._historicalTimecards],
+        leaveRequests: [..._leaveRequests, ..._historicalLeaveRequests],
+        settings: _settings,
         exportedAt: new Date().toISOString()
       }, null, 2);
     },

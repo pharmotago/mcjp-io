@@ -247,6 +247,7 @@ function applyRoleAccessControl() {
   const quickActionsCard = document.getElementById('dash-quick-actions-card');
   const staffActionsCard = document.getElementById('dash-staff-actions-card');
   const personalSummaryCard = document.getElementById('dash-personal-summary-card');
+  const nextShiftCard = document.getElementById('dash-next-shift-card');
   const clockTerminalDesc = document.getElementById('clock-terminal-description');
   const clockEmpSelect = document.getElementById('clock-emp-select');
   const adminPanel = document.getElementById('timeclock-admin-panel');
@@ -261,6 +262,7 @@ function applyRoleAccessControl() {
     if (quickActionsCard) quickActionsCard.classList.add('hide');
     if (staffActionsCard) staffActionsCard.classList.remove('hide');
     if (personalSummaryCard) personalSummaryCard.classList.remove('hide');
+    if (nextShiftCard) nextShiftCard.classList.remove('hide');
     if (adminPanel) adminPanel.classList.add('hide');
     if (leaveSelectorGroup) leaveSelectorGroup.classList.add('hide');
 
@@ -278,6 +280,7 @@ function applyRoleAccessControl() {
     if (quickActionsCard) quickActionsCard.classList.remove('hide');
     if (staffActionsCard) staffActionsCard.classList.add('hide');
     if (personalSummaryCard) personalSummaryCard.classList.add('hide');
+    if (nextShiftCard) nextShiftCard.classList.add('hide');
     if (adminPanel) adminPanel.classList.remove('hide');
     if (leaveSelectorGroup) leaveSelectorGroup.classList.remove('hide');
     
@@ -668,6 +671,49 @@ function renderDashboard() {
       };
       summaryRangeEl.textContent = `${formatDateShort(mon)} - ${formatDateShort(sun)}`;
     }
+
+    // Filter and compute next upcoming shift
+    const myUpcomingShifts = state.shifts.filter(s => {
+      if (s.employeeId !== state.currentUser.employeeId) return false;
+      if (s.date > todayStr) return true;
+      if (s.date === todayStr) {
+        const nowTime = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+        return s.endTime > nowTime;
+      }
+      return false;
+    });
+
+    myUpcomingShifts.sort((a, b) => {
+      if (a.date !== b.date) return a.date.localeCompare(b.date);
+      return a.startTime.localeCompare(b.startTime);
+    });
+
+    const nextShift = myUpcomingShifts[0];
+    const nextShiftDetailsEl = document.getElementById('next-shift-details');
+    if (nextShiftDetailsEl) {
+      if (nextShift) {
+        const sDate = new Date(nextShift.date);
+        const dayNamesShort = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        const monthsShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        const formattedDate = `${sDate.getDate()} ${monthsShort[sDate.getMonth()]} (${dayNamesShort[sDate.getDay()]})`;
+
+        nextShiftDetailsEl.innerHTML = `
+          <div style="display:flex; justify-content:space-between; align-items:center; gap: 12px;">
+            <div>
+              <div style="font-weight:700; font-size:0.98rem; color:var(--accent-cyan);">${formattedDate}</div>
+              <div style="font-size:0.85rem; color:var(--text-secondary); margin-top:4px;">
+                <i class="fa-regular fa-clock" style="color:var(--accent-cyan); margin-right:4px;"></i> ${nextShift.startTime} - ${nextShift.endTime}
+              </div>
+            </div>
+            <span class="badge" style="background:rgba(0, 229, 255, 0.1); color:var(--accent-cyan); border:1px solid rgba(0, 229, 255, 0.2); font-weight:600; font-size: 0.72rem; padding: 4px 8px; border-radius: 4px;">
+              ${nextShift.role}
+            </span>
+          </div>
+        `;
+      } else {
+        nextShiftDetailsEl.innerHTML = `<span class="text-muted" style="font-size: 0.85rem;">No upcoming shifts scheduled.</span>`;
+      }
+    }
   }
 
   const todayActiveClockins = state.timecards.filter(tc => {
@@ -684,9 +730,8 @@ function renderDashboard() {
     // Employees can see everyone working today (team awareness)
   }
 
-  // Fetch today's approved leave requests
   const todayLeaveRequests = state.leaveRequests.filter(r => {
-    return r.status === 'approved' && todayStr >= r.startDate && todayStr <= r.endDate;
+    return (r.status || '').toLowerCase() === 'approved' && todayStr >= r.startDate && todayStr <= r.endDate;
   });
 
   const tbody = document.getElementById('dash-today-shifts');
@@ -1798,6 +1843,7 @@ function openAddEmployeeModal() {
   document.getElementById('employee-id').value = '';
   document.getElementById('emp-name').value = '';
   document.getElementById('emp-email').value = '';
+  document.getElementById('emp-phone').value = '';
   document.getElementById('emp-rate').value = '';
   document.getElementById('emp-max-hours').value = '38';
   document.getElementById('btn-delete-employee').classList.add('hide');
@@ -1833,6 +1879,7 @@ function openEditEmployeeModal(empId) {
   document.getElementById('employee-id').value = emp.id;
   document.getElementById('emp-name').value = emp.name;
   document.getElementById('emp-email').value = emp.email;
+  document.getElementById('emp-phone').value = emp.phone || '';
   document.getElementById('emp-rate').value = emp.hourlyRate;
   document.getElementById('emp-max-hours').value = emp.maxHours;
   
@@ -1872,6 +1919,7 @@ async function handleEmployeeSubmit(event) {
   const name = document.getElementById('emp-name').value;
   const role = document.getElementById('emp-role').value;
   const email = document.getElementById('emp-email').value;
+  const phone = document.getElementById('emp-phone').value;
   const hourlyRate = parseFloat(document.getElementById('emp-rate').value);
   const maxHours = parseInt(document.getElementById('emp-max-hours').value);
 
@@ -1897,6 +1945,7 @@ async function handleEmployeeSubmit(event) {
     name: name,
     role: role,
     email: email,
+    phone: phone,
     hourlyRate: hourlyRate,
     maxHours: maxHours,
     availability: availability

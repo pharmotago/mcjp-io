@@ -7,6 +7,7 @@ CREATE TABLE IF NOT EXISTS public.brisk_employees (
     name TEXT NOT NULL,
     email TEXT UNIQUE NOT NULL,
     role TEXT NOT NULL,
+    phone TEXT,
     hourly_rate NUMERIC(10, 2) NOT NULL DEFAULT 0.00,
     max_hours INTEGER NOT NULL DEFAULT 38,
     availability JSONB NOT NULL DEFAULT '{}'::jsonb,
@@ -21,7 +22,7 @@ ALTER TABLE public.brisk_employees ENABLE ROW LEVEL SECURITY;
 CREATE TABLE IF NOT EXISTS public.brisk_users (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     email TEXT UNIQUE NOT NULL,
-    password_hash TEXT NOT NULL,
+    password_hash TEXT,
     role TEXT NOT NULL CHECK (role IN ('owner', 'manager', 'employee')),
     employee_id UUID REFERENCES public.brisk_employees(id) ON DELETE SET NULL,
     name TEXT,
@@ -89,7 +90,8 @@ ALTER TABLE public.brisk_invitations ENABLE ROW LEVEL SECURITY;
 -- 7. Create brisk_settings table
 CREATE TABLE IF NOT EXISTS public.brisk_settings (
     id TEXT PRIMARY KEY DEFAULT 'global_settings',
-    company_name TEXT NOT NULL DEFAULT 'Amcal Pharmacy Woywoy Rosters'
+    company_name TEXT NOT NULL DEFAULT 'Amcal Pharmacy Woywoy Rosters',
+    trading_hours JSONB NOT NULL DEFAULT '{"1":{"open":"08:30","close":"17:30","closed":false},"2":{"open":"08:30","close":"17:30","closed":false},"3":{"open":"08:30","close":"17:30","closed":false},"4":{"open":"08:30","close":"17:30","closed":false},"5":{"open":"08:30","close":"17:30","closed":false},"6":{"open":"09:00","close":"13:00","closed":false},"0":{"open":"00:00","close":"00:00","closed":true}}'::jsonb
 );
 
 ALTER TABLE public.brisk_settings ENABLE ROW LEVEL SECURITY;
