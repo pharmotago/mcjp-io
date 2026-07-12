@@ -465,6 +465,17 @@ const BriskDB = (function() {
     const session = getSession();
     if (!session) return false;
 
+    // Validate Supabase Auth session
+    const { data: { session: sbSession }, error: sbSessionErr } = await supabase.auth.getSession();
+    if (sbSessionErr || !sbSession) {
+      console.warn('[BriskDB] Supabase session is invalid or expired. Clearing session.');
+      setSession(null);
+      if (typeof window !== 'undefined') {
+        window.location.reload();
+      }
+      return false;
+    }
+
     // Bounding window: 14 days ago (optimized to reduce network reads)
     const fourteenDaysAgo = new Date();
     fourteenDaysAgo.setDate(fourteenDaysAgo.getDate() - 14);
