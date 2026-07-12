@@ -249,6 +249,7 @@ function applyRoleAccessControl() {
   const personalSummaryCard = document.getElementById('dash-personal-summary-card');
   const nextShiftCard = document.getElementById('dash-next-shift-card');
   const personalLeavesCard = document.getElementById('dash-personal-leaves-card');
+  const personalTimeclockCard = document.getElementById('dash-personal-timeclock-card');
   const clockTerminalDesc = document.getElementById('clock-terminal-description');
   const clockEmpSelect = document.getElementById('clock-emp-select');
   const adminPanel = document.getElementById('timeclock-admin-panel');
@@ -265,6 +266,7 @@ function applyRoleAccessControl() {
     if (personalSummaryCard) personalSummaryCard.classList.remove('hide');
     if (nextShiftCard) nextShiftCard.classList.remove('hide');
     if (personalLeavesCard) personalLeavesCard.classList.remove('hide');
+    if (personalTimeclockCard) personalTimeclockCard.classList.remove('hide');
     if (adminPanel) adminPanel.classList.add('hide');
     if (leaveSelectorGroup) leaveSelectorGroup.classList.add('hide');
 
@@ -284,6 +286,7 @@ function applyRoleAccessControl() {
     if (personalSummaryCard) personalSummaryCard.classList.add('hide');
     if (nextShiftCard) nextShiftCard.classList.add('hide');
     if (personalLeavesCard) personalLeavesCard.classList.add('hide');
+    if (personalTimeclockCard) personalTimeclockCard.classList.add('hide');
     if (adminPanel) adminPanel.classList.remove('hide');
     if (leaveSelectorGroup) leaveSelectorGroup.classList.remove('hide');
     
@@ -765,6 +768,73 @@ function renderDashboard() {
           `;
           personalLeavesListEl.appendChild(container);
         });
+      }
+    }
+
+    // Render employee personal timeclock status
+    const personalTimeclockDetailsEl = document.getElementById('personal-timeclock-details');
+    const personalTimeclockPulseEl = document.getElementById('personal-timeclock-pulse');
+    if (personalTimeclockDetailsEl) {
+      const myTodayTc = state.timecards.find(tc => tc.employeeId === state.currentUser.employeeId && tc.date === todayStr);
+      
+      if (myTodayTc) {
+        if (myTodayTc.clockIn && !myTodayTc.clockOut) {
+          if (personalTimeclockPulseEl) personalTimeclockPulseEl.classList.remove('hide');
+          personalTimeclockDetailsEl.innerHTML = `
+            <div style="display:flex; justify-content:space-between; align-items:center; gap: 12px;">
+              <div>
+                <div style="font-weight:700; font-size:0.98rem; color:#10b981;">Currently Clocked In</div>
+                <div style="font-size:0.82rem; color:var(--text-secondary); margin-top:4px;">
+                  <i class="fa-solid fa-right-to-bracket" style="color:#10b981; margin-right:4px;"></i> Started today at <strong>${myTodayTc.clockIn}</strong>
+                </div>
+              </div>
+              <div style="text-align:right;">
+                <span class="badge" style="background:rgba(16, 185, 129, 0.12); color:#10b981; border:1px solid rgba(16, 185, 129, 0.25); font-weight:700; font-size:0.72rem; padding: 4px 8px; border-radius: 4px;">
+                  Active
+                </span>
+              </div>
+            </div>
+          `;
+        } else if (myTodayTc.clockIn && myTodayTc.clockOut) {
+          if (personalTimeclockPulseEl) personalTimeclockPulseEl.classList.add('hide');
+          
+          const startDec = timeToDecimal(myTodayTc.clockIn);
+          const endDec = timeToDecimal(myTodayTc.clockOut);
+          const workedHours = Math.max(0, endDec - startDec);
+
+          personalTimeclockDetailsEl.innerHTML = `
+            <div style="display:flex; justify-content:space-between; align-items:center; gap: 12px;">
+              <div>
+                <div style="font-weight:600; font-size:0.95rem; color:var(--text-muted);">Shift Completed</div>
+                <div style="font-size:0.82rem; color:var(--text-muted); margin-top:4px;">
+                  Clocked out today at <strong>${myTodayTc.clockOut}</strong> (Worked ${workedHours.toFixed(1)}h)
+                </div>
+              </div>
+              <div style="text-align:right;">
+                <span class="badge" style="background:rgba(255, 255, 255, 0.05); color:var(--text-muted); border:1px solid var(--border-glass); font-weight:600; font-size:0.7rem; padding: 4px 8px; border-radius: 4px;">
+                  Offline
+                </span>
+              </div>
+            </div>
+          `;
+        }
+      } else {
+        if (personalTimeclockPulseEl) personalTimeclockPulseEl.classList.add('hide');
+        personalTimeclockDetailsEl.innerHTML = `
+          <div style="display:flex; justify-content:space-between; align-items:center; gap: 12px;">
+            <div>
+              <div style="font-weight:600; font-size:0.95rem; color:var(--text-secondary);">Offline / Clock Out</div>
+              <div style="font-size:0.82rem; color:var(--text-muted); margin-top:4px;">
+                No active clock stamp found for today.
+              </div>
+            </div>
+            <div style="text-align:right;">
+              <span class="badge" style="background:rgba(239, 68, 68, 0.08); color:#ef4444; border:1px solid rgba(239, 68, 68, 0.2); font-weight:600; font-size:0.7rem; padding: 4px 8px; border-radius: 4px;">
+                Not Clocked In
+              </span>
+            </div>
+          </div>
+        `;
       }
     }
   }

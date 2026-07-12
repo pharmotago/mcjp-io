@@ -271,6 +271,17 @@
               </div>
             </div>
 
+            <!-- Personal Timeclock Status (Visible only to employees) -->
+            <div class="glass-card hide" id="dash-personal-timeclock-card" style="margin: 0 1.25rem 1.25rem 1.25rem; border: 1px solid rgba(16, 185, 129, 0.25); background: rgba(16, 185, 129, 0.01);">
+              <div class="card-header" style="border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 0.5rem; margin-bottom: 0.75rem;">
+                <h3><i class="fa-solid fa-user-clock text-neon"></i> My Timeclock Status</h3>
+                <span id="personal-timeclock-pulse" class="pulse-indicator hide" style="width: 8px; height: 8px; background: #10b981; border-radius: 50%; display: inline-block;"></span>
+              </div>
+              <div style="padding: 0.25rem 0.5rem;" id="personal-timeclock-details">
+                <span class="text-muted" style="font-size: 0.85rem;">Checking status...</span>
+              </div>
+            </div>
+
             <!-- Next Shift Indicator (Visible only to employees) -->
             <div class="glass-card hide" id="dash-next-shift-card" style="margin: 0 1.25rem 1.25rem 1.25rem; border: 1px solid rgba(168, 85, 247, 0.2); background: rgba(168, 85, 247, 0.02);">
               <div class="card-header" style="border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 0.5rem; margin-bottom: 0.75rem;">
