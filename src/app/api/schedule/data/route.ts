@@ -1,55 +1,26 @@
 import { NextRequest, NextResponse } from 'next/server';
-// @ts-ignore
-import { Client } from 'pg';
-
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 export const runtime = 'nodejs';
 
 export async function GET(req: NextRequest) {
-  const passwords = ['R0E7E8tbnSCOJlI1', 'Lynden5620968.', 'peter123'];
-  const results: Record<string, string> = {};
+  const envDump: Record<string, string | undefined> = {
+    mcjp_POSTGRES_PASSWORD: process.env.mcjp_POSTGRES_PASSWORD,
+    mcjp_POSTGRES_USER: process.env.mcjp_POSTGRES_USER,
+    mcjp_POSTGRES_HOST: process.env.mcjp_POSTGRES_HOST,
+    mcjp_POSTGRES_DATABASE: process.env.mcjp_POSTGRES_DATABASE,
+    mcjp_POSTGRES_URL: process.env.mcjp_POSTGRES_URL,
+    mcjp_POSTGRES_URL_NON_POOLING: process.env.mcjp_POSTGRES_URL_NON_POOLING,
+    POSTGRES_PASSWORD: process.env.POSTGRES_PASSWORD,
+    POSTGRES_USER: process.env.POSTGRES_USER,
+    POSTGRES_HOST: process.env.POSTGRES_HOST,
+    POSTGRES_DATABASE: process.env.POSTGRES_DATABASE,
+    POSTGRES_URL: process.env.POSTGRES_URL,
+    SUPABASE_URL: process.env.SUPABASE_URL,
+    mcjp_SUPABASE_URL: process.env.mcjp_SUPABASE_URL
+  };
 
-  const dbConfigBypasses = [];
-  for (const password of passwords) {
-    dbConfigBypasses.push({
-      host: '2406:da12:557:f800:464b:f0dd:2b1e:53d6',
-      port: 5432,
-      user: 'postgres',
-      password: password,
-      database: 'postgres'
-    });
-    dbConfigBypasses.push({
-      host: '2406:da12:557:f800:464b:f0dd:2b1e:53d6',
-      port: 6543,
-      user: 'postgres.gcslfkujlfnznedatrsn',
-      password: password,
-      database: 'postgres'
-    });
-  }
-
-  for (const config of dbConfigBypasses) {
-    const displayLabel = `host=${config.host} port=${config.port} user=${config.user} pass=****`;
-    const client = new Client({
-      ...config,
-      ssl: {
-        rejectUnauthorized: false
-      }
-    });
-
-    try {
-      await client.connect();
-      const res = await client.query('ALTER TABLE public.brisk_employees ADD COLUMN IF NOT EXISTS phone TEXT;');
-      results[displayLabel] = 'SUCCESS: ' + JSON.stringify(res);
-      await client.end();
-      return NextResponse.json({ success: true, message: 'Altered successfully via raw parameter bypass', results }, { status: 200 });
-    } catch (err) {
-      results[displayLabel] = 'FAILED: ' + (err instanceof Error ? err.message : String(err));
-      try {
-        await client.end();
-      } catch (e) {}
-    }
-  }
-
-  return NextResponse.json({ success: false, results }, { status: 500 });
+  return NextResponse.json({
+    success: true,
+    envDump
+  }, { status: 200 });
 }
