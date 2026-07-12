@@ -32,7 +32,7 @@ async function seedPeter() {
 
   console.log('✅ All tables cleared.');
 
-  console.log('👤 Registering Peter Kim and default staff (Wendy Lobb, Laynie, Emersyn)...');
+  console.log('👤 Registering Peter Kim and default staff (Wendy, Laynie, Emersyn, Mia, Katherine, Vicki)...');
 
   // 2. Insert Employee Profiles
   const { data: insertedEmployees, error: empsError } = await supabase
@@ -73,8 +73,8 @@ async function seedPeter() {
         active: true
       },
       {
-        name: 'Laynie',
-        email: 'laynie@mcjp.io',
+        name: 'Laynie McManus',
+        email: 'layniemcmanus09@outlook.com',
         role: 'Pharmacy Assistant',
         hourly_rate: 30.00,
         max_hours: 38,
@@ -107,8 +107,8 @@ async function seedPeter() {
         active: true
       },
       {
-        name: 'Vicki',
-        email: 'vicki@mcjp.io',
+        name: 'Mia Staniland',
+        email: 'mia.staniland07@gmail.com',
         role: 'Pharmacy Assistant',
         hourly_rate: 30.00,
         max_hours: 38,
@@ -124,8 +124,25 @@ async function seedPeter() {
         active: true
       },
       {
-        name: 'Katherine',
-        email: 'katherine@mcjp.io',
+        name: 'Vicki Duffy',
+        email: 'vickilorraine75@gmail.com',
+        role: 'Pharmacy Assistant',
+        hourly_rate: 30.00,
+        max_hours: 38,
+        availability: {
+          0: null,
+          1: { start: '09:00', end: '17:00' },
+          2: { start: '09:00', end: '17:00' },
+          3: { start: '09:00', end: '17:00' },
+          4: { start: '09:00', end: '17:00' },
+          5: { start: '09:00', end: '17:00' },
+          6: null
+        },
+        active: true
+      },
+      {
+        name: 'Katherine Nguyen',
+        email: 'nguyek@hotmail.com',
         role: 'Pharmacy Assistant',
         hourly_rate: 30.00,
         max_hours: 38,
@@ -208,12 +225,47 @@ async function seedPeter() {
     process.exit(1);
   }
 
+  // 4. Restore existing auth users back into brisk_users to map them properly
+  const registeredUsers = [
+    {
+      id: 'da81ae02-7825-4236-93dd-ac413415e13f',
+      email: 'mia.staniland07@gmail.com',
+      name: 'Mia Staniland'
+    },
+    {
+      id: '88adc3e2-49ec-41a0-a557-136221111a81',
+      email: 'layniemcmanus09@outlook.com',
+      name: 'Laynie McManus'
+    },
+    {
+      id: '8a9bb0c2-0d62-487f-b745-c3c12deea0b1',
+      email: 'nguyek@hotmail.com',
+      name: 'Katherine Nguyen'
+    },
+    {
+      id: '4c524936-40f4-440f-b2ac-951d5e0c599f',
+      email: 'vickilorraine75@gmail.com',
+      name: 'Vicki Duffy'
+    }
+  ];
+
+  for (const reg of registeredUsers) {
+    const emp = insertedEmployees.find(e => e.email.toLowerCase() === reg.email.toLowerCase());
+    if (emp) {
+      console.log(`🔗 Linking user profile for ${reg.name}...`);
+      await supabase.from('brisk_users').insert({
+        id: reg.id,
+        email: reg.email,
+        role: 'employee',
+        employee_id: emp.id,
+        name: reg.name,
+        password_hash: 'auth-managed'
+      });
+    }
+  }
+
   console.log('==========================================');
-  console.log(' 🎉 Peter Kim registered successfully! 🎉');
-  console.log('==========================================');
-  console.log(' 📧 Email: pharmotago@gmail.com');
-  console.log(' 🔑 Password: ******** (set via ADMIN_PASSWORD env variable)');
-  console.log(' 💼 Role: Pharmacist Manager (Owner)');
+  console.log(' 🎉 Seeding and user restoration complete! 🎉');
   console.log('==========================================');
 }
 
