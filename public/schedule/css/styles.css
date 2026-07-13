@@ -1466,7 +1466,7 @@ body.theme-light {
   }
 
   .timesheet-grid .glass-card {
-    min-width: 600px;
+    min-width: 0;
   }
 
   .leave-list-scroll, .timesheet-scroll, .shift-list-scroll {
@@ -1477,7 +1477,28 @@ body.theme-light {
   .shift-list-scroll .data-table,
   .timesheet-scroll .data-table,
   .leave-list-scroll .data-table {
-    min-width: 600px;
+    min-width: 0;
+    width: 100%;
+    table-layout: auto;
+  }
+  .data-table th,
+  .data-table td {
+    padding: 8px 6px !important;
+    font-size: 0.78rem !important;
+    white-space: nowrap;
+  }
+  .data-table th:last-child,
+  .data-table td:last-child {
+    white-space: normal;
+  }
+  .data-table td[colspan] {
+    white-space: normal !important;
+  }
+  .data-table .empty-state h4,
+  .data-table .empty-state p {
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
   }
   
   .form-row {
