@@ -1370,6 +1370,7 @@ body.theme-light {
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    padding-bottom: 80px; /* Space for bottom nav bar */
   }
   .sidebar.open {
     transform: translateX(0);
@@ -1388,8 +1389,10 @@ body.theme-light {
     gap: 1.5rem;
     flex: 1;
     overflow-y: auto;
+    overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
     width: 100%;
+    max-width: 100vw;
   }
 
   .topbar .live-clock {
@@ -1410,7 +1413,16 @@ body.theme-light {
   .glass-card {
     max-width: 100% !important;
     min-width: 0 !important;
-    overflow: hidden !important;
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+    box-sizing: border-box !important;
+  }
+  .glass-card .empty-state h4,
+  .glass-card .empty-state p {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+    max-width: 100% !important;
   }
 
   .scheduler-grid-container {
