@@ -65,11 +65,13 @@ export async function getRequestUser(req: NextRequest) {
       isAuthenticated: true
     };
   } catch (err) {
+    const errMsg = err instanceof Error ? err.message : String(err);
     return {
       role: '',
       employeeId: '',
       email: '',
-      isAuthenticated: false
+      isAuthenticated: false,
+      authError: errMsg
     };
   }
 }
