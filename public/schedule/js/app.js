@@ -2599,11 +2599,30 @@ async function handleLeaveSubmit(event) {
     reason: reason
   };
 
-  await BriskDB.addLeaveRequest(req);
-  document.getElementById('leave-request-form').reset();
-  
-  loadDataFromState();
-  renderTimeOffPanel();
+  try {
+    await BriskDB.addLeaveRequest(req);
+    showToast('Leave request submitted successfully!', 'success');
+    document.getElementById('leave-request-form').reset();
+    
+    // Auto-close the timeoff modal
+    const modal = document.getElementById('modal-timeoff');
+    if (modal) modal.classList.remove('active');
+
+    loadDataFromState();
+    renderTimeOffPanel();
+    renderActivePanel();
+
+    // Trigger instant background sync to ensure instant multi-client parity
+    BriskDB.syncFromServer()
+      .then(() => {
+        loadDataFromState();
+        renderTimeOffPanel();
+        renderActivePanel();
+      })
+      .catch(e => console.warn('Background sync after submitting leave failed:', e));
+  } catch (err) {
+    showToast('Failed to submit leave request: ' + err.message, 'error');
+  }
 }
 
 async function decideLeaveRequest(reqId, decision) {
