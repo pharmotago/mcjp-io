@@ -2627,41 +2627,48 @@ async function decideLeaveRequest(reqId, decision) {
     });
 
     if (conflictingShifts.length > 0) {
-      const doUnassign = confirm(`⚠️ Roster Conflict Warning: Leave approved.\nThis employee has ${conflictingShifts.length} shifts scheduled during this leave.\nWould you like to automatically unassign them now?`);
-      if (doUnassign) {
-        try {
-          const updatedShifts = conflictingShifts.map(s => ({ ...s, employeeId: null }));
-          await BriskDB.batchUpdateShifts(updatedShifts);
-          
-          // Partial auto-schedule to fill the gaps using the leave's week
-          const targetWeekStart = getMondayOfCurrentWeek(new Date(req.startDate));
-          const targetWeekStr = formatDateISO(targetWeekStart);
-          // Refresh state.shifts to reflect the unassignments locally before running scheduler
-          state.shifts = state.shifts.map(s => {
-            if (updatedShifts.find(us => us.id === s.id)) return { ...s, employeeId: null };
-            return s;
-          });
-          const result = BriskScheduler.run(state.shifts, state.employees, state.leaveRequests, targetWeekStr, state.timecards, false);
-          
-          if (result.success && result.assignedCount > 0) {
-            const reAssignedShifts = result.shifts.filter(s => updatedShifts.find(us => us.id === s.id && s.employeeId !== null));
-            if (reAssignedShifts.length > 0) {
-               await BriskDB.batchUpdateShifts(reAssignedShifts);
-               showToast(`Successfully unassigned ${updatedShifts.length} conflicting shifts.\nAuto-scheduler was able to backfill ${reAssignedShifts.length} of them immediately!`, 'success');
-            } else {
-               showToast(`Successfully unassigned ${updatedShifts.length} conflicting shifts.\nCould not find available staff to auto-backfill them.`, 'success');
-            }
+      try {
+        const updatedShifts = conflictingShifts.map(s => ({ ...s, employeeId: null }));
+        await BriskDB.batchUpdateShifts(updatedShifts);
+        
+        // Partial auto-schedule to fill the gaps using the leave's week
+        const targetWeekStart = getMondayOfCurrentWeek(new Date(req.startDate));
+        const targetWeekStr = formatDateISO(targetWeekStart);
+        // Refresh state.shifts to reflect the unassignments locally before running scheduler
+        state.shifts = state.shifts.map(s => {
+          if (updatedShifts.find(us => us.id === s.id)) return { ...s, employeeId: null };
+          return s;
+        });
+        const result = BriskScheduler.run(state.shifts, state.employees, state.leaveRequests, targetWeekStr, state.timecards, false);
+        
+        if (result.success && result.assignedCount > 0) {
+          const reAssignedShifts = result.shifts.filter(s => updatedShifts.find(us => us.id === s.id && s.employeeId !== null));
+          if (reAssignedShifts.length > 0) {
+             await BriskDB.batchUpdateShifts(reAssignedShifts);
+             showToast(`Automatically unassigned ${updatedShifts.length} conflicting shifts.\nAuto-scheduler was able to backfill ${reAssignedShifts.length} of them immediately!`, 'success');
+          } else {
+             showToast(`Automatically unassigned ${updatedShifts.length} conflicting shifts.\nCould not find available staff to auto-backfill them.`, 'success');
           }
-        } catch(err) {
-          console.error('Failed to unassign conflicting shifts:', err);
-          showToast('Failed to automatically unassign conflicting shifts.', 'error');
+        } else {
+          showToast(`Successfully unassigned ${updatedShifts.length} conflicting shifts.`, 'success');
         }
+      } catch(err) {
+        console.error('Failed to unassign conflicting shifts:', err);
+        showToast('Failed to automatically unassign conflicting shifts.', 'error');
       }
     }
   }
 
   loadDataFromState();
   renderTimeOffPanel();
+
+  // Trigger instant background sync to match server state parity
+  BriskDB.syncFromServer()
+    .then(() => {
+      loadDataFromState();
+      renderTimeOffPanel();
+    })
+    .catch(e => console.warn('Background sync after decide leave failed:', e));
 }
 
 
