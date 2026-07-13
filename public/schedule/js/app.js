@@ -3675,6 +3675,14 @@ window.requestShiftCover = async function(shiftId) {
     showToast('Cover request submitted to board!', 'success');
     loadDataFromState();
     renderActivePanel();
+
+    // Background sync to ensure instant multi-client state parity
+    BriskDB.syncFromServer()
+      .then(() => {
+        loadDataFromState();
+        renderActivePanel();
+      })
+      .catch(e => console.warn('Background sync after request cover failed:', e));
   } catch (err) {
     showToast('Failed to submit cover request.', 'error');
   }
@@ -3692,6 +3700,14 @@ window.cancelShiftCover = async function(shiftId) {
     showToast('Cover request cancelled.', 'info');
     loadDataFromState();
     renderActivePanel();
+
+    // Background sync to ensure instant multi-client state parity
+    BriskDB.syncFromServer()
+      .then(() => {
+        loadDataFromState();
+        renderActivePanel();
+      })
+      .catch(e => console.warn('Background sync after cancel cover failed:', e));
   } catch (err) {
     showToast('Failed to cancel cover request.', 'error');
   }
@@ -3727,6 +3743,14 @@ window.offerToCover = async function(shiftId) {
     
     loadDataFromState();
     renderActivePanel();
+
+    // Background sync to ensure instant multi-client state parity
+    BriskDB.syncFromServer()
+      .then(() => {
+        loadDataFromState();
+        renderActivePanel();
+      })
+      .catch(e => console.warn('Background sync after offer cover failed:', e));
   } catch (err) {
     showToast('Failed to cover this shift.', 'error');
   }
