@@ -2299,6 +2299,17 @@ async function handleClockAction(action) {
   loadDataFromState();
   updateTerminalStatus();
   renderAdminTimesheets();
+  renderActivePanel();
+
+  // Instant server sync in background to match client & server state instantly
+  BriskDB.syncFromServer()
+    .then(() => {
+      loadDataFromState();
+      updateTerminalStatus();
+      renderAdminTimesheets();
+      renderActivePanel();
+    })
+    .catch(err => console.warn('Background post-clock sync failed:', err));
 }
 
 function calculateTimecardHours(tc) {
@@ -2567,6 +2578,17 @@ async function handleLeaveSubmit(event) {
   const todayStr = formatDateISO(new Date());
   if (start < todayStr) {
     showToast('Start date cannot be in the past.', 'error');
+    return;
+  }
+
+  // Conflict validation: Prevent leave requests on days where the employee is already scheduled to work
+  const hasConflictingShifts = state.shifts.some(s => {
+    if (s.employeeId !== empId) return false;
+    return s.date >= start && s.date <= end;
+  });
+
+  if (hasConflictingShifts) {
+    showToast('You have scheduled shifts within this date range. Swap or request cover first!', 'error');
     return;
   }
 
@@ -3678,6 +3700,17 @@ window.cancelShiftCover = async function(shiftId) {
 window.offerToCover = async function(shiftId) {
   const shift = state.shifts.find(s => s.id === shiftId);
   if (!shift) return;
+
+  // Conflict validation: Check if user has an approved leave request on the target shift date
+  const hasApprovedLeave = state.leaveRequests.some(r => {
+    if (r.employeeId !== state.currentUser.employeeId || r.status !== 'Approved') return false;
+    return shift.date >= r.startDate && shift.date <= r.endDate;
+  });
+
+  if (hasApprovedLeave) {
+    showToast('You have an approved leave request on this day. Cannot cover this shift!', 'error');
+    return;
+  }
 
   const currentEmp = state.employees.find(e => e.id === state.currentUser.employeeId);
   const currentEmpName = currentEmp ? currentEmp.name : 'Someone';
