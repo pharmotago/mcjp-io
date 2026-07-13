@@ -14,7 +14,9 @@ export async function POST(req: NextRequest) {
 
     // Permission check: Only managers or owners can create invitations
     if (!requester.isAuthenticated || (requester.role !== 'owner' && requester.role !== 'manager')) {
-      return jsonResponse({ error: 'Access denied. Managers or owners only.' }, 403);
+      return jsonResponse({ 
+        error: `Access denied. Managers or owners only. (Details: email=${requester.email}, role=${requester.role}, auth=${requester.isAuthenticated})` 
+      }, 403);
     }
 
     const { email, role } = await req.json();
