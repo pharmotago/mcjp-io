@@ -59,6 +59,25 @@ const BriskDB = (function() {
     return val ? JSON.parse(val) : null;
   }
 
+  // Helper to get a valid token (refreshes via Supabase Client SDK if expired)
+  async function getValidToken() {
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (session && session.access_token) {
+        const localSession = getSession();
+        if (localSession) {
+          localSession.token = session.access_token;
+          localStorage.setItem(STORAGE_KEYS.SESSION, JSON.stringify(localSession));
+        }
+        return session.access_token;
+      }
+    } catch (e) {
+      console.warn('Failed to retrieve fresh session token:', e);
+    }
+    const localSession = getSession();
+    return localSession ? localSession.token : '';
+  }
+
   function setSession(session) {
     if (session) {
       localStorage.setItem(STORAGE_KEYS.SESSION, JSON.stringify(session));
@@ -650,12 +669,12 @@ const BriskDB = (function() {
   // Generate Invite
   async function apiGenerateInvite(email, role) {
     try {
-      const session = getSession();
+      const token = await getValidToken();
       const res = await fetch('/api/schedule/auth/invite', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + (session ? session.token : '')
+          'Authorization': 'Bearer ' + token
         },
         body: JSON.stringify({ email, role })
       });
@@ -671,12 +690,12 @@ const BriskDB = (function() {
   // Send Roster Email
   async function apiSendRosterEmail(employeeId, weekStart, rosterText) {
     try {
-      const session = getSession();
+      const token = await getValidToken();
       const res = await fetch('/api/schedule/email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + (session ? session.token : '')
+          'Authorization': 'Bearer ' + token
         },
         body: JSON.stringify({ employeeId, weekStart, rosterText })
       });
