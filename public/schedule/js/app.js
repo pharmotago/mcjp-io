@@ -17,9 +17,12 @@ window.showToast = function(message, type = 'success') {
   toast.className = `toast ${type}`;
   toast.innerHTML = `
     <div class="toast-icon">
-      ${type === 'success' ? '<i class="fas fa-check-circle"></i>' : '<i class="fas fa-exclamation-circle"></i>'}
+      ${type === 'success' ? '<i class="fas fa-check-circle"></i>' : 
+        type === 'error' ? '<i class="fas fa-exclamation-circle"></i>' : 
+        type === 'warning' ? '<i class="fas fa-triangle-exclamation"></i>' : 
+        '<i class="fas fa-info-circle"></i>'}
     </div>
-    <div class="toast-content">${message.replace(/\n/g, '<br>')}</div>
+    <div class="toast-content" style="line-height: 1.4; font-weight: 500;">${message.replace(/\n/g, '<br>')}</div>
   `;
   container.appendChild(toast);
   requestAnimationFrame(() => {
@@ -215,14 +218,42 @@ function loadDataFromState() {
   const settingsName = document.getElementById('settings-company-name');
   if (settingsName) settingsName.value = state.settings.companyName || 'Amcal Pharmacy Woywoy Rosters';
 
-  if (state.currentUser && state.currentUser.role !== 'employee') {
-    const pendingTimecards = state.timecards.filter(tc => !tc.approved).length;
-    const badgeTc = document.getElementById('badge-timeclock');
-    if (badgeTc) { badgeTc.style.display = pendingTimecards > 0 ? 'inline-block' : 'none'; badgeTc.textContent = pendingTimecards; }
-    
-    const pendingLeave = state.leaveRequests.filter(lr => lr.status === 'Pending').length;
-    const badgeLeave = document.getElementById('badge-timeoff');
-    if (badgeLeave) { badgeLeave.style.display = pendingLeave > 0 ? 'inline-block' : 'none'; badgeLeave.textContent = pendingLeave; }
+  if (state.currentUser) {
+    if (state.currentUser.role !== 'employee') {
+      const pendingTimecards = state.timecards.filter(tc => !tc.approved).length;
+      const badgeTc = document.getElementById('badge-timeclock');
+      if (badgeTc) { badgeTc.style.display = pendingTimecards > 0 ? 'inline-block' : 'none'; badgeTc.textContent = pendingTimecards; }
+      
+      const pendingLeave = state.leaveRequests.filter(lr => lr.status === 'Pending').length;
+      const badgeLeave = document.getElementById('badge-timeoff');
+      if (badgeLeave) { badgeLeave.style.display = pendingLeave > 0 ? 'inline-block' : 'none'; badgeLeave.textContent = pendingLeave; }
+
+      // Hide cover badges for managers
+      const badgeCover = document.getElementById('badge-cover-requests');
+      if (badgeCover) badgeCover.style.display = 'none';
+      const badgeCoverMobile = document.getElementById('badge-cover-requests-mobile');
+      if (badgeCoverMobile) badgeCoverMobile.style.display = 'none';
+    } else {
+      // For employees, calculate active cover requests from other staff
+      const todayStr = formatDateISO(new Date());
+      const activeCovers = state.shifts.filter(s => {
+        return s.employeeId !== state.currentUser.employeeId && 
+               s.notes && 
+               s.notes.startsWith('[NEEDS COVER]') &&
+               s.date >= todayStr;
+      }).length;
+
+      const badgeCover = document.getElementById('badge-cover-requests');
+      if (badgeCover) {
+        badgeCover.style.display = activeCovers > 0 ? 'inline-block' : 'none';
+        badgeCover.textContent = activeCovers;
+      }
+      const badgeCoverMobile = document.getElementById('badge-cover-requests-mobile');
+      if (badgeCoverMobile) {
+        badgeCoverMobile.style.display = activeCovers > 0 ? 'inline-block' : 'none';
+        badgeCoverMobile.textContent = activeCovers;
+      }
+    }
   }
 }
 
@@ -359,6 +390,7 @@ window.toggleSidebar = toggleSidebar;
 // Render active panel based on routing state
 function renderActivePanel() {
   loadDataFromState();
+  applyRoleAccessControl();
 
   switch (state.currentTab) {
     case 'dashboard':
@@ -3688,15 +3720,20 @@ window.closeStaffDirectoryModal = function() {
   document.getElementById('modal-staff-directory').classList.remove('active');
 };
 
+// Clean cover tags to keep shift notes clean
+const cleanCoverTags = (notes) => {
+  if (!notes) return '';
+  return notes.replace(/\[NEEDS COVER\]|\[COVERED BY [^\]]+\]/gi, '').trim();
+};
+
 window.requestShiftCover = async function(shiftId) {
   const shift = state.shifts.find(s => s.id === shiftId);
   if (!shift) return;
 
-  const originalNotes = shift.notes || '';
-  if (originalNotes.startsWith('[NEEDS COVER]')) return;
+  const sanitizedNotes = cleanCoverTags(shift.notes);
 
   try {
-    shift.notes = `[NEEDS COVER] ${originalNotes}`.trim();
+    shift.notes = `[NEEDS COVER] ${sanitizedNotes}`.trim();
     await BriskDB.updateShift(shift);
     showToast('Cover request submitted to board!', 'success');
     loadDataFromState();
@@ -3718,10 +3755,8 @@ window.cancelShiftCover = async function(shiftId) {
   const shift = state.shifts.find(s => s.id === shiftId);
   if (!shift) return;
 
-  if (!shift.notes || !shift.notes.startsWith('[NEEDS COVER]')) return;
-
   try {
-    shift.notes = shift.notes.replace('[NEEDS COVER]', '').trim();
+    shift.notes = cleanCoverTags(shift.notes);
     await BriskDB.updateShift(shift);
     showToast('Cover request cancelled.', 'info');
     loadDataFromState();
@@ -3760,9 +3795,8 @@ window.offerToCover = async function(shiftId) {
   try {
     // Roster Cover Match: Assign to covering employee and log approval notes
     shift.employeeId = state.currentUser.employeeId;
-    // Strip needs cover tag and record cover logs
-    const cleanedNotes = (shift.notes || '').replace('[NEEDS COVER]', '').trim();
-    shift.notes = `[COVERED BY ${currentEmpName}] ${cleanedNotes}`.trim();
+    const sanitizedNotes = cleanCoverTags(shift.notes);
+    shift.notes = `[COVERED BY ${currentEmpName}] ${sanitizedNotes}`.trim();
     
     await BriskDB.updateShift(shift);
     showToast(` Roster Cover matched! You are now scheduled for this shift.`, 'success');

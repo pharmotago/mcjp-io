@@ -134,6 +134,7 @@
         </button>
         <button class="menu-item" data-tab="scheduler" role="tab" aria-selected="false">
           <i class="fa-solid fa-calendar-days"></i> <span>Scheduler</span>
+          <span class="nav-badge" id="badge-cover-requests" style="display:none; background:#f97316;">0</span>
         </button>
         <button class="menu-item" data-tab="daily" role="tab" aria-selected="false">
           <i class="fa-solid fa-calendar-day"></i> <span>Daily View</span>
@@ -890,9 +891,10 @@
       <i class="fa-solid fa-chart-simple"></i>
       <span>Home</span>
     </button>
-    <button class="mobile-nav-item" data-mobile-tab="scheduler" onclick="switchTab('scheduler')">
+    <button class="mobile-nav-item" data-mobile-tab="scheduler" onclick="switchTab('scheduler')" style="position: relative;">
       <i class="fa-solid fa-calendar-days"></i>
       <span>Schedule</span>
+      <span class="nav-badge" id="badge-cover-requests-mobile" style="display:none; background:#f97316; position: absolute; top: 4px; right: 18px; padding: 2px 5px; font-size: 8px; min-width: 14px; height: 14px; line-height: 10px; border-radius: 50%; border: 1px solid var(--bg-dark);">0</span>
     </button>
     <button class="mobile-nav-item" data-mobile-tab="daily" onclick="switchTab('daily')">
       <i class="fa-solid fa-calendar-day"></i>
