@@ -12,6 +12,7 @@
     "seed:firebase": "node firebase-seed.js",
     "copy-images": "node scratch/copy_images.js",
     "inject-links": "node scripts/inject_internal_links.js",
+    "seo-optimize": "node scripts/apply_meta_descriptions.js && node scripts/apply_canonicals.js && node scripts/inject_internal_links.js && node scripts/inject_referrals.js && node scripts/apply_og_images.js",
     "unzip-coverage": "powershell -Command \"Expand-Archive -Path 'C:\\Users\\Sung\\Downloads\\http___blog.mcjp.io_-Coverage-2026-07-12.zip' -DestinationPath 'C:\\Antigravity\\mcjp-io\\scratch\\coverage' -Force\"",
     "cleanup-duplicates": "node scripts/cleanup_duplicates.js"
   },

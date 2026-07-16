@@ -10,7 +10,7 @@ lastUpdated: "2026-07-10"
 
 ## Mastering Technology Distraction for Optimal Focus
 
-In a world where technology pervades every aspect of our lives, mastering the art of focus is no small feat. The allure of constant connectivity, social media engagements, and the endless stream of notifications has transformed our daily routines into a battleground for attention. As we navigate this digital landscape, the need for self-discipline becomes more crucial than ever. This article delves into actionable strategies for managing technology distractions to enhance focus and productivity, ultimately equipping you with the tools to cultivate a disciplined mindset.
+In a world where technology pervades every aspect of our lives, mastering the art of focus is no small feat. The allure of constant connectivity, social media engagements, and the endless stream of notifications has transformed our [daily routines](/posts/discipline_morning_routines) into a battleground for attention. As we navigate this digital landscape, the need for self-discipline becomes more crucial than ever. This article delves into actionable strategies for managing technology distractions to enhance focus and productivity, ultimately equipping you with the tools to cultivate a disciplined mindset.
 
 ![A clean workspace promoting focus and discipline amidst technology distractions](/images/discipline_tech_distraction_management_focus.png)
 

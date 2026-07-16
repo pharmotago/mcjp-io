@@ -67,7 +67,7 @@ Reflective practice helps consolidate learning and promote self-awareness.
 
 ### Incorporating Mindfulness Practices
 
-Mindfulness is a powerful tool for enhancing mental agility. By training your mind to remain present and focused, you equip yourself to respond more effectively in dynamic situations.
+Mindfulness is a powerful tool for enhancing [mental agility](/posts/discipline_neuroplasticity_enhancement). By training your mind to remain present and focused, you equip yourself to respond more effectively in dynamic situations.
 
 #### 1. Meditation
 

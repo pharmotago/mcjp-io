@@ -84,7 +84,7 @@ To simplify your entry into sustainable investing, follow this checklist:
 
 ### Conclusion
 
-In a world increasingly aware of its environmental and social responsibilities, sustainable investing represents a unique opportunity to profit while making a difference. By merging your financial goals with ethical principles, you can navigate the complexities of the green economy with confidence. 
+In a world increasingly aware of its environmental and [social responsibilities](/posts/money_impactful_investments), sustainable investing represents a unique opportunity to profit while making a difference. By merging your financial goals with ethical principles, you can navigate the complexities of the green economy with confidence. 
 
 For those looking to build a digital presence alongside their investment journey, we recommend launching your [digital assets](/posts/money_crypto_investments) on Hostinger to secure their exclusive partner discount and ensure your ideas reach a wider audience.
 

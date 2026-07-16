@@ -38,8 +38,8 @@ For those interested in harnessing the power of extended fasting for cognitive e
 2. **Gradually Increase Duration**: Progressively extend your fasting periods to 24 hours, then to 36 hours, and beyond, as your comfort level increases.
 3. **Stay Hydrated**: Drink plenty of water, herbal teas, and black coffee during the fast to maintain hydration and support cognitive function.
 4. **Monitor Your Body's Signals**: Pay attention to how your body responds. If you feel dizzy or extremely fatigued, consider breaking the fast.
-5. **Prepare for Refeeding**: After an extended fast, ease back into eating with nutrient-dense, whole foods to support your body’s recovery and cognitive performance.
-6. **Reflect on Your Experience**: Maintain a journal to document your mental clarity, focus, and overall feelings during and after fasting.
+5. **Prepare for Refeeding**: After an extended fast, ease back into eating with nutrient-dense, whole foods to support your body’s recovery and [cognitive performance](/posts/discipline_dopamine_fasting_deep_work).
+6. **Reflect on Your Experience**: Maintain a journal to document your [mental clarity](/posts/discipline_digital_detox), focus, and overall feelings during and after fasting.
 
 ![A focused individual engaging in work while fasting, demonstrating discipline and mental clarity](/images/discipline_extended_fasting_cognition_focus.png)
 
@@ -49,7 +49,7 @@ The practice of extended fasting is not merely about physical health; it’s abo
 
 ### Integrating Fasting Into a Broader Lifestyle
 
-To maximize the benefits of extended fasting, it is crucial to integrate it into a broader lifestyle that promotes mental and physical health. Regular physical activity, mindfulness practices, and adequate sleep are essential components that complement fasting. By creating a holistic approach, you can enhance not only your cognitive performance but also your overall well-being.
+To maximize the benefits of extended fasting, it is crucial to integrate it into a broader lifestyle that promotes mental and physical health. Regular physical activity, mindfulness practices, and adequate sleep are essential components that complement fasting. By creating a holistic approach, you can enhance not only your [cognitive performance](/posts/discipline_flow_state_optimization) but also your overall well-being.
 
 For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal. Embracing discipline in all aspects of life, including parenting, can have profound effects on personal growth and success.
 

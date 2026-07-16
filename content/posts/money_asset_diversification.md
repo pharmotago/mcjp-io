@@ -47,8 +47,8 @@ Creating a diversified portfolio requires a strategic approach to asset allocati
 #### Asset Diversification Action Plan
 
 1. **Assess Your Current Portfolio**: Review existing investments and identify areas of overexposure.
-2. **Determine Your Risk Tolerance**: Understand your comfort level with risk to tailor your investment strategy.
-3. **Research Alternative Assets**: Explore real estate markets, bond types, and other alternative investments such as commodities or cryptocurrencies.
+2. **Determine Your Risk Tolerance**: Understand your comfort level with risk to tailor your [investment strategy](/posts/money_hybrid_investing).
+3. **Research [Alternative Assets](/posts/money_investing_in_alternative_assets)**: Explore [real estate](/posts/money_investment_strategies) markets, bond types, and other alternative investments such as commodities or cryptocurrencies.
 4. **Set Allocation Targets**: Decide on percentage allocations for each asset class based on your investment goals.
 5. **Monitor and Rebalance**: Regularly review your portfolio and make necessary adjustments to maintain your desired asset allocation.
 

@@ -31,7 +31,7 @@ To cultivate this, a father must practice restraint. When your child forgets the
 
 ### Pillar II: Emotional Regulation and the Father's Mirror
 
-You cannot lecture your way to mental toughness; you must embody it. Children are acute observers. They do not listen to what you say; they download how you react. If you want to raise resilient kids, you must first master your own emotional landscape. 
+You cannot lecture your way to [mental toughness](/posts/discipline_mental_toughness_training); you must embody it. Children are acute observers. They do not listen to what you say; they download how you react. If you want to raise resilient kids, you must first master your own emotional landscape. 
 
 When you face a setback—a professional failure, a financial stressor, or a daily frustration—your reaction serves as the blueprint for your child's future behavior. Do you lash out? Do you retreat into apathy? Or do you vocalize a calm, analytical approach to the problem? 
 
@@ -47,7 +47,7 @@ This can take the form of demanding physical sports, learning a complex musical 
 
 ### The Daily Discipline of Family Leadership
 
-Raising kids with mental toughness is not a one-time seminar; it is a daily discipline. It requires the father to operate with intentionality, foresight, and unwavering self-discipline. Every interaction is an opportunity to either build or erode resilience. 
+Raising kids with [mental toughness](/posts/discipline_rucking_mental_toughness) is not a one-time seminar; it is a daily discipline. It requires the father to operate with intentionality, foresight, and unwavering self-discipline. Every interaction is an opportunity to either build or erode resilience. 
 
 To operationalize this philosophy, implement the following daily checklist:
 
@@ -60,4 +60,4 @@ To operationalize this philosophy, implement the following daily checklist:
 
 The ultimate measure of a father’s leadership is not found in the comfort he provides, but in the capability he instills. A child who has never faced the wind will never learn to stand against it. By prioritizing accountability, modeling emotional mastery, and engineering productive struggle, you are not just raising kids; you are forging capable, formidable adults.
 
-Fatherhood is the highest leverage activity you will ever undertake. Approach it with the rigor of a strategist and the heart of a mentor. Build their mental toughness today, and you will secure their autonomy and success for a lifetime.
+Fatherhood is the highest leverage activity you will ever undertake. Approach it with the rigor of a strategist and the heart of a mentor. Build their mental toughness today, and you will secure their autonomy and success for a lifetime. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.

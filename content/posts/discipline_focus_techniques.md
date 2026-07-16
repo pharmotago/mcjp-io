@@ -14,7 +14,7 @@ In a world saturated with distractions, the ability to cultivate [deep focus](/p
 
 ### Understanding Deep Focus
 
-Deep focus refers to an intense concentration on a singular task, allowing you to bypass superficial engagement and enter a state of flow. This state is characterized by heightened productivity, creativity, and a sense of satisfaction in progress. The ability to maintain deep focus is akin to a muscle; it requires consistent practice and strategic reinforcement to strengthen.
+[Deep focus](/posts/discipline_focus_productivity) refers to an intense concentration on a singular task, allowing you to bypass superficial engagement and enter a state of flow. This state is characterized by heightened productivity, creativity, and a sense of satisfaction in progress. The ability to maintain [deep focus](/posts/discipline_solitude_cognitive_clarity) is akin to a muscle; it requires consistent practice and strategic reinforcement to strengthen.
 
 ### The Importance of Self-Discipline
 

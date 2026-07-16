@@ -14,7 +14,7 @@ In a world characterized by rapid change and unforeseen challenges, the ability 
 
 ### Understanding Mental Resilience
 
-Mental resilience refers to the capacity to recover quickly from difficulties; it is the mental reservoir of strength that individuals draw upon in times of stress. This concept is foundational in both personal and professional realms, where the ability to withstand pressure can dictate success or failure. Resilience is not about avoiding stress but rather about developing a robust framework to manage and thrive amid it.
+[Mental resilience](/posts/discipline_masculine_mental_resilience) refers to the capacity to recover quickly from difficulties; it is the mental reservoir of strength that individuals draw upon in times of stress. This concept is foundational in both personal and professional realms, where the ability to withstand pressure can dictate success or failure. Resilience is not about avoiding stress but rather about developing a robust framework to manage and thrive amid it.
 
 ### The Importance of Discipline
 

@@ -14,7 +14,7 @@ At the intersection of ancient Stoic philosophy and modern developmental psychol
 
 ## The Core Philosophy of the Sovereign Patriarch
 
-The foundation of Stoic family leadership rests on a single, powerful principle: **You cannot lead your family if you cannot lead yourself.** Children are acute observers of behavior; they internalize a father's reaction to stress, failure, and chaos far more than they absorb verbal instructions. 
+The foundation of Stoic [family leadership](/posts/family_role_of_man) rests on a single, powerful principle: **You cannot lead your family if you cannot lead yourself.** Children are acute observers of behavior; they internalize a father's reaction to stress, failure, and chaos far more than they absorb verbal instructions. 
 
 In Stoic philosophy, the concept of the *Sovereign Patriarch* is rooted in the "dichotomy of control"—distinguishing between what is within our power and what is not. A father must demonstrate this division daily. When external crises occur—whether economic downturns, sudden personal setbacks, or societal disruptions—the Stoic father remains a calm anchor. His composure signals to his family that while they cannot control external events, they retain complete authority over their internal response.
 
@@ -37,7 +37,7 @@ The modern cultural narrative frequently encourages victimhood, teaching individ
 
 ## Protocol 2: Managing the Digital Border
 
-A major challenge for the modern family leader is protecting the family's attention from digital saturation. The constant stream of cheap dopamine from social media, video games, and hyper-stimulation weakens a child’s capacity for deep focus and emotional stability. A Sovereign Patriarch must establish firm boundaries to govern technology use within the home.
+A major challenge for the modern family leader is protecting the family's attention from digital saturation. The constant stream of cheap dopamine from social media, video games, and hyper-stimulation weakens a child’s capacity for [deep focus](/posts/discipline_focus_productivity) and [emotional stability](/posts/discipline_emotional_stability_practices). A Sovereign Patriarch must establish firm boundaries to govern technology use within the home.
 
 To facilitate healthy family interactions and productivity, managing the household's digital health is essential. Establishing structural boundaries on screen time and implementing digital-free zones (such as the dining table and bedrooms) is a critical step. When children do connect for educational pursuits or high-signal creative tasks, having a reliable connection is vital. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee, ensuring the family's digital real estate remains optimized and secure.
 

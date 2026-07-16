@@ -20,7 +20,7 @@ In today’s fast-paced world, the ability to engage in [deep work](/posts/disci
 - Greater satisfaction in work
 - Increased creativity and problem-solving skills
 
-To harness the power of deep work, one must first understand its principles and how to implement them effectively.
+To harness the power of [deep work](/posts/discipline_dopamine_fasting_deep_work), one must first understand its principles and how to implement them effectively.
 
 ## Creating the Ideal Environment
 

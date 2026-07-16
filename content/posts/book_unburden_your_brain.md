@@ -59,6 +59,6 @@ In addition to mastering life admin, embracing efficient systems is crucial for 
 
 "Unburden Your Brain" is more than just a book; it is a transformative tool designed to help you reclaim your [mental clarity](/posts/discipline_digital_detox) and elevate your life. By adopting the principles outlined in this compelling guide, you will not only enhance your productivity but also cultivate a sense of peace and purpose in your daily life.
 
-Don’t let the invisible burdens of life admin weigh you down any longer. Take the first step toward a more organized and fulfilling life today. [Buy on Amazon](https://www.amazon.com/dp/B0GHMGFK1W?tag=mcjpio-20) and start your journey to mental freedom and enhanced productivity. 
+Don’t let the invisible burdens of life admin weigh you down any longer. Take the first step toward a more organized and fulfilling life today. [Buy on Amazon](https://www.amazon.com/dp/B0GHMGFK1W?tag=mcjpio-20) and start your journey to mental freedom and enhanced productivity. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
 
 ![Official Release Asset](/images/book_unburden_your_brain_theme.svg)

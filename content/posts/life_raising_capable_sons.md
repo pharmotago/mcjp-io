@@ -14,7 +14,7 @@ Fathers must transition from the role of a mere protector to that of a strategic
 
 ## The Architecture of Resilience
 
-Resilience is not an inherent trait; it is a forged capacity. It is the psychological elasticity that allows a young man to absorb a setback, extract its lessons, and advance with refined strategy. In the context of raising sons, resilience is cultivated through controlled exposure to difficulty. 
+Resilience is not an inherent trait; it is a forged capacity. It is the psychological elasticity that allows a young man to absorb a setback, extract its lessons, and advance with refined strategy. In the context of [raising sons](/posts/life_fatherhood_anti_fragility), resilience is cultivated through controlled exposure to difficulty. 
 
 A father must systematically introduce his son to calculated risks and natural consequences. If a boy never experiences the sting of failure in a low-stakes environment, he will inevitably shatter when confronting high-stakes realities in adulthood. Resilience is built in the quiet, unglamorous moments of life: completing a difficult task when exhausted, standing firm in a disagreement with integrity, or getting back up after a physical or emotional defeat. 
 
@@ -22,7 +22,7 @@ A father must systematically introduce his son to calculated risks and natural c
 
 ## Accountability as the Bedrock of Manhood
 
-The modern reflex to deflect responsibility is the greatest threat to masculine development. A capable man is, first and foremost, an accountable man. He understands that his circumstances are the sum of his decisions, and he refuses the seductive comfort of victimhood.
+The modern reflex to deflect responsibility is the greatest threat to [masculine development](/posts/life_fatherhood_work_ethic). A capable man is, first and foremost, an accountable man. He understands that his circumstances are the sum of his decisions, and he refuses the seductive comfort of victimhood.
 
 Fathers must instill a zero-tolerance policy for excuse-making. When your son faces a setback—whether a poor grade, a missed assignment, or a conflict with a peer—guide him through a forensic analysis of his role in the outcome. 
 

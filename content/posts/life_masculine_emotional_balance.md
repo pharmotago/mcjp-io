@@ -69,4 +69,4 @@ Building emotional resilience is akin to investing in a long-term asset. It requ
 
 The masculine journey to emotional balance is a continuous process of self-discovery and growth. It demands courage to challenge traditional norms and the discipline to cultivate a more nuanced understanding of strength. By embracing this journey, modern men can achieve a harmonious balance that enhances their [mental health](/posts/life_emotional_strength) and enriches their lives.
 
-As you embark on this path, remember that emotional balance is not a destination but a way of life—one that offers profound rewards for those willing to take up the challenge.
+As you embark on this path, remember that [emotional balance](/posts/life_masculine_health) is not a destination but a way of life—one that offers profound rewards for those willing to take up the challenge.

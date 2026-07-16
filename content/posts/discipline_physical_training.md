@@ -4,6 +4,7 @@ date: "2026-07-12"
 category: "Discipline"
 description: "Uncover the powerful connection between physical fitness and cognitive performance. This article provides insights on how physical training can enhance mental clarity and overall success."
 keywords: ["physical training","cognitive training","success habits"]
+canonical: "https://blog.mcjp.io/posts/discipline_physical_cognitive_training"
 ---
 
 ## Cognitive Training Through Physical Exercise: A Dual Approach to Success
@@ -24,7 +25,7 @@ The connection between physical and [cognitive training](/posts/discipline_breat
 
 ### Integrating Physical and Cognitive Training
 
-To maximize the benefits of this dual approach, one must cultivate a disciplined routine that incorporates both physical and cognitive training. Below is a structured action plan to help you integrate these practices into your daily life:
+To maximize the benefits of this dual approach, one must cultivate a disciplined routine that incorporates both physical and [cognitive training](/posts/discipline_breathwork_control). Below is a structured action plan to help you integrate these practices into your daily life:
 
 1. **Set Clear Goals:**
    - Define what success means to you in both physical and cognitive domains.
@@ -45,7 +46,7 @@ To maximize the benefits of this dual approach, one must cultivate a disciplined
 
 ### Building Success Habits Through Discipline
 
-The transformation stemming from integrating physical training with cognitive exercises is profound, but it requires unwavering self-discipline and commitment. Success habits are not built overnight; they are cultivated through consistent practice and integrity. Here are actionable strategies to foster these habits:
+The transformation stemming from integrating [physical training](/posts/discipline_cold_exposure_grit) with cognitive exercises is profound, but it requires unwavering self-discipline and commitment. [Success habits](/posts/discipline_creative_routines) are not built overnight; they are cultivated through consistent practice and integrity. Here are actionable strategies to foster these habits:
 
 - **Start Small:** Begin with manageable increments of exercise and cognitive tasks. Gradually increase intensity and duration as your body and mind adapt.
 

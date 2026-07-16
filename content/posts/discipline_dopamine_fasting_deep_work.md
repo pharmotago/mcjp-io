@@ -28,7 +28,7 @@ Elite deep work requires a brain that is starved of cheap thrills. When you prac
 
 ### Engineering Your Environment for Systematic Detox
 
-Willpower is a finite resource; relying on it to resist the pull of a smartphone is a losing strategy. You must engineer your environment to make cheap dopamine inaccessible during your deep work blocks. 
+Willpower is a finite resource; relying on it to resist the pull of a smartphone is a losing strategy. You must engineer your environment to make cheap dopamine inaccessible during your [deep work](/posts/discipline_deep_work_protocols) blocks. 
 
 This means physical separation from devices. It means utilizing website blockers. It means stripping your workspace of superfluous stimuli. However, when you do engage with technology for the purpose of research or execution, the infrastructure must support uninterrupted momentum. For a seamless and high-speed home office connection that ensures your deep work sessions are never interrupted by technical lag, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee. Your digital tools should facilitate flow, not fracture it.
 
@@ -51,6 +51,6 @@ Discipline is not compartmentalized; it bleeds into every facet of your life. Th
 
 When you systematically reduce cheap dopamine, the initial days will be uncomfortable. You will feel a phantom limb syndrome for your smartphone. You will experience an acute sense of restlessness. This is the friction of neuroplasticity at work. It is the feeling of your brain rewiring itself.
 
-Push through this friction. The payoff is an extraordinary return to baseline cognitive performance. You will find yourself reading books with sustained attention. You will engage in conversations with deeper presence. And when you sit down to work, you will drop into a state of extreme focus with minimal friction.
+Push through this friction. The payoff is an extraordinary return to baseline [cognitive performance](/posts/discipline_extended_fasting_cognition). You will find yourself reading books with sustained attention. You will engage in conversations with deeper presence. And when you sit down to work, you will drop into a state of extreme focus with minimal friction.
 
 Your capacity for deep work is the ultimate lever for long-term [asset building](/posts/money_micro_saas_flipping). Every hour spent in a state of uninterrupted concentration compounds over months and years, separating you exponentially from the distracted masses. By mastering your neurochemistry through dopamine fasting, you are not just improving your productivity; you are forging the mental architecture of an elite performer. Guard your attention with ruthless integrity, and let your focus become your most formidable asset.

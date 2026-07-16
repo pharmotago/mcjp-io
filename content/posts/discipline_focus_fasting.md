@@ -76,4 +76,4 @@ Incorporating focus fasting into your life is not merely an exercise in discipli
 
 For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal, where you can find resources to further enhance your discipline in various aspects of life. 
 
-In this fast-paced world, remember that the ability to focus is a skill that can be developed. By committing to focus fasting, you not only improve your mental acuity but also lay the groundwork for achieving your long-term aspirations. Seize the opportunity to sharpen your mind—your future self will thank you.
+In this fast-paced world, remember that the ability to focus is a skill that can be developed. By committing to focus fasting, you not only improve your mental acuity but also lay the groundwork for achieving your long-term aspirations. Seize the opportunity to sharpen your mind—your future self will thank you. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.

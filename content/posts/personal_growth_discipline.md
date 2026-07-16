@@ -41,7 +41,7 @@ In an information-saturated environment, it is imperative to be discerning about
 
 #### 3. **Deep Work Habits: Structure Your Day**
 
-Cal Newport, in his book "Deep Work," emphasizes the importance of uninterrupted focus for producing high-quality work. Establishing deep work habits requires intentional scheduling and a commitment to maintaining focus during these periods.
+Cal Newport, in his book "[Deep Work](/posts/discipline_deep_work_protocols)," emphasizes the importance of uninterrupted focus for producing high-quality work. Establishing [deep work](/posts/discipline_dopamine_fasting_deep_work) habits requires intentional scheduling and a commitment to maintaining focus during these periods.
 
 - **Steps to Establish Deep Work:**
   - **Block Time for Focused Work:** Dedicate specific time slots each day for deep work, free from distractions.
@@ -65,4 +65,4 @@ The construction of a Dopamine Shield is not a one-time endeavor; it is a contin
 
 In a world fraught with distractions, cultivating the ability to focus is akin to wielding a superpower. By understanding the dynamics of dopamine and implementing the pillars of the Dopamine Shield, you can protect your cognitive energy and channel it toward high-value execution. Remember, self-discipline is not merely a trait; it is a skill that can be honed and developed over time.
 
-As you embark on this journey, embrace the challenge and recognize that the rewards of sustained focus—creativity, productivity, and [personal growth](/posts/discipline_neuroplasticity_growth)—far outweigh the temporary pleasures of distraction. The path to mastery lies in your hands. Build your Dopamine Shield today and unlock the potential that awaits within.
+As you embark on this journey, embrace the challenge and recognize that the rewards of sustained focus—creativity, productivity, and [personal growth](/posts/discipline_neuroplasticity_growth)—far outweigh the temporary pleasures of distraction. The path to mastery lies in your hands. Build your Dopamine Shield today and unlock the potential that awaits within. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.

@@ -100,8 +100,9 @@ function injectLinksIntoContent(slug, content, postIndex) {
             if (linkedSlugs.has(target.id) || linkCount >= maxLinks) continue;
 
             for (const phrase of target.phrases) {
-                // Word boundary matching, case-insensitive
-                const regex = new RegExp(`\\b(${escapeRegExp(phrase)})\\b`, 'i');
+                // Semantic / Plural word boundary matching, case-insensitive
+                const pattern = buildPluralRegexPattern(phrase);
+                const regex = new RegExp(`\\b(${pattern})\\b`, 'i');
                 const match = tempLine.match(regex);
                 if (match) {
                     const originalText = match[1];
@@ -125,6 +126,25 @@ function injectLinksIntoContent(slug, content, postIndex) {
         content: updatedLines.join('\n'),
         linksAdded: linkCount,
     };
+}
+
+function buildPluralRegexPattern(phrase) {
+    const escaped = escapeRegExp(phrase);
+    // If it ends in ss, sh, ch, x, z, allow optional 'es' (e.g., business -> businesses)
+    if (/(ss|x|z|ch|sh)$/i.test(phrase)) {
+        return `${escaped}(es)?`;
+    }
+    // If it ends in y, allow 'y' or 'ies' (e.g., masculinity -> masculinities, duty -> duties)
+    if (phrase.endsWith('y')) {
+        const base = escaped.slice(0, -1);
+        return `${base}(y|ies)`;
+    }
+    // If it already ends in s (but not ss), it's probably already plural (e.g., focus hacks)
+    if (phrase.endsWith('s')) {
+        return escaped;
+    }
+    // Default: optionally match 's' at the end (e.g., solopreneur -> solopreneurs)
+    return `${escaped}s?`;
 }
 
 function escapeRegExp(string) {

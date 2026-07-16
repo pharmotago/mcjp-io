@@ -57,6 +57,6 @@ For deeper insights on masculine resilience and active parenting, explore [The S
 
 ### Conclusion
 
-In conclusion, the pathway to mastering dopamine and enhancing mental clarity lies in embracing the discomfort of physical hardship. By deliberately engaging in extreme training, you not only reset your dopamine baseline but also cultivate discipline that will serve you in every aspect of life. This strategy is more than just a workout; it is a profound shift in how you approach challenges, revealing the strength that lies within.
+In conclusion, the pathway to mastering dopamine and enhancing [mental clarity](/posts/discipline_digital_detox) lies in embracing the discomfort of physical hardship. By deliberately engaging in extreme training, you not only reset your dopamine baseline but also cultivate discipline that will serve you in every aspect of life. This strategy is more than just a workout; it is a profound shift in how you approach challenges, revealing the strength that lies within.
 
 As you embark on this journey, remember that every step taken toward physical hardship is a step toward a more disciplined, fulfilling life. Your mind and body will thank you.

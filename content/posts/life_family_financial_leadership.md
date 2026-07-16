@@ -22,7 +22,7 @@ You must create a psychological firewall between the brutal realities of the mar
 
 ## Financial Triage and Decisive Action
 
-Once your internal state is regulated, you must execute a ruthless financial triage. Financial hardship requires a temporary retreat from ego-driven consumption and a hyper-focus on survival and long-term asset preservation. 
+Once your internal state is regulated, you must execute a ruthless financial triage. [Financial hardship](/posts/life_family_financial_hardship) requires a temporary retreat from ego-driven consumption and a hyper-focus on survival and long-term asset preservation. 
 
 Begin by auditing every outgoing dollar. Categorize your expenses into core survival (housing, utilities, basic nutrition) and non-essentials (subscriptions, dining, luxury items). Decisive leadership means cutting the non-essentials immediately and without apology. Do not wait for the situation to deteriorate further before taking action. 
 
@@ -40,7 +40,7 @@ For deeper insights on masculine resilience and active parenting, explore [The S
 
 ## Communicating with Clarity and Integrity
 
-Honesty is a cornerstone of masculine duties, but the delivery of truth requires tact. You must communicate the financial reality to your spouse, but the conversation must be framed around strategy, not despair. 
+Honesty is a cornerstone of [masculine duties](/posts/life_family_crisis_management), but the delivery of truth requires tact. You must communicate the financial reality to your spouse, but the conversation must be framed around strategy, not despair. 
 
 Sit down and present the numbers objectively. "Our income has decreased by X percent. Here is how we are going to restructure our outflow to bridge the gap." This collaborative approach respects your partner's intelligence while firmly keeping your hands on the steering wheel. 
 

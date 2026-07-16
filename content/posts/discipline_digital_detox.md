@@ -29,7 +29,7 @@ A [digital detox](/posts/discipline_solitude_cognitive_clarity) is more than jus
 
 ### Crafting Your Digital Detox Plan
 
-Embarking on a digital detox requires a structured approach to ensure its effectiveness. Here’s a practical checklist to guide you through the process:
+Embarking on a [digital detox](/posts/discipline_solitude_cognitive_clarity) requires a structured approach to ensure its effectiveness. Here’s a practical checklist to guide you through the process:
 
 #### Step 1: Assess Your Digital Consumption
 
@@ -67,4 +67,4 @@ Incorporating these practices will not only enhance your productivity but also e
 
 While technology will undoubtedly remain a central aspect of our lives, it is imperative to strike a balance that prioritizes our [mental clarity](/posts/discipline_focus_fasting) and focus. A digital detox serves as a powerful tool to reclaim your attention in this hyper-connected world, enabling you to build a life rooted in discipline, integrity, and purpose. 
 
-As you embark on this journey, remember that the decision to disconnect is ultimately a commitment to reconnecting with the most important aspects of your life—your goals, your relationships, and your own [mental well-being](/posts/life_masculine_mental_wellbeing). Embrace the challenge, and watch as your focus and productivity flourish in ways you never thought possible.
+As you embark on this journey, remember that the decision to disconnect is ultimately a commitment to reconnecting with the most important aspects of your life—your goals, your relationships, and your own [mental well-being](/posts/life_masculine_mental_wellbeing). Embrace the challenge, and watch as your focus and productivity flourish in ways you never thought possible. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.

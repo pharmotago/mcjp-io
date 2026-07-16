@@ -20,9 +20,9 @@ True [asset building](/posts/money_content_site_acquisitions)—whether financia
 
 Solitude is frequently misunderstood. It is not isolation, nor is it loneliness. It is a deliberate, tactical withdrawal from external stimuli to engage in rigorous [cognitive training](/posts/discipline_breathwork_control). When you sit alone, stripped of digital distractions, you are forced to confront your own thoughts, audit your strategies, and face your internal resistance.
 
-This is cognitive training in its purest form. Just as heavy resistance training breaks down muscle fibers to build physical strength, intentional silence breaks down mental clutter to build psychological resilience. It sharpens your ability to hold complex variables in your mind, synthesize disparate pieces of information, and execute high-leverage decisions with unwavering integrity. 
+This is [cognitive training](/posts/discipline_breathwork_control) in its purest form. Just as heavy resistance training breaks down muscle fibers to build physical strength, intentional silence breaks down mental clutter to build psychological resilience. It sharpens your ability to hold complex variables in your mind, synthesize disparate pieces of information, and execute high-leverage decisions with unwavering integrity. 
 
-In silence, the mind undergoes a process of consolidation. It takes the fragmented data points absorbed during the day and weaves them into a coherent tapestry of understanding. Without this quiet processing time, learning is lost, and strategic vision remains blurred. Solitude is the forge where mental clarity is refined.
+In silence, the mind undergoes a process of consolidation. It takes the fragmented data points absorbed during the day and weaves them into a coherent tapestry of understanding. Without this quiet processing time, learning is lost, and strategic vision remains blurred. Solitude is the forge where [mental clarity](/posts/discipline_digital_detox) is refined.
 
 ### The Long-Term ROI of Silence
 
@@ -32,7 +32,7 @@ This discipline extends beyond personal productivity; it forms the bedrock of fa
 
 ### Managing the Digital Infrastructure
 
-When you intentionally step away from the noise to engage in deep work, your digital detox must be absolute. Yet, we must acknowledge that modern asset building and professional execution rely heavily on digital infrastructure. The goal is not to abandon technology, but to master it. When you are connected, your technology must be an enabler, not a bottleneck.
+When you intentionally step away from the noise to engage in [deep work](/posts/discipline_deep_work_protocols), your digital detox must be absolute. Yet, we must acknowledge that modern asset building and professional execution rely heavily on digital infrastructure. The goal is not to abandon technology, but to master it. When you are connected, your technology must be an enabler, not a bottleneck.
 
 For a seamless, high-performance connection that supports your focused work phases without frustrating lag or downtime, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee. Secure a connection that works as hard as you do, so that when it is time to disconnect and enter solitude, you can do so with the confidence that your digital affairs are in order.
 
