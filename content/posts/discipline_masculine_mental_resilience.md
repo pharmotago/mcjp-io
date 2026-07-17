@@ -65,7 +65,7 @@ Understanding and managing your emotions is crucial to resilience. [Emotional in
 
 ### Building Integrity Through Resilience
 
-Integrity and resilience are intertwined. As men, embodying integrity means aligning your actions with your values, even in the face of adversity. This alignment strengthens your mental resilience. When you are true to yourself, challenges become less daunting, and your ability to navigate them improves.
+Integrity and resilience are intertwined. As men, embodying integrity means aligning your actions with your values, even in the face of adversity. This alignment strengthens your [mental resilience](/posts/discipline_mental_resilience). When you are true to yourself, challenges become less daunting, and your ability to navigate them improves.
 
 ### The Role of Continuous Learning
 

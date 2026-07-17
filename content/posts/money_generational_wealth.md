@@ -16,7 +16,7 @@ Creating generational wealth is not merely an aspiration; it is a profound respo
 
 Generational wealth is defined as assets passed down from one generation to the next. This encompasses not only financial resources but also knowledge, values, and skills. The significance of this wealth cannot be overstated. It provides [financial security](/posts/money_futureproof_investments), enhances educational opportunities, and fosters entrepreneurial endeavors among heirs, thereby perpetuating a cycle of success.
 
-Beyond the tangible benefits, generational wealth carries an emotional weight. It symbolizes the sacrifices made by previous generations and serves as a motivation for descendants to honor that legacy through responsible stewardship. As such, building generational wealth necessitates a holistic approach that integrates financial planning with personal values.
+Beyond the tangible benefits, generational wealth carries an emotional weight. It symbolizes the sacrifices made by previous generations and serves as a motivation for descendants to honor that legacy through responsible stewardship. As such, building generational wealth necessitates a holistic approach that integrates [financial planning](/posts/money_advanced_budgeting_strategies) with personal values.
 
 ### Strategies for Building Wealth That Lasts
 

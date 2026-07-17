@@ -56,7 +56,7 @@ Developing [emotional resilience](/posts/life_masculine_emotional_health) is a p
 
 ### The Long-Term Vision
 
-Building emotional resilience is not a one-time effort; it is a lifelong journey. Men who commit to this path often find that the benefits compound over time, leading to a more fulfilling life. As the world continues to evolve, the ability to adapt emotionally will become increasingly vital.
+Building [emotional resilience](/posts/life_fatherhood_emotional_resilience) is not a one-time effort; it is a lifelong journey. Men who commit to this path often find that the benefits compound over time, leading to a more fulfilling life. As the world continues to evolve, the ability to adapt emotionally will become increasingly vital.
 
 Incorporating these strategies into your [daily routine](/posts/discipline_morning_routines) will not only enhance your emotional resilience but also set a foundation for sustained personal growth. The strength you build today will serve as a long-term asset, supporting you in navigating the complexities of tomorrow.
 

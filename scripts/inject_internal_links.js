@@ -75,7 +75,7 @@ function buildPostIndex() {
 function injectLinksIntoContent(slug, content, postIndex) {
     const lines = content.split('\n');
     let linkCount = 0;
-    const maxLinks = 3;
+    const maxLinks = 7;
     const linkedSlugs = new Set([slug]); // Don't link to self
 
     const updatedLines = lines.map(line => {

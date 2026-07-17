@@ -57,8 +57,8 @@ For deeper insights on masculine resilience and active parenting, explore [The S
 
 ### Conclusion
 
-Extended fasting stands as a formidable strategy for those seeking to elevate their cognitive performance and develop a discipline that transcends the ordinary. As the landscape of personal and professional achievement becomes increasingly competitive, embracing practices such as extended fasting can provide a critical edge. By unlocking mental clarity, sharpening focus, and building unbreakable willpower, individuals can position themselves for high-level success.
+Extended fasting stands as a formidable strategy for those seeking to elevate their [cognitive performance](/posts/discipline_dopamine_fasting_deep_work) and develop a discipline that transcends the ordinary. As the landscape of personal and professional achievement becomes increasingly competitive, embracing practices such as extended fasting can provide a critical edge. By unlocking [mental clarity](/posts/discipline_biohacking_focus_and_productivity), sharpening focus, and building unbreakable willpower, individuals can position themselves for high-level success.
 
 ![An individual reflecting on their fasting journey, symbolizing the mental clarity and focus achieved through discipline](/images/discipline_extended_fasting_cognition_theme.png)
 
-In a world where distractions abound, the ability to fast and maintain discipline can truly set you apart. Whether you are an entrepreneur, a student, or a professional, the journey toward elite cognitive performance through extended fasting is one worth embarking on.
+In a world where distractions abound, the ability to fast and maintain discipline can truly set you apart. Whether you are an entrepreneur, a student, or a professional, the journey toward elite [cognitive performance](/posts/discipline_flow_state_optimization) through extended fasting is one worth embarking on.

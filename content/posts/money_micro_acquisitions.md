@@ -23,7 +23,7 @@ The thesis is simple: it is often cheaper to buy an audience and a proven produc
 
 ### The Discipline of Valuation
 
-The first test of an operator’s discipline is in the valuation phase. Emotion must be entirely stripped from the equation. In the world of micro private equity, online businesses are typically valued on a multiple of their Seller’s Discretionary Earnings (SDE) or EBITDA. 
+The first test of an operator’s discipline is in the valuation phase. Emotion must be entirely stripped from the equation. In the world of [micro private equity](/posts/money_digital_holdco), online businesses are typically valued on a multiple of their Seller’s Discretionary Earnings (SDE) or EBITDA. 
 
 For sub-$1 million [digital assets](/posts/money_crypto_investments), SDE is the standard. This metric represents the total financial benefit a single owner derives from the business. If a niche content site generates $60,000 in annual SDE, and the market multiple for that asset class is 3x, the acquisition price should be roughly $180,000. 
 

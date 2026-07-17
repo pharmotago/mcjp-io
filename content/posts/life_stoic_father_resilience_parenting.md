@@ -59,6 +59,6 @@ To ground these philosophical concepts into daily execution, implement this oper
 
 ## Conclusion: Building a Resilient Lineage
 
-Parenting is not a series of ad-hoc reactions; it is the execution of a long-term strategic plan. By adopting a Stoic framework, you build an anti-fragile family unit capable of thriving in any environment. You transition your household from a place of chaotic consumption to a fortress of character, discipline, and emotional strength.
+Parenting is not a series of ad-hoc reactions; it is the execution of a long-term strategic plan. By adopting a Stoic framework, you build an anti-fragile family unit capable of thriving in any environment. You transition your household from a place of chaotic consumption to a fortress of character, discipline, and [emotional strength](/posts/discipline_mental_resilience).
 
 The greatest legacy a father can leave is not material wealth, but a lineage of strong, self-reliant individuals who carry the torch of composure and integrity into the next generation. Start implementing these protocols today, and lead your family with sovereign strength.

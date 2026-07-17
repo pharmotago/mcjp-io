@@ -219,7 +219,7 @@ export default async function PostPage({
             const src = match[2];
             formattedLine = `
               <div class="my-8 overflow-hidden rounded-xl border border-slate-200 bg-slate-50 shadow-xs max-w-2xl mx-auto">
-                <img src="${src}" alt="${alt}" class="w-full h-auto object-cover" />
+                <img src="${src}" alt="${alt}" loading="lazy" decoding="async" class="w-full h-auto object-cover" />
                 ${alt ? `<div class="p-3 text-center text-[11px] text-slate-500 border-t border-slate-100 bg-white italic">${alt}</div>` : ''}
               </div>
             `;
@@ -274,9 +274,13 @@ export default async function PostPage({
             "headline": post.data.title,
             "description": post.data.description,
             "datePublished": post.data.date,
+            "dateModified": post.data.lastUpdated || post.data.date,
+            "image": `https://blog.mcjp.io/images/${id}_focus.png`,
+            "wordCount": post.readingTime ? post.readingTime * 200 : undefined,
             "author": {
               "@type": "Person",
-              "name": "Peter Kim"
+              "name": "Peter Kim",
+              "url": "https://blog.mcjp.io/about"
             },
             "publisher": {
               "@type": "Organization",

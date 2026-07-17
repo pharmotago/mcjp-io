@@ -28,7 +28,7 @@ To harness the power of [deep work](/posts/discipline_dopamine_fasting_deep_work
 
 ### Eliminate Distractions
 
-Distractions are the nemesis of deep work. To combat them, consider these actionable steps:
+Distractions are the nemesis of [deep work](/posts/discipline_dopamine_fasting_deep_work). To combat them, consider these actionable steps:
 
 - **Designate a Workspace**: Create a dedicated area free from distractions. This space should be reserved solely for deep work.
 - **Digital Detox**: Silence notifications on your devices and consider using apps like Freedom or Cold Turkey to block distracting websites during work sessions.

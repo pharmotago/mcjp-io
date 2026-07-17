@@ -94,4 +94,4 @@ For deeper insights on masculine resilience and active parenting, explore [The S
 
 Harnessing the power of neuroplasticity for [personal growth](/posts/discipline_self_awareness_journey) is an empowering journey. By committing to mental discipline and implementing actionable strategies, you can reshape your brain, enhance your capabilities, and ultimately transform your life. Remember, the brain's adaptability is a tool that, when used wisely, can lead to lasting change and success.
 
-As you embark on this journey, remain steadfast in your commitment to self-improvement. Building a disciplined mind is an investment in your future—one that yields dividends in the form of resilience, intelligence, and emotional strength.
+As you embark on this journey, remain steadfast in your commitment to self-improvement. Building a disciplined mind is an investment in your future—one that yields dividends in the form of resilience, intelligence, and [emotional strength](/posts/discipline_mental_resilience).

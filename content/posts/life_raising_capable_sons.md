@@ -51,7 +51,7 @@ Consider the skills required for total self-reliance. Does your son know how to 
 
 ## The Father’s Blueprint: An Actionable Checklist
 
-To operationalize these concepts, a father must integrate them into the daily rhythm of life. Masculine development is not a seminar; it is a daily practice.
+To operationalize these concepts, a father must integrate them into the daily rhythm of life. [Masculine development](/posts/life_fatherhood_work_ethic) is not a seminar; it is a daily practice.
 
 *   **Implement the "Struggle Protocol":** Deliberately assign tasks that push your son slightly beyond his current capability. Allow him to struggle. Refrain from intervening the moment he experiences frustration. Guide, but do not do the work for him.
 *   **Conduct After-Action Reviews (AARs):** Borrow this military framework. After a significant event—a sports game, a difficult exam, a social conflict—sit down and review. Ask: What was the objective? What actually happened? Why was there a gap? What will we do differently next time?

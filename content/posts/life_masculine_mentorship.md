@@ -123,7 +123,7 @@ To harness the full potential of mentorship, both mentors and mentees should ado
 
 ### Building Bridges through Mentorship
 
-The act of building generational bridges through mentorship can have far-reaching implications. Here are some critical benefits:
+The act of building [generational bridges](/posts/life_modern_mentorship) through mentorship can have far-reaching implications. Here are some critical benefits:
 
 - **Cultural Exchange**: Mentorship facilitates the sharing of diverse cultural experiences and perspectives. This exchange enriches both the mentor and mentee, fostering a more inclusive environment.
 

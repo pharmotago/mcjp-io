@@ -80,7 +80,7 @@ Engaging in regular meditation can sharpen focus and reduce mental clutter.
 
 #### 2. Mindful Movement
 
-Activities such as yoga or tai chi promote both physical and mental agility. These practices enhance body awareness while fostering a calm and focused mind.
+Activities such as yoga or tai chi promote both physical and [mental agility](/posts/discipline_neuroplasticity_enhancement). These practices enhance body awareness while fostering a calm and focused mind.
 
 **Action Plan**:
 - Incorporate a 30-minute session of yoga or tai chi into your weekly routine.

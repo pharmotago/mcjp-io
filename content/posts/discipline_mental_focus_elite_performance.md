@@ -43,7 +43,7 @@ Discipline can be cultivated through intentional practices. Here are some strate
 
 ### Action Plan for Elite Performance
 
-Adopting a structured approach can significantly enhance your mental focus and discipline. Consider the following checklist to implement these strategies effectively:
+Adopting a structured approach can significantly enhance your [mental focus](/posts/discipline_masculine_mental_focus) and discipline. Consider the following checklist to implement these strategies effectively:
 
 - [ ] Define your primary objective.
 - [ ] Outline three SMART goals related to your objective.

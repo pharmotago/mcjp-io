@@ -46,7 +46,7 @@ Honesty is a cornerstone of [masculine duties](/posts/life_family_crisis_managem
 
 Sit down and present the numbers objectively. "Our income has decreased by X percent. Here is how we are going to restructure our outflow to bridge the gap." This collaborative approach respects your partner's intelligence while firmly keeping your hands on the steering wheel. 
 
-For older children, financial hardship can be a profound teaching moment. It is an opportunity to instill the values of self-discipline, resourcefulness, and delayed gratification. You do not need to burden them with the weight of the mortgage, but you can explain that the family is focusing on "needs" rather than "wants" for a season. This frames the hardship not as a tragedy, but as a collective mission.
+For older children, [financial hardship](/posts/life_family_financial_hardship) can be a profound teaching moment. It is an opportunity to instill the values of self-discipline, resourcefulness, and delayed gratification. You do not need to burden them with the weight of the mortgage, but you can explain that the family is focusing on "needs" rather than "wants" for a season. This frames the hardship not as a tragedy, but as a collective mission.
 
 ![A family walking together through a forest trail, representing unity and forward momentum under the father's guidance](/images/life_family_financial_leadership_theme.png)
 

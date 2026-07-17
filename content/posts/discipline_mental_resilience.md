@@ -60,7 +60,7 @@ Enhancing your problem-solving abilities enables you to navigate adversity with 
 
 #### 5. Maintain Physical Well-Being
 
-Physical health is intrinsically linked to mental resilience. Regular exercise, a balanced diet, and adequate sleep are crucial components of an effective resilience strategy.
+Physical health is intrinsically linked to [mental resilience](/posts/discipline_masculine_mental_resilience). Regular exercise, a balanced diet, and adequate sleep are crucial components of an effective resilience strategy.
 
 - **Action Steps:**
   - Commit to a consistent exercise routine, integrating both cardio and strength training.
