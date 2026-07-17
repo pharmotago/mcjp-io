@@ -900,15 +900,20 @@
       <i class="fa-solid fa-calendar-day"></i>
       <span>Daily</span>
     </button>
-    <button class="mobile-nav-item" data-mobile-tab="timeclock" onclick="switchTab('timeclock')">
+    <button class="mobile-nav-item" data-mobile-tab="timeclock" onclick="switchTab('timeclock')" style="position: relative;">
       <i class="fa-solid fa-business-time"></i>
       <span>Clock</span>
+      <!-- BUG 5 FIX: Mobile badge for pending timecards (managers only) -->
+      <span class="nav-badge" id="badge-timeclock-mobile" style="display:none; position: absolute; top: 4px; right: 18px; padding: 2px 5px; font-size: 8px; min-width: 14px; height: 14px; line-height: 10px; border-radius: 50%; border: 1px solid var(--bg-dark);">0</span>
     </button>
-    <button class="mobile-nav-item" data-mobile-tab="timeoff" onclick="switchTab('timeoff')">
+    <button class="mobile-nav-item" data-mobile-tab="timeoff" onclick="switchTab('timeoff')" style="position: relative;">
       <i class="fa-solid fa-umbrella-beach"></i>
       <span>Leave</span>
+      <!-- BUG 5 FIX: Mobile badge for pending leave requests (managers only) -->
+      <span class="nav-badge" id="badge-timeoff-mobile" style="display:none; position: absolute; top: 4px; right: 18px; padding: 2px 5px; font-size: 8px; min-width: 14px; height: 14px; line-height: 10px; border-radius: 50%; border: 1px solid var(--bg-dark);">0</span>
     </button>
   </nav>
+
 
   <!-- ===================================== -->
   <!-- MODAL: ADD/EDIT SHIFT -->
@@ -1033,7 +1038,7 @@
       </div>
       <div class="modal-body">
         <input type="hidden" id="email-roster-emp-id">
-        <p>Review the roster briefing email text before sending it to <strong id="email-roster-emp-name" style="color:var(--accent-gold);"></strong>.</p>
+        <p>Review the roster briefing email text before sending it to <strong id="email-roster-emp-name" style="color:var(--accent-gold);">Loading…</strong> <span id="email-roster-emp-email" style="color:var(--text-secondary); font-size:0.85em;"></span>.</p>
         <textarea id="email-roster-textarea" class="form-control" rows="10" style="font-family: monospace; font-size: 13px; margin-top: 1rem;"></textarea>
       </div>
       <div class="modal-footer">

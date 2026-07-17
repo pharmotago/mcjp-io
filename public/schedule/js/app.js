@@ -96,12 +96,14 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Initialize Clock in Header
   startLiveClock();
 
-  // Listen for real-time Firebase changes with a light debounce (rendering throttle)
+  // Listen for real-time DB changes with a light debounce.
+  // GUARD: Only process if user is authenticated to prevent race-condition crash.
   let dbUpdateTimeout;
   window.addEventListener('brisk-db-updated', () => {
+    if (!state.currentUser) return; // Auth guard: don't render before login completes
     clearTimeout(dbUpdateTimeout);
     dbUpdateTimeout = setTimeout(() => {
-      loadDataFromState();
+      loadDataFromState(); // also updates sidebar badges
       renderActivePanel();
     }, 50);
   });
@@ -171,13 +173,32 @@ async function bootApplication() {
     // Show app layout, hide login
     document.getElementById('login-screen').classList.remove('active');
 
-    // Set user badges
-    document.getElementById('sidebar-user-name').textContent = state.currentUser.name;
-    document.getElementById('dash-user-name').textContent = state.currentUser.name;
+    // Show a temporary loading placeholder while we fetch the real name
+    const cachedName = state.currentUser.name || '';
+    const displayName = cachedName || '…';
+    document.getElementById('sidebar-user-name').textContent = displayName;
+    document.getElementById('dash-user-name').textContent = displayName;
 
-    // Sync data from cloud
+    // Sync data from cloud (employees, shifts, timecards, leave)
     await BriskDB.syncFromServer();
     loadDataFromState();
+
+    // BUG 4 FIX: Re-read the actual user profile name from freshly synced brisk_users
+    // This resolves stale localStorage or missing name fallback showing "User"
+    const freshSession = BriskDB.getSession();
+    if (freshSession && freshSession.name) {
+      state.currentUser.name = freshSession.name;
+      document.getElementById('sidebar-user-name').textContent = freshSession.name;
+      document.getElementById('dash-user-name').textContent = freshSession.name;
+    } else if (!cachedName) {
+      // Fallback: query from loaded employee list if name still missing
+      const myEmployee = state.employees.find(e => e.email === state.currentUser.email);
+      if (myEmployee && myEmployee.name) {
+        state.currentUser.name = myEmployee.name;
+        document.getElementById('sidebar-user-name').textContent = myEmployee.name;
+        document.getElementById('dash-user-name').textContent = myEmployee.name;
+      }
+    }
 
     // Apply Role-Based Access Control (RBAC)
     applyRoleAccessControl();
@@ -196,6 +217,7 @@ async function bootApplication() {
   // Set the main layout mode (clear inline 'none' to allow CSS to control display via flex/grid)
   document.getElementById('app-root').style.display = '';
 }
+
 
 function loadDataFromState() {
   state.employees = BriskDB.getEmployees();
@@ -223,10 +245,16 @@ function loadDataFromState() {
       const pendingTimecards = state.timecards.filter(tc => !tc.approved).length;
       const badgeTc = document.getElementById('badge-timeclock');
       if (badgeTc) { badgeTc.style.display = pendingTimecards > 0 ? 'inline-block' : 'none'; badgeTc.textContent = pendingTimecards; }
+      // BUG 5 FIX: Also update mobile badge
+      const badgeTcMobile = document.getElementById('badge-timeclock-mobile');
+      if (badgeTcMobile) { badgeTcMobile.style.display = pendingTimecards > 0 ? 'inline-block' : 'none'; badgeTcMobile.textContent = pendingTimecards; }
       
       const pendingLeave = state.leaveRequests.filter(lr => lr.status === 'Pending').length;
       const badgeLeave = document.getElementById('badge-timeoff');
       if (badgeLeave) { badgeLeave.style.display = pendingLeave > 0 ? 'inline-block' : 'none'; badgeLeave.textContent = pendingLeave; }
+      // BUG 5 FIX: Also update mobile badge
+      const badgeLeaveMobile = document.getElementById('badge-timeoff-mobile');
+      if (badgeLeaveMobile) { badgeLeaveMobile.style.display = pendingLeave > 0 ? 'inline-block' : 'none'; badgeLeaveMobile.textContent = pendingLeave; }
 
       // Hide cover badges for managers
       const badgeCover = document.getElementById('badge-cover-requests');
@@ -253,9 +281,15 @@ function loadDataFromState() {
         badgeCoverMobile.style.display = activeCovers > 0 ? 'inline-block' : 'none';
         badgeCoverMobile.textContent = activeCovers;
       }
+      // Employees don't see timeclock/timeoff manager badges
+      const badgeTcMobile = document.getElementById('badge-timeclock-mobile');
+      if (badgeTcMobile) badgeTcMobile.style.display = 'none';
+      const badgeLeaveMobile = document.getElementById('badge-timeoff-mobile');
+      if (badgeLeaveMobile) badgeLeaveMobile.style.display = 'none';
     }
   }
 }
+
 
 function toggleTheme() {
   const isLight = document.body.classList.toggle('theme-light');
@@ -600,27 +634,39 @@ async function checkHistoricalDataAndRender(renderCallback) {
 }
 
 function setupWeekPickers() {
+  // BUG 2 FIX: Create a NEW Date object instead of mutating state.currentWeekStart in-place.
+  // Previously: state.currentWeekStart.setDate(...) mutated the shared Date object,
+  // causing scheduler + reports to share the same reference and corrupt each other's week.
   document.getElementById('btn-prev-week').addEventListener('click', async () => {
-    state.currentWeekStart.setDate(state.currentWeekStart.getDate() - 7);
+    const newDate = new Date(state.currentWeekStart);
+    newDate.setDate(newDate.getDate() - 7);
+    state.currentWeekStart = newDate;
     await checkHistoricalDataAndRender(renderScheduler);
   });
   document.getElementById('btn-next-week').addEventListener('click', async () => {
-    state.currentWeekStart.setDate(state.currentWeekStart.getDate() + 7);
+    const newDate = new Date(state.currentWeekStart);
+    newDate.setDate(newDate.getDate() + 7);
+    state.currentWeekStart = newDate;
     await checkHistoricalDataAndRender(renderScheduler);
   });
 
   document.getElementById('btn-report-prev-week').addEventListener('click', async () => {
-    state.currentWeekStart.setDate(state.currentWeekStart.getDate() - 7);
+    const newDate = new Date(state.currentWeekStart);
+    newDate.setDate(newDate.getDate() - 7);
+    state.currentWeekStart = newDate;
     await checkHistoricalDataAndRender(renderReportsPanel);
   });
   document.getElementById('btn-report-next-week').addEventListener('click', async () => {
-    state.currentWeekStart.setDate(state.currentWeekStart.getDate() + 7);
+    const newDate = new Date(state.currentWeekStart);
+    newDate.setDate(newDate.getDate() + 7);
+    state.currentWeekStart = newDate;
     await checkHistoricalDataAndRender(renderReportsPanel);
   });
 
   document.getElementById('btn-auto-schedule').addEventListener('click', triggerAutoScheduler);
   document.getElementById('btn-clear-week').addEventListener('click', triggerClearWeek);
 }
+
 
 function startLiveClock() {
   const clockTime = document.getElementById('clock-time');
@@ -2799,10 +2845,14 @@ function openEmailRosterModal(employeeId) {
   if (!emp) return;
 
   const mon = new Date(state.currentWeekStart);
-  const weekStartStr = formatDateISO(mon);
 
   document.getElementById('email-roster-emp-id').value = employeeId;
-  document.getElementById('email-roster-emp-name').textContent = emp.name;
+  // BUG 3 FIX: Populate name AND email address so modal shows "sending it to Peter Kim (peter@example.com)"
+  document.getElementById('email-roster-emp-name').textContent = emp.name || '(unknown)';
+  const empEmailSpan = document.getElementById('email-roster-emp-email');
+  if (empEmailSpan) {
+    empEmailSpan.textContent = emp.email ? `(${emp.email})` : '(no email on record)';
+  }
 
   let text = `Here is your roster for the week of ${getWeekRangeText(mon)}:\n\n`;
 
@@ -2826,6 +2876,7 @@ function openEmailRosterModal(employeeId) {
   document.getElementById('email-roster-textarea').value = text;
   document.getElementById('modal-email-roster').classList.add('active');
 }
+
 
 function closeEmailRosterModal() {
   document.getElementById('modal-email-roster').classList.remove('active');
