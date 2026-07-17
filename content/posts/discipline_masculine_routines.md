@@ -1,11 +1,11 @@
 ---
 title: "Building Masculine Routines for Peak Performance"
-date: "2027-02-05"
+date: "2026-07-18"
 category: "Discipline"
 description: "Learn to develop daily routines that align with masculine principles to enhance personal and professional performance."
 keywords: ["masculine routines","peak performance","discipline","success habits"]
 author: "Peter Kim"
-lastUpdated: "2026-12-23"
+lastUpdated: "2026-07-18"
 ---
 
 ## Building Masculine Routines for Peak Performance
