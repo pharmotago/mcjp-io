@@ -1,10 +1,12 @@
 ---
 title: "Balancing Success: The Modern Man's Guide to Juggling Career and Personal Life"
-date: "2026-07-13"
+date: "2026-09-07"
 category: "Life"
 description: "Learn strategies for achieving equilibrium between demanding careers and fulfilling personal lives, ensuring long-term success and happiness."
 keywords: ["work-life balance","career success","personal life","time management","happiness"]
 canonical: "https://blog.mcjp.io/posts/life_fatherhood_work_life_balance"
+author: "Peter Kim"
+lastUpdated: "2026-09-07"
 ---
 
 ## Balancing Success: The Modern Man's Guide to Juggling Career and Personal Life

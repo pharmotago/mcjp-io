@@ -1,6 +1,6 @@
 ---
 title: "The Journey to Self-Awareness: A Discipline-Driven Approach"
-date: "2026-12-14"
+date: "2026-10-29"
 category: "Discipline"
 description: "Investigate the path to self-awareness, focusing on disciplined practices that foster personal growth and self-improvement."
 keywords: ["self-awareness","personal growth","discipline","self-improvement"]

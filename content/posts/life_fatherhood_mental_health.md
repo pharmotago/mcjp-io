@@ -1,9 +1,11 @@
 ---
 title: "Fatherhood and Mental Health: Building Emotional Resilience"
-date: "2026-07-01"
+date: "2026-07-22"
 category: "Life"
 description: "Explore the challenges fathers face regarding mental health and learn strategies for building emotional resilience to lead a balanced and fulfilling family life."
 keywords: ["fatherhood","mental health","emotional resilience","parenting"]
+author: "Peter Kim"
+lastUpdated: "2026-07-22"
 ---
 
 ## Navigating Fatherhood and Mental Health: Building Emotional Resilience

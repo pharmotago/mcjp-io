@@ -1,9 +1,11 @@
 ---
 title: "Elite Deep Work Protocols for High-Performing Men"
-date: "2026-07-09"
+date: "2026-08-23"
 category: "Discipline"
 description: "Actionable deep work protocols to eliminate distractions, enter flow states, and maximize cognitive output for professional and personal success."
 keywords: ["deep work","focus","cognitive training","productivity","discipline"]
+author: "Peter Kim"
+lastUpdated: "2026-08-23"
 ---
 
 ## The Power of Deep Work: Elite Protocols for High-Performing Men

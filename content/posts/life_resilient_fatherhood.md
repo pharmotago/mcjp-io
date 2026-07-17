@@ -1,6 +1,6 @@
 ---
 title: "Resilient Fatherhood: Building a Legacy of Strength and Support"
-date: "2026-11-20"
+date: "2026-11-27"
 category: "Life"
 description: "Explore the pillars of resilient fatherhood and learn how to cultivate a family legacy built on strength, support, and unwavering leadership."
 keywords: ["fatherhood","resilience","family legacy","support"]

@@ -1,9 +1,11 @@
 ---
 title: "Building Emotional Resilience in Fatherhood: Strategies for Modern Dads"
-date: "2026-07-16"
+date: "2026-09-18"
 category: "Life"
 description: "Discover effective strategies for building emotional resilience as a father. This article delves into practical tips and advice to help modern dads navigate the challenges of parenting with emotional strength."
 keywords: ["emotional resilience","fatherhood","modern parenting","emotional intelligence"]
+author: "Peter Kim"
+lastUpdated: "2026-09-18"
 ---
 
 ## Building Emotional Resilience in Fatherhood: Strategies for Modern Dads

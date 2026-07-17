@@ -1,9 +1,11 @@
 ---
 title: "Extended Fasting for Elite Cognitive Performance"
-date: "2026-07-14"
+date: "2026-09-09"
 category: "Discipline"
 description: "How pushing past 24-hour fasts unlocks ultimate mental clarity, sharpens focus, and builds the unbreakable willpower required for high-level success."
 keywords: ["extended fasting","cognitive performance","mental clarity","discipline","autophagy"]
+author: "Peter Kim"
+lastUpdated: "2026-09-09"
 ---
 
 ## Extended Fasting for Elite Cognitive Performance

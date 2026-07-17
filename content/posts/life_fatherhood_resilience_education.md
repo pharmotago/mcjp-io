@@ -1,9 +1,11 @@
 ---
 title: "Raising Resilient Kids: The Modern Father's Guide to Mental Toughness"
-date: "2026-07-08"
+date: "2026-08-21"
 category: "Life"
 description: "How modern fathers can instill grit, accountability, and emotional resilience in their children through intentional parenting and leading by example."
 keywords: ["fatherhood","raising kids","resilience","family leadership","mental toughness"]
+author: "Peter Kim"
+lastUpdated: "2026-08-21"
 ---
 
 The modern landscape is increasingly engineered for comfort. In a frictionless environment designed to eliminate inconvenience, a dangerous byproduct has emerged: fragility. For the modern father, the mandate is clear and non-negotiable. We are not merely caretakers; we are architects of the future. Fatherhood is the ultimate exercise in [family leadership](/posts/family_role_of_man), demanding a shift from passive protection to active preparation. 

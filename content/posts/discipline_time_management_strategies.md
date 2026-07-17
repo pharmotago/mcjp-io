@@ -1,6 +1,6 @@
 ---
 title: "Time Management Mastery: Strategies for the Disciplined Man"
-date: "2026-11-04"
+date: "2026-10-30"
 category: "Discipline"
 description: "Discover time management strategies that enhance discipline and productivity. This guide is designed for men looking to optimize their daily routines and achieve more with their time."
 keywords: ["time management","discipline","productivity","efficiency"]

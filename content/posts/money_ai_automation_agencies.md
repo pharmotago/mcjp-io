@@ -1,9 +1,11 @@
 ---
 title: "Building a Profitable AI Automation Agency in 2024"
-date: "2026-07-08"
+date: "2026-08-22"
 category: "Money"
 description: "A step-by-step guide to starting and scaling an AI automation agency, focusing on service delivery, client acquisition, and building a modern digital wealth engine."
 keywords: ["ai automation","ai agency","digital wealth","business scaling","side hustle"]
+author: "Peter Kim"
+lastUpdated: "2026-08-22"
 ---
 
 ## Building a Profitable AI Automation Agency in 2024

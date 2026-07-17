@@ -1,9 +1,11 @@
 ---
 title: "Unlocking Wealth with Smart Contracts: A New Era of Digital Finance"
-date: "2026-07-16"
+date: "2026-09-20"
 category: "Money"
 description: "Explore how smart contracts are revolutionizing the way we think about digital finance and wealth creation. Learn how to implement these automated agreements to enhance your investment strategies."
 keywords: ["smart contracts","digital finance","blockchain","wealth creation"]
+author: "Peter Kim"
+lastUpdated: "2026-09-20"
 ---
 
 ## Unlocking Wealth with Smart Contracts: A New Era of Digital Finance

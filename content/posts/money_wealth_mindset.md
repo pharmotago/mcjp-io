@@ -1,6 +1,6 @@
 ---
 title: "Escaping the Hourly Rate: Building Leveraged Wealth Assets"
-date: "2026-08-21"
+date: "2026-12-26"
 category: "Money"
 description: "Why trading hours for dollars is a wealth bottleneck, and how to start shifting toward digital asset publishing and equity investments."
 keywords: ["leveraged income","wealth assets","financial freedom","passive cash flow"]

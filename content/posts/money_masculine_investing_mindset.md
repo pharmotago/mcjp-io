@@ -1,9 +1,11 @@
 ---
 title: "Cultivating a Masculine Investing Mindset for Financial Growth"
-date: "2026-07-02"
+date: "2026-07-30"
 category: "Money"
 description: "Uncover ways to cultivate a robust investing mindset tailored to masculine perspectives, focusing on strategies for sustainable financial growth."
 keywords: ["investing mindset","financial growth","masculine approach","investment strategies"]
+author: "Peter Kim"
+lastUpdated: "2026-07-30"
 ---
 
 ## Cultivating a Masculine Investing Mindset for Financial Growth

@@ -1,10 +1,12 @@
 ---
 title: "Balancing Career and Family: Strategies for the Modern Man"
-date: "2026-07-14"
+date: "2026-09-11"
 category: "Life"
 description: "Examine practical strategies to achieve a harmonious balance between career aspirations and family responsibilities. Discover how to prioritize effectively and maintain a fulfilling life."
 keywords: ["work-life balance","career success","family priorities","time management"]
 canonical: "https://blog.mcjp.io/posts/life_fatherhood_work_life_balance"
+author: "Peter Kim"
+lastUpdated: "2026-09-11"
 ---
 
 ## Finding Equilibrium: Balancing Career and Family

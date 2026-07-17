@@ -1,9 +1,11 @@
 ---
 title: "Steering the Ship: Family Leadership During Financial Hardship"
-date: "2026-07-04"
+date: "2026-08-05"
 category: "Life"
 description: "How modern men can embody emotional strength and decisive leadership to guide their families through economic downturns and financial stress without projecting anxiety."
 keywords: ["family leadership","financial hardship","masculine duties","emotional strength","fatherhood"]
+author: "Peter Kim"
+lastUpdated: "2026-08-05"
 ---
 
 Economic downturns are not anomalies; they are inevitable cycles in the broader macroeconomic landscape. When the financial tide recedes, the structural integrity of a household is tested. In these moments of financial hardship, the [modern man](/posts/life_masculine_emotional_balance) is called upon to execute his most critical masculine duties: to act as the stabilizing anchor, the strategic thinker, and the unwavering leader. Steering a family through economic stress requires more than just balancing a budget—it demands a profound mastery of [emotional strength](/posts/discipline_mental_resilience) and decisive action. 

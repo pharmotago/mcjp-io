@@ -1,6 +1,6 @@
 ---
 title: "Emotional Intelligence Training for Enhanced Personal Discipline"
-date: "2026-07-08"
+date: "2026-08-20"
 category: "Discipline"
 description: "This article provides a framework for using emotional intelligence to boost personal discipline. Learn how to harness your emotions to improve self-control and achieve your goals."
 keywords: ["emotional intelligence","discipline","self-control","personal growth"]

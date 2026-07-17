@@ -1,10 +1,12 @@
 ---
 title: "Navigating the Risks and Rewards of Cryptocurrency Investment"
-date: "2026-07-12"
+date: "2026-09-03"
 category: "Money"
 description: "Explore the volatile world of cryptocurrency investments, where understanding the balance between risks and rewards is crucial for building a strong financial future."
 keywords: ["cryptocurrency","investment","risk management","bitcoin","blockchain"]
 canonical: "https://blog.mcjp.io/posts/money_crypto_investments"
+author: "Peter Kim"
+lastUpdated: "2026-09-03"
 ---
 
 ## Navigating the Risks and Rewards of Cryptocurrency Investment

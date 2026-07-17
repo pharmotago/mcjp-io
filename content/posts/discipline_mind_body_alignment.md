@@ -1,6 +1,6 @@
 ---
 title: "Aligning Mind and Body: The Discipline of Holistic Success"
-date: "2026-10-30"
+date: "2026-10-24"
 category: "Discipline"
 description: "Investigate the principles of aligning mind and body to achieve holistic success and maintain discipline in every aspect of life."
 keywords: ["mind-body alignment","holistic success","discipline","personal harmony"]

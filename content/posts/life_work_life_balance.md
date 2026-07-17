@@ -1,10 +1,12 @@
 ---
 title: "Achieving Work-Life Balance: Strategies for Modern Men"
-date: "2026-07-12"
+date: "2026-09-02"
 category: "Life"
 description: "Explore strategies for maintaining a healthy work-life balance in today's fast-paced world. Learn techniques to manage your time effectively and reduce stress while achieving success."
 keywords: ["work-life balance","time management","stress reduction","lifestyle"]
 canonical: "https://blog.mcjp.io/posts/life_fatherhood_work_life_balance"
+author: "Peter Kim"
+lastUpdated: "2026-09-02"
 ---
 
 ## Achieving Work-Life Balance: Strategies for Modern Men

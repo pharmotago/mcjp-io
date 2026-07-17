@@ -1,6 +1,6 @@
 ---
 title: "Habit Mastery: The Complete Guide to Habit Creation and Breaking"
-date: "2026-09-14"
+date: "2026-10-14"
 category: "Discipline"
 description: "Uncover the science of habit creation and learn how establishing effective routines can serve as the foundation for achieving personal and professional success."
 keywords: ["habit creation","personal success","routine building","self-discipline"]

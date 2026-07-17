@@ -1,6 +1,6 @@
 ---
 title: "Transforming Your Mindset: Discipline as a Masculine Tool"
-date: "2027-02-12"
+date: "2026-10-23"
 category: "Discipline"
 description: "Explore how discipline can serve as a powerful tool for transforming mindsets and achieving personal growth in alignment with masculine values."
 keywords: ["mindset transformation","discipline","masculine tool","self-improvement"]

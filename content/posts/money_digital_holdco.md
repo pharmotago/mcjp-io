@@ -1,9 +1,11 @@
 ---
 title: "Building a Micro-Private Equity Empire: The Digital Holdco Strategy"
-date: "2026-07-15"
+date: "2026-09-15"
 category: "Money"
 description: "How modern men are acquiring and rolling up profitable micro-SaaS and content sites into a single holding company to build massive, sustainable wealth."
 keywords: ["micro private equity","digital holdco","asset building","online business","wealth strategy"]
+author: "Peter Kim"
+lastUpdated: "2026-09-15"
 ---
 
 ## Building a Micro-Private Equity Empire: The Digital Holdco Strategy

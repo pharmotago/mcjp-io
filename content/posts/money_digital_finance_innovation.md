@@ -1,9 +1,11 @@
 ---
 title: "Digital Finance Innovations: Navigating the New Frontier"
-date: "2026-07-01"
+date: "2026-07-24"
 category: "Money"
 description: "Discover the latest innovations in digital finance, their implications for personal wealth, and how to leverage these advancements for your financial advantage."
 keywords: ["digital finance","innovation","financial technology","investment"]
+author: "Peter Kim"
+lastUpdated: "2026-07-24"
 ---
 
 ## Digital Finance Innovations: Navigating the New Frontier

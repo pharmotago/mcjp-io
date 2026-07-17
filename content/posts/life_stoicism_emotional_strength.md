@@ -1,9 +1,11 @@
 ---
 title: "The Modern Stoic Man: Navigating Life's Crises with Unbreakable Emotional Strength"
-date: "2026-07-07"
+date: "2026-08-17"
 category: "Life"
 description: "Applying ancient Stoic philosophy to modern masculine challenges, teaching men how to control their emotional responses and lead their families through unexpected adversity."
 keywords: ["stoicism","emotional strength","crisis management","masculinity","resilience"]
+author: "Peter Kim"
+lastUpdated: "2026-08-17"
 ---
 
 ## The Modern Stoic Man: Navigating Life's Crises with Unbreakable Emotional Strength

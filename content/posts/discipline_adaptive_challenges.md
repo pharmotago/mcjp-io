@@ -1,9 +1,11 @@
 ---
 title: "Adaptive Challenges: Building Resilience Through Discipline"
-date: "2026-07-04"
+date: "2026-08-04"
 category: "Discipline"
 description: "Learn how to tackle adaptive challenges with resilience. Develop a disciplined approach to overcoming obstacles and thriving in changing environments."
 keywords: ["adaptive challenges","resilience","discipline","growth"]
+author: "Peter Kim"
+lastUpdated: "2026-08-04"
 ---
 
 The modern landscape does not reward the complacent. In an era defined by rapid technological shifts, economic volatility, and the constant disruption of established norms, the ability to navigate complexity is no longer a soft skill—it is a fundamental survival mechanism. We are increasingly confronted with obstacles that defy simple solutions. These are not mere technical problems with established roadmaps; they are adaptive challenges. To thrive in changing environments, one must cultivate a profound capacity for resilience, anchored unwaveringly in self-discipline.

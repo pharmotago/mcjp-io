@@ -1,6 +1,6 @@
 ---
 title: "Venture Capital 101: A Guide to Investment Success"
-date: "2027-02-01"
+date: "2026-12-23"
 category: "Money"
 description: "An introduction to venture capital investing, this piece provides insights into how individuals can participate in early-stage business funding and reap significant financial rewards."
 keywords: ["venture capital","investment strategies","financial success","wealth building"]

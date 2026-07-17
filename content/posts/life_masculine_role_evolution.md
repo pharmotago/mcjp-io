@@ -1,9 +1,11 @@
 ---
 title: "The Evolution of Masculine Roles: Adapting to Modern Expectations"
-date: "2026-06-30"
+date: "2026-07-19"
 category: "Life"
 description: "This article delves into the evolving roles of modern masculinity, addressing societal expectations and how men can adapt to remain relevant and impactful."
 keywords: ["masculine roles","modern expectations","society","identity"]
+author: "Peter Kim"
+lastUpdated: "2026-07-19"
 ---
 
 ## The Evolution of Masculine Roles: Adapting to Modern Expectations

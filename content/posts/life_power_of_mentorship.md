@@ -1,10 +1,12 @@
 ---
 title: "The Power of Mentorship: Learning from Those Who Lead"
-date: "2026-07-13"
+date: "2026-09-08"
 category: "Life"
 description: "Explore how mentorship can play a crucial role in personal and professional development, providing guidance and inspiration for success."
 keywords: ["mentorship","leadership","personal growth","networking","success"]
 canonical: "https://blog.mcjp.io/posts/life_masculine_mentorship"
+author: "Peter Kim"
+lastUpdated: "2026-09-08"
 ---
 
 ## The Power of Mentorship: Learning from Those Who Lead

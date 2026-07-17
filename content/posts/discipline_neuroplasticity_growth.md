@@ -1,10 +1,12 @@
 ---
 title: "Harnessing the Power of Neuroplasticity for Personal Growth"
-date: "2026-07-13"
+date: "2026-09-05"
 category: "Discipline"
 description: "Learn how to leverage the science of neuroplasticity to foster personal development and cultivate the discipline needed for success."
 keywords: ["neuroplasticity","personal growth","brain training","mental discipline"]
 canonical: "https://blog.mcjp.io/posts/discipline_neuroplasticity_enhancement"
+author: "Peter Kim"
+lastUpdated: "2026-09-05"
 ---
 
 ## Harnessing the Power of Neuroplasticity for Personal Growth

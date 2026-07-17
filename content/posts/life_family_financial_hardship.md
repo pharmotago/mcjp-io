@@ -1,9 +1,11 @@
 ---
 title: "The Captain's Compass: Leading Your Family Through Financial Storms"
-date: "2026-07-15"
+date: "2026-09-13"
 category: "Life"
 description: "Strategies for men to maintain emotional strength and family unity while navigating periods of severe financial stress or sudden career loss."
 keywords: ["family leadership","financial hardship","masculine duty","crisis management","family unity"]
+author: "Peter Kim"
+lastUpdated: "2026-09-13"
 ---
 
 ## The Captain's Compass: Leading Your Family Through Financial Storms

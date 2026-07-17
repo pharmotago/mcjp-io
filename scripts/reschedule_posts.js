@@ -27,19 +27,7 @@ function parseMarkdown(fileContent) {
 
 function getNextPublishDate(currentDateStr) {
     const d = new Date(currentDateStr);
-    const day = d.getDay(); // 0: Sun, 1: Mon, 2: Tue, 3: Wed, 4: Thu, 5: Fri, 6: Sat
-    if (day === 1) { // Monday -> Wednesday
-        d.setDate(d.getDate() + 2);
-    } else if (day === 3) { // Wednesday -> Friday
-        d.setDate(d.getDate() + 2);
-    } else if (day === 5) { // Friday -> Monday
-        d.setDate(d.getDate() + 3);
-    } else if (day === 4) { // Thursday -> Friday
-        d.setDate(d.getDate() + 1);
-    } else {
-        // Fallback: move to next day
-        d.setDate(d.getDate() + 1);
-    }
+    d.setUTCDate(d.getUTCDate() + 1);
     return d.toISOString().split('T')[0];
 }
 
@@ -85,7 +73,7 @@ function run() {
 
     console.log(`🔍 Found ${postsToReschedule.length} posts to reschedule.`);
 
-    let currentPublishDate = '2026-07-02'; // Starts on Thursday July 2, 2026 as requested
+    let currentPublishDate = '2026-07-18'; // Starts on July 18, 2026
 
     postsToReschedule.forEach((post, index) => {
         const newYamlLines = post.parsed.yamlLines.map(line => {

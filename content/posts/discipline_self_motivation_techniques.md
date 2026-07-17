@@ -1,9 +1,11 @@
 ---
 title: "Harnessing Self-Motivation: Techniques for Unstoppable Discipline"
-date: "2026-07-03"
+date: "2026-07-31"
 category: "Discipline"
 description: "Discover powerful techniques to cultivate self-motivation, empowering you to maintain discipline and achieve personal and professional goals with unwavering determination."
 keywords: ["self-motivation","discipline","techniques","personal growth"]
+author: "Peter Kim"
+lastUpdated: "2026-07-31"
 ---
 
 ## Harnessing Self-Motivation: Techniques for Unstoppable Discipline

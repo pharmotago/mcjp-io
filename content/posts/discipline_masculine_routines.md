@@ -1,6 +1,6 @@
 ---
 title: "Building Masculine Routines for Peak Performance"
-date: "2026-07-18"
+date: "2026-09-26"
 category: "Discipline"
 description: "Learn to develop daily routines that align with masculine principles to enhance personal and professional performance."
 keywords: ["masculine routines","peak performance","discipline","success habits"]

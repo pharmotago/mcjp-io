@@ -1,6 +1,6 @@
 ---
 title: "Cultivating Self-Discipline in the Digital Age"
-date: "2026-07-20"
+date: "2026-09-27"
 category: "Discipline"
 description: "Learn how to strengthen self-discipline amidst digital distractions by mastering focus and effective time management techniques."
 keywords: ["self-discipline","digital distractions","focus","time management"]

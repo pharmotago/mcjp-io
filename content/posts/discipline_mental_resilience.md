@@ -1,6 +1,6 @@
 ---
 title: "Building Mental Resilience: Techniques for Staying Strong Under Pressure"
-date: "2026-09-18"
+date: "2026-10-18"
 category: "Discipline"
 description: "Explore techniques to develop mental resilience, enabling you to stay strong and focused under pressure, crucial for success in both personal and professional arenas."
 keywords: ["mental resilience","stress management","discipline","focus","emotional strength"]

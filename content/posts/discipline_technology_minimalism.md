@@ -1,9 +1,11 @@
 ---
 title: "Technology Minimalism: Mastering Focus in a Distracted World"
-date: "2026-06-30"
+date: "2026-07-18"
 category: "Discipline"
 description: "Learn how adopting a minimalist approach to technology can enhance focus and productivity, helping you achieve greater success in a highly distracted world."
 keywords: ["technology minimalism","focus","distraction","productivity"]
+author: "Peter Kim"
+lastUpdated: "2026-07-18"
 ---
 
 ## Technology Minimalism: Mastering Focus in a Distracted World

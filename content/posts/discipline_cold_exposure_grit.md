@@ -1,9 +1,11 @@
 ---
 title: "The Ice Bath Edge: Using Cold Exposure to Forge Unbreakable Grit"
-date: "2026-07-05"
+date: "2026-08-09"
 category: "Discipline"
 description: "Exploring the science and practice of cold therapy as a tool for dopamine regulation, physical recovery, and building the mental fortitude required for high-level success."
 keywords: ["cold exposure","mental grit","physical training","dopamine regulation","discipline"]
+author: "Peter Kim"
+lastUpdated: "2026-08-09"
 ---
 
 We exist in an era meticulously engineered for comfort. Our environments are thermoregulated, our entertainment is frictionless, and our dopamine is hijacked by the endless scroll of digital notifications. This relentless pursuit of ease has dulled the modern edge, creating a society where minor friction is perceived as a catastrophic failure. Yet, the highest echelons of success—whether in business, [physical training](/posts/discipline_physical_cognitive_training), or personal leadership—demand a profound capacity to endure. To thrive in a volatile world, we must systematically introduce voluntary hardship. The ice bath is not a fleeting biohacking trend; it is a modern crucible for ancient stoic principles.

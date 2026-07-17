@@ -1,9 +1,11 @@
 ---
 title: "The Role of Community Leadership in Modern Masculinity"
-date: "2026-07-01"
+date: "2026-07-23"
 category: "Life"
 description: "Delve into the importance of community leadership for modern men and how it shapes masculine identity and family influence."
 keywords: ["community leadership","masculinity","social influence","fatherhood"]
+author: "Peter Kim"
+lastUpdated: "2026-07-23"
 ---
 
 ## The Role of Community Leadership in Modern Masculinity

@@ -1,9 +1,11 @@
 ---
 title: "The Micro-SaaS Flipping Playbook: Build, Scale, and Exit"
-date: "2026-07-05"
+date: "2026-08-11"
 category: "Money"
 description: "A strategic guide to building small software-as-a-service businesses with low overhead, scaling them quickly, and flipping them for high-multiple cash exits."
 keywords: ["micro-saas","side hustles","software entrepreneurship","asset building","business exit"]
+author: "Peter Kim"
+lastUpdated: "2026-08-11"
 ---
 
 The modern digital landscape has fundamentally altered the trajectory of [wealth creation](/posts/money_ai_entrepreneurship). We are no longer bound to the traditional venture-backed startup lottery, where founders sacrifice a decade of their lives for a marginal chance at a billion-dollar valuation. Instead, a new paradigm has emerged for the disciplined operator: the micro-saas. 
