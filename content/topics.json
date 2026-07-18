@@ -2051,5 +2051,71 @@
       "personal growth"
     ],
     "summary": "Delve into techniques for building emotional resilience and mental toughness, essential for thriving in today's fast-paced and demanding environment."
+  },
+  {
+    "id": "money_financial_agility",
+    "category": "Money",
+    "topic": "Mastering Financial Agility: Navigating Economic Uncertainty",
+    "keywords": [
+      "financial agility",
+      "economic uncertainty",
+      "wealth management"
+    ],
+    "summary": "Explore strategies for maintaining financial agility in today's volatile economic landscape. Learn how to pivot your investments and savings to ensure stability and growth."
+  },
+  {
+    "id": "life_masculine_role_models",
+    "category": "Life",
+    "topic": "Modern Masculinity: The Importance of Role Models",
+    "keywords": [
+      "masculinity",
+      "role models",
+      "personal growth"
+    ],
+    "summary": "Discuss the role of positive male role models in shaping modern masculinity. Explore how mentorship and guidance can influence personal and professional success."
+  },
+  {
+    "id": "discipline_optimal_sleep_habits",
+    "category": "Discipline",
+    "topic": "Optimizing Sleep for Peak Performance and Discipline",
+    "keywords": [
+      "sleep habits",
+      "peak performance",
+      "discipline"
+    ],
+    "summary": "Delve into the science of sleep and its impact on discipline and productivity. Learn techniques to enhance sleep quality for improved focus and performance."
+  },
+  {
+    "id": "money_investment_ethos",
+    "category": "Money",
+    "topic": "Crafting Your Investment Ethos: Principles for Wealth Growth",
+    "keywords": [
+      "investment ethos",
+      "wealth growth",
+      "financial principles"
+    ],
+    "summary": "Learn how to develop a personal investment ethos grounded in solid financial principles. Discover how this approach can lead to sustained wealth growth."
+  },
+  {
+    "id": "life_fatherhood_legacy_planning",
+    "category": "Life",
+    "topic": "Fatherhood and Legacy: Planning for Future Generations",
+    "keywords": [
+      "fatherhood",
+      "legacy",
+      "future planning"
+    ],
+    "summary": "Examine the concept of legacy in fatherhood and how to effectively plan for the future. Explore strategies to ensure your values and wealth are passed down."
+  },
+  {
+    "id": "discipline_cognitive_enhancement_techniques",
+    "category": "Discipline",
+    "topic": "Cognitive Enhancement Techniques for Modern Men",
+    "keywords": [
+      "cognitive enhancement",
+      "mental acuity",
+      "discipline"
+    ],
+    "summary": "Explore various cognitive enhancement techniques to boost mental acuity and focus. Learn how these practices can aid in achieving disciplined personal and professional goals."
   }
 ]
