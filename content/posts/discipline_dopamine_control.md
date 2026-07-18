@@ -1,4 +1,5 @@
 ---
+image: "/images/discipline_dopamine_fasting_deep_work_focus.png"
 title: "Mastering Dopamine Control: The Key to Unshakeable Discipline"
 date: "2026-06-12"
 category: "Discipline"

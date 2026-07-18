@@ -1,4 +1,5 @@
 ---
+image: "/images/life_balancing_success_focus.png"
 title: "The Compass of Flexibility: Why No One is 100% Right"
 date: "2026-07-18"
 category: "Life"
