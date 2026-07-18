@@ -13,7 +13,7 @@ ogImage: "/og/90-day-habit-system.png"
 
 In a world rife with distractions and instant gratifications, the ability to cultivate effective habits is not just a luxury; it’s a necessity. The journey toward high productivity, mental resilience, and lifelong success begins with understanding the neurological mechanics behind habit formation. 
 
-Personally, applying Josh Smith's 90-day framework was a turning point. As I struggled to balance the demands of scaling MCJP Consulting with my duties as a father, I used this exact system to launch an entirely new revenue stream. By locking in a rigid, non-negotiable morning routine over 90 days, the new behaviors became automated. 
+Personally, applying Josh Smith's 90-day framework was a turning point. As I struggled to balance the demands of scaling my business with my duties as a father, I used this exact system to launch an entirely new revenue stream. By locking in a rigid, non-negotiable morning routine over 90 days, the new behaviors became automated. 
 
 This is where “The 90-Day Habit System” by [Josh Smith](/posts/book_90_day_longevity_protocol_log) emerges as an indispensable guide for men striving for excellence in every facet of life.
 

@@ -11,7 +11,7 @@ ogImage: "/og/flow-state.png"
 
 In a world awash with distractions, mastering the art of [deep work](/posts/discipline_deep_work_protocols) is not merely an option but a necessity for achieving peak [cognitive performance](/posts/discipline_dopamine_fasting_deep_work) and executing professional goals. The flow state—a term popularized by psychologist Mihaly Csikszentmihalyi—refers to that optimal state of consciousness where individuals experience complete immersion in an activity. 
 
-I remember a specific Tuesday evening where I needed to write an intricate Python script for a client at MCJP Consulting. The house was loud, and my brain was scattered. By intentionally engineering my environment—putting on noise-canceling headphones, looping a single instrumental synthwave track, and clearing every single item off my desk—I entered a state of flow so deep that I finished a 5-hour task in 90 minutes.
+I remember a specific Tuesday evening where I needed to write an intricate Python script for a client. The house was loud, and my brain was scattered. By intentionally engineering my environment—putting on noise-canceling headphones, looping a single instrumental synthwave track, and clearing every single item off my desk—I entered a state of flow so deep that I finished a 5-hour task in 90 minutes.
 
 This article delves deep into the neuroscience behind flow states and offers actionable protocols to facilitate uninterrupted focus, ultimately leading to enhanced productivity and superior execution of tasks.
 

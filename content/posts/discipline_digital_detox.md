@@ -4,12 +4,12 @@ date: "2026-10-09"
 category: "Discipline"
 description: "Examine the impact of digital distractions on your focus and productivity. This article offers practical tips for conducting a digital detox to improve mental clarity and regain control over your attention."
 keywords: ["digital detox","focus","mental clarity","technology"]
-author: "Peter Kim"
+author: "MCJP"
 lastUpdated: "2026-07-16"
 ---
 ## Digital Detox: Reclaiming Your Focus in the Digital Age
 
-In today's world, where we're seemingly tethered to our devices, it's increasingly difficult to maintain focus amidst a deluge of digital distractions. The opportunities the digital age provides are immense, yet the distractions are equally pervasive, often hindering our productivity and ability to engage in deep, meaningful work. As someone who juggles running MCJP Consulting and being an active father, I've learned firsthand the challenges of maintaining focus in a world buzzing with notifications. This article explores the impact of digital distractions on our productivity and [mental clarity](/posts/discipline_focus_fasting), offering a structured plan for a digital detox that can help you regain control over your attention.
+In today's world, where we're seemingly tethered to our devices, it's increasingly difficult to maintain focus amidst a deluge of digital distractions. The opportunities the digital age provides are immense, yet the distractions are equally pervasive, often hindering our productivity and ability to engage in deep, meaningful work. As someone who juggles running a business and being an active father, I've learned firsthand the challenges of maintaining focus in a world buzzing with notifications. This article explores the impact of digital distractions on our productivity and [mental clarity](/posts/discipline_focus_fasting), offering a structured plan for a digital detox that can help you regain control over your attention.
 
 ### Understanding the Digital Distraction Dilemma
 
@@ -21,9 +21,9 @@ Research supports that multitasking—often seen as a badge of honor in our tech
 
 A [digital detox](/posts/discipline_solitude_cognitive_clarity) isn't merely stepping away from screens; it's about reassessing our relationship with technology. Undertaking a digital detox can yield numerous benefits:
 
-- **Enhanced Focus**: By minimizing digital distractions, I've been able to concentrate better on tasks. After enforcing a strict no-phone policy after 8 PM, my deep sleep score improved by 30%, which directly correlated with sharper focus during my morning coding sessions for MCJP Consulting.
+- **Enhanced Focus**: By minimizing digital distractions, I've been able to concentrate better on tasks. After enforcing a strict no-phone policy after 8 PM, my deep sleep score improved by 30%, which directly correlated with sharper focus during my morning coding sessions.
 - **Mental Clarity**: Stepping back from the constant noise allows for clearer thinking, enabling better decision-making.
-- **Restored Integrity**: Taking back control over my time has fostered a sense of ownership over my life and priorities, reinforcing discipline—something I strive to model for my daughters, Maddie and Charlie.
+- **Restored Integrity**: Taking back control over my time has fostered a sense of ownership over my life and priorities, reinforcing discipline—something I strive to model for my daughters.
 - **Improved Relationships**: By reducing screen time, I've been able to engage more meaningfully with my family, strengthening our bonds.
 
 ### Crafting Your Digital Detox Plan

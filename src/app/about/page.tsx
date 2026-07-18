@@ -84,6 +84,21 @@ export default function AboutPage() {
         </section>
 
         <section className="space-y-4 pt-4 border-t border-slate-100">
+          <h2 className="text-xl md:text-2xl font-bold text-slate-900">Who is Behind MCJP.io?</h2>
+          <div className="space-y-3 text-slate-800">
+            <p>
+              I am a pharmacist with over 15 years of experience in the local community, currently managing a dynamic pharmacy brand. But beyond the dispensary, I am a system builder.
+            </p>
+            <p>
+              Operating a consulting and technology firm on the side, I leverage AI automation tools like Notion, Activepieces, and custom AI operators to design hyper-efficient digital workflows. My philosophy is rooted in "flexible perseverance"—acknowledging that no one is 100% right, yet firmly pushing forward with the core values I believe in.
+            </p>
+            <p>
+              Above all, I am a husband and a father to two wonderful daughters. Whether I'm meticulously planning our family trips to Japan and Korea down to the minute, or simply letting go of my perfectionism to share a laugh with them, my ultimate life goal is simple: to be remembered as a truly good person. This blog is a distillation of my systems, my failures, and the blueprints I'm building for my family's future.
+            </p>
+          </div>
+        </section>
+
+        <section className="space-y-4 pt-4 border-t border-slate-100">
           <h2 className="text-xl md:text-2xl font-bold text-slate-900">Start with our most-read articles:</h2>
           <ul className="space-y-3">
             <li>
