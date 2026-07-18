@@ -21,9 +21,9 @@ Research supports that multitasking—often seen as a badge of honor in our tech
 
 A [digital detox](/posts/discipline_solitude_cognitive_clarity) isn't merely stepping away from screens; it's about reassessing our relationship with technology. Undertaking a digital detox can yield numerous benefits:
 
-- **Enhanced Focus**: By minimizing digital distractions, I've been able to concentrate better on tasks, leading to improved performance and productivity.
+- **Enhanced Focus**: By minimizing digital distractions, I've been able to concentrate better on tasks. After enforcing a strict no-phone policy after 8 PM, my deep sleep score improved by 30%, which directly correlated with sharper focus during my morning coding sessions for MCJP Consulting.
 - **Mental Clarity**: Stepping back from the constant noise allows for clearer thinking, enabling better decision-making.
-- **Restored Integrity**: Taking back control over my time has fostered a sense of ownership over my life and priorities, reinforcing discipline—something I strive to model for my daughters.
+- **Restored Integrity**: Taking back control over my time has fostered a sense of ownership over my life and priorities, reinforcing discipline—something I strive to model for my daughters, Maddie and Charlie.
 - **Improved Relationships**: By reducing screen time, I've been able to engage more meaningfully with my family, strengthening our bonds.
 
 ### Crafting Your Digital Detox Plan

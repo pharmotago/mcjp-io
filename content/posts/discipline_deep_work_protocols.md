@@ -10,7 +10,9 @@ lastUpdated: "2026-08-23"
 
 ## The Power of Deep Work: Elite Protocols for High-Performing Men
 
-In today’s fast-paced world, the ability to engage in [deep work](/posts/discipline_dopamine_fasting_deep_work)—intense focus on cognitively demanding tasks without distraction—is a crucial asset for high-performing men. This practice not only enhances productivity but also cultivates discipline, a key trait for long-term success. In this article, we will explore elite deep work protocols designed to eliminate distractions, facilitate flow states, and maximize cognitive output. By adopting these strategies, you can achieve both professional and [personal success](/posts/discipline_habit_creation), while building a foundation of integrity and self-discipline.
+In today’s fast-paced world, the ability to engage in [deep work](/posts/discipline_dopamine_fasting_deep_work)—intense focus on cognitively demanding tasks without distraction—is a crucial asset for high-performing men. As the solo founder of MCJP Consulting, I quickly realized that without strict focus, the chaos of daily operations and the joy of raising my two daughters, Maddie and Charlie, would completely overshadow my productivity. By implementing a mandatory 90-minute deep work block at 5 AM before the house wakes up, I was able to double my firm's output and still be fully present for my family during the day.
+
+This practice not only enhances productivity but also cultivates discipline, a key trait for long-term success. In this article, we will explore elite deep work protocols designed to eliminate distractions, facilitate flow states, and maximize cognitive output. By adopting these strategies, you can achieve both professional and [personal success](/posts/discipline_habit_creation), while building a foundation of integrity and self-discipline.
 
 ![A focused man working in a minimalist environment, embodying discipline and deep work principles](/images/discipline_deep_work_protocols_focus.png)
 
