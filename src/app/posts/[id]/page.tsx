@@ -276,11 +276,11 @@ export default async function PostPage({
             "description": post.data.description,
             "datePublished": post.data.date,
             "dateModified": post.data.lastUpdated || post.data.date,
-            "image": `https://blog.mcjp.io/images/${id}_focus.png`,
+            "image": `https://blog.mcjp.io/images/${post.id}_focus.png`,
             "wordCount": post.readingTime ? post.readingTime * 200 : undefined,
             "author": {
               "@type": "Person",
-              "name": "Peter Kim",
+              "name": "MCJP",
               "url": "https://blog.mcjp.io/about"
             },
             "publisher": {
