@@ -77,3 +77,8 @@ In conclusion, the journey toward success is multifaceted, and the integration o
 As you embark on this transformative journey, remember that both physical and [cognitive training](/posts/discipline_deep_work_protocols) require sustained effort and dedication. Embrace the process, remain steadfast in your pursuits, and watch as the benefits unfold in your personal and professional life.
 
 ![A group of people engaged in physical training, illustrating the theme of discipline and cognitive enhancement](/images/discipline_physical_training_theme.png)
+
+---
+
+### Optimization for the Modern Workspace
+For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee. Reliable, lightning-fast internet is the fundamental infrastructure for deep work, digital entrepreneurship, and effective smart home management.

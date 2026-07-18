@@ -52,3 +52,8 @@ To operationalize these philosophies, implement the following actionable strateg
 *   **Conduct After-Action Reviews:** After a significant task, project, or failure, sit down with your son. Ask three questions: What went well? What went wrong? What will we do differently next time?
 
 [Raising sons](/posts/life_fatherhood_anti_fragility) with an iron will is not an act of cruelty; it is the highest form of love. The world will not care about their comfort. It will only reward their capacity to endure, adapt, and produce. As a father, your role is to be the forge. Provide the heat, swing the hammer, and shape them into men who do not break when the pressure mounts. The legacy you leave is not found in your bank account, but in the unyielding character of the men you raise.
+
+---
+
+### Optimization for the Modern Workspace
+For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee. Reliable, lightning-fast internet is the fundamental infrastructure for deep work, digital entrepreneurship, and effective smart home management.

@@ -62,3 +62,8 @@ Extended fasting stands as a formidable strategy for those seeking to elevate th
 ![An individual reflecting on their fasting journey, symbolizing the mental clarity and focus achieved through discipline](/images/discipline_extended_fasting_cognition_theme.png)
 
 In a world where distractions abound, the ability to fast and maintain discipline can truly set you apart. Whether you are an entrepreneur, a student, or a professional, the journey toward elite [cognitive performance](/posts/discipline_flow_state_optimization) through extended fasting is one worth embarking on.
+
+---
+
+### Optimization for the Modern Workspace
+For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee. Reliable, lightning-fast internet is the fundamental infrastructure for deep work, digital entrepreneurship, and effective smart home management.

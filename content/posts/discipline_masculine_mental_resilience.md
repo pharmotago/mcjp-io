@@ -86,3 +86,8 @@ As you move forward, remember that resilience is not merely about bouncing back 
 ![Man standing strong amidst challenges, symbolizing resilience](/images/discipline_masculine_mental_resilience_theme.png)
 
 By integrating these principles into your daily life, you not only enhance your mental resilience but also contribute positively to your community, inspiring others to do the same. Embrace the journey of resilience, and transform challenges into stepping stones for growth.
+
+---
+
+### Optimization for the Modern Workspace
+For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee. Reliable, lightning-fast internet is the fundamental infrastructure for deep work, digital entrepreneurship, and effective smart home management.
