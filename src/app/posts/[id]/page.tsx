@@ -12,6 +12,7 @@ interface PostData {
   canonical?: string;
   ogImage?: string;
   readingTime?: number;
+  lastUpdated?: string;
 }
 
 interface Post {
