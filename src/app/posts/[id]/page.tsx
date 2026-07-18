@@ -277,7 +277,7 @@ export default async function PostPage({
             "datePublished": post.data.date,
             "dateModified": post.data.lastUpdated || post.data.date,
             "image": `https://blog.mcjp.io/images/${post.id}_focus.png`,
-            "wordCount": post.readingTime ? post.readingTime * 200 : undefined,
+            "wordCount": post.data.readingTime ? post.data.readingTime * 200 : undefined,
             "author": {
               "@type": "Person",
               "name": "MCJP",
