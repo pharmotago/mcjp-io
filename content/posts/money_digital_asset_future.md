@@ -1,11 +1,11 @@
 ---
 title: "Harnessing Digital Assets: The Future of Wealth Building"
-date: "2026-07-20"
+date: "2026-07-18"
 category: "Money"
 description: "Explore how digital assets are shaping the future of wealth creation and learn strategies to incorporate them into your financial portfolio for sustainable growth."
 keywords: ["digital assets","wealth building","future investments","financial growth"]
 author: "Peter Kim"
-lastUpdated: "2026-07-20"
+lastUpdated: "2026-07-18"
 ---
 
 ## Harnessing Digital Assets: The Future of Wealth Building

@@ -1,11 +1,11 @@
 ---
 title: "Low-Friction ADHD Planner Review: Productivity Systems That Actually Work for ADHD Brains"
-date: "2026-10-06"
+date: "2026-07-18"
 category: "Discipline"
 description: "Addresses the unique productivity challenges faced by neurodivergent individuals. It details practical systems to bypass executive dysfunction, lower friction f"
 keywords: ["ADHD planner productivity system review","josh smith","discipline"]
 author: "Peter Kim"
-lastUpdated: "2027-01-13"
+lastUpdated: "2026-07-18"
 ---
 
 > Disclosure: This post contains affiliate links. If you purchase through our links, we may earn a small commission at no extra cost to you.

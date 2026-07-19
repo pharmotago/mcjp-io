@@ -1,11 +1,11 @@
 ---
 title: "The Art of Self-Reliance: Building Independence in Modern Masculinity"
-date: "2026-11-20"
+date: "2026-07-18"
 category: "Life"
 description: "Explore how self-reliance is a cornerstone of modern masculinity, offering strategies to foster independence and self-sufficiency in various aspects of life."
 keywords: ["self-reliance","masculinity","independence","modern man"]
 author: "Peter Kim"
-lastUpdated: "2026-11-09"
+lastUpdated: "2026-07-18"
 ---
 
 ## The Art of Self-Reliance: Building Independence in Modern Masculinity

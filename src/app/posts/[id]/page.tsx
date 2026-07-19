@@ -2,6 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
+import AuthorProfile from '@/components/AuthorProfile';
+import NewsletterForm from '@/components/NewsletterForm';
 
 interface PostData {
   title: string;
@@ -280,7 +282,7 @@ export default async function PostPage({
             "wordCount": post.data.readingTime ? post.data.readingTime * 200 : undefined,
             "author": {
               "@type": "Person",
-              "name": "MCJP",
+              "name": "Peter K.",
               "url": "https://blog.mcjp.io/about"
             },
             "publisher": {
@@ -391,6 +393,13 @@ export default async function PostPage({
           </div>
         )}
       </article>
+
+      <div className="max-w-3xl mx-auto space-y-8">
+        <AuthorProfile />
+        <div className="mt-8">
+          <NewsletterForm />
+        </div>
+      </div>
 
       {/* Related Posts Section */}
       {relatedPosts.length > 0 && (

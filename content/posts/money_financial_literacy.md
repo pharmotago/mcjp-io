@@ -1,11 +1,11 @@
 ---
 title: "Financial Literacy for Men: Building a Strong Foundation for Wealth"
-date: "2026-12-08"
+date: "2026-07-18"
 category: "Money"
 description: "Understand the basics of financial literacy and how it can empower men to make informed decisions to build and maintain wealth."
 keywords: ["financial literacy","wealth building","money management","personal finance","education"]
 author: "Peter Kim"
-lastUpdated: "2026-10-14"
+lastUpdated: "2026-07-18"
 ---
 
 ## Financial Literacy for Men: Building a Strong Foundation for Wealth

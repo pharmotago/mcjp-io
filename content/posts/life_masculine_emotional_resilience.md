@@ -1,11 +1,11 @@
 ---
 title: "Building Emotional Resilience: The Modern Masculine Advantage"
-date: "2026-11-13"
+date: "2026-07-18"
 category: "Life"
 description: "Delve into the development of emotional resilience as a key masculine trait that supports success in personal and professional life."
 keywords: ["emotional resilience","masculine advantage","mental strength","personal growth"]
 author: "Peter Kim"
-lastUpdated: "2026-12-25"
+lastUpdated: "2026-07-18"
 ---
 
 ## Building Emotional Resilience: The Modern Masculine Advantage

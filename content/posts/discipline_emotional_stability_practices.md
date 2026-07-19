@@ -1,11 +1,11 @@
 ---
 title: "Emotional Stability: Practices for Building Resilience and Focus"
-date: "2026-10-10"
+date: "2026-07-18"
 category: "Discipline"
 description: "Delve into effective practices that enhance emotional stability, helping modern men build resilience and maintain focus in high-pressure situations."
 keywords: ["emotional stability","resilience","focus","discipline"]
 author: "Peter Kim"
-lastUpdated: "2026-11-06"
+lastUpdated: "2026-07-18"
 ---
 
 ![Emotional Stability & Focus](/images/emotional_stability_hero.png)

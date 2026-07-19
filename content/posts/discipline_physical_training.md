@@ -1,12 +1,12 @@
 ---
 title: "Cognitive Training Through Physical Exercise: A Dual Approach to Success"
-date: "2026-08-30"
+date: "2026-07-18"
 category: "Discipline"
 description: "Uncover the powerful connection between physical fitness and cognitive performance. This article provides insights on how physical training can enhance mental clarity and overall success."
 keywords: ["physical training","cognitive training","success habits"]
 canonical: "https://blog.mcjp.io/posts/discipline_physical_cognitive_training"
 author: "Peter Kim"
-lastUpdated: "2026-08-30"
+lastUpdated: "2026-07-18"
 ---
 
 ## Cognitive Training Through Physical Exercise: A Dual Approach to Success

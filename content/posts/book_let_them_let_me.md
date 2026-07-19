@@ -1,11 +1,11 @@
 ---
 title: "Let Them Let Me Review: Jordan Clark's Boundary Reset Philosophy for Emotional Sovereignty"
-date: "2026-10-05"
+date: "2026-07-18"
 category: "Life"
 description: "A powerful treatise on emotional sovereignty and relational boundaries. It details the 'Let Them + Let Me' philosophy, explaining how letting others make their "
 keywords: ["let them let me book review jordan clark","jordan r clark","life"]
 author: "Peter Kim"
-lastUpdated: "2027-01-11"
+lastUpdated: "2026-07-18"
 ---
 
 > Disclosure: This post contains affiliate links. If you purchase through our links, we may earn a small commission at no extra cost to you.

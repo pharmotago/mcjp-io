@@ -1,11 +1,11 @@
 ---
 title: "Harnessing the Power of Deep Focus: Techniques for Peak Productivity"
-date: "2026-09-04"
+date: "2026-07-18"
 category: "Discipline"
 description: "Learn about proven techniques to enhance your ability to focus deeply. This guide will help you boost productivity, manage distractions, and achieve your goals with greater efficiency."
 keywords: ["deep focus","productivity","concentration techniques","workflow optimization"]
 author: "Peter Kim"
-lastUpdated: "2026-09-04"
+lastUpdated: "2026-07-18"
 ---
 
 ## Harnessing the Power of Deep Focus: Techniques for Peak Productivity

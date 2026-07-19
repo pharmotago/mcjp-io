@@ -1,11 +1,11 @@
 ---
 title: "Mental Toughness: Training the Mind for Unyielding Success"
-date: "2026-10-19"
+date: "2026-07-18"
 category: "Discipline"
 description: "Learn techniques for developing mental toughness, enabling modern men to overcome challenges and achieve sustained success in any field."
 keywords: ["mental toughness","training","success","discipline"]
 author: "Peter Kim"
-lastUpdated: "2026-11-20"
+lastUpdated: "2026-07-18"
 ---
 
 ## Mental Toughness: Training the Mind for Unyielding Success

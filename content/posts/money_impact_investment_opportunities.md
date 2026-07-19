@@ -1,11 +1,11 @@
 ---
 title: "Impact Investing: Aligning Profits with Purpose for the Modern Man"
-date: "2026-12-14"
+date: "2026-07-18"
 category: "Money"
 description: "Explore how impact investing allows modern men to align their wealth-building strategies with personal values, creating both financial and social returns."
 keywords: ["impact investing","profits","purpose","wealth creation"]
 author: "Peter Kim"
-lastUpdated: "2026-11-16"
+lastUpdated: "2026-07-18"
 ---
 
 ## Impact Investing: Aligning Profits with Purpose for the Modern Man

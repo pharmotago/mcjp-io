@@ -1,11 +1,11 @@
 ---
 title: "Hybrid Performance Log Review: The Strength + Endurance Training System for Modern Men"
-date: "2026-10-04"
+date: "2026-07-18"
 category: "Discipline"
 description: "A comprehensive guide on hybrid athletic performance, discussing why combining strength training and cardiovascular endurance is the ultimate physical standard."
 keywords: ["hybrid performance log review hybrid athlete","josh smith","discipline"]
 author: "Peter Kim"
-lastUpdated: "2027-01-08"
+lastUpdated: "2026-07-18"
 ---
 
 > Disclosure: This post contains affiliate links. If you purchase through our links, we may earn a small commission at no extra cost to you.

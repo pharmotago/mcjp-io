@@ -1,11 +1,11 @@
 ---
 title: "Hybrid Investing: Bridging Traditional and Digital Wealth"
-date: "2026-12-13"
+date: "2026-07-18"
 category: "Money"
 description: "Explore the innovative world of hybrid investing, where traditional assets meet digital platforms, and learn how to diversify your portfolio for long-term success."
 keywords: ["hybrid investing","traditional assets","digital wealth","investment strategy"]
 author: "Peter Kim"
-lastUpdated: "2026-10-19"
+lastUpdated: "2026-07-18"
 ---
 
 ## Hybrid Investing: Bridging Traditional and Digital Wealth

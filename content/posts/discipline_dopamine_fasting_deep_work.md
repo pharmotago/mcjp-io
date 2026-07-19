@@ -1,11 +1,11 @@
 ---
 title: "Dopamine Fasting for Elite Deep Work: Rewiring Your Brain for Extreme Focus"
-date: "2026-08-19"
+date: "2026-07-18"
 category: "Discipline"
 description: "How to systematically reduce cheap dopamine hits from technology and entertainment to reset your reward system, enabling sustained periods of elite-level deep work."
 keywords: ["dopamine fasting","deep work","neuroplasticity","focus","cognitive performance"]
 author: "Peter Kim"
-lastUpdated: "2026-08-19"
+lastUpdated: "2026-07-18"
 ---
 
 The modern professional landscape is defined not by a scarcity of information, but by a catastrophic fragmentation of attention. We exist in an attention economy where multinational corporations engineer digital environments specifically designed to hijack our neurochemistry. The result is a generation of highly capable individuals who are functionally incapable of sustaining the deep, uninterrupted thought required to build meaningful assets. 

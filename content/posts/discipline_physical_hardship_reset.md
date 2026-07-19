@@ -1,11 +1,11 @@
 ---
 title: "The Physical Hardship Reset: Using Extreme Training to Master Dopamine"
-date: "2026-08-27"
+date: "2026-07-18"
 category: "Discipline"
 description: "How incorporating deliberate physical hardship, such as heavy lifting and endurance training, can reset your dopamine baseline and unlock unparalleled mental clarity."
 keywords: ["physical training","dopamine reset","hardship","mental clarity","discipline"]
 author: "Peter Kim"
-lastUpdated: "2026-08-27"
+lastUpdated: "2026-07-18"
 ---
 
 ## The Physical Hardship Reset: Using Extreme Training to Master Dopamine

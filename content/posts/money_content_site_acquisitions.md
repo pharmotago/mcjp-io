@@ -1,11 +1,11 @@
 ---
 title: "Buying Digital Real Estate: The Art of Acquiring Profitable Content Sites"
-date: "2026-08-18"
+date: "2026-07-18"
 category: "Money"
 description: "A guide on how to evaluate, finance, and acquire established content websites to build a diversified portfolio of cash-flowing digital assets."
 keywords: ["digital real estate","content sites","asset building","acquisitions","cash flow"]
 author: "Peter Kim"
-lastUpdated: "2026-08-18"
+lastUpdated: "2026-07-18"
 ---
 
 ## Buying Digital Real Estate: The Art of Acquiring Profitable Content Sites

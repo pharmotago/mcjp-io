@@ -1,11 +1,11 @@
 ---
 title: "Redefining Masculine Identity in the 21st Century"
-date: "2026-11-15"
+date: "2026-07-18"
 category: "Life"
 description: "Delve into the changing perceptions of masculinity today and discover how to forge a strong identity that aligns with contemporary social dynamics while maintaining personal integrity."
 keywords: ["masculine identity","modern masculinity","self-discovery","social roles"]
 author: "Peter Kim"
-lastUpdated: "2026-08-21"
+lastUpdated: "2026-07-18"
 ---
 
 ## Redefining Masculine Identity in the 21st Century

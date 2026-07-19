@@ -1,11 +1,11 @@
 ---
 title: "The Power of Solitude: Cognitive Training in an Overstimulated World"
-date: "2026-08-12"
+date: "2026-07-18"
 category: "Discipline"
 description: "Why intentional solitude is the ultimate cognitive training tool for men, helping to cut through noise, restore deep focus, and enhance complex problem-solving abilities."
 keywords: ["solitude","cognitive training","deep focus","mental clarity","digital detox"]
 author: "Peter Kim"
-lastUpdated: "2026-08-12"
+lastUpdated: "2026-07-18"
 ---
 
 We live in an era defined by a relentless barrage of inputs. Notifications, podcasts, endless scrolls, and the ambient hum of a hyper-connected world have become the default background noise of modern existence. For the [modern man](/posts/life_masculine_emotional_balance), this overstimulation is not merely an annoyance; it is a cognitive tax. It systematically degrades our capacity for [deep focus](/posts/discipline_focus_productivity) and fractures our [mental clarity](/posts/discipline_digital_detox). To thrive, to build, and to lead, we must reclaim a forgotten discipline: intentional solitude.

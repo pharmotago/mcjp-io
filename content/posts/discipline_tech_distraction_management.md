@@ -1,6 +1,6 @@
 ---
 title: "Mastering Technology Distraction for Optimal Focus"
-date: "2026-08-26"
+date: "2026-07-18"
 category: "Discipline"
 description: "Learn techniques to manage and minimize technology distractions to improve focus and productivity. This guide provides actionable strategies to maintain discipline in the digital age."
 keywords: ["technology distraction","focus","productivity","discipline"]

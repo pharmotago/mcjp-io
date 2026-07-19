@@ -1,11 +1,11 @@
 ---
 title: "Sustainable Investing: Profiting While Saving the Planet"
-date: "2026-12-22"
+date: "2026-07-18"
 category: "Money"
 description: "Discover how sustainable investing can be both profitable and environmentally responsible, and learn strategies for integrating ethical investments into your portfolio."
 keywords: ["sustainable investing","ethical investments","green economy","profit and planet"]
 author: "Peter Kim"
-lastUpdated: "2026-09-11"
+lastUpdated: "2026-07-18"
 ---
 
 ## Sustainable Investing: Profiting While Saving the Planet

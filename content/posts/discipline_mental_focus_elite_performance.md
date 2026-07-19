@@ -1,6 +1,6 @@
 ---
 title: "Achieving Elite Performance Through Mental Focus"
-date: "2026-07-28"
+date: "2026-07-18"
 category: "Discipline"
 description: "This article provides insights into how deep mental focus and disciplined routines can elevate your performance to elite levels in any field."
 keywords: ["elite performance","mental focus","discipline"]

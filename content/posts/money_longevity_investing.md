@@ -1,11 +1,11 @@
 ---
 title: "Investing for Longevity: Strategies for a Lifetime of Wealth"
-date: "2026-08-03"
+date: "2026-07-18"
 category: "Money"
 description: "Explore strategies that focus on long-term wealth creation, ensuring financial security and prosperity throughout one's lifetime. Learn how to invest smartly with a focus on sustaining wealth for the future."
 keywords: ["investing","longevity","wealth building","financial strategies"]
 author: "Peter Kim"
-lastUpdated: "2026-08-03"
+lastUpdated: "2026-07-18"
 ---
 
 ## Investing for Longevity: Strategies for a Lifetime of Wealth

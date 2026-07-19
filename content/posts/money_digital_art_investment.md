@@ -1,11 +1,11 @@
 ---
 title: "Investing in Digital Art: The Future of Art and Wealth"
-date: "2026-09-19"
+date: "2026-07-18"
 category: "Money"
 description: "Dive into the world of digital art investments and learn how to navigate this emerging market. This article covers the basics of NFTs and how they can be a lucrative addition to your wealth-building portfolio."
 keywords: ["digital art","investment","NFT","wealth building"]
 author: "Peter Kim"
-lastUpdated: "2026-09-19"
+lastUpdated: "2026-07-18"
 ---
 
 ## Investing in Digital Art: The Future of Art and Wealth

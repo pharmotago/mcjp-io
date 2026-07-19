@@ -1,11 +1,11 @@
 ---
 title: "The Warrior's Breath: Tactical Breathing for Unshakeable Composure"
-date: "2026-08-16"
+date: "2026-07-18"
 category: "Discipline"
 description: "Exploring tactical breathing techniques used by elite military operators to control physiological stress responses, enhance cognitive function, and maintain absolute focus under pressure."
 keywords: ["breathwork","stress control","cognitive training","composure","discipline"]
 author: "Peter Kim"
-lastUpdated: "2026-08-16"
+lastUpdated: "2026-07-18"
 ---
 
 ## The Warrior's Breath: Tactical Breathing for Unshakeable Composure

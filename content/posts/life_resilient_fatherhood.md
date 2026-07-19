@@ -1,11 +1,11 @@
 ---
 title: "Resilient Fatherhood: Building a Legacy of Strength and Support"
-date: "2026-11-27"
+date: "2026-07-18"
 category: "Life"
 description: "Explore the pillars of resilient fatherhood and learn how to cultivate a family legacy built on strength, support, and unwavering leadership."
 keywords: ["fatherhood","resilience","family legacy","support"]
 author: "Peter Kim"
-lastUpdated: "2026-10-07"
+lastUpdated: "2026-07-18"
 ---
 
 ## Resilient Fatherhood: Building a Legacy of Strength and Support

@@ -1,11 +1,11 @@
 ---
 title: "Raising Capable Men: Fatherhood Strategies for Raising Resilient Sons"
-date: "2026-11-25"
+date: "2026-07-18"
 category: "Life"
 description: "A guide for fathers on instilling grit, accountability, and emotional intelligence in their sons, preparing them for the realities of modern masculinity and self-reliance."
 keywords: ["raising sons","fatherhood","resilience","masculine development","parenting"]
 author: "Peter Kim"
-lastUpdated: "2027-01-04"
+lastUpdated: "2026-07-18"
 ---
 
 The modern landscape presents a paradox for the modern father. We live in an era of unprecedented physical safety, yet our sons are increasingly vulnerable to psychological fragility, purposelessness, and a crisis of identity. The traditional markers of manhood have been obscured by a culture that often equates coddling with care. In this environment, fatherhood transcends mere provision; it demands the deliberate, strategic architecture of character. [Raising sons](/posts/life_fatherhood_anti_fragility) today requires an intentional focus on [masculine development](/posts/life_fatherhood_work_ethic), forging individuals capable of navigating volatility with unshakeable resolve. 

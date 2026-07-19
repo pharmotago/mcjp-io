@@ -1,6 +1,6 @@
 ---
 title: "Navigating Financial Responsibility in Modern Fatherhood"
-date: "2026-10-02"
+date: "2026-07-18"
 category: "Life"
 description: "This article discusses the evolving financial responsibilities of fatherhood in today's world and strategies to manage them effectively."
 keywords: ["financial responsibility","modern fatherhood","family budgeting"]

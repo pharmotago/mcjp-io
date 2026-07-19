@@ -1,11 +1,11 @@
 ---
 title: "Building a Masculine Financial Legacy: Strategies for Success"
-date: "2026-07-25"
+date: "2026-07-18"
 category: "Money"
 description: "Explore how modern men can create a lasting financial legacy through smart investment strategies and wealth-building techniques tailored to masculine success."
 keywords: ["financial legacy","wealth building","masculine success","investment strategies"]
 author: "Peter Kim"
-lastUpdated: "2026-07-25"
+lastUpdated: "2026-07-18"
 ---
 
 ## Building a Masculine Financial Legacy: Strategies for Success

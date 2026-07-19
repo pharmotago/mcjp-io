@@ -1,6 +1,6 @@
 ---
 title: "Integrating Physical and Cognitive Training: A Blueprint for Optimal Performance"
-date: "2026-10-27"
+date: "2026-07-18"
 category: "Discipline"
 description: "Discover how to combine physical and cognitive training to enhance overall performance, focusing on discipline and the benefits of a holistic approach to self-improvement."
 keywords: ["physical training","cognitive training","performance","discipline"]

@@ -1,11 +1,11 @@
 ---
 title: "Mastering Digital Asset Management: The New Wealth Frontier"
-date: "2026-12-02"
+date: "2026-07-18"
 category: "Money"
 description: "Delve into the world of digital asset management, exploring how blockchain technology and cryptocurrencies are reshaping wealth strategies."
 keywords: ["digital assets","wealth management","blockchain","cryptocurrency"]
 author: "Peter Kim"
-lastUpdated: "2026-11-04"
+lastUpdated: "2026-07-18"
 ---
 
 ## Mastering Digital Asset Management: The New Wealth Frontier

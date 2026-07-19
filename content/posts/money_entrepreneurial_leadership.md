@@ -1,11 +1,11 @@
 ---
 title: "The Art of Entrepreneurial Leadership: A Masculine Perspective"
-date: "2026-12-05"
+date: "2026-07-18"
 category: "Money"
 description: "Uncover the unique leadership skills that successful male entrepreneurs utilize to drive business growth and inspire teams."
 keywords: ["entrepreneurial leadership","masculine perspective","business growth","leadership skills"]
 author: "Peter Kim"
-lastUpdated: "2026-12-28"
+lastUpdated: "2026-07-18"
 ---
 
 ## The Art of Entrepreneurial Leadership: A Masculine Perspective

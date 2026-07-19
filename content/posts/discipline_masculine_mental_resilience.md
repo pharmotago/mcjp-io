@@ -1,11 +1,11 @@
 ---
 title: "Building Masculine Mental Resilience: Strategies for Today's Challenges"
-date: "2026-07-27"
+date: "2026-07-18"
 category: "Discipline"
 description: "Explore strategies for developing mental resilience in men, equipping them to face modern challenges with strength and confidence."
 keywords: ["mental resilience","discipline","masculine strength","challenges"]
 author: "Peter Kim"
-lastUpdated: "2026-07-27"
+lastUpdated: "2026-07-18"
 ---
 
 ## Building Masculine Mental Resilience: Strategies for Today's Challenges

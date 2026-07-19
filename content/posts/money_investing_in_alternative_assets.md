@@ -1,11 +1,11 @@
 ---
 title: "The New Frontier: Investing in Alternative Assets"
-date: "2026-08-08"
+date: "2026-07-18"
 category: "Money"
 description: "Explore the world of alternative investments, from real estate to digital assets. Learn how diversifying into these areas can enhance your portfolio and contribute to wealth growth."
 keywords: ["alternative assets","investing","financial diversification","wealth"]
 author: "Peter Kim"
-lastUpdated: "2026-08-08"
+lastUpdated: "2026-07-18"
 ---
 
 The modern financial landscape is unforgiving. For decades, the conventional wisdom dictated a simple formula: buy a home, max out your retirement accounts, and allocate the rest into a diversified basket of stocks and bonds. While this 60/40 portfolio served previous generations adequately, today’s environment of persistent inflation, market volatility, and monetary debasement demands a more sophisticated approach. 

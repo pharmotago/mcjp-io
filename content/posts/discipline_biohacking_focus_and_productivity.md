@@ -1,11 +1,11 @@
 ---
 title: "Biohacking Your Way to Peak Focus and Productivity"
-date: "2026-09-21"
+date: "2026-07-18"
 category: "Discipline"
 description: "Discover biohacking techniques that can optimize your cognitive functions, helping you achieve peak focus and productivity in your daily life."
 keywords: ["biohacking","productivity","focus","mental clarity"]
 author: "Peter Kim"
-lastUpdated: "2026-09-21"
+lastUpdated: "2026-07-18"
 ---
 
 ## Biohacking Your Way to Peak Focus and Productivity

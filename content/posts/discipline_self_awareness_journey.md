@@ -1,11 +1,11 @@
 ---
 title: "The Journey to Self-Awareness: A Discipline-Driven Approach"
-date: "2026-10-29"
+date: "2026-07-18"
 category: "Discipline"
 description: "Investigate the path to self-awareness, focusing on disciplined practices that foster personal growth and self-improvement."
 keywords: ["self-awareness","personal growth","discipline","self-improvement"]
 author: "Peter Kim"
-lastUpdated: "2026-10-30"
+lastUpdated: "2026-07-18"
 ---
 
 ## The Journey to Self-Awareness: A Discipline-Driven Approach

@@ -1,11 +1,11 @@
 ---
 title: "The Influence of Modern Masculinity on Family and Society"
-date: "2026-11-23"
+date: "2026-07-18"
 category: "Life"
 description: "Examine how contemporary masculine ideals shape family dynamics and societal roles, influencing the next generation of leaders."
 keywords: ["modern masculinity","family influence","society","role of men"]
 author: "Peter Kim"
-lastUpdated: "2026-11-11"
+lastUpdated: "2026-07-18"
 ---
 
 ## The Influence of Modern Masculinity on Family and Society

@@ -1,11 +1,11 @@
 ---
 title: "Building Entrepreneurial Networks: The Key to Unlocking Hidden Wealth"
-date: "2026-12-06"
+date: "2026-07-18"
 category: "Money"
 description: "Learn how building strong entrepreneurial networks can open doors to new opportunities and hidden wealth. Discover tips and strategies for effective networking and relationship building."
 keywords: ["entrepreneurial networks","wealth building","networking","business growth"]
 author: "Peter Kim"
-lastUpdated: "2026-11-27"
+lastUpdated: "2026-07-18"
 ---
 
 ## Building Entrepreneurial Networks: The Key to Unlocking Hidden Wealth

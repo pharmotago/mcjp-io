@@ -1,11 +1,11 @@
 ---
 title: "Unburden Your Brain Review: Jordan Clark's System to Eliminate Mental Load and Life Admin"
-date: "2026-10-07"
+date: "2026-07-18"
 category: "Life"
 description: "Exposes the hidden drain of 'life admin' and mental load on modern professionals. It offers a structured methodology to offload administrative tasks, streamline"
 keywords: ["unburden your brain review mental load","jordan r clark","life"]
 author: "Peter Kim"
-lastUpdated: "2027-01-15"
+lastUpdated: "2026-07-18"
 ---
 
 > Disclosure: This post contains affiliate links. If you purchase through our links, we may earn a small commission at no extra cost to you.

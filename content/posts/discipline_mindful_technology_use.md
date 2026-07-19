@@ -1,11 +1,11 @@
 ---
 title: "Mastering Mindful Technology Use: A Discipline for the Modern Man"
-date: "2026-10-21"
+date: "2026-07-18"
 category: "Discipline"
 description: "Learn how to cultivate a disciplined approach to technology use that enhances focus and productivity. This guide provides practical tips for modern men seeking to balance tech use with mindfulness."
 keywords: ["mindful technology","digital discipline","focus","productivity"]
 author: "Peter Kim"
-lastUpdated: "2026-09-16"
+lastUpdated: "2026-07-18"
 ---
 
 ## Mastering Mindful Technology Use: A Discipline for the Modern Man

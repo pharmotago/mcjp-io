@@ -1,11 +1,11 @@
 ---
 title: "The Rucking Renaissance: Heavy Carries for Mental and Physical Fortitude"
-date: "2026-09-12"
+date: "2026-07-18"
 category: "Discipline"
 description: "Why lifting heavy weights isn't enough, and how the ancient practice of rucking builds unparalleled grit, posture, and mental endurance."
 keywords: ["rucking","mental toughness","physical training","endurance","discipline"]
 author: "Peter Kim"
-lastUpdated: "2026-09-12"
+lastUpdated: "2026-07-18"
 ---
 
 ## The Rucking Renaissance: Heavy Carries for Mental and Physical Fortitude

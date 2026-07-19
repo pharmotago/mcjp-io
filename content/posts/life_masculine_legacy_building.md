@@ -1,11 +1,11 @@
 ---
 title: "Building a Masculine Legacy: The Pillars of Lasting Influence"
-date: "2026-11-17"
+date: "2026-07-18"
 category: "Life"
 description: "Discover the fundamental principles of creating a legacy that stands the test of time, focusing on leadership, personal growth, and the impact of a well-rounded masculine identity."
 keywords: ["masculine legacy","lasting influence","family leadership","personal growth"]
 author: "Peter Kim"
-lastUpdated: "2026-12-07"
+lastUpdated: "2026-07-18"
 ---
 
 ## Building a Masculine Legacy: The Pillars of Lasting Influence

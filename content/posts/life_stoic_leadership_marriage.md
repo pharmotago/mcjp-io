@@ -1,11 +1,11 @@
 ---
 title: "Stoic Leadership in Marriage: Balancing Strength and Empathy"
-date: "2026-08-24"
+date: "2026-07-18"
 category: "Life"
 description: "Applying stoic principles to marital leadership, showing men how to be a rock for their family while maintaining deep emotional connection and empathy."
 keywords: ["stoicism","marriage","emotional strength","masculinity","leadership"]
 author: "Peter Kim"
-lastUpdated: "2026-08-24"
+lastUpdated: "2026-07-18"
 ---
 
 ## Embracing Stoic Leadership in Marriage

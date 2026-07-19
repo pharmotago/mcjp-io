@@ -1,11 +1,11 @@
 ---
 title: "The Faceless AI YouTube Empire: Automating Content for Passive Wealth"
-date: "2026-08-14"
+date: "2026-07-18"
 category: "Money"
 description: "A deep dive into leveraging AI tools to script, voice, and edit faceless YouTube channels, creating a scalable digital asset that generates passive income."
 keywords: ["AI content","faceless youtube","passive income","automation","wealth creation"]
 author: "Peter Kim"
-lastUpdated: "2026-08-14"
+lastUpdated: "2026-07-18"
 ---
 
 [Wealth creation](/posts/money_ai_entrepreneurship) in the digital age is no longer strictly a function of trading time for money. It is about architecting systems that compound value on your behalf. The most potent iteration of this paradigm today is the faceless YouTube channel—a digital asset powered by AI content, designed to capture attention, build authority, and generate [passive income](/posts/money_automated_content_empires) without requiring your face, your voice, or your constant physical presence. 

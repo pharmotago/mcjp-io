@@ -1,11 +1,11 @@
 ---
 title: "Master Your Day: How Morning Routines Set the Tone for Success"
-date: "2026-10-25"
+date: "2026-07-18"
 category: "Discipline"
 description: "Discover the power of morning routines in shaping the rest of your day, enhancing productivity, and instilling discipline."
 keywords: ["morning routine","success habits","discipline","productivity","daily routine"]
 author: "Peter Kim"
-lastUpdated: "2026-09-21"
+lastUpdated: "2026-07-18"
 ---
 
 ## Master Your Day: How Morning Routines Set the Tone for Success

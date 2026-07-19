@@ -1,11 +1,11 @@
 ---
 title: "Real Estate Investing: Building Wealth through Property"
-date: "2026-12-19"
+date: "2026-07-18"
 category: "Money"
 description: "An in-depth guide to investing in real estate as a means of building long-term wealth. Understand the steps involved and the potential pitfalls to avoid in the property market."
 keywords: ["real estate","investing","property","wealth building"]
 author: "Peter Kim"
-lastUpdated: "2026-09-09"
+lastUpdated: "2026-07-18"
 ---
 
 ## Real Estate Investing: Building Wealth through Property

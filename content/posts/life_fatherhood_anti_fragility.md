@@ -1,11 +1,11 @@
 ---
 title: "Anti-Fragile Fatherhood: Raising Sons Who Thrive in Chaos"
-date: "2026-08-28"
+date: "2026-07-18"
 category: "Life"
 description: "A guide for fathers on instilling anti-fragility in their sons, preparing them to not just survive but thrive amidst modern societal and economic chaos."
 keywords: ["anti-fragility","raising sons","fatherhood","resilience","modern challenges"]
 author: "Peter Kim"
-lastUpdated: "2026-08-28"
+lastUpdated: "2026-07-18"
 ---
 
 ## Anti-Fragile Fatherhood: Raising Sons Who Thrive in Chaos

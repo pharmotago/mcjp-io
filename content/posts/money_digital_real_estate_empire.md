@@ -1,11 +1,11 @@
 ---
 title: "Building a Digital Real Estate Empire: Buying and Scaling Content Sites"
-date: "2026-08-25"
+date: "2026-07-18"
 category: "Money"
 description: "Exploring the strategy of acquiring, optimizing, and holding profitable content websites as a modern alternative to physical real estate investing."
 keywords: ["digital real estate","content sites","asset building","cash flow","wealth creation"]
 author: "Peter Kim"
-lastUpdated: "2026-08-25"
+lastUpdated: "2026-07-18"
 ---
 
 ## Building a Digital Real Estate Empire: Buying and Scaling Content Sites

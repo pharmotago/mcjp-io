@@ -1,11 +1,11 @@
 ---
 title: "Building Mental Agility: Practices for Quick Thinking"
-date: "2026-10-15"
+date: "2026-07-18"
 category: "Discipline"
 description: "Discover exercises and routines designed to enhance your mental agility, improving your ability to think quickly and make sound decisions."
 keywords: ["mental agility","cognitive training","quick thinking","brain exercises"]
 author: "Peter Kim"
-lastUpdated: "2026-10-28"
+lastUpdated: "2026-07-18"
 ---
 
 ## Building Mental Agility: Practices for Quick Thinking

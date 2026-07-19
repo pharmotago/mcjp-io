@@ -1,11 +1,11 @@
 ---
 title: "Cultivating a Success Mindset: Habits of Highly Effective Men"
-date: "2026-10-22"
+date: "2026-07-18"
 category: "Discipline"
 description: "Uncover the daily habits and mindset shifts that highly effective men use to achieve their goals and maintain discipline in their lives, setting the foundation for long-term success."
 keywords: ["success mindset","habits","personal development","discipline","self-improvement"]
 author: "Peter Kim"
-lastUpdated: "2026-08-07"
+lastUpdated: "2026-07-18"
 ---
 
 ## Cultivating a Success Mindset: Habits of Highly Effective Men

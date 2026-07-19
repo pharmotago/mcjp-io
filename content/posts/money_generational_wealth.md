@@ -1,11 +1,11 @@
 ---
 title: "Building Generational Wealth: Beyond Your Lifetime"
-date: "2026-12-11"
+date: "2026-07-18"
 category: "Money"
 description: "Explore strategies for creating and preserving wealth that lasts beyond your lifetime. Learn how to set up effective financial plans to ensure your legacy continues to benefit future generations."
 keywords: ["generational wealth","legacy","financial planning","wealth transfer"]
 author: "Peter Kim"
-lastUpdated: "2026-09-04"
+lastUpdated: "2026-07-18"
 ---
 
 ## Building Generational Wealth: Beyond Your Lifetime

@@ -1,11 +1,11 @@
 ---
 title: "Forging Iron Will: How Fathers Can Instill Relentless Work Ethic in Their Sons"
-date: "2026-08-13"
+date: "2026-07-18"
 category: "Life"
 description: "Practical strategies for fathers to model and teach the value of hard work, resilience, and accountability to their sons in an increasingly soft world."
 keywords: ["fatherhood","raising sons","work ethic","family leadership","masculine development"]
 author: "Peter Kim"
-lastUpdated: "2026-08-13"
+lastUpdated: "2026-07-18"
 ---
 
 We live in an era defined by frictionless convenience. The modern world is increasingly soft, engineered to eliminate struggle, discomfort, and delay. But struggle is the anvil upon which character is forged. For fathers, the mandate is absolute: raising sons in this environment requires a deliberate, almost militant commitment to instilling a relentless work ethic. Fatherhood is not merely the act of providing; it is the rigorous discipline of preparing. It is the ultimate exercise in [family leadership](/posts/family_role_of_man) and [masculine development](/posts/life_raising_capable_sons).

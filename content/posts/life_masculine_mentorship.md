@@ -1,11 +1,11 @@
 ---
 title: "The Role of Mentorship in Modern Masculinity: Guiding the Next Generation"
-date: "2026-11-19"
+date: "2026-07-18"
 category: "Life"
 description: "Discover how mentorship can shape the journey of modern masculinity, offering guidance and leadership to the next generation. Learn the benefits of being both a mentor and a mentee in today's world."
 keywords: ["mentorship","modern masculinity","guidance","leadership"]
 author: "Peter Kim"
-lastUpdated: "2026-11-23"
+lastUpdated: "2026-07-18"
 ---
 ## The Role of Mentorship in Modern Masculinity: Guiding the Next Generation
 

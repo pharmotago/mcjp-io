@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import AuthorProfile from "@/components/AuthorProfile";
 
 export const metadata: Metadata = {
   title: "About MCJP.io — Sovereign Blueprints for the Modern Man",
@@ -41,6 +42,8 @@ export default function AboutPage() {
           MCJP.io is a sovereign intelligence system for the modern man.
         </p>
       </header>
+
+      <AuthorProfile />
 
       <div className="space-y-8 text-slate-700 leading-relaxed text-sm md:text-base">
         <section className="space-y-4">
@@ -107,7 +110,7 @@ export default function AboutPage() {
               </a>
             </li>
             <li>
-              <a href="/posts/personal_growth_discipline" className="text-amber-600 hover:text-amber-500 font-semibold flex items-center gap-1">
+              <a href="/posts/discipline_dopamine_control" className="text-amber-600 hover:text-amber-500 font-semibold flex items-center gap-1">
                 The Dopamine Shield &rarr;
               </a>
             </li>

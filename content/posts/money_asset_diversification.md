@@ -1,11 +1,11 @@
 ---
 title: "The Power of Asset Diversification: Building Wealth Beyond Stocks"
-date: "2026-11-30"
+date: "2026-07-18"
 category: "Money"
 description: "Explore the importance of diversifying your assets, including real estate and bonds, to create a robust investment portfolio that withstands market volatility and maximizes wealth potential."
 keywords: ["asset diversification","wealth building","investment strategy","real estate","bonds"]
 author: "Peter Kim"
-lastUpdated: "2026-08-31"
+lastUpdated: "2026-07-18"
 ---
 
 ## The Power of Asset Diversification: Building Wealth Beyond Stocks
