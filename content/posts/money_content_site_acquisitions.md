@@ -6,6 +6,7 @@ description: "A guide on how to evaluate, finance, and acquire established conte
 keywords: ["digital real estate","content sites","asset building","acquisitions","cash flow"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Buying Digital Real Estate: The Art of Acquiring Profitable Content Sites

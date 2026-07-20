@@ -6,6 +6,7 @@ description: "Uncover the opportunities for wealth creation in the age of AI, in
 keywords: ["AI entrepreneurship","wealth creation","technology","startups"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Thriving in the AI Era: Building Wealth through AI Entrepreneurship

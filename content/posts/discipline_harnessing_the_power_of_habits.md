@@ -6,6 +6,7 @@ description: "Uncover the science of habit formation and learn how to build powe
 keywords: ["habits","success","routine development","self-improvement"]
 author: "Peter Kim"
 lastUpdated: "2026-07-08"
+published: true
 ---
 
 ## Harnessing the Power of Habits for Success

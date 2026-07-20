@@ -6,6 +6,7 @@ description: "Delve into methods and exercises designed to build mental fortitud
 keywords: ["mental strength","success training","resilience building"]
 author: "Peter Kim"
 lastUpdated: "2026-07-10"
+published: true
 ---
 
 ## Training the Mind: Building Mental Strength for Success

@@ -6,6 +6,7 @@ description: "Discover biohacking techniques that can optimize your cognitive fu
 keywords: ["biohacking","productivity","focus","mental clarity"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Biohacking Your Way to Peak Focus and Productivity

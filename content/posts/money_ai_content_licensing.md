@@ -6,6 +6,7 @@ description: "Exploring how men can build wealth by creating and licensing AI-ge
 keywords: ["AI content","licensing","synthetic media","passive income","digital assets"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## The Shift from Labor to Ownership

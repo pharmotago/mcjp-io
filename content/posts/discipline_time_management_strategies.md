@@ -6,6 +6,7 @@ description: "Discover time management strategies that enhance discipline and pr
 keywords: ["time management","discipline","productivity","efficiency"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Time Management Mastery: Strategies for the Disciplined Man

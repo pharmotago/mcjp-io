@@ -6,6 +6,7 @@ description: "Learn how to develop emotional intelligence as a man, enhancing yo
 keywords: ["emotional intelligence","relationships","communication","personal growth","masculinity"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Emotional Intelligence for Men: The Key to Stronger Relationships

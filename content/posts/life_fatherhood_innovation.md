@@ -6,6 +6,7 @@ description: "Discover how modern fathers can instill a culture of innovation wi
 keywords: ["fatherhood","innovation","family leadership","future planning"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Fatherhood and Innovation: Leading Your Family into the Future

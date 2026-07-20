@@ -6,6 +6,7 @@ description: "Explore strategies for creating and preserving wealth that lasts b
 keywords: ["generational wealth","legacy","financial planning","wealth transfer"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Building Generational Wealth: Beyond Your Lifetime

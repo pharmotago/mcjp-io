@@ -6,6 +6,7 @@ description: "A step-by-step guide to starting and scaling an AI automation agen
 keywords: ["ai automation","ai agency","digital wealth","business scaling","side hustle"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Building a Profitable AI Automation Agency in 2024

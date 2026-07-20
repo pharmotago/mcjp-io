@@ -6,6 +6,7 @@ description: "Discover the essential strategies for taking your business to inte
 keywords: ["international business","expansion strategies","global market","business growth"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Expanding Your Business Internationally: Key Strategies for Success

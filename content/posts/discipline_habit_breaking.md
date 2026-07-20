@@ -6,6 +6,7 @@ description: "This article offers a comprehensive guide to identifying and break
 keywords: ["habit breaking","self-discipline","personal growth","behavior change"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Breaking Bad Habits: A Step-by-Step Approach to Discipline and Success

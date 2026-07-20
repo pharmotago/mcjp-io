@@ -6,6 +6,7 @@ description: "Investigate the path to self-awareness, focusing on disciplined pr
 keywords: ["self-awareness","personal growth","discipline","self-improvement"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## The Journey to Self-Awareness: A Discipline-Driven Approach

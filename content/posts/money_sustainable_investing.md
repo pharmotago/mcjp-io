@@ -6,6 +6,7 @@ description: "Discover how sustainable investing can be both profitable and envi
 keywords: ["sustainable investing","ethical investments","green economy","profit and planet"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Sustainable Investing: Profiting While Saving the Planet

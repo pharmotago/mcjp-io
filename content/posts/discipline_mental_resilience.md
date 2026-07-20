@@ -6,6 +6,7 @@ description: "Explore techniques to develop mental resilience, enabling you to s
 keywords: ["mental resilience","stress management","discipline","focus","emotional strength"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Building Mental Resilience: Techniques for Staying Strong Under Pressure

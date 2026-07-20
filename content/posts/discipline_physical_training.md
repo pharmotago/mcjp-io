@@ -7,6 +7,7 @@ keywords: ["physical training","cognitive training","success habits"]
 canonical: "https://blog.mcjp.io/posts/discipline_physical_cognitive_training"
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Cognitive Training Through Physical Exercise: A Dual Approach to Success

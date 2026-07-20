@@ -6,6 +6,7 @@ description: "Learn how investing in your own education can be a powerful tool f
 keywords: ["self-education","investment","wealth creation"]
 author: "Peter Kim"
 lastUpdated: "2026-07-15"
+published: true
 ---
 
 ## Investing in Self-Education: A Path to Wealth

@@ -6,6 +6,7 @@ description: "Learn to develop daily routines that align with masculine principl
 keywords: ["masculine routines","peak performance","discipline","success habits"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Building Masculine Routines for Peak Performance

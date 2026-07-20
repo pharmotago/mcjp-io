@@ -6,6 +6,7 @@ description: "How incorporating deliberate physical hardship, such as heavy lift
 keywords: ["physical training","dopamine reset","hardship","mental clarity","discipline"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## The Physical Hardship Reset: Using Extreme Training to Master Dopamine

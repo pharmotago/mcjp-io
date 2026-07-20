@@ -6,6 +6,7 @@ description: "Discover the fundamental principles of creating a legacy that stan
 keywords: ["masculine legacy","lasting influence","family leadership","personal growth"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Building a Masculine Legacy: The Pillars of Lasting Influence

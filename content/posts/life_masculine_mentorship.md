@@ -6,6 +6,7 @@ description: "Discover how mentorship can shape the journey of modern masculinit
 keywords: ["mentorship","modern masculinity","guidance","leadership"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 ## The Role of Mentorship in Modern Masculinity: Guiding the Next Generation
 

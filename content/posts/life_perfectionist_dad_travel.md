@@ -6,6 +6,7 @@ description: "How to drop the managerial persona and experience raw, unfiltered 
 keywords: ["family travel", "fatherhood", "perfectionism", "routine", "travel planning"]
 author: "MCJP"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## The Master Planner

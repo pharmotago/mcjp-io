@@ -6,6 +6,7 @@ description: "Discover powerful techniques to cultivate self-motivation, empower
 keywords: ["self-motivation","discipline","techniques","personal growth"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Harnessing Self-Motivation: Techniques for Unstoppable Discipline

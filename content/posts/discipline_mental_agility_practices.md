@@ -6,6 +6,7 @@ description: "Discover exercises and routines designed to enhance your mental ag
 keywords: ["mental agility","cognitive training","quick thinking","brain exercises"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Building Mental Agility: Practices for Quick Thinking

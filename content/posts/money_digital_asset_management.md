@@ -6,6 +6,7 @@ description: "Delve into the world of digital asset management, exploring how bl
 keywords: ["digital assets","wealth management","blockchain","cryptocurrency"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Mastering Digital Asset Management: The New Wealth Frontier

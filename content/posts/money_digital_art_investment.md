@@ -6,6 +6,7 @@ description: "Dive into the world of digital art investments and learn how to na
 keywords: ["digital art","investment","NFT","wealth building"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Investing in Digital Art: The Future of Art and Wealth

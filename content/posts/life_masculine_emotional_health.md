@@ -6,6 +6,7 @@ description: "This article discusses the importance of emotional health for men 
 keywords: ["emotional health","modern masculinity","mental well-being","emotional resilience"]
 author: "Peter Kim"
 lastUpdated: "2026-07-15"
+published: true
 ---
 
 ## Navigating Emotional Health in Modern Masculinity

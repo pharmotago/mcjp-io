@@ -7,6 +7,7 @@ keywords: ["mentorship","leadership","personal growth","networking","success"]
 canonical: "https://blog.mcjp.io/posts/life_masculine_mentorship"
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## The Power of Mentorship: Learning from Those Who Lead

@@ -6,6 +6,7 @@ description: "How modern men are acquiring and rolling up profitable micro-SaaS 
 keywords: ["micro private equity","digital holdco","asset building","online business","wealth strategy"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Building a Micro-Private Equity Empire: The Digital Holdco Strategy

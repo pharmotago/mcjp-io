@@ -6,6 +6,7 @@ description: "Uncover the science of habit creation and learn how establishing e
 keywords: ["habit creation","personal success","routine building","self-discipline"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 ## Mastering Habit Creation: The Foundation of Personal Success
 

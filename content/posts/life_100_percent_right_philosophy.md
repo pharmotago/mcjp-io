@@ -7,6 +7,7 @@ description: "Exploring the philosophy of flexible perseverance—balancing empa
 keywords: ["life philosophy", "empathy", "perseverance", "core values", "legacy"]
 author: "MCJP"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## The Illusion of Absolute Certainty

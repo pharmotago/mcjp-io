@@ -6,6 +6,7 @@ description: "Exploring tactical breathing techniques used by elite military ope
 keywords: ["breathwork","stress control","cognitive training","composure","discipline"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## The Warrior's Breath: Tactical Breathing for Unshakeable Composure

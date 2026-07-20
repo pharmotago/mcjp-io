@@ -6,6 +6,7 @@ description: "Learn how to strengthen self-discipline amidst digital distraction
 keywords: ["self-discipline","digital distractions","focus","time management"]
 author: "Peter Kim"
 lastUpdated: "2026-07-02"
+published: true
 ---
 
 ## Cultivating Self-Discipline in the Digital Age

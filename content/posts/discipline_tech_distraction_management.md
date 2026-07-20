@@ -6,6 +6,7 @@ description: "Learn techniques to manage and minimize technology distractions to
 keywords: ["technology distraction","focus","productivity","discipline"]
 author: "Peter Kim"
 lastUpdated: "2026-07-10"
+published: true
 ---
 
 ## Mastering Technology Distraction for Optimal Focus

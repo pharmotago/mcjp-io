@@ -6,6 +6,7 @@ description: "This article provides insights into how deep mental focus and disc
 keywords: ["elite performance","mental focus","discipline"]
 author: "Peter Kim"
 lastUpdated: "2026-07-02"
+published: true
 ---
 
 ## Achieving Elite Performance Through Mental Focus

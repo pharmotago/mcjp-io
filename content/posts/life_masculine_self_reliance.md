@@ -6,6 +6,7 @@ description: "Explore how self-reliance is a cornerstone of modern masculinity, 
 keywords: ["self-reliance","masculinity","independence","modern man"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## The Art of Self-Reliance: Building Independence in Modern Masculinity

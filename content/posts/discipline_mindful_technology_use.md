@@ -6,6 +6,7 @@ description: "Learn how to cultivate a disciplined approach to technology use th
 keywords: ["mindful technology","digital discipline","focus","productivity"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Mastering Mindful Technology Use: A Discipline for the Modern Man

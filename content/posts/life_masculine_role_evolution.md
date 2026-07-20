@@ -6,6 +6,7 @@ description: "This article delves into the evolving roles of modern masculinity,
 keywords: ["masculine roles","modern expectations","society","identity"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## The Evolution of Masculine Roles: Adapting to Modern Expectations

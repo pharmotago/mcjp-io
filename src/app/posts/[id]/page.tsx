@@ -25,6 +25,7 @@ interface Post {
   description: string;
   keywords: string[];
   readingTime?: number;
+  published?: boolean;
 }
 
 function parseMarkdown(fileContent: string) {
@@ -163,13 +164,18 @@ function getRelatedPosts(currentId: string, category: string): Post[] {
         description: data.description || '',
         keywords: data.keywords || [],
         readingTime,
+        published: data.published === 'true' || data.published === true,
       };
     });
     
-  let related = posts.filter(p => p.id !== currentId && p.category.toLowerCase() === category.toLowerCase());
+  const todayStr = new Date().toISOString().split('T')[0];
+  const isDev = process.env.NODE_ENV === 'development';
+  const publishedPosts = isDev ? posts : posts.filter(p => p.published && p.date <= todayStr);
+    
+  let related = publishedPosts.filter(p => p.id !== currentId && p.category.toLowerCase() === category.toLowerCase());
   
   if (related.length < 3) {
-    const others = posts.filter(p => p.id !== currentId && p.category.toLowerCase() !== category.toLowerCase());
+    const others = publishedPosts.filter(p => p.id !== currentId && p.category.toLowerCase() !== category.toLowerCase());
     related = [...related, ...others];
   }
   
@@ -180,9 +186,24 @@ export async function generateStaticParams() {
   const postsDir = path.join(process.cwd(), 'content', 'posts');
   if (!fs.existsSync(postsDir)) return [];
   const files = fs.readdirSync(postsDir);
-  return files.map(file => ({
-    id: file.replace(/\.md$/, ''),
-  }));
+  
+  const todayStr = new Date().toISOString().split('T')[0];
+  const isDev = process.env.NODE_ENV === 'development';
+
+  return files
+    .filter(file => file.endsWith('.md'))
+    .map(file => {
+      const fullPath = path.join(postsDir, file);
+      const fileContent = fs.readFileSync(fullPath, 'utf8');
+      const { data } = parseMarkdown(fileContent);
+      
+      const isPublished = data.published === 'true' || data.published === true;
+      if (!isDev && (!isPublished || (data.date && data.date > todayStr))) {
+        return null;
+      }
+      return { id: file.replace(/\.md$/, '') };
+    })
+    .filter(Boolean) as { id: string }[];
 }
 
 export default async function PostPage({

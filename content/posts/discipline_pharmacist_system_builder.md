@@ -6,6 +6,7 @@ description: "How a 15-year pharmacy veteran blends traditional patient care wit
 keywords: ["system builder", "automation", "pharmacy", "efficiency", "discipline", "notion"]
 author: "MCJP"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Bridging Two Worlds: Healthcare and High-Tech

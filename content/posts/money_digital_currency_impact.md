@@ -6,6 +6,7 @@ description: "Discuss the transformative role of digital currencies in wealth cr
 keywords: ["digital currency","wealth","cryptocurrency","future finance"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Digital Currency: The Future of Wealth and Its Impact on Modern Men

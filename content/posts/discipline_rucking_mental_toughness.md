@@ -6,6 +6,7 @@ description: "Why lifting heavy weights isn't enough, and how the ancient practi
 keywords: ["rucking","mental toughness","physical training","endurance","discipline"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## The Rucking Renaissance: Heavy Carries for Mental and Physical Fortitude

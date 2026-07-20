@@ -6,6 +6,7 @@ description: "Discover innovative ways to create side hustles using artificial i
 keywords: ["side hustles","AI entrepreneurship","passive income"]
 author: "Peter Kim"
 lastUpdated: "2026-07-06"
+published: true
 ---
 
 ## Introduction

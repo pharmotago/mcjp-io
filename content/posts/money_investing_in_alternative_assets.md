@@ -6,6 +6,7 @@ description: "Explore the world of alternative investments, from real estate to 
 keywords: ["alternative assets","investing","financial diversification","wealth"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 The modern financial landscape is unforgiving. For decades, the conventional wisdom dictated a simple formula: buy a home, max out your retirement accounts, and allocate the rest into a diversified basket of stocks and bonds. While this 60/40 portfolio served previous generations adequately, today’s environment of persistent inflation, market volatility, and monetary debasement demands a more sophisticated approach. 

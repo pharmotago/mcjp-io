@@ -6,6 +6,7 @@ description: "Explore strategies that focus on long-term wealth creation, ensuri
 keywords: ["investing","longevity","wealth building","financial strategies"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Investing for Longevity: Strategies for a Lifetime of Wealth

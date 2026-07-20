@@ -6,6 +6,7 @@ description: "Discover how establishing disciplined creative routines can lead t
 keywords: ["creative routines","discipline","innovation","success habits"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Creative Routines: How Discipline Fuels Innovation and Success

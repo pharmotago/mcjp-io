@@ -6,6 +6,7 @@ description: "Learn techniques for developing mental toughness, enabling modern 
 keywords: ["mental toughness","training","success","discipline"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Mental Toughness: Training the Mind for Unyielding Success

@@ -6,6 +6,7 @@ description: "Learn how to effectively set and achieve goals using scientificall
 keywords: ["goal setting","achievement","planning","success"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## The Science of Goal Setting: Turning Dreams into Achievable Plans

@@ -6,6 +6,7 @@ description: "Examine the impact of digital distractions on your focus and produ
 keywords: ["digital detox","focus","mental clarity","technology"]
 author: "MCJP"
 lastUpdated: "2026-07-16"
+published: true
 ---
 ## Digital Detox: Reclaiming Your Focus in the Digital Age
 

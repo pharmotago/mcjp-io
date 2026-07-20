@@ -7,6 +7,7 @@ keywords: ["neuroplasticity","personal growth","brain training","mental discipli
 canonical: "https://blog.mcjp.io/posts/discipline_neuroplasticity_enhancement"
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Harnessing the Power of Neuroplasticity for Personal Growth

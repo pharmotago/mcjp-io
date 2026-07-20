@@ -6,6 +6,7 @@ description: "Focuses on the science of healthspan and cellular longevity. Discu
 keywords: ["90 day longevity protocol review","josh smith","longevity"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 > Disclosure: This post contains affiliate links. If you purchase through our links, we may earn a small commission at no extra cost to you.

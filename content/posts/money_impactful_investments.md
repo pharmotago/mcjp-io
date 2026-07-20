@@ -6,6 +6,7 @@ description: "Discover how investing in impactful ventures not only contributes 
 keywords: ["impact investments","wealth building","social responsibility","financial growth"]
 author: "Peter Kim"
 lastUpdated: "2026-07-17"
+published: true
 ---
 
 ## Building Wealth through Impactful Investments

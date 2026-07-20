@@ -6,6 +6,7 @@ description: "Why trading hours for dollars is a wealth bottleneck, and how to s
 keywords: ["leveraged income","wealth assets","financial freedom","passive cash flow"]
 author: "Peter Kim"
 lastUpdated: "2026-07-08"
+published: true
 ---
 
 ## Escaping the Hourly Rate: Building Leveraged Wealth Assets

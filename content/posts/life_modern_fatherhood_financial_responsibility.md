@@ -6,6 +6,7 @@ description: "This article discusses the evolving financial responsibilities of 
 keywords: ["financial responsibility","modern fatherhood","family budgeting"]
 author: "Peter Kim"
 lastUpdated: "2026-07-13"
+published: true
 ---
 
 ## Navigating Financial Responsibility in Modern Fatherhood

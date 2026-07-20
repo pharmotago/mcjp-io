@@ -6,6 +6,7 @@ description: "Learn effective techniques for imparting financial wisdom to your 
 keywords: ["fatherhood","financial education","children","money management"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Teaching Financial Savvy: A Father's Guide to Educating Children

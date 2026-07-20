@@ -6,6 +6,7 @@ description: "Applying stoic principles to marital leadership, showing men how t
 keywords: ["stoicism","marriage","emotional strength","masculinity","leadership"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Embracing Stoic Leadership in Marriage

@@ -6,6 +6,7 @@ description: "This article explores the burgeoning field of tech investments and
 keywords: ["tech investments","future trends","wealth building","financial growth"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Navigating the Future: Tech Investments to Watch

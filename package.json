@@ -17,7 +17,8 @@
     "unzip-coverage": "powershell -Command \"Expand-Archive -Path 'C:\\Users\\Sung\\Downloads\\http___blog.mcjp.io_-Coverage-2026-07-12.zip' -DestinationPath 'C:\\Antigravity\\mcjp-io\\scratch\\coverage' -Force\"",
     "cleanup-duplicates": "node scripts/cleanup_duplicates.js",
     "rewrite-core": "node scripts/ollama_rewrite.js",
-    "check-dates": "node scripts/check_future_dates.js"
+    "check-dates": "node scripts/check_future_dates.js",
+    "add-published": "node scripts/add_published.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.109.0",

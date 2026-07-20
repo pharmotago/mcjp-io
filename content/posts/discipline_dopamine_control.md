@@ -6,6 +6,7 @@ category: "Discipline"
 description: "Learn how to regulate dopamine to build unshakeable self-discipline and focus. Science-backed strategies to eliminate distractions and create high-performance daily habits."
 keywords: ["dopamine control discipline focus","dopamine detox","discipline"]
 ogImage: "/og/dopamine-control.png"
+published: true
 ---
 
 ## Understanding Dopamine: The Double-Edged Sword

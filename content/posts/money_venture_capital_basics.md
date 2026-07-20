@@ -6,6 +6,7 @@ description: "An introduction to venture capital investing, this piece provides 
 keywords: ["venture capital","investment strategies","financial success","wealth building"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Venture Capital 101: A Guide to Investment Success

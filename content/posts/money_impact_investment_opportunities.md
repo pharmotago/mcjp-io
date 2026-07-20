@@ -6,6 +6,7 @@ description: "Explore how impact investing allows modern men to align their weal
 keywords: ["impact investing","profits","purpose","wealth creation"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Impact Investing: Aligning Profits with Purpose for the Modern Man

@@ -6,6 +6,7 @@ description: "Exploring the psychological, emotional, and financial duties of a 
 keywords: ["role of a man","fatherhood","family leadership","modern masculinity"]
 author: "Peter Kim"
 lastUpdated: "2026-07-16"
+published: true
 ---
 ## The Modern Patriarch: Protecting and Providing in the Digital Age
 

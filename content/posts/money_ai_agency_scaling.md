@@ -5,6 +5,7 @@ category: "Money"
 description: "How to build and scale a 7-figure AI service agency as a solo operator — no large team required. Covers positioning, pricing, AI tool stack, and client acquisition strategies."
 keywords: ["AI agency scaling solopreneur","agency growth","AI business"]
 ogImage: "/og/ai-agency-scaling.png"
+published: true
 ---
 
 The traditional agency model is fundamentally broken. For decades, the blueprint for scaling a service-based business relied on a linear, industrial-era formula: more revenue requires more headcount. This model breeds operational bloat, managerial fatigue, and compromised margins. For the [modern man](/posts/life_masculine_emotional_balance) seeking financial autonomy, the prospect of managing a bloated payroll is not a mark of success; it is a trap. 

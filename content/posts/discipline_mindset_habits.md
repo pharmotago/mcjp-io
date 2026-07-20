@@ -6,6 +6,7 @@ description: "Uncover the daily habits and mindset shifts that highly effective 
 keywords: ["success mindset","habits","personal development","discipline","self-improvement"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Cultivating a Success Mindset: Habits of Highly Effective Men

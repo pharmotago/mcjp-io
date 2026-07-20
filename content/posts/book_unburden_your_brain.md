@@ -6,6 +6,7 @@ description: "Exposes the hidden drain of 'life admin' and mental load on modern
 keywords: ["unburden your brain review mental load","jordan r clark","life"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 > Disclosure: This post contains affiliate links. If you purchase through our links, we may earn a small commission at no extra cost to you.

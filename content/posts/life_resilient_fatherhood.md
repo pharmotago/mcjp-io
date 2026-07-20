@@ -6,6 +6,7 @@ description: "Explore the pillars of resilient fatherhood and learn how to culti
 keywords: ["fatherhood","resilience","family legacy","support"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Resilient Fatherhood: Building a Legacy of Strength and Support

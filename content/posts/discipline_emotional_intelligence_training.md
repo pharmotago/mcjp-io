@@ -6,6 +6,7 @@ description: "This article provides a framework for using emotional intelligence
 keywords: ["emotional intelligence","discipline","self-control","personal growth"]
 author: "Peter Kim"
 lastUpdated: "2026-07-08"
+published: true
 ---
 
 ## Emotional Intelligence Training for Enhanced Personal Discipline

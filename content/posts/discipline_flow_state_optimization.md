@@ -5,6 +5,7 @@ category: "Discipline"
 description: "Unpack the neuroscience of flow states and learn proven daily protocols to trigger deep focus for peak cognitive performance. Practical deep work tactics for high achievers."
 keywords: ["flow state deep work tactics","focus","cognitive performance"]
 ogImage: "/og/flow-state.png"
+published: true
 ---
 
 ## Engineering the Flow State: Deep Work Tactics for High-Level Execution

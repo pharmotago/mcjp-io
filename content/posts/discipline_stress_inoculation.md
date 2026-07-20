@@ -5,6 +5,7 @@ category: "Discipline"
 description: "How deliberate physical stress — cold exposure, heavy lifting, endurance training — builds psychological resilience that transfers directly to business performance and life success."
 keywords: ["stress inoculation mental fortitude","resilience","discipline"]
 ogImage: "/og/stress-inoculation.png"
+published: true
 ---
 
 ## Stress Inoculation: Using Physical Hardship to Forge Mental Fortitude

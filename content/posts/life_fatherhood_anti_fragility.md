@@ -6,6 +6,7 @@ description: "A guide for fathers on instilling anti-fragility in their sons, pr
 keywords: ["anti-fragility","raising sons","fatherhood","resilience","modern challenges"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Anti-Fragile Fatherhood: Raising Sons Who Thrive in Chaos

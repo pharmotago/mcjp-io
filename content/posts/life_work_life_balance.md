@@ -7,6 +7,7 @@ keywords: ["work-life balance","time management","stress reduction","lifestyle"]
 canonical: "https://blog.mcjp.io/posts/life_fatherhood_work_life_balance"
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Achieving Work-Life Balance: Strategies for Modern Men

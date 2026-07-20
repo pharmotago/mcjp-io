@@ -5,6 +5,7 @@ category: "Discipline"
 description: "Discover how The 90-Day Habit System uses neuroscience-backed habit loops to rewire your brain for lasting productivity. A complete review of Josh Smith's 90-day framework."
 keywords: ["90-day habit system review","josh smith","discipline","self improvement"]
 ogImage: "/og/90-day-habit-system.png"
+published: true
 ---
 
 > Disclosure: This post contains affiliate links. If you purchase through our links, we may earn a small commission at no extra cost to you.

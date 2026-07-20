@@ -5,6 +5,7 @@ category: "Money"
 description: "Learn the exact steps to achieve financial independence — from budgeting and debt elimination to smart investing and passive income. Your complete wealth-building blueprint."
 keywords: ["financial independence blueprint for men","wealth building","personal finance"]
 ogImage: "/og/financial-independence.png"
+published: true
 ---
 
 ## Building Your Financial Independence Blueprint

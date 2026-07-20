@@ -6,6 +6,7 @@ description: "Uncover the concept of focus fasting and how temporary abstinence 
 keywords: ["focus fasting","mental clarity","discipline","productivity"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Focus Fasting: How Temporary Abstinence Can Sharpen Your Mind

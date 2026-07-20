@@ -6,6 +6,7 @@ description: "Explore the world of global investing and learn how diversifying y
 keywords: ["global investing","international markets","wealth opportunities","diversification"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Global Investing: Tapping into International Wealth Opportunities

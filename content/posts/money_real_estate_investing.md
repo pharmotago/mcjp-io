@@ -6,6 +6,7 @@ description: "An in-depth guide to investing in real estate as a means of buildi
 keywords: ["real estate","investing","property","wealth building"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Real Estate Investing: Building Wealth through Property

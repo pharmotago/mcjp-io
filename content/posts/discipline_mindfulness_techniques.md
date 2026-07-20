@@ -6,6 +6,7 @@ description: "Learn effective mindfulness techniques that can help improve focus
 keywords: ["mindfulness","focus","stress reduction","mental clarity","discipline"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Mindfulness Techniques for Enhancing Focus and Reducing Stress

@@ -6,6 +6,7 @@ description: "This article delves into the evolving definition of masculinity, f
 keywords: ["modern masculinity","emotional strength","leadership","fatherhood","sensitivity"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Redefining Modern Masculinity: Balancing Strength and Sensitivity

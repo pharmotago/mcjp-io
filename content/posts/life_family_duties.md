@@ -6,6 +6,7 @@ description: "This article redefines masculinity by focusing on the importance o
 keywords: ["masculinity","family duties","responsibility"]
 author: "Peter Kim"
 lastUpdated: "2026-07-10"
+published: true
 ---
 
 ## Redefining Masculinity: Embracing Duties and Responsibilities as a Family Leader

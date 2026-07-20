@@ -6,6 +6,7 @@ description: "How to systematically reduce cheap dopamine hits from technology a
 keywords: ["dopamine fasting","deep work","neuroplasticity","focus","cognitive performance"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 The modern professional landscape is defined not by a scarcity of information, but by a catastrophic fragmentation of attention. We exist in an attention economy where multinational corporations engineer digital environments specifically designed to hijack our neurochemistry. The result is a generation of highly capable individuals who are functionally incapable of sustaining the deep, uninterrupted thought required to build meaningful assets. 

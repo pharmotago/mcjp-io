@@ -6,6 +6,7 @@ description: "How pushing past 24-hour fasts unlocks ultimate mental clarity, sh
 keywords: ["extended fasting","cognitive performance","mental clarity","discipline","autophagy"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Extended Fasting for Elite Cognitive Performance

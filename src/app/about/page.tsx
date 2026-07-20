@@ -110,7 +110,7 @@ export default function AboutPage() {
               </a>
             </li>
             <li>
-              <a href="/posts/discipline_dopamine_control" className="text-amber-600 hover:text-amber-500 font-semibold flex items-center gap-1">
+              <a href="/posts/discipline_dopamine_fasting_deep_work" className="text-amber-600 hover:text-amber-500 font-semibold flex items-center gap-1">
                 The Dopamine Shield &rarr;
               </a>
             </li>

@@ -6,6 +6,7 @@ description: "Explore how mastering negotiation skills can significantly boost y
 keywords: ["negotiation","wealth creation","strategic deals","financial growth"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Mastering the Art of Negotiation: Unlocking Wealth through Strategic Deals

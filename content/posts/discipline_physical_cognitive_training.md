@@ -6,6 +6,7 @@ description: "Discover how to combine physical and cognitive training to enhance
 keywords: ["physical training","cognitive training","performance","discipline"]
 author: "Peter Kim"
 lastUpdated: "2026-07-13"
+published: true
 ---
 ## Integrating Physical and Cognitive Training: A Blueprint for Optimal Performance
 

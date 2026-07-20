@@ -6,6 +6,7 @@ description: "Applying ancient Stoic philosophy to modern masculine challenges, 
 keywords: ["stoicism","emotional strength","crisis management","masculinity","resilience"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## The Modern Stoic Man: Navigating Life's Crises with Unbreakable Emotional Strength

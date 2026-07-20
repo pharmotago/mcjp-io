@@ -6,6 +6,7 @@ description: "Explore how modern men can balance traditional values with contemp
 keywords: ["tradition","modernity","masculinity","balance"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Balancing Tradition and Modernity: A Guide for the Contemporary Man

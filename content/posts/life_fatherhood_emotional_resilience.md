@@ -6,6 +6,7 @@ description: "Discover effective strategies for building emotional resilience as
 keywords: ["emotional resilience","fatherhood","modern parenting","emotional intelligence"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Building Emotional Resilience in Fatherhood: Strategies for Modern Dads

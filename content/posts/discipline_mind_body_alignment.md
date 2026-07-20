@@ -6,6 +6,7 @@ description: "Investigate the principles of aligning mind and body to achieve ho
 keywords: ["mind-body alignment","holistic success","discipline","personal harmony"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Aligning Mind and Body: The Discipline of Holistic Success

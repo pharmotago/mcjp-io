@@ -6,6 +6,7 @@ description: "Strategies for men to maintain emotional strength and family unity
 keywords: ["family leadership","financial hardship","masculine duty","crisis management","family unity"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## The Captain's Compass: Leading Your Family Through Financial Storms

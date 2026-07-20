@@ -6,6 +6,7 @@ description: "A comprehensive guide on hybrid athletic performance, discussing w
 keywords: ["hybrid performance log review hybrid athlete","josh smith","discipline"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 > Disclosure: This post contains affiliate links. If you purchase through our links, we may earn a small commission at no extra cost to you.

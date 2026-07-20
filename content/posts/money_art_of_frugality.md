@@ -4,6 +4,7 @@ date: "2026-07-18"
 category: "Money"
 description: "Learn how adopting a frugal lifestyle can lead to significant wealth creation by focusing on smart spending and financial discipline."
 keywords: ["frugality","wealth building","financial discipline","smart spending"]
+published: true
 ---
 
 ## The Art of Frugality: Building Wealth through Smart Spending

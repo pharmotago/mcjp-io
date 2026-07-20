@@ -6,6 +6,7 @@ description: "Delve into the complexities of modern masculinity, exploring how c
 keywords: ["masculinity","identity","modern challenges","personal growth"]
 author: "Peter Kim"
 lastUpdated: "2026-07-06"
+published: true
 ---
 
 ## Navigating the Modern Masculine Identity Crisis

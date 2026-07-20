@@ -6,6 +6,7 @@ description: "Exploring the strategy of acquiring, optimizing, and holding profi
 keywords: ["digital real estate","content sites","asset building","cash flow","wealth creation"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Building a Digital Real Estate Empire: Buying and Scaling Content Sites

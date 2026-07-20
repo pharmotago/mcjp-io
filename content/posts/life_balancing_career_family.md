@@ -7,6 +7,7 @@ keywords: ["work-life balance","career success","family priorities","time manage
 canonical: "https://blog.mcjp.io/posts/life_fatherhood_work_life_balance"
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Finding Equilibrium: Balancing Career and Family

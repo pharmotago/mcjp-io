@@ -7,6 +7,7 @@ keywords: ["mentorship","generational bridges","personal growth","guidance"]
 canonical: "https://blog.mcjp.io/posts/life_masculine_mentorship"
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## The Power of Modern Mentorship: Building Bridges Across Generations

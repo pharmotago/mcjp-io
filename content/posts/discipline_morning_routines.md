@@ -6,6 +6,7 @@ description: "Discover the power of morning routines in shaping the rest of your
 keywords: ["morning routine","success habits","discipline","productivity","daily routine"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Master Your Day: How Morning Routines Set the Tone for Success

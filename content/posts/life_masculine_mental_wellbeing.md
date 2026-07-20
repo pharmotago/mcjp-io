@@ -6,6 +6,7 @@ description: "Explore essential habits that promote mental well-being and emotio
 keywords: ["mental well-being","habits","masculinity","emotional health"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Strengthening Mental Well-being: Essential Habits for Modern Masculinity

@@ -6,6 +6,7 @@ description: "Discover the daily routines and habits of successful individuals a
 keywords: ["success routine","high achievers","daily habits","productivity","discipline"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Creating a Success Routine: The Daily Habits of High Achievers

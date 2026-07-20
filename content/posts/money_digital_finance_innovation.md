@@ -6,6 +6,7 @@ description: "Discover the latest innovations in digital finance, their implicat
 keywords: ["digital finance","innovation","financial technology","investment"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Digital Finance Innovations: Navigating the New Frontier

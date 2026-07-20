@@ -10,6 +10,7 @@ interface Post {
   description: string;
   keywords: string[];
   readingTime?: number;
+  published?: boolean;
 }
 
 function parseMarkdown(fileContent: string) {
@@ -62,13 +63,14 @@ function getPosts(): Post[] {
         description: data.description || '',
         keywords: data.keywords || [],
         readingTime,
+        published: data.published === 'true' || data.published === true,
       };
     });
 
   // Filter out future posts, unless in development mode
   const todayStr = new Date().toISOString().split('T')[0];
   const isDev = process.env.NODE_ENV === 'development';
-  const filtered = isDev ? allPosts : allPosts.filter(post => post.date <= todayStr);
+  const filtered = isDev ? allPosts : allPosts.filter(post => post.published && post.date <= todayStr);
 
   return filtered.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }

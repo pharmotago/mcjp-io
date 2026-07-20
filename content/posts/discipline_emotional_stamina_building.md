@@ -6,6 +6,7 @@ description: "Learn how to build emotional stamina to enhance your mental fortit
 keywords: ["emotional stamina","mental fortitude","resilience","personal growth"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Emotional Stamina: Building the Mental Fortitude for Life’s Challenges

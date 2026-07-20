@@ -6,6 +6,7 @@ description: "Explore the challenges fathers face regarding mental health and le
 keywords: ["fatherhood","mental health","emotional resilience","parenting"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Navigating Fatherhood and Mental Health: Building Emotional Resilience

@@ -6,6 +6,7 @@ description: "Examine the importance of emotional intelligence in the developmen
 keywords: ["emotional intelligence","masculinity","personal growth"]
 author: "Peter Kim"
 lastUpdated: "2026-07-03"
+published: true
 ---
 
 ## The Role of Emotional Intelligence in Modern Masculinity

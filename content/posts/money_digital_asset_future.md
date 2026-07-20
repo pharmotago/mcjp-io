@@ -6,6 +6,7 @@ description: "Explore how digital assets are shaping the future of wealth creati
 keywords: ["digital assets","wealth building","future investments","financial growth"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Harnessing Digital Assets: The Future of Wealth Building

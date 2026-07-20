@@ -7,6 +7,7 @@ keywords: ["cryptocurrency","investment","risk management","bitcoin","blockchain
 canonical: "https://blog.mcjp.io/posts/money_crypto_investments"
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Navigating the Risks and Rewards of Cryptocurrency Investment

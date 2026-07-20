@@ -6,6 +6,7 @@ description: "Learn how adopting a minimalist approach to technology can enhance
 keywords: ["technology minimalism","focus","distraction","productivity"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Technology Minimalism: Mastering Focus in a Distracted World

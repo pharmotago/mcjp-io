@@ -6,6 +6,7 @@ description: "Explore investment strategies that stand the test of time, focusin
 keywords: ["future investments","wealth building","financial security","investment trends"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Future-Proof Investments for the Modern Man

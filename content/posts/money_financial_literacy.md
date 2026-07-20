@@ -6,6 +6,7 @@ description: "Understand the basics of financial literacy and how it can empower
 keywords: ["financial literacy","wealth building","money management","personal finance","education"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Financial Literacy for Men: Building a Strong Foundation for Wealth

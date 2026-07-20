@@ -6,6 +6,7 @@ description: "Explore proven passive income strategies — dividend investing, d
 keywords: ["passive income strategies financial freedom","wealth creation","financial freedom"]
 ogImage: "/og/passive-income.png"
 lastUpdated: "2026-07-16"
+published: true
 ---
 ## Unlocking Passive Income: Strategies for Financial Freedom
 

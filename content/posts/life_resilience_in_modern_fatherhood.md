@@ -6,6 +6,7 @@ description: "Explore how modern fathers can develop resilience and emotional st
 keywords: ["resilience","fatherhood","parenting","emotional strength"]
 author: "Peter Kim"
 lastUpdated: "2026-07-03"
+published: true
 ---
 
 ## Building Resilience in Modern Fatherhood

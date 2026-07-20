@@ -6,6 +6,7 @@ description: "Discover practical strategies and tips for long-term investing aim
 keywords: ["long-term investing","wealth creation","investment strategies","financial growth"]
 author: "Peter Kim"
 lastUpdated: "2026-07-06"
+published: true
 ---
 
 ## Investing for Long-Term Wealth: Strategies and Tips

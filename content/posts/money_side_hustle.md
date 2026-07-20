@@ -6,6 +6,7 @@ description: "Step-by-step guide to launching a profitable one-person AI busines
 keywords: ["AI one person business 2026","solopreneur","side hustle"]
 ogImage: "/og/ai-one-person-business.png"
 lastUpdated: "2026-07-16"
+published: true
 ---
 ## Introduction
 

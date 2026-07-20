@@ -6,6 +6,7 @@ description: "Actionable deep work protocols to eliminate distractions, enter fl
 keywords: ["deep work","focus","cognitive training","productivity","discipline"]
 author: "MCJP"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## The Power of Deep Work: Elite Protocols for High-Performing Men

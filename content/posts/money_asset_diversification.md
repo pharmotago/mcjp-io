@@ -6,6 +6,7 @@ description: "Explore the importance of diversifying your assets, including real
 keywords: ["asset diversification","wealth building","investment strategy","real estate","bonds"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## The Power of Asset Diversification: Building Wealth Beyond Stocks

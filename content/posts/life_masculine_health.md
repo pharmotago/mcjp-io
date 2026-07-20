@@ -6,6 +6,7 @@ description: "Explore the importance of balancing physical and emotional well-be
 keywords: ["masculine health","physical well-being","emotional balance","wellness"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Understanding Masculine Health

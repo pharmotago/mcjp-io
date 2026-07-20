@@ -6,6 +6,7 @@ description: "Explore how modern men can create a lasting financial legacy throu
 keywords: ["financial legacy","wealth building","masculine success","investment strategies"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Building a Masculine Financial Legacy: Strategies for Success

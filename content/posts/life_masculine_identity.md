@@ -6,6 +6,7 @@ description: "Delve into the changing perceptions of masculinity today and disco
 keywords: ["masculine identity","modern masculinity","self-discovery","social roles"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## Redefining Masculine Identity in the 21st Century

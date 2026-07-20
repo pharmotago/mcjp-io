@@ -6,6 +6,7 @@ description: "Examine how contemporary masculine ideals shape family dynamics an
 keywords: ["modern masculinity","family influence","society","role of men"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ## The Influence of Modern Masculinity on Family and Society

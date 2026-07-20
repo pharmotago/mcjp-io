@@ -4,6 +4,7 @@ date: "2026-07-18"
 category: "Discipline"
 description: "Delve into techniques for building emotional resilience and mental toughness, essential for thriving in today's fast-paced and demanding environment."
 keywords: ["emotional resilience","mental toughness","stress management","personal growth"]
+published: true
 ---
 
 ## Harnessing Emotional Resilience: Building Mental Toughness in a Fast-Paced World

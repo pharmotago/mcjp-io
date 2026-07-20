@@ -6,6 +6,7 @@ description: "Explore how embracing different masculine archetypes can enhance y
 keywords: ["masculine archetypes","financial success","wealth building"]
 author: "Peter Kim"
 lastUpdated: "2026-07-17"
+published: true
 ---
 
 ## Harnessing Masculine Archetypes for Financial Success

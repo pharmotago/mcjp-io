@@ -6,6 +6,7 @@ description: "Explore how quantitative investing can be a powerful tool for buil
 keywords: ["quantitative investing","wealth growth","financial strategies","investment models"]
 author: "Peter Kim"
 lastUpdated: "2026-07-06"
+published: true
 ---
 
 ## Harnessing Quantitative Investing for Modern Wealth Growth

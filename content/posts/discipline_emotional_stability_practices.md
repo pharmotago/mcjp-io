@@ -6,6 +6,7 @@ description: "Delve into effective practices that enhance emotional stability, h
 keywords: ["emotional stability","resilience","focus","discipline"]
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
+published: true
 ---
 
 ![Emotional Stability & Focus](/images/emotional_stability_hero.png)
