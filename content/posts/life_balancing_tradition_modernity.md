@@ -25,7 +25,7 @@ Tradition forms the bedrock of our identities and shapes how we perceive roles w
 
 ### Embracing Modernity with Integrity
 
-While tradition provides the foundation, modernity offers the tools for growth and innovation. The key is to adopt new ideas and technologies without compromising your core values.
+While tradition provides the foundation, modernity offers the tools for growth and innovation. The key is to adopt new ideas and technologies without compromising your [core values](/posts/life_100_percent_right_philosophy).
 
 - **Continuous Learning**: Stay curious and open to new information. Modernity thrives on the constant flow of knowledge.
 - **Technological Adaptation**: Use technology to enhance your capabilities. Whether it's improving productivity or connecting with others, leverage it wisely.

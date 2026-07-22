@@ -13,7 +13,7 @@ published: true
 
 In the intricate landscape of human motivation and behavior, dopamine serves as both a catalyst for action and a potential disruptor of discipline. Often dubbed the "feel-good" neurotransmitter, dopamine is not solely responsible for pleasure; it plays a pivotal role in motivation, reward-seeking, and the reinforcement of behaviors. 
 
-Recently, while trying to architect a complex SaaS dashboard for my business, I hit a massive cognitive wall. I found myself endlessly scrolling through tech news and checking emails instead of coding. It wasn't until I forced a brutal 48-hour dopamine fast—no screens outside of pure code, no sugar, and zero social media—that my baseline reset. The mental clarity that followed allowed me to solve the architecture problem in just three hours.
+Recently, while trying to architect a complex SaaS dashboard for my business, I hit a massive cognitive wall. I found myself endlessly scrolling through tech news and checking emails instead of coding. It wasn't until I forced a brutal 48-hour dopamine fast—no screens outside of pure code, no sugar, and zero social media—that my baseline reset. The [mental clarity](/posts/discipline_biohacking_focus_and_productivity) that followed allowed me to solve the architecture problem in just three hours.
 
 When dopamine levels are adequately managed, individuals experience heightened motivation and a clearer focus. Conversely, an uncontrolled dopamine release can lead to distractions and impulsivity, undermining the very self-discipline one seeks to cultivate. Thus, mastering dopamine control becomes paramount for anyone aspiring to achieve long-term goals and develop unwavering discipline.
 

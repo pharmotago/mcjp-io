@@ -38,4 +38,4 @@ We are constantly bombarded by societal trends, the frantic speed of modern tech
 
 I have chosen to filter the noise. Instead of chasing every trend, I selectively adopt only the tools and ideas that enrich my life and align with my philosophy. 
 
-Ultimately, my goal is not to leave behind a legacy of absolute correctness or flawless execution. My ultimate life goal is profoundly simple: when my time is up, I want to be remembered by the people who truly matter as, simply, a good person.
+Ultimately, my goal is not to leave behind a legacy of absolute correctness or flawless execution. My ultimate life goal is profoundly simple: when my time is up, I want to be remembered by the people who truly matter as, simply, a good person. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.

@@ -70,7 +70,7 @@ Physical health is intrinsically linked to [mental resilience](/posts/discipline
 
 ### Embracing Challenges as Opportunities
 
-To fortify mental resilience, it is vital to adopt a perspective that views challenges as opportunities for growth. This shift in thinking not only reduces the fear associated with failure but also fosters a proactive approach to problem-solving. 
+To fortify [mental resilience](/posts/discipline_masculine_mental_resilience), it is vital to adopt a perspective that views challenges as opportunities for growth. This shift in thinking not only reduces the fear associated with failure but also fosters a proactive approach to problem-solving. 
 
 - **Action Steps:**
   - Keep a journal to document challenges faced and the insights gained from overcoming them.

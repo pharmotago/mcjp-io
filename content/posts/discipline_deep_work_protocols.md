@@ -39,7 +39,7 @@ Distractions are the nemesis of [deep work](/posts/discipline_dopamine_fasting_d
 
 ### Set Boundaries
 
-Establish boundaries to protect your deep work time:
+Establish boundaries to protect your [deep work](/posts/discipline_dopamine_fasting_deep_work) time:
 
 - **Schedule Deep Work Blocks**: Allocate specific times in your calendar for deep work sessions. Treat these appointments with the same respect you would for a client meeting.
 - **Communicate Your Availability**: Inform colleagues or family members of your deep work schedule to minimize interruptions.

@@ -78,7 +78,7 @@ The ability to adapt to change is a hallmark of mental strength. In today’s fa
 
 ### Conclusion
 
-Building mental strength is an ongoing journey that requires commitment and intentional effort. By integrating these strategies into your daily life, you will cultivate the resilience and fortitude necessary for achieving success in all its forms. Remember, mental strength is not just about enduring challenges but thriving amidst them.
+Building [mental strength](/posts/life_masculine_emotional_resilience) is an ongoing journey that requires commitment and intentional effort. By integrating these strategies into your daily life, you will cultivate the resilience and fortitude necessary for achieving success in all its forms. Remember, mental strength is not just about enduring challenges but thriving amidst them.
 
 For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal, where you can find resources tailored to enhance your personal growth journey.
 

@@ -89,7 +89,7 @@ Activities such as yoga or tai chi promote both physical and [mental agility](/p
 
 ### Developing a Growth Mindset
 
-To truly enhance your mental agility, cultivating a growth mindset is essential. This involves viewing challenges as opportunities for learning rather than obstacles.
+To truly enhance your [mental agility](/posts/discipline_neuroplasticity_enhancement), cultivating a growth mindset is essential. This involves viewing challenges as opportunities for learning rather than obstacles.
 
 **Action Plan**:
 - Embrace challenges and seek feedback actively.

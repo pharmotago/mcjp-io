@@ -17,7 +17,7 @@ In a world that relentlessly pulls our attention in myriad directions, mastering
 
 To navigate the complexities of [time management](/posts/discipline_focus_productivity) effectively, you must first establish clarity around your priorities. This process involves a deep introspection to discern what truly matters to you—be it career ambitions, [personal development](/posts/discipline_mindset_habits), or family commitments. Here are steps to follow:
 
-1. **Identify Core Values**: Reflect on what principles guide your life. Is it integrity, growth, or perhaps legacy?
+1. **Identify [Core Values](/posts/life_100_percent_right_philosophy)**: Reflect on what principles guide your life. Is it integrity, growth, or perhaps legacy?
 2. **Set Clear Goals**: Break down your vision into short-term and long-term goals. Ensure they align with your core values.
 3. **Prioritize Tasks**: Rank your daily tasks based on their importance and urgency. Use the Eisenhower Matrix—categorizing tasks into four quadrants can facilitate better decision-making.
 

@@ -80,7 +80,7 @@ For deeper insights on masculine resilience and active parenting, explore [The S
 
 ### Conclusion
 
-Building masculine mental resilience is a profound journey that requires dedication, reflection, and a commitment to self-discipline. By embracing challenges, practicing mindfulness, and fostering a strong support network, men can equip themselves to face modern adversities with strength and confidence. 
+Building masculine [mental resilience](/posts/discipline_mental_resilience) is a profound journey that requires dedication, reflection, and a commitment to self-discipline. By embracing challenges, practicing mindfulness, and fostering a strong support network, men can equip themselves to face modern adversities with strength and confidence. 
 
 As you move forward, remember that resilience is not merely about bouncing back from difficulties; it is about growing through them. With these strategies, you can cultivate the [mental fortitude](/posts/discipline_mental_fortitude_development) necessary to thrive in today’s complex world.
 

@@ -53,7 +53,7 @@ Redefining ethics is not an intellectual exercise; it is a daily, kinetic practi
 
 ## The Compounding Returns of a Principled Life
 
-Ethics function as a compounding asset. Every decision made in alignment with your core values pays a dividend in the form of self-respect, which in turn generates further confidence and capability. Conversely, every ethical compromise accrues a debt of cognitive dissonance that eventually bankrupts a man's character. 
+Ethics function as a compounding asset. Every decision made in alignment with your [core values](/posts/life_100_percent_right_philosophy) pays a dividend in the form of self-respect, which in turn generates further confidence and capability. Conversely, every ethical compromise accrues a debt of cognitive dissonance that eventually bankrupts a man's character. 
 
 The man who lies, cuts corners, or abandons his discipline may see short-term gains, but he is fundamentally eroding the bedrock of his identity. Over a timeline of decades, the man who remains unbending in his principles will inevitably outpace his peers, not because he is luckier, but because his foundation is structurally sound enough to bear the weight of massive success. The ultimate return on investment for a life governed by strict ethics is not merely financial wealth—though that often follows. The highest dividend is the unshakeable peace of mind that comes from knowing you are exactly who you claim to be. 
 

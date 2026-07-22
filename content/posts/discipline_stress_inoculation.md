@@ -24,7 +24,7 @@ Engaging in [physical training](/posts/discipline_physical_cognitive_training) i
 
 1. **Endurance and Persistence**: Striving to achieve fitness goals teaches us the value of persistence. Each time we push through fatigue, we reinforce our ability to endure discomfort in other areas of life, whether in business negotiations or personal relationships.
 
-2. **Adaptation to Stress**: Just as lifting weights creates micro-tears in muscle fibers that heal stronger, facing physical challenges helps our minds adapt to stress. This adaptability is crucial in high-pressure environments where mental acuity and composure are essential.
+2. **Adaptation to Stress**: Just as lifting weights creates micro-tears in muscle fibers that heal stronger, facing physical challenges helps our minds adapt to stress. This adaptability is crucial in high-pressure environments where [mental acuity](/posts/discipline_cognitive_enhancement_techniques) and composure are essential.
 
 3. **Confidence Building**: Achieving physical milestones fosters a sense of accomplishment. This newfound confidence translates into other aspects of life, enabling individuals to tackle challenges with a more assertive and self-assured approach.
 

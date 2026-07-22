@@ -4,6 +4,7 @@ date: "2026-07-21"
 category: "Discipline"
 description: "How to construct a daily operational routine that isolates you from passive consumption, protecting cognitive energy for high-value execution."
 keywords: ["focus hacks","dopamine detox","deep work habits","self discipline"]
+ogImage: "/og/dopamine-shield.png"
 ---
 
 ## The Dopamine Shield: Building Focus in a World of Distraction
@@ -22,7 +23,7 @@ A structured [daily routine](/posts/discipline_morning_routines) is the backbone
 
 #### 1. Morning Rituals
 
-Start your day with intention. Consider incorporating the following into your morning routine:
+Start your day with intention. Consider incorporating the following into your [morning routine](/posts/discipline_morning_routines):
 
 - **Mindfulness Meditation**: Spend 10-15 minutes in stillness, focusing on your breath. This practice enhances your ability to concentrate throughout the day.
 - **Exercise**: Engage in physical activity to boost endorphins and stave off the morning fog.
@@ -44,7 +45,7 @@ Incorporating periods of [digital detox](/posts/discipline_digital_detox) into y
 
 ### Building Deep Work Habits
 
-Deep work refers to the ability to focus without distraction on cognitively demanding tasks. Cultivating this skill requires deliberate practice and a commitment to self-discipline. Here are actionable strategies to enhance your deep work capabilities:
+[Deep work](/posts/discipline_deep_work_protocols) refers to the ability to focus without distraction on cognitively demanding tasks. Cultivating this skill requires deliberate practice and a commitment to self-discipline. Here are actionable strategies to enhance your [deep work](/posts/discipline_dopamine_fasting_deep_work) capabilities:
 
 - **Set Clear Boundaries**: Communicate your work hours to colleagues and family to minimize interruptions.
 - **Batch Similar Tasks**: Group similar tasks together to streamline your workflow and maintain a higher level of engagement.

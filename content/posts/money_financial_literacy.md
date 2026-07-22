@@ -21,7 +21,7 @@ At its core, [financial literacy](/posts/money_investment_strategies) encompasse
 
 1. **Informed Decision-Making**: [Financial literacy](/posts/money_investment_strategies) equips you with the knowledge to evaluate your options critically. The ability to discern between good and bad financial decisions can mean the difference between success and failure.
    
-2. **Debt Management**: Many men find themselves entangled in debt, whether from student loans, credit cards, or mortgages. A solid understanding of financial principles can help you manage, reduce, and ultimately eliminate debt.
+2. **Debt Management**: Many men find themselves entangled in debt, whether from student loans, credit cards, or mortgages. A solid understanding of [financial principles](/posts/money_investment_ethos) can help you manage, reduce, and ultimately eliminate debt.
 
 3. **Wealth Accumulation**: [Financial literacy](/posts/money_investment_strategies) is directly linked to wealth accumulation. Understanding investment vehicles, tax implications, and retirement planning enables you to build and maintain wealth over time.
 

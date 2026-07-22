@@ -27,7 +27,7 @@ To cultivate a robust [masculine identity](/posts/life_mastering_masculine_commu
 
 2. **Vulnerability**: The willingness to express one's feelings and fears is not a weakness; it is a strength. Vulnerability allows for authentic connections and encourages others to be open as well.
 
-3. **Integrity**: Upholding personal values and principles, even when faced with adversity, is the cornerstone of a strong masculine identity. Integrity builds trust and respect in both personal and professional spheres.
+3. **Integrity**: Upholding personal values and principles, even when faced with adversity, is the cornerstone of a strong [masculine identity](/posts/life_mastering_masculine_communication). Integrity builds trust and respect in both personal and professional spheres.
 
 4. **Self-Discipline**: The ability to control impulses and stay committed to long-term goals is essential. Self-discipline enables men to pursue their passions and maintain focus amid distractions.
 

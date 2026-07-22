@@ -39,7 +39,7 @@ Negotiation in micro-acquisitions is not about aggressively lowballing a seller 
 
 Sellers often experience emotional attachment to the businesses they built. A disciplined buyer approaches the negotiation table with respect, transparency, and a firm grasp of the numbers. If the traffic data shows a recent decline, address it directly. If the seller is looking for a quick exit due to burnout, offer a clean, all-cash deal but at a slight discount to reflect the operational risk. 
 
-Where integrity truly compounds is in the transition phase. Honoring your agreements, paying earn-outs on time, and maintaining the brand’s legacy ensures you build a reputation as a credible buyer. In the tight-knit world of micro private equity, reputation is your most valuable currency.
+Where integrity truly compounds is in the transition phase. Honoring your agreements, paying earn-outs on time, and maintaining the brand’s legacy ensures you build a reputation as a credible buyer. In the tight-knit world of [micro private equity](/posts/money_digital_holdco), reputation is your most valuable currency.
 
 ### The Due Diligence Checklist
 

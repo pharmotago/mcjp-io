@@ -17,7 +17,7 @@ In a world that often prioritizes transient achievements over enduring values, t
 
 Legacy is often perceived as the tangible outcomes of one's life—assets, accomplishments, and accolades. However, the true essence of legacy lies in the intangible qualities we impart to future generations. It encompasses the values we uphold, the relationships we nurture, and the influence we wield in our communities.
 
-To build a legacy that reflects integrity and purpose, modern men must first engage in self-reflection. Understanding one's core values is paramount. Questions to consider include:
+To build a legacy that reflects integrity and purpose, modern men must first engage in self-reflection. Understanding one's [core values](/posts/life_100_percent_right_philosophy) is paramount. Questions to consider include:
 
 - What principles guide my decisions?
 - How do I want to be remembered?

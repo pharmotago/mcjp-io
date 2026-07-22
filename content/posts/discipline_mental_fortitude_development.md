@@ -62,7 +62,7 @@ To implement these strategies effectively, consider the following action plan:
 
 ### The Role of Discipline in Mental Fortitude
 
-Discipline is the backbone of mental fortitude. It is the ability to persist in the pursuit of your goals, even when faced with challenges. Cultivating discipline requires practice and commitment. Here are some techniques to strengthen your self-discipline:
+Discipline is the backbone of [mental fortitude](/posts/discipline_emotional_stamina_building). It is the ability to persist in the pursuit of your goals, even when faced with challenges. Cultivating discipline requires practice and commitment. Here are some techniques to strengthen your self-discipline:
 
 - **Start Small**: Begin with manageable tasks that require discipline. Gradually increase the complexity and duration of these tasks as you become more comfortable.
 - **Track Your Progress**: Use a journal or an app to monitor your achievements. Reflecting on your progress reinforces your commitment and encourages continued effort.

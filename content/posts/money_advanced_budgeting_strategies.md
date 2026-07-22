@@ -58,7 +58,7 @@ To effectively incorporate these advanced budgeting strategies, consider the fol
 
 ### Cultivating a Mindset of Financial Discipline
 
-Achieving financial independence requires more than just techniques; it necessitates a shift in mindset. Embrace the following principles to foster a culture of financial discipline:
+Achieving financial independence requires more than just techniques; it necessitates a shift in mindset. Embrace the following principles to foster a culture of [financial discipline](/posts/money_art_of_frugality):
 
 - **Integrity in Spending**: Each expenditure should align with your values and long-term goals.
 - **Continuous Learning**: Stay informed about financial markets, investment options, and emerging budgeting tools.

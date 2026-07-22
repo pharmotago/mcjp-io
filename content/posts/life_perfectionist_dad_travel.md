@@ -11,7 +11,7 @@ published: true
 
 ## The Master Planner
 
-In my professional life, I am a system builder. I manage a pharmacy, run a consulting firm, and optimize workflows down to the second. I am obsessed with efficiency, structure, and control.
+In my professional life, I am a [system builder](/posts/discipline_pharmacist_system_builder). I manage a pharmacy, run a consulting firm, and optimize workflows down to the second. I am obsessed with efficiency, structure, and control.
 
 Naturally, when it comes to planning family vacations, I bring that same intensity. I am the quintessential travel planner. Last autumn, when I took my wife and two daughters to Japan—navigating the bustling streets of Osaka and Tokyo—I mapped out everything. From our accommodations to our daily transit routes, every detail was locked into a spreadsheet. I did the exact same thing this spring for our trip to Seoul and Jeju in South Korea. 
 

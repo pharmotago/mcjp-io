@@ -64,6 +64,6 @@ To operationalize your [family leadership](/posts/family_role_of_man) during fin
 
 ## The Long-Term View
 
-Financial hardship is a forge. It burns away the frivolous and tempers the essential. Men who shy away from this fire leave their families vulnerable to the elements. Men who stand firmly within it emerge with a refined sense of purpose and an unshakable household.
+[Financial hardship](/posts/life_family_financial_hardship) is a forge. It burns away the frivolous and tempers the essential. Men who shy away from this fire leave their families vulnerable to the elements. Men who stand firmly within it emerge with a refined sense of purpose and an unshakable household.
 
 Your family does not need a perfect man; they need a present, steady, and decisive one. By embodying [emotional strength](/posts/life_emotional_strength), executing strategic financial triage, and maintaining unyielding integrity, you transform an economic downturn from a crisis into a defining chapter of your family leadership. The storm will eventually pass, and when the waters calm, your family will look back and recognize that the ship stayed afloat because the captain never abandoned the wheel.

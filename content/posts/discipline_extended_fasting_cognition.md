@@ -35,7 +35,7 @@ The act of fasting cultivates discipline and an unbreakable willpower, traits th
 
 ### Action Plan for Extended Fasting
 
-For those interested in harnessing the power of extended fasting for cognitive enhancement, here is a structured approach:
+For those interested in harnessing the power of extended fasting for [cognitive enhancement](/posts/discipline_cognitive_enhancement_techniques), here is a structured approach:
 
 1. **Start with Short Fasts**: Begin with intermittent fasting (16 to 20 hours) to acclimate your body and mind.
 2. **Gradually Increase Duration**: Progressively extend your fasting periods to 24 hours, then to 36 hours, and beyond, as your comfort level increases.

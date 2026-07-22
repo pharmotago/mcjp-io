@@ -19,7 +19,7 @@ The volume of data, the speed of modern communication, and the necessity for fla
 
 At my core, I am obsessed with designing digital workflows that eliminate friction. Running a consulting firm alongside my pharmacy career means I have absolutely zero tolerance for wasted time.
 
-To manage the new pharmacy branch, I deployed a suite of AI automation tools. 
+To manage the new pharmacy branch, I deployed a suite of [AI automation](/posts/money_ai_automation_agencies) tools. 
 - **Notion** serves as the central brain, tracking everything from standard operating procedures (SOPs) to strategic planning.
 - **Activepieces** automates the flow of data between our communication channels and our reporting dashboards.
 - Custom AI scripts handle routine administrative bottlenecks, freeing up human capital for what actually matters: patient care.
@@ -40,4 +40,4 @@ This obsession with efficiency bleeds into my everyday life. Whether I am analyz
 
 But a good system should give you time back, not consume it. For those looking to streamline their own digital environments and reclaim lost hours, upgrading your foundational infrastructure is a great place to start. For a seamless and high-speed home office connection, I recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
 
-The ultimate goal of building all these systems is simple: to create a machine that handles the noise of the world, leaving me with the time and mental clarity to focus on the signal.
+The ultimate goal of building all these systems is simple: to create a machine that handles the noise of the world, leaving me with the time and [mental clarity](/posts/discipline_biohacking_focus_and_productivity) to focus on the signal.
