@@ -13,6 +13,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Custom Styles -->
   <link rel="stylesheet" href="css/styles.css?v=2.0.0">
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
 </head>
 <body>
 
@@ -335,6 +338,9 @@
               <button class="btn btn-outline btn-block" onclick="switchTab('timeclock')">
                 <i class="fa-solid fa-stopwatch"></i> Terminal
               </button>
+              <button class="btn btn-outline btn-block" onclick="openSwapBoardModal()">
+                <i class="fa-solid fa-right-left"></i> Shift Swap Board
+              </button>
             </div>
           </div>
 
@@ -356,6 +362,9 @@
               <button class="btn btn-outline btn-block" onclick="openStaffDirectoryModal()">
                 <i class="fa-solid fa-address-book"></i> Team Directory
               </button>
+              <button class="btn btn-outline btn-block" onclick="openSwapBoardModal()">
+                <i class="fa-solid fa-right-left"></i> Shift Swap Board
+              </button>
             </div>
           </div>
         </div>
@@ -373,6 +382,9 @@
             <button class="btn btn-outline" onclick="window.print()" style="margin-left: 12px; height: 38px; display: inline-flex; align-items: center; gap: 8px;">
               <i class="fa-solid fa-print"></i> Print Roster
             </button>
+            <div id="labor-cost-forecast-badge" style="margin-left: 1rem; padding: 4px 12px; background: rgba(168, 85, 247, 0.1); border: 1px solid var(--primary-color); border-radius: 20px; font-weight: bold; font-size: 0.9rem; display: flex; align-items: center; gap: 8px;">
+              <i class="fa-solid fa-chart-line text-primary"></i> <span id="labor-cost-forecast-value">$0.00</span>
+            </div>
           </div>
           <div class="scheduler-controls" id="scheduler-manager-controls">
             <button class="btn btn-outline" onclick="openAddShiftModal()">
@@ -1147,6 +1159,29 @@
     </div>
   </div>
 
+  <!-- Swap Board Modal -->
+  <div id="modal-swap-board" class="modal">
+    <div class="modal-content glass-card" role="dialog" aria-modal="true" style="max-width: 600px; max-height: 80vh; overflow-y: auto;">
+      <div class="modal-header">
+        <h3 id="swap-board-title"><i class="fa-solid fa-right-left"></i> Shift Swap Board</h3>
+        <button class="btn btn-icon modal-close" onclick="closeSwapBoardModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body" style="padding-top: 0.5rem;">
+        <div id="swap-board-tabs" class="flex gap-2" style="margin-bottom: 1rem;">
+          <button class="btn btn-outline flex-1 active" id="tab-swap-available" onclick="switchSwapTab('available')">Available Swaps</button>
+          <button class="btn btn-outline flex-1" id="tab-swap-my" onclick="switchSwapTab('my')">My Requests</button>
+          <button class="btn btn-outline flex-1 hide" id="tab-swap-manager" onclick="switchSwapTab('manager')">Approvals</button>
+        </div>
+        <div id="swap-board-content" style="display: flex; flex-direction: column; gap: 10px;">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" onclick="closeSwapBoardModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Update Password Modal -->
   <div id="modal-update-password" class="modal">
     <div class="modal-content glass-card" role="dialog" aria-modal="true" style="max-width: 400px;">
@@ -1174,5 +1209,16 @@
   <!-- Javascript Core -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script type="module" src="js/app.js?v=2.0.0"></script>
+
+  <!-- PWA Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js')
+          .then(registration => console.log('ServiceWorker registered with scope:', registration.scope))
+          .catch(error => console.error('ServiceWorker registration failed:', error));
+      });
+    }
+  </script>
 </body>
 </html>

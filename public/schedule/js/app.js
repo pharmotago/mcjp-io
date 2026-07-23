@@ -5,6 +5,8 @@
 // Import database layer — sets window.BriskDB and initialises Firebase
 import BriskDB from './database.js';
 window.BriskDB = BriskDB;
+import { SwapDB } from './swaps.js';
+window.SwapDB = SwapDB;
 
 // Application State
 import BriskScheduler from './scheduler.js';
@@ -40,6 +42,7 @@ let state = {
   dailyDate: new Date(),  // Date object for Daily View
   employees: [],
   shifts: [],
+  swaps: [],
   timecards: [],
   leaveRequests: [],
   settings: {},
@@ -179,8 +182,10 @@ async function bootApplication() {
     document.getElementById('sidebar-user-name').textContent = displayName;
     document.getElementById('dash-user-name').textContent = displayName;
 
-    // Sync data from cloud (employees, shifts, timecards, leave)
+    // Sync data from cloud (employees, shifts, timecards, leave, swaps)
     await BriskDB.syncFromServer();
+    state.swaps = await SwapDB.getSwaps();
+    state.swapsLoaded = true;
     loadDataFromState();
 
     // BUG 4 FIX: Re-read the actual user profile name from freshly synced brisk_users
@@ -219,7 +224,7 @@ async function bootApplication() {
 }
 
 
-function loadDataFromState() {
+async function loadDataFromState() {
   state.employees = BriskDB.getEmployees();
   state.shifts = BriskDB.getShifts();
   state.timecards = BriskDB.getTimecards();
@@ -227,6 +232,11 @@ function loadDataFromState() {
   state.settings = BriskDB.getSettings();
   state.roles = BriskDB.getRoles();
   state.positions = BriskDB.getPositions();
+  
+  if (!state.swapsLoaded) {
+    state.swapsLoaded = true;
+    SwapDB.getSwaps().then(swaps => state.swaps = swaps);
+  }
   
   if (typeof renderRolesSettingsList === 'function') {
     renderRolesSettingsList();
@@ -264,11 +274,11 @@ function loadDataFromState() {
     } else {
       // For employees, calculate active cover requests from other staff
       const todayStr = formatDateISO(new Date());
-      const activeCovers = state.shifts.filter(s => {
-        return s.employeeId !== state.currentUser.employeeId && 
-               s.notes && 
-               s.notes.startsWith('[NEEDS COVER]') &&
-               s.date >= todayStr;
+      const activeCovers = state.swaps.filter(swap => {
+        if (swap.status !== 'PENDING') return false;
+        if (swap.requestingEmployeeId === state.currentUser.employeeId) return false;
+        const shift = state.shifts.find(s => s.id === swap.shiftId);
+        return shift && shift.date >= todayStr;
       }).length;
 
       const badgeCover = document.getElementById('badge-cover-requests');
@@ -1403,8 +1413,8 @@ function renderScheduler() {
         const emp = state.employees.find(e => e.id === shift.employeeId);
         if (!emp || !emp.active) return;
 
-        const isNeedsCover = shift.notes && shift.notes.startsWith('[NEEDS COVER]');
-        const cleanNotes = isNeedsCover ? shift.notes.replace('[NEEDS COVER]', '').trim() : (shift.notes || '');
+        const isNeedsCover = state.swaps.some(swap => swap.shiftId === shift.id && swap.status === 'PENDING');
+        const cleanNotes = shift.notes || '';
         const roleColor = state.roles.find(r => r.name.toLowerCase() === shift.role.toLowerCase())?.color || '#4f46e5';
 
         const borderLeftStyle = isNeedsCover ? '4px solid #f97316' : `4px solid ${roleColor}`;
@@ -1566,6 +1576,8 @@ function renderScheduler() {
       mobileContainer.appendChild(dayCard);
     }
   }
+
+  calculateLaborCostForecast();
 }
 
 window.openEditShiftModalById = function(id) {
@@ -1633,6 +1645,62 @@ function checkLeaveStatus(employeeId, dateStr) {
     end.setHours(0,0,0,0);
     return date >= start && date <= end;
   });
+}
+
+function calculateLaborCostForecast() {
+  try {
+    const badge = document.getElementById('labor-cost-forecast-badge');
+    const valEl = document.getElementById('labor-cost-forecast-value');
+    if (!badge || !valEl) return;
+
+    if (state.currentUser.role === 'employee') {
+      badge.style.display = 'none';
+      return;
+    }
+    badge.style.display = 'flex';
+
+    const mon = new Date(state.currentWeekStart);
+    const sun = new Date(mon);
+    sun.setDate(mon.getDate() + 6);
+    mon.setHours(0,0,0,0);
+    sun.setHours(23,59,59,999);
+
+    // Get all shifts for the current week that are assigned
+    const weekShifts = state.shifts.filter(s => {
+      if (!s.employeeId) return false;
+      const [y, m, d] = s.date.split('-');
+      const sDate = new Date(y, m-1, d);
+      sDate.setHours(0,0,0,0);
+      return sDate >= mon && sDate <= sun;
+    });
+
+    let totalCost = 0;
+    weekShifts.forEach(shift => {
+      const emp = state.employees.find(e => e.id === shift.employeeId);
+      if (!emp) return;
+      
+      const rate = parseFloat(emp.hourlyRate) || 0;
+      let hours = BriskScheduler.getShiftDuration(shift.startTime, shift.endTime);
+      
+      const [y, m, d] = shift.date.split('-');
+      const sDate = new Date(y, m-1, d);
+      const dayOfWeek = sDate.getDay();
+      
+      // Penalty Rates
+      let effectiveRate = rate;
+      if (dayOfWeek === 6) { // Saturday
+        effectiveRate = rate * 1.25;
+      } else if (dayOfWeek === 0) { // Sunday
+        effectiveRate = rate * 1.5;
+      }
+      
+      totalCost += (hours * effectiveRate);
+    });
+
+    valEl.textContent = `$${totalCost.toFixed(2)}`;
+  } catch (err) {
+    console.error('Failed to calculate labor cost forecast:', err);
+  }
 }
 
 async function triggerClearWeek() {
@@ -2335,6 +2403,31 @@ async function handleClockAction(action) {
   try {
     if (action === 'in') {
       if (tc) return; // already clocked in
+
+      // Geofencing Check (Amcal Pharmacy Woy Woy: -33.4842, 151.3259)
+      try {
+        const position = await new Promise((resolve, reject) => {
+          navigator.geolocation.getCurrentPosition(resolve, reject, { timeout: 10000, enableHighAccuracy: true });
+        });
+        const lat = position.coords.latitude;
+        const lng = position.coords.longitude;
+        
+        const WOY_WOY_LAT = -33.4842;
+        const WOY_WOY_LNG = 151.3259;
+        const ALLOWED_RADIUS = 0.005; // Roughly 500m
+        
+        const dist = Math.sqrt(Math.pow(lat - WOY_WOY_LAT, 2) + Math.pow(lng - WOY_WOY_LNG, 2));
+        
+        if (dist > ALLOWED_RADIUS) {
+          alert('Clock in denied: You must be near Amcal Pharmacy Woy Woy to clock in.');
+          return;
+        }
+        console.log(`Clocking in from Lat: ${lat}, Lng: ${lng}, Dist: ${dist}`);
+      } catch (err) {
+        alert('Geolocation is required to clock in. Please enable location services.');
+        return; // Block clock-in
+      }
+
       tc = {
         employeeId: empId,
         date: todayStr,
@@ -2805,12 +2898,20 @@ function renderReportsPanel() {
     });
 
     let actualHours = 0;
+    let grossPay = 0;
+    const hourlyRate = emp.hourlyRate || 0;
+
     empTimecards.forEach(tc => {
       actualHours += tc.totalHours;
+      
+      // Calculate Weekend Penalty Rates
+      const tcDay = new Date(tc.date).getDay();
+      let multiplier = 1.0;
+      if (tcDay === 0) multiplier = 1.5; // Sunday
+      else if (tcDay === 6) multiplier = 1.25; // Saturday
+      
+      grossPay += tc.totalHours * hourlyRate * multiplier;
     });
-
-    const hourlyRate = emp.hourlyRate || 0;
-    const grossPay = actualHours * hourlyRate;
 
     totalSchedHoursSum += empWeekHours;
     totalActualHoursSum += actualHours;
@@ -3781,46 +3882,33 @@ window.requestShiftCover = async function(shiftId) {
   const shift = state.shifts.find(s => s.id === shiftId);
   if (!shift) return;
 
-  const sanitizedNotes = cleanCoverTags(shift.notes);
-
   try {
-    shift.notes = `[NEEDS COVER] ${sanitizedNotes}`.trim();
-    await BriskDB.updateShift(shift);
-    showToast('Cover request submitted to board!', 'success');
-    loadDataFromState();
-    renderActivePanel();
+    const existing = state.swaps.find(s => s.shiftId === shiftId && s.status === 'PENDING');
+    if (existing) {
+      showToast('Cover request already exists for this shift.', 'info');
+      return;
+    }
 
-    // Background sync to ensure instant multi-client state parity
-    BriskDB.syncFromServer()
-      .then(() => {
-        loadDataFromState();
-        renderActivePanel();
-      })
-      .catch(e => console.warn('Background sync after request cover failed:', e));
+    const swap = await SwapDB.createSwap(shiftId, state.currentUser.employeeId);
+    state.swaps.push(swap);
+
+    showToast('Cover request submitted to board!', 'success');
+    renderSwapBoard('my');
   } catch (err) {
+    console.error(err);
     showToast('Failed to submit cover request.', 'error');
   }
 };
 
 window.cancelShiftCover = async function(shiftId) {
-  const shift = state.shifts.find(s => s.id === shiftId);
-  if (!shift) return;
-
   try {
-    shift.notes = cleanCoverTags(shift.notes);
-    await BriskDB.updateShift(shift);
+    await SwapDB.cancelSwap(shiftId);
+    state.swaps = state.swaps.filter(s => !(s.shiftId === shiftId && s.status === 'PENDING'));
+    
     showToast('Cover request cancelled.', 'info');
-    loadDataFromState();
-    renderActivePanel();
-
-    // Background sync to ensure instant multi-client state parity
-    BriskDB.syncFromServer()
-      .then(() => {
-        loadDataFromState();
-        renderActivePanel();
-      })
-      .catch(e => console.warn('Background sync after cancel cover failed:', e));
+    renderSwapBoard('my');
   } catch (err) {
+    console.error(err);
     showToast('Failed to cancel cover request.', 'error');
   }
 };
@@ -3840,31 +3928,163 @@ window.offerToCover = async function(shiftId) {
     return;
   }
 
-  const currentEmp = state.employees.find(e => e.id === state.currentUser.employeeId);
-  const currentEmpName = currentEmp ? currentEmp.name : 'Someone';
-
   try {
-    // Roster Cover Match: Assign to covering employee and log approval notes
-    shift.employeeId = state.currentUser.employeeId;
-    const sanitizedNotes = cleanCoverTags(shift.notes);
-    shift.notes = `[COVERED BY ${currentEmpName}] ${sanitizedNotes}`.trim();
+    const swap = await SwapDB.coverSwap(shiftId, state.currentUser.employeeId);
     
+    // Update local state
+    const index = state.swaps.findIndex(s => s.shiftId === shiftId && s.status === 'PENDING');
+    if (index !== -1) {
+      state.swaps[index] = swap;
+    }
+    
+    // Assign shift to covering employee
+    shift.employeeId = state.currentUser.employeeId;
     await BriskDB.updateShift(shift);
-    showToast(` Roster Cover matched! You are now scheduled for this shift.`, 'success');
+
+    showToast(`Roster Cover matched! You are now scheduled for this shift.`, 'success');
     
     loadDataFromState();
     renderActivePanel();
+    closeSwapBoardModal();
 
     // Background sync to ensure instant multi-client state parity
     BriskDB.syncFromServer()
-      .then(() => {
+      .then(async () => {
+        state.swaps = await SwapDB.getSwaps();
         loadDataFromState();
         renderActivePanel();
       })
       .catch(e => console.warn('Background sync after offer cover failed:', e));
   } catch (err) {
+    console.error(err);
     showToast('Failed to cover this shift.', 'error');
   }
 };
 
 
+
+window.openSwapBoardModal = function() {
+  document.getElementById('modal-swap-board').classList.add('active');
+  switchSwapTab('available');
+};
+
+window.closeSwapBoardModal = function() {
+  document.getElementById('modal-swap-board').classList.remove('active');
+};
+
+window.switchSwapTab = function(tab) {
+  document.getElementById('tab-swap-available').classList.toggle('active', tab === 'available');
+  document.getElementById('tab-swap-my').classList.toggle('active', tab === 'my');
+  document.getElementById('tab-swap-manager').classList.toggle('active', tab === 'manager');
+  
+  if (state.currentUser.role === 'employee') {
+    document.getElementById('tab-swap-manager').classList.add('hide');
+  } else {
+    document.getElementById('tab-swap-manager').classList.remove('hide');
+  }
+
+  renderSwapBoard(tab);
+};
+
+window.renderSwapBoard = function(tab) {
+  const container = document.getElementById('swap-board-content');
+  if (!container) return;
+  container.innerHTML = '';
+
+  const todayStr = formatDateISO(new Date());
+  
+  let targetSwaps = [];
+  const myEmpId = state.currentUser.employeeId;
+
+  if (tab === 'available') {
+    targetSwaps = state.swaps.filter(s => s.status === 'PENDING' && s.requestingEmployeeId !== myEmpId);
+  } else if (tab === 'my') {
+    if (state.currentUser.role === 'employee') {
+      targetSwaps = state.swaps.filter(s => s.status === 'PENDING' && s.requestingEmployeeId === myEmpId);
+    }
+  } else if (tab === 'manager') {
+    targetSwaps = state.swaps.filter(s => s.status === 'COVERED');
+  }
+
+  // Filter out past shifts and map to shift object
+  let displayItems = targetSwaps.map(swap => {
+    return {
+      swap,
+      shift: state.shifts.find(sh => sh.id === swap.shiftId)
+    };
+  }).filter(item => item.shift && item.shift.date >= todayStr);
+
+  if (displayItems.length === 0) {
+    container.innerHTML = '<div class="text-muted text-center" style="padding: 2rem 0;">No shifts found in this category.</div>';
+    return;
+  }
+
+  // Sort by date ascending
+  displayItems.sort((a, b) => new Date(a.shift.date) - new Date(b.shift.date));
+
+  displayItems.forEach(item => {
+    const shift = item.shift;
+    const swap = item.swap;
+    const origEmp = state.employees.find(e => e.id === swap.requestingEmployeeId);
+    const empName = origEmp ? origEmp.name : 'Unknown';
+    
+    const card = document.createElement('div');
+    card.style.padding = '12px 16px';
+    card.style.background = 'rgba(255, 255, 255, 0.03)';
+    card.style.border = '1px solid var(--border-glass)';
+    card.style.borderRadius = '8px';
+    card.style.display = 'flex';
+    card.style.justifyContent = 'space-between';
+    card.style.alignItems = 'center';
+
+    let actionHtml = '';
+    
+    if (tab === 'available') {
+      actionHtml = `<button class="btn btn-neon" onclick="offerToCover('${shift.id}')"><i class="fa-solid fa-handshake"></i> Offer to Cover</button>`;
+    } else if (tab === 'my') {
+      actionHtml = `<button class="btn btn-outline" onclick="cancelShiftCover('${shift.id}')"><i class="fa-solid fa-xmark"></i> Cancel</button>`;
+    } else if (tab === 'manager') {
+      const coverEmp = state.employees.find(e => e.id === swap.coveringEmployeeId);
+      const coverName = coverEmp ? coverEmp.name : 'Unknown';
+      actionHtml = `<span class="badge badge-success"><i class="fa-solid fa-check"></i> Covered by ${coverName}</span>`;
+    }
+
+    card.innerHTML = `
+      <div>
+        <div style="font-weight: 600; font-size: 1.1rem;">${shift.date} (${shift.startTime} - ${shift.endTime})</div>
+        <div style="color: var(--text-muted); font-size: 0.9rem;">${empName} - ${shift.role}</div>
+      </div>
+      <div>
+        ${actionHtml}
+      </div>
+    `;
+    container.appendChild(card);
+  });
+};
+
+// --- CAPACITOR PUSH NOTIFICATIONS INIT ---
+document.addEventListener('DOMContentLoaded', async () => {
+  if (window.Capacitor && window.Capacitor.isNativePlatform()) {
+    try {
+      const { PushNotifications } = window.Capacitor.Plugins;
+      if (PushNotifications) {
+        let permStatus = await PushNotifications.checkPermissions();
+        if (permStatus.receive === 'prompt') {
+          permStatus = await PushNotifications.requestPermissions();
+        }
+        if (permStatus.receive !== 'granted') {
+          console.warn('Push permission denied');
+        } else {
+          await PushNotifications.register();
+        }
+
+        PushNotifications.addListener('registration', (token) => {
+          console.log('Push registration success, token: ' + token.value);
+          // In a real app, send token to Supabase here
+        });
+      }
+    } catch (e) {
+      console.warn('Capacitor Push API not loaded or errored:', e);
+    }
+  }
+});

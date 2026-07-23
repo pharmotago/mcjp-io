@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import AuthorProfile from '@/components/AuthorProfile';
 import NewsletterForm from '@/components/NewsletterForm';
+import AffiliateCTA from '@/components/AffiliateCTA';
 
 interface PostData {
   title: string;
@@ -140,37 +141,43 @@ export async function generateMetadata(
   };
 }
 
+let cachedAllPosts: Post[] | null = null;
+
 function getRelatedPosts(currentId: string, category: string): Post[] {
-  const postsDir = path.join(process.cwd(), 'content', 'posts');
-  if (!fs.existsSync(postsDir)) return [];
-  const files = fs.readdirSync(postsDir);
-  
-  const posts = files
-    .filter(file => file.endsWith('.md'))
-    .map(file => {
-      const id = file.replace(/\.md$/, '');
-      const fullPath = path.join(postsDir, file);
-      const fileContent = fs.readFileSync(fullPath, 'utf8');
-      const { data, content } = parseMarkdown(fileContent);
+  if (!cachedAllPosts) {
+    const postsDir = path.join(process.cwd(), 'content', 'posts');
+    if (!fs.existsSync(postsDir)) {
+      cachedAllPosts = [];
+    } else {
+      const files = fs.readdirSync(postsDir);
+      cachedAllPosts = files
+        .filter(file => file.endsWith('.md'))
+        .map(file => {
+          const id = file.replace(/\.md$/, '');
+          const fullPath = path.join(postsDir, file);
+          const fileContent = fs.readFileSync(fullPath, 'utf8');
+          const { data, content } = parseMarkdown(fileContent);
 
-      const wordCount = content.trim().split(/\s+/).length;
-      const readingTime = Math.ceil(wordCount / 200);
+          const wordCount = content.trim().split(/\s+/).length;
+          const readingTime = Math.ceil(wordCount / 200);
 
-      return {
-        id,
-        title: data.title || id,
-        date: data.date || '',
-        category: data.category || 'General',
-        description: data.description || '',
-        keywords: data.keywords || [],
-        readingTime,
-        published: data.published === 'true' || data.published === true,
-      };
-    });
+          return {
+            id,
+            title: data.title || id,
+            date: data.date || '',
+            category: data.category || 'General',
+            description: data.description || '',
+            keywords: data.keywords || [],
+            readingTime,
+            published: data.published === 'true' || data.published === true,
+          };
+        });
+    }
+  }
     
   const todayStr = new Date().toISOString().split('T')[0];
   const isDev = process.env.NODE_ENV === 'development';
-  const publishedPosts = isDev ? posts : posts.filter(p => p.published && p.date <= todayStr);
+  const publishedPosts = isDev ? cachedAllPosts : cachedAllPosts.filter(p => p.published && p.date <= todayStr);
     
   let related = publishedPosts.filter(p => p.id !== currentId && p.category.toLowerCase() === category.toLowerCase());
   
@@ -222,14 +229,34 @@ export default async function PostPage({
 
   // Markdown formatter with mid-content ad slot injection (light theme optimized)
   const formatMarkdown = (text: string) => {
+    // Basic HTML escaping to prevent Stored XSS
+    const escapeHtml = (unsafe: string) => {
+      return unsafe
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    };
+
     const lines = text.split('\n');
     const midIndex = Math.floor(lines.length / 2);
     
     const parseInline = (lineText: string) => {
-      return lineText
+      // First escape raw HTML
+      let safeText = escapeHtml(lineText);
+      
+      // Then parse markdown
+      return safeText
         .replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-slate-950">$1</strong>')
         .replace(/\*(.*?)\*/g, '<em class="italic text-slate-800">$1</em>')
-        .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-amber-600 hover:underline font-semibold">$1</a>');
+        // Safely parse links, rejecting javascript: and data: protocols
+        .replace(/\[(.*?)\]\((.*?)\)/g, (match, text, url) => {
+          if (url.trim().toLowerCase().startsWith('javascript:') || url.trim().toLowerCase().startsWith('data:')) {
+            return `<span class="text-slate-500 line-through">${text} (blocked link)</span>`;
+          }
+          return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-amber-600 hover:underline font-semibold">${text}</a>`;
+        });
     };
 
     return lines
@@ -401,6 +428,9 @@ export default async function PostPage({
             Get Started with Hostinger (Discount Applied) &rarr;
           </a>
         </div>
+
+        {/* Superloop Affiliate CTA */}
+        <AffiliateCTA />
 
         {/* Google AdSense Post-Body Ad Unit Slot */}
         {process.env.NEXT_PUBLIC_ADSENSE_APPROVED === 'true' && process.env.NEXT_PUBLIC_ADSENSE_POST_SLOT && (
