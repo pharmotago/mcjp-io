@@ -2189,5 +2189,77 @@
       "mental resilience"
     ],
     "summary": "Uncover the techniques and benefits of endurance training that enhance both physical and mental stamina, fostering resilience in everyday life."
+  },
+  {
+    "id": "money_psychology_of_spending",
+    "category": "Money",
+    "topic": "The Psychology of Spending: How to Master Your Financial Habits",
+    "keywords": [
+      "spending habits",
+      "financial psychology",
+      "money management",
+      "wealth building"
+    ],
+    "summary": "Explore the psychological triggers behind spending habits and discover strategies for mastering financial behaviors to build sustainable wealth."
+  },
+  {
+    "id": "life_fatherhood_empathy_building",
+    "category": "Life",
+    "topic": "Building Empathy in Fatherhood: Strengthening Family Bonds",
+    "keywords": [
+      "fatherhood",
+      "empathy",
+      "family relationships",
+      "emotional intelligence"
+    ],
+    "summary": "Delve into the role of empathy in modern fatherhood and learn techniques to foster stronger family connections through emotional understanding."
+  },
+  {
+    "id": "discipline_resilience_through_failure",
+    "category": "Discipline",
+    "topic": "Resilience Through Failure: Turning Setbacks into Success",
+    "keywords": [
+      "resilience",
+      "failure",
+      "success mindset",
+      "personal growth"
+    ],
+    "summary": "Examine how to develop resilience by embracing failure and using setbacks as stepping stones for achieving personal and professional success."
+  },
+  {
+    "id": "money_influence_of_ai_on_financial_markets",
+    "category": "Money",
+    "topic": "The Influence of AI on Financial Markets: Trends and Predictions",
+    "keywords": [
+      "AI",
+      "financial markets",
+      "investment trends",
+      "future of finance"
+    ],
+    "summary": "Analyze the growing impact of artificial intelligence on financial markets and explore future trends and predictions for investors."
+  },
+  {
+    "id": "life_masculine_emotional_strength",
+    "category": "Life",
+    "topic": "Harnessing Emotional Strength: The Modern Man's Guide",
+    "keywords": [
+      "emotional strength",
+      "masculinity",
+      "mental health",
+      "personal development"
+    ],
+    "summary": "Investigate the importance of emotional strength in modern masculinity and discover practical approaches for men to enhance their mental health and resilience."
+  },
+  {
+    "id": "discipline_mental_toughness_cultivation",
+    "category": "Discipline",
+    "topic": "Cultivating Mental Toughness: Strategies for Lasting Resilience",
+    "keywords": [
+      "mental toughness",
+      "resilience",
+      "discipline",
+      "personal success"
+    ],
+    "summary": "Learn effective strategies for cultivating mental toughness and building the resilience necessary for overcoming life's challenges and achieving sustained success."
   }
 ]
