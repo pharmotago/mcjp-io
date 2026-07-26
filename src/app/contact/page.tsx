@@ -42,8 +42,8 @@ export default function ContactPage() {
             <p className="text-sm text-slate-600">
               For general inquiries, editorial feedback, or advertising options:
             </p>
-            <a href="mailto:welcome@mcjp.io" className="text-amber-600 hover:underline text-sm font-medium">
-              welcome@mcjp.io
+            <a href="mailto:craftsisters.sydney@gmail.com" className="text-amber-600 hover:underline text-sm font-medium">
+              craftsisters.sydney@gmail.com
             </a>
           </div>
         </div>
