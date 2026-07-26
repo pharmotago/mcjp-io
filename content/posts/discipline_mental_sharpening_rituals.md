@@ -73,3 +73,9 @@ For deeper insights on masculine resilience and active parenting, explore [The S
 ![A serene workspace representing clarity and mental focus, ideal for enhancing performance](/images/discipline_mental_sharpening_rituals_theme.svg)
 
 In conclusion, view these mental sharpening rituals not just as tasks but as integral components of a disciplined lifestyle dedicated to [peak performance](/posts/discipline_masculine_routines). By integrating them into your [daily routine](/posts/discipline_morning_routines), you will not only sharpen your mind but also lay the groundwork for lasting success and fulfillment.
+
+---
+
+### ⚡ Upgrade Your Home Office Connectivity
+
+For a seamless, high-speed remote work setup, we highly recommend **[Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690)**. Reliable internet is the backbone of any stoic and productive home office. Sign up using our referral link to save on your plan!
