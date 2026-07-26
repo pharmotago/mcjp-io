@@ -13,7 +13,7 @@ published: true
 
 Fatherhood is a transformative journey marked by profound joy, immense challenges, and an evolving set of responsibilities, particularly in the realm of financial management. Today’s fathers find themselves navigating a landscape that demands not only emotional investment but also strategic [financial planning](/posts/money_generational_wealth). As the expectations of fatherhood shift, so too must the approaches to financial responsibility. This article delves into the nuances of [modern fatherhood](/posts/life_fatherhood_modern_challenges) and provides actionable strategies for managing financial obligations effectively.
 
-![A father engaging with his child, symbolizing the bond of modern fatherhood and financial responsibility](./images/life_modern_fatherhood_financial_responsibility_focus.png)
+![A father engaging with his child, symbolizing the bond of modern fatherhood and financial responsibility](./images/life_modern_fatherhood_financial_responsibility_focus.svg)
 
 ### Understanding Financial Responsibility in Fatherhood
 
@@ -67,10 +67,10 @@ One of the greatest challenges for modern fathers is finding balance. The demand
 - **Set Boundaries**: Establish boundaries between work and family time. Prioritize quality moments with your children, fostering emotional well-being alongside financial stability.
 - **Utilize Technology Wisely**: Use financial management tools to streamline budgeting and tracking. However, ensure that technology does not detract from quality family interactions.
 
-![A father and child engaging in a meaningful conversation about financial responsibilities, highlighting the importance of communication in modern fatherhood](./images/life_modern_fatherhood_financial_responsibility_theme.png)
+![A father and child engaging in a meaningful conversation about financial responsibilities, highlighting the importance of communication in modern fatherhood](./images/life_modern_fatherhood_financial_responsibility_theme.svg)
 
 ### Conclusion
 
 Navigating financial responsibility in modern fatherhood is a multifaceted journey that requires foresight, planning, and adaptability. By embracing [financial literacy](/posts/money_financial_literacy), practicing self-discipline, and fostering open communication within the family, fathers can create a stable and secure environment for their children. 
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal, which provides valuable resources and perspectives on the intersection of fatherhood and financial responsibility. In a world that continually changes, the commitment to financial responsibility remains a timeless, essential aspect of fatherhood. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, which provides valuable resources and perspectives on the intersection of fatherhood and financial responsibility. In a world that continually changes, the commitment to financial responsibility remains a timeless, essential aspect of fatherhood. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.

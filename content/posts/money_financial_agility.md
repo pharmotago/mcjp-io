@@ -62,7 +62,7 @@ In a world where economic uncertainty is the norm, developing financial agility 
 
 For those looking to secure their [digital assets](/posts/money_ai_content_licensing), we recommend launching your digital presence on Hostinger to secure their exclusive partner discount. 
 
-Additionally, as you refine your approach to financial agility, consider exploring resources like [The Stoic Dad](https://the-stoic-dad.mcjp.io/) for deeper insights on resilience and active management of personal finances. 
+Additionally, as you refine your approach to financial agility, consider exploring resources like [The Stoic Dad](https://the-stoic-dad.vercel.app/) for deeper insights on resilience and active management of personal finances. 
 
 ![A visual representation of financial growth strategies, emphasizing the importance of resilience and adaptability](/images/money_financial_agility_theme.png)
 

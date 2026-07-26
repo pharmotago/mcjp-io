@@ -21,7 +21,7 @@ The foundation of Stoic [family leadership](/posts/family_role_of_man) rests on 
 
 In Stoic philosophy, the concept of the *Sovereign Patriarch* is rooted in the "dichotomy of control"—distinguishing between what is within our power and what is not. A father must demonstrate this division daily. When external crises occur—whether economic downturns, sudden personal setbacks, or societal disruptions—the Stoic father remains a calm anchor. His composure signals to his family that while they cannot control external events, they retain complete authority over their internal response.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal. This resource complements the Sovereign Patriarch framework by providing granular, battle-tested advice for men navigating the complexities of modern fatherhood.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. This resource complements the Sovereign Patriarch framework by providing granular, battle-tested advice for men navigating the complexities of modern fatherhood.
 
 ## Protocol 1: Emotional Composure as a Family Standard
 

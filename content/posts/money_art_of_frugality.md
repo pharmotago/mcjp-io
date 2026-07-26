@@ -11,7 +11,7 @@ published: true
 
 In the pursuit of financial independence, the concept of frugality emerges not merely as a lifestyle choice, but as a transformative philosophy that fosters [wealth creation](/posts/money_ai_entrepreneurship) through conscious spending. The art of frugality is rooted in self-discipline, prioritizing long-term financial goals over immediate gratification. By embracing smart spending habits, individuals can redirect their resources toward building meaningful assets, enhancing their financial resilience over time.
 
-![A focused individual examining their finances to embrace frugality and smart spending](/images/money_art_of_frugality_focus.png)
+![A focused individual examining their finances to embrace frugality and smart spending](/images/money_art_of_frugality_focus.svg)
 
 ### Understanding Frugality
 
@@ -60,7 +60,7 @@ The true value of frugality extends beyond immediate savings; it creates a found
 
 - **Enhanced Financial Literacy**: The practice of frugality encourages ongoing learning about personal finance, empowering you to make informed decisions.
 
-![A visual representation of financial discipline and the theme of wealth building through frugality](/images/money_art_of_frugality_theme.png)
+![A visual representation of financial discipline and the theme of wealth building through frugality](/images/money_art_of_frugality_theme.svg)
 
 ### Conclusion
 

@@ -47,7 +47,7 @@ Several tools can aid in your quest for digital discipline:
 
 ### Cultivating Inner Discipline
 
-True mastery of technology requires inner discipline—a commitment to personal growth and integrity. This involves continuous self-reflection and a willingness to adapt your strategies as needed. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal, a resource dedicated to nurturing these vital attributes.
+True mastery of technology requires inner discipline—a commitment to personal growth and integrity. This involves continuous self-reflection and a willingness to adapt your strategies as needed. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, a resource dedicated to nurturing these vital attributes.
 
 ### The Road Ahead
 

@@ -62,7 +62,7 @@ Accountability can significantly influence your ability to stick to your routine
 
 Building your Dopamine Shield is not merely a tactical endeavor; it is a holistic approach to reclaiming your focus and enhancing your productivity. By adopting disciplined habits and fostering an environment conducive to deep work, you position yourself to achieve your long-term goals.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal. 
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. 
 
 ![Image depicting personal growth and discipline through focus and self-control](/images/personal_growth_discipline_focus.png)
 

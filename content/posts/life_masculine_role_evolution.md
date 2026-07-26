@@ -13,7 +13,7 @@ published: true
 
 The landscape of masculine roles has undergone a profound transformation over recent decades. No longer confined to traditional archetypes, [modern masculinity](/posts/family_role_of_man) now must navigate a complex web of expectations shaped by societal shifts, cultural narratives, and evolving gender dynamics. As men strive to forge their identities in this fluid environment, understanding the evolution of these roles becomes crucial for maintaining relevance and making a positive impact.
 
-![A deep focus on the evolution of masculine roles in modern society](./images/life_masculine_role_evolution_focus.png)
+![A deep focus on the evolution of masculine roles in modern society](./images/life_masculine_role_evolution_focus.svg)
 
 ### Historical Context of Masculine Roles
 
@@ -47,7 +47,7 @@ To navigate these complexities, men must cultivate self-discipline and an adapti
 
 5. **Invest in Continuous Learning**: Pursue knowledge in areas such as parenting, [emotional health](/posts/life_masculine_mental_wellbeing), and relationship dynamics to equip oneself with the tools necessary for effective engagement in modern roles.
 
-6. **Engage with Support Networks**: Join communities or groups focused on positive masculinity. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal.
+6. **Engage with Support Networks**: Join communities or groups focused on positive masculinity. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal.
 
 ### The Role of Integrity in Modern Masculinity
 
@@ -61,7 +61,7 @@ As we move further into the 21st century, the evolution of masculine roles will 
 
 To remain relevant and impactful, men must embrace the complexity of their identities. The journey toward understanding and adapting to modern expectations is not only about personal evolution but also about contributing positively to society as a whole.
 
-![A thematic representation of the evolution of masculine roles reflecting diversity and modernity](./images/life_masculine_role_evolution_theme.png)
+![A thematic representation of the evolution of masculine roles reflecting diversity and modernity](./images/life_masculine_role_evolution_theme.svg)
 
 ### Conclusion
 

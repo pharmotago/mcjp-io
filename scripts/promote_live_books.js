@@ -227,7 +227,7 @@ Summary of Book Intent: "${book.summary}"
 
 RESOURCES & LINKS:
 - Amazon Book Purchase Link: Use exactly: [Buy on Amazon](https://www.amazon.com/dp/${book.asin}?tag=mcjpio-20)
-- Peter's sister project: Mention "The Stoic Dad" (https://the-stoic-dad.mcjp.io/) exactly once if relevant to life, masculinity, or parenting.
+- Peter's sister project: Mention "The Stoic Dad" (https://the-stoic-dad.vercel.app/) exactly once if relevant to life, masculinity, or parenting.
 - Hostinger web host: Mention Hostinger (https://www.hostinger.com?REFERRALCODE=OYBPHARMOWCY) exactly once if relevant to wealth creation, digital assets, or starting online.
 
 REQUIREMENTS:

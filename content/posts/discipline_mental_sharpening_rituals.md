@@ -10,7 +10,7 @@ keywords: ["mental sharpness","performance","discipline","focus"]
 
 In an era defined by relentless competition and the ceaseless demands of modern life, achieving mental sharpness has become not just an asset but a necessity. The ability to maintain focus and discipline is paramount for those seeking excellence in both personal and professional realms. This article delves into effective rituals and practices designed to elevate your [mental acuity](/posts/discipline_cognitive_enhancement_techniques) and optimize your performance.
 
-![A focused individual engaged in mindfulness practice, symbolizing mental sharpness and discipline](/images/discipline_mental_sharpening_rituals_focus.png)
+![A focused individual engaged in mindfulness practice, symbolizing mental sharpness and discipline](/images/discipline_mental_sharpening_rituals_focus.svg)
 
 ### Understanding Mental Sharpness
 
@@ -68,8 +68,8 @@ Incorporate reflective practices into your routine. Journaling or engaging in se
 
 Achieving mental sharpness is a journey that demands commitment and discipline. By adopting these rituals and practices, you are investing in your most valuable asset—your mind. As you cultivate this [mental clarity](/posts/discipline_digital_detox), you will find your performance in both personal and professional arenas significantly enhanced.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal. 
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. 
 
-![A serene workspace representing clarity and mental focus, ideal for enhancing performance](/images/discipline_mental_sharpening_rituals_theme.png)
+![A serene workspace representing clarity and mental focus, ideal for enhancing performance](/images/discipline_mental_sharpening_rituals_theme.svg)
 
 In conclusion, view these mental sharpening rituals not just as tasks but as integral components of a disciplined lifestyle dedicated to [peak performance](/posts/discipline_masculine_routines). By integrating them into your [daily routine](/posts/discipline_morning_routines), you will not only sharpen your mind but also lay the groundwork for lasting success and fulfillment.

@@ -10,7 +10,7 @@ keywords: ["fatherhood","legacy","future planning"]
 
 Fatherhood is a profound journey that shapes not only our lives but also the lives of those who come after us. The concept of legacy—what we leave behind—goes beyond material wealth; it encompasses values, lessons, and the very essence of our character. As fathers, we are tasked with the responsibility of crafting a legacy that reflects our principles and hopes for future generations.
 
-![Fatherhood and planning for legacy](https://www.mcjp.io/images/life_fatherhood_legacy_planning_focus.png)
+![Fatherhood and planning for legacy](https://mcjp-io.vercel.app/images/life_fatherhood_legacy_planning_focus.png)
 
 ### Understanding Legacy in Fatherhood
 
@@ -72,7 +72,7 @@ Active involvement in your children’s lives significantly impacts their develo
 - **Open Communication**: Foster an environment of trust where your children feel comfortable sharing their thoughts and feelings.
 - **Shared Responsibilities**: Participate in household chores and decision-making to teach teamwork and responsibility.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal.
 
 ### Legacy Beyond Wealth
 
@@ -88,4 +88,4 @@ In conclusion, fatherhood is an opportunity to create a lasting impact on future
 
 Consider the steps outlined above as you embark on this journey. Each action you take today is a seed planted for tomorrow’s growth. Together, we can ensure that our legacies are not only remembered but cherished.
 
-![Fatherhood legacy and future planning](https://www.mcjp.io/images/life_fatherhood_legacy_planning_theme.png)
+![Fatherhood legacy and future planning](https://mcjp-io.vercel.app/images/life_fatherhood_legacy_planning_theme.png)

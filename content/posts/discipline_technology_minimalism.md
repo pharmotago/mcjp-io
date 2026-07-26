@@ -61,7 +61,7 @@ Self-discipline is the cornerstone of technology minimalism. It is the ability t
 
 As society becomes increasingly aware of the downsides of technology overuse, there is a growing cultural shift towards minimalism. This shift emphasizes the importance of quality over quantity—not just in our material possessions but also in our digital lives.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal. Integrating these principles can provide a holistic approach to living intentionally, both as individuals and as fathers.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. Integrating these principles can provide a holistic approach to living intentionally, both as individuals and as fathers.
 
 ### Embracing the Future: The Path Forward
 

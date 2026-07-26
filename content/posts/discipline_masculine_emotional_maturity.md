@@ -67,7 +67,7 @@ Achieving emotional maturity is a journey that requires intention and discipline
 
 ### Building a Supportive Environment
 
-Surrounding yourself with emotionally mature individuals can accelerate your growth. Engage with communities that prioritize emotional intelligence and personal development. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal, which offers resources tailored for modern men seeking to enhance their emotional and personal growth.
+Surrounding yourself with emotionally mature individuals can accelerate your growth. Engage with communities that prioritize emotional intelligence and personal development. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, which offers resources tailored for modern men seeking to enhance their emotional and personal growth.
 
 ### Conclusion
 

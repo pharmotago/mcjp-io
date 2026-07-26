@@ -57,7 +57,7 @@ Embracing this dialogue can lead to greater empathy and understanding, allowing 
 
 As you embark on this journey of redefining your masculine identity, consider the legacy you wish to leave. The values you embody and the relationships you foster will shape the next generation's understanding of masculinity. By prioritizing integrity, [emotional intelligence](/posts/life_emotional_intelligence), and self-discipline, you can influence those around you positively.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal. This project offers resources aimed at fathers who aspire to cultivate strong family dynamics while embodying the virtues of modern masculinity.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. This project offers resources aimed at fathers who aspire to cultivate strong family dynamics while embodying the virtues of modern masculinity.
 
 ### Conclusion
 

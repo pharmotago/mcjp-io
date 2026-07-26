@@ -42,7 +42,7 @@ Resilience and integrity are foundational in maintaining a balance.
 - **Stay True to Your Values:** Ensure your actions reflect your core values, whether at work or at home.
 - **Embrace Challenges:** Rather than avoiding difficulties, tackle them head-on to build resilience.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal. This resource is invaluable for those seeking to enhance family leadership while maintaining professional excellence.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. This resource is invaluable for those seeking to enhance family leadership while maintaining professional excellence.
 
 ### 3. Actionable Strategies for Long-Term Success
 

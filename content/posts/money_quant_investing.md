@@ -35,7 +35,7 @@ In the realm of quantitative investing, data is paramount. The ability to analyz
 
 Incorporating these data tools into your investment framework can significantly enhance your ability to generate returns.
 
-![A focused individual analyzing quantitative investment data, representing the analytical nature of quantitative investing](/images/money_quant_investing_focus.png)
+![A focused individual analyzing quantitative investment data, representing the analytical nature of quantitative investing](/images/money_quant_investing_focus.svg)
 
 ### Actionable Strategies for Quantitative Investing
 
@@ -67,7 +67,7 @@ As technology continues to evolve, its impact on quantitative investing becomes 
 
 By leveraging these technological advancements, investors can enhance their quantitative strategies, leading to potentially higher returns and more effective [risk management](/posts/money_cryptocurrency_risks).
 
-![A visual representation of quantitative investment themes, highlighting the intersection of technology and finance](/images/money_quant_investing_theme.png)
+![A visual representation of quantitative investment themes, highlighting the intersection of technology and finance](/images/money_quant_investing_theme.svg)
 
 ### Conclusion
 

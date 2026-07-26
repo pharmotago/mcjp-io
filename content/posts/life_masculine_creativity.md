@@ -23,7 +23,7 @@ Creativity in men can manifest in various forms, from artistic endeavors to inno
 3. **Stronger Connections**: Creativity fosters empathy and communication, allowing for deeper relationships with peers, partners, and family.
 4. **Self-Discovery**: Through creative expression, men can explore their identities, leading to greater self-awareness and confidence.
 
-![A man engaging in creative activities, illustrating the power of creativity in masculinity](/images/life_masculine_creativity_focus.png)
+![A man engaging in creative activities, illustrating the power of creativity in masculinity](/images/life_masculine_creativity_focus.svg)
 
 ### Actionable Strategies for Cultivating Creativity
 
@@ -45,7 +45,7 @@ Moreover, creativity can play a significant role in leadership. Leaders who exhi
 
 As we delve deeper into the interplay between creativity and masculinity, it's crucial to recognize that vulnerability and openness are not signs of weakness, but rather indications of strength. Men who embrace their creative sides often find themselves more in touch with their emotions and capable of expressing themselves authentically. This shift contributes to a healthier understanding of masculinity—one that aligns with integrity, compassion, and self-discipline.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal, which highlights the integration of stoicism and emotional intelligence in fatherhood.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, which highlights the integration of stoicism and emotional intelligence in fatherhood.
 
 ### Real-World Applications: Creativity in Action
 
@@ -61,4 +61,4 @@ In conclusion, embracing creativity is not merely an option but a necessity for 
 
 To secure your digital assets effectively, consider launching them on [Hostinger](https://www.hostinger.com?REFERRALCODE=OYBPHARMOWCY), a reliable and high-performance web host that can help you build a strong online presence.
 
-![A group of men collaborating on creative projects, showcasing the theme of modern masculinity](/images/life_masculine_creativity_theme.png)
+![A group of men collaborating on creative projects, showcasing the theme of modern masculinity](/images/life_masculine_creativity_theme.svg)

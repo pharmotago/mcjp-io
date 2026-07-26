@@ -82,6 +82,6 @@ The legacy of a resilient father extends beyond the immediate family. Children r
 
 As you navigate this journey, remember that resilience is not an innate trait; it is a skill that can be cultivated over time. By embracing the principles of resilient fatherhood and actively working to build a legacy of strength and support, you empower not just your children but also yourself.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal. This resource can provide additional strategies and perspectives on fostering a strong family dynamic.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. This resource can provide additional strategies and perspectives on fostering a strong family dynamic.
 
 In conclusion, resilient fatherhood is about more than just enduring hardships; it is about thriving through them. By embodying the pillars of resilience and committing to creating a meaningful family legacy, you can equip your children with the tools they need to face life's challenges with strength and support.

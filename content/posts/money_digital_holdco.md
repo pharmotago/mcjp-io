@@ -13,7 +13,7 @@ published: true
 
 In the rapidly evolving landscape of digital entrepreneurship, a new wave of investors is emerging, leveraging technology and innovative strategies to build wealth through micro-private equity. This approach focuses on acquiring and scaling smaller, often overlooked online businesses—particularly micro-SaaS (Software as a Service) and [content sites](/posts/money_content_site_acquisitions)—under a unified holding company structure, or digital holdco. By understanding and implementing this strategy, modern men can create sustainable income streams and significant long-term wealth.
 
-![A focused businessman analyzing digital assets on his laptop, representing the digital holdco strategy](/images/money_digital_holdco_focus.png)
+![A focused businessman analyzing digital assets on his laptop, representing the digital holdco strategy](/images/money_digital_holdco_focus.svg)
 
 ### Understanding Micro-Private Equity
 
@@ -69,7 +69,7 @@ Furthermore, beyond [financial success](/posts/money_venture_capital_basics), co
 
 The essence of a wealth strategy lies in the long-term vision. Micro-private equity through digital holdcos allows for the gradual accumulation of assets with a resilient income stream. Each acquisition becomes a stepping stone toward greater financial autonomy, enabling you to reinvest profits into further ventures or diversify into other investment classes.
 
-![An inspiring infographic illustrating the growth potential of a digital holdco strategy, with emphasis on asset building](/images/money_digital_holdco_theme.png)
+![An inspiring infographic illustrating the growth potential of a digital holdco strategy, with emphasis on asset building](/images/money_digital_holdco_theme.svg)
 
 ### Conclusion: Embark on Your Journey
 

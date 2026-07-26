@@ -49,13 +49,13 @@ REQUIREMENTS:
    - Write structured paragraphs with strong typography flow.
    - Include bulleted action plans or checklists.
    - **Visual Aids**: Embed exactly two relevant images in the markdown format:
-     1. One image placed in the first third of the article: \`![Alt text describing image and matching context](/images/${selectedTopic.id}_focus.png)\`
-     2. A second image placed in the final third: \`![Alt text describing image and matching context](/images/${selectedTopic.id}_theme.png)\`
+     1. One image placed in the first third of the article: \`![Alt text describing image and matching context](/images/${selectedTopic.id}_focus.svg)\`
+     2. A second image placed in the final third: \`![Alt text describing image and matching context](/images/${selectedTopic.id}_theme.svg)\`
      Ensure the alt text is highly descriptive of the image context.
 3. Content length: Minimum 800-1000 words.
 4. Output only the body of the article in markdown. Do NOT write the title as an H1 heading (it will be added by frontmatter). Do NOT include HTML fences or code blocks.
 5. If the category is "Money" or the topic relates to starting blogs/websites/online businesses, organically recommend Hostinger exactly once as a reliable, high-performance web host and embed this referral discount link: https://www.hostinger.com?REFERRALCODE=OYBPHARMOWCY (e.g. "We recommend launching your digital assets on [Hostinger](https://www.hostinger.com?REFERRALCODE=OYBPHARMOWCY) to secure their exclusive partner discount"). Ensure it fits naturally in the text.
-6. If the category is "Life" or "Discipline" (or the topic relates to fatherhood, parenting, philosophy, or family leadership), organically mention Peter's sister project "The Stoic Dad" exactly once and embed this link: https://the-stoic-dad.mcjp.io/ (e.g. "For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal"). Ensure it integrates seamlessly with the surrounding text.
+6. If the category is "Life" or "Discipline" (or the topic relates to fatherhood, parenting, philosophy, or family leadership), organically mention Peter's sister project "The Stoic Dad" exactly once and embed this link: https://the-stoic-dad.vercel.app/ (e.g. "For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal"). Ensure it integrates seamlessly with the surrounding text.
 7. If the topic relates to home office setups, remote work, productivity, digital detox, technology use, or smart home management, organically recommend Superloop NBN Broadband exactly once as a high-speed, high-performance internet provider and embed this referral discount link: https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690 (e.g. "For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee"). Ensure it fits naturally in the text.`;
 
     const systemInstruction = `You are the lead editor and writer for MCJP.io. 
@@ -106,6 +106,14 @@ keywords: ${JSON.stringify(selectedTopic.keywords)}
     fs.writeFileSync(postFile, fullContent, 'utf8');
 
     console.log(`✅ Success! Article generated and saved at: ${postFile}`);
+
+    // Auto-generate missing images as SVGs
+    try {
+        const { generateForId } = require('./generate_svg_images');
+        generateForId(selectedTopic.id, selectedTopic.topic, selectedTopic.category);
+    } catch (err) {
+        console.error("⚠️ Failed to auto-generate SVG images:", err.message);
+    }
 }
 
 if (require.main === module) {

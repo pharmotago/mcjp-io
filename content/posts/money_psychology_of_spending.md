@@ -42,7 +42,7 @@ To achieve financial mastery, it is essential to implement actionable strategies
 
 Implementing these strategies requires commitment and self-discipline, but the rewards—financial stability and [wealth building](/posts/money_art_of_frugality)—are well worth the effort.
 
-![Understanding emotional triggers in spending habits](https://www.mcjp.io/images/money_psychology_of_spending_focus.png)
+![Understanding emotional triggers in spending habits](https://mcjp-io.vercel.app/images/money_psychology_of_spending_focus.svg)
 
 ### Building Wealth Through Conscious Spending
 
@@ -66,7 +66,7 @@ Mastering the psychology of spending is an ongoing journey that requires awarene
 
 For those embarking on this path, consider launching your digital assets on [Hostinger](https://www.hostinger.com?REFERRALCODE=OYBPHARMOWCY) to secure their exclusive partner discount. The right tools and resources can propel your financial success further.
 
-![Strategies for mastering financial habits](https://www.mcjp.io/images/money_psychology_of_spending_theme.png)
+![Strategies for mastering financial habits](https://mcjp-io.vercel.app/images/money_psychology_of_spending_theme.svg)
 
 As you navigate this journey, remember that true wealth is not merely about accumulating money—it's about fostering a mindset of integrity, discipline, and purpose. Embrace the challenge, remain steadfast in your goals, and watch as your financial landscape transforms.
 

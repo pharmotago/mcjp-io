@@ -65,7 +65,7 @@ Ultimately, mastering technology distraction is about cultivating long-term disc
 - **Celebrate Small Wins**: Acknowledge and celebrate your progress, no matter how small. This reinforces positive behavior and encourages continued discipline.
 - **Reflect and Adjust**: Regularly assess your productivity strategies. Identify what works and what doesn’t, and be willing to adjust your approach as needed.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal. The principles of stoicism can provide additional tools for managing distractions and fostering a disciplined life.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. The principles of stoicism can provide additional tools for managing distractions and fostering a disciplined life.
 
 ### Conclusion
 

@@ -13,7 +13,7 @@ published: true
 
 In a world where fitness often equates to lifting heavy weights in sterile gym environments, a powerful, yet largely overlooked discipline is experiencing a renaissance: rucking. This ancient practice, which involves walking with a weighted backpack, offers profound benefits that extend beyond the physical. Rucking cultivates [mental toughness](/posts/discipline_mental_toughness_training), enhances endurance, and fortifies discipline, making it an essential practice for anyone seeking to build resilience and integrity in their lives.
 
-![A focused individual engaged in rucking, emphasizing mental toughness and discipline while carrying a heavy load.](images/discipline_rucking_mental_toughness_focus.png)
+![A focused individual engaged in rucking, emphasizing mental toughness and discipline while carrying a heavy load.](images/discipline_rucking_mental_toughness_focus.svg)
 
 ### Understanding Rucking: A Historical Perspective
 
@@ -57,9 +57,9 @@ As you ruck, consider setting challenges for yourself—longer distances, steepe
 
 Incorporating rucking into your life is more than just a workout; it’s a commitment to self-discipline and long-term [asset building](/posts/money_content_site_acquisitions). It teaches that true growth comes from engaging with discomfort and embracing the journey toward improvement. 
 
-For deeper insights into masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal. The principles of stoicism align well with the lessons learned through rucking, emphasizing the importance of endurance, discipline, and the cultivation of virtue.
+For deeper insights into masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. The principles of stoicism align well with the lessons learned through rucking, emphasizing the importance of endurance, discipline, and the cultivation of virtue.
 
-![A group of individuals rucking together, showcasing community, discipline, and the shared experience of overcoming challenges.](images/discipline_rucking_mental_toughness_theme.png)
+![A group of individuals rucking together, showcasing community, discipline, and the shared experience of overcoming challenges.](images/discipline_rucking_mental_toughness_theme.svg)
 
 ### Conclusion: Embrace the Rucking Renaissance
 

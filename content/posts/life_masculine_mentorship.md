@@ -82,7 +82,7 @@ In the context of [modern masculinity](/posts/family_role_of_man), mentorship ex
 
 As we navigate the complexities of [modern masculinity](/posts/life_masculine_identity), the need for mentorship becomes increasingly critical. Men are called to rise as mentors, embracing the responsibility of guiding the next generation with wisdom, integrity, and resilience. In doing so, they not only enrich their own lives but also contribute to a more grounded and capable society.
 
-For those seeking deeper insights on the intersections of masculinity and active parenting, the project [The Stoic Dad](https://the-stoic-dad.mcjp.io/) offers valuable resources and perspectives.
+For those seeking deeper insights on the intersections of masculinity and active parenting, the project [The Stoic Dad](https://the-stoic-dad.vercel.app/) offers valuable resources and perspectives.
 
 ### Conclusion
 
@@ -146,7 +146,7 @@ While the benefits of mentorship are clear, challenges often arise that can hind
 
 Modern mentorship possesses the transformative power to reshape lives and careers. By building bridges across generations, individuals can tap into a wealth of knowledge and experience that fosters [personal growth](/posts/discipline_emotional_intelligence_training) and professional success. The journey of mentorship requires commitment, integrity, and an open mind, but the rewards are immeasurable.
 
-As we embrace this new era of mentorship, let us remember that the greatest asset lies not just in what we learn, but in how we connect with one another. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal. 
+As we embrace this new era of mentorship, let us remember that the greatest asset lies not just in what we learn, but in how we connect with one another. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. 
 
 In this interconnected world, let us commit to nurturing these relationships, forging paths that uplift and empower not only ourselves but generations to come.
 
@@ -204,6 +204,6 @@ In the realm of leadership, mentorship is particularly potent. Effective leaders
 
 The power of mentorship is undeniable. It is a catalyst for [personal growth](/posts/discipline_emotional_intelligence_training) and professional success, fostering a culture of learning and resilience. As you embark on your journey, remember that mentorship is not merely about receiving guidance; it is about cultivating relationships built on trust, respect, and mutual growth.
 
-To maximize your potential, consider integrating mentorship into your life actively. Embrace the process of learning from those who lead and be willing to extend your hand to others who seek your guidance in return. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal, where the principles of mentorship can also be applied in the context of family leadership.
+To maximize your potential, consider integrating mentorship into your life actively. Embrace the process of learning from those who lead and be willing to extend your hand to others who seek your guidance in return. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, where the principles of mentorship can also be applied in the context of family leadership.
 
 In the end, mentorship is an investment in yourself and others—a long-term asset that yields dividends of wisdom, success, and fulfillment. Seek out mentors, learn from their journeys, and, in turn, become a guide for someone else. This cyclical nature of mentorship not only enriches individual lives but also strengthens communities, fostering a culture of integrity and excellence that transcends generations. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.

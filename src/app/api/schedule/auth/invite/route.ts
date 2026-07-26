@@ -42,7 +42,7 @@ export async function POST(req: NextRequest) {
 
     if (error) throw error;
 
-    const inviteUrl = `https://schedule.mcjp.io/?invite=${code}`;
+    const inviteUrl = `https://woywoyamcalroster.vercel.app/?invite=${code}`;
 
     // Send invitation email if SMTP is configured
     if (process.env.SMTP_PASS) {
@@ -52,13 +52,13 @@ export async function POST(req: NextRequest) {
           port: 465,
           secure: true,
           auth: {
-            user: process.env.SMTP_USER || 'welcome@mcjp.io',
+            user: process.env.SMTP_USER || 'craftsisters.sydney@gmail.com',
             pass: process.env.SMTP_PASS
           }
         });
 
         const mailOptions = {
-          from: `"BriskSchedules" <${process.env.SMTP_USER || 'welcome@mcjp.io'}>`,
+          from: `"BriskSchedules" <${process.env.SMTP_USER || 'craftsisters.sydney@gmail.com'}>`,
           to: email.toLowerCase().trim(),
           subject: `✉️ Invitation to join Amcal Pharmacy Woywoy Rosters`,
           html: `
@@ -88,7 +88,7 @@ export async function POST(req: NextRequest) {
     return jsonResponse({
       success: true,
       code,
-      inviteUrl: `https://schedule.mcjp.io/?invite=${code}`
+      inviteUrl: `https://woywoyamcalroster.vercel.app/?invite=${code}`
     }, 200);
 
   } catch (err) {

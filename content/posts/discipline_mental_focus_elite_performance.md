@@ -71,7 +71,7 @@ Incorporating mindfulness into your [daily routine](/posts/discipline_morning_ro
 
 Achieving elite performance through mental focus and discipline is not a sprint but a marathon. It requires a long-term commitment to [personal development](/posts/discipline_mindset_habits). Regularly revisit your goals, assess your strategies, and remain adaptable to change. Consistency in your efforts will yield substantial results over time.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal. Embracing the stoic principles can enhance your mental fortitude and discipline, further propelling you toward elite performance.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. Embracing the stoic principles can enhance your mental fortitude and discipline, further propelling you toward elite performance.
 
 ![An inspiring visual representation of mental focus fostering elite performance, illustrating the journey towards success](/images/discipline_mental_focus_elite_performance_theme.png)
 

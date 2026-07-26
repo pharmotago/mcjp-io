@@ -63,9 +63,9 @@ In the workplace, [emotional intelligence](/posts/discipline_emotional_intellige
 
 The integration of [emotional intelligence](/posts/life_modern_fatherhood_communication) into masculinity is not merely a personal benefit; it has societal implications as well. As men embrace their emotional sides, they contribute to dismantling toxic stereotypes that equate vulnerability with weakness. This shift fosters a culture of openness and authenticity, where emotional expression is valued.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal, which offers resources to help fathers embody these principles in their daily lives.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, which offers resources to help fathers embody these principles in their daily lives.
 
-![Men reflecting on emotional intelligence and masculinity](images/life_masculine_emotional_intelligence_focus.png)
+![Men reflecting on emotional intelligence and masculinity](images/life_masculine_emotional_intelligence_focus.svg)
 
 ### Conclusion
 
@@ -73,4 +73,4 @@ For deeper insights on masculine resilience and active parenting, explore [The S
 
 In this modern age, cultivating [emotional intelligence](/posts/life_fatherhood_emotional_resilience) is not just a personal asset; it is a societal necessity. Men who prioritize their emotional growth will find themselves better equipped to navigate life's complexities—both personally and professionally. Start today, and invest in the long-term benefits that [emotional intelligence](/posts/life_modern_fatherhood_communication) can bring to your life.
 
-![Visual representation of emotional intelligence and modern masculinity](images/life_masculine_emotional_intelligence_theme.png)
+![Visual representation of emotional intelligence and modern masculinity](images/life_masculine_emotional_intelligence_theme.svg)

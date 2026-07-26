@@ -251,7 +251,7 @@ export default async function Home({
                     </p>
                   </div>
                   <a
-                    href="https://the-stoic-dad.mcjp.io"
+                    href="https://the-stoic-dad.vercel.app"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block w-full text-center bg-amber-600 hover:bg-amber-500 text-white py-2.5 rounded text-xs font-semibold transition-colors mt-4 cursor-pointer shadow-sm"

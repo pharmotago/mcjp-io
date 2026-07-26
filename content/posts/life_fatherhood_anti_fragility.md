@@ -13,7 +13,7 @@ published: true
 
 In the complex landscape of modern society, fatherhood is simultaneously a privilege and a formidable challenge. With the rise of uncertainty—be it economic fluctuations, social upheavals, or global crises—the need to cultivate resilience in our children has never been more pressing. This article delves into the concept of anti-fragility, a term coined by Nassim Nicholas Taleb, which describes systems that gain strength from disorder. As fathers, we play a pivotal role in nurturing sons who not only endure chaos but thrive within it.
 
-![A father and son engaging in outdoor activities, embodying resilience and growth](./images/life_fatherhood_anti_fragility_focus.png)
+![A father and son engaging in outdoor activities, embodying resilience and growth](./images/life_fatherhood_anti_fragility_focus.svg)
 
 ### Understanding Anti-Fragility
 
@@ -55,7 +55,7 @@ To prepare our sons for this turbulent environment, we must instill principles t
 
 Building anti-fragility is not a solitary endeavor. Engage with other fathers and families to create a supportive network. This community can serve as a resource for sharing experiences, challenges, and strategies. Encourage your sons to develop friendships that foster mutual growth and resilience.
 
-Furthermore, consider exploring resources like [The Stoic Dad](https://the-stoic-dad.mcjp.io/) for deeper insights on masculine resilience and active parenting. This platform provides valuable tools and philosophies aimed at empowering fathers to raise strong, self-sufficient sons.
+Furthermore, consider exploring resources like [The Stoic Dad](https://the-stoic-dad.vercel.app/) for deeper insights on masculine resilience and active parenting. This platform provides valuable tools and philosophies aimed at empowering fathers to raise strong, self-sufficient sons.
 
 ### Cultivating Lifelong Skills
 
@@ -71,7 +71,7 @@ As we embrace the complexities of [modern fatherhood](/posts/life_fatherhood_mod
 
 In the face of [modern challenges](/posts/life_modern_masculine_ethics), it is our duty to guide our sons, equipping them with the tools and mindset needed to navigate an unpredictable world. Let us embrace this profound responsibility with integrity and purpose.
 
-![A father teaching his son valuable life lessons, emphasizing growth and resilience](./images/life_fatherhood_anti_fragility_theme.png)
+![A father teaching his son valuable life lessons, emphasizing growth and resilience](./images/life_fatherhood_anti_fragility_theme.svg)
 
 ### Final Action Steps
 

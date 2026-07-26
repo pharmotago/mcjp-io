@@ -31,7 +31,7 @@ In silence, the mind undergoes a process of consolidation. It takes the fragment
 
 Consider your cognitive capacity as your most valuable equity. Every distraction is a withdrawal; every hour of deep, uninterrupted focus is a compounding investment. Men who master the discipline of solitude build an unfair advantage over their peers. They are the strategists who see three moves ahead, the creators who produce work of undeniable depth, and the leaders who remain unshaken in times of crisis.
 
-This discipline extends beyond personal productivity; it forms the bedrock of family leadership. A mind anchored in clarity is better equipped to handle the unpredictable challenges of fatherhood and household management. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal, where we expand on how stoic principles forge stronger, more intentional family units.
+This discipline extends beyond personal productivity; it forms the bedrock of family leadership. A mind anchored in clarity is better equipped to handle the unpredictable challenges of fatherhood and household management. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, where we expand on how stoic principles forge stronger, more intentional family units.
 
 ### Managing the Digital Infrastructure
 

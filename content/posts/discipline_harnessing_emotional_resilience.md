@@ -13,7 +13,7 @@ In an era characterized by rapid change and relentless demands, the ability to c
 
 [Emotional resilience](/posts/life_fatherhood_mental_health) is the ability to adapt to stress and adversity while maintaining a positive outlook. It is a skill that can be developed, much like physical strength, through intentional practice and self-discipline. This article delves into actionable strategies for building [emotional resilience](/posts/life_masculine_emotional_health) and [mental toughness](/posts/discipline_rucking_mental_toughness), equipping you to thrive in today’s fast-paced environment.
 
-![A focused individual symbolizing emotional resilience and mental toughness](https://www.mcjp.io/images/discipline_harnessing_emotional_resilience_focus.png)
+![A focused individual symbolizing emotional resilience and mental toughness](https://mcjp-io.vercel.app/images/discipline_harnessing_emotional_resilience_focus.svg)
 
 ### Understanding Emotional Resilience and Mental Toughness
 
@@ -101,10 +101,10 @@ Investing time and effort into building emotional resilience pays dividends. Ind
   - Make resilience-building a continuous practice.
   - Regularly revisit and adjust your strategies as needed.
 
-![A visual representation of emotional resilience and personal growth themes](https://www.mcjp.io/images/discipline_harnessing_emotional_resilience_theme.png)
+![A visual representation of emotional resilience and personal growth themes](https://mcjp-io.vercel.app/images/discipline_harnessing_emotional_resilience_theme.svg)
 
 ### Conclusion
 
 In a fast-paced world, emotional resilience and [mental toughness](/posts/discipline_rucking_mental_toughness) are not just desirable traits; they are critical skills for thriving amid uncertainty. By implementing the strategies outlined in this article, you can cultivate a robust framework for [personal growth](/posts/discipline_emotional_intelligence_training) that empowers you to face life's challenges with confidence and grace. 
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal. As you embark on this journey of self-discovery and emotional fortitude, remember that resilience is a lifelong endeavor—each step taken is a testament to your strength and commitment to personal excellence.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. As you embark on this journey of self-discovery and emotional fortitude, remember that resilience is a lifelong endeavor—each step taken is a testament to your strength and commitment to personal excellence.

@@ -33,7 +33,7 @@ The modern cultural paradigm often shields children from the consequences of the
 
 A relentless work ethic requires profound resilience. In a soft world, failure is treated as a trauma to be soothed. Fathers must treat it as data to be analyzed. When your son fails—whether he misses a tackle, fails a test, or breaks a tool—do not rush to coddle him or blame the system. 
 
-Ask him what he could have done differently. Teach him that accountability is the ultimate form of power. When you own your failures entirely, you simultaneously own the ability to fix them. Victimhood is a surrender of agency; accountability is the reclamation of it. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal, where the philosophy of enduring hardship with grace and raising capable children is thoroughly examined.
+Ask him what he could have done differently. Teach him that accountability is the ultimate form of power. When you own your failures entirely, you simultaneously own the ability to fix them. Victimhood is a surrender of agency; accountability is the reclamation of it. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, where the philosophy of enduring hardship with grace and raising capable children is thoroughly examined.
 
 ### Long-Term Asset Building and Integrity
 

@@ -24,7 +24,7 @@ A visionary mindset is characterized by the ability to foresee possibilities tha
 
 By nurturing these attributes, you lay the groundwork for a successful entrepreneurial journey.
 
-![A focused entrepreneur visualizing their future business success](/images/money_entrepreneurial_vision_focus.png)
+![A focused entrepreneur visualizing their future business success](/images/money_entrepreneurial_vision_focus.svg)
 
 ### Actionable Strategies to Cultivate a Visionary Mindset
 
@@ -73,7 +73,7 @@ Cultivating a visionary mindset is not merely a personal endeavor; it is a commi
 
 As you embark on this journey, remember that the road to success is often paved with challenges. Embrace resilience, integrity, and a willingness to learn, and you will find your vision transformed into reality.
 
-![A visionary entrepreneur planning for the future with innovative ideas](/images/money_entrepreneurial_vision_theme.png)
+![A visionary entrepreneur planning for the future with innovative ideas](/images/money_entrepreneurial_vision_theme.svg)
 
 In conclusion, the cultivation of a visionary mindset is an ongoing process that requires diligence, self-discipline, and a focus on long-term [asset building](/posts/money_content_site_acquisitions). By adhering to these principles, you not only enhance your chances of entrepreneurial success but also contribute positively to your community and industry.
 

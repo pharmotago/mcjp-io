@@ -13,7 +13,7 @@ published: true
 
 In the pursuit of [personal growth](/posts/discipline_emotional_intelligence_training) and professional achievement, self-motivation stands as a cornerstone of discipline. The journey toward realizing your ambitions is seldom straightforward; it is riddled with obstacles that test your resolve and determination. However, by cultivating self-motivation, you empower yourself to embrace discipline, enabling you to navigate these challenges with unwavering focus. This article delves into powerful techniques that can help you harness self-motivation and, in turn, cultivate an unstoppable discipline.
 
-![A focused individual writing in a journal, symbolizing self-motivation and discipline techniques](images/discipline_self_motivation_techniques_focus.png)
+![A focused individual writing in a journal, symbolizing self-motivation and discipline techniques](images/discipline_self_motivation_techniques_focus.svg)
 
 ### Understanding Self-Motivation
 
@@ -70,8 +70,8 @@ Recognizing and celebrating small achievements can significantly boost your moti
 
 Incorporating these techniques into your daily life can catalyze a transformation in both your self-motivation and discipline. The journey toward achieving your goals is a marathon, not a sprint. By focusing on intrinsic rewards, developing routines, and maintaining a growth mindset, you can build a solid foundation for long-term success.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal. By integrating these principles into your life, you empower yourself to become not only more disciplined but also a more fulfilled individual.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. By integrating these principles into your life, you empower yourself to become not only more disciplined but also a more fulfilled individual.
 
-![An individual reflecting on personal growth and discipline in a serene environment](images/discipline_self_motivation_techniques_theme.png)
+![An individual reflecting on personal growth and discipline in a serene environment](images/discipline_self_motivation_techniques_theme.svg)
 
 In closing, remember that self-motivation is a skill that can be honed. As you embark on this journey, embrace the challenges as opportunities for growth, and remain steadfast in your pursuit of excellence. The tools and techniques outlined here are a stepping stone toward a life marked by integrity, discipline, and unwavering determination.

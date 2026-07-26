@@ -13,7 +13,7 @@ published: true
 
 In the ever-evolving landscape of online entrepreneurship, the notion of digital [real estate](/posts/money_asset_diversification) has emerged as a compelling avenue for asset building and financial autonomy. Unlike traditional real estate, [digital assets](/posts/money_automated_content_empires)—particularly content sites—offer a unique blend of scalability, cash flow potential, and low overhead costs. As we delve into the art of acquiring profitable content sites, we will explore actionable strategies, evaluation criteria, and financing options, empowering you with the knowledge to craft a diversified portfolio of cash-flowing [digital assets](/posts/money_crypto_investments).
 
-![A focused approach to evaluating content sites for acquisition](https://mcjp.io/images/money_content_site_acquisitions_focus.png)
+![A focused approach to evaluating content sites for acquisition](https://mcjp-io.vercel.app/images/money_content_site_acquisitions_focus.svg)
 
 ### Understanding Digital Real Estate
 
@@ -75,7 +75,7 @@ Once you’ve identified a suitable content site, financing becomes a critical c
    - Post-acquisition, focus on improving SEO, content quality, and monetization strategies.
    - Consider expanding the site’s content to capture a broader audience.
 
-![A theme representing the strategic approach to digital asset acquisition](https://mcjp.io/images/money_content_site_acquisitions_theme.png)
+![A theme representing the strategic approach to digital asset acquisition](https://mcjp-io.vercel.app/images/money_content_site_acquisitions_theme.svg)
 
 ### Building Your Portfolio
 

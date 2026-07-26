@@ -13,7 +13,7 @@ published: true
 
 In an increasingly chaotic world, the concept of emotional stamina has emerged as a crucial pillar for those seeking [personal growth](/posts/discipline_emotional_intelligence_training) and resilience. Emotional stamina is not merely about withstanding life's trials; it is about developing the [mental fortitude](/posts/discipline_mental_fortitude_development) to navigate challenges with grace and determination. This article delves into actionable strategies for building emotional stamina and enhancing your resilience, allowing you to approach life’s adversities with confidence.
 
-![Illustration of focused discipline and emotional stamina](images/discipline_emotional_stamina_building_focus.png)
+![Illustration of focused discipline and emotional stamina](images/discipline_emotional_stamina_building_focus.svg)
 
 ### Understanding Emotional Stamina
 
@@ -80,9 +80,9 @@ A strong support network is essential for developing emotional stamina. Surround
 
 Building emotional stamina is a long-term investment in your mental and emotional well-being. It is essential to integrate these practices into your daily life rather than viewing them as temporary solutions. As you cultivate resilience, you will find that your capacity to handle stress and adversity increases, allowing you to pursue your ambitions with renewed vigor.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal, where you can find valuable resources to guide your journey.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, where you can find valuable resources to guide your journey.
 
-![Visual representation of emotional stamina and resilience themes](images/discipline_emotional_stamina_building_theme.png)
+![Visual representation of emotional stamina and resilience themes](images/discipline_emotional_stamina_building_theme.svg)
 
 ### Conclusion
 

@@ -53,7 +53,7 @@ Investing in digital art requires a strategic approach to ensure long-term succe
 - **Use Secure Wallets**:  
   Store your NFTs in secure digital wallets. This protects your investments from potential hacks or scams. 
 
-![Digital art investment focus, depicting various NFT artworks and their sale prices](images/money_digital_art_investment_focus.png)
+![Digital art investment focus, depicting various NFT artworks and their sale prices](images/money_digital_art_investment_focus.svg)
 
 ### Building Wealth Through Digital Art Investments
 
@@ -82,7 +82,7 @@ Furthermore, the increasing mainstream acceptance of NFTs and digital art will l
 
 For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee; this ensures you remain connected to the evolving digital art world.
 
-![Digital art investment theme, showcasing a vibrant representation of NFTs and their cultural impact](images/money_digital_art_investment_theme.png)
+![Digital art investment theme, showcasing a vibrant representation of NFTs and their cultural impact](images/money_digital_art_investment_theme.svg)
 
 ### Conclusion
 

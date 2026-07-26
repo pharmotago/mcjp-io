@@ -79,7 +79,7 @@ Strong [communication skills](/posts/life_relationships_communication) are found
 - **Leadership Development**: Effective communication is a hallmark of great leaders. By fostering open dialogue, you can inspire and motivate your team.
 - **Networking Opportunities**: Strong communication skills enhance your ability to build valuable professional networks.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal. This resource can provide additional strategies for cultivating effective communication within family dynamics.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. This resource can provide additional strategies for cultivating effective communication within family dynamics.
 
 ### Conclusion
 

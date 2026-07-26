@@ -38,7 +38,7 @@ A pervasive flaw in historical parenting has been the conflation of emotional su
 
 Anger, sadness, and frustration are data points, not directives. A father must teach his son to observe his emotional state without being governed by it. This requires moving beyond the simplistic directive to "man up" and instead engaging in nuanced dialogue about internal states. 
 
-Teach him that courage is not the absence of fear, but the decision to act rightly in the face of it. Navigating the complexities of modern fatherhood requires a philosophical anchor. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal, a resource dedicated to forging intentional family leadership. By integrating these timeless philosophical principles, a father can teach his son to create a space between stimulus and response—a space where character is defined.
+Teach him that courage is not the absence of fear, but the decision to act rightly in the face of it. Navigating the complexities of modern fatherhood requires a philosophical anchor. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, a resource dedicated to forging intentional family leadership. By integrating these timeless philosophical principles, a father can teach his son to create a space between stimulus and response—a space where character is defined.
 
 ## Long-Term Asset Building in Parenting
 

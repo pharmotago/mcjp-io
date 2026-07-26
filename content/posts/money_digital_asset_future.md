@@ -13,7 +13,7 @@ published: true
 
 In an era defined by rapid technological advancements and shifting economic paradigms, [digital assets](/posts/money_crypto_investments) have emerged as a cornerstone of modern [wealth building](/posts/money_asset_diversification). These assets, which include cryptocurrencies, non-fungible tokens (NFTs), and various forms of digital investments, are not merely fleeting trends; they represent a profound shift in how we think about value and investment. As we delve into the intricacies of digital assets, it becomes evident that they hold the potential to reshape the financial landscape and provide individuals with sustainable pathways to [financial growth](/posts/money_art_of_negotiation).
 
-![A focused individual contemplating digital assets as a future investment strategy](/images/money_digital_asset_future_focus.png)
+![A focused individual contemplating digital assets as a future investment strategy](/images/money_digital_asset_future_focus.svg)
 
 ### Understanding Digital Assets
 
@@ -58,7 +58,7 @@ As we look toward the future, several trends are poised to shape the evolution o
 - **Regulatory Developments**: Governments worldwide are beginning to establish regulatory frameworks for digital assets. Understanding these regulations will be crucial for compliance and investment strategy.
 - **Technological Advancements**: Innovations in blockchain technology and financial products will continue to emerge, creating new opportunities for wealth creation.
 
-![A futuristic representation of digital assets and their role in modern finance](/images/money_digital_asset_future_theme.png)
+![A futuristic representation of digital assets and their role in modern finance](/images/money_digital_asset_future_theme.svg)
 
 ### Conclusion
 

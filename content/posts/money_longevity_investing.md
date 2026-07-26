@@ -13,7 +13,7 @@ published: true
 
 In the realm of [personal finance](/posts/money_financial_independence_blueprint), the pursuit of wealth is often overshadowed by the urgency of immediate returns and quick profits. Yet, true [financial security](/posts/money_futureproof_investments) and prosperity are cultivated through a long-term perspective that prioritizes investing for longevity. This article aims to explore actionable strategies that ensure your wealth not only grows but is sustained throughout your lifetime.
 
-![A person studying investment strategies, surrounded by financial documents and a laptop](/images/money_longevity_investing_focus.png)
+![A person studying investment strategies, surrounded by financial documents and a laptop](/images/money_longevity_investing_focus.svg)
 
 ### Understanding the Importance of Longevity in Investing
 
@@ -68,7 +68,7 @@ To distill the above insights into actionable steps, consider this checklist:
 
 Integrity in financial dealings is paramount. This means being honest about your financial situation, avoiding get-rich-quick schemes, and ensuring that your investments align with your values. A long-lasting [wealth strategy](/posts/money_digital_holdco) is built on trustworthiness and ethical considerations, reflecting not only in your financial returns but also in your personal satisfaction and peace of mind.
 
-![A visual representation of long-term investment growth with a focus on sustainability and integrity](/images/money_longevity_investing_theme.png)
+![A visual representation of long-term investment growth with a focus on sustainability and integrity](/images/money_longevity_investing_theme.svg)
 
 ### Conclusion: The Path Forward
 

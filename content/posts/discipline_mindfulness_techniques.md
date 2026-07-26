@@ -85,7 +85,7 @@ To fully reap the benefits of mindfulness, it is essential to integrate these pr
 
 While mindfulness can yield significant benefits, it requires discipline to integrate these practices into your life consistently. Developing a routine that incorporates mindfulness techniques cultivates self-discipline, which is essential for achieving long-term goals. By committing to these practices, you build a mental asset that enhances your focus and reduces stress over time.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal. This resource complements your mindfulness journey by emphasizing the importance of integrity and discipline in personal development.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. This resource complements your mindfulness journey by emphasizing the importance of integrity and discipline in personal development.
 
 ### Conclusion
 

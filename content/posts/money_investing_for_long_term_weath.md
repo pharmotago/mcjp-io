@@ -13,7 +13,7 @@ published: true
 
 In the journey toward financial independence, long-term investing stands as a cornerstone strategy for [wealth creation](/posts/money_ai_entrepreneurship). It transcends the allure of quick returns, focusing instead on building substantial [financial security](/posts/money_futureproof_investments) over time. This article delves into actionable strategies and essential tips for successful long-term investing, emphasizing self-discipline and integrity in your financial pursuits.
 
-![Focused individual strategizing about long-term investing](https://www.mcjp.io/images/money_investing_for_long_term_weath_focus.png)
+![Focused individual strategizing about long-term investing](https://mcjp-io.vercel.app/images/money_investing_for_long_term_weath_focus.svg)
 
 ### The Importance of Long-Term Investing
 
@@ -80,7 +80,7 @@ Building wealth through long-term investing is not an overnight endeavor; it req
 
 To support your digital presence as you embark on your investment journey, consider launching your online assets on Hostinger to secure their exclusive partner discount.
 
-![Visual representation of long-term wealth growth and investment themes](https://www.mcjp.io/images/money_investing_for_long_term_weath_theme.png)
+![Visual representation of long-term wealth growth and investment themes](https://mcjp-io.vercel.app/images/money_investing_for_long_term_weath_theme.svg)
 
 Your path to financial independence is within reach. Embrace these strategies, and watch your wealth accumulate as you remain steadfast in your commitment to long-term investing.
 

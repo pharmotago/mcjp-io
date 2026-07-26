@@ -76,7 +76,7 @@ Self-discipline is the cornerstone of achieving both personal and professional g
 
 The implementation of these cognitive enhancement techniques extends beyond immediate gains in mental acuity. Over time, these practices can lead to profound changes in how you approach challenges, manage stress, and pursue your ambitions. The discipline you cultivate through these routines becomes a long-term asset, setting a foundation for enduring success.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal, where you will find resources that align with the principles of discipline and mental fortitude.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, where you will find resources that align with the principles of discipline and mental fortitude.
 
 ![An image representing the theme of cognitive enhancement and discipline in personal development](/images/discipline_cognitive_enhancement_techniques_theme.png)
 

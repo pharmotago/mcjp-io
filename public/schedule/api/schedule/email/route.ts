@@ -43,13 +43,13 @@ export async function POST(req: NextRequest) {
       port: 465,
       secure: true, // true for port 465
       auth: {
-        user: process.env.SMTP_USER || 'welcome@mcjp.io',
+        user: process.env.SMTP_USER || 'craftsisters.sydney@gmail.com',
         pass: process.env.SMTP_PASS || 'Lynden5620968.'
       }
     });
 
     const mailOptions = {
-      from: `"BriskSchedules" <${process.env.SMTP_USER || 'welcome@mcjp.io'}>`,
+      from: `"BriskSchedules" <${process.env.SMTP_USER || 'craftsisters.sydney@gmail.com'}>`,
       to: employee.email,
       subject: `📅 Your Work Schedule Briefing — Week of ${weekStart}`,
       text: rosterText,
@@ -60,7 +60,7 @@ export async function POST(req: NextRequest) {
           <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;" />
           <pre style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; font-family: monospace; white-space: pre-wrap; font-size: 14px;">${rosterText}</pre>
           <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;" />
-          <p style="font-size: 12px; color: #777;">Please log into the <a href="https://schedule.mcjp.io" style="color: #e67e22; text-decoration: none; font-weight: bold;">BriskSchedules portal</a> to review and submit leave requests or clock in/out.</p>
+          <p style="font-size: 12px; color: #777;">Please log into the <a href="https://woywoyamcalroster.vercel.app" style="color: #e67e22; text-decoration: none; font-weight: bold;">BriskSchedules portal</a> to review and submit leave requests or clock in/out.</p>
         </div>
       `
     };

@@ -64,7 +64,7 @@ Integrity is the alignment of actions with values and principles. For the [moder
 
 ### Long-term Asset Building: Emotional Resilience
 
-Building emotional resilience is akin to investing in a long-term asset. It requires dedication, patience, and an unwavering commitment to personal growth. This journey is not a solitary one; it can be enriched by resources like [The Stoic Dad](https://the-stoic-dad.mcjp.io/), which offers insights into masculine resilience and active parenting.
+Building emotional resilience is akin to investing in a long-term asset. It requires dedication, patience, and an unwavering commitment to personal growth. This journey is not a solitary one; it can be enriched by resources like [The Stoic Dad](https://the-stoic-dad.vercel.app/), which offers insights into masculine resilience and active parenting.
 
 ### Conclusion: Embracing the Masculine Journey
 

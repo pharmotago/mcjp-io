@@ -48,7 +48,7 @@ Developing a balanced lifestyle requires a commitment to [personal growth](/post
 - **Cultivate Relationships**: Invest time in nurturing meaningful relationships with family and friends. This support network is vital for emotional well-being.
 - **Practice Gratitude**: Regularly reflect on the positive aspects of your life to maintain a balanced perspective.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal. This resource provides valuable guidance on integrating stoic principles into everyday life, enhancing your journey toward a balanced existence.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. This resource provides valuable guidance on integrating stoic principles into everyday life, enhancing your journey toward a balanced existence.
 
 ### Action Plan: Achieving Work-Life Balance
 

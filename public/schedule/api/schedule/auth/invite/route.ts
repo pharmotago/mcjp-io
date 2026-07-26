@@ -45,7 +45,7 @@ export async function POST(req: NextRequest) {
     return jsonResponse({
       success: true,
       code,
-      inviteUrl: `https://schedule.mcjp.io/?invite=${code}`
+      inviteUrl: `https://woywoyamcalroster.vercel.app/?invite=${code}`
     }, 200);
 
   } catch (err: any) {

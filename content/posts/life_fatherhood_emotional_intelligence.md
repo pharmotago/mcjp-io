@@ -22,7 +22,7 @@ Fatherhood is an intricate journey that demands not only physical presence but a
 
 These skills are essential for fathers as they navigate the complexities of parenting. By developing [emotional intelligence](/posts/life_fatherhood_emotional_resilience), fathers can create a nurturing environment that fosters healthy emotional development in their children.
 
-![A father engaging in meaningful conversation with his child, reinforcing emotional connections through active listening and empathy.](/images/life_fatherhood_emotional_intelligence_focus.png)
+![A father engaging in meaningful conversation with his child, reinforcing emotional connections through active listening and empathy.](/images/life_fatherhood_emotional_intelligence_focus.svg)
 
 ### The Role of Emotional Intelligence in Fatherhood
 
@@ -71,10 +71,10 @@ Investing in emotional intelligence not only benefits immediate family dynamics 
 
 By modeling emotional intelligence, fathers create a legacy of emotional literacy that can be passed down through generations.
 
-![A father and child sharing a joyful moment, highlighting the importance of emotional connections and the lasting impact of emotionally intelligent parenting.](/images/life_fatherhood_emotional_intelligence_theme.png)
+![A father and child sharing a joyful moment, highlighting the importance of emotional connections and the lasting impact of emotionally intelligent parenting.](/images/life_fatherhood_emotional_intelligence_theme.svg)
 
 ### Conclusion
 
 Emotional intelligence is an invaluable asset in fatherhood, shaping not only the father-child relationship but also the overall family environment. By consciously developing emotional skills, fathers can foster resilience, enhance communication, and strengthen bonds within the family unit. As men committed to personal growth and integrity, investing in emotional intelligence is a crucial step toward becoming the best versions of ourselves—not just for our children, but for our entire family.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal. Embrace the journey of fatherhood with emotional intelligence as your guiding compass, and you will create a nurturing environment where your children can flourish.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. Embrace the journey of fatherhood with emotional intelligence as your guiding compass, and you will create a nurturing environment where your children can flourish.

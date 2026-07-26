@@ -65,7 +65,7 @@ A successful fatherhood journey is marked by intentional actions and ongoing ref
 
 Consider the story of Jake, a father of two and a mid-level executive. Faced with the demands of a growing career and a desire to remain present with his children, Jake implemented structured routines and dedicated family weekends. Although challenging at first, these changes led to improved work performance and deeper familial connections. Jake's journey exemplifies how deliberate strategies can transform the fatherhood experience.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal. This resource provides valuable perspectives for fathers striving to lead with strength and purpose.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. This resource provides valuable perspectives for fathers striving to lead with strength and purpose.
 
 ### Conclusion: Crafting Your Legacy
 

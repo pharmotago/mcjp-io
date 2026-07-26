@@ -82,6 +82,6 @@ Finally, regularly monitor your progress. Use your journal to track improvements
 
 Breaking bad habits is not just about eliminating negative behavior; it is about cultivating a mindset of self-discipline and resilience. Each step you take toward replacing detrimental habits with constructive ones is a step toward a more successful and fulfilling life.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal. Remember, the journey to personal growth requires patience and persistence. Every effort you make in breaking bad habits is an investment in your future success. 
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. Remember, the journey to personal growth requires patience and persistence. Every effort you make in breaking bad habits is an investment in your future success. 
 
 Embark on this transformative journey today, armed with the knowledge and strategies detailed in this guide. The power to change lies within you.

@@ -57,7 +57,7 @@ async function seedPeter() {
       },
       {
         name: 'Wendy Lobb',
-        email: 'wendy@mcjp.io',
+        email: 'craftsisters.sydney@gmail.com',
         role: 'Pharmacy Assistant',
         hourly_rate: 30.00,
         max_hours: 38,
@@ -91,7 +91,7 @@ async function seedPeter() {
       },
       {
         name: 'Emersyn',
-        email: 'emersyn@mcjp.io',
+        email: 'craftsisters.sydney@gmail.com',
         role: 'Pharmacy Assistant',
         hourly_rate: 30.00,
         max_hours: 38,

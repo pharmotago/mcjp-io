@@ -67,6 +67,6 @@ As fathers, part of our role is to prepare our children for the future. This inv
 
 The journey of fatherhood is an extraordinary opportunity to influence the next generation profoundly. By instilling a culture of innovation, fathers can prepare their families for a future filled with possibilities. This requires a commitment to self-discipline, integrity, and forward-thinking strategies that will empower children to navigate and shape their world confidently.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal, where you'll find resources that resonate with the principles discussed here.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, where you'll find resources that resonate with the principles discussed here.
 
 Embrace the challenge of fatherhood with courage and creativity, and lead your family into a future that you can be proud of. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.

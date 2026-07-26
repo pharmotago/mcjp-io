@@ -72,7 +72,7 @@ No father should navigate the complexities of parenthood alone. Cultivating a su
 
 Building [emotional resilience](/posts/life_fatherhood_mental_health) is not merely about surviving the challenges of fatherhood; it is about thriving and fostering an environment where children can flourish emotionally. The strategies outlined above are not just temporary fixes but long-term investments in both a father’s [personal growth](/posts/discipline_emotional_intelligence_training) and his children’s emotional well-being. 
 
-As you embark on this journey, remember that emotional resilience is a skill that can be developed over time with dedication and practice. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal, where you can find additional resources to support your growth as a father.
+As you embark on this journey, remember that emotional resilience is a skill that can be developed over time with dedication and practice. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, where you can find additional resources to support your growth as a father.
 
 ![Father and child enjoying a moment of connection, emphasizing the importance of emotional resilience in family life](/images/life_fatherhood_emotional_resilience_theme.png)
 

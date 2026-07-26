@@ -10,7 +10,7 @@ keywords: ["endurance","training","physical stamina","mental resilience"]
 
 In a world that often prioritizes instant gratification, the concept of endurance training stands as a testament to the power of perseverance and self-discipline. Endurance training not only enhances physical stamina but also cultivates [mental resilience](/posts/discipline_masculine_mental_resilience)—an essential asset in both personal and professional realms. By understanding the techniques and benefits of endurance training, you can forge a path toward holistic development that nurtures both body and mind.
 
-![Endurance training methods focusing on discipline](images/discipline_endurance_training_methods_focus.png)
+![Endurance training methods focusing on discipline](images/discipline_endurance_training_methods_focus.svg)
 
 ### The Foundation of Endurance Training
 
@@ -42,7 +42,7 @@ As you progress in your endurance training journey, you may notice profound chan
 - **Improved Focus and Concentration**: The mental fortitude developed through endurance training enhances cognitive abilities, allowing for better focus and concentration in daily tasks.
 - **Greater Resilience**: Enduring physical discomfort teaches valuable life lessons about perseverance and adaptability, equipping you to face challenges head-on.
 
-![Endurance training methods theme](images/discipline_endurance_training_methods_theme.png)
+![Endurance training methods theme](images/discipline_endurance_training_methods_theme.svg)
 
 ### Making Endurance Training a Way of Life
 
@@ -54,6 +54,6 @@ To ensure sustainability in your training, consider the following tips:
 - **Cultivate a Growth Mindset**: Embrace challenges as opportunities for growth. Understand that every setback is a chance to learn and improve.
 - **Reflect Regularly**: Take time to reflect on your training experiences, both the successes and the struggles. This will deepen your understanding of your journey and reinforce your commitment to endurance.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal. This resource provides thoughtful perspectives on discipline that complement your endurance training journey.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. This resource provides thoughtful perspectives on discipline that complement your endurance training journey.
 
 In conclusion, endurance training is a powerful tool for enhancing both physical and mental stamina. By embracing the principles and strategies outlined above, you can build a foundation of resilience that not only propels you toward your fitness goals but enriches every aspect of your life. Remember, the journey of endurance is as much about the destination as it is about the lessons learned along the way.

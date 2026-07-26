@@ -17,7 +17,7 @@ In an era where financial autonomy and social responsibility are more intertwine
 
 Impact investments are defined as investments made with the intention to generate positive, measurable social and environmental impact alongside a financial return. Unlike traditional investments that prioritize financial gains alone, impact investments focus on addressing critical challenges—be it climate change, healthcare access, education, or poverty alleviation. This dual-focused approach enables investors not only to contribute to societal progress but also to create long-lasting wealth.
 
-![A diverse group of people collaborating on a project, symbolizing impactful investments](images/money_impactful_investments_focus.png)
+![A diverse group of people collaborating on a project, symbolizing impactful investments](images/money_impactful_investments_focus.svg)
 
 ### The Benefits of Investing with Purpose
 
@@ -69,7 +69,7 @@ Building wealth through impactful investments is not merely a financial strategy
 
 Take the first step towards impactful investing today by exploring opportunities that resonate with your values and financial goals. We recommend launching your [digital assets](/posts/money_ai_content_licensing) on Hostinger to secure their exclusive partner discount, enabling you to create a robust online presence that can facilitate your impact investment journey.
 
-![A visual representation of diverse impact investments, symbolizing growth and societal impact](images/money_impactful_investments_theme.png)
+![A visual representation of diverse impact investments, symbolizing growth and societal impact](images/money_impactful_investments_theme.svg)
 
 In conclusion, the path to [financial growth](/posts/money_art_of_negotiation) through impact investing is paved with the principles of self-discipline, integrity, and a steadfast commitment to social responsibility. By aligning your investments with your values, you can not only enhance your wealth but also contribute to the betterment of society. Embrace the opportunity to make a meaningful difference today. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
 

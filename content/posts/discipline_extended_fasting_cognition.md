@@ -54,7 +54,7 @@ The practice of extended fasting is not merely about physical health; it’s abo
 
 To maximize the benefits of extended fasting, it is crucial to integrate it into a broader lifestyle that promotes mental and physical health. Regular physical activity, mindfulness practices, and adequate sleep are essential components that complement fasting. By creating a holistic approach, you can enhance not only your [cognitive performance](/posts/discipline_flow_state_optimization) but also your overall well-being.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal. Embracing discipline in all aspects of life, including parenting, can have profound effects on personal growth and success.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. Embracing discipline in all aspects of life, including parenting, can have profound effects on personal growth and success.
 
 ### Conclusion
 

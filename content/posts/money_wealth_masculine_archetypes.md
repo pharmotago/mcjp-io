@@ -27,7 +27,7 @@ The Warrior archetype embodies courage, tenacity, and the relentless pursuit of 
 - Create a rigorous budget that encompasses all your income streams and expenses.
 - Establish an emergency fund to protect against unexpected financial challenges.
 
-![Focused financial planning inspired by the Warrior archetype](/images/money_wealth_masculine_archetypes_focus.png)
+![Focused financial planning inspired by the Warrior archetype](/images/money_wealth_masculine_archetypes_focus.svg)
 
 ### The King: Vision and Leadership
 
@@ -80,7 +80,7 @@ While each archetype offers unique strengths, the true power lies in integrating
 - **Create a Balanced Strategy**: Ensure your financial plan incorporates elements from all four archetypes, allowing for a comprehensive approach to wealth building.
 - **Regularly Review and Adapt**: As your financial situation evolves, revisit your strategies to ensure they remain aligned with your integrated archetypal approach.
 
-![Thematic representation of masculine archetypes and their financial implications](/images/money_wealth_masculine_archetypes_theme.png)
+![Thematic representation of masculine archetypes and their financial implications](/images/money_wealth_masculine_archetypes_theme.svg)
 
 ### Conclusion
 

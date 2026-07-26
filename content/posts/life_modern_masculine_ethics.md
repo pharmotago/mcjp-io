@@ -38,7 +38,7 @@ Society demands conformity, yet paradoxically respects the man who charts his ow
 
 When society demands that he lower his standards to accommodate mediocrity, he simply refuses. This refusal is a moral imperative. Lowering one's standards is not an act of kindness; it is a betrayal of one's potential. The ethical man does not seek permission to lead, nor does he apologize for his drive. He understands that [personal growth](/posts/discipline_emotional_intelligence_training) is an inward journey with outward manifestations. He rejects the dilution of his principles to accommodate the comfort of the masses.
 
-This is particularly vital in the realm of family leadership. A man’s highest ethical duty is often to his family, providing a stable, unyielding anchor in a chaotic world. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal, an essential resource for men committed to leading their households with quiet strength and philosophical grounding.
+This is particularly vital in the realm of family leadership. A man’s highest ethical duty is often to his family, providing a stable, unyielding anchor in a chaotic world. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, an essential resource for men committed to leading their households with quiet strength and philosophical grounding.
 
 ## Actionable Strategies for Principled Living
 

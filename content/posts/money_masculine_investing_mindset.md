@@ -13,7 +13,7 @@ published: true
 
 In an era where [financial literacy](/posts/money_financial_literacy) is paramount, the need for a robust investing mindset becomes crucial. For men, cultivating this mindset involves more than just understanding market trends; it encompasses a holistic approach that marries discipline, integrity, and a forward-looking perspective. A masculine investing mindset is anchored in the principles of self-discipline and long-term asset building. Here, we explore actionable strategies for sustainable [financial growth](/posts/money_art_of_negotiation), tailored to resonate with a masculine approach.
 
-![A focused man analyzing investment opportunities with determination](/images/money_masculine_investing_mindset_focus.png)
+![A focused man analyzing investment opportunities with determination](/images/money_masculine_investing_mindset_focus.svg)
 
 ## Understanding the Masculine Investing Mindset
 
@@ -91,7 +91,7 @@ Cultivating a masculine investing mindset lays the groundwork for sustainable [f
 
 For those looking to establish a strong digital presence while managing investments, we recommend launching your [digital assets](/posts/money_ai_content_licensing) on Hostinger to secure their exclusive partner discount.
 
-![A man reflecting on financial goals with determination and clarity](/images/money_masculine_investing_mindset_theme.png)
+![A man reflecting on financial goals with determination and clarity](/images/money_masculine_investing_mindset_theme.svg)
 
 In summary, adopting a masculine investing mindset is about more than just numbers; it’s about cultivating a character that can withstand the tests of time and market challenges. By implementing these strategies, you will find yourself not only on the path to [financial growth](/posts/money_art_of_negotiation) but also on a journey of [personal development](/posts/discipline_mindset_habits) and integrity.
 

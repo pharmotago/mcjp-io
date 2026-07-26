@@ -73,6 +73,6 @@ To implement your morning routine effectively, consider the following checklist:
 
 Mastering your day begins with the simple yet profound practice of a morning routine. By committing to a disciplined approach in the early hours, you lay the groundwork for success throughout the day. In a world filled with distractions, the power to define your morning—and, consequently, your life—lies in your hands.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal. Embrace the journey of self-improvement and watch as your disciplined morning routine transforms not only your days but your life as a whole. 
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. Embrace the journey of self-improvement and watch as your disciplined morning routine transforms not only your days but your life as a whole. 
 
 As you embark on this transformative path, remember that consistency is key. The habits you build today will pave the way for the success of tomorrow. Start mastering your day—your future self will thank you. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.

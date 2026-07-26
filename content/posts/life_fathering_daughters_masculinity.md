@@ -44,7 +44,7 @@ To operationalize this philosophy, fathers must implement a disciplined approach
 *   **Role-Play Difficult Scenarios:** Do not wait for her to face peer pressure or romantic manipulation. Engage in strategic role-play. Teach her the exact language to use when a boundary is crossed. Equip her with the verbal tools to say, "That does not work for me," or "I am not comfortable with this."
 *   **Enforce Consequences:** Teach her that boundaries without consequences are merely suggestions. Help her understand that walking away from a compromised situation is a sign of strength, not weakness.
 
-To cultivate this level of unwavering discipline, fathers must continually refine their own philosophical framework. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal. Embracing stoic principles allows a father to lead without anxiety, providing a calm, rational foundation upon which his daughter can build her life.
+To cultivate this level of unwavering discipline, fathers must continually refine their own philosophical framework. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. Embracing stoic principles allows a father to lead without anxiety, providing a calm, rational foundation upon which his daughter can build her life.
 
 ## The Long-Term Strategy of Fatherhood
 

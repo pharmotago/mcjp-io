@@ -13,7 +13,7 @@ published: true
 
 The landscape of [digital finance](/posts/money_digital_finance_innovation) is in a state of profound transformation, largely driven by the advent of smart contracts. These self-executing agreements, coded onto blockchain platforms, are not just reshaping transactions; they are redefining our understanding of [wealth creation](/posts/money_ai_entrepreneurship). As we delve into the mechanics and implications of smart contracts, we will explore actionable strategies to harness their potential for financial autonomy.
 
-![Exploring smart contracts in digital finance](./images/money_smart_contracts_exploration_focus.png)
+![Exploring smart contracts in digital finance](./images/money_smart_contracts_exploration_focus.svg)
 
 ### Understanding Smart Contracts
 
@@ -59,7 +59,7 @@ The integration of smart contracts into our financial systems signals the dawn o
 
 To navigate this transition effectively, consider launching your [digital assets](/posts/money_ai_content_licensing) on Hostinger to secure their exclusive partner discount. This ensures a reliable and high-performance platform for your financial endeavors.
 
-![Thematic exploration of smart contracts](./images/money_smart_contracts_exploration_theme.png)
+![Thematic exploration of smart contracts](./images/money_smart_contracts_exploration_theme.svg)
 
 ### Conclusion
 

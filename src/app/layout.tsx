@@ -69,7 +69,7 @@ export default function RootLayout({
               <a href="/?category=Life" className="hover:text-slate-900 transition-colors">Life</a>
               <a href="/?category=Discipline" className="hover:text-slate-900 transition-colors">Discipline</a>
               <span className="text-slate-300">|</span>
-              <a href="https://the-stoic-dad.mcjp.io" target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:text-amber-700 font-semibold transition-colors">The Stoic Dad</a>
+              <a href="https://the-stoic-dad.vercel.app" target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:text-amber-700 font-semibold transition-colors">The Stoic Dad</a>
             </nav>
           </div>
         </header>

@@ -53,7 +53,7 @@ Holistic success is ultimately about personal fulfillment and self-actualization
 
 - **Goal Setting**: Establish clear, measurable goals that resonate with your core values.
 - **Journaling**: Reflect on daily experiences and challenges, identifying insights that can guide future actions.
-- **Community Engagement**: Participate in groups or forums that encourage personal development and shared learning experiences. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal.
+- **Community Engagement**: Participate in groups or forums that encourage personal development and shared learning experiences. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal.
 
 ### Action Plan for Mind-Body Alignment
 

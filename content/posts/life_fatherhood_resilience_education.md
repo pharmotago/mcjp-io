@@ -38,7 +38,7 @@ You cannot lecture your way to [mental toughness](/posts/discipline_mental_tough
 
 When you face a setback—a professional failure, a financial stressor, or a daily frustration—your reaction serves as the blueprint for your child's future behavior. Do you lash out? Do you retreat into apathy? Or do you vocalize a calm, analytical approach to the problem? 
 
-Modeling emotional regulation requires you to narrate your internal processes. When faced with a challenge, say out loud, "This is frustrating, but losing my temper won't fix it. Let's figure out the next best step." For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal, which provides a comprehensive framework for integrating philosophical stoicism into the daily grind of fatherhood.
+Modeling emotional regulation requires you to narrate your internal processes. When faced with a challenge, say out loud, "This is frustrating, but losing my temper won't fix it. Let's figure out the next best step." For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, which provides a comprehensive framework for integrating philosophical stoicism into the daily grind of fatherhood.
 
 ### Pillar III: Engineering Productive Struggle
 

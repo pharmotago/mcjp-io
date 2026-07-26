@@ -33,7 +33,7 @@ To build a fortress portfolio, you must understand the primary categories of alt
 
 Gold and silver are not investments that generate yield; they are stores of value. They are the ultimate insurance policy against fiscal recklessness. When fiat currencies lose their purchasing power, hard money retains its purchasing power. Allocating a small, fixed percentage of your portfolio to physical commodities is an act of financial prudence. It anchors your wealth in physical reality, hedging against the abstract risks of the digital financial age.
 
-![A disciplined investor analyzing diverse alternative asset charts on a minimalist desk, representing focused wealth building and strategic allocation](/images/money_investing_in_alternative_assets_focus.png)
+![A disciplined investor analyzing diverse alternative asset charts on a minimalist desk, representing focused wealth building and strategic allocation](/images/money_investing_in_alternative_assets_focus.svg)
 
 ### 3. Private Equity and Venture Capital
 
@@ -61,7 +61,7 @@ Transitioning into alternative investments should be methodical. Do not abandon 
 *   **Execute Rigorous Due Diligence:** Never invest in what you do not understand. Read the prospectuses, audit the financials, and physically inspect the properties. Demand transparency and integrity from your partners.
 *   **Commit to the Long Term:** Once deployed, let the capital work. Alternative assets do not produce daily quotes to stroke your ego. They compound quietly in the background, rewarding only those with the patience to let the thesis play out.
 
-![A conceptual overview of a well-balanced financial portfolio spanning real estate, gold, and digital assets, symbolizing comprehensive wealth strategy and resilience](/images/money_investing_in_alternative_assets_theme.png)
+![A conceptual overview of a well-balanced financial portfolio spanning real estate, gold, and digital assets, symbolizing comprehensive wealth strategy and resilience](/images/money_investing_in_alternative_assets_theme.svg)
 
 ## The Integration of Integrity and Action
 

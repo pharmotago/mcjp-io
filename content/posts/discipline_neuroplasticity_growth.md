@@ -87,7 +87,7 @@ The ability to change your brain translates into real-world benefits:
 
 Incorporating the principles of neuroplasticity into your [personal growth](/posts/discipline_habit_breaking) journey is not merely a theoretical exercise; it is a practical approach that can lead to profound transformation. 
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal. 
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. 
 
 ![Visual representation of neuroplasticity's impact on personal growth and discipline](/images/discipline_neuroplasticity_growth_theme.png)
 

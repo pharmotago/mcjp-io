@@ -46,7 +46,7 @@ To integrate tactical breathing into your routine, consider the following action
 
 ### Building Long-Term Discipline
 
-The key to mastering tactical breathing lies in consistency and discipline. By committing to regular practice, you strengthen your ability to remain composed under pressure. This self-discipline is not just a tool for stress management; it's a long-term asset that enhances all areas of life. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal.
+The key to mastering tactical breathing lies in consistency and discipline. By committing to regular practice, you strengthen your ability to remain composed under pressure. This self-discipline is not just a tool for stress management; it's a long-term asset that enhances all areas of life. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal.
 
 ![Image depicting a thematic representation of discipline, breathwork, and cognitive focus](/images/discipline_breathwork_control_theme.png)
 

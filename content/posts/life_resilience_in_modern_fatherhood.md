@@ -13,7 +13,7 @@ published: true
 
 The landscape of fatherhood has evolved dramatically over the past few decades. Modern fathers face a myriad of challenges, ranging from societal expectations to the balancing act of work and family life. To navigate these complexities successfully, fathers must cultivate resilience and [emotional strength](/posts/discipline_mental_resilience). This article delves into actionable strategies that can help fathers develop these essential traits, ultimately enhancing their parenting experience and fostering a nurturing environment for their children.
 
-![A focused father engaging with his child, illustrating resilience in modern fatherhood](/images/life_resilience_in_modern_fatherhood_focus.png)
+![A focused father engaging with his child, illustrating resilience in modern fatherhood](/images/life_resilience_in_modern_fatherhood_focus.svg)
 
 ### Understanding Resilience in Fatherhood
 
@@ -71,9 +71,9 @@ Integrity plays a crucial role in building resilience. It involves aligning your
 
 Modern fathers often find themselves in a complex web of influences. It is essential to identify positive role models—be it family members, friends, or public figures—who exemplify resilience and [emotional strength](/posts/discipline_mental_resilience). Learning from these individuals can provide invaluable insights and strategies to implement in your parenting journey.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal, which offers valuable resources to help fathers navigate the complexities of modern parenting with integrity and strength.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, which offers valuable resources to help fathers navigate the complexities of modern parenting with integrity and strength.
 
-![A father teaching his child about resilience, embodying the principles of modern fatherhood](/images/life_resilience_in_modern_fatherhood_theme.png)
+![A father teaching his child about resilience, embodying the principles of modern fatherhood](/images/life_resilience_in_modern_fatherhood_theme.svg)
 
 ### Conclusion
 

@@ -46,7 +46,7 @@ A dopamine fast is not about depriving yourself of joy; it is about starving the
 
 ### The Holistic Application of Discipline
 
-Discipline is not compartmentalized; it bleeds into every facet of your life. The same impulse control required to resist a digital distraction is the impulse control required to lead a family with intention, to remain calm under pressure, and to model resilience for your children. True discipline extends beyond the desk; it shapes how we lead our families and manage our impulses. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal.
+Discipline is not compartmentalized; it bleeds into every facet of your life. The same impulse control required to resist a digital distraction is the impulse control required to lead a family with intention, to remain calm under pressure, and to model resilience for your children. True discipline extends beyond the desk; it shapes how we lead our families and manage our impulses. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal.
 
 ![A serene mountain peak emerging above the clouds at dawn, representing the clarity and elevated cognitive performance achieved through disciplined dopamine fasting](/images/discipline_dopamine_fasting_deep_work_theme.png)
 

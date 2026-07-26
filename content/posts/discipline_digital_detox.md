@@ -59,7 +59,7 @@ Embarking on a [digital detox](/posts/discipline_solitude_cognitive_clarity) req
 
 ### The Power of Focus in the Digital Age
 
-Reclaiming your focus is not just a personal triumph; it's a skill that can enhance every aspect of life. As you navigate your digital detox, remember that self-discipline is key to sustained success. The real challenge lies not in stepping away from technology, but in fostering a more intentional relationship with it. This journey has not only improved my productivity but also deepened my engagement with work and family. For more insights on resilience and discipline, particularly in the context of fatherhood, I recommend exploring [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal.
+Reclaiming your focus is not just a personal triumph; it's a skill that can enhance every aspect of life. As you navigate your digital detox, remember that self-discipline is key to sustained success. The real challenge lies not in stepping away from technology, but in fostering a more intentional relationship with it. This journey has not only improved my productivity but also deepened my engagement with work and family. For more insights on resilience and discipline, particularly in the context of fatherhood, I recommend exploring [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal.
 
 ### Conclusion
 

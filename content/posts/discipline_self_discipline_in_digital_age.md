@@ -78,7 +78,7 @@ Ultimately, self-discipline is not just about resisting distractions; it is abou
 
 Cultivating self-discipline in the digital age is a journey that requires commitment, awareness, and the application of effective strategies. By mastering focus and [time management](/posts/discipline_time_management_strategies) techniques, you can reclaim your time and enhance your productivity. 
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal, which offers valuable resources for those aiming to instill discipline in their family life as well.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, which offers valuable resources for those aiming to instill discipline in their family life as well.
 
 ![A thoughtful individual mapping out their day, representing the journey toward self-discipline in a digital world](/images/discipline_self_discipline_in_digital_age_theme.png)
 

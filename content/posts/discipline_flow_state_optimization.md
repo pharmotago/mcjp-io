@@ -78,7 +78,7 @@ Just as physical fitness requires consistent training, so does your cognitive ca
 
 Achieving deep work and entering flow states is not solely about tactics; it also requires a strong foundation of self-discipline and resilience. The ability to consistently perform at a high level is built over time, and it is crucial to maintain integrity in your work habits. This commitment is vital for long-term [asset building](/posts/money_content_site_acquisitions) in your career.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal. It offers valuable perspectives on maintaining focus not only in professional life but also in personal development.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. It offers valuable perspectives on maintaining focus not only in professional life but also in personal development.
 
 ### The Role of Rest and Recovery
 

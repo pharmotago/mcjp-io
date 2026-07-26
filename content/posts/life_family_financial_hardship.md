@@ -55,7 +55,7 @@ While financial stress can strain relationships, it can also serve as an opportu
 
 In moments of hardship, embracing your [masculine duty](/posts/life_family_crisis_management) is paramount. This isn't just about financial responsibility; it’s about being a steadfast pillar for your family. Your role as a leader is to guide your loved ones through the storm, instilling values of resilience, integrity, and unity.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal. This resource offers valuable perspectives on navigating the complexities of fatherhood and financial challenges.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. This resource offers valuable perspectives on navigating the complexities of fatherhood and financial challenges.
 
 ### Conclusion: Steering Towards Calm Waters
 

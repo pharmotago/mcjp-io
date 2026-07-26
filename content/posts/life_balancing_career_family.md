@@ -51,7 +51,7 @@ While immediate successes are gratifying, focusing on long-term [asset building]
 - **Family Meetings**: Schedule regular family discussions to align household goals and expectations.
 - **Professional Development**: Allocate time for skill enhancement that benefits both career and personal life.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal.
 
 ![A thematic image depicting the harmony between career and family life](/images/life_balancing_career_family_theme.png)
 

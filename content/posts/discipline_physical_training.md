@@ -69,7 +69,7 @@ The benefits of coupling physical exercise with [cognitive training](/posts/disc
 
 Moreover, as you cultivate these dual training methodologies, you foster a mindset of continuous improvement—an essential trait for long-term success in any endeavor. This discipline not only enhances your cognitive abilities but also strengthens your character and integrity.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal. This resource provides valuable perspectives on cultivating discipline and character in both personal and familial contexts.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. This resource provides valuable perspectives on cultivating discipline and character in both personal and familial contexts.
 
 ### Conclusion: The Path to Holistic Success
 

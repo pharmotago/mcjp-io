@@ -54,7 +54,7 @@ Emotional adaptability can serve as a framework for modern [masculine success](/
 
 ### The Role of Community and Support
 
-As men embark on the journey of emotional adaptability, connecting with like-minded individuals can provide support and encouragement. Engaging with communities focused on personal growth can reinforce the importance of emotional intelligence in masculinity. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal.
+As men embark on the journey of emotional adaptability, connecting with like-minded individuals can provide support and encouragement. Engaging with communities focused on personal growth can reinforce the importance of emotional intelligence in masculinity. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal.
 
 ### Conclusion: The Path Forward
 

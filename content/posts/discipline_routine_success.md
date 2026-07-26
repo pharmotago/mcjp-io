@@ -67,7 +67,7 @@ In moments of hesitation, remind yourself of the long-term benefits of adhering 
 
 Success is not a destination but a continuous journey. High achievers understand that the process of achieving goals is as important as the goals themselves. By creating a success routine, you are not merely chasing after results; you are cultivating a mindset of excellence that permeates every aspect of your life.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.mcjp.io/) portal, which offers strategies for developing discipline in both personal and family contexts.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, which offers strategies for developing discipline in both personal and family contexts.
 
 ### Conclusion
 
