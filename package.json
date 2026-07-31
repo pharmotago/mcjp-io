@@ -10,6 +10,8 @@
     "auto-publish": "node scripts/auto_publish.js",
     "deploy": "git push origin main",
     "sync-deploy": "powershell -Command \"Copy-Item -Path 'c:/Antigravity/BriskSchedules/js/app.js' -Destination 'c:/Antigravity/mcjp-io/public/schedule/js/app.js' -Force; Copy-Item -Path 'c:/Antigravity/BriskSchedules/css/styles.css' -Destination 'c:/Antigravity/mcjp-io/public/schedule/css/styles.css' -Force; Copy-Item -Path 'c:/Antigravity/BriskSchedules/index.html' -Destination 'c:/Antigravity/mcjp-io/public/schedule/index.html' -Force\" && git add -A && git commit -m \"sync: BriskSchedules → mcjp-io [auto]\" && git push origin main",
+    "vercel-link": "vercel link --yes --scope mcjp --project mcjp-io && vercel git connect https://github.com/pharmotago/knowledge_hub --yes",
+    "install-vercel": "npm install -g vercel",
     "seed:firebase": "node firebase-seed.js",
     "copy-images": "node scratch/copy_images.js",
     "inject-links": "node scripts/inject_internal_links.js",
