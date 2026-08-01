@@ -4,6 +4,7 @@ date: "2026-07-25"
 category: "Discipline"
 description: "Uncover the techniques and benefits of endurance training that enhance both physical and mental stamina, fostering resilience in everyday life."
 keywords: ["endurance","training","physical stamina","mental resilience"]
+published: true
 ---
 
 ## Endurance Training: Building Physical and Mental Stamina

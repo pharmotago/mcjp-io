@@ -4,6 +4,7 @@ date: "2026-07-22"
 category: "Discipline"
 description: "Explore various cognitive enhancement techniques to boost mental acuity and focus. Learn how these practices can aid in achieving disciplined personal and professional goals."
 keywords: ["cognitive enhancement","mental acuity","discipline"]
+published: true
 ---
 
 ## Cognitive Enhancement Techniques for Modern Men

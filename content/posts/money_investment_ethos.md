@@ -4,6 +4,7 @@ date: "2026-07-22"
 category: "Money"
 description: "Learn how to develop a personal investment ethos grounded in solid financial principles. Discover how this approach can lead to sustained wealth growth."
 keywords: ["investment ethos","wealth growth","financial principles"]
+published: true
 ---
 
 ## Crafting Your Investment Ethos: Principles for Wealth Growth

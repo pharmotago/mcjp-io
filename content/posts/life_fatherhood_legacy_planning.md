@@ -4,6 +4,7 @@ date: "2026-07-22"
 category: "Life"
 description: "Examine the concept of legacy in fatherhood and how to effectively plan for the future. Explore strategies to ensure your values and wealth are passed down."
 keywords: ["fatherhood","legacy","future planning"]
+published: true
 ---
 
 ## Fatherhood and Legacy: Planning for Future Generations

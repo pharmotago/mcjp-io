@@ -4,6 +4,7 @@ date: "2026-07-23"
 category: "Discipline"
 description: "Discover effective rituals and practices that can help sharpen your mind and boost your performance in both personal and professional arenas."
 keywords: ["mental sharpness","performance","discipline","focus"]
+published: true
 ---
 
 ## Mental Sharpening Rituals for Peak Performance

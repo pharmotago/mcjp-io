@@ -4,6 +4,7 @@ date: "2026-07-23"
 category: "Life"
 description: "This article delves into how embracing creativity can enhance personal growth and redefine modern masculinity in today's world."
 keywords: ["creativity","masculinity","personal growth","innovation"]
+published: true
 ---
 
 ## The Power of Creativity in Modern Masculinity

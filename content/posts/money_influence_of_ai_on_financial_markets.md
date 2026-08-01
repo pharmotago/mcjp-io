@@ -4,6 +4,7 @@ date: "2026-07-26"
 category: "Money"
 description: "Analyze the growing impact of artificial intelligence on financial markets and explore future trends and predictions for investors."
 keywords: ["AI","financial markets","investment trends","future of finance"]
+published: true
 ---
 
 ## The Influence of AI on Financial Markets: Trends and Predictions

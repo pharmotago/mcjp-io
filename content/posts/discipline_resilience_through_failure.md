@@ -4,6 +4,7 @@ date: "2026-07-26"
 category: "Discipline"
 description: "Examine how to develop resilience by embracing failure and using setbacks as stepping stones for achieving personal and professional success."
 keywords: ["resilience","failure","success mindset","personal growth"]
+published: true
 ---
 
 ## Resilience Through Failure: Turning Setbacks into Success

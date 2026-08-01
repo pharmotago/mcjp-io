@@ -4,6 +4,7 @@ date: "2026-07-21"
 category: "Money"
 description: "Explore strategies for maintaining financial agility in today's volatile economic landscape. Learn how to pivot your investments and savings to ensure stability and growth."
 keywords: ["financial agility","economic uncertainty","wealth management"]
+published: true
 ---
 
 ## Mastering Financial Agility: Navigating Economic Uncertainty

@@ -4,6 +4,7 @@ date: "2026-07-25"
 category: "Life"
 description: "This article explores the role of emotional intelligence in effective fatherhood and how it can strengthen family bonds and guide children successfully."
 keywords: ["fatherhood","emotional intelligence","parenting","family"]
+published: true
 ---
 
 ## Building Emotional Intelligence in Fatherhood

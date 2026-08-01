@@ -4,6 +4,7 @@ date: "2026-07-29"
 category: "Money"
 description: "Explore the infinite banking concept as a strategy to build personal wealth and achieve financial independence. Learn how to leverage life insurance policies to create a sustainable financial ecosystem."
 keywords: ["infinite banking","personal finance","wealth building","financial independence"]
+published: true
 ---
 
 ## Mastering the Infinite Banking Concept: A Modern Approach to Personal Finance

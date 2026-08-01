@@ -4,6 +4,7 @@ date: "2026-07-25"
 category: "Money"
 description: "Explore the psychological triggers behind spending habits and discover strategies for mastering financial behaviors to build sustainable wealth."
 keywords: ["spending habits","financial psychology","money management","wealth building"]
+published: true
 ---
 
 ## The Psychology of Spending: How to Master Your Financial Habits

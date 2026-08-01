@@ -5,6 +5,7 @@ category: "Discipline"
 description: "How to construct a daily operational routine that isolates you from passive consumption, protecting cognitive energy for high-value execution."
 keywords: ["focus hacks","dopamine detox","deep work habits","self discipline"]
 ogImage: "/og/dopamine-shield.png"
+published: true
 ---
 
 ## The Dopamine Shield: Building Focus in a World of Distraction

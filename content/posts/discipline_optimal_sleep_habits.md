@@ -4,6 +4,7 @@ date: "2026-07-22"
 category: "Discipline"
 description: "Delve into the science of sleep and its impact on discipline and productivity. Learn techniques to enhance sleep quality for improved focus and performance."
 keywords: ["sleep habits","peak performance","discipline"]
+published: true
 ---
 
 ## Optimizing Sleep for Peak Performance and Discipline

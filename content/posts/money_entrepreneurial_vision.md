@@ -4,6 +4,7 @@ date: "2026-07-23"
 category: "Money"
 description: "Learn how to develop a visionary mindset that propels entrepreneurial ventures towards unprecedented success and innovation."
 keywords: ["entrepreneurship","visionary mindset","business growth","success"]
+published: true
 ---
 
 ## Cultivating a Visionary Mindset for Entrepreneurial Success

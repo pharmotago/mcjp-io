@@ -4,6 +4,7 @@ date: "2026-07-28"
 category: "Life"
 description: "Learn how to craft a meaningful masculine legacy through purposeful living, leadership within the family, and making a lasting impact in your community."
 keywords: ["legacy","purpose","influence","masculinity"]
+published: true
 ---
 
 ## Creating a Masculine Legacy: Building a Life of Purpose and Influence

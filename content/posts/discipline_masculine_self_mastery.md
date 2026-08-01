@@ -4,6 +4,7 @@ date: "2026-07-29"
 category: "Discipline"
 description: "Discover methods to achieve self-mastery through discipline, focusing on the pursuit of greatness in both personal development and professional endeavors."
 keywords: ["self-mastery","discipline","greatness","masculinity"]
+published: true
 ---
 
 ## Masculine Self-Mastery: Cultivating Discipline in the Pursuit of Greatness

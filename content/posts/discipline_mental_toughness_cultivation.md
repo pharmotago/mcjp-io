@@ -4,6 +4,7 @@ date: "2026-07-27"
 category: "Discipline"
 description: "Learn effective strategies for cultivating mental toughness and building the resilience necessary for overcoming life's challenges and achieving sustained success."
 keywords: ["mental toughness","resilience","discipline","personal success"]
+published: true
 ---
 
 ## Cultivating Mental Toughness: Strategies for Lasting Resilience
