@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "MCJP.io | Master of Family, Money & Life",
   description: "Automated guide map for wealth creation, masculine family leadership, and cognitive sovereignty in the modern era.",
   verification: {
-    google: "googlec3030e76b35f2071",
+    google: "qnckJbqi5qG8Zih800FfL90PenL7mY8edsxPZgfezs4",
   },
   alternates: {
     canonical: '/',
