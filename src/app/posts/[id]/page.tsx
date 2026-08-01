@@ -83,6 +83,17 @@ function getPost(id: string) {
   };
 }
 
+export async function generateStaticParams() {
+  const postsDir = path.join(process.cwd(), 'content', 'posts');
+  if (!fs.existsSync(postsDir)) return [];
+  const files = fs.readdirSync(postsDir);
+  return files
+    .filter(file => file.endsWith('.md'))
+    .map(file => ({
+      id: file.replace(/\.md$/, ''),
+    }));
+}
+
 export async function generateMetadata(
   { params }: { params: Promise<{ id: string }> }
 ): Promise<Metadata> {
