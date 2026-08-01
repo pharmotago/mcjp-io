@@ -2393,5 +2393,77 @@
       "productivity"
     ],
     "summary": "Uncover the habits that drive high performance in successful individuals. Learn how to integrate these practices into your daily routine to boost productivity and achieve your goals."
+  },
+  {
+    "id": "money_ai_driven_investing",
+    "category": "Money",
+    "topic": "How AI is Revolutionizing Investing: A Guide to AI-Driven Wealth Creation",
+    "keywords": [
+      "AI investing",
+      "wealth creation",
+      "investment strategies",
+      "artificial intelligence"
+    ],
+    "summary": "Explore the role of AI in investing and learn how to leverage AI-driven strategies to create wealth and build a prosperous financial future."
+  },
+  {
+    "id": "life_fatherhood_self_care",
+    "category": "Life",
+    "topic": "The Importance of Self-Care for Fathers: Prioritizing Emotional and Mental Wellbeing",
+    "keywords": [
+      "fatherhood",
+      "self-care",
+      "emotional wellbeing",
+      "mental health"
+    ],
+    "summary": "Discover the importance of self-care for fathers and learn practical tips on how to prioritize emotional and mental wellbeing in the midst of fatherhood responsibilities."
+  },
+  {
+    "id": "discipline_neurofeedback_training",
+    "category": "Discipline",
+    "topic": "Unlocking Peak Performance: The Power of Neurofeedback Training for Cognitive Enhancement",
+    "keywords": [
+      "neurofeedback training",
+      "cognitive enhancement",
+      "peak performance",
+      "brain training"
+    ],
+    "summary": "Learn about the benefits of neurofeedback training and how it can help improve cognitive function, enhance focus, and unlock peak performance in various areas of life."
+  },
+  {
+    "id": "money_cryptocurrency_portfolio",
+    "category": "Money",
+    "topic": "Building a Diversified Cryptocurrency Portfolio: A Beginner's Guide to Investing in Digital Assets",
+    "keywords": [
+      "cryptocurrency portfolio",
+      "digital assets",
+      "investment strategies",
+      "cryptocurrency investing"
+    ],
+    "summary": "Get started with building a diversified cryptocurrency portfolio and learn the fundamentals of investing in digital assets, including risk management and portfolio optimization."
+  },
+  {
+    "id": "life_fatherhood_community",
+    "category": "Life",
+    "topic": "The Power of Community: How Fathers Can Build Support Networks for Themselves and Their Families",
+    "keywords": [
+      "fatherhood",
+      "community building",
+      "support networks",
+      "family wellbeing"
+    ],
+    "summary": "Explore the importance of building a support network as a father and learn practical strategies for creating a community that promotes emotional wellbeing and family resilience."
+  },
+  {
+    "id": "discipline_physical_resilience",
+    "category": "Discipline",
+    "topic": "Building Physical Resilience: How to Develop a Stronger, More Resilient Body Through Discipline and Training",
+    "keywords": [
+      "physical resilience",
+      "discipline",
+      "training",
+      "physical wellbeing"
+    ],
+    "summary": "Discover the importance of physical resilience and learn how to develop a stronger, more resilient body through discipline, training, and a commitment to physical wellbeing."
   }
 ]
