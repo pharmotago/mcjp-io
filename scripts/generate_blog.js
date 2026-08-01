@@ -84,8 +84,8 @@ date: "${today}"
 category: "${selectedTopic.category}"
 description: "${selectedTopic.summary}"
 keywords: ${JSON.stringify(selectedTopic.keywords)}
+published: true
 ---
-
 `;
 
     // Dynamically inject internal links before writing to file
