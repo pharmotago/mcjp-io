@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/_next/',
     },
-    sitemap: 'https://blog.mcjp.io/sitemap.xml',
+    sitemap: 'https://the-stoic-dad.vercel.app/sitemap.xml',
   };
 }

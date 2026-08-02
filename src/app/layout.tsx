@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://blog.mcjp.io'),
+  metadataBase: new URL('https://the-stoic-dad.vercel.app'),
   title: "MCJP.io | Master of Family, Money & Life",
   description: "Automated guide map for wealth creation, masculine family leadership, and cognitive sovereignty in the modern era.",
   verification: {
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "MCJP.io | Master of Family, Money & Life",
     description: "Automated guide map for wealth creation, masculine family leadership, and cognitive sovereignty in the modern era.",
-    url: "https://blog.mcjp.io",
+    url: "https://the-stoic-dad.vercel.app",
     type: "website",
   }
 };
@@ -42,14 +42,14 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebSite",
               "name": "MCJP.io",
-              "url": "https://blog.mcjp.io",
+              "url": "https://the-stoic-dad.vercel.app",
               "description": "Automated guide map for wealth creation, masculine family leadership, and cognitive sovereignty in the modern era.",
               "publisher": {
                 "@type": "Organization",
                 "name": "MCJP.io",
                 "logo": {
                   "@type": "ImageObject",
-                  "url": "https://blog.mcjp.io/globe.svg"
+                  "url": "https://the-stoic-dad.vercel.app/globe.svg"
                 }
               }
             })

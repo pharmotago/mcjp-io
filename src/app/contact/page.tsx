@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contact Us | MCJP.io",
     description: "Get in touch with the team at MCJP.io. Send us your feedback, inquiries, or suggestions.",
-    url: "https://blog.mcjp.io/contact",
+    url: "https://the-stoic-dad.vercel.app/contact",
     type: "website",
   },
   twitter: {

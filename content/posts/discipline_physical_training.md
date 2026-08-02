@@ -4,7 +4,7 @@ date: "2026-07-18"
 category: "Discipline"
 description: "Uncover the powerful connection between physical fitness and cognitive performance. This article provides insights on how physical training can enhance mental clarity and overall success."
 keywords: ["physical training","cognitive training","success habits"]
-canonical: "https://blog.mcjp.io/posts/discipline_physical_cognitive_training"
+canonical: "https://the-stoic-dad.vercel.app/posts/discipline_physical_cognitive_training"
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
 published: true

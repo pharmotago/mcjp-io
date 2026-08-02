@@ -4,7 +4,7 @@ date: "2026-07-18"
 category: "Discipline"
 description: "Learn how to leverage the science of neuroplasticity to foster personal development and cultivate the discipline needed for success."
 keywords: ["neuroplasticity","personal growth","brain training","mental discipline"]
-canonical: "https://blog.mcjp.io/posts/discipline_neuroplasticity_enhancement"
+canonical: "https://the-stoic-dad.vercel.app/posts/discipline_neuroplasticity_enhancement"
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
 published: true

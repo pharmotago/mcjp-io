@@ -25,7 +25,7 @@ export default function TermsPage() {
 
       <div className="space-y-6 text-slate-700 text-sm md:text-base leading-relaxed">
         <p>
-          Welcome to <strong>MCJP.io</strong>. These terms and conditions outline the rules and regulations for the use of MCJP.io's Website, located at <strong>https://blog.mcjp.io</strong>.
+          Welcome to <strong>MCJP.io</strong>. These terms and conditions outline the rules and regulations for the use of MCJP.io's Website, located at <strong>https://the-stoic-dad.vercel.app</strong>.
         </p>
         <p>
           By accessing this website, we assume you accept these terms and conditions. Do not continue to use MCJP.io if you do not agree to take all of the terms and conditions stated on this page.

@@ -95,15 +95,15 @@ export async function generateMetadata(
   }
 
   // Check if post-specific focus image exists in public folder or if frontmatter has ogImage
-  let ogImageUrl = 'https://blog.mcjp.io/og-image.png';
+  let ogImageUrl = 'https://the-stoic-dad.vercel.app/og-image.png';
   if (post.data.ogImage) {
     ogImageUrl = post.data.ogImage.startsWith('http')
       ? post.data.ogImage
-      : `https://blog.mcjp.io${post.data.ogImage.startsWith('/') ? '' : '/'}${post.data.ogImage}`;
+      : `https://the-stoic-dad.vercel.app${post.data.ogImage.startsWith('/') ? '' : '/'}${post.data.ogImage}`;
   } else {
     const focusImgPath = path.join(process.cwd(), 'public', 'images', `${resolvedParams.id}_focus.png`);
     if (fs.existsSync(focusImgPath)) {
-      ogImageUrl = `https://blog.mcjp.io/images/${resolvedParams.id}_focus.png`;
+      ogImageUrl = `https://the-stoic-dad.vercel.app/images/${resolvedParams.id}_focus.png`;
     }
   }
 
@@ -121,7 +121,7 @@ export async function generateMetadata(
       title,
       description,
       type: 'article',
-      url: `https://blog.mcjp.io/posts/${resolvedParams.id}`,
+      url: `https://the-stoic-dad.vercel.app/posts/${resolvedParams.id}`,
       siteName: 'MCJP.io',
       images: [
         {
@@ -326,24 +326,24 @@ export default async function PostPage({
             "description": post.data.description,
             "datePublished": post.data.date,
             "dateModified": post.data.lastUpdated || post.data.date,
-            "image": `https://blog.mcjp.io/images/${post.id}_focus.png`,
+            "image": `https://the-stoic-dad.vercel.app/images/${post.id}_focus.png`,
             "wordCount": post.data.readingTime ? post.data.readingTime * 200 : undefined,
             "author": {
               "@type": "Person",
               "name": "Peter K.",
-              "url": "https://blog.mcjp.io/about"
+              "url": "https://the-stoic-dad.vercel.app/about"
             },
             "publisher": {
               "@type": "Organization",
               "name": "MCJP.io",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://blog.mcjp.io/globe.svg"
+                "url": "https://the-stoic-dad.vercel.app/globe.svg"
               }
             },
             "mainEntityOfPage": {
               "@type": "WebPage",
-              "@id": `https://blog.mcjp.io/posts/${post.id}`
+              "@id": `https://the-stoic-dad.vercel.app/posts/${post.id}`
             }
           })
         }}
@@ -384,7 +384,7 @@ export default async function PostPage({
           <span className="text-xs font-semibold text-slate-400 uppercase tracking-widest">Share Article:</span>
           <div className="flex gap-2">
             <a
-              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.data.title)}&url=${encodeURIComponent(`https://blog.mcjp.io/posts/${post.id}`)}`}
+              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.data.title)}&url=${encodeURIComponent(`https://the-stoic-dad.vercel.app/posts/${post.id}`)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="px-3 py-1.5 rounded bg-white hover:bg-amber-500/10 text-slate-600 hover:text-amber-600 transition-colors text-xs font-medium border border-slate-200 shadow-xs"
@@ -392,7 +392,7 @@ export default async function PostPage({
               Twitter/X
             </a>
             <a
-              href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://blog.mcjp.io/posts/${post.id}`)}`}
+              href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://the-stoic-dad.vercel.app/posts/${post.id}`)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="px-3 py-1.5 rounded bg-white hover:bg-amber-500/10 text-slate-600 hover:text-amber-600 transition-colors text-xs font-medium border border-slate-200 shadow-xs"
@@ -400,7 +400,7 @@ export default async function PostPage({
               Facebook
             </a>
             <a
-              href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://blog.mcjp.io/posts/${post.id}`)}`}
+              href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://the-stoic-dad.vercel.app/posts/${post.id}`)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="px-3 py-1.5 rounded bg-white hover:bg-amber-500/10 text-slate-600 hover:text-amber-600 transition-colors text-xs font-medium border border-slate-200 shadow-xs"

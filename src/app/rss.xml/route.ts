@@ -73,7 +73,7 @@ async function getPosts() {
 
 export async function GET() {
   const posts = await getPosts();
-  const siteUrl = 'https://blog.mcjp.io';
+  const siteUrl = 'https://the-stoic-dad.vercel.app';
 
   const itemsXml = posts.map(post => `
     <item>

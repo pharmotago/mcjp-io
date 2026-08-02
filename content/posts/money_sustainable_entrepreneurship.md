@@ -25,7 +25,7 @@ Sustainable entrepreneurship harmonizes profit with purpose. Entrepreneurs who a
 
 4. **Transparency and Accountability**: Demonstrating a commitment to ethical practices through transparency helps build trust with consumers. Regularly reporting on sustainability goals and outcomes can enhance credibility.
 
-![A visual representation of sustainable entrepreneurship, highlighting the focus on eco-friendly business practices and social impact.](https://www.mcjp.io/images/money_sustainable_entrepreneurship_focus.svg)
+![A visual representation of sustainable entrepreneurship, highlighting the focus on eco-friendly business practices and social impact.](https://the-stoic-dad.vercel.app/images/money_sustainable_entrepreneurship_focus.svg)
 
 ### Steps Towards Sustainable Wealth Creation
 
@@ -61,7 +61,7 @@ The future of entrepreneurship lies in the ability to balance [wealth creation](
 
 For those looking to take the plunge into this rewarding venture, starting with a strong online presence is essential. We recommend launching your digital assets on [Hostinger](https://www.hostinger.com?REFERRALCODE=OYBPHARMOWCY) to secure their exclusive partner discount, ensuring that your sustainable message reaches the widest audience possible.
 
-![A holistic view of sustainable entrepreneurship themes, encapsulating the balance between profitability and social responsibility.](https://www.mcjp.io/images/money_sustainable_entrepreneurship_theme.svg)
+![A holistic view of sustainable entrepreneurship themes, encapsulating the balance between profitability and social responsibility.](https://the-stoic-dad.vercel.app/images/money_sustainable_entrepreneurship_theme.svg)
 
 ### Conclusion
 

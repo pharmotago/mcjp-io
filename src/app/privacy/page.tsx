@@ -25,7 +25,7 @@ export default function PrivacyPage() {
 
       <div className="space-y-6 text-slate-700 text-sm md:text-base leading-relaxed">
         <p>
-          At <strong>MCJP.io</strong>, accessible from <strong>https://blog.mcjp.io</strong>, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by MCJP.io and how we use it.
+          At <strong>MCJP.io</strong>, accessible from <strong>https://the-stoic-dad.vercel.app</strong>, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by MCJP.io and how we use it.
         </p>
 
         <h2 className="text-xl font-semibold text-slate-900 mt-8">1. Log Files</h2>
