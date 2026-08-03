@@ -59,7 +59,7 @@ To cultivate a [success routine](/posts/discipline_high_performance_habits) that
 
 ### The Power of Discipline
 
-Discipline is the backbone of any success routine. It requires a deep commitment to your goals and the courage to consistently pursue them, even when motivation wanes. Building discipline can be likened to developing a muscle; it requires regular training, patience, and resilience. 
+Discipline is the backbone of any [success routine](/posts/discipline_high_performance_habits). It requires a deep commitment to your goals and the courage to consistently pursue them, even when motivation wanes. Building discipline can be likened to developing a muscle; it requires regular training, patience, and resilience. 
 
 In moments of hesitation, remind yourself of the long-term benefits of adhering to your routine. Each small action compounds over time, leading to significant changes in your life trajectory. 
 

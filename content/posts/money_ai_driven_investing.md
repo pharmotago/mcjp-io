@@ -32,7 +32,7 @@ There are several AI-driven [investment strategies](/posts/money_asset_diversifi
 * **Risk management**: This involves using AI to identify and mitigate potential risks, such as market volatility or credit risk.
 
 ## Action Plan for AI Investing
-To get started with AI investing, investors can follow these steps:
+To get started with [AI investing](/posts/money_ai_driven_portfolio), investors can follow these steps:
 
 * **Educate yourself**: Learn about AI investing and its benefits, as well as the different strategies and technologies available.
 * **Choose a platform**: Select a reputable AI investing platform that aligns with your investment goals and risk tolerance.

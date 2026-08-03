@@ -30,7 +30,7 @@ To build a solid [financial independence](/posts/money_infinite_banking_concept)
 
 ### Step 1: Mastering the Art of Budgeting
 
-Budgeting is the cornerstone of financial management. To achieve financial independence, you must track your income and expenses meticulously. Here’s how to create a practical budget:
+Budgeting is the cornerstone of financial management. To achieve [financial independence](/posts/money_infinite_banking_concept), you must track your income and expenses meticulously. Here’s how to create a practical budget:
 
 - **Identify Your Income**: List all sources of income, including salary, side gigs, and passive income.
 - **Track Expenses**: Categorize your expenses into fixed (rent, utilities) and variable (entertainment, dining out).

@@ -78,7 +78,7 @@ For deeper insights on masculine resilience and active parenting, explore [The S
 
 ## Conclusion: Building a Legacy of Focus and Productivity
 
-In a world filled with distractions, mastering the art of deep work is a vital skill for high-performing men. By implementing the elite protocols outlined in this article, you can enhance your focus, increase productivity, and foster a disciplined mindset that supports long-term success. 
+In a world filled with distractions, mastering the art of [deep work](/posts/discipline_dopamine_fasting_deep_work) is a vital skill for high-performing men. By implementing the elite protocols outlined in this article, you can enhance your focus, increase productivity, and foster a disciplined mindset that supports long-term success. 
 
 To maintain seamless connectivity during your deep work sessions, consider signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) for a high-speed, reliable internet connection that complements your productivity goals.
 

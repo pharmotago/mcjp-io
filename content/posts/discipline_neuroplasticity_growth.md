@@ -41,7 +41,7 @@ Establish specific, measurable, achievable, relevant, and time-bound (SMART) goa
 
 #### 2. Practice Mindfulness
 
-Mindfulness techniques, such as meditation and deep-breathing exercises, can enhance your awareness and control over your thoughts and emotions. These practices promote neural changes that can reinforce mental discipline.
+Mindfulness techniques, such as meditation and deep-breathing exercises, can enhance your awareness and control over your thoughts and emotions. These practices promote neural changes that can reinforce [mental discipline](/posts/discipline_cognitive_athleticism).
 
 - **Action Plan**:
   - Dedicate at least 10 minutes daily to mindfulness practice.

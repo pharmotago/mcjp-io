@@ -57,4 +57,4 @@ Ultimately, the legacy you create is a reflection of the influence you have on t
 
 ### Conclusion
 
-Creating a masculine legacy is a profound endeavor rooted in purpose, integrity, and influence. It demands self-discipline, a commitment to leadership, and a willingness to make a difference in the lives of others. As you embark on this journey, remember that your legacy is not merely about what you leave behind but also about the lives you touch along the way. By living authentically and purposefully, you can craft a legacy that inspires future generations to lead with purpose and integrity.
+Creating a [masculine legacy](/posts/life_masculine_legacy_building) is a profound endeavor rooted in purpose, integrity, and influence. It demands self-discipline, a commitment to leadership, and a willingness to make a difference in the lives of others. As you embark on this journey, remember that your legacy is not merely about what you leave behind but also about the lives you touch along the way. By living authentically and purposefully, you can craft a legacy that inspires future generations to lead with purpose and integrity.
