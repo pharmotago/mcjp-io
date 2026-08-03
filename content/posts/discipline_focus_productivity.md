@@ -248,4 +248,4 @@ Harnessing the power of [deep focus](/posts/discipline_solitude_cognitive_clarit
 
 ![An inspiring workspace that promotes productivity and deep focus, featuring organized tools and a calm ambiance](/images/discipline_focus_productivity_theme.png)
 
-In the pursuit of excellence, the commitment to deep focus will serve as your greatest ally. Invest in this skill, and you will reap the rewards for years to come.
+In the pursuit of excellence, the commitment to [deep focus](/posts/discipline_focus_techniques) will serve as your greatest ally. Invest in this skill, and you will reap the rewards for years to come.

@@ -65,7 +65,7 @@ In moments of hesitation, remind yourself of the long-term benefits of adhering 
 
 ### Embrace the Journey
 
-Success is not a destination but a continuous journey. High achievers understand that the process of achieving goals is as important as the goals themselves. By creating a success routine, you are not merely chasing after results; you are cultivating a mindset of excellence that permeates every aspect of your life.
+Success is not a destination but a continuous journey. High achievers understand that the process of achieving goals is as important as the goals themselves. By creating a [success routine](/posts/discipline_high_performance_habits), you are not merely chasing after results; you are cultivating a mindset of excellence that permeates every aspect of your life.
 
 For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, which offers strategies for developing discipline in both personal and family contexts.
 

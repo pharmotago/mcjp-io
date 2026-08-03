@@ -75,7 +75,7 @@ Regular reflection on your thoughts, behaviors, and experiences fosters self-awa
   - Reflect on what you learned from successes and failures.
   - Set intentions for personal growth based on your reflections.
 
-By implementing these strategies, you can develop the mental discipline necessary to harness the power of neuroplasticity effectively. 
+By implementing these strategies, you can develop the [mental discipline](/posts/discipline_cognitive_athleticism) necessary to harness the power of neuroplasticity effectively. 
 
 ### The Long-Term Benefits of Neuroplasticity
 

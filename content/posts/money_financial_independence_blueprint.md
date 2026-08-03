@@ -39,7 +39,7 @@ Budgeting is the cornerstone of financial management. To achieve [financial inde
 
 ### Step 2: Smart Investing for Wealth Accumulation
 
-Investing is a critical component of building wealth and achieving financial independence. Here are some strategies to consider:
+Investing is a critical component of building wealth and achieving [financial independence](/posts/money_infinite_banking_concept). Here are some strategies to consider:
 
 - **Start Early**: Take advantage of compound interest by investing as soon as possible.
 - **Diversify Your Portfolio**: Spread your investments across different asset classes (stocks, bonds, real estate) to minimize risk.
