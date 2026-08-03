@@ -13,7 +13,7 @@ In an age characterized by fleeting trends and disposable values, the pursuit of
 
 ### Understanding Your Purpose
 
-The foundation of any masculine legacy lies within the understanding of one's purpose. Purpose acts as a compass, guiding decisions, actions, and interactions. To uncover your purpose, consider the following steps:
+The foundation of any [masculine legacy](/posts/life_masculine_legacy_building) lies within the understanding of one's purpose. Purpose acts as a compass, guiding decisions, actions, and interactions. To uncover your purpose, consider the following steps:
 
 - **Reflect on Your Values**: Identify what principles resonate with you the most. Is it integrity, resilience, compassion, or courage? 
 - **Assess Your Passions**: What activities bring you joy and fulfillment? Engaging in these passions can provide insight into your core purpose.

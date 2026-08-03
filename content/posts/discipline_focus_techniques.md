@@ -85,4 +85,4 @@ Harnessing the power of [deep focus](/posts/discipline_solitude_cognitive_clarit
 
 For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. As you work on optimizing your productivity, consider utilizing high-performance tools and services. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee. 
 
-In a world filled with distractions, the ability to concentrate deeply is not just a competitive advantage; it is a life skill that can transform your professional and personal outcomes. Start today, and witness the profound impact of deep focus on your journey towards success.
+In a world filled with distractions, the ability to concentrate deeply is not just a competitive advantage; it is a life skill that can transform your professional and personal outcomes. Start today, and witness the profound impact of [deep focus](/posts/discipline_focus_productivity) on your journey towards success.

@@ -54,7 +54,7 @@ Establish boundaries to protect your [deep work](/posts/discipline_dopamine_fast
 
 ### Cognitive Training Techniques
 
-Engaging in activities that enhance your cognitive abilities can prepare your mind for deep work:
+Engaging in activities that enhance your cognitive abilities can prepare your mind for [deep work](/posts/discipline_dopamine_fasting_deep_work):
 
 - **Mindfulness Meditation**: Practicing mindfulness can improve focus and mental clarity. Start with just a few minutes each day, gradually increasing the duration.
 - **Reading and Learning**: Dedicate time to read challenging material in your field. This not only expands your knowledge but also trains your mind to navigate complex concepts.

@@ -23,7 +23,7 @@ The tech industry has consistently proven to be a robust driver of economic grow
 
 As an investor, it is vital to focus on sectors within technology that are expected to flourish. Here are a few key areas to watch:
 
-1. **Artificial Intelligence and Machine Learning**: With applications ranging from healthcare to finance, AI is revolutionizing industries. Companies that harness AI effectively will gain a competitive edge.
+1. **[Artificial Intelligence](/posts/money_ai_driven_investing) and Machine Learning**: With applications ranging from healthcare to finance, AI is revolutionizing industries. Companies that harness AI effectively will gain a competitive edge.
 
 2. **Cybersecurity**: As the digital realm expands, so do threats. The demand for cybersecurity solutions will only grow, making this sector ripe for investment.
 

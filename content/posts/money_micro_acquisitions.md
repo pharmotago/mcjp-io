@@ -67,7 +67,7 @@ Once the infrastructure is solidified, focus on the levers of growth:
 
 ### The Long Game of Asset Building
 
-Micro private equity is not a get-rich-quick scheme; it is a get-rich-surely methodology. It requires the discipline to save capital, the patience to wait for the right deal, the analytical rigor to execute due diligence, and the operational competence to scale. 
+[Micro private equity](/posts/money_digital_holdco) is not a get-rich-quick scheme; it is a get-rich-surely methodology. It requires the discipline to save capital, the patience to wait for the right deal, the analytical rigor to execute due diligence, and the operational competence to scale. 
 
 By shifting your mindset from starting from scratch to buying and scaling, you fundamentally alter your trajectory. You transform entrepreneurship from a gamble on the unknown into a calculated deployment of capital. This is the essence of modern asset building. You are no longer just a creator; you are an operator, a strategist, and a steward of [digital wealth](/posts/money_hybrid_investing). 
 

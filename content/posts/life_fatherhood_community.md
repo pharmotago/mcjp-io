@@ -30,7 +30,7 @@ While technology can sometimes be seen as a barrier to building meaningful relat
 To ensure seamless and high-speed connections for online community building, consider investing in a reliable internet provider. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee. This can be particularly useful for fathers who work from home or rely on online resources for parenting support.
 
 ## Creating a Community That Promotes Emotional Wellbeing
-A supportive community is one that promotes emotional wellbeing and resilience. As a father, you can play a significant role in creating such a community by being open, honest, and vulnerable with others. This can involve sharing your own struggles and challenges, as well as listening actively to others and offering support and guidance when needed. By doing so, you can help create a safe and supportive environment where fathers feel comfortable opening up and seeking help.
+A supportive community is one that promotes [emotional wellbeing](/posts/life_fatherhood_self_care) and resilience. As a father, you can play a significant role in creating such a community by being open, honest, and vulnerable with others. This can involve sharing your own struggles and challenges, as well as listening actively to others and offering support and guidance when needed. By doing so, you can help create a safe and supportive environment where fathers feel comfortable opening up and seeking help.
 
 ## Action Plan for Building a Support Network
 Here is a checklist to help you get started on building a support network as a father:

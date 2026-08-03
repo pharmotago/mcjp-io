@@ -59,7 +59,7 @@ While the prospect of sustainable entrepreneurship is inspiring, it is not witho
 
 The future of entrepreneurship lies in the ability to balance [wealth creation](/posts/money_art_of_negotiation) with responsibility. As the global landscape shifts towards sustainability, businesses that prioritize ethical practices will not only survive but thrive. Sustainable entrepreneurship is not merely a trend but a fundamental shift in how we approach business.
 
-For those looking to take the plunge into this rewarding venture, starting with a strong online presence is essential. We recommend launching your digital assets on [Hostinger](https://www.hostinger.com?REFERRALCODE=OYBPHARMOWCY) to secure their exclusive partner discount, ensuring that your sustainable message reaches the widest audience possible.
+For those looking to take the plunge into this rewarding venture, starting with a strong online presence is essential. We recommend launching your [digital assets](/posts/money_ai_content_licensing) on Hostinger to secure their exclusive partner discount, ensuring that your sustainable message reaches the widest audience possible.
 
 ![A holistic view of sustainable entrepreneurship themes, encapsulating the balance between profitability and social responsibility.](https://mcjp-blog-git-main-mcjp.vercel.app/images/money_sustainable_entrepreneurship_theme.svg)
 

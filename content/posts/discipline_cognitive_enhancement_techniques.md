@@ -9,7 +9,7 @@ published: true
 
 ## Cognitive Enhancement Techniques for Modern Men
 
-In the fast-paced world of modernity, the battle for mental acuity is more pronounced than ever. The demands of both personal and professional realms require men to cultivate a keen mind, one that can think critically, act decisively, and remain focused amidst distractions. Cognitive enhancement techniques can serve as powerful allies in this endeavor, fostering a disciplined approach to life that leads not only to greater productivity but also to a profound sense of fulfillment.
+In the fast-paced world of modernity, the battle for mental acuity is more pronounced than ever. The demands of both personal and professional realms require men to cultivate a keen mind, one that can think critically, act decisively, and remain focused amidst distractions. [Cognitive enhancement](/posts/discipline_neurofeedback_training) techniques can serve as powerful allies in this endeavor, fostering a disciplined approach to life that leads not only to greater productivity but also to a profound sense of fulfillment.
 
 ![An image illustrating various cognitive enhancement techniques like meditation, exercise, and learning](/images/discipline_cognitive_enhancement_techniques_focus.png)
 

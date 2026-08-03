@@ -15,7 +15,7 @@ The strategic imperative for the modern father is clear. You are the first mirro
 
 ## The Foundation of Self-Worth as Human Capital
 
-In the realm of finance, building long-term wealth requires the disciplined allocation of resources into appreciating assets. The same principle applies to fatherhood. Your daughter’s self-worth is the ultimate human capital. If a father treats his daughter as an afterthought, she will internalize a discounted valuation of herself, accepting subpar treatment from peers and future partners. If a father treats her as a high-value individual worthy of respect, attention, and intellectual engagement, she will demand a premium from the world.
+In the realm of finance, building [long-term wealth](/posts/money_ai_driven_portfolio) requires the disciplined allocation of resources into appreciating assets. The same principle applies to fatherhood. Your daughter’s self-worth is the ultimate human capital. If a father treats his daughter as an afterthought, she will internalize a discounted valuation of herself, accepting subpar treatment from peers and future partners. If a father treats her as a high-value individual worthy of respect, attention, and intellectual engagement, she will demand a premium from the world.
 
 This requires an intentional deployment of your time and energy. It means engaging her mind, challenging her assumptions, and validating her intellect. It is the deliberate rejection of the superficial "daddy's little girl" trope in favor of raising a competent, formidable woman. You must show up consistently, not just physically, but mentally. Your presence must be an anchor of stability.
 

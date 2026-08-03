@@ -15,7 +15,7 @@ In the pursuit of financial independence, the concept of frugality emerges not m
 
 ### Understanding Frugality
 
-Frugality is often misconstrued as mere penny-pinching or deprivation. In reality, it embodies a strategic approach to managing one's resources—time, money, and energy. It encourages individuals to evaluate their spending habits critically, aligning them with their values and long-term objectives. This mindset shift transforms the act of spending from a mindless exercise into a purposeful decision-making process.
+Frugality is often misconstrued as mere penny-pinching or deprivation. In reality, it embodies a strategic approach to managing one's resources—time, money, and energy. It encourages individuals to evaluate their [spending habits](/posts/money_psychology_of_spending) critically, aligning them with their values and long-term objectives. This mindset shift transforms the act of spending from a mindless exercise into a purposeful decision-making process.
 
 When practiced with intention, frugality can lead to substantial wealth accumulation. It creates a buffer against financial emergencies, promotes sustainable living, and instills a sense of control over one's financial destiny.
 

@@ -33,7 +33,7 @@ In a world that increasingly encourages emotional openness, the importance of se
 
 ### The Let Them + Let Me Philosophy
 
-At the core of Clark's philosophy is the idea that allowing others to make their choices does not diminish your own. Instead, it fosters a healthier dynamic where both parties can thrive. This approach is particularly relevant for modern men who strive for balance in their roles—be it as fathers, partners, or leaders.
+At the core of Clark's philosophy is the idea that allowing others to make their choices does not diminish your own. Instead, it fosters a healthier dynamic where both parties can thrive. This approach is particularly relevant for [modern men](/posts/money_financial_savvy_for_modern_men) who strive for balance in their roles—be it as fathers, partners, or leaders.
 
 The "Let Them + Let Me" framework encourages readers to:
 

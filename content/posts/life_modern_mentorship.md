@@ -34,7 +34,7 @@ Engaging in mentorship across generations offers numerous advantages:
 
 4. **[Personal Growth](/posts/discipline_self_awareness_journey)**: Both mentors and mentees experience [personal development](/posts/discipline_mindset_habits), learning from each other's journeys and challenges.
 
-5. **Community Building**: Mentorship cultivates a sense of belonging and community, bridging the generational gap and promoting interdependence.
+5. **[Community Building](/posts/life_fatherhood_community)**: Mentorship cultivates a sense of belonging and community, bridging the generational gap and promoting interdependence.
 
 ### Actionable Strategies for Effective Mentorship
 

@@ -73,6 +73,6 @@ To achieve impactful living, self-discipline is non-negotiable. It is the founda
 
 ### Conclusion: A Legacy of Impact
 
-Building a lasting legacy requires intention, commitment, and a focus on values that outlive oneself. By prioritizing family values, embracing leadership, contributing to society, and practicing self-discipline, modern men can create a profound impact that resonates through generations.
+Building a lasting legacy requires intention, commitment, and a focus on values that outlive oneself. By prioritizing family values, embracing leadership, contributing to society, and practicing self-discipline, [modern men](/posts/money_financial_savvy_for_modern_men) can create a profound impact that resonates through generations.
 
 For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. Remember, the legacy you build today will shape the world of tomorrow. As you embark on this journey, commit to living with purpose and integrity, ensuring that your impact will be felt long after you’re gone.

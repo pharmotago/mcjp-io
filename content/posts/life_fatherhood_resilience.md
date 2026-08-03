@@ -26,7 +26,7 @@ Building resilience as a father involves several key strategies that can be prac
 For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. This resource offers valuable guidance on how to cultivate a strong, resilient mindset and navigate the challenges of modern fatherhood with integrity and purpose.
 
 ## Overcoming Modern Parenting Challenges
-Modern parenting comes with its unique set of challenges, from dealing with screen time and social media to managing expectations and pressures from society. To overcome these challenges, fathers need to be proactive, flexible, and open to learning and adapting. This involves:
+[Modern parenting](/posts/life_fatherhood_emotional_resilience) comes with its unique set of challenges, from dealing with screen time and social media to managing expectations and pressures from society. To overcome these challenges, fathers need to be proactive, flexible, and open to learning and adapting. This involves:
 
 * **Setting Clear Boundaries**: Establishing clear rules and boundaries is essential for maintaining discipline and order in the home.
 * **Encouraging Open Communication**: Creating an environment where children feel comfortable expressing their thoughts and feelings is crucial for building trust and understanding.

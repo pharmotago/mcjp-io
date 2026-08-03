@@ -72,7 +72,7 @@ Discipline is the backbone of [mental fortitude](/posts/discipline_emotional_sta
 
 ### Conclusion: The Journey to Mental Fortitude
 
-Developing mental fortitude is a lifelong journey that requires dedication, self-reflection, and a willingness to adapt. By implementing the strategies outlined above, you can cultivate the resilience and focus necessary to navigate challenges effectively. 
+Developing [mental fortitude](/posts/discipline_emotional_stamina_building) is a lifelong journey that requires dedication, self-reflection, and a willingness to adapt. By implementing the strategies outlined above, you can cultivate the resilience and focus necessary to navigate challenges effectively. 
 
 For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. Remember, mental fortitude is not an innate trait but a skill that can be developed and perfected over time. Embrace the process, stay disciplined, and watch as your ability to maintain focus transforms your life. 
 

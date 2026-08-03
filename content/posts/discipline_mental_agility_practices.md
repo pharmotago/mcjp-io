@@ -98,7 +98,7 @@ To truly enhance your [mental agility](/posts/discipline_neuroplasticity_enhance
 
 ### Making Mental Agility a Habit
 
-Turning these exercises and practices into routine habits is key. Here’s a checklist to help you embed mental agility into your daily life:
+Turning these exercises and practices into routine habits is key. Here’s a checklist to help you embed [mental agility](/posts/discipline_neuroplasticity_enhancement) into your daily life:
 
 - [ ] **Daily Mind Mapping**: Allocate time each day for mind mapping your thoughts.
 - [ ] **Engage with Brain Games**: Dedicate at least 15 minutes daily to cognitive games.

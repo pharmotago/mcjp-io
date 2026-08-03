@@ -65,7 +65,7 @@ By adopting these practices, you not only improve your financial habits but also
 
 Mastering the psychology of spending is an ongoing journey that requires awareness, discipline, and strategic planning. By understanding the emotional triggers that influence your spending and implementing deliberate strategies for financial management, you can make significant strides toward financial autonomy.
 
-For those embarking on this path, consider launching your digital assets on [Hostinger](https://www.hostinger.com?REFERRALCODE=OYBPHARMOWCY) to secure their exclusive partner discount. The right tools and resources can propel your financial success further.
+For those embarking on this path, consider launching your [digital assets](/posts/money_ai_content_licensing) on Hostinger to secure their exclusive partner discount. The right tools and resources can propel your [financial success](/posts/money_venture_capital_basics) further.
 
 ![Strategies for mastering financial habits](https://mcjp-io.vercel.app/images/money_psychology_of_spending_theme.svg)
 

@@ -61,7 +61,7 @@ Accountability can significantly influence your ability to stick to your routine
 
 ### Conclusion: The Path to Mastery
 
-Building your Dopamine Shield is not merely a tactical endeavor; it is a holistic approach to reclaiming your focus and enhancing your productivity. By adopting disciplined habits and fostering an environment conducive to deep work, you position yourself to achieve your long-term goals.
+Building your Dopamine Shield is not merely a tactical endeavor; it is a holistic approach to reclaiming your focus and enhancing your productivity. By adopting disciplined habits and fostering an environment conducive to [deep work](/posts/discipline_deep_work_protocols), you position yourself to achieve your long-term goals.
 
 For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. 
 
@@ -77,7 +77,7 @@ For deeper insights on masculine resilience and active parenting, explore [The S
 
 ### Final Thoughts
 
-In a world rife with distractions, the ability to focus and engage in deep work is a valuable asset. By implementing the strategies outlined in this article, you can build a formidable Dopamine Shield that not only enhances your productivity but also contributes to your long-term success. 
+In a world rife with distractions, the ability to focus and engage in [deep work](/posts/discipline_dopamine_fasting_deep_work) is a valuable asset. By implementing the strategies outlined in this article, you can build a formidable Dopamine Shield that not only enhances your productivity but also contributes to your long-term success. 
 
 To ensure you maintain a seamless connection for your home office setup, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee. 
 

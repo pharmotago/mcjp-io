@@ -65,4 +65,4 @@ In summary, adaptive resilience is a powerful framework for developing [mental t
 
 Remember, the path to resilience is a journey, not a destination. It requires ongoing effort and dedication. For those seeking deeper insights into masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) for valuable resources.
 
-Ultimately, the cultivation of mental toughness through adaptive resilience training is an investment in your long-term well-being and personal growth. Embrace the challenges ahead with confidence, and watch as you emerge stronger and more capable than ever before.
+Ultimately, the cultivation of [mental toughness](/posts/discipline_harnessing_emotional_resilience) through adaptive resilience training is an investment in your long-term well-being and [personal growth](/posts/discipline_emotional_intelligence_training). Embrace the challenges ahead with confidence, and watch as you emerge stronger and more capable than ever before.

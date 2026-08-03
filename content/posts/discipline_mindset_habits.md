@@ -15,7 +15,7 @@ In an era defined by rapid change and constant distractions, cultivating a succe
 
 ### The Importance of a Success Mindset
 
-A success mindset is characterized by resilience, adaptability, and a commitment to self-discipline. It is the lens through which highly effective men view their goals and challenges. This mindset is not innate; it can be cultivated through deliberate practices and consistent effort. By adopting the habits of successful individuals, you can transform your approach to life and work, leading to greater fulfillment and achievement.
+A [success mindset](/posts/discipline_resilience_through_failure) is characterized by resilience, adaptability, and a commitment to self-discipline. It is the lens through which highly effective men view their goals and challenges. This mindset is not innate; it can be cultivated through deliberate practices and consistent effort. By adopting the habits of successful individuals, you can transform your approach to life and work, leading to greater fulfillment and achievement.
 
 ### Key Habits of Highly Effective Men
 

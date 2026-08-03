@@ -33,7 +33,7 @@ As you contemplate a global [investment strategy](/posts/money_asset_diversifica
 
 2. **Global [Real Estate](/posts/money_asset_diversification)**: [Real estate](/posts/money_investment_strategies) markets vary in performance across countries. Investing in international properties or real estate investment trusts (REITs) can diversify your assets and provide passive income streams.
 
-3. **Technology and Innovation**: Global tech hubs, particularly in Asia and Europe, are leading the charge in innovation. Consider investing in tech companies that are at the forefront of developments in artificial intelligence, renewable energy, and biotechnology.
+3. **Technology and Innovation**: Global tech hubs, particularly in Asia and Europe, are leading the charge in innovation. Consider investing in tech companies that are at the forefront of developments in [artificial intelligence](/posts/money_ai_driven_investing), renewable energy, and biotechnology.
 
 4. **Sustainable Investments**: The rise of environmental, social, and governance (ESG) investing is reshaping traditional investment paradigms. Look for international companies that prioritize sustainability, as they may offer long-term growth opportunities.
 

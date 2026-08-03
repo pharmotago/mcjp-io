@@ -53,7 +53,7 @@ Similarly, J.K. Rowling faced rejection from multiple publishers before finally 
 
 ### Building a Success Mindset
 
-A success mindset is critical in harnessing resilience through failure. This mindset is characterized by:
+A [success mindset](/posts/discipline_mindset_habits) is critical in harnessing resilience through failure. This mindset is characterized by:
 
 - **Adaptability**: Being open to change and willing to adjust your plans based on new information or experiences.
   

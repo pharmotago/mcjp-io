@@ -86,7 +86,7 @@ As you move forward, remember that resilience is not merely about bouncing back 
 
 ![Man standing strong amidst challenges, symbolizing resilience](/images/discipline_masculine_mental_resilience_theme.png)
 
-By integrating these principles into your daily life, you not only enhance your mental resilience but also contribute positively to your community, inspiring others to do the same. Embrace the journey of resilience, and transform challenges into stepping stones for growth.
+By integrating these principles into your daily life, you not only enhance your [mental resilience](/posts/discipline_endurance_training_methods) but also contribute positively to your community, inspiring others to do the same. Embrace the journey of resilience, and transform challenges into stepping stones for growth.
 
 ---
 

@@ -76,7 +76,7 @@ To maximize your potential for [wealth building](/posts/money_advanced_budgeting
 
 ### The Future of Digital Art and Wealth
 
-As the digital landscape evolves, so too will the opportunities within the digital art market. The integration of augmented reality, virtual reality, and artificial intelligence into digital art creation is on the horizon, potentially expanding the valuation and marketability of these assets.
+As the digital landscape evolves, so too will the opportunities within the digital art market. The integration of augmented reality, virtual reality, and [artificial intelligence](/posts/money_ai_driven_investing) into digital art creation is on the horizon, potentially expanding the valuation and marketability of these assets.
 
 Furthermore, the increasing mainstream acceptance of NFTs and digital art will likely attract institutional investors, further legitimizing this asset class. For those who adopt a disciplined and informed approach, investing in digital art can serve as a robust addition to a comprehensive wealth-building strategy. 
 
