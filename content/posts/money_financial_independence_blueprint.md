@@ -48,7 +48,7 @@ Investing is a critical component of building wealth and achieving [financial in
 
 ### Step 3: Effective Debt Management
 
-Debt can hinder your path to financial independence. Prioritize paying off high-interest debts first. Here’s a checklist for effective debt management:
+Debt can hinder your path to [financial independence](/posts/money_infinite_banking_concept). Prioritize paying off high-interest debts first. Here’s a checklist for effective debt management:
 
 - **List All Debts**: Include amounts, interest rates, and minimum payments.
 - **Choose a Repayment Strategy**: Opt for the avalanche method (paying off high-interest debt first) or the snowball method (paying off the smallest debt first for psychological wins).
