@@ -93,7 +93,7 @@ Engaging with an accountability partner or group can significantly enhance focus
 
 Achieving [peak performance](/posts/discipline_masculine_routines) as a man requires a commitment to developing focus through disciplined practices. By implementing these techniques, you can enhance your concentration, build significant habits, and embrace integrity in all pursuits.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. Remember, the journey to peak performance is ongoing; it requires patience, persistence, and a willingness to adapt and grow.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. Remember, the journey to peak performance is ongoing; it requires patience, persistence, and a willingness to adapt and grow.
 
 ![A serene workspace representing focus and discipline in a modern environment](/images/discipline_masculine_focus_techniques_theme.png)
 

@@ -80,7 +80,7 @@ A strong support network is essential for developing emotional stamina. Surround
 
 Building emotional stamina is a long-term investment in your mental and emotional well-being. It is essential to integrate these practices into your daily life rather than viewing them as temporary solutions. As you cultivate resilience, you will find that your capacity to handle stress and adversity increases, allowing you to pursue your ambitions with renewed vigor.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, where you can find valuable resources to guide your journey.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, where you can find valuable resources to guide your journey.
 
 ![Visual representation of emotional stamina and resilience themes](images/discipline_emotional_stamina_building_theme.svg)
 

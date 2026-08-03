@@ -76,7 +76,7 @@ To effectively implement these strategies and work towards [financial freedom](/
 
 Reflecting on my journey, I've learned that unlocking [passive income](/posts/money_ai_content_licensing) is not just about financial gain but about creating a life aligned with my values and priorities. It's about having the freedom to attend my daughters' school events or work on my tech projects at 2 am while they sleep peacefully. By embracing these strategies with dedication, you not only build wealth but also carve out the space to live life on your own terms.
 
-For more insights on building resilience and pursuing your goals, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. Remember, the path to financial freedom is a marathon, not a sprint. Invest wisely, stay disciplined, and watch your passive income grow.
+For more insights on building resilience and pursuing your goals, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. Remember, the path to financial freedom is a marathon, not a sprint. Invest wisely, stay disciplined, and watch your passive income grow.
 
 ---
 > **Legal Disclaimer:** The information provided on MCJP.io, including but not limited to business models, financial assets, and wealth strategies, is for general educational and informational purposes only. It does not constitute professional financial, legal, or investment advice. Always consult with a certified financial planner or legal professional before making any financial decisions.

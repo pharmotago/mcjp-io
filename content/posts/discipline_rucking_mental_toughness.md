@@ -57,7 +57,7 @@ As you ruck, consider setting challenges for yourself—longer distances, steepe
 
 Incorporating rucking into your life is more than just a workout; it’s a commitment to self-discipline and long-term [asset building](/posts/money_content_site_acquisitions). It teaches that true growth comes from engaging with discomfort and embracing the journey toward improvement. 
 
-For deeper insights into masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. The principles of stoicism align well with the lessons learned through rucking, emphasizing the importance of endurance, discipline, and the cultivation of virtue.
+For deeper insights into masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. The principles of stoicism align well with the lessons learned through rucking, emphasizing the importance of endurance, discipline, and the cultivation of virtue.
 
 ![A group of individuals rucking together, showcasing community, discipline, and the shared experience of overcoming challenges.](images/discipline_rucking_mental_toughness_theme.svg)
 

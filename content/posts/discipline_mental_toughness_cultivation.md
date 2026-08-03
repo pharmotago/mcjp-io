@@ -83,4 +83,4 @@ Mindfulness practices, including meditation, can help enhance mental clarity and
 
 Cultivating mental toughness is a lifelong journey that requires commitment and intentionality. By employing strategies such as developing a growth mindset, practicing self-discipline, embracing failures, building a support network, prioritizing physical well-being, and incorporating mindfulness, you can enhance your resilience and navigate life's challenges with confidence. 
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. As you embark on this path of personal development, remember that mental toughness is not just about enduring hardship; it is about thriving in the face of adversity and emerging stronger than before.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. As you embark on this path of personal development, remember that mental toughness is not just about enduring hardship; it is about thriving in the face of adversity and emerging stronger than before.

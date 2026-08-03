@@ -27,7 +27,7 @@ While the physiological adaptations are compelling, the true value of the ice ba
 
 This override is the essence of mental grit. When you practice remaining calm in a state of acute physiological stress, you build a robust neural framework that translates to every other domain of life. You become the man who executes the business strategy when the market is in freefall. You become the leader who maintains a steady, reassuring presence when the household is in chaos. You learn that discomfort is not a signal to retreat, but a signal to hold your ground.
 
-Integrity is doing what you said you would do, long after the mood in which you said it has passed. The ice bath is a daily audit of your integrity. When you commit the night before to a 5:00 AM plunge, the freezing water tests the veracity of that commitment. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, where these principles of stoic leadership are applied to the complexities of family life.
+Integrity is doing what you said you would do, long after the mood in which you said it has passed. The ice bath is a daily audit of your integrity. When you commit the night before to a 5:00 AM plunge, the freezing water tests the veracity of that commitment. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, where these principles of stoic leadership are applied to the complexities of family life.
 
 ### An Actionable Protocol for Cold Exposure
 

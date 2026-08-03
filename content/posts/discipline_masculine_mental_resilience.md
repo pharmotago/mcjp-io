@@ -76,7 +76,7 @@ Resilience is not a fixed trait; it is developed over time through continuous le
   - Commit to reading one book related to personal development or resilience each month.
   - Attend workshops or seminars that challenge your thinking and expand your skills.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, which offers resources designed to integrate resilience into fatherhood and life challenges.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, which offers resources designed to integrate resilience into fatherhood and life challenges.
 
 ### Conclusion
 

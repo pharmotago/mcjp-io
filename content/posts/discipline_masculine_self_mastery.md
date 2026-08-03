@@ -50,7 +50,7 @@ To cultivate discipline effectively, consider the following actionable strategie
 
 Masculinity, when aligned with virtues of self-mastery and discipline, fosters resilience and strength. Men often find themselves in leadership positions, whether in the workplace or at home. Embracing self-mastery enables men to lead with integrity, creating a ripple effect that influences those around them positively.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. This resource provides valuable tools for fathers seeking to embody discipline and strength in their roles.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. This resource provides valuable tools for fathers seeking to embody discipline and strength in their roles.
 
 ### Building Long-Term Assets Through Discipline
 

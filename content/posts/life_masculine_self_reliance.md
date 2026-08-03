@@ -58,6 +58,6 @@ Integrity is a crucial element of self-reliance. It involves adhering to your va
 
 As men navigate the complexities of modern life, self-reliance emerges as an essential attribute that fosters independence and resilience. By embracing emotional independence, financial autonomy, and practical skills, men can cultivate a robust sense of self that equips them to face challenges head-on.
 
-The journey towards self-reliance is ongoing, requiring commitment and discipline. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, which offers valuable resources for fostering strength and integrity in fatherhood.
+The journey towards self-reliance is ongoing, requiring commitment and discipline. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, which offers valuable resources for fostering strength and integrity in fatherhood.
 
 Ultimately, by committing to self-reliance, modern men can redefine their masculinity—transforming into empowered individuals capable of shaping their destinies and positively impacting the world around them. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.

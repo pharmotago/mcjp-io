@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://the-stoic-dad.vercel.app'),
+  metadataBase: new URL('https://mcjp-blog-git-main-mcjp.vercel.app'),
   title: "MCJP.io | Master of Family, Money & Life",
   description: "Automated guide map for wealth creation, masculine family leadership, and cognitive sovereignty in the modern era.",
   verification: {
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "MCJP.io | Master of Family, Money & Life",
     description: "Automated guide map for wealth creation, masculine family leadership, and cognitive sovereignty in the modern era.",
-    url: "https://the-stoic-dad.vercel.app",
+    url: "https://mcjp-blog-git-main-mcjp.vercel.app",
     type: "website",
   }
 };
@@ -42,14 +42,14 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebSite",
               "name": "MCJP.io",
-              "url": "https://the-stoic-dad.vercel.app",
+              "url": "https://mcjp-blog-git-main-mcjp.vercel.app",
               "description": "Automated guide map for wealth creation, masculine family leadership, and cognitive sovereignty in the modern era.",
               "publisher": {
                 "@type": "Organization",
                 "name": "MCJP.io",
                 "logo": {
                   "@type": "ImageObject",
-                  "url": "https://the-stoic-dad.vercel.app/globe.svg"
+                  "url": "https://mcjp-blog-git-main-mcjp.vercel.app/globe.svg"
                 }
               }
             })
@@ -69,7 +69,7 @@ export default function RootLayout({
               <a href="/?category=Life" className="hover:text-slate-900 transition-colors">Life</a>
               <a href="/?category=Discipline" className="hover:text-slate-900 transition-colors">Discipline</a>
               <span className="text-slate-300">|</span>
-              <a href="https://the-stoic-dad.vercel.app" target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:text-amber-700 font-semibold transition-colors">The Stoic Dad</a>
+              <a href="https://mcjp-blog-git-main-mcjp.vercel.app" target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:text-amber-700 font-semibold transition-colors">The Stoic Dad</a>
             </nav>
           </div>
         </header>

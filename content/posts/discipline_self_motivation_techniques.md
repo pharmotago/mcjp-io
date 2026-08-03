@@ -70,7 +70,7 @@ Recognizing and celebrating small achievements can significantly boost your moti
 
 Incorporating these techniques into your daily life can catalyze a transformation in both your self-motivation and discipline. The journey toward achieving your goals is a marathon, not a sprint. By focusing on intrinsic rewards, developing routines, and maintaining a growth mindset, you can build a solid foundation for long-term success.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. By integrating these principles into your life, you empower yourself to become not only more disciplined but also a more fulfilled individual.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. By integrating these principles into your life, you empower yourself to become not only more disciplined but also a more fulfilled individual.
 
 ![An individual reflecting on personal growth and discipline in a serene environment](images/discipline_self_motivation_techniques_theme.svg)
 

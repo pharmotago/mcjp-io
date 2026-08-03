@@ -46,7 +46,7 @@ The art of balancing these qualities lies in their integration into daily life. 
 
 Leadership today demands a delicate balance of empathy and strength. Effective leaders inspire and motivate through understanding, while also steering their team with decisiveness and confidence. A leader who listens is valued, but a leader who listens and acts with conviction is transformative.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, which offers valuable resources for men seeking to refine their leadership both at home and in the workplace.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, which offers valuable resources for men seeking to refine their leadership both at home and in the workplace.
 
 ![A leader demonstrating a balance of empathy and strength in a professional setting](/images/life_balancing_empathy_strength_theme.png)
 

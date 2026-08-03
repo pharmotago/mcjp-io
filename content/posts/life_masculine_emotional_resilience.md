@@ -36,7 +36,7 @@ Incorporating [emotional resilience](/posts/life_masculine_emotional_health) int
 #### Emotional Resilience in Personal Life
 
 1. **Stronger Relationships**: Resilient men are better equipped to handle conflicts and communicate effectively, leading to healthier interactions.
-2. **Improved Parenting**: Emotional resilience helps fathers navigate the complexities of parenthood, fostering a supportive environment for children to thrive. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal.
+2. **Improved Parenting**: Emotional resilience helps fathers navigate the complexities of parenthood, fostering a supportive environment for children to thrive. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal.
 3. **Enhanced Well-being**: Resilience contributes to lower levels of stress and anxiety, resulting in better mental and physical health.
 
 #### Emotional Resilience in Professional Life

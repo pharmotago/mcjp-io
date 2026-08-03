@@ -73,7 +73,7 @@ Active involvement in your children’s lives significantly impacts their develo
 - **Open Communication**: Foster an environment of trust where your children feel comfortable sharing their thoughts and feelings.
 - **Shared Responsibilities**: Participate in household chores and decision-making to teach teamwork and responsibility.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal.
 
 ### Legacy Beyond Wealth
 

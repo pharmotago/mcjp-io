@@ -4,7 +4,7 @@ date: "2026-07-18"
 category: "Life"
 description: "Explore how mentorship can play a crucial role in personal and professional development, providing guidance and inspiration for success."
 keywords: ["mentorship","leadership","personal growth","networking","success"]
-canonical: "https://the-stoic-dad.vercel.app/posts/life_masculine_mentorship"
+canonical: "https://mcjp-blog-git-main-mcjp.vercel.app/posts/life_masculine_mentorship"
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
 published: true
@@ -66,7 +66,7 @@ Finding the right mentor can sometimes feel daunting, but it’s essential for m
 
 Mentorship is more than just guidance; it’s a partnership that can shape the trajectory of your personal and professional life. By investing the time to find a mentor and actively engaging in that relationship, you embark on a journey of continuous growth and development. 
 
-In a world that is constantly evolving, the insights gained from seasoned leaders can equip you with the tools needed to navigate your unique path to success. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. 
+In a world that is constantly evolving, the insights gained from seasoned leaders can equip you with the tools needed to navigate your unique path to success. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. 
 
 ![A diverse group of mentors and mentees engaging in a discussion, symbolizing the theme of mentorship and collaboration](/images/life_power_of_mentorship_theme.png)
 

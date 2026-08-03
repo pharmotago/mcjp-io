@@ -55,7 +55,7 @@ Masculinity today is multifaceted, requiring men to be both strong and sensitive
   
 - **Resilience**: Develop mental fortitude to withstand challenges and setbacks, drawing strength from both traditional and modern influences.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, a sister project that delves into the core of masculine development and family leadership.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, a sister project that delves into the core of masculine development and family leadership.
 
 ### The Path Forward
 

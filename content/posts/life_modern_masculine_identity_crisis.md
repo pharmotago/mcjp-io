@@ -59,6 +59,6 @@ No man is an island. Building a supportive network can be invaluable in navigati
 
 Navigating the modern [masculine identity](/posts/life_masculine_identity) crisis is no small feat, but it presents a unique opportunity for [personal growth](/posts/discipline_emotional_intelligence_training) and transformation. By embracing vulnerability, seeking help, redefining success, actively participating in fatherhood, and cultivating integrity, men can carve out a new path for themselves. 
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. 
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. 
 
 In this ever-evolving landscape, remember that the journey towards authenticity is ongoing. It is crucial to remain adaptable, open to change, and committed to [personal development](/posts/discipline_masculine_emotional_maturity). The modern world may challenge traditional definitions of masculinity, but it also offers a canvas for crafting new identities that are rich, fulfilling, and true to oneself.

@@ -4,7 +4,7 @@ date: "2026-07-18"
 category: "Life"
 description: "Explore the transformative potential of modern mentorship and how building relationships across generations can foster personal growth and professional success."
 keywords: ["mentorship","generational bridges","personal growth","guidance"]
-canonical: "https://the-stoic-dad.vercel.app/posts/life_masculine_mentorship"
+canonical: "https://mcjp-blog-git-main-mcjp.vercel.app/posts/life_masculine_mentorship"
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
 published: true
@@ -72,7 +72,7 @@ Additionally, maintaining integrity throughout the mentorship process is paramou
 
 Modern mentorship is a powerful tool that transcends generational divides, fostering [personal growth](/posts/discipline_emotional_intelligence_training) and professional success. By building relationships that embrace diversity and encourage mutual learning, we can create a more connected and empowered society. The transformative potential of mentorship lies in its ability to forge bonds that inspire, guide, and uplift individuals across ages.
 
-As you embark on your mentorship journey, remember the profound impact you can have—not only on your own life but also on the lives of others. For deeper insights into masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, which offers valuable resources for personal growth in the context of family leadership.
+As you embark on your mentorship journey, remember the profound impact you can have—not only on your own life but also on the lives of others. For deeper insights into masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, which offers valuable resources for personal growth in the context of family leadership.
 
 ![A symbolic image representing mentorship, with hands joining together to signify collaboration across generations](/images/life_modern_mentorship_theme.png)
 

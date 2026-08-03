@@ -49,7 +49,7 @@ Empathy bridges the gap between strength and connection. It is the ability to un
 - **Open Communication**: Encourage open dialogue about feelings and challenges, validating your partner's experiences.
 - **Shared Experiences**: Participate in activities that are meaningful to your partner, nurturing a shared emotional connection.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, which offers a treasure trove of resources on integrating stoic principles into family life.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, which offers a treasure trove of resources on integrating stoic principles into family life.
 
 ## Balancing Masculine Leadership and Emotional Connectivity
 

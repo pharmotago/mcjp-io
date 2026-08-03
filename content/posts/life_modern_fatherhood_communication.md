@@ -69,6 +69,6 @@ Integrity plays a vital role in fostering trust and respect within [family dynam
 
 Mastering communication is a journey that requires continuous effort and dedication. As fathers, the responsibility lies not only in providing for our families but also in nurturing the emotional landscape of our homes through effective dialogue. 
 
-By implementing the strategies outlined above and committing to ongoing personal development, fathers can become exemplary communicators, leading their families with integrity and emotional intelligence. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. 
+By implementing the strategies outlined above and committing to ongoing personal development, fathers can become exemplary communicators, leading their families with integrity and emotional intelligence. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. 
 
 Ultimately, effective communication can transform not only your relationships with your children and partner but can also serve as a guide for them as they navigate their own futures. Embrace this challenge; the rewards are profound and lasting. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.

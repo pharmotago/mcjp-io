@@ -59,4 +59,4 @@ Here are key principles for long-term habit building:
 
 Harnessing the power of habits is an empowering journey that requires self-discipline, integrity, and a commitment to long-term growth. By understanding the science behind habit formation and implementing structured routines, you can cultivate the habits that lead to success. Remember, the key is to start small, stay consistent, and always keep your long-term goals in sight.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. As you embark on this transformative journey, embrace the power of your habits and let them guide you toward the success you envision.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. As you embark on this transformative journey, embrace the power of your habits and let them guide you toward the success you envision.

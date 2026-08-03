@@ -59,7 +59,7 @@ Developing both focus and resilience creates a powerful synergy. When individual
 - **Identify Your Core Values**: Write down what masculinity means to you and identify your core values. Align your daily actions with these values.
 - **Daily Reflections**: Incorporate a daily reflection practice to assess your focus and resilience. Consider what went well, what challenges you faced, and how you can improve.
 - **Accountability Partner**: Find someone who shares your commitment to developing a masculine mindset. Regular check-ins can foster growth and accountability.
-- **Continuous Learning**: Engage in reading and resources that promote personal development. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal.
+- **Continuous Learning**: Engage in reading and resources that promote personal development. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal.
 
 ### Conclusion: Embodying a Masculine Mindset
 

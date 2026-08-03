@@ -43,7 +43,7 @@ To operationalize your response, adhere to a strict framework of execution. Ambi
 *   **Decentralize Execution:** You cannot manage every micro-task. Assign specific domains to your partner or older children. One manages logistics and meals; another handles research and communications. Trust them to execute.
 *   **Maintain the Long-Term Horizon:** While managing the immediate fire, do not lose sight of the aftermath. How will this crisis impact your financial autonomy in six months? What assets must be protected at all costs to ensure the family's long-term survival?
 
-Building this level of emotional fortitude and tactical discipline is an ongoing process. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, a resource dedicated to refining the philosophical and practical aspects of fatherhood.
+Building this level of emotional fortitude and tactical discipline is an ongoing process. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, a resource dedicated to refining the philosophical and practical aspects of fatherhood.
 
 ### Financial Autonomy as a Defensive Fortification
 

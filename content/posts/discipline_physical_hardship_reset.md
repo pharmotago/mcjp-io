@@ -54,7 +54,7 @@ By weaving these practices into your life, you set the stage for a more discipli
 
 Resetting your dopamine levels through extreme physical hardship is not merely about temporary gains; it is an investment in your long-term mental and [emotional health](/posts/life_masculine_emotional_health). As you embrace discipline and resilience, you cultivate a mindset that transcends physical boundaries. This journey allows you to unlock unparalleled [mental clarity](/posts/discipline_focus_fasting), equipping you to tackle challenges both in training and daily life.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. The principles of stoicism align beautifully with the journey of self-improvement; they encourage you to confront discomfort, embrace hardship, and pursue a life of integrity.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. The principles of stoicism align beautifully with the journey of self-improvement; they encourage you to confront discomfort, embrace hardship, and pursue a life of integrity.
 
 ![Image symbolizing the theme of discipline and perseverance through physical hardship](/images/discipline_physical_hardship_reset_theme.png)
 

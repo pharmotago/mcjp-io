@@ -69,7 +69,7 @@ Incorporate reflective practices into your routine. Journaling or engaging in se
 
 Achieving mental sharpness is a journey that demands commitment and discipline. By adopting these rituals and practices, you are investing in your most valuable asset—your mind. As you cultivate this [mental clarity](/posts/discipline_digital_detox), you will find your performance in both personal and professional arenas significantly enhanced.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. 
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. 
 
 ![A serene workspace representing clarity and mental focus, ideal for enhancing performance](/images/discipline_mental_sharpening_rituals_theme.svg)
 

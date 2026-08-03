@@ -46,7 +46,7 @@ To harness the power of stress inoculation through [physical training](/posts/di
 
 The [mental fortitude](/posts/discipline_mental_fortitude_development) gained from stress inoculation extends beyond [physical training](/posts/discipline_cold_exposure_grit); it significantly impacts one's professional life. Individuals who can withstand and thrive amidst stress often find themselves better equipped to handle workplace challenges, lead teams through adversity, and innovate under pressure.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. The principles of stoicism, much like stress inoculation, emphasize the importance of enduring hardship and reflecting on one’s experiences to foster growth.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. The principles of stoicism, much like stress inoculation, emphasize the importance of enduring hardship and reflecting on one’s experiences to foster growth.
 
 ### Conclusion: Building Your Resilience Toolkit
 

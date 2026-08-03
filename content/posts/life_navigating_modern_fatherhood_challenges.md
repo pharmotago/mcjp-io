@@ -59,7 +59,7 @@ Despite the challenges, [modern fatherhood](/posts/life_modern_fatherhood_financ
 
 In conclusion, modern fatherhood is a journey marked by both challenges and triumphs. Embracing the evolving role of a father requires self-discipline, active engagement, and a commitment to [personal growth](/posts/discipline_emotional_intelligence_training). By prioritizing meaningful interactions, open communication, and seeking support, fathers can navigate the complexities of parenting with resilience and integrity.
 
-The path of fatherhood is not just about overcoming challenges; it is also about celebrating the rewards that come with active participation. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, which offers valuable resources to enhance your journey.
+The path of fatherhood is not just about overcoming challenges; it is also about celebrating the rewards that come with active participation. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, which offers valuable resources to enhance your journey.
 
 As we navigate this modern landscape, let us remember that our role as fathers is not merely a duty but a profound opportunity to shape the future. Embrace the journey, learn continuously, and cultivate the bonds that will define your legacy.
 

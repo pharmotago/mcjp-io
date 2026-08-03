@@ -20,7 +20,7 @@ function parseMarkdown(fileContent: string) {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://the-stoic-dad.vercel.app';
+  const baseUrl = 'https://mcjp-blog-git-main-mcjp.vercel.app';
   
   // Base routes explicitly typed
   const routes: MetadataRoute.Sitemap = [

@@ -39,7 +39,7 @@ During economic stress, children and spouses look to the father for behavioral c
 
 This requires a radical commitment to routine. Keep the family rituals intact. If you read to your children at night, continue to do so. If you have a weekend tradition, maintain it, even if it must be adapted to fit a stricter budget. The continuity of these rituals signals to the family that the core of their lives remains intact, even if the financial perimeter is under siege.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. It is an invaluable resource for men seeking to cultivate philosophical fortitude and intentional presence in their households.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. It is an invaluable resource for men seeking to cultivate philosophical fortitude and intentional presence in their households.
 
 ## Communicating with Clarity and Integrity
 

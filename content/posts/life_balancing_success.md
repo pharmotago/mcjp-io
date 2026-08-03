@@ -4,7 +4,7 @@ date: "2026-07-18"
 category: "Life"
 description: "Learn strategies for achieving equilibrium between demanding careers and fulfilling personal lives, ensuring long-term success and happiness."
 keywords: ["work-life balance","career success","personal life","time management","happiness"]
-canonical: "https://the-stoic-dad.vercel.app/posts/life_fatherhood_work_life_balance"
+canonical: "https://mcjp-blog-git-main-mcjp.vercel.app/posts/life_fatherhood_work_life_balance"
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
 published: true
@@ -42,7 +42,7 @@ Resilience and integrity are foundational in maintaining a balance.
 - **Stay True to Your Values:** Ensure your actions reflect your core values, whether at work or at home.
 - **Embrace Challenges:** Rather than avoiding difficulties, tackle them head-on to build resilience.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. This resource is invaluable for those seeking to enhance family leadership while maintaining professional excellence.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. This resource is invaluable for those seeking to enhance family leadership while maintaining professional excellence.
 
 ### 3. Actionable Strategies for Long-Term Success
 

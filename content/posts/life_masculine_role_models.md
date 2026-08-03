@@ -57,7 +57,7 @@ The significance of positive male role models extends beyond individual relation
 
 Furthermore, as men take on leadership roles in various spheres, they set precedents for future generations. Whether in the workplace, at home, or in the community, the behaviors and attitudes of these role models can foster environments conducive to growth and collaboration.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. This resource provides valuable perspectives on how to navigate fatherhood with strength and purpose.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. This resource provides valuable perspectives on how to navigate fatherhood with strength and purpose.
 
 ### Conclusion: Building a Legacy of Modern Masculinity
 

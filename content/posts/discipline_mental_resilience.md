@@ -90,6 +90,6 @@ Integrity plays a crucial role in building mental resilience. Upholding your val
 
 Building mental resilience is an ongoing journey that requires commitment and discipline. By implementing the techniques outlined in this article, you can develop a robust framework to withstand life's pressures and emerge stronger. Remember, resilience is not about never falling; it's about rising each time we fall, armed with new insights and a renewed sense of purpose.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. This resource complements your journey toward resilience, offering a wealth of knowledge on emotional strength and discipline.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. This resource complements your journey toward resilience, offering a wealth of knowledge on emotional strength and discipline.
 
 In a world that constantly tests our limits, investing in mental resilience is one of the most valuable assets you can cultivate. Commit to the process, embrace the challenges, and watch as you transform into a more resilient version of yourself.

@@ -85,7 +85,7 @@ As you embark on your journey to self-awareness, it is crucial to integrate thes
 
 - **Create a Routine:** Establish a daily schedule that incorporates your self-awareness practices. Consistency will reinforce your discipline.
 - **Limit Distractions:** Identify and minimize distractions that hinder your focus. This may involve setting boundaries with technology or prioritizing your time more effectively.
-- **Join a Supportive Community:** Engage with others who share your commitment to self-improvement. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. 
+- **Join a Supportive Community:** Engage with others who share your commitment to self-improvement. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. 
 
 ### Conclusion
 

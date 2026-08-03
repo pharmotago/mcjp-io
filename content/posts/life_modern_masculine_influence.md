@@ -53,7 +53,7 @@ Embracing [modern masculinity](/posts/family_role_of_man) requires intentional e
 
 - **Invest in Personal Growth**: Pursue self-improvement through reading, workshops, or mentorship. The more you grow, the better equipped you are to lead by example.
 
-- **Connect with Other Men**: Join groups or forums that focus on modern masculinity and fatherhood, such as [The Stoic Dad](https://the-stoic-dad.vercel.app/), to share experiences, challenges, and successes.
+- **Connect with Other Men**: Join groups or forums that focus on modern masculinity and fatherhood, such as [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/), to share experiences, challenges, and successes.
 
 ### Conclusion: The Future of Masculinity
 

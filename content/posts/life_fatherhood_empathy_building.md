@@ -83,7 +83,7 @@ By fostering empathy in fatherhood, you pave the way for numerous long-term bene
 
 Building empathy in fatherhood is a journey that requires commitment and self-discipline. It is not merely about responding to immediate needs but about investing in the emotional future of your family. As fathers, we must aim to create a legacy of understanding and compassion, fostering a nurturing environment that allows each family member to thrive.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. This resource can provide you with additional strategies to embody the principles of empathy and emotional intelligence in your family life.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. This resource can provide you with additional strategies to embody the principles of empathy and emotional intelligence in your family life.
 
 ![Father engaging in empathetic communication with child](/images/life_fatherhood_empathy_building_focus.svg)
 

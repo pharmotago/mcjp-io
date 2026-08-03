@@ -49,7 +49,7 @@ True mindfulness is not confined to meditation sessions; it permeates every aspe
 
 - **Digital Detox**: Allocate specific times to disconnect from digital devices. This break from screens can significantly improve mental clarity and reduce stress.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, where you can find valuable resources to refine your approach to fatherhood and personal growth.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, where you can find valuable resources to refine your approach to fatherhood and personal growth.
 
 ![A serene and balanced scene depicting the harmony achieved through masculine mindfulness practices](/images/life_masculine_mindfulness_practices_theme.svg)
 

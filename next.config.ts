@@ -12,7 +12,7 @@ const nextConfig: NextConfig = {
             value: 'mcjp.io',
           },
         ],
-        destination: 'https://the-stoic-dad.vercel.app/:path*',
+        destination: 'https://mcjp-blog-git-main-mcjp.vercel.app/:path*',
         permanent: true,
       },
       { source: '/posts/money_cryptocurrency_risks', destination: '/posts/money_crypto_investments', permanent: true },

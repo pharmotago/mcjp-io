@@ -50,7 +50,7 @@ As a [modern man](/posts/life_masculine_emotional_balance) navigating the comple
 
 In our pursuit of success, we often overlook the intersection of masculinity and the administrative burdens we carry. The [modern man](/posts/life_masculine_self_reliance) is expected to juggle various roles—from provider to protector—but few acknowledge the cognitive toll of managing these responsibilities. "Unburden Your Brain" speaks directly to this challenge, offering a lens through which to view life admin not as a nuisance but as a critical component of a well-lived life.
 
-Furthermore, for those interested in exploring themes of masculinity and personal development further, I encourage you to visit [The Stoic Dad](https://the-stoic-dad.vercel.app/). This project delves into the principles of stoicism, providing valuable insights for men striving to balance modern expectations with timeless wisdom.
+Furthermore, for those interested in exploring themes of masculinity and personal development further, I encourage you to visit [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/). This project delves into the principles of stoicism, providing valuable insights for men striving to balance modern expectations with timeless wisdom.
 
 ### The Path to Wealth Creation
 

@@ -47,7 +47,7 @@ Fatherhood offers a unique opportunity to redefine masculinity by modeling stren
 - **Encourage Emotional Expression:** Create a safe space for children to express their feelings without fear of judgment.
 - **Foster Independence and Resilience:** Support your children in facing challenges and learning from failures, promoting a growth mindset.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, which offers valuable resources for fathers seeking to balance traditional masculine virtues with modern sensibilities.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, which offers valuable resources for fathers seeking to balance traditional masculine virtues with modern sensibilities.
 
 ### Action Plan: Balancing Strength and Sensitivity
 

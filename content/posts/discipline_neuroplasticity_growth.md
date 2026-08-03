@@ -4,7 +4,7 @@ date: "2026-07-18"
 category: "Discipline"
 description: "Learn how to leverage the science of neuroplasticity to foster personal development and cultivate the discipline needed for success."
 keywords: ["neuroplasticity","personal growth","brain training","mental discipline"]
-canonical: "https://the-stoic-dad.vercel.app/posts/discipline_neuroplasticity_enhancement"
+canonical: "https://mcjp-blog-git-main-mcjp.vercel.app/posts/discipline_neuroplasticity_enhancement"
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
 published: true
@@ -87,7 +87,7 @@ The ability to change your brain translates into real-world benefits:
 
 Incorporating the principles of neuroplasticity into your [personal growth](/posts/discipline_habit_breaking) journey is not merely a theoretical exercise; it is a practical approach that can lead to profound transformation. 
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. 
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. 
 
 ![Visual representation of neuroplasticity's impact on personal growth and discipline](/images/discipline_neuroplasticity_growth_theme.png)
 

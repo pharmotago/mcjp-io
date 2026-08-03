@@ -43,7 +43,7 @@ The interplay between physical and emotional health is profound. A disciplined e
 - **Routine Balance**: Design a daily routine that incorporates time for both physical exercise and mental relaxation.
 - **Stress Management**: Use physical activity as a tool for stress relief while practicing emotional regulation techniques.
 - **Goal Setting**: Set realistic health goals that encompass both physical and emotional milestones.
-- **Continuous Learning**: Engage with resources like [The Stoic Dad](https://the-stoic-dad.vercel.app/) for deeper insights into balancing masculine health and embracing personal growth.
+- **Continuous Learning**: Engage with resources like [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) for deeper insights into balancing masculine health and embracing personal growth.
 
 ## Conclusion: A Path Forward
 

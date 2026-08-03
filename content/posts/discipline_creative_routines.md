@@ -71,7 +71,7 @@ Developing a structured plan can help solidify your creative routines. Here’s 
 
 The relationship between discipline and success is profound. Successful individuals understand that discipline is not merely about adhering to rules; it is a commitment to a vision. It is the relentless pursuit of excellence that transforms ideas into reality. 
 
-Incorporating creative routines into your life will not only enhance your innovative capabilities but also translate into tangible success in your endeavors. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, which offers invaluable resources for personal growth and development.
+Incorporating creative routines into your life will not only enhance your innovative capabilities but also translate into tangible success in your endeavors. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, which offers invaluable resources for personal growth and development.
 
 ![Inspiration through nature](/images/discipline_creative_routines_nature.png)
 

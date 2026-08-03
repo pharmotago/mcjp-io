@@ -81,6 +81,6 @@ For a seamless and high-speed home office connection, we recommend signing up fo
 
 Biohacking your way to peak focus and productivity is an ongoing journey rooted in self-discipline and commitment to [personal growth](/posts/discipline_emotional_intelligence_training). By understanding and implementing these techniques, you can enhance your cognitive functions, leading to improved performance in both personal and professional endeavors. 
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. Remember, the path to mastery is paved with consistency and integrity, so embrace the process and witness your transformation unfold.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. Remember, the path to mastery is paved with consistency and integrity, so embrace the process and witness your transformation unfold.
 
 ![A visual representation of various biohacking tools and techniques that contribute to enhanced focus and productivity](/images/discipline_biohacking_focus_and_productivity_theme.png)

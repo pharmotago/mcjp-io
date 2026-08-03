@@ -4,7 +4,7 @@ date: "2026-07-18"
 category: "Life"
 description: "Examine practical strategies to achieve a harmonious balance between career aspirations and family responsibilities. Discover how to prioritize effectively and maintain a fulfilling life."
 keywords: ["work-life balance","career success","family priorities","time management"]
-canonical: "https://the-stoic-dad.vercel.app/posts/life_fatherhood_work_life_balance"
+canonical: "https://mcjp-blog-git-main-mcjp.vercel.app/posts/life_fatherhood_work_life_balance"
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
 published: true
@@ -51,7 +51,7 @@ While immediate successes are gratifying, focusing on long-term [asset building]
 - **Family Meetings**: Schedule regular family discussions to align household goals and expectations.
 - **Professional Development**: Allocate time for skill enhancement that benefits both career and personal life.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal.
 
 ![A thematic image depicting the harmony between career and family life](/images/life_balancing_career_family_theme.png)
 

@@ -64,6 +64,6 @@ The legacy you build will inevitably influence others. By embodying the principl
 
 Building a masculine legacy is a lifelong endeavor that requires commitment, self-discipline, and a clear vision. It is about creating an impact that transcends individual accomplishments and extends into the lives of those around you. As you embark on this journey, remember that the strength of your legacy lies in your ability to lead with integrity, pursue [personal growth](/posts/discipline_emotional_intelligence_training), and influence the world positively.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, where you can gain further guidance on navigating the complexities of fatherhood and personal development. 
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, where you can gain further guidance on navigating the complexities of fatherhood and personal development. 
 
 In a rapidly changing world, take the time to reflect on the legacy you wish to leave behind. Commit to building a foundation that not only honors your aspirations but also uplifts those around you. Through intentional actions and unwavering dedication, you possess the power to craft a legacy that is genuinely masculine—one that stands the test of time.

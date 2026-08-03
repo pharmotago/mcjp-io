@@ -92,6 +92,6 @@ Integrating these principles into your [daily habits](/posts/discipline_routine_
 
 Strengthening mental well-being is not a solitary journey; it is an integral part of embracing [modern masculinity](/posts/family_role_of_man). By adopting these essential habits, men can foster resilience and emotional health, paving the way for a more balanced and fulfilling life. 
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. It is essential to remember that embracing mental well-being is not a sign of weakness; it is an act of courage and integrity that ultimately leads to a more profound sense of self and community. 
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. It is essential to remember that embracing mental well-being is not a sign of weakness; it is an act of courage and integrity that ultimately leads to a more profound sense of self and community. 
 
 As you embark on this journey, remember that each small step contributes to the larger narrative of your life. Strengthening your mental well-being is a commitment to yourself and those around you, allowing you to thrive in the complexities of modern masculinity. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.

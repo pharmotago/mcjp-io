@@ -4,7 +4,7 @@ date: "2026-07-18"
 category: "Discipline"
 description: "Uncover the powerful connection between physical fitness and cognitive performance. This article provides insights on how physical training can enhance mental clarity and overall success."
 keywords: ["physical training","cognitive training","success habits"]
-canonical: "https://the-stoic-dad.vercel.app/posts/discipline_physical_cognitive_training"
+canonical: "https://mcjp-blog-git-main-mcjp.vercel.app/posts/discipline_physical_cognitive_training"
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
 published: true
@@ -69,7 +69,7 @@ The benefits of coupling physical exercise with [cognitive training](/posts/disc
 
 Moreover, as you cultivate these dual training methodologies, you foster a mindset of continuous improvement—an essential trait for long-term success in any endeavor. This discipline not only enhances your cognitive abilities but also strengthens your character and integrity.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. This resource provides valuable perspectives on cultivating discipline and character in both personal and familial contexts.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. This resource provides valuable perspectives on cultivating discipline and character in both personal and familial contexts.
 
 ### Conclusion: The Path to Holistic Success
 

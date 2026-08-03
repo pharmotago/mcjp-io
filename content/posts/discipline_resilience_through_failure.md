@@ -33,7 +33,7 @@ To cultivate resilience through failure, consider implementing the following act
   
 - **Learn from Each Experience**: After facing a setback, conduct a thorough analysis. What went wrong? What could you have done differently? Extracting lessons from failures is essential for future success.
 
-![A focused individual contemplating their growth journey, symbolizing resilience through failure.](https://the-stoic-dad.vercel.app/images/discipline_resilience_through_failure_focus.svg)
+![A focused individual contemplating their growth journey, symbolizing resilience through failure.](https://mcjp-blog-git-main-mcjp.vercel.app/images/discipline_resilience_through_failure_focus.svg)
 
 ### The Role of Discipline in Resilience
 
@@ -65,9 +65,9 @@ A success mindset is critical in harnessing resilience through failure. This min
 
 Incorporating resilience into your life is not an overnight process; it requires dedication, patience, and self-discipline. By embracing failure as a vital component of your journey, you can transform setbacks into meaningful learning experiences that pave the way to success.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. By cultivating resilience through failure, you not only enhance your personal growth but also lay the groundwork for a fulfilling and successful life.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. By cultivating resilience through failure, you not only enhance your personal growth but also lay the groundwork for a fulfilling and successful life.
 
-![A thematic representation of resilience, showcasing the journey from failure to success, emphasizing the importance of a growth-oriented mindset.](https://the-stoic-dad.vercel.app/images/discipline_resilience_through_failure_theme.svg)
+![A thematic representation of resilience, showcasing the journey from failure to success, emphasizing the importance of a growth-oriented mindset.](https://mcjp-blog-git-main-mcjp.vercel.app/images/discipline_resilience_through_failure_theme.svg)
 
 ### Action Plan for Developing Resilience
 

@@ -55,7 +55,7 @@ To prepare our sons for this turbulent environment, we must instill principles t
 
 Building anti-fragility is not a solitary endeavor. Engage with other fathers and families to create a supportive network. This community can serve as a resource for sharing experiences, challenges, and strategies. Encourage your sons to develop friendships that foster mutual growth and resilience.
 
-Furthermore, consider exploring resources like [The Stoic Dad](https://the-stoic-dad.vercel.app/) for deeper insights on masculine resilience and active parenting. This platform provides valuable tools and philosophies aimed at empowering fathers to raise strong, self-sufficient sons.
+Furthermore, consider exploring resources like [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) for deeper insights on masculine resilience and active parenting. This platform provides valuable tools and philosophies aimed at empowering fathers to raise strong, self-sufficient sons.
 
 ### Cultivating Lifelong Skills
 

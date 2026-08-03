@@ -90,7 +90,7 @@ To implement these techniques effectively, consider the following action plan:
   - Adjust strategies as needed.
   - Engage in a digital detox weekend.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, where you can find valuable resources and community support.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, where you can find valuable resources and community support.
 
 ![A determined man achieving success, symbolizing the journey toward elite performance](/images/discipline_masculine_mental_focus_theme.png)
 

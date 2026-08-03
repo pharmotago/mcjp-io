@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description: "MCJP.io publishes actionable systems for building leveraged wealth, mastering discipline, and leading your family with integrity. No fluff — just the blueprints.",
     images: [
       {
-        url: 'https://the-stoic-dad.vercel.app/og/about-mcjpio.png',
+        url: 'https://mcjp-blog-git-main-mcjp.vercel.app/og/about-mcjpio.png',
         width: 1200,
         height: 630,
         alt: "About MCJP.io — Sovereign Blueprints for the Modern Man",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "About MCJP.io — Sovereign Blueprints for the Modern Man",
     description: "MCJP.io publishes actionable systems for building leveraged wealth, mastering discipline, and leading your family with integrity. No fluff — just the blueprints.",
-    images: ['https://the-stoic-dad.vercel.app/og/about-mcjpio.png'],
+    images: ['https://mcjp-blog-git-main-mcjp.vercel.app/og/about-mcjpio.png'],
   }
 };
 

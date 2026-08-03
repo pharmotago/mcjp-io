@@ -69,7 +69,7 @@ Creating a strong support network is essential for modern fathers. Surround your
 
 At the core of successful fatherhood lies integrity and self-discipline. Fathers must model these qualities not only in their actions but also in their interactions with family members. Demonstrating commitment and responsibility instills these values in children, shaping future generations.
 
-As fathers navigate the complexities of modern parenting, they can find inspiration and guidance by exploring resources like [The Stoic Dad](https://the-stoic-dad.vercel.app/). This platform provides deeper insights into masculine resilience and active parenting, helping fathers cultivate strength and mindfulness.
+As fathers navigate the complexities of modern parenting, they can find inspiration and guidance by exploring resources like [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/). This platform provides deeper insights into masculine resilience and active parenting, helping fathers cultivate strength and mindfulness.
 
 ![A father reflecting on his journey towards modern parenting, emphasizing resilience and growth](/images/life_fatherhood_modern_challenges_theme.png)
 

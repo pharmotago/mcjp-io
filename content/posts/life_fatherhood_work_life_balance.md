@@ -40,7 +40,7 @@ Being a leader at home is about more than just providing; it's about building re
 - **Communicate Openly**: Foster an environment of open communication where everyone feels heard and valued.
 - **Lead by Example**: Demonstrate values like integrity, kindness, and resilience. Children often mirror the behavior they observe.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, which offers a wealth of resources tailored to fathers seeking to enhance their leadership at home.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, which offers a wealth of resources tailored to fathers seeking to enhance their leadership at home.
 
 ### Action Plan: Achieving Success in Both Worlds
 
@@ -96,7 +96,7 @@ Lifestyle choices play a crucial role in sustaining [work-life balance](/posts/l
 
 Integrity is the backbone of a balanced life. Upholding ethical standards in both work and personal domains fosters trust and respect. Furthermore, focus on building long-term assets, both tangible and intangible. Cultivate relationships, invest in [personal development](/posts/discipline_masculine_emotional_maturity), and nurture a reputation for reliability and excellence.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. It offers valuable resources for those committed to leading with purpose and integrity.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. It offers valuable resources for those committed to leading with purpose and integrity.
 
 ### Action Plan for Achieving Work-Life Balance
 
@@ -152,7 +152,7 @@ Balancing career and family requires a high degree of self-discipline and integr
 - **Stay True to Your Word:** Honor commitments made to both your employer and family. Reliability builds trust and respect.
 - **Embrace Self-Improvement:** Constantly seek ways to improve your skills and knowledge. This will enhance your career prospects and personal development.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, a resource dedicated to empowering men in their journey towards a balanced and fulfilling life.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, a resource dedicated to empowering men in their journey towards a balanced and fulfilling life.
 
 ### Conclusion: Crafting a Fulfilled Life
 
@@ -202,7 +202,7 @@ To effectively implement these strategies, follow this simple checklist:
 - **Create a Weekly Schedule:** Allocate specific times for work, family, leisure, and self-care.
 - **Review and Adjust Regularly:** Periodically assess your balance and make necessary adjustments to stay on track.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, which provides valuable perspectives on leading a balanced and fulfilling life.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, which provides valuable perspectives on leading a balanced and fulfilling life.
 
 ![A thematic representation of balanced lifestyle elements: work, family, and personal growth](/images/life_fatherhood_wlb_detail.png)
 
@@ -255,7 +255,7 @@ Self-discipline is the backbone of any successful endeavor. By mastering self-co
 - **Set personal boundaries**: Learn to say no to non-essential tasks that detract from your family time.
 - **Commit to self-care**: Regularly engage in activities that nurture your physical and mental well-being, ensuring you have the energy to support both career and family.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, which offers valuable perspectives on maintaining strength and wisdom in family leadership.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, which offers valuable perspectives on maintaining strength and wisdom in family leadership.
 
 ## Actionable Strategies for Work-Life Balance
 
@@ -303,7 +303,7 @@ Stress is an inevitable part of life, but it doesn?�t have to derail your bala
 - **Physical Exercise**: Regular exercise is a powerful stress reliever. It boosts endorphin levels, enhancing mood and productivity.
 - **Digital Detox**: Allocate time to disconnect from technology. This helps regain focus and reconnect with yourself and loved ones.
 
-For a more in-depth exploration of maintaining mental fortitude and leading a balanced life, consider visiting [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal for guidance on masculine resilience.
+For a more in-depth exploration of maintaining mental fortitude and leading a balanced life, consider visiting [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal for guidance on masculine resilience.
 
 ## Building a Balanced Lifestyle
 
@@ -378,7 +378,7 @@ At the heart of balancing success lies self-discipline. It is the foundational t
 
 ### Building Long-Term Assets
 
-Balancing success is not just about immediate gratification; it is about building long-term assets that enhance your quality of life. This includes nurturing relationships, investing in personal development, and maintaining physical and mental health. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, which offers valuable perspectives on integrating stoicism into daily life for enduring happiness.
+Balancing success is not just about immediate gratification; it is about building long-term assets that enhance your quality of life. This includes nurturing relationships, investing in personal development, and maintaining physical and mental health. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, which offers valuable perspectives on integrating stoicism into daily life for enduring happiness.
 
 ### Actionable Checklist for Work-Life Balance
 

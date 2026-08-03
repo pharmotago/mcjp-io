@@ -53,7 +53,7 @@ As men, we often find ourselves in leadership roles, whether at home, in the wor
 - **Communicate Clearly**: Articulate your thoughts and decisions transparently, ensuring that those you lead understand the rationale behind your actions.
 - **Model Resilience**: Demonstrate emotional strength through your actions. Show that while emotions are natural, they need not dictate responses.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, which provides resources for fathers aiming to cultivate emotional strength in themselves and their children.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, which provides resources for fathers aiming to cultivate emotional strength in themselves and their children.
 
 ### Conclusion: The Path Forward
 

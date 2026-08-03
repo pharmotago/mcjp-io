@@ -66,7 +66,7 @@ Self-discipline is the backbone of habit creation and routine building. It is th
 
 - **Reward Yourself**: Celebrate small victories along the way. Recognizing your progress can fuel motivation and reinforce your commitment to self-discipline.
 
-- **Surround Yourself with Support**: Engage with a community that shares your values and goals. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, which provides valuable resources for personal growth.
+- **Surround Yourself with Support**: Engage with a community that shares your values and goals. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, which provides valuable resources for personal growth.
 
 ### Conclusion: The Path to Personal Success
 
@@ -150,7 +150,7 @@ Self-discipline requires ongoing evaluation. Regularly monitor your progress and
 
 Breaking bad habits is not merely an act of willpower; it is a strategic approach to building self-discipline and laying the groundwork for [personal growth](/posts/discipline_self_awareness_journey). By understanding the psychology of habits, identifying triggers, and fostering supportive environments, you can transform your life for the better.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. Remember, the journey of self-improvement is ongoing. Each step you take toward breaking bad habits is a step toward a more disciplined and successful life. Embrace the challenge, and let your journey begin.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. Remember, the journey of self-improvement is ongoing. Each step you take toward breaking bad habits is a step toward a more disciplined and successful life. Embrace the challenge, and let your journey begin.
 
 ---
 
@@ -218,7 +218,7 @@ Breaking bad habits is just the beginning; cultivating long-term self-discipline
 
 Breaking bad habits is a profound act of personal empowerment. It requires commitment, resilience, and a deep understanding of oneself. By following a structured approach?�identifying habits, understanding triggers, replacing behaviors, and fostering a supportive environment?�you can pave the way to lasting change.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. Remember, the journey of personal growth is ongoing; embrace each step with integrity and self-discipline.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. Remember, the journey of personal growth is ongoing; embrace each step with integrity and self-discipline.
 
 ![Image representing the theme of discipline, showcasing success through habit change and personal growth](/images/discipline_habit_creation_theme.png)
 

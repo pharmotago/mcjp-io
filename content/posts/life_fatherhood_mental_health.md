@@ -65,7 +65,7 @@ Building a supportive network can buffer against stress:
 
 Self-discipline and integrity are cornerstones of resilient fatherhood. They enable fathers to lead by example and instill values in their children. This requires a commitment to [personal growth](/posts/discipline_emotional_intelligence_training) and the courage to act with integrity, even when facing life's challenges.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. This resource offers valuable perspectives for fathers seeking to strengthen their emotional foundations.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. This resource offers valuable perspectives for fathers seeking to strengthen their emotional foundations.
 
 ![A father engaging with his children, symbolizing the theme of connected parenting](/images/life_fatherhood_mental_health_theme.png)
 

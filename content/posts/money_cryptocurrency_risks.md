@@ -4,7 +4,7 @@ date: "2026-07-18"
 category: "Money"
 description: "Explore the volatile world of cryptocurrency investments, where understanding the balance between risks and rewards is crucial for building a strong financial future."
 keywords: ["cryptocurrency","investment","risk management","bitcoin","blockchain"]
-canonical: "https://the-stoic-dad.vercel.app/posts/money_crypto_investments"
+canonical: "https://mcjp-blog-git-main-mcjp.vercel.app/posts/money_crypto_investments"
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
 published: true

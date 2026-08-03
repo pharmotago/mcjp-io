@@ -22,7 +22,7 @@ Building a support network as a father requires effort and intention. Here are s
 * Take a class or workshop to learn a new skill, which can help you meet others who share your interests.
 * Leverage social media platforms to connect with other fathers and join online communities related to fatherhood and parenting.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, which offers a wealth of resources and guidance on how to cultivate a strong sense of purpose and identity as a father.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, which offers a wealth of resources and guidance on how to cultivate a strong sense of purpose and identity as a father.
 
 ## The Role of Technology in Building Community
 While technology can sometimes be seen as a barrier to building meaningful relationships, it can also be a powerful tool for connecting with others. Online communities and forums can provide a safe space for fathers to share their experiences, ask for advice, and connect with others who understand the challenges of fatherhood. However, it's essential to strike a balance between online engagement and in-person interactions. By combining both, fathers can build a robust support network that meets their emotional and social needs.

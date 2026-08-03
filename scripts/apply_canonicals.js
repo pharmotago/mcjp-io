@@ -5,14 +5,14 @@ const ROOT_DIR = 'C:\\Antigravity\\mcjp-io';
 const POSTS_DIR = path.join(ROOT_DIR, 'content', 'posts');
 
 const duplicates = {
-    'money_cryptocurrency_risks': 'https://the-stoic-dad.vercel.app/posts/money_crypto_investments',
-    'life_work_life_balance': 'https://the-stoic-dad.vercel.app/posts/life_fatherhood_work_life_balance',
-    'life_balancing_success': 'https://the-stoic-dad.vercel.app/posts/life_fatherhood_work_life_balance',
-    'discipline_neuroplasticity_growth': 'https://the-stoic-dad.vercel.app/posts/discipline_neuroplasticity_enhancement',
-    'life_modern_mentorship': 'https://the-stoic-dad.vercel.app/posts/life_masculine_mentorship',
-    'life_power_of_mentorship': 'https://the-stoic-dad.vercel.app/posts/life_masculine_mentorship',
-    'discipline_physical_training': 'https://the-stoic-dad.vercel.app/posts/discipline_physical_cognitive_training',
-    'life_balancing_career_family': 'https://the-stoic-dad.vercel.app/posts/life_fatherhood_work_life_balance'
+    'money_cryptocurrency_risks': 'https://mcjp-blog-git-main-mcjp.vercel.app/posts/money_crypto_investments',
+    'life_work_life_balance': 'https://mcjp-blog-git-main-mcjp.vercel.app/posts/life_fatherhood_work_life_balance',
+    'life_balancing_success': 'https://mcjp-blog-git-main-mcjp.vercel.app/posts/life_fatherhood_work_life_balance',
+    'discipline_neuroplasticity_growth': 'https://mcjp-blog-git-main-mcjp.vercel.app/posts/discipline_neuroplasticity_enhancement',
+    'life_modern_mentorship': 'https://mcjp-blog-git-main-mcjp.vercel.app/posts/life_masculine_mentorship',
+    'life_power_of_mentorship': 'https://mcjp-blog-git-main-mcjp.vercel.app/posts/life_masculine_mentorship',
+    'discipline_physical_training': 'https://mcjp-blog-git-main-mcjp.vercel.app/posts/discipline_physical_cognitive_training',
+    'life_balancing_career_family': 'https://mcjp-blog-git-main-mcjp.vercel.app/posts/life_fatherhood_work_life_balance'
 };
 
 function parseMarkdown(fileContent) {

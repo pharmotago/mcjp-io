@@ -26,7 +26,7 @@ Prioritizing self-care as a father can be challenging, but there are several str
 * Prioritize sleep and aim for 7-8 hours per night to help regulate your mood and reduce stress
 * Consider seeking professional help if you are struggling with your emotional or mental wellbeing
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, which offers a wealth of information and resources on how to cultivate a strong sense of self and become a more effective, engaged father.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, which offers a wealth of information and resources on how to cultivate a strong sense of self and become a more effective, engaged father.
 
 ## The Benefits of Self-Care for Fathers
 The benefits of self-care for fathers are numerous and far-reaching. By prioritizing their own emotional and mental wellbeing, fathers can experience a range of positive outcomes, including:

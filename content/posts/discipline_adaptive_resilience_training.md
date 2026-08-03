@@ -63,6 +63,6 @@ Discipline is the backbone of [mental toughness](/posts/discipline_mental_toughn
 
 In summary, adaptive resilience is a powerful framework for developing [mental toughness](/posts/discipline_rucking_mental_toughness) and navigating life's challenges. By integrating self-awareness, emotional regulation, optimism, and goal orientation into your life, you can significantly enhance your resilience.
 
-Remember, the path to resilience is a journey, not a destination. It requires ongoing effort and dedication. For those seeking deeper insights into masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) for valuable resources.
+Remember, the path to resilience is a journey, not a destination. It requires ongoing effort and dedication. For those seeking deeper insights into masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) for valuable resources.
 
 Ultimately, the cultivation of mental toughness through adaptive resilience training is an investment in your long-term well-being and personal growth. Embrace the challenges ahead with confidence, and watch as you emerge stronger and more capable than ever before.

@@ -46,7 +46,7 @@ Moreover, creativity can play a significant role in leadership. Leaders who exhi
 
 As we delve deeper into the interplay between creativity and masculinity, it's crucial to recognize that vulnerability and openness are not signs of weakness, but rather indications of strength. Men who embrace their creative sides often find themselves more in touch with their emotions and capable of expressing themselves authentically. This shift contributes to a healthier understanding of masculinity—one that aligns with integrity, compassion, and self-discipline.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, which highlights the integration of stoicism and emotional intelligence in fatherhood.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, which highlights the integration of stoicism and emotional intelligence in fatherhood.
 
 ### Real-World Applications: Creativity in Action
 

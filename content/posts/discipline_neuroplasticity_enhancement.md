@@ -60,7 +60,7 @@ By developing self-discipline, you can create a conducive environment for neurop
 
 Resilience, closely tied to self-discipline and neuroplasticity, is the ability to bounce back from setbacks. Developing resilience is essential for sustained cognitive growth. Embrace challenges as opportunities for learning rather than obstacles. This mindset shift fosters a stronger neural framework, facilitating faster recovery from failures and a greater propensity for growth.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. 
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. 
 
 ### Conclusion: Building Long-Term Assets in Your Mind
 
@@ -144,7 +144,7 @@ As you navigate the journey of [personal growth](/posts/discipline_habit_breakin
 
 Harnessing the power of neuroplasticity is a transformative endeavor that requires dedication and intentionality. By actively engaging with the principles of neuroplasticity, you can reshape your mindset, cultivate discipline, and pave the way for enduring [personal growth](/posts/discipline_emotional_intelligence_training). 
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, where we delve into the intersection of personal development and fatherhood. Remember, the journey of self-improvement is not a sprint; it is a marathon, and every step you take today lays the groundwork for a more disciplined, resilient, and fulfilled tomorrow.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, where we delve into the intersection of personal development and fatherhood. Remember, the journey of self-improvement is not a sprint; it is a marathon, and every step you take today lays the groundwork for a more disciplined, resilient, and fulfilled tomorrow.
 
 ---
 
@@ -208,6 +208,6 @@ Creating an environment that nurtures neuroplasticity is essential for sustained
 
 Harnessing the power of neuroplasticity is not merely a theoretical endeavor; it is a practical strategy for [personal growth](/posts/discipline_habit_breaking) and development. By understanding how to train our brains, we can cultivate the mental discipline required for success and resilience. 
 
-The journey of transformation is continuous, requiring commitment and intentionality. For those who seek deeper insights into resilience and personal development, I encourage you to explore [The Stoic Dad](https://the-stoic-dad.vercel.app/). This resource offers invaluable perspectives on fostering strength and integrity in both personal and familial contexts.
+The journey of transformation is continuous, requiring commitment and intentionality. For those who seek deeper insights into resilience and personal development, I encourage you to explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/). This resource offers invaluable perspectives on fostering strength and integrity in both personal and familial contexts.
 
 Ultimately, by embracing the principles of neuroplasticity and integrating actionable strategies into our lives, we can unlock our potential and navigate the complexities of growth with confidence and discipline. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.

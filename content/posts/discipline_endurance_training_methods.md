@@ -55,6 +55,6 @@ To ensure sustainability in your training, consider the following tips:
 - **Cultivate a Growth Mindset**: Embrace challenges as opportunities for growth. Understand that every setback is a chance to learn and improve.
 - **Reflect Regularly**: Take time to reflect on your training experiences, both the successes and the struggles. This will deepen your understanding of your journey and reinforce your commitment to endurance.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. This resource provides thoughtful perspectives on discipline that complement your endurance training journey.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. This resource provides thoughtful perspectives on discipline that complement your endurance training journey.
 
 In conclusion, endurance training is a powerful tool for enhancing both physical and mental stamina. By embracing the principles and strategies outlined above, you can build a foundation of resilience that not only propels you toward your fitness goals but enriches every aspect of your life. Remember, the journey of endurance is as much about the destination as it is about the lessons learned along the way.

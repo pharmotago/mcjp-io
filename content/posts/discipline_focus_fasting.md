@@ -75,6 +75,6 @@ Here’s a comprehensive checklist to kickstart your focus fasting journey:
 
 Incorporating focus fasting into your life is not merely an exercise in discipline; it is a transformative practice that can redefine how you approach your work and personal goals. By embracing the temporary abstinence from distractions, you can unlock a wellspring of [mental clarity](/posts/discipline_digital_detox), heightened productivity, and a renewed sense of purpose. 
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, where you can find resources to further enhance your discipline in various aspects of life. 
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, where you can find resources to further enhance your discipline in various aspects of life. 
 
 In this fast-paced world, remember that the ability to focus is a skill that can be developed. By committing to focus fasting, you not only improve your mental acuity but also lay the groundwork for achieving your long-term aspirations. Seize the opportunity to sharpen your mind—your future self will thank you. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.

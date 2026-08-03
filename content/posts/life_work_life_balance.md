@@ -4,7 +4,7 @@ date: "2026-07-18"
 category: "Life"
 description: "Explore strategies for maintaining a healthy work-life balance in today's fast-paced world. Learn techniques to manage your time effectively and reduce stress while achieving success."
 keywords: ["work-life balance","time management","stress reduction","lifestyle"]
-canonical: "https://the-stoic-dad.vercel.app/posts/life_fatherhood_work_life_balance"
+canonical: "https://mcjp-blog-git-main-mcjp.vercel.app/posts/life_fatherhood_work_life_balance"
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
 published: true
@@ -48,7 +48,7 @@ Developing a balanced lifestyle requires a commitment to [personal growth](/post
 - **Cultivate Relationships**: Invest time in nurturing meaningful relationships with family and friends. This support network is vital for emotional well-being.
 - **Practice Gratitude**: Regularly reflect on the positive aspects of your life to maintain a balanced perspective.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. This resource provides valuable guidance on integrating stoic principles into everyday life, enhancing your journey toward a balanced existence.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. This resource provides valuable guidance on integrating stoic principles into everyday life, enhancing your journey toward a balanced existence.
 
 ### Action Plan: Achieving Work-Life Balance
 

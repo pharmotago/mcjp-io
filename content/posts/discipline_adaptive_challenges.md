@@ -44,7 +44,7 @@ Integrity plays a crucial role in this process. Integrity is not simply moral ho
 
 The capacity to navigate adaptive challenges extends beyond the individual; it is the bedrock of effective leadership. How you confront uncertainty sets the standard for those around you. A leader who exhibits disciplined resilience creates a culture where challenges are viewed as catalysts for growth rather than insurmountable threats.
 
-This is especially true within the context of family leadership. The modern household is not immune to adaptive challenges, whether they stem from shifting educational paradigms, financial pressures, or the complexities of raising children in a hyper-connected world. How you manage your discipline in the face of these challenges directly impacts the resilience of your family unit. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal.
+This is especially true within the context of family leadership. The modern household is not immune to adaptive challenges, whether they stem from shifting educational paradigms, financial pressures, or the complexities of raising children in a hyper-connected world. How you manage your discipline in the face of these challenges directly impacts the resilience of your family unit. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal.
 
 ![A minimalist, high-performance environment symbolizing the overarching theme of discipline and resilience](/images/discipline_adaptive_challenges_theme.png)
 

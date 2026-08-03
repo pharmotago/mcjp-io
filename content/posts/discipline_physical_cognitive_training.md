@@ -63,7 +63,7 @@ Diversity in training keeps engagement high and fosters a well-rounded skill set
 Surround yourself with individuals who share similar goals and values. This can be achieved through:
 
 - **Group Training Sessions**: Join a fitness class or a study group to maintain motivation and accountability.
-- **Online Communities**: Participate in forums or platforms focused on self-improvement, such as [The Stoic Dad](https://the-stoic-dad.vercel.app/), where you can exchange insights and strategies.
+- **Online Communities**: Participate in forums or platforms focused on self-improvement, such as [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/), where you can exchange insights and strategies.
 
 ### The Discipline of Balance
 

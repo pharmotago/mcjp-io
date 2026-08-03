@@ -56,7 +56,7 @@ Don’t let another day pass you by without taking action. The habits you form t
 
 ![Official Release Asset](/images/book_90_day_habit_system_theme.svg)
 
-For those interested in additional resources related to masculinity and parenting, consider exploring [The Stoic Dad](https://the-stoic-dad.vercel.app/), which provides valuable insights into the modern male experience.
+For those interested in additional resources related to masculinity and parenting, consider exploring [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/), which provides valuable insights into the modern male experience.
 
 As you take steps to enhance your habits, consider leveraging digital assets and [wealth creation](/posts/money_ai_entrepreneurship) strategies. Platforms like Hostinger can be instrumental in establishing your online presence and building a foundation for financial independence.
 

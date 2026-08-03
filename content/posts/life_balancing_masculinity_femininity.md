@@ -62,7 +62,7 @@ To foster this balance, consider the following actionable strategies:
 
 5. **Continuous Learning**:
    - Educate yourself on gender dynamics and relationship psychology.
-   - Explore resources like [The Stoic Dad](https://the-stoic-dad.vercel.app/) for deeper insights on masculine resilience and active parenting.
+   - Explore resources like [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) for deeper insights on masculine resilience and active parenting.
 
 ## Overcoming Challenges in Balancing Traits
 

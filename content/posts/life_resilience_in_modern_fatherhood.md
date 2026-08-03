@@ -71,7 +71,7 @@ Integrity plays a crucial role in building resilience. It involves aligning your
 
 Modern fathers often find themselves in a complex web of influences. It is essential to identify positive role models—be it family members, friends, or public figures—who exemplify resilience and [emotional strength](/posts/discipline_mental_resilience). Learning from these individuals can provide invaluable insights and strategies to implement in your parenting journey.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, which offers valuable resources to help fathers navigate the complexities of modern parenting with integrity and strength.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, which offers valuable resources to help fathers navigate the complexities of modern parenting with integrity and strength.
 
 ![A father teaching his child about resilience, embodying the principles of modern fatherhood](/images/life_resilience_in_modern_fatherhood_theme.svg)
 

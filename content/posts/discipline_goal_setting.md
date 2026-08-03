@@ -81,6 +81,6 @@ Self-discipline is the backbone of successful goal achievement. It is what trans
 
 The art of goal setting is a journey, not a destination. By applying the scientific principles outlined above, you can effectively transform your dreams into achievable plans. Embrace the process with integrity and self-discipline, and remain committed to your long-term vision.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, where you can find valuable resources to support your personal and familial development.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, where you can find valuable resources to support your personal and familial development.
 
 Ultimately, remember that success is not merely about reaching goals; it’s about who you become in the process. With a structured approach to goal setting, you are not only poised to achieve your dreams but also to build a life of meaning and fulfillment.

@@ -74,7 +74,7 @@ Discipline is the backbone of a successful deep work practice. To cultivate it, 
 - **Accountability**: Share your deep work goals with a trusted colleague or mentor. Having someone to hold you accountable can increase your commitment.
 - **Track Your Progress**: Use tools like a journal or productivity app to track your deep work hours and accomplishments. This record can serve as motivation and reflection.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, where principles of discipline and focus are further explored.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, where principles of discipline and focus are further explored.
 
 ## Conclusion: Building a Legacy of Focus and Productivity
 

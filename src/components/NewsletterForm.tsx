@@ -45,7 +45,7 @@ export default function NewsletterForm() {
         </div>
         <div className="mt-4 space-y-2">
           <a
-            href="https://the-stoic-dad.vercel.app/sovereign-morning-stack.pdf"
+            href="https://mcjp-blog-git-main-mcjp.vercel.app/sovereign-morning-stack.pdf"
             download
             className="block w-full text-center bg-emerald-600 hover:bg-emerald-500 text-white py-2.5 rounded text-xs font-semibold transition-colors cursor-pointer shadow-xs"
           >

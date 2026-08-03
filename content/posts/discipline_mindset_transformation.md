@@ -25,7 +25,7 @@ A mind lacking discipline operates on a reactive loop, constantly chasing dopami
 
 Masculinity, at its core, is about shouldering responsibility. It is the proactive assumption of burdens to protect, provide, and build. Without discipline, a man's word becomes hollow, and his potential remains dormant. Integrity is born from discipline—the unwavering commitment to doing what you said you would do, long after the initial mood has passed. 
 
-This imperative extends beyond personal ambition; it forms the bedrock of family leadership and philosophical fatherhood. A man who cannot govern himself cannot effectively lead others. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. Raising the next generation of capable men requires a father whose mindset is anchored in unwavering self-control and stoic resolve. Your discipline becomes the template by which your children learn to navigate the world.
+This imperative extends beyond personal ambition; it forms the bedrock of family leadership and philosophical fatherhood. A man who cannot govern himself cannot effectively lead others. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. Raising the next generation of capable men requires a father whose mindset is anchored in unwavering self-control and stoic resolve. Your discipline becomes the template by which your children learn to navigate the world.
 
 ## The Environment of Execution
 

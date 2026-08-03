@@ -47,7 +47,7 @@ To navigate these complexities, men must cultivate self-discipline and an adapti
 
 5. **Invest in Continuous Learning**: Pursue knowledge in areas such as parenting, [emotional health](/posts/life_masculine_mental_wellbeing), and relationship dynamics to equip oneself with the tools necessary for effective engagement in modern roles.
 
-6. **Engage with Support Networks**: Join communities or groups focused on positive masculinity. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal.
+6. **Engage with Support Networks**: Join communities or groups focused on positive masculinity. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal.
 
 ### The Role of Integrity in Modern Masculinity
 

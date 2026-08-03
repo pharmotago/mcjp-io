@@ -2465,5 +2465,77 @@
       "physical wellbeing"
     ],
     "summary": "Discover the importance of physical resilience and learn how to develop a stronger, more resilient body through discipline, training, and a commitment to physical wellbeing."
+  },
+  {
+    "id": "money_ai_driven_portfolio",
+    "category": "Money",
+    "topic": "Building an AI-Driven Investment Portfolio for Long-Term Wealth",
+    "keywords": [
+      "AI investing",
+      "portfolio management",
+      "long-term wealth",
+      "investment strategies"
+    ],
+    "summary": "Learn how to leverage AI-driven tools to optimize your investment portfolio and achieve long-term financial success."
+  },
+  {
+    "id": "life_fatherhood_resilience",
+    "category": "Life",
+    "topic": "Cultivating Resilience in Fatherhood: Strategies for Modern Dads",
+    "keywords": [
+      "fatherhood",
+      "resilience",
+      "modern dads",
+      "parenting strategies"
+    ],
+    "summary": "Discover the importance of resilience in fatherhood and learn effective strategies for building emotional strength and navigating modern parenting challenges."
+  },
+  {
+    "id": "discipline_cognitive_athleticism",
+    "category": "Discipline",
+    "topic": "Unlocking Cognitive Athleticism: Training Your Brain for Peak Performance",
+    "keywords": [
+      "cognitive training",
+      "brain performance",
+      "peak productivity",
+      "mental discipline"
+    ],
+    "summary": "Explore the concept of cognitive athleticism and learn how to train your brain for optimal performance, focus, and productivity."
+  },
+  {
+    "id": "money_side_hustle_scaling",
+    "category": "Money",
+    "topic": "Scaling Your Side Hustle: Strategies for Turning Passion into Profit",
+    "keywords": [
+      "side hustles",
+      "scaling",
+      "passive income",
+      "entrepreneurship"
+    ],
+    "summary": "Learn how to take your side hustle to the next level and turn your passion into a profitable business, generating consistent income and financial freedom."
+  },
+  {
+    "id": "life_emotional_intelligence_coaching",
+    "category": "Life",
+    "topic": "The Power of Emotional Intelligence Coaching for Modern Men",
+    "keywords": [
+      "emotional intelligence",
+      "coaching",
+      "modern men",
+      "personal growth"
+    ],
+    "summary": "Discover the benefits of emotional intelligence coaching and learn how to develop the skills and strategies needed to navigate complex relationships and achieve personal success."
+  },
+  {
+    "id": "discipline_neuroplasticity_based_training",
+    "category": "Discipline",
+    "topic": "Neuroplasticity-Based Training: Rewiring Your Brain for Success",
+    "keywords": [
+      "neuroplasticity",
+      "brain training",
+      "personal development",
+      "mindfulness"
+    ],
+    "summary": "Explore the science of neuroplasticity and learn how to rewire your brain for optimal performance, focus, and productivity, using evidence-based training methods and techniques."
   }
 ]

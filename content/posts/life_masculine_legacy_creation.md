@@ -51,7 +51,7 @@ Ultimately, the legacy you create is a reflection of the influence you have on t
 
 - **Document Your Journey**: Keep a journal of your experiences, lessons learned, and reflections on your growth. This practice not only enhances self-awareness but also serves as a guide for others.
 - **Share Your Story**: Whether through writing, speaking, or mentoring, share your journey with others. Your experiences can resonate and inspire those who follow in your footsteps.
-- **Engage with Resources**: For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal. It offers valuable tools and perspectives that can enhance your journey.
+- **Engage with Resources**: For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. It offers valuable tools and perspectives that can enhance your journey.
 
 ![Alt text describing image and matching context](/images/life_masculine_legacy_creation_theme.svg)
 

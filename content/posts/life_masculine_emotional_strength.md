@@ -59,7 +59,7 @@ As men cultivate emotional strength, they lay the groundwork for significant per
 
 Moreover, nurturing emotional strength is pivotal in navigating the complexities of modern life. Whether in professional settings or personal relationships, the ability to manage emotions effectively can lead to greater success and fulfillment.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, which offers valuable resources for fathers aiming to instill emotional strength in their children as well.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, which offers valuable resources for fathers aiming to instill emotional strength in their children as well.
 
 ### Conclusion: The Path Forward
 

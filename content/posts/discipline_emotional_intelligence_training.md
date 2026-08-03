@@ -101,6 +101,6 @@ By committing to [emotional intelligence](/posts/life_masculine_emotional_intell
 
 ### Conclusion
 
-Emotional intelligence training offers a robust framework for enhancing personal discipline. By understanding and managing our emotions, we can cultivate self-control, set and achieve meaningful goals, and ultimately foster a life of integrity and growth. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, where the principles of emotional intelligence resonate deeply within the context of fatherhood and leadership.
+Emotional intelligence training offers a robust framework for enhancing personal discipline. By understanding and managing our emotions, we can cultivate self-control, set and achieve meaningful goals, and ultimately foster a life of integrity and growth. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, where the principles of emotional intelligence resonate deeply within the context of fatherhood and leadership.
 
 As you embark on this journey of self-improvement, remember that discipline is not merely a trait; it is a skill that can be developed. Embrace emotional intelligence as a powerful ally in your quest for personal growth and mastery over your life’s direction. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.

@@ -64,7 +64,7 @@ Discipline is the bedrock of any successful masculine routine. It is the ability
 - **Accountability Partners**: Engaging with mentors or peers who can provide support and motivation.
 - **Continuous Learning**: Seeking knowledge and skills that enhance performance in both personal and professional domains.
 
-The journey of self-improvement is not a solitary endeavor. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, where you can find resources to complement your routine-building efforts.
+The journey of self-improvement is not a solitary endeavor. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, where you can find resources to complement your routine-building efforts.
 
 ### Measuring Success
 
