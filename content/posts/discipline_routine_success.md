@@ -29,7 +29,7 @@ At its core, a success routine is built on the principles of self-discipline, in
 
 ### Implementing Your Success Routine
 
-To cultivate a success routine that mirrors those of high achievers, consider the following actionable steps:
+To cultivate a [success routine](/posts/discipline_high_performance_habits) that mirrors those of high achievers, consider the following actionable steps:
 
 #### 1. Design Your Morning
 

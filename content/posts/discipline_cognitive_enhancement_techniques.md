@@ -75,7 +75,7 @@ Self-discipline is the cornerstone of achieving both personal and professional g
 
 ### The Long-Term Benefits of Cognitive Enhancement
 
-The implementation of these cognitive enhancement techniques extends beyond immediate gains in mental acuity. Over time, these practices can lead to profound changes in how you approach challenges, manage stress, and pursue your ambitions. The discipline you cultivate through these routines becomes a long-term asset, setting a foundation for enduring success.
+The implementation of these [cognitive enhancement](/posts/discipline_neurofeedback_training) techniques extends beyond immediate gains in mental acuity. Over time, these practices can lead to profound changes in how you approach challenges, manage stress, and pursue your ambitions. The discipline you cultivate through these routines becomes a long-term asset, setting a foundation for enduring success.
 
 For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, where you will find resources that align with the principles of discipline and mental fortitude.
 

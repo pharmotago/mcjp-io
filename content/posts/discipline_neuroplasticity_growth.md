@@ -28,7 +28,7 @@ There are two main types of neuroplasticity:
 
 ### The Role of Mental Discipline in Personal Growth
 
-Mental discipline is the cornerstone of utilizing neuroplasticity effectively. It requires commitment, consistency, and the willingness to embrace discomfort for long-term rewards. Here are several actionable strategies to foster mental discipline while leveraging neuroplasticity:
+[Mental discipline](/posts/discipline_cognitive_athleticism) is the cornerstone of utilizing neuroplasticity effectively. It requires commitment, consistency, and the willingness to embrace discomfort for long-term rewards. Here are several actionable strategies to foster mental discipline while leveraging neuroplasticity:
 
 #### 1. Set Clear Goals
 

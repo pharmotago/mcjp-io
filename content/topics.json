@@ -2537,5 +2537,77 @@
       "mindfulness"
     ],
     "summary": "Explore the science of neuroplasticity and learn how to rewire your brain for optimal performance, focus, and productivity, using evidence-based training methods and techniques."
+  },
+  {
+    "id": "money_ai_driven_wealth",
+    "category": "Money",
+    "topic": "How AI is Revolutionizing Wealth Creation: A Guide for Modern Men",
+    "keywords": [
+      "AI",
+      "wealth creation",
+      "modern men",
+      "investing"
+    ],
+    "summary": "Explore the impact of AI on wealth creation and learn how to leverage AI-driven investing for financial success."
+  },
+  {
+    "id": "life_fatherhood_responsibility",
+    "category": "Life",
+    "topic": "The Ultimate Guide to Fatherhood: Embracing Responsibility and Leadership",
+    "keywords": [
+      "fatherhood",
+      "responsibility",
+      "leadership",
+      "family"
+    ],
+    "summary": "Discover the importance of embracing responsibility and leadership as a father and learn practical tips for success."
+  },
+  {
+    "id": "discipline_cognitive_optimization",
+    "category": "Discipline",
+    "topic": "Unlocking Human Potential: The Science of Cognitive Optimization",
+    "keywords": [
+      "cognitive optimization",
+      "brain function",
+      "productivity",
+      "focus"
+    ],
+    "summary": "Learn how to optimize your cognitive function for improved productivity, focus, and overall well-being."
+  },
+  {
+    "id": "money_side_hustle_success",
+    "category": "Money",
+    "topic": "From Side Hustle to Success: How to Turn Your Passion into a Thriving Business",
+    "keywords": [
+      "side hustle",
+      "entrepreneurship",
+      "passion",
+      "business"
+    ],
+    "summary": "Get inspired by stories of side hustle success and learn practical strategies for turning your passion into a profitable business."
+  },
+  {
+    "id": "life_emotional_agility",
+    "category": "Life",
+    "topic": "The Power of Emotional Agility: How to Navigate Life's Challenges with Confidence",
+    "keywords": [
+      "emotional agility",
+      "confidence",
+      "resilience",
+      "well-being"
+    ],
+    "summary": "Discover the importance of emotional agility and learn how to develop the skills and strategies needed to navigate life's challenges with confidence."
+  },
+  {
+    "id": "discipline_neuroplasticity_hacking",
+    "category": "Discipline",
+    "topic": "Neuroplasticity Hacking: How to Rewire Your Brain for Success",
+    "keywords": [
+      "neuroplasticity",
+      "brain function",
+      "hacking",
+      "success"
+    ],
+    "summary": "Learn how to harness the power of neuroplasticity to rewire your brain for improved focus, productivity, and overall success."
   }
 ]

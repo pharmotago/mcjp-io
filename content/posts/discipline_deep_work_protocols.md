@@ -68,7 +68,7 @@ Achieving a flow state—a mental state where one is fully immersed in an activi
 
 ## Maintaining Discipline
 
-Discipline is the backbone of a successful deep work practice. To cultivate it, consider the following strategies:
+Discipline is the backbone of a successful [deep work](/posts/discipline_dopamine_fasting_deep_work) practice. To cultivate it, consider the following strategies:
 
 - **Consistency Over Intensity**: It’s better to have shorter, consistent deep work sessions than sporadic, intense ones. Aim for regularity in your practice.
 - **Accountability**: Share your deep work goals with a trusted colleague or mentor. Having someone to hold you accountable can increase your commitment.

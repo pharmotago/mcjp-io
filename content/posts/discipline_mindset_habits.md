@@ -63,7 +63,7 @@ A [success mindset](/posts/discipline_resilience_through_failure) is characteriz
 
 ### Long-Term Asset Building Through Discipline
 
-Discipline is the cornerstone of a success mindset. It is the ability to commit to your goals and follow through, even when motivation wanes. Highly effective men recognize that discipline is not about rigidity; rather, it is about creating a structure that supports their aspirations.
+Discipline is the cornerstone of a [success mindset](/posts/discipline_resilience_through_failure). It is the ability to commit to your goals and follow through, even when motivation wanes. Highly effective men recognize that discipline is not about rigidity; rather, it is about creating a structure that supports their aspirations.
 
 - **Develop a Financial Strategy**: Establishing a solid financial plan is vital for long-term success. This includes budgeting, saving, and investing wisely. For those looking to build digital assets, we recommend launching your digital endeavors on Hostinger to secure their exclusive partner discount.
   

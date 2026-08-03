@@ -33,7 +33,7 @@ To begin the journey towards cognitive athleticism, consider the following actio
 For individuals seeking to enhance their cognitive abilities while also cultivating a deeper understanding of personal development and resilience, exploring resources such as [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal can provide valuable insights and guidance. By combining cognitive training with principles of Stoic philosophy and masculine resilience, individuals can develop a robust framework for achieving peak performance and navigating life's challenges with integrity and purpose.
 
 ## Overcoming Obstacles and Maintaining Momentum
-As with any discipline, maintaining momentum and overcoming obstacles are crucial components of a successful cognitive training regimen. Common challenges include lack of motivation, inconsistent practice, and plateaus in progress. To overcome these obstacles, it is essential to:
+As with any discipline, maintaining momentum and overcoming obstacles are crucial components of a successful [cognitive training](/posts/discipline_breathwork_control) regimen. Common challenges include lack of motivation, inconsistent practice, and plateaus in progress. To overcome these obstacles, it is essential to:
 * Set clear, achievable goals and track progress along the way.
 * Find a community or accountability partner to provide support and motivation.
 * Continuously challenge the brain with new and varied exercises to avoid stagnation.
@@ -44,4 +44,4 @@ The pursuit of cognitive athleticism is a lifelong journey that requires dedicat
 
 ![An inspirational depiction of a person engaged in a mentally demanding task, surrounded by elements of nature and technology, symbolizing the harmonious integration of human cognition and digital tools in the pursuit of peak performance and productivity](/images/discipline_cognitive_athleticism_theme.svg)
 
-Ultimately, the path to cognitive athleticism is unique to each individual, and the journey is just as important as the destination. By embracing the principles of cognitive training, mental discipline, and continuous learning, individuals can unlock their full potential and achieve a state of peak performance that enhances all aspects of life.
+Ultimately, the path to cognitive athleticism is unique to each individual, and the journey is just as important as the destination. By embracing the principles of [cognitive training](/posts/discipline_deep_work_protocols), [mental discipline](/posts/discipline_neuroplasticity_growth), and continuous learning, individuals can unlock their full potential and achieve a state of [peak performance](/posts/discipline_masculine_focus_techniques) that enhances all aspects of life.

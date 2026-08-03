@@ -41,6 +41,6 @@ Here is a checklist to help you get started on building a support network as a f
 * Prioritize self-care and make time for activities that promote emotional wellbeing, such as exercise, meditation, or spending time in nature.
 
 ## Conclusion
-Building a support network as a father is crucial for emotional wellbeing, family resilience, and overall happiness. By engaging in community activities, leveraging technology, and being open and honest with others, fathers can create a robust support network that meets their needs and those of their families. Remember, being a father is not a solo journey – it's a community effort. 
+Building a support network as a father is crucial for [emotional wellbeing](/posts/life_fatherhood_self_care), family resilience, and overall happiness. By engaging in community activities, leveraging technology, and being open and honest with others, fathers can create a robust support network that meets their needs and those of their families. Remember, being a father is not a solo journey – it's a community effort. 
 ![Alt text describing a father and his family surrounded by a supportive community, highlighting the theme of community and fatherhood](/images/life_fatherhood_community_theme.svg)
 As you embark on this journey, keep in mind that building a support network takes time and effort. Be patient, persistent, and open to new experiences, and you will be well on your way to creating a community that promotes emotional wellbeing and family resilience.

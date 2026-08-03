@@ -31,7 +31,7 @@ Leadership is a crucial aspect of building a masculine legacy, especially within
 
 ### Making a Lasting Impact in Your Community
 
-A masculine legacy transcends the boundaries of the family; it extends into the broader community. Influencing others positively can take many forms, from volunteer work to mentoring. Here are some ways to amplify your impact:
+A [masculine legacy](/posts/life_masculine_legacy_building) transcends the boundaries of the family; it extends into the broader community. Influencing others positively can take many forms, from volunteer work to mentoring. Here are some ways to amplify your impact:
 
 - **Engage in Volunteerism**: Find causes that resonate with you and dedicate time to volunteer. This not only helps others but also enriches your own life.
 - **Mentor Others**: Share your knowledge and experiences with younger generations. Mentorship can profoundly shape the lives of others while reinforcing your own values.
