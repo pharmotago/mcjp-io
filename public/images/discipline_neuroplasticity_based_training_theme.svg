@@ -1,0 +1,36 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:hsl(350, 75%, 30%);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:hsl(350, 85%, 60%);stop-opacity:1" />
+    </linearGradient>
+    <filter id="glass" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="glow" />
+      <feBlend in="SourceGraphic" in2="glow" mode="normal" />
+    </filter>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#grad1)" />
+  
+  <!-- Subtle Glow -->
+  <circle cx="50%" cy="50%" r="600" fill="url(#glow)" />
+  
+  <!-- Glassmorphism Card -->
+  <rect x="100" y="115" width="1000" height="400" rx="20" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="2" filter="url(#glass)"/>
+  
+  <!-- Subtitle / Category -->
+  <text x="600" y="240" font-family="-apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="28" font-weight="600" fill="#a0aec0" letter-spacing="4" text-anchor="middle">DISCIPLINE | THEME</text>
+  
+  <!-- Main Title -->
+  <!-- We wrap it manually or just make it big if it fits. For SVG, text wrapping needs tspan. -->
+  <text x="600" y="320" font-family="-apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="52" font-weight="800" fill="#ffffff" text-anchor="middle">Neuroplasticity-Based Training: Rew...</text>
+  
+  <!-- Brand logo/name at bottom -->
+  <text x="600" y="440" font-family="-apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="24" font-weight="500" fill="rgba(255,255,255,0.6)" text-anchor="middle">MCJP.IO | HIGH-PERFORMANCE LIFESTYLE</text>
+</svg>
