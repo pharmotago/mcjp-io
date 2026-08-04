@@ -22,7 +22,7 @@ The benefits of neurofeedback training are numerous and well-documented. Some of
 
 ![Illustration of a person engaged in neurofeedback training, with brain waves and focus-related graphics surrounding them, highlighting the concept of improved cognitive function and mental clarity through neurofeedback](/images/discipline_neurofeedback_training_focus.svg)
 
-Neurofeedback training has been used to help individuals with a wide range of cognitive and emotional challenges, from attention deficit hyperactivity disorder (ADHD) and anxiety to depression and traumatic brain injury. By providing individuals with the tools and techniques necessary to self-regulate their brain function, neurofeedback training can help to alleviate symptoms and improve overall quality of life.
+Neurofeedback training has been used to help individuals with a wide range of cognitive and emotional challenges, from attention deficit hyperactivity disorder (ADHD) and anxiety to depression and traumatic brain injury. By providing individuals with the tools and techniques necessary to self-regulate their [brain function](/posts/discipline_cognitive_optimization), neurofeedback training can help to alleviate symptoms and improve overall quality of life.
 
 ## Action Plan for Implementing Neurofeedback Training
 To get started with neurofeedback training, individuals can follow these steps:
