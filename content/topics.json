@@ -2609,5 +2609,49 @@
       "success"
     ],
     "summary": "Learn how to harness the power of neuroplasticity to rewire your brain for improved focus, productivity, and overall success."
+  },
+  {
+    "id": "money_ai_wealth_acceleration",
+    "category": "Money",
+    "topic": "How AI Can Accelerate Your Wealth Creation",
+    "keywords": [
+      "AI investing",
+      "wealth acceleration",
+      "passive income"
+    ],
+    "summary": "Discover how AI can help you make smarter investment decisions and accelerate your wealth creation journey."
+  },
+  {
+    "id": "life_fatherhood_self_improvement",
+    "category": "Life",
+    "topic": "The Importance of Self-Improvement for Modern Fathers",
+    "keywords": [
+      "fatherhood",
+      "self-improvement",
+      "personal growth"
+    ],
+    "summary": "Learn how prioritizing self-improvement can make you a better father and role model for your family."
+  },
+  {
+    "id": "money_cryptocurrency_risk_management",
+    "category": "Money",
+    "topic": "Effective Risk Management Strategies for Cryptocurrency Investors",
+    "keywords": [
+      "cryptocurrency",
+      "risk management",
+      "investment strategies"
+    ],
+    "summary": "Learn how to mitigate risks and make informed investment decisions in the cryptocurrency market."
+  },
+  {
+    "id": "discipline_deep_work_strategies",
+    "category": "Discipline",
+    "topic": "Mastering Deep Work: Strategies for Achieving Focus and Productivity",
+    "keywords": [
+      "deep work",
+      "focus",
+      "productivity"
+    ],
+    "summary": "Learn how to prioritize deep work, minimize distractions, and maximize productivity in a world filled with distractions."
   }
 ]
