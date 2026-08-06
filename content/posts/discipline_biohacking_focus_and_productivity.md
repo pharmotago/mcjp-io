@@ -17,7 +17,7 @@ In an increasingly competitive world, the ability to maintain focus and maximize
 
 ### Understanding Biohacking
 
-Biohacking encompasses a wide range of practices, from dietary adjustments to advanced technological interventions, all aimed at improving physical and mental performance. The premise is simple: by understanding how your body and mind work, you can make informed changes to enhance your cognitive functions.
+Biohacking encompasses a wide range of practices, from dietary adjustments to advanced technological interventions, all aimed at improving physical and [mental performance](/posts/life_fatherhood_mental_performance). The premise is simple: by understanding how your body and mind work, you can make informed changes to enhance your cognitive functions.
 
 At its core, biohacking is about taking control of your own biology. This involves a commitment to continuous learning and experimentation, emphasizing self-discipline. The goal is to optimize your brain’s performance to achieve clarity and focus—key components of productivity.
 
