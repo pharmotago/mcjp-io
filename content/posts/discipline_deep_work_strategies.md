@@ -21,10 +21,10 @@ Achieving [deep work](/posts/discipline_deep_work_protocols) requires a combinat
 
 ![Alt text: Illustration of a person working in a quiet, minimalist office with a few essential tools, emphasizing the importance of a distraction-free environment for deep work](/images/discipline_deep_work_strategies_focus.svg)
 
-By implementing these strategies, individuals can create an environment that fosters deep work and minimizes distractions. It's essential to remember that developing this skill takes time and practice, and it's crucial to be patient and consistent.
+By implementing these strategies, individuals can create an environment that fosters [deep work](/posts/discipline_deep_work_protocols) and minimizes distractions. It's essential to remember that developing this skill takes time and practice, and it's crucial to be patient and consistent.
 
 ## Overcoming Distractions and Staying Focused
-One of the most significant challenges to deep work is overcoming distractions. In today's digital age, it's easy to get sidetracked by social media, email, or notifications. To stay focused, individuals can use various techniques, such as:
+One of the most significant challenges to [deep work](/posts/discipline_dopamine_fasting_deep_work) is overcoming distractions. In today's digital age, it's easy to get sidetracked by social media, email, or notifications. To stay focused, individuals can use various techniques, such as:
 * The Pomodoro Technique: Work in focused 25-minute increments, followed by a 5-minute break.
 * Time blocking: Schedule tasks in fixed, uninterrupted blocks of time.
 * Website blockers: Utilize tools that block distracting websites or apps during deep work sessions.

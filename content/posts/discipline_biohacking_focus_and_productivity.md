@@ -27,7 +27,7 @@ Before delving into specific biohacking techniques, it's crucial to understand t
 
 1. **Nutrition**: What you consume affects your brain's functionality. A diet rich in omega-3 fatty acids, antioxidants, and vitamins can significantly boost [cognitive performance](/posts/discipline_extended_fasting_cognition).
    
-2. **Sleep**: Quality sleep facilitates learning, memory consolidation, and emotional regulation. Prioritizing sleep hygiene is non-negotiable for peak mental performance.
+2. **Sleep**: Quality sleep facilitates learning, memory consolidation, and emotional regulation. Prioritizing sleep hygiene is non-negotiable for peak [mental performance](/posts/life_fatherhood_mental_performance).
 
 3. **Exercise**: Regular physical activity enhances blood flow to the brain, releases endorphins, and reduces stress—all of which contribute to improved focus.
 

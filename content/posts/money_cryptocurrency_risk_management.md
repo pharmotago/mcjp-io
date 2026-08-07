@@ -20,7 +20,7 @@ Before investing in cryptocurrencies, it is crucial to assess your risk toleranc
 Diversification is a cornerstone of effective [risk management](/posts/money_cryptocurrency_risks) in the cryptocurrency market. By spreading your investments across a range of assets, you can reduce your exposure to any single cryptocurrency, thereby minimizing potential losses if one of them experiences a significant decline in value. A well-diversified portfolio might include a mix of established cryptocurrencies like Bitcoin and Ethereum, along with smaller, more innovative projects that offer potential for high growth. It is also important to regularly review and adjust your portfolio to ensure it remains aligned with your investment objectives and risk tolerance.
 
 ## Action Plan for Cryptocurrency Investors
-To implement effective risk management strategies, consider the following action plan:
+To implement effective [risk management](/posts/money_cryptocurrency_risks) strategies, consider the following action plan:
 * Conduct thorough research on potential investments, including the technology, use case, and market demand for each cryptocurrency.
 * Set clear investment objectives and assess your risk tolerance to guide your investment decisions.
 * Diversify your portfolio across a range of cryptocurrencies and asset classes to minimize risk.
