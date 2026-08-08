@@ -23,7 +23,7 @@ Implementing an effective [cognitive training](/posts/discipline_deep_work_proto
 * Limit exposure to digital distractions and engage in activities that promote deep thinking and reflection.
 
 ## Action Plan for Cognitive Development
-To begin the journey towards cognitive athleticism, consider the following action plan:
+To begin the journey towards [cognitive athleticism](/posts/discipline_cognitive_athleticism_training), consider the following action plan:
 * Set aside dedicated time each day for cognitive training, such as puzzle-solving or mindfulness practice.
 * Incorporate physical exercise into your daily routine, aiming for at least 30 minutes of moderate-intensity activity.
 * Establish a consistent sleep schedule and create a sleep-conducive environment to promote restful sleep.

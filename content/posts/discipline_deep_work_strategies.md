@@ -42,7 +42,7 @@ Mastering deep work is not only about achieving short-term productivity gains bu
 These assets can lead to increased earning potential, greater job security, and a more fulfilling career. Moreover, by adhering to a set of [core values](/posts/life_100_percent_right_philosophy) and principles, individuals can build integrity, which is essential for establishing trust, respect, and strong relationships.
 
 ## Conclusion and Action Plan
-In conclusion, mastering deep work is a critical skill for achieving focus and productivity in a world filled with distractions. By prioritizing deep work, individuals can maximize their productivity, enhance their skills, and build a strong foundation for long-term success. To get started, here's an action plan:
+In conclusion, mastering [deep work](/posts/discipline_deep_work_protocols) is a critical skill for achieving focus and productivity in a world filled with distractions. By prioritizing [deep work](/posts/discipline_dopamine_fasting_deep_work), individuals can maximize their productivity, enhance their skills, and build a strong foundation for long-term success. To get started, here's an action plan:
 * Schedule deep work sessions for the next week
 * Create a conducive environment for deep work
 * Develop a pre-work routine to signal the start of deep work
