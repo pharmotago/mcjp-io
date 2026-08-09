@@ -36,7 +36,7 @@ To cultivate a flow state conducive to high-level execution, implement the follo
 
 #### 1. Set Clear Goals
 
-Establish specific, measurable goals that provide direction and motivation. This clarity helps in reducing cognitive load, allowing for deeper focus.
+Establish specific, measurable goals that provide direction and motivation. This clarity helps in reducing [cognitive load](/posts/discipline_cognitive_load_management), allowing for deeper focus.
 
 - **Action Steps**:
   - Define your primary objectives for each work session.

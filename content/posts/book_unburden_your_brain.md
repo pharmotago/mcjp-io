@@ -17,7 +17,7 @@ In the relentless pace of modern life, the weight of 'life admin' can feel crush
 
 ### The Hidden Drain of Life Admin
 
-Life admin encompasses the myriad small tasks and mental obligations that occupy our minds yet remain unrecognized as significant drains on our energy. From scheduling appointments to managing household chores, these tasks can create a mental fog that stifles ambition and creativity. Clark expertly articulates how this cognitive load, if left unchecked, can lead to burnout and decreased performance in both personal and professional realms.
+Life admin encompasses the myriad small tasks and mental obligations that occupy our minds yet remain unrecognized as significant drains on our energy. From scheduling appointments to managing household chores, these tasks can create a mental fog that stifles ambition and creativity. Clark expertly articulates how this [cognitive load](/posts/discipline_cognitive_load_management), if left unchecked, can lead to burnout and decreased performance in both personal and professional realms.
 
 For the success-focused man, understanding and managing this load is crucial. "Unburden Your Brain" exposes the hidden costs associated with life admin and presents actionable strategies to minimize its impact. By mastering life admin, you not only enhance your productivity but also create the mental space necessary for deeper, more meaningful pursuits.
 

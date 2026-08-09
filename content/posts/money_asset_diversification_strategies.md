@@ -23,7 +23,7 @@ Before diving into the specifics of [asset diversification](/posts/money_asset_d
 ![Alt text: Illustration of various asset classes with a focus on diversification strategies, highlighting the importance of spreading investments across different classes to minimize risk](/images/money_asset_diversification_strategies_focus.svg)
 
 ## Crafting a Diversification Strategy
-Developing an effective asset diversification strategy requires a thoughtful and disciplined approach. Here are key steps and considerations:
+Developing an effective [asset diversification](/posts/money_asset_diversification) strategy requires a thoughtful and disciplined approach. Here are key steps and considerations:
 - **Assess Risk Tolerance**: Understand your personal risk tolerance and financial goals. This self-awareness is crucial in determining the appropriate mix of asset classes.
 - **Allocate Assets**: Based on your risk tolerance and goals, allocate your investments across different asset classes. A common rule of thumb is the 60/40 split between stocks and bonds, but this can vary significantly based on individual circumstances.
 - **Regular Rebalancing**: As market conditions change, so does the value of your investments. Regularly review and rebalance your portfolio to ensure it remains aligned with your target asset allocation.

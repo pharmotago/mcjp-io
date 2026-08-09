@@ -30,7 +30,7 @@ Venture capital (VC) represents a compelling avenue for those seeking to amplify
    - **Venture Capital Funds**: Pooled capital from various investors managed by a firm.
    - **Angel Investors**: High-net-worth individuals investing their own money in startups.
 
-3. **Exit Strategies**: The ultimate goal of venture capital is to realize returns through exits, which can occur via:
+3. **Exit Strategies**: The ultimate goal of [venture capital](/posts/money_ai_driven_venture_capital) is to realize returns through exits, which can occur via:
    - **Initial Public Offerings (IPOs)**
    - **Acquisitions** by larger firms
 

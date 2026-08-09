@@ -15,7 +15,7 @@ In an era where financial autonomy and social responsibility are more intertwine
 
 ### Understanding Impact Investments
 
-Impact investments are defined as investments made with the intention to generate positive, measurable social and environmental impact alongside a financial return. Unlike traditional investments that prioritize financial gains alone, impact investments focus on addressing critical challenges—be it climate change, healthcare access, education, or poverty alleviation. This dual-focused approach enables investors not only to contribute to societal progress but also to create long-lasting wealth.
+Impact investments are defined as investments made with the intention to generate positive, measurable social and [environmental impact](/posts/money_sustainable_wealth_creation) alongside a financial return. Unlike traditional investments that prioritize financial gains alone, impact investments focus on addressing critical challenges—be it climate change, healthcare access, education, or poverty alleviation. This dual-focused approach enables investors not only to contribute to societal progress but also to create long-lasting wealth.
 
 ![A diverse group of people collaborating on a project, symbolizing impactful investments](images/money_impactful_investments_focus.svg)
 

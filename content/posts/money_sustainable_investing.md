@@ -15,7 +15,7 @@ In an era where [financial independence](/posts/money_infinite_banking_concept) 
 
 ### Understanding Sustainable Investing
 
-Sustainable investing refers to the practice of allocating capital to companies, projects, or funds that prioritize environmental sustainability, social justice, and corporate governance (often abbreviated as ESG). Unlike traditional investing, which often focuses solely on financial performance, sustainable investing seeks to achieve both profit and planet-friendly outcomes. The rationale is straightforward: businesses that prioritize sustainability are often better positioned to mitigate risks, adapt to regulatory changes, and seize new market opportunities.
+[Sustainable investing](/posts/money_sustainable_wealth_creation) refers to the practice of allocating capital to companies, projects, or funds that prioritize environmental sustainability, social justice, and corporate governance (often abbreviated as ESG). Unlike traditional investing, which often focuses solely on financial performance, sustainable investing seeks to achieve both profit and planet-friendly outcomes. The rationale is straightforward: businesses that prioritize sustainability are often better positioned to mitigate risks, adapt to regulatory changes, and seize new market opportunities.
 
 Research indicates that companies with strong ESG practices tend to outperform their less responsible counterparts. A 2020 report from Morgan Stanley revealed that sustainable equity funds outperformed traditional funds by 4.3% in the first half of the year. As more investors recognize the value of sustainability, the demand for green investments continues to rise, creating a fertile ground for [financial growth](/posts/money_art_of_negotiation).
 
