@@ -2846,5 +2846,77 @@
       "brain development"
     ],
     "summary": "Discover how to harness the power of neuroplasticity to optimize learning, improve cognitive function, and achieve personal growth."
+  },
+  {
+    "id": "money_ai_driven_investment_strategies",
+    "category": "Money",
+    "topic": "Revolutionizing Wealth Creation: AI-Driven Investment Strategies for the Modern Man",
+    "keywords": [
+      "AI investing",
+      "wealth creation",
+      "investment strategies",
+      "modern finance"
+    ],
+    "summary": "Discover how AI-driven investment strategies can help you create wealth and achieve financial freedom in today's fast-paced economy."
+  },
+  {
+    "id": "life_fatherhood_resilience_building",
+    "category": "Life",
+    "topic": "Building Resilience as a Father: Strategies for Overcoming Life's Challenges",
+    "keywords": [
+      "fatherhood",
+      "resilience",
+      "parenting",
+      "emotional strength"
+    ],
+    "summary": "Learn how to build resilience as a father and develop the skills needed to overcome life's challenges and be a rock for your family."
+  },
+  {
+    "id": "discipline_cognitive_function_optimization",
+    "category": "Discipline",
+    "topic": "Unlocking Peak Performance: Cognitive Function Optimization for the Modern Man",
+    "keywords": [
+      "cognitive function",
+      "peak performance",
+      "brain optimization",
+      "productivity"
+    ],
+    "summary": "Discover the latest strategies for optimizing cognitive function and achieving peak performance in all areas of life."
+  },
+  {
+    "id": "money_blockchain_based_wealth_creation",
+    "category": "Money",
+    "topic": "The Future of Wealth Creation: Blockchain-Based Strategies for the Modern Investor",
+    "keywords": [
+      "blockchain investing",
+      "wealth creation",
+      "cryptocurrency",
+      "modern finance"
+    ],
+    "summary": "Explore the world of blockchain-based wealth creation and learn how to invest in this exciting new frontier."
+  },
+  {
+    "id": "life_emotional_intelligence_for_modern_men",
+    "category": "Life",
+    "topic": "The Power of Emotional Intelligence: A Guide for Modern Men",
+    "keywords": [
+      "emotional intelligence",
+      "men's health",
+      "relationships",
+      "personal growth"
+    ],
+    "summary": "Discover the importance of emotional intelligence for modern men and learn how to develop this vital skill for better relationships and personal growth."
+  },
+  {
+    "id": "discipline_neuroplasticity_based_training_methods",
+    "category": "Discipline",
+    "topic": "Rewiring Your Brain: Neuroplasticity-Based Training Methods for Peak Performance",
+    "keywords": [
+      "neuroplasticity",
+      "brain training",
+      "peak performance",
+      "personal growth"
+    ],
+    "summary": "Learn how to rewire your brain using neuroplasticity-based training methods and achieve peak performance in all areas of life."
   }
 ]
