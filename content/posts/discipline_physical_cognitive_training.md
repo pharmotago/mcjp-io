@@ -92,7 +92,7 @@ In our fast-paced world, the pursuit of success often veers into the territory o
 
 ### The Science Behind the Connection
 
-Research has consistently shown that physical exercise yields significant benefits for cognitive function. Regular physical activity promotes neurogenesis— the process of generating new neurons— and enhances synaptic plasticity, which is crucial for learning and memory. 
+Research has consistently shown that physical exercise yields significant benefits for [cognitive function](/posts/discipline_cognitive_function_optimization). Regular physical activity promotes neurogenesis— the process of generating new neurons— and enhances synaptic plasticity, which is crucial for learning and memory. 
 
 Moreover, engaging in physical exercise leads to the release of endorphins and other neurochemicals, such as brain-derived neurotrophic factor (BDNF), which bolster mood and cognitive resilience. Consequently, individuals who maintain a disciplined exercise regimen report improved focus, creativity, and problem-solving capabilities. 
 

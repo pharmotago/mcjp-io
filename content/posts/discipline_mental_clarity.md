@@ -70,7 +70,7 @@ In a digitally driven world, constant notifications and information overload can
 
 ### 6. Physical Exercise
 
-Physical activity is not only beneficial for the body but also for the mind. Regular exercise increases blood flow to the brain, enhancing cognitive function and reducing stress.
+Physical activity is not only beneficial for the body but also for the mind. Regular exercise increases blood flow to the brain, enhancing [cognitive function](/posts/discipline_cognitive_function_optimization) and reducing stress.
 
 **Action Plan:**
 - Incorporate at least 30 minutes of physical activity into your daily routine.

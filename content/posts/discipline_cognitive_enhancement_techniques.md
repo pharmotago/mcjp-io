@@ -30,7 +30,7 @@ The brain is profoundly influenced by what we consume. A balanced diet rich in O
 
 #### 2. Physical Exercise
 
-Regular physical activity is not just beneficial for physical health; it also plays a critical role in enhancing cognitive functions. Exercise increases blood flow to the brain and stimulates the release of neurotrophic factors, which support neuron growth and repair.
+Regular physical activity is not just beneficial for physical health; it also plays a critical role in enhancing [cognitive functions](/posts/discipline_cognitive_function_optimization). Exercise increases blood flow to the brain and stimulates the release of neurotrophic factors, which support neuron growth and repair.
 
 - **Action Plan**:
   - Engage in aerobic exercises like running, cycling, or swimming for at least 150 minutes a week.

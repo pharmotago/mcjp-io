@@ -19,7 +19,7 @@ Extended fasting refers to abstaining from food for periods longer than 24 hours
 
 #### Autophagy: The Brain's Cleaning Mechanism
 
-One of the most significant benefits of extended fasting is autophagy, a cellular process that promotes the removal of damaged cells and the recycling of cellular components. When the body enters a fasted state, it initiates autophagy, which can lead to enhanced brain health. This process helps clear out neurotoxins and promotes the creation of new neurons, laying the groundwork for improved cognitive functions such as memory and learning.
+One of the most significant benefits of extended fasting is autophagy, a cellular process that promotes the removal of damaged cells and the recycling of cellular components. When the body enters a fasted state, it initiates autophagy, which can lead to enhanced brain health. This process helps clear out neurotoxins and promotes the creation of new neurons, laying the groundwork for improved [cognitive functions](/posts/discipline_cognitive_function_optimization) such as memory and learning.
 
 #### Enhancing Neuroplasticity
 

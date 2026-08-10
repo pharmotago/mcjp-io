@@ -43,7 +43,7 @@ Before investing, conducting thorough due diligence is paramount. This process e
 
 ### Action Plan for Aspiring Venture Capitalists
 
-To embark on your venture capital journey, consider the following checklist:
+To embark on your [venture capital](/posts/money_ai_driven_venture_capital) journey, consider the following checklist:
 
 - **Educate Yourself**: Read books and articles about venture capital, attend workshops, and engage with industry professionals.
 - **Network**: Connect with entrepreneurs, other investors, and mentors within the VC community to gain insights and opportunities.

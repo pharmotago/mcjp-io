@@ -33,7 +33,7 @@ Achieving holistic success involves integrating various life dimensions, includi
 
 #### 1. Career and Professional Development
 
-Professional success often hinges on the ability to think critically and act decisively. Mind-body alignment can enhance cognitive function and creativity, enabling individuals to navigate complex challenges more effectively. Consider implementing the following strategies:
+Professional success often hinges on the ability to think critically and act decisively. Mind-body alignment can enhance [cognitive function](/posts/discipline_cognitive_function_optimization) and creativity, enabling individuals to navigate complex challenges more effectively. Consider implementing the following strategies:
 
 - **Mindfulness Practices**: Engage in meditation or breathing exercises to enhance focus and reduce stress.
 - **Physical Exercise**: Regular physical activity not only boosts energy levels but also promotes mental clarity.

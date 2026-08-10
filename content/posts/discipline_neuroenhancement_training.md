@@ -19,7 +19,7 @@ The science underlying neuroenhancement training is rooted in neuroplasticity, t
 By harnessing the power of neuroplasticity, individuals can overcome cognitive limitations and develop new skills, leading to enhanced performance in various areas of life. Whether it's improving concentration, accelerating learning, or fostering creativity, neuroenhancement training provides a comprehensive framework for achieving these goals. 
 
 ## Implementing Neuroenhancement Training
-Implementing neuroenhancement training into daily life requires a structured approach, beginning with setting clear goals and understanding what aspects of cognitive function need improvement. This could range from enhancing focus and concentration to improving memory and boosting mood. Once the objectives are defined, individuals can select from a variety of training programs and techniques that cater to their specific needs. 
+Implementing neuroenhancement training into daily life requires a structured approach, beginning with setting clear goals and understanding what aspects of [cognitive function](/posts/discipline_cognitive_function_optimization) need improvement. This could range from enhancing focus and concentration to improving memory and boosting mood. Once the objectives are defined, individuals can select from a variety of training programs and techniques that cater to their specific needs. 
 
 Some key strategies include:
 - Engaging in regular cognitive training exercises, such as puzzles, brain teasers, and memory games.

@@ -21,7 +21,7 @@ Research indicates that companies with strong ESG practices tend to outperform t
 
 ### The Benefits of Sustainable Investing
 
-Embracing sustainable investing offers several advantages:
+Embracing [sustainable investing](/posts/money_sustainable_wealth_creation) offers several advantages:
 
 - **Financial Returns**: Historically, sustainable investments have shown competitive returns compared to traditional investments. This trend is likely to continue as consumer preferences shift toward environmentally responsible products and services.
   

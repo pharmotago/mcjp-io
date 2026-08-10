@@ -13,7 +13,7 @@ Neuroplasticity, the brain's ability to reorganize itself by forming new neural 
 To effectively hack neuroplasticity, it is essential to understand the basics of [brain function](/posts/discipline_cognitive_optimization) and how neuroplasticity works. The brain is composed of billions of neurons, which communicate with each other through complex networks of synapses. As we learn, practice, and experience new things, these neural connections are strengthened or weakened, leading to changes in brain function and behavior. Neuroplasticity allows us to reorganize these connections, creating new pathways and strengthening existing ones. This process can be facilitated through various techniques, including meditation, exercise, and [cognitive training](/posts/discipline_breathwork_control).
 
 ![Illustration of brain neural connections with glowing synapses, representing focus and improved cognitive function](/images/discipline_neuroplasticity_hacking_focus.svg)
-This concept is crucial in understanding how to rewire our brains for success. By focusing on building strong, resilient neural connections, we can improve our cognitive function, enhance our productivity, and achieve our goals.
+This concept is crucial in understanding how to rewire our brains for success. By focusing on building strong, resilient neural connections, we can improve our [cognitive function](/posts/discipline_cognitive_function_optimization), enhance our productivity, and achieve our goals.
 
 ## Strategies for Neuroplasticity Hacking
 So, how can we harness the power of neuroplasticity to rewire our brains for success? Here are some actionable strategies to get you started:

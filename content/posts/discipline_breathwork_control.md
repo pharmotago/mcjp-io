@@ -15,7 +15,7 @@ In the high-stakes world of elite military operations, every second counts. The 
 
 ### The Science of Breathwork
 
-Breathwork is the conscious control of breathing patterns to influence physiological and psychological states. Its roots can be traced back to ancient practices, yet it remains highly relevant today. By deliberately controlling our breath, we can activate the parasympathetic nervous system, which is responsible for rest and recovery. This activation counteracts the fight-or-flight response triggered by stress, allowing for enhanced focus and cognitive function.
+Breathwork is the conscious control of breathing patterns to influence physiological and psychological states. Its roots can be traced back to ancient practices, yet it remains highly relevant today. By deliberately controlling our breath, we can activate the parasympathetic nervous system, which is responsible for rest and recovery. This activation counteracts the fight-or-flight response triggered by stress, allowing for enhanced focus and [cognitive function](/posts/discipline_cognitive_function_optimization).
 
 ![Image of a person practicing controlled breathing, focusing on maintaining composure and focus](/images/discipline_breathwork_control_focus.png)
 

@@ -16,7 +16,7 @@ In an era where multifaceted success is not just desirable but essential, the in
 
 ### The Science Behind Physical Training and Cognitive Enhancement
 
-Emerging research suggests that physical exercise is not merely a tool for bodily health but also a catalyst for cognitive function. Engaging in regular physical activity stimulates the release of neurotransmitters, such as dopamine and serotonin, which are vital for mood regulation and cognitive clarity. Studies have demonstrated that individuals who maintain an active lifestyle exhibit improved memory, sharper focus, and enhanced problem-solving skills.
+Emerging research suggests that physical exercise is not merely a tool for bodily health but also a catalyst for [cognitive function](/posts/discipline_cognitive_function_optimization). Engaging in regular physical activity stimulates the release of neurotransmitters, such as dopamine and serotonin, which are vital for mood regulation and cognitive clarity. Studies have demonstrated that individuals who maintain an active lifestyle exhibit improved memory, sharper focus, and enhanced problem-solving skills.
 
 The connection between physical and [cognitive training](/posts/discipline_breathwork_control) can be attributed to several physiological mechanisms:
 

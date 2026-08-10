@@ -15,7 +15,7 @@ In the pursuit of self-improvement, few factors rival the significance of sleep.
 
 Sleep is a complex biological process that facilitates various critical functions. During sleep, the body undergoes essential restorative processes, consolidating memories, regulating hormones, and repairing tissues. Research indicates that the average adult requires between seven to nine hours of quality sleep per night to function optimally. 
 
-The stages of sleep—light sleep, deep sleep, and REM (Rapid Eye Movement) sleep—each serve unique roles in physical and mental restoration. Deep sleep is particularly important for physical recovery, while REM sleep is crucial for cognitive functions such as learning and emotional processing. Disruptions in these stages can lead to decreased performance, impaired judgment, and diminished self-discipline.
+The stages of sleep—light sleep, deep sleep, and REM (Rapid Eye Movement) sleep—each serve unique roles in physical and mental restoration. Deep sleep is particularly important for physical recovery, while REM sleep is crucial for [cognitive functions](/posts/discipline_cognitive_function_optimization) such as learning and emotional processing. Disruptions in these stages can lead to decreased performance, impaired judgment, and diminished self-discipline.
 
 ![A high-quality image showing a person peacefully sleeping, symbolizing the importance of optimal sleep habits for focus and discipline](/images/discipline_optimal_sleep_habits_focus.png)
 
