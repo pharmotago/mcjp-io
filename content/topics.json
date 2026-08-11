@@ -2973,5 +2973,65 @@
       "brain training"
     ],
     "summary": "Discover the science of neuroplasticity and learn how to rewire your brain for enhanced productivity, focus, and overall well-being through proven techniques and strategies."
+  },
+  {
+    "id": "money_ai_driven_passive_income",
+    "category": "Money",
+    "topic": "Building Wealth with AI-Driven Passive Income Streams",
+    "keywords": [
+      "AI",
+      "passive income",
+      "wealth creation",
+      "investing"
+    ],
+    "summary": "Learn how to leverage AI-driven investing to build passive income streams and achieve financial freedom."
+  },
+  {
+    "id": "life_fatherhood_self_care_strategies",
+    "category": "Life",
+    "topic": "Prioritizing Self-Care as a Father: Strategies for Success",
+    "keywords": [
+      "fatherhood",
+      "self-care",
+      "mental health",
+      "emotional strength"
+    ],
+    "summary": "Discover the importance of self-care for fathers and learn effective strategies for prioritizing mental and emotional well-being."
+  },
+  {
+    "id": "discipline_cognitive_function_enhancement",
+    "category": "Discipline",
+    "topic": "Unlocking Human Potential: Advanced Cognitive Function Enhancement Techniques",
+    "keywords": [
+      "cognitive function",
+      "brain training",
+      "productivity",
+      "focus"
+    ],
+    "summary": "Explore the latest techniques for enhancing cognitive function, including brain training, meditation, and nutritional optimization."
+  },
+  {
+    "id": "money_blockchain_based_asset_protection",
+    "category": "Money",
+    "topic": "Protecting Your Assets with Blockchain-Based Solutions",
+    "keywords": [
+      "blockchain",
+      "asset protection",
+      "cryptocurrency",
+      "investing"
+    ],
+    "summary": "Learn how to safeguard your assets using blockchain-based solutions, including cryptocurrency and decentralized finance."
+  },
+  {
+    "id": "discipline_neuroplasticity_based_productivity_hacks",
+    "category": "Discipline",
+    "topic": "Rewiring Your Brain for Success: Neuroplasticity-Based Productivity Hacks",
+    "keywords": [
+      "neuroplasticity",
+      "productivity",
+      "brain training",
+      "focus"
+    ],
+    "summary": "Explore the latest research on neuroplasticity and learn how to rewire your brain for enhanced productivity and focus."
   }
 ]
