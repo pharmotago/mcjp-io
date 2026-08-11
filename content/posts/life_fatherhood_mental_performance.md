@@ -15,7 +15,7 @@ As a father, one of the most significant challenges you may face is balancing yo
 ![Strategic planning and focus are key elements in optimizing mental performance as a father, requiring dedication and the right mindset](/images/life_fatherhood_mental_performance_focus.svg)
 
 ### Strategies for Enhancing Mental Performance
-To optimize your mental performance, consider the following strategies:
+To optimize your [mental performance](/posts/discipline_cognitive_load_management), consider the following strategies:
 - **Prioritize Sleep and Physical Exercise**: Adequate sleep and regular physical activity are foundational for mental clarity and energy. Ensure you get at least 7-8 hours of sleep each night and engage in physical exercise for at least 30 minutes a day.
 - **Nutrition and Hydration**: Eating a balanced diet rich in fruits, vegetables, whole grains, and lean proteins, along with staying well-hydrated, supports brain health and function.
 - **Mindfulness and Meditation**: Practicing mindfulness and meditation can help reduce stress, improve focus, and enhance overall mental well-being. Start with short sessions and gradually increase the duration as you become more comfortable with the practice.

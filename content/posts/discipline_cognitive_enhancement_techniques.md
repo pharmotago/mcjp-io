@@ -57,7 +57,7 @@ Mindfulness practices and meditation have been shown to improve focus and reduce
 
 #### 5. Lifelong Learning
 
-The brain thrives on challenge and stimulation. Engaging in continuous learning can bolster cognitive resilience and adaptability.
+The brain thrives on challenge and stimulation. Engaging in continuous learning can bolster [cognitive resilience](/posts/discipline_cognitive_resilience) and adaptability.
 
 - **Action Plan**:
   - Set aside time each week to read books or articles outside your field of expertise.

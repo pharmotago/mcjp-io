@@ -39,7 +39,7 @@ For those interested in harnessing the power of extended fasting for [cognitive 
 
 1. **Start with Short Fasts**: Begin with intermittent fasting (16 to 20 hours) to acclimate your body and mind.
 2. **Gradually Increase Duration**: Progressively extend your fasting periods to 24 hours, then to 36 hours, and beyond, as your comfort level increases.
-3. **Stay Hydrated**: Drink plenty of water, herbal teas, and black coffee during the fast to maintain hydration and support cognitive function.
+3. **Stay Hydrated**: Drink plenty of water, herbal teas, and black coffee during the fast to maintain hydration and support [cognitive function](/posts/discipline_cognitive_function_optimization).
 4. **Monitor Your Body's Signals**: Pay attention to how your body responds. If you feel dizzy or extremely fatigued, consider breaking the fast.
 5. **Prepare for Refeeding**: After an extended fast, ease back into eating with nutrient-dense, whole foods to support your body’s recovery and [cognitive performance](/posts/discipline_dopamine_fasting_deep_work).
 6. **Reflect on Your Experience**: Maintain a journal to document your [mental clarity](/posts/discipline_digital_detox), focus, and overall feelings during and after fasting.

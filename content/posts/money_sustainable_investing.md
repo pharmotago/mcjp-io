@@ -33,7 +33,7 @@ Embracing [sustainable investing](/posts/money_sustainable_wealth_creation) offe
 
 ### Strategies for Integrating Ethical Investments into Your Portfolio
 
-To embark on your sustainable investing journey, consider the following actionable strategies:
+To embark on your [sustainable investing](/posts/money_sustainable_wealth_creation) journey, consider the following actionable strategies:
 
 #### 1. Assess Your Values and Goals
 
