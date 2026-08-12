@@ -3033,5 +3033,49 @@
       "focus"
     ],
     "summary": "Explore the latest research on neuroplasticity and learn how to rewire your brain for enhanced productivity and focus."
+  },
+  {
+    "id": "money_ai_wealth_optimization",
+    "category": "Money",
+    "topic": "How to Optimize Your Wealth with AI-Powered Investing",
+    "keywords": [
+      "AI investing",
+      "wealth optimization",
+      "investment strategies"
+    ],
+    "summary": "Discover how to leverage AI to maximize your investment returns and build a robust wealth portfolio."
+  },
+  {
+    "id": "life_fatherhood_resilience_strategies",
+    "category": "Life",
+    "topic": "Building Resilience as a Father: Strategies for Success",
+    "keywords": [
+      "fatherhood",
+      "resilience",
+      "parenting strategies"
+    ],
+    "summary": "Learn how to develop the skills and mindset necessary to overcome challenges and thrive as a father."
+  },
+  {
+    "id": "discipline_cognitive_burnout_prevention",
+    "category": "Discipline",
+    "topic": "Preventing Cognitive Burnout: Strategies for Maintaining Peak Mental Performance",
+    "keywords": [
+      "cognitive burnout",
+      "mental performance",
+      "productivity"
+    ],
+    "summary": "Explore the causes of cognitive burnout and learn effective techniques for preventing it and maintaining optimal mental function."
+  },
+  {
+    "id": "money_side_hustle_scaling_strategies",
+    "category": "Money",
+    "topic": "Scaling Your Side Hustle: Proven Strategies for Success",
+    "keywords": [
+      "side hustle",
+      "scaling",
+      "entrepreneurship"
+    ],
+    "summary": "Get expert advice on how to take your side hustle to the next level and achieve financial freedom."
   }
 ]
