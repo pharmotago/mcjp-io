@@ -39,7 +39,7 @@ For a seamless and high-speed home office connection, we recommend signing up fo
 ## Conclusion and Action Plan
 Developing cognitive resilience and improving [mental toughness](/posts/discipline_harnessing_emotional_resilience) require a long-term commitment to self-discipline, integrity, and [personal growth](/posts/discipline_emotional_intelligence_training). By incorporating the strategies outlined in this article, you can improve your ability to concentrate, make better decisions, and achieve greater success in your personal and professional life. 
 
-Remember, building cognitive resilience is a journey that takes time, effort, and dedication. It's essential to stay focused, motivated, and committed to your goals, even in the face of adversity or challenge. By doing so, you can develop the mental toughness and resilience needed to navigate life's challenges with confidence and achieve lasting success. 
+Remember, building cognitive resilience is a journey that takes time, effort, and dedication. It's essential to stay focused, motivated, and committed to your goals, even in the face of adversity or challenge. By doing so, you can develop the [mental toughness](/posts/discipline_adaptive_resilience_training) and resilience needed to navigate life's challenges with confidence and achieve lasting success. 
 ![Illustration of a person standing on a mountain peak, surrounded by elements that symbolize cognitive resilience and mental toughness, such as a sunrise, a compass, and a rocky landscape](/images/discipline_cognitive_resilience_theme.svg)
 
 To get started on your journey to cognitive resilience, take the following actions:
@@ -49,4 +49,4 @@ To get started on your journey to cognitive resilience, take the following actio
 * Build a supportive network of friends, family, and mentors
 * Stay committed to your values and goals, even in the face of adversity or challenge
 
-By taking these steps, you can develop the cognitive resilience and mental toughness needed to achieve greater success and fulfillment in your life. Remember to stay focused, motivated, and committed to your goals, and you will be well on your way to building a strong foundation for lasting success.
+By taking these steps, you can develop the cognitive resilience and [mental toughness](/posts/discipline_harnessing_emotional_resilience) needed to achieve greater success and fulfillment in your life. Remember to stay focused, motivated, and committed to your goals, and you will be well on your way to building a strong foundation for lasting success.

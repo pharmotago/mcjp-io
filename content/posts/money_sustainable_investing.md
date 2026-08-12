@@ -65,7 +65,7 @@ As with any [investment strategy](/posts/money_asset_diversification), diversifi
 
 #### 5. Monitor and Adjust Your Investments
 
-Regularly review your sustainable investments to assess their performance and alignment with your values. The landscape of sustainable investing is constantly evolving, so staying informed will enable you to adjust your strategy as needed.
+Regularly review your sustainable investments to assess their performance and alignment with your values. The landscape of [sustainable investing](/posts/money_sustainable_wealth_creation) is constantly evolving, so staying informed will enable you to adjust your strategy as needed.
 
 ### Building Long-Term Wealth through Sustainable Investing
 
