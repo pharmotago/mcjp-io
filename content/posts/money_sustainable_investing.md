@@ -71,7 +71,7 @@ Regularly review your sustainable investments to assess their performance and al
 
 Sustainable investing is not just a trend; it's a crucial paradigm for the [future of finance](/posts/money_influence_of_ai_on_financial_markets). By aligning your portfolio with the principles of sustainability, you not only contribute to the greater good but also position yourself for potential long-term financial gains. 
 
-As you embark on this journey, remember that the choices you make today can have lasting effects on both your financial future and the health of our planet. Sustainable investing illustrates that profit and planet can coexist, empowering you to take charge of your financial destiny while making a meaningful impact.
+As you embark on this journey, remember that the choices you make today can have lasting effects on both your financial future and the health of our planet. [Sustainable investing](/posts/money_sustainable_wealth_creation) illustrates that profit and planet can coexist, empowering you to take charge of your financial destiny while making a meaningful impact.
 
 ### Action Plan for Sustainable Investing
 

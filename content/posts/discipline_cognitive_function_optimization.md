@@ -18,7 +18,7 @@ Cognitive function optimization is not just about being more productive or effic
 To optimize cognitive function, it's essential to understand the underlying factors that influence our [mental performance](/posts/discipline_cognitive_load_management). This includes our diet, sleep patterns, exercise habits, and stress levels, among other lifestyle factors. By making conscious choices about how we live our lives, we can create an environment that supports optimal cognitive function and [peak performance](/posts/discipline_masculine_routines).
 
 ## Strategies for Cognitive Function Optimization
-So, what are the most effective strategies for optimizing cognitive function? Here are some actionable tips to get you started:
+So, what are the most effective strategies for optimizing [cognitive function](/posts/discipline_cognitive_function_enhancement)? Here are some actionable tips to get you started:
 * Develop a consistent sleep schedule to ensure adequate rest and recovery
 * Engage in regular exercise to improve blood flow and boost cognitive function
 * Practice mindfulness and meditation to reduce stress and increase focus
