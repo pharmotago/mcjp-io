@@ -75,7 +75,7 @@ As you embark on this journey, remember that the choices you make today can have
 
 ### Action Plan for Sustainable Investing
 
-To simplify your entry into sustainable investing, follow this checklist:
+To simplify your entry into [sustainable investing](/posts/money_sustainable_wealth_creation), follow this checklist:
 
 - [ ] Define your investment values and objectives.
 - [ ] Research various sustainable investment options.
