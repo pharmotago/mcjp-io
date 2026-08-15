@@ -15,12 +15,17 @@ function parseMarkdown(fileContent: string) {
       if (val.startsWith('"') && val.endsWith('"')) {
         val = val.slice(1, -1);
       }
-      try {
-        if (val.startsWith('[') && val.endsWith(']')) {
-          val = JSON.parse(val.replace(/'/g, '"'));
+      if (val.startsWith('[') && val.endsWith(']')) {
+        const inner = val.slice(1, -1);
+        const matches = inner.match(/"([^"]+)"|'([^']+)'|([^,]+)/g);
+        if (matches) {
+          data[key] = matches.map(m => m.trim().replace(/^['"]|['"]$/g, '')).filter(Boolean);
+        } else {
+          data[key] = [];
         }
-      } catch (e) {}
-      data[key] = val;
+      } else {
+        data[key] = val;
+      }
     }
   });
   return { data, content };

@@ -64,8 +64,13 @@ const BriskDB = (function() {
 
   // Helper to load session
   function getSession() {
-    const val = localStorage.getItem(STORAGE_KEYS.SESSION);
-    return val ? JSON.parse(val) : null;
+    try {
+      const val = localStorage.getItem(STORAGE_KEYS.SESSION);
+      return val ? JSON.parse(val) : null;
+    } catch (e) {
+      console.warn('[DB] Stored session parsing failed:', e);
+      return null;
+    }
   }
 
   // Helper to get a valid token (refreshes via Supabase Client SDK if expired)
@@ -596,7 +601,12 @@ const BriskDB = (function() {
       } else {
         const cachedRoles = localStorage.getItem('brisk_roles');
         if (cachedRoles) {
-          _roles = JSON.parse(cachedRoles);
+          try {
+            _roles = JSON.parse(cachedRoles);
+          } catch (e) {
+            console.warn('[DB] Failed to parse cached roles:', e);
+            _roles = [...DEFAULT_ROLES];
+          }
         } else {
           _roles = [...DEFAULT_ROLES];
           localStorage.setItem('brisk_roles', JSON.stringify(_roles));
@@ -610,7 +620,12 @@ const BriskDB = (function() {
       } else {
         const cachedPositions = localStorage.getItem('brisk_positions');
         if (cachedPositions) {
-          _positions = JSON.parse(cachedPositions);
+          try {
+            _positions = JSON.parse(cachedPositions);
+          } catch (e) {
+            console.warn('[DB] Failed to parse cached positions:', e);
+            _positions = [...DEFAULT_POSITIONS];
+          }
         } else {
           _positions = [...DEFAULT_POSITIONS];
           localStorage.setItem('brisk_positions', JSON.stringify(_positions));
