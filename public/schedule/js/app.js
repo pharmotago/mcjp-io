@@ -57,10 +57,28 @@ const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Se
 
 // On Page Load
 document.addEventListener('DOMContentLoaded', async () => {
-  // Check if this is a password recovery redirect
+  // Listen for Supabase Auth Events (PASSWORD_RECOVERY link clicks)
+  if (typeof BriskDB !== 'undefined' && BriskDB.supabase && BriskDB.supabase.auth) {
+    BriskDB.supabase.auth.onAuthStateChange((event, session) => {
+      if (event === 'PASSWORD_RECOVERY') {
+        const modal = document.getElementById('modal-update-password');
+        if (modal) modal.classList.add('active');
+      }
+    });
+  }
+
+  // Check if this is a password recovery redirect or error
   const hash = window.location.hash;
-  if (hash && hash.includes('type=recovery')) {
-    document.getElementById('modal-update-password').classList.add('active');
+  if (hash) {
+    if (hash.includes('error_code=otp_expired') || hash.includes('error=access_denied')) {
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+      setTimeout(() => {
+        showToast('This password reset link has expired or was already used. Please request a new link below.', 'error');
+        openResetPasswordModal();
+      }, 500);
+    } else if (hash.includes('type=recovery') || hash.includes('access_token=')) {
+      document.getElementById('modal-update-password').classList.add('active');
+    }
   }
 
   // Set current week to this week
@@ -73,6 +91,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Show login screen
     showLoginScreen();
     
+    // Bind forgot password button click
+    const forgotBtn = document.getElementById('btn-forgot-password');
+    if (forgotBtn) {
+      forgotBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openResetPasswordModal(e);
+      });
+    }
+
     // Check for invitation code in URL parameter (e.g. ?invite=XXXX)
     const urlParams = new URLSearchParams(window.location.search);
     const inviteCode = urlParams.get('invite');
@@ -208,6 +235,15 @@ async function bootApplication() {
     // Apply Role-Based Access Control (RBAC)
     applyRoleAccessControl();
 
+    // Ensure Owner option is present in invite-role dropdown (forces instant UI update even if cached HTML)
+    const inviteRoleSelect = document.getElementById('invite-role');
+    if (inviteRoleSelect && !inviteRoleSelect.querySelector('option[value="owner"]')) {
+      const ownerOpt = document.createElement('option');
+      ownerOpt.value = 'owner';
+      ownerOpt.textContent = 'Owner (Full administrative access & system owner)';
+      inviteRoleSelect.appendChild(ownerOpt);
+    }
+
     // Render active panel
     renderActivePanel();
   } catch (err) {
@@ -275,7 +311,7 @@ async function loadDataFromState() {
       // For employees, calculate active cover requests from other staff
       const todayStr = formatDateISO(new Date());
       const activeCovers = state.swaps.filter(swap => {
-        if (swap.status !== 'PENDING') return false;
+        if ((swap.status || '').toUpperCase() !== 'PENDING') return false;
         if (swap.requestingEmployeeId === state.currentUser.employeeId) return false;
         const shift = state.shifts.find(s => s.id === swap.shiftId);
         return shift && shift.date >= todayStr;
@@ -486,21 +522,25 @@ function showRegisterCard() {
 
 async function handleLoginSubmit(event) {
   event.preventDefault();
-  const email = document.getElementById('login-email').value;
+  const email = (document.getElementById('login-email').value || '').trim();
   const password = document.getElementById('login-password').value;
 
-  const res = await BriskDB.apiLogin(email, password);
+  try {
+    const res = await BriskDB.apiLogin(email, password);
 
-  if (res.error) {
-    showToast(res.error, 'error');
-    return;
-  }
+    if (res.error) {
+      showToast(res.error, 'error');
+      return;
+    }
 
-  // apiLogin already calls setSession internally (database.js:621)
-  if (res.email) {
-    state.currentUser = res;
-    document.getElementById('login-form').reset();
-    await bootApplication();
+    // apiLogin already calls setSession internally (database.js:621)
+    if (res.email) {
+      state.currentUser = res;
+      document.getElementById('login-form').reset();
+      await bootApplication();
+    }
+  } catch (err) {
+    showToast(err.message || 'Login failed. Please check network connection.', 'error');
   }
 }
 
@@ -538,6 +578,13 @@ function handleLogout() {
   if (confirm('Are you sure you want to log out?')) {
     BriskDB.setSession(null);
     state.currentUser = null;
+    state.employees = [];
+    state.shifts = [];
+    state.swaps = [];
+    state.timecards = [];
+    state.leaveRequests = [];
+    state.roles = [];
+    state.positions = [];
     showLoginScreen();
   }
 }
@@ -590,7 +637,13 @@ async function copyInviteUrl() {
    ========================================================================== */
 
 function getMondayOfCurrentWeek(d) {
-  const date = new Date(d);
+  let date;
+  if (typeof d === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(d)) {
+    const [y, m, dayNum] = d.split('-').map(Number);
+    date = new Date(y, m - 1, dayNum);
+  } else {
+    date = new Date(d);
+  }
   const day = date.getDay();
   const diff = date.getDate() - day + (day === 0 ? -6 : 1);
   const mon = new Date(date.setDate(diff));
@@ -604,6 +657,19 @@ function formatDateISO(date) {
   const d = String(date.getDate()).padStart(2, '0');
   return `${y}-${m}-${d}`;
 }
+
+// Convert 24h time string (HH:MM or HH:MM:SS) to 12h AM/PM format
+function formatTimeAmPm(timeStr) {
+  if (!timeStr) return '';
+  const parts = timeStr.split(':');
+  let h = parseInt(parts[0], 10);
+  if (h >= 24) h = h - 24; // Handle 24:00 as midnight
+  const m = parts[1] || '00';
+  const ampm = h >= 12 ? 'PM' : 'AM';
+  h = h % 12 || 12;
+  return `${h}:${m} ${ampm}`;
+}
+window.formatTimeAmPm = formatTimeAmPm;
 
 function getFormattedDateString(date) {
   const y = date.getFullYear();
@@ -722,7 +788,7 @@ function renderDashboard() {
   sun.setHours(23,59,59,999);
 
   const weekShifts = state.shifts.filter(s => {
-    const sDate = new Date(s.date);
+    const sDate = new Date(s.date + 'T00:00:00');
     sDate.setHours(0,0,0,0);
     return sDate >= mon && sDate <= sun;
   });
@@ -738,15 +804,8 @@ function renderDashboard() {
     
     let totalHours = 0;
     myWeekShifts.forEach(s => {
-      const startParts = s.startTime.split(':');
-      const endParts = s.endTime.split(':');
-      if (startParts.length === 2 && endParts.length === 2) {
-        const startDec = Number(startParts[0]) + Number(startParts[1]) / 60;
-        const endDec = Number(endParts[0]) + Number(endParts[1]) / 60;
-        let diff = endDec - startDec;
-        if (diff < 0) diff += 24; // overnight shift Failsafe
-        totalHours += diff;
-      }
+      const netHours = calculateShiftHours(s.startTime, s.endTime, s.unpaidMealMins);
+      totalHours += netHours;
     });
 
     const estEarnings = totalHours * hourlyRate;
@@ -795,7 +854,7 @@ function renderDashboard() {
             <div>
               <div style="font-weight:700; font-size:0.98rem; color:var(--accent-cyan);">${formattedDate}</div>
               <div style="font-size:0.85rem; color:var(--text-secondary); margin-top:4px;">
-                <i class="fa-regular fa-clock" style="color:var(--accent-cyan); margin-right:4px;"></i> ${nextShift.startTime} - ${nextShift.endTime}
+                <i class="fa-regular fa-clock" style="color:var(--accent-cyan); margin-right:4px;"></i> ${formatTimeAmPm(nextShift.startTime)} - ${formatTimeAmPm(nextShift.endTime)}
               </div>
             </div>
             <span class="badge" style="background:rgba(0, 229, 255, 0.1); color:var(--accent-cyan); border:1px solid rgba(0, 229, 255, 0.2); font-weight:600; font-size: 0.72rem; padding: 4px 8px; border-radius: 4px;">
@@ -873,7 +932,7 @@ function renderDashboard() {
               <div>
                 <div style="font-weight:700; font-size:0.98rem; color:#10b981;">Currently Clocked In</div>
                 <div style="font-size:0.82rem; color:var(--text-secondary); margin-top:4px;">
-                  <i class="fa-solid fa-right-to-bracket" style="color:#10b981; margin-right:4px;"></i> Started today at <strong>${myTodayTc.clockIn}</strong>
+                  <i class="fa-solid fa-right-to-bracket" style="color:#10b981; margin-right:4px;"></i> Started today at <strong>${myTodayTc.clockIn.includes('T') ? formatTimeAmPm(new Date(myTodayTc.clockIn).toTimeString().slice(0,5)) : formatTimeAmPm(myTodayTc.clockIn)}</strong>
                 </div>
               </div>
               <div style="text-align:right;">
@@ -886,16 +945,16 @@ function renderDashboard() {
         } else if (myTodayTc.clockIn && myTodayTc.clockOut) {
           if (personalTimeclockPulseEl) personalTimeclockPulseEl.classList.add('hide');
           
-          const startDec = timeToDecimal(myTodayTc.clockIn);
-          const endDec = timeToDecimal(myTodayTc.clockOut);
-          const workedHours = Math.max(0, endDec - startDec);
+          const workedHours = calculateTimecardHours(myTodayTc);
+          const formattedIn = (myTodayTc.clockIn.includes('T') ? formatTimeDisplay(new Date(myTodayTc.clockIn)) : myTodayTc.clockIn);
+          const formattedOut = (myTodayTc.clockOut.includes('T') ? formatTimeDisplay(new Date(myTodayTc.clockOut)) : myTodayTc.clockOut);
 
           personalTimeclockDetailsEl.innerHTML = `
             <div style="display:flex; justify-content:space-between; align-items:center; gap: 12px;">
               <div>
                 <div style="font-weight:600; font-size:0.95rem; color:var(--text-muted);">Shift Completed</div>
                 <div style="font-size:0.82rem; color:var(--text-muted); margin-top:4px;">
-                  Clocked out today at <strong>${myTodayTc.clockOut}</strong> (Worked ${workedHours.toFixed(1)}h)
+                  Clocked out today at <strong>${formattedOut}</strong> (Worked ${workedHours.toFixed(1)}h)
                 </div>
               </div>
               <div style="text-align:right;">
@@ -948,7 +1007,37 @@ function renderDashboard() {
   const tbody = document.getElementById('dash-today-shifts');
   tbody.innerHTML = '';
 
+  // === IMPROVEMENT #3: Dashboard Today's Coverage Summary Banner ===
+  if (todayShifts.length > 0) {
+    const pharmacistRoles = ['pharmacist', 'pharmacist manager'];
+    const pharmacistCount = todayShifts.filter(s => {
+      const roleLower = s.role.toLowerCase();
+      return pharmacistRoles.some(pr => roleLower.includes(pr));
+    }).length;
+    const startTimes = todayShifts.map(s => s.startTime).sort();
+    const endTimes = todayShifts.map(s => s.endTime).sort();
+    const coverageWindow = `${formatTimeAmPm(startTimes[0])} – ${formatTimeAmPm(endTimes[endTimes.length - 1])}`;
+
+    const summaryBanner = document.createElement('div');
+    summaryBanner.id = 'dash-coverage-summary-banner';
+    summaryBanner.style.cssText = 'display:flex; align-items:center; justify-content:center; gap:16px; padding:10px 16px; margin:0 1.25rem 1rem; background:rgba(2,132,199,0.06); border:1px solid rgba(2,132,199,0.2); border-radius:8px; font-size:0.85rem; flex-wrap:wrap;';
+    summaryBanner.innerHTML = `
+      <span style="font-weight:700; color:var(--accent-cyan);"><i class="fa-solid fa-users" style="margin-right:4px;"></i> ${todayShifts.length} staff rostered</span>
+      <span style="color:var(--text-muted);">|</span>
+      <span style="font-weight:600; color:${pharmacistCount > 0 ? '#10b981' : '#ef4444'};"><i class="fa-solid fa-user-doctor" style="margin-right:4px;"></i> ${pharmacistCount} Pharmacist${pharmacistCount !== 1 ? 's' : ''}</span>
+      <span style="color:var(--text-muted);">|</span>
+      <span style="font-weight:500; color:var(--text-secondary);"><i class="fa-regular fa-clock" style="margin-right:4px;"></i> ${coverageWindow}</span>
+    `;
+    // Insert before the table
+    const existingBanner = document.getElementById('dash-coverage-summary-banner');
+    if (existingBanner) existingBanner.remove();
+    const shiftListScroll = tbody.closest('.shift-list-scroll');
+    if (shiftListScroll && shiftListScroll.parentElement) shiftListScroll.parentElement.insertBefore(summaryBanner, shiftListScroll);
+  }
+
   if (todayShifts.length === 0 && todayLeaveRequests.length === 0) {
+    const existingBanner = document.getElementById('dash-coverage-summary-banner');
+    if (existingBanner) existingBanner.remove();
     tbody.innerHTML = `<tr><td colspan="4" style="padding: 0;"><div class="empty-state"><i class="fa-solid fa-mug-hot text-neon" style="animation: activeTerminalPulse 1.8s infinite alternate;"></i><h4>No shifts today</h4><p>Enjoy your day! All staff are scheduled off today.</p></div></td></tr>`;
     return;
   }
@@ -976,7 +1065,7 @@ function renderDashboard() {
     tr.innerHTML = `
       <td><strong>${empName}</strong></td>
       <td>${shift.role}</td>
-      <td>${shift.startTime} - ${shift.endTime}</td>
+      <td>${formatTimeAmPm(shift.startTime)} - ${formatTimeAmPm(shift.endTime)}</td>
       <td>${statusBadge}</td>
     `;
     tbody.appendChild(tr);
@@ -1004,6 +1093,53 @@ function renderDashboard() {
    PANEL: SCHEDULER
    ========================================================================== */
 
+function getOrderedActiveEmployees() {
+  const customOrder = (state.settings && Array.isArray(state.settings.employeeOrder)) ? state.settings.employeeOrder : [];
+  return state.employees.filter(e => e.active !== false).sort((a, b) => {
+    const idxA = customOrder.indexOf(a.id);
+    const idxB = customOrder.indexOf(b.id);
+    if (idxA !== -1 && idxB !== -1) return idxA - idxB;
+    if (idxA !== -1) return -1;
+    if (idxB !== -1) return 1;
+    return a.name.localeCompare(b.name);
+  });
+}
+
+async function moveEmployeeOrder(empId, direction) {
+  const activeEmps = getOrderedActiveEmployees();
+  const index = activeEmps.findIndex(e => e.id === empId);
+  if (index === -1) return;
+
+  const targetIndex = direction === 'up' ? index - 1 : index + 1;
+  if (targetIndex < 0 || targetIndex >= activeEmps.length) return;
+
+  const newOrderEmps = [...activeEmps];
+  const temp = newOrderEmps[index];
+  newOrderEmps[index] = newOrderEmps[targetIndex];
+  newOrderEmps[targetIndex] = temp;
+
+  const newOrderIds = newOrderEmps.map(e => e.id);
+
+  if (!state.settings) state.settings = {};
+  state.settings.employeeOrder = newOrderIds;
+  try {
+    localStorage.setItem('amcal_employee_order', JSON.stringify(newOrderIds));
+  } catch (e) {}
+
+  try {
+    await BriskDB.saveSettings(state.settings);
+    showToast('Staff display order updated.', 'success');
+    renderScheduler();
+    if (typeof renderEmployeesList === 'function') renderEmployeesList();
+  } catch (err) {
+    console.error('Error updating staff order:', err);
+    showToast('Failed to update staff order.', 'error');
+  }
+}
+
+window.getOrderedActiveEmployees = getOrderedActiveEmployees;
+window.moveEmployeeOrder = moveEmployeeOrder;
+
 function renderScheduler() {
   document.getElementById('scheduler-week-range').textContent = getWeekRangeText(state.currentWeekStart);
 
@@ -1023,48 +1159,100 @@ function renderScheduler() {
   const tbody = document.getElementById('scheduler-grid-body');
   tbody.innerHTML = '';
 
-  const activeEmployees = state.employees.filter(e => e.active);
+  const activeEmployees = getOrderedActiveEmployees();
+
+function getEffectiveShiftHourlyRate(shift) {
+  if (shift.employeeId) {
+    const emp = state.employees.find(e => e.id === shift.employeeId);
+    if (emp && emp.hourlyRate > 0) return emp.hourlyRate;
+  }
+  const roleLower = (shift.role || '').toLowerCase();
+  if (roleLower.includes('pharmacist manager')) return 52.15;
+  if (roleLower.includes('pharmacist in charge') || roleLower.includes('pic')) return 46.50;
+  if (roleLower.includes('pharmacist')) return 41.74;
+  if (roleLower.includes('intern') || roleLower.includes('graduate')) return 34.50;
+  if (roleLower.includes('dispense technician') || roleLower.includes('technician') || roleLower.includes('level 4')) return 30.66;
+  if (roleLower.includes('webster') || roleLower.includes('level 3')) return 29.45;
+  if (roleLower.includes('level 2')) return 28.45;
+  return 27.81; // Pharmacy Assistant Level 1 base award rate
+}
 
   const dispTotals = Array(7).fill(0);
   const frontTotals = Array(7).fill(0);
   const websterTotals = Array(7).fill(0);
   const grandTotals = Array(7).fill(0);
 
-  // Accumulate hours for table cells during rendering or via preprocessing
+  const dispCosts = Array(7).fill(0);
+  const frontCosts = Array(7).fill(0);
+  const websterCosts = Array(7).fill(0);
+  const grandCosts = Array(7).fill(0);
+
+  // Accumulate hours and fully loaded costs (including Super 11.5% + On-costs) for table cells
   for (let i = 0; i < 7; i++) {
     const d = new Date(state.currentWeekStart);
     d.setDate(state.currentWeekStart.getDate() + i);
     const dateStr = formatDateISO(d);
     const dayShifts = state.shifts.filter(s => s.date === dateStr);
+    const dayOfWeek = d.getDay();
+
+    // Weekend Award Penalty Multiplier (Pharmacy Award MA000084)
+    let penaltyMultiplier = 1.0;
+    if (dayOfWeek === 0) penaltyMultiplier = 1.5;      // Sunday 150%
+    else if (dayOfWeek === 6) penaltyMultiplier = 1.25; // Saturday 125%
     
     dayShifts.forEach(s => {
       const hours = calculateShiftHours(s.startTime, s.endTime);
+      const hourlyRate = getEffectiveShiftHourlyRate(s);
+      
+      const basePay = hours * hourlyRate * penaltyMultiplier;
+      const fullyLoadedCost = basePay * 1.20; // Includes Super 11.5% + Workers Comp + Leave Accruals
+
       const roleLower = s.role.toLowerCase();
       
       if (roleLower.includes('dispensary') || roleLower === 'pharmacist' || roleLower === 'pharmacist manager' || roleLower === 'dispense technician') {
         dispTotals[i] += hours;
+        dispCosts[i] += fullyLoadedCost;
       } else if (roleLower.includes('webster')) {
         websterTotals[i] += hours;
+        websterCosts[i] += fullyLoadedCost;
       } else {
         frontTotals[i] += hours;
+        frontCosts[i] += fullyLoadedCost;
       }
       grandTotals[i] += hours;
+      grandCosts[i] += fullyLoadedCost;
     });
   }
 
   // If user is employee, they see all staff rosters, but cannot click to add or edit
-  activeEmployees.forEach(emp => {
+  activeEmployees.forEach((emp, empIdx) => {
     const tr = document.createElement('tr');
     
     const tdProfile = document.createElement('td');
     tdProfile.className = 'grid-employee-cell';
     
     const empWeekHours = calculateEmployeeWeekHours(emp.id, state.currentWeekStart);
+    const isFirst = empIdx === 0;
+    const isLast = empIdx === activeEmployees.length - 1;
+    const isManagerOrOwner = state.currentUser && state.currentUser.role !== 'employee';
+    const reorderBtns = isManagerOrOwner ? `
+      <span class="staff-reorder-btn-group print-hide" style="display:inline-flex; gap:2px; margin-left:4px; vertical-align:middle;">
+        <button class="btn-icon staff-reorder-btn" style="padding:1px 4px; font-size:9px;" onclick="moveEmployeeOrder('${emp.id}', 'up')" title="Move Up" ${isFirst ? 'disabled style="opacity:0.2;"' : ''}>
+          <i class="fa-solid fa-chevron-up"></i>
+        </button>
+        <button class="btn-icon staff-reorder-btn" style="padding:1px 4px; font-size:9px;" onclick="moveEmployeeOrder('${emp.id}', 'down')" title="Move Down" ${isLast ? 'disabled style="opacity:0.2;"' : ''}>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+      </span>
+    ` : '';
 
     tdProfile.innerHTML = `
-      <span class="grid-emp-name" ${state.currentUser.role !== 'employee' ? `onclick="openEditEmployeeModal('${emp.id}')" style="cursor:pointer; text-decoration: underline;"` : ''}>${emp.name}</span>
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; width:100%;">
+        <span class="grid-emp-name" ${isManagerOrOwner ? `onclick="openEditEmployeeModal('${emp.id}')" style="cursor:pointer; text-decoration: underline;"` : ''}>${emp.name}</span>
+        ${reorderBtns}
+      </div>
       <span class="grid-emp-role">${emp.role}</span>
-      <span class="grid-emp-hours"><i class="fa-solid fa-clock"></i> ${empWeekHours.toFixed(1)}h / ${emp.maxHours}h</span>
+      <span class="grid-emp-hours"><i class="fa-solid fa-clock"></i> ${empWeekHours.toFixed(1)}h / ${emp.maxHours}h${empWeekHours > (emp.maxHours || 38) ? ' <span style="color:#ef4444; font-weight:700; font-size:0.7rem;">⚠️ OT</span>' : ''}</span>
     `;
     tr.appendChild(tdProfile);
 
@@ -1123,11 +1311,35 @@ function renderScheduler() {
           } else {
             // Move shift
             if (targetEmpId) {
+              // Leave check
+              if (checkLeaveStatus(targetEmpId, targetDate)) {
+                if (!confirm('This employee has an approved leave request on this date. Move shift anyway?')) {
+                  return;
+                }
+              }
+
               const empShifts = state.shifts.filter(s => s.employeeId === targetEmpId && s.id !== shift.id);
               const hasOverlap = empShifts.some(s => BriskScheduler.isOverlapping(targetDate, shift.startTime, shift.endTime, s.date, s.startTime, s.endTime));
               if (hasOverlap) {
                 showToast('Cannot move: shift overlaps with another shift for this employee.', 'error');
                 return;
+              }
+
+              // 10-hour rest break warning
+              const shiftStartMs = new Date(`${targetDate}T${shift.startTime}:00`).getTime();
+              const shiftEndMs = new Date(`${targetDate}T${shift.endTime}:00`).getTime();
+              for (const s of empShifts) {
+                const sStartMs = new Date(`${s.date}T${s.startTime}:00`).getTime();
+                const sEndMs = new Date(`${s.date}T${s.endTime}:00`).getTime();
+                let gapHours = 999;
+                if (shiftStartMs >= sEndMs) gapHours = (shiftStartMs - sEndMs) / (1000 * 60 * 60);
+                else if (sStartMs >= shiftEndMs) gapHours = (sStartMs - shiftEndMs) / (1000 * 60 * 60);
+                if (gapHours < 10) {
+                  if (!confirm(`Warning (Pharmacy Industry Award 2026 [MA000084]): This employee has another shift on ${s.date} (${formatTimeAmPm(s.startTime)} - ${formatTimeAmPm(s.endTime)}), leaving only ${gapHours.toFixed(1)}h rest (minimum 10h required). Move anyway?`)) {
+                    return;
+                  }
+                  break;
+                }
               }
             }
             try {
@@ -1164,9 +1376,24 @@ function renderScheduler() {
         div.style.borderLeft = `4px solid ${roleColor}`;
         div.style.background = `rgba(${hexToRgb(roleColor)}, 0.08)`;
 
+        const shiftDuration = calculateShiftHours(shift.startTime, shift.endTime, 0);
+        const breakEntitlement = getAwardBreakEntitlements(shiftDuration);
+        const unpaidMeal = (shift.unpaidMealMins !== undefined && shift.unpaidMealMins !== null) ? shift.unpaidMealMins : breakEntitlement.unpaidMealMins;
+        
+        let breakBadgeHtml = '';
+        if (shiftDuration >= 4) {
+          const mealText = unpaidMeal > 0 ? `${unpaidMeal}m Lunch` : '';
+          const restText = breakEntitlement.paidBreaks > 0 ? `${breakEntitlement.paidBreaks}x 10m Paid` : '';
+          const combined = [mealText, restText].filter(Boolean).join(' | ');
+          if (combined) {
+            breakBadgeHtml = `<div class="shift-card-breaks" style="font-size: 7.5pt; color: var(--text-muted); margin-top: 2px;"><i class="fa-solid fa-mug-hot"></i> ${combined}</div>`;
+          }
+        }
+
         div.innerHTML = `
           <div class="shift-card-header">${shift.role}</div>
-          <div class="shift-card-time"><i class="fa-regular fa-clock"></i> ${shift.startTime} - ${shift.endTime}</div>
+          <div class="shift-card-time"><i class="fa-regular fa-clock"></i> ${formatTimeAmPm(shift.startTime)} - ${formatTimeAmPm(shift.endTime)}</div>
+          ${breakBadgeHtml}
           ${shift.notes ? `<div class="shift-card-notes">${shift.notes}</div>` : ''}
         `;
         
@@ -1323,7 +1550,7 @@ function renderScheduler() {
 
         div.innerHTML = `
           <div class="shift-card-header">${shift.role}</div>
-          <div class="shift-card-time">${shift.startTime} - ${shift.endTime}</div>
+          <div class="shift-card-time"><i class="fa-regular fa-clock"></i> ${formatTimeAmPm(shift.startTime)} - ${formatTimeAmPm(shift.endTime)}</div>
           ${shift.notes ? `<div class="shift-card-notes">${shift.notes}</div>` : ''}
         `;
 
@@ -1366,26 +1593,61 @@ function renderScheduler() {
     tbody.appendChild(trUnassigned);
   }
 
+  const isManagerOrOwner = state.currentUser.role === 'manager' || state.currentUser.role === 'owner';
+
   const tfoot = document.getElementById('scheduler-grid-foot');
   if (tfoot) {
-    tfoot.innerHTML = `
-      <tr class="summary-row">
-        <td>Dispensary Hours</td>
-        ${dispTotals.map(h => `<td>${h > 0 ? h.toFixed(1) + 'h' : '-'}</td>`).join('')}
-      </tr>
-      <tr class="summary-row">
-        <td>Front of Shop Hours</td>
-        ${frontTotals.map(h => `<td>${h > 0 ? h.toFixed(1) + 'h' : '-'}</td>`).join('')}
-      </tr>
-      <tr class="summary-row">
-        <td>Webster Hours</td>
-        ${websterTotals.map(h => `<td>${h > 0 ? h.toFixed(1) + 'h' : '-'}</td>`).join('')}
-      </tr>
-      <tr class="summary-row grand-total">
-        <td>Total Scheduled Hours</td>
-        ${grandTotals.map(h => `<td>${h > 0 ? h.toFixed(1) + 'h' : '-'}</td>`).join('')}
-      </tr>
-    `;
+    // === IMPROVEMENT #4: Headcount badges per day ===
+    const headcountCells = [];
+    for (let i = 0; i < 7; i++) {
+      const d = new Date(state.currentWeekStart);
+      d.setDate(state.currentWeekStart.getDate() + i);
+      const dateStr = formatDateISO(d);
+      const dayStaffIds = new Set(state.shifts.filter(s => s.date === dateStr && s.employeeId).map(s => s.employeeId));
+      const dayStaffCount = dayStaffIds.size;
+      headcountCells.push(`<td style="text-align:center;">${dayStaffCount > 0 ? `<span style="display:inline-flex; align-items:center; gap:4px; font-size:0.78rem; font-weight:600; color:var(--accent-cyan);"><i class="fa-solid fa-user" style="font-size:0.65rem;"></i>${dayStaffCount}</span>` : '<span style="color:var(--text-muted); font-size:0.75rem;">-</span>'}</td>`);
+    }
+    const headcountRow = `<tr class="summary-row"><td style="font-weight:600;"><i class="fa-solid fa-users" style="margin-right:4px; color:var(--accent-cyan);"></i>Staff Count</td>${headcountCells.join('')}</tr>`;
+
+    if (isManagerOrOwner) {
+      tfoot.innerHTML = headcountRow + `
+        <tr class="summary-row">
+          <td>Dispensary (Hours & Est. Total Cost)</td>
+          ${dispTotals.map((h, i) => `<td>${h > 0 ? `${h.toFixed(1)}h<br><span style="font-size:10px; color:#10b981; font-weight:600;">$${dispCosts[i].toFixed(0)}</span>` : '-'}</td>`).join('')}
+        </tr>
+        <tr class="summary-row">
+          <td>Front of Shop (Hours & Est. Total Cost)</td>
+          ${frontTotals.map((h, i) => `<td>${h > 0 ? `${h.toFixed(1)}h<br><span style="font-size:10px; color:#f59e0b; font-weight:600;">$${frontCosts[i].toFixed(0)}</span>` : '-'}</td>`).join('')}
+        </tr>
+        <tr class="summary-row">
+          <td>Webster (Hours & Est. Total Cost)</td>
+          ${websterTotals.map((h, i) => `<td>${h > 0 ? `${h.toFixed(1)}h<br><span style="font-size:10px; color:#a855f7; font-weight:600;">$${websterCosts[i].toFixed(0)}</span>` : '-'}</td>`).join('')}
+        </tr>
+        <tr class="summary-row grand-total">
+          <td>Total Scheduled Hours & Total Labor Cost (incl. Super 11.5% + On-costs)</td>
+          ${grandTotals.map((h, i) => `<td>${h > 0 ? `${h.toFixed(1)}h<br><span style="font-size:11px; color:var(--accent-cyan); font-weight:700;">$${grandCosts[i].toFixed(0)}</span>` : '-'}</td>`).join('')}
+        </tr>
+      `;
+    } else {
+      tfoot.innerHTML = headcountRow + `
+        <tr class="summary-row">
+          <td>Dispensary Hours</td>
+          ${dispTotals.map(h => `<td>${h > 0 ? h.toFixed(1) + 'h' : '-'}</td>`).join('')}
+        </tr>
+        <tr class="summary-row">
+          <td>Front of Shop Hours</td>
+          ${frontTotals.map(h => `<td>${h > 0 ? h.toFixed(1) + 'h' : '-'}</td>`).join('')}
+        </tr>
+        <tr class="summary-row">
+          <td>Webster Hours</td>
+          ${websterTotals.map(h => `<td>${h > 0 ? h.toFixed(1) + 'h' : '-'}</td>`).join('')}
+        </tr>
+        <tr class="summary-row grand-total">
+          <td>Total Scheduled Hours</td>
+          ${grandTotals.map(h => `<td>${h > 0 ? h.toFixed(1) + 'h' : '-'}</td>`).join('')}
+        </tr>
+      `;
+    }
   }
 
   // --- MOBILE TIMELINE RENDERING ---
@@ -1466,7 +1728,7 @@ function renderScheduler() {
               </div>
             ` : ''}
             <div class="mobile-shift-time" style="margin-top: 6px;">
-              <i class="fa-regular fa-clock"></i> ${shift.startTime} - ${shift.endTime}
+              <i class="fa-regular fa-clock"></i> ${formatTimeAmPm(shift.startTime)} - ${formatTimeAmPm(shift.endTime)}
             </div>
             ${cleanNotes ? `<div class="mobile-shift-notes">${cleanNotes}</div>` : ''}
             ${actionBtnHtml ? `
@@ -1490,7 +1752,7 @@ function renderScheduler() {
                 <span class="mobile-shift-role">${shift.role}</span>
               </div>
               <div class="mobile-shift-time">
-                <i class="fa-regular fa-clock"></i> ${shift.startTime} - ${shift.endTime}
+                <i class="fa-regular fa-clock"></i> ${formatTimeAmPm(shift.startTime)} - ${formatTimeAmPm(shift.endTime)}
               </div>
               ${shift.notes ? `<div class="mobile-shift-notes">${shift.notes}</div>` : ''}
               <div class="mobile-shift-actions">
@@ -1602,7 +1864,7 @@ function calculateEmployeeWeekHours(employeeId, weekStart) {
   // 1. Actual hours from timecards (for past days)
   const empTimecards = state.timecards.filter(tc => {
     if (tc.employeeId !== employeeId) return false;
-    const tcDate = new Date(tc.date);
+    const tcDate = new Date(tc.date + 'T00:00:00');
     tcDate.setHours(0,0,0,0);
     return tcDate >= mon && tcDate <= sun && tcDate < today;
   });
@@ -1617,30 +1879,31 @@ function calculateEmployeeWeekHours(employeeId, weekStart) {
   // 2. Scheduled hours from shifts (for today, future days, OR past days with no timecard)
   const empShifts = state.shifts.filter(s => {
     if (s.employeeId !== employeeId) return false;
-    const sDate = new Date(s.date);
+    const sDate = new Date(s.date + 'T00:00:00');
     sDate.setHours(0,0,0,0);
     return sDate >= mon && sDate <= sun;
   });
   
   empShifts.forEach(s => {
-    const sDate = new Date(s.date);
+    const sDate = new Date(s.date + 'T00:00:00');
     sDate.setHours(0,0,0,0);
     if (sDate >= today || !daysWithTimecards.has(s.date)) {
-      total += BriskScheduler.getShiftDuration(s.startTime, s.endTime);
+      const netHrs = calculateShiftHours(s.startTime, s.endTime, s.unpaidMealMins);
+      total += netHrs;
     }
   });
 
-  return total;
+  return Math.round((total + Number.EPSILON) * 100) / 100;
 }
 
 function checkLeaveStatus(employeeId, dateStr) {
-  const date = new Date(dateStr);
+  const date = new Date(dateStr + 'T00:00:00');
   date.setHours(0,0,0,0);
 
   return state.leaveRequests.some(req => {
     if (req.employeeId !== employeeId || req.status !== 'Approved') return false;
-    const start = new Date(req.startDate);
-    const end = new Date(req.endDate);
+    const start = new Date(req.startDate + 'T00:00:00');
+    const end = new Date(req.endDate + 'T00:00:00');
     start.setHours(0,0,0,0);
     end.setHours(0,0,0,0);
     return date >= start && date <= end;
@@ -1729,6 +1992,101 @@ async function triggerClearWeek() {
   }
 }
 
+async function copyCurrentWeekToNextWeek() {
+  const mon = new Date(state.currentWeekStart);
+  mon.setHours(0, 0, 0, 0);
+  const sun = new Date(mon);
+  sun.setDate(mon.getDate() + 6);
+  sun.setHours(23, 59, 59, 999);
+
+  // Find all shifts in the currently selected week
+  const currentWeekShifts = state.shifts.filter(s => {
+    if (!s.date) return false;
+    const sDate = new Date(s.date + 'T00:00:00');
+    return sDate >= mon && sDate <= sun;
+  });
+
+  if (currentWeekShifts.length === 0) {
+    showToast('No shifts found in the current week to copy.', 'warning');
+    return;
+  }
+
+  // Calculate next week's Monday & Sunday
+  const nextMon = new Date(mon);
+  nextMon.setDate(mon.getDate() + 7);
+  const nextSun = new Date(nextMon);
+  nextSun.setDate(nextMon.getDate() + 6);
+
+  const currentWeekRange = getWeekRangeText(mon);
+  const nextWeekRange = getWeekRangeText(nextMon);
+
+  const nextMonStr = formatDateISO(nextMon);
+  const nextSunStr = formatDateISO(nextSun);
+  const existingNextWeekShifts = state.shifts.filter(s => s.date >= nextMonStr && s.date <= nextSunStr);
+  if (existingNextWeekShifts.length > 0) {
+    if (!confirm(`Warning: Next week (${nextWeekRange}) already has ${existingNextWeekShifts.length} scheduled shift(s).\n\nDo you want to proceed and copy ${currentWeekShifts.length} shift(s) into next week?`)) {
+      return;
+    }
+  } else {
+    const confirmMsg = `Copy all ${currentWeekShifts.length} shift(s) from current week (${currentWeekRange}) to next week (${nextWeekRange})?`;
+    if (!confirm(confirmMsg)) return;
+  }
+
+  const btn = document.getElementById('btn-copy-week');
+  const origBtnHtml = btn ? btn.innerHTML : 'Copy to Next Week';
+  if (btn) {
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Copying...';
+  }
+
+  try {
+    let createdCount = 0;
+
+    for (const shift of currentWeekShifts) {
+      // Calculate day offset from current Monday (0 = Monday, ..., 6 = Sunday)
+      const shiftDate = new Date(shift.date + 'T00:00:00');
+      const dayOffset = Math.round((shiftDate.getTime() - mon.getTime()) / (24 * 60 * 60 * 1000));
+      
+      const targetDate = new Date(nextMon);
+      targetDate.setDate(nextMon.getDate() + dayOffset);
+      const targetDateStr = formatDateISO(targetDate);
+
+      const duplicatedShift = {
+        employeeId: shift.employeeId || null,
+        role: shift.role,
+        date: targetDateStr,
+        startTime: shift.startTime,
+        endTime: shift.endTime,
+        unpaidMealMins: (shift.unpaidMealMins !== undefined && shift.unpaidMealMins !== null) ? shift.unpaidMealMins : null,
+        notes: shift.notes || ''
+      };
+
+      const added = await BriskDB.addShift(duplicatedShift);
+      if (added) {
+        createdCount++;
+      }
+    }
+
+    // Switch view to next week automatically
+    state.currentWeekStart = nextMon;
+    
+    // Refresh local state and UI
+    await loadDataFromState();
+    renderScheduler();
+
+    showToast(`Successfully copied ${createdCount} shift(s) to next week! (${nextWeekRange})`, 'success');
+  } catch (err) {
+    console.error('Copy Week Error:', err);
+    showToast('Failed to copy roster: ' + (err.message || 'Unknown error'), 'error');
+  } finally {
+    if (btn) {
+      btn.disabled = false;
+      btn.innerHTML = origBtnHtml;
+    }
+  }
+}
+window.copyCurrentWeekToNextWeek = copyCurrentWeekToNextWeek;
+
 async function triggerAutoScheduler() {
   const submitBtn = document.getElementById('btn-auto-schedule');
   const origText = submitBtn ? submitBtn.innerHTML : 'Auto-Schedule';
@@ -1745,14 +2103,14 @@ async function triggerAutoScheduler() {
     
     if (result.success) {
       // Save generated shifts to Supabase for target week only
-      const targetWeekStart = new Date(targetWeekStr);
+      const targetWeekStart = new Date(targetWeekStr + 'T00:00:00');
       const targetWeekEnd = new Date(targetWeekStart);
       targetWeekEnd.setDate(targetWeekStart.getDate() + 6);
       targetWeekStart.setHours(0,0,0,0);
       targetWeekEnd.setHours(23,59,59,999);
 
       const weekShifts = result.shifts.filter(s => {
-        const sDate = new Date(s.date);
+        const sDate = new Date(s.date + 'T00:00:00');
         sDate.setHours(0,0,0,0);
         return sDate >= targetWeekStart && sDate <= targetWeekEnd;
       });
@@ -1835,6 +2193,10 @@ function openAddShiftModal(employeeId = '', dateStr = '') {
   });
 
   updatePasteButtonState();
+  if (document.getElementById('shift-unpaid-break')) {
+    document.getElementById('shift-unpaid-break').value = 'auto';
+  }
+  updateShiftBreakSummary();
 
   document.getElementById('modal-shift').classList.add('active');
 }
@@ -1847,6 +2209,11 @@ function openEditShiftModal(shift) {
   document.getElementById('shift-end').value = shift.endTime;
   document.getElementById('shift-notes').value = shift.notes || '';
   
+  if (document.getElementById('shift-unpaid-break')) {
+    document.getElementById('shift-unpaid-break').value = (shift.unpaidMealMins !== undefined && shift.unpaidMealMins !== null) ? String(shift.unpaidMealMins) : 'auto';
+  }
+  updateShiftBreakSummary();
+
   document.getElementById('btn-delete-shift').classList.remove('hide');
 
   // Populate Roles select
@@ -1896,6 +2263,11 @@ async function handleShiftSubmit(event) {
     const end = document.getElementById('shift-end').value;
     const notes = document.getElementById('shift-notes').value;
 
+    if (start === end) {
+      showToast('Shift start time and end time cannot be identical.', 'error');
+      return;
+    }
+
     if (empId) {
       // Strict Overlap validation only if assigned
       const empShifts = state.shifts.filter(s => s.employeeId === empId && s.id !== id);
@@ -1903,6 +2275,49 @@ async function handleShiftSubmit(event) {
       if (hasOverlap) {
         showToast('This shift overlaps with another shift for this employee.', 'error');
         return;
+      }
+
+      // Fair Work MA000012 / Pharmacy Industry Award 2026 10-Hour Rest Break Warning
+      const shiftStartMs = new Date(`${date}T${start}:00`).getTime();
+      let shiftEndMs = new Date(`${date}T${end}:00`).getTime();
+      if (shiftEndMs <= shiftStartMs) shiftEndMs += 86400000;
+
+      for (const s of empShifts) {
+        const sStartMs = new Date(`${s.date}T${s.startTime}:00`).getTime();
+        let sEndMs = new Date(`${s.date}T${s.endTime}:00`).getTime();
+        if (sEndMs <= sStartMs) sEndMs += 86400000;
+        
+        let gapHours = 999;
+        if (shiftStartMs >= sEndMs) {
+          gapHours = (shiftStartMs - sEndMs) / (1000 * 60 * 60);
+        } else if (sStartMs >= shiftEndMs) {
+          gapHours = (sStartMs - shiftEndMs) / (1000 * 60 * 60);
+        }
+        
+        if (gapHours < 10) {
+          if (!confirm(`Warning (Pharmacy Industry Award 2026 [MA000084]): This employee has another shift on ${s.date} (${formatTimeAmPm(s.startTime)} - ${formatTimeAmPm(s.endTime)}), leaving only ${gapHours.toFixed(1)}h rest (minimum 10h required). Assign anyway?`)) {
+            return;
+          }
+          break;
+        }
+      }
+    }
+
+    // Award Compliance Checks: Casual 3h minimum (Clause 11.4) & Daily 10h max (Clause 19)
+    const singleShiftDuration = BriskScheduler.getShiftDuration(start, end);
+    if (empId) {
+      const emp = state.employees.find(e => e.id === empId);
+      if (emp) {
+        if (emp.employmentType === 'casual' && singleShiftDuration < 3.0) {
+          if (!confirm(`Notice (Pharmacy Industry Award 2026 [MA000084] Clause 11.4): Casual employees have a minimum engagement of 3 hours per shift (scheduled: ${singleShiftDuration.toFixed(1)}h).\n\nAssign this shift anyway?`)) {
+            return;
+          }
+        }
+        if (singleShiftDuration > 10.0) {
+          if (!confirm(`Notice (Pharmacy Industry Award 2026 [MA000084] Clause 19): Ordinary daily hours must not exceed 10 hours (scheduled: ${singleShiftDuration.toFixed(1)}h).\n\nOvertime penalty rates may apply. Schedule anyway?`)) {
+            return;
+          }
+        }
       }
     }
 
@@ -1930,7 +2345,32 @@ async function handleShiftSubmit(event) {
           const tradingCloseDec = timeToDecimal(tradingHours.close);
           
           if (shiftStartDec < tradingOpenDec || shiftEndDec > tradingCloseDec) {
-            if (!confirm(`Warning: Shift hours (${start} - ${end}) fall outside the pharmacy trading hours (${tradingHours.open} - ${tradingHours.close}) on this day. Do you want to schedule this shift anyway?`)) {
+            if (!confirm(`Warning: Shift hours (${formatTimeAmPm(start)} - ${formatTimeAmPm(end)}) fall outside the pharmacy trading hours (${formatTimeAmPm(tradingHours.open)} - ${formatTimeAmPm(tradingHours.close)}) on this day. Do you want to schedule this shift anyway?`)) {
+              return;
+            }
+          }
+        }
+      }
+    }
+
+    // Employee Availability Check
+    if (empId) {
+      const emp = state.employees.find(e => e.id === empId);
+      if (emp && emp.availability) {
+        const shiftDateObj = new Date(date + 'T00:00:00');
+        const dayOfWeek = shiftDateObj.getDay();
+        const avail = emp.availability[dayOfWeek];
+        if (!avail) {
+          if (!confirm(`Notice: ${emp.name} is marked as UNAVAILABLE on ${shiftDateObj.toLocaleDateString('en-AU', { weekday: 'long' })}s in their profile.\n\nSchedule this shift anyway?`)) {
+            return;
+          }
+        } else if (avail.start && avail.end) {
+          const shiftStartDec = timeToDecimal(start);
+          const shiftEndDec = timeToDecimal(end);
+          const availStartDec = timeToDecimal(avail.start);
+          const availEndDec = timeToDecimal(avail.end);
+          if (shiftStartDec < availStartDec || shiftEndDec > availEndDec) {
+            if (!confirm(`Notice: Shift hours (${formatTimeAmPm(start)} - ${formatTimeAmPm(end)}) fall outside ${emp.name}'s declared availability (${formatTimeAmPm(avail.start)} - ${formatTimeAmPm(avail.end)}).\n\nSchedule this shift anyway?`)) {
               return;
             }
           }
@@ -1958,12 +2398,19 @@ async function handleShiftSubmit(event) {
       }
     }
 
+    const unpaidMealVal = document.getElementById('shift-unpaid-break') ? document.getElementById('shift-unpaid-break').value : 'auto';
+    let unpaidMealMins = null;
+    if (unpaidMealVal !== 'auto') {
+      unpaidMealMins = parseInt(unpaidMealVal, 10);
+    }
+
     const shiftData = {
       employeeId: empId,
       role: role,
       date: date,
       startTime: start,
       endTime: end,
+      unpaidMealMins: unpaidMealMins,
       notes: notes
     };
 
@@ -2012,9 +2459,9 @@ function renderEmployeesList() {
   container.innerHTML = '';
 
   const searchVal = document.getElementById('employee-search-input').value.toLowerCase();
+  const orderedActive = getOrderedActiveEmployees();
   
-  const filtered = state.employees.filter(emp => {
-    if (!emp.active) return false;
+  const filtered = orderedActive.filter(emp => {
     return emp.name.toLowerCase().includes(searchVal) || 
            emp.role.toLowerCase().includes(searchVal);
   });
@@ -2024,9 +2471,15 @@ function renderEmployeesList() {
     return;
   }
 
+  const isManagerOrOwner = state.currentUser && state.currentUser.role !== 'employee';
+
   filtered.forEach(emp => {
     const card = document.createElement('div');
     card.className = 'employee-card';
+
+    const empIdx = orderedActive.findIndex(e => e.id === emp.id);
+    const isFirst = empIdx === 0;
+    const isLast = empIdx === orderedActive.length - 1;
 
     let availBubbles = '';
     const dayInitialList = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
@@ -2034,6 +2487,17 @@ function renderEmployeesList() {
       const hasAvail = emp.availability[i] != null;
       availBubbles += `<div class="avail-day-bubble ${hasAvail ? 'active' : ''}">${dayInitialList[i]}</div>`;
     }
+
+    const reorderBtns = isManagerOrOwner ? `
+      <div style="display:flex; gap:4px; margin-top:8px;">
+        <button class="btn btn-outline" style="flex:1; padding:4px 8px; font-size:11px;" onclick="moveEmployeeOrder('${emp.id}', 'up')" ${isFirst ? 'disabled style="opacity:0.3;"' : ''}>
+          <i class="fa-solid fa-arrow-up"></i> Move Up
+        </button>
+        <button class="btn btn-outline" style="flex:1; padding:4px 8px; font-size:11px;" onclick="moveEmployeeOrder('${emp.id}', 'down')" ${isLast ? 'disabled style="opacity:0.3;"' : ''}>
+          <i class="fa-solid fa-arrow-down"></i> Move Down
+        </button>
+      </div>
+    ` : '';
 
     card.innerHTML = `
       <div class="employee-card-header">
@@ -2053,7 +2517,8 @@ function renderEmployeesList() {
           ${availBubbles}
         </div>
       </div>
-      <div class="employee-card-actions">
+      ${reorderBtns}
+      <div class="employee-card-actions" style="margin-top: 8px;">
         <button class="btn btn-outline btn-block" onclick="openEditEmployeeModal('${emp.id}')">
           <i class="fa-solid fa-user-pen"></i> Edit Profile
         </button>
@@ -2103,6 +2568,24 @@ function toggleAvailTimeInputs(dayIdx) {
 }
 
 
+function onAwardClassificationChange() {
+  const levelSelect = document.getElementById('emp-award-level');
+  const typeSelect = document.getElementById('emp-employment-type');
+  const rateInput = document.getElementById('emp-rate');
+  if (!levelSelect || !typeSelect || !rateInput) return;
+
+  const selectedOpt = levelSelect.options[levelSelect.selectedIndex];
+  if (!selectedOpt || selectedOpt.value === 'custom') return;
+
+  const baseRate = parseFloat(selectedOpt.getAttribute('data-rate') || 0);
+  if (!baseRate) return;
+
+  const isCasual = typeSelect.value === 'casual';
+  const finalRate = isCasual ? (baseRate * 1.25) : baseRate;
+
+  rateInput.value = finalRate.toFixed(2);
+}
+
 /* ==========================================================================
    MODAL: EMPLOYEE ADD/EDIT FORM
    ========================================================================== */
@@ -2115,6 +2598,12 @@ function openAddEmployeeModal() {
   document.getElementById('emp-phone').value = '';
   document.getElementById('emp-rate').value = '';
   document.getElementById('emp-max-hours').value = '38';
+  
+  const levelSelect = document.getElementById('emp-award-level');
+  const typeSelect = document.getElementById('emp-employment-type');
+  if (levelSelect) levelSelect.value = 'custom';
+  if (typeSelect) typeSelect.value = 'permanent';
+
   document.getElementById('btn-delete-employee').classList.add('hide');
 
   const roleSelect = document.getElementById('emp-role');
@@ -2149,9 +2638,14 @@ function openEditEmployeeModal(empId) {
   document.getElementById('emp-name').value = emp.name;
   document.getElementById('emp-email').value = emp.email;
   document.getElementById('emp-phone').value = emp.phone || '';
-  document.getElementById('emp-rate').value = emp.hourlyRate;
+  document.getElementById('emp-rate').value = emp.hourlyRate != null ? emp.hourlyRate : '';
   document.getElementById('emp-max-hours').value = emp.maxHours;
-  
+
+  const levelSelect = document.getElementById('emp-award-level');
+  const typeSelect = document.getElementById('emp-employment-type');
+  if (levelSelect) levelSelect.value = emp.awardLevel || 'custom';
+  if (typeSelect) typeSelect.value = emp.employmentType || 'permanent';
+
   const roleSelect = document.getElementById('emp-role');
   roleSelect.innerHTML = '<option value="">-- Select Default Position --</option>';
   state.positions.forEach(pos => {
@@ -2189,8 +2683,11 @@ async function handleEmployeeSubmit(event) {
   const role = document.getElementById('emp-role').value;
   const email = document.getElementById('emp-email').value;
   const phone = document.getElementById('emp-phone').value;
-  const hourlyRate = parseFloat(document.getElementById('emp-rate').value);
-  const maxHours = parseInt(document.getElementById('emp-max-hours').value);
+  const hourlyRate = parseFloat(document.getElementById('emp-rate').value) || 0;
+  const rawMax = parseInt(document.getElementById('emp-max-hours').value, 10);
+  const maxHours = isNaN(rawMax) ? 38 : rawMax;
+  const awardLevel = document.getElementById('emp-award-level') ? document.getElementById('emp-award-level').value : 'custom';
+  const employmentType = document.getElementById('emp-employment-type') ? document.getElementById('emp-employment-type').value : 'permanent';
 
   const availability = {};
   for (let i = 0; i < 7; i++) {
@@ -2217,6 +2714,8 @@ async function handleEmployeeSubmit(event) {
     phone: phone,
     hourlyRate: hourlyRate,
     maxHours: maxHours,
+    awardLevel: awardLevel,
+    employmentType: employmentType,
     availability: availability
   };
 
@@ -2314,26 +2813,30 @@ function updateTerminalStatus() {
 
   const btnIn = document.getElementById('btn-clock-in');
   const btnOut = document.getElementById('btn-clock-out');
-  const btnBStart = document.getElementById('btn-start-break');
+  const btnStartLunch = document.getElementById('btn-start-lunch');
+  const btnStartPaid = document.getElementById('btn-start-paid-break');
   const btnBEnd = document.getElementById('btn-end-break');
 
-  btnIn.disabled = false;
-  btnOut.disabled = false;
-  btnBStart.disabled = false;
-  btnBEnd.disabled = false;
+  if (btnIn) btnIn.disabled = false;
+  if (btnOut) btnOut.disabled = false;
+  if (btnStartLunch) btnStartLunch.disabled = false;
+  if (btnStartPaid) btnStartPaid.disabled = false;
+  if (btnBEnd) btnBEnd.disabled = false;
 
   if (!tc) {
     dot.className = 'status-indicator status-offline';
     txt.textContent = 'Not Clocked In';
     sub.textContent = 'No stamps recorded today.';
 
-    btnOut.disabled = true;
-    btnBStart.disabled = true;
-    btnBEnd.disabled = true;
+    if (btnOut) btnOut.disabled = true;
+    if (btnStartLunch) btnStartLunch.disabled = true;
+    if (btnStartPaid) btnStartPaid.disabled = true;
+    if (btnBEnd) btnBEnd.disabled = true;
   } else {
     const formatTime = (isoStr) => {
       const d = new Date(isoStr);
-      return `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
+      if (isNaN(d.getTime())) return formatTimeAmPm(isoStr);
+      return formatTimeAmPm(`${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`);
     };
 
     if (tc.clockOut) {
@@ -2341,29 +2844,32 @@ function updateTerminalStatus() {
       txt.textContent = 'Clocked Out';
       sub.textContent = `Completed today (In: ${formatTime(tc.clockIn)} ~ Out: ${formatTime(tc.clockOut)})`;
 
-      btnIn.disabled = true;
-      btnOut.disabled = true;
-      btnBStart.disabled = true;
-      btnBEnd.disabled = true;
+      if (btnIn) btnIn.disabled = true;
+      if (btnOut) btnOut.disabled = true;
+      if (btnStartLunch) btnStartLunch.disabled = true;
+      if (btnStartPaid) btnStartPaid.disabled = true;
+      if (btnBEnd) btnBEnd.disabled = true;
     } else {
       const lastBreak = tc.breaks && tc.breaks.length > 0 ? tc.breaks[tc.breaks.length - 1] : null;
       const onBreak = lastBreak && lastBreak.start && !lastBreak.end;
 
       if (onBreak) {
+        const isPaidRest = lastBreak.type === 'paid_rest';
         dot.className = 'status-indicator status-break';
-        txt.textContent = 'On Break';
+        txt.textContent = isPaidRest ? 'On 10m Paid Rest Break' : 'On 30m Unpaid Lunch Break';
         sub.textContent = `Break began at: ${formatTime(lastBreak.start)}`;
 
-        btnIn.disabled = true;
-        btnOut.disabled = true;
-        btnBStart.disabled = true;
+        if (btnIn) btnIn.disabled = true;
+        if (btnOut) btnOut.disabled = true;
+        if (btnStartLunch) btnStartLunch.disabled = true;
+        if (btnStartPaid) btnStartPaid.disabled = true;
       } else {
         dot.className = 'status-indicator status-online';
         txt.textContent = 'Working (Clocked In)';
         sub.textContent = `Clocked in at: ${formatTime(tc.clockIn)}`;
 
-        btnIn.disabled = true;
-        btnBEnd.disabled = true;
+        if (btnIn) btnIn.disabled = true;
+        if (btnBEnd) btnBEnd.disabled = true;
       }
     }
   }
@@ -2374,7 +2880,7 @@ async function handleClockAction(action) {
   if (!empId) return;
 
   // Disable all clock buttons immediately to prevent double-tap
-  const btns = ['btn-clock-in','btn-clock-out','btn-start-break','btn-end-break'];
+  const btns = ['btn-clock-in','btn-clock-out','btn-start-lunch','btn-start-paid-break','btn-end-break'];
   btns.forEach(id => { const el = document.getElementById(id); if (el) el.disabled = true; });
 
   const todayStr = formatDateISO(new Date());
@@ -2450,16 +2956,18 @@ async function handleClockAction(action) {
       tc.totalHours = calculateTimecardHours(tc);
       await BriskDB.updateTimecard(tc);
 
-    } else if (action === 'break-start') {
+    } else if (action === 'break-start' || action === 'break-start-lunch' || action === 'break-start-paid') {
       if (!tc || tc.clockOut) return;
       if (!tc.breaks) tc.breaks = [];
-      tc.breaks.push({ start: nowISO, end: null });
+      const breakType = action === 'break-start-paid' ? 'paid_rest' : 'unpaid_lunch';
+      tc.breaks.push({ start: nowISO, end: null, type: breakType });
       await BriskDB.updateTimecard(tc);
 
     } else if (action === 'break-end') {
       if (!tc || tc.clockOut) return;
       const lastBreak = tc.breaks && tc.breaks.length > 0 ? tc.breaks[tc.breaks.length - 1] : null;
       if (lastBreak && !lastBreak.end) lastBreak.end = nowISO;
+      tc.totalHours = calculateTimecardHours(tc);
       await BriskDB.updateTimecard(tc);
     }
   } catch (err) {
@@ -2471,35 +2979,43 @@ async function handleClockAction(action) {
   updateTerminalStatus();
   renderAdminTimesheets();
   renderActivePanel();
-
-  // Instant server sync in background to match client & server state instantly
-  BriskDB.syncFromServer()
-    .then(() => {
-      loadDataFromState();
-      updateTerminalStatus();
-      renderAdminTimesheets();
-      renderActivePanel();
-    })
-    .catch(err => console.warn('Background post-clock sync failed:', err));
 }
 
 function calculateTimecardHours(tc) {
   if (!tc.clockIn || !tc.clockOut) return 0;
 
-  const start = new Date(tc.clockIn);
-  const end = new Date(tc.clockOut);
-  let diffMs = end.getTime() - start.getTime();
+  let start = new Date(tc.clockIn);
+  let end = new Date(tc.clockOut);
 
-  let breakMs = 0;
-  if (tc.breaks) {
+  // If time-only string (e.g. "09:00"), prepend date
+  if (isNaN(start.getTime()) && tc.date) {
+    start = new Date(`${tc.date}T${tc.clockIn}`);
+  }
+  if (isNaN(end.getTime()) && tc.date) {
+    end = new Date(`${tc.date}T${tc.clockOut}`);
+  }
+  if (isNaN(start.getTime()) || isNaN(end.getTime())) return 0;
+
+  let diffMs = end.getTime() - start.getTime();
+  if (diffMs < 0) diffMs += (24 * 60 * 60 * 1000); // Midnight crossing protection
+
+  let unpaidBreakMs = 0;
+  if (tc.breaks && Array.isArray(tc.breaks)) {
     tc.breaks.forEach(b => {
-      if (b.start && b.end) {
-        breakMs += (new Date(b.end).getTime() - new Date(b.start).getTime());
+      // ONLY deduct unpaid breaks (unpaid_lunch / meal breaks). Paid rest breaks (10m) are paid by law!
+      if (b.start && b.end && b.type !== 'paid_rest') {
+        let bStart = new Date(b.start);
+        let bEnd = new Date(b.end);
+        if (isNaN(bStart.getTime()) && tc.date) bStart = new Date(`${tc.date}T${b.start}`);
+        if (isNaN(bEnd.getTime()) && tc.date) bEnd = new Date(`${tc.date}T${b.end}`);
+        if (!isNaN(bStart.getTime()) && !isNaN(bEnd.getTime())) {
+          unpaidBreakMs += Math.max(0, bEnd.getTime() - bStart.getTime());
+        }
       }
     });
   }
 
-  const netHours = (diffMs - breakMs) / (1000 * 60 * 60);
+  const netHours = (diffMs - unpaidBreakMs) / (1000 * 60 * 60);
   return Math.max(0, parseFloat(netHours.toFixed(2)));
 }
 
@@ -2538,7 +3054,8 @@ function renderAdminTimesheets() {
     const formatTimeHM = (isoStr) => {
       if (!isoStr) return '-';
       const d = new Date(isoStr);
-      return `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
+      if (isNaN(d.getTime())) return formatTimeAmPm(isoStr);
+      return formatTimeAmPm(`${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`);
     };
 
     let statusHtml = '';
@@ -2651,6 +3168,8 @@ async function saveTimecardEdit() {
     showToast('Timecard updated', 'success');
     closeTimecardEditModal();
     loadDataFromState();
+    renderAdminTimesheets();
+    renderActivePanel();
   } catch (err) {
     showToast('Failed to update timecard', 'error');
   }
@@ -2668,6 +3187,12 @@ window.saveTimecardEdit = saveTimecardEdit;
 function renderTimeOffPanel() {
   const tbody = document.getElementById('leave-table-body');
   tbody.innerHTML = '';
+
+  const todayISO = formatDateISO(new Date());
+  const startDateInput = document.getElementById('leave-start-date');
+  const endDateInput = document.getElementById('leave-end-date');
+  if (startDateInput) startDateInput.setAttribute('min', todayISO);
+  if (endDateInput) endDateInput.setAttribute('min', todayISO);
 
   const leaveSelect = document.getElementById('leave-emp-select');
   if (leaveSelect) {
@@ -2737,6 +3262,10 @@ async function handleLeaveSubmit(event) {
 
   // If employee role, automatically set empId to current user employeeId
   const empId = state.currentUser.role === 'employee' ? state.currentUser.employeeId : document.getElementById('leave-emp-select').value;
+  if (!empId) {
+    showToast('Please select an employee for the leave request.', 'error');
+    return;
+  }
   const start = document.getElementById('leave-start-date').value;
   const end = document.getElementById('leave-end-date').value;
   const reason = document.getElementById('leave-reason').value;
@@ -2759,8 +3288,8 @@ async function handleLeaveSubmit(event) {
   });
 
   if (hasConflictingShifts) {
-    showToast('You have scheduled shifts within this date range. Swap or request cover first!', 'error');
-    return;
+    const proceed = confirm('⚠️ Warning: You have scheduled shifts within this date range.\n\nSubmit leave request anyway? The manager can reassign affected shifts later.');
+    if (!proceed) return;
   }
 
   const req = {
@@ -2804,14 +3333,14 @@ async function decideLeaveRequest(reqId, decision) {
   await BriskDB.updateLeaveRequest(req);
 
   if (decision === 'Approved') {
-    const start = new Date(req.startDate);
-    const end = new Date(req.endDate);
+    const start = new Date(req.startDate + 'T00:00:00');
+    const end = new Date(req.endDate + 'T00:00:00');
     start.setHours(0,0,0,0);
     end.setHours(23,59,59,999);
 
     const conflictingShifts = state.shifts.filter(s => {
       if (s.employeeId !== req.employeeId) return false;
-      const sDate = new Date(s.date);
+      const sDate = new Date(s.date + 'T00:00:00');
       sDate.setHours(0,0,0,0);
       return sDate >= start && sDate <= end;
     });
@@ -2822,7 +3351,7 @@ async function decideLeaveRequest(reqId, decision) {
         await BriskDB.batchUpdateShifts(updatedShifts);
         
         // Partial auto-schedule to fill the gaps using the leave's week
-        const targetWeekStart = getMondayOfCurrentWeek(new Date(req.startDate));
+        const targetWeekStart = getMondayOfCurrentWeek(new Date(req.startDate + 'T00:00:00'));
         const targetWeekStr = formatDateISO(targetWeekStart);
         // Refresh state.shifts to reflect the unassignments locally before running scheduler
         state.shifts = state.shifts.map(s => {
@@ -2867,6 +3396,12 @@ async function decideLeaveRequest(reqId, decision) {
    ========================================================================== */
 
 function renderReportsPanel() {
+  if (state.currentUser.role === 'employee') {
+    const tbody = document.getElementById('report-table-body');
+    if (tbody) tbody.innerHTML = `<tr><td colspan="8" class="text-center text-muted" style="padding: 2rem;">🔒 Access Denied: Payroll & Financial Reports are restricted to Managers and Owners only.</td></tr>`;
+    return;
+  }
+
   document.getElementById('report-week-range').textContent = getWeekRangeText(state.currentWeekStart);
   
   const printDatesText = `Period: ${formatDateISO(state.currentWeekStart)} ~ ${formatDateISO(new Date(state.currentWeekStart.getTime() + 6 * 24 * 60 * 60 * 1000))}`;
@@ -2884,6 +3419,8 @@ function renderReportsPanel() {
   let totalSchedHoursSum = 0;
   let totalActualHoursSum = 0;
   let totalActualCostSum = 0;
+  let totalSuperCostSum = 0;
+  let totalLoadedCostSum = 0;
 
   const activeEmployees = state.employees.filter(e => e.active);
 
@@ -2892,7 +3429,7 @@ function renderReportsPanel() {
 
     const empTimecards = state.timecards.filter(tc => {
       if (tc.employeeId !== emp.id) return false;
-      const tcDate = new Date(tc.date);
+      const tcDate = new Date(tc.date + 'T00:00:00');
       tcDate.setHours(0,0,0,0);
       return tcDate >= mon && tcDate <= sun && tc.approved;
     });
@@ -2904,20 +3441,28 @@ function renderReportsPanel() {
     empTimecards.forEach(tc => {
       actualHours += tc.totalHours;
       
-      // Calculate Weekend Penalty Rates
-      const tcDay = new Date(tc.date).getDay();
+      // Calculate Weekend & Public Holiday Penalty Rates (Pharmacy Industry Award 2026 [MA000084])
+      const isPubHol = isNswPublicHoliday(tc.date);
+      const tcDay = new Date(tc.date + 'T00:00:00').getDay();
       let multiplier = 1.0;
-      if (tcDay === 0) multiplier = 1.5; // Sunday
-      else if (tcDay === 6) multiplier = 1.25; // Saturday
+      if (isPubHol) multiplier = 2.5; // Public Holiday 250% (Clause 21)
+      else if (tcDay === 0) multiplier = 1.5; // Sunday 150% (Clause 20)
+      else if (tcDay === 6) multiplier = 1.25; // Saturday 125% (Clause 20)
       
       grossPay += tc.totalHours * hourlyRate * multiplier;
     });
 
+    // Australian Pharmacy Payroll Taxes & On-costs
+    const superCost = grossPay * 0.115; // 11.5% Superannuation Guarantee
+    const loadedCost = grossPay * 1.20;  // Fully Loaded Cost (+20% Super 11.5%, Workers Comp 1.5%, Leave Accruals 7%)
+
     totalSchedHoursSum += empWeekHours;
     totalActualHoursSum += actualHours;
     totalActualCostSum += grossPay;
+    totalSuperCostSum += superCost;
+    totalLoadedCostSum += loadedCost;
 
-    const otBadge = (actualHours > emp.maxHours) ? ' <span class="badge badge-danger">OT Exceeded</span>' : '';
+    const otBadge = (actualHours > (emp.maxHours || 38) + 0.001) ? ' <span class="badge badge-danger">OT Exceeded</span>' : '';
 
     const tr = document.createElement('tr');
     tr.innerHTML = `
@@ -2926,6 +3471,8 @@ function renderReportsPanel() {
       <td class="text-right">${empWeekHours.toFixed(1)}h</td>
       <td class="text-right">${actualHours.toFixed(1)}h${otBadge}</td>
       <td class="text-right text-neon">$${grossPay.toFixed(2)}</td>
+      <td class="text-right" style="color: #10b981;">$${superCost.toFixed(2)}</td>
+      <td class="text-right" style="color: #a855f7; font-weight: 600;">$${loadedCost.toFixed(2)}</td>
       <td class="text-center print-hide">
         <button class="btn btn-outline" style="padding:4px 8px; font-size:11px;" onclick="openEmailRosterModal('${emp.id}')" ${empWeekHours === 0 ? 'disabled' : ''}>
           <i class="fa-solid fa-envelope"></i> Email Roster
@@ -2938,7 +3485,121 @@ function renderReportsPanel() {
   document.getElementById('rep-total-sched-hours').textContent = `${totalSchedHoursSum.toFixed(1)}h`;
   document.getElementById('rep-total-actual-hours').textContent = `${totalActualHoursSum.toFixed(1)}h`;
   document.getElementById('rep-total-actual-cost').textContent = `$${totalActualCostSum.toFixed(2)}`;
+  const repSuperEl = document.getElementById('rep-total-super-cost');
+  if (repSuperEl) repSuperEl.textContent = `$${totalSuperCostSum.toFixed(2)}`;
+  const repLoadedEl = document.getElementById('rep-total-loaded-cost');
+  if (repLoadedEl) repLoadedEl.textContent = `$${totalLoadedCostSum.toFixed(2)}`;
 }
+
+// Gazetted NSW Public Holidays (Pharmacy Industry Award 2026 [MA000084] Clause 21)
+function isNswPublicHoliday(dateStr) {
+  if (!dateStr) return false;
+  const parts = dateStr.split('-');
+  if (parts.length !== 3) return false;
+  const year = parseInt(parts[0], 10);
+  const mmdd = `${parts[1]}-${parts[2]}`;
+
+  const fixedHolidays = ['01-01', '01-26', '04-25', '12-25', '12-26'];
+  if (fixedHolidays.includes(mmdd)) return true;
+
+  const nswHolidays = {
+    2026: [
+      '2026-01-01', '2026-01-26', '2026-04-03', '2026-04-04', '2026-04-05', '2026-04-06',
+      '2026-04-25', '2026-06-08', '2026-08-03', '2026-10-05', '2026-12-25', '2026-12-26', '2026-12-28'
+    ],
+    2027: [
+      '2027-01-01', '2027-01-26', '2027-03-26', '2027-03-27', '2027-03-28', '2027-03-29',
+      '2027-04-25', '2027-04-26', '2027-06-14', '2027-08-02', '2027-10-04', '2027-12-25', '2027-12-27', '2027-12-28'
+    ]
+  };
+
+  return !!(nswHolidays[year] && nswHolidays[year].includes(dateStr));
+}
+window.isNswPublicHoliday = isNswPublicHoliday;
+
+// Export approved weekly timesheets to Australian Xero / MYOB (STP Phase 2 Standard) CSV
+function exportToXeroCsv() {
+  const mon = new Date(state.currentWeekStart);
+  const sun = new Date(mon);
+  sun.setDate(mon.getDate() + 6);
+  mon.setHours(0,0,0,0);
+  sun.setHours(23,59,59,999);
+
+  const activeEmployees = state.employees.filter(e => e.active);
+  const rows = [
+    ['Employee Name', 'Email', 'Position', 'Award Classification', 'Shift Date', 'Day', 'Pay Rate Category', 'Base Rate ($/h)', 'Approved Hours (h)', 'Penalty Multiplier', 'Gross Pay ($)', 'Superannuation 11.5% ($)', 'Timesheet Status']
+  ];
+
+  let totalExportedRecords = 0;
+
+  activeEmployees.forEach(emp => {
+    const empTimecards = state.timecards.filter(tc => {
+      if (tc.employeeId !== emp.id) return false;
+      const tcDate = new Date(tc.date + 'T00:00:00');
+      tcDate.setHours(0,0,0,0);
+      return tcDate >= mon && tcDate <= sun && tc.approved;
+    });
+
+    const hourlyRate = emp.hourlyRate || 0;
+
+    empTimecards.forEach(tc => {
+      const tcDate = new Date(tc.date + 'T00:00:00');
+      const isPubHol = isNswPublicHoliday(tc.date);
+      const dayIdx = tcDate.getDay();
+      let multiplier = 1.0;
+      let payCategory = 'Ordinary Ordinary Hours (1.0x)';
+
+      if (isPubHol) {
+        multiplier = 2.5;
+        payCategory = 'Public Holiday Loading (2.5x)';
+      } else if (dayIdx === 0) {
+        multiplier = 1.5;
+        payCategory = 'Sunday Penalty (1.5x)';
+      } else if (dayIdx === 6) {
+        multiplier = 1.25;
+        payCategory = 'Saturday Penalty (1.25x)';
+      }
+
+      const gross = tc.totalHours * hourlyRate * multiplier;
+      const superAmount = gross * 0.115;
+
+      rows.push([
+        `"${emp.name}"`,
+        `"${emp.email || ''}"`,
+        `"${emp.role || ''}"`,
+        `"${emp.awardLevel || 'Standard Award'}"`,
+        tc.date,
+        DAY_NAMES[dayIdx],
+        `"${payCategory}"`,
+        hourlyRate.toFixed(2),
+        tc.totalHours.toFixed(2),
+        `${multiplier}x`,
+        gross.toFixed(2),
+        superAmount.toFixed(2),
+        'Approved'
+      ]);
+      totalExportedRecords++;
+    });
+  });
+
+  if (totalExportedRecords === 0) {
+    showToast('No approved timecards found for this week to export.', 'warning');
+    return;
+  }
+
+  const csvContent = rows.map(r => r.join(',')).join('\r\n');
+  const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `Amcal_WoyWoy_STP2_Timesheet_${formatDateISO(state.currentWeekStart)}.csv`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  showToast(`Successfully exported ${totalExportedRecords} timesheet records to Xero / MYOB STP2 CSV!`, 'success');
+}
+window.exportToXeroCsv = exportToXeroCsv;
 
 // Open specific staff member's roster email modal
 function openEmailRosterModal(employeeId) {
@@ -2966,7 +3627,7 @@ function openEmailRosterModal(employeeId) {
     if (dayShifts.length > 0) {
       dayShifts.forEach(s => {
         text += `📅 [${DAY_NAMES[d.getDay()]}] ${dateStr}\n`;
-        text += `   - Time: ${s.startTime} ~ ${s.endTime}\n`;
+        text += `   - Time: ${formatTimeAmPm(s.startTime)} ~ ${formatTimeAmPm(s.endTime)}\n`;
         text += `   - Role: ${s.role}\n`;
         if (s.notes) text += `   - Notes: ${s.notes}\n`;
         text += `\n`;
@@ -3028,7 +3689,7 @@ async function publishSchedule() {
         hasUnassigned = true;
       } else if (s.status !== 'published') {
         hasDrafts = true;
-        updates.push({ id: s.id, status: 'published' });
+        updates.push({ ...s, status: 'published' });
       }
     });
   }
@@ -3044,14 +3705,21 @@ async function publishSchedule() {
 
   try {
     const btn = document.querySelector('button[onclick="publishSchedule()"]');
-    const originalText = btn.innerHTML;
-    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Publishing...';
+    const originalText = btn ? btn.innerHTML : 'Publish Schedule';
+    if (btn) btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Publishing...';
     
     await BriskDB.batchUpdateShifts(updates);
+    
+    // Update local state shifts in-place
+    updates.forEach(upShift => {
+      const idx = state.shifts.findIndex(s => s.id === upShift.id);
+      if (idx !== -1) state.shifts[idx].status = 'published';
+    });
+
+    renderScheduler();
     showToast('Schedule published and employees notified!', 'success');
     
-    // Auto-schedule email could go here
-    btn.innerHTML = originalText;
+    if (btn) btn.innerHTML = originalText;
   } catch (err) {
     console.error(err);
     showToast('Failed to publish schedule.', 'error');
@@ -3096,11 +3764,24 @@ async function exportDatabaseFile() {
    ========================================================================== */
 function openResetPasswordModal(event) {
   if (event) event.preventDefault();
-  document.getElementById('modal-reset-password').classList.add('active');
+  const loginEmail = document.getElementById('login-email')?.value;
+  const resetEmailInput = document.getElementById('reset-email');
+  if (loginEmail && resetEmailInput && !resetEmailInput.value) {
+    resetEmailInput.value = loginEmail;
+  }
+  const modal = document.getElementById('modal-reset-password');
+  if (modal) {
+    modal.classList.add('active');
+    setTimeout(() => {
+      const input = document.getElementById('reset-email');
+      if (input) input.focus();
+    }, 100);
+  }
 }
 
 function closeResetPasswordModal() {
-  document.getElementById('modal-reset-password').classList.remove('active');
+  const modal = document.getElementById('modal-reset-password');
+  if (modal) modal.classList.remove('active');
 }
 
 async function handleResetPasswordSubmit(event) {
@@ -3191,6 +3872,12 @@ window.copyInviteUrl = copyInviteUrl;
 window.exportDatabaseFile = exportDatabaseFile;
 window.saveCompanySetting = saveCompanySetting;
 window.toggleAvailTimeInputs = toggleAvailTimeInputs;
+window.toggleTheme = toggleTheme;
+window.updateTerminalStatus = updateTerminalStatus;
+window.renderEmployeesList = renderEmployeesList;
+window.renderScheduler = renderScheduler;
+window.triggerClearWeek = triggerClearWeek;
+window.triggerAutoScheduler = triggerAutoScheduler;
 window.openResetPasswordModal = openResetPasswordModal;
 window.closeResetPasswordModal = closeResetPasswordModal;
 window.handleResetPasswordSubmit = handleResetPasswordSubmit;
@@ -3201,6 +3888,7 @@ window.handleUpdatePasswordSubmit = handleUpdatePasswordSubmit;
    ========================================================================== */
 
 function hexToRgb(hex) {
+  if (!hex || typeof hex !== 'string') return '79, 70, 229';
   const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
   const fullHex = hex.replace(shorthandRegex, (m, r, g, b) => r + r + g + g + b + b);
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(fullHex);
@@ -3429,7 +4117,7 @@ function updatePasteButtonState() {
     pasteContainer.style.display = 'block';
     pasteContainer.innerHTML = `
       <button type="button" class="btn btn-outline btn-block" onclick="pasteCopiedShiftDetails()" style="border-style: dashed; border-color: var(--accent-cyan); display: flex; align-items: center; justify-content: center; gap: 8px;">
-        <i class="fa-regular fa-clipboard"></i> Paste Copied Shift (${state.copiedShift.startTime} - ${state.copiedShift.endTime} ${state.copiedShift.role})
+        <i class="fa-regular fa-clipboard"></i> Paste Copied Shift (${formatTimeAmPm(state.copiedShift.startTime)} - ${formatTimeAmPm(state.copiedShift.endTime)} ${state.copiedShift.role})
       </button>
     `;
   } else {
@@ -3560,14 +4248,73 @@ function timeToDecimal(timeStr) {
 }
 window.timeToDecimal = timeToDecimal;
 
-function calculateShiftHours(start, end) {
+function getAwardBreakEntitlements(grossHours) {
+  if (grossHours < 4) {
+    return { paidBreaks: 0, unpaidMealMins: 0, description: 'No breaks required (< 4h)' };
+  } else if (grossHours < 5) {
+    return { paidBreaks: 1, unpaidMealMins: 0, description: '☕ 1x 10m Paid Rest' };
+  } else if (grossHours < 7.6) {
+    return { paidBreaks: 1, unpaidMealMins: 30, description: '🍱 1x 30m Unpaid Lunch + ☕ 1x 10m Paid Rest' };
+  } else {
+    return { paidBreaks: 2, unpaidMealMins: 30, description: '🍱 1x 30m Unpaid Lunch + ☕ 2x 10m Paid Rest (Morning & Afternoon)' };
+  }
+}
+window.getAwardBreakEntitlements = getAwardBreakEntitlements;
+
+function calculateShiftHours(start, end, unpaidMealMins = null) {
   if (!start || !end) return 0;
   const [sh, sm] = start.split(':').map(Number);
   const [eh, em] = end.split(':').map(Number);
-  const diffMinutes = (eh * 60 + em) - (sh * 60 + sm);
-  return Math.max(0, diffMinutes / 60);
+  let diffMinutes = (eh * 60 + em) - (sh * 60 + sm);
+  if (diffMinutes < 0) diffMinutes += 24 * 60; // Overnight shift midnight crossover
+  
+  const grossHours = diffMinutes / 60;
+  let mealMins = unpaidMealMins;
+  if (mealMins === null || mealMins === undefined || mealMins === 'auto') {
+    mealMins = grossHours >= 5 ? 30 : 0;
+  } else {
+    mealMins = parseInt(mealMins, 10) || 0;
+  }
+  
+  const netMinutes = Math.max(0, diffMinutes - mealMins);
+  return Math.max(0, parseFloat((netMinutes / 60).toFixed(2)));
 }
 window.calculateShiftHours = calculateShiftHours;
+
+function updateShiftBreakSummary() {
+  const start = document.getElementById('shift-start')?.value;
+  const end = document.getElementById('shift-end')?.value;
+  const breakSelectVal = document.getElementById('shift-unpaid-break')?.value || 'auto';
+  const summaryEl = document.getElementById('shift-award-summary');
+  const netHoursInput = document.getElementById('shift-net-hours');
+
+  if (!start || !end) {
+    if (summaryEl) summaryEl.textContent = 'Select times to calculate';
+    if (netHoursInput) netHoursInput.value = '0.0h';
+    return;
+  }
+
+  const grossHours = calculateShiftHours(start, end, 0); // 0 meal mins to get gross duration
+  const entitlements = getAwardBreakEntitlements(grossHours);
+  
+  let mealMins = entitlements.unpaidMealMins;
+  if (breakSelectVal !== 'auto') {
+    mealMins = parseInt(breakSelectVal, 10) || 0;
+  }
+
+  const netHours = calculateShiftHours(start, end, mealMins);
+  
+  if (summaryEl) {
+    const mealText = mealMins > 0 ? `🍱 ${mealMins}m Unpaid Lunch` : '🍱 No Unpaid Lunch';
+    const restText = entitlements.paidBreaks > 0 ? `☕ ${entitlements.paidBreaks}x 10m Paid Rest` : 'No Paid Rest';
+    summaryEl.textContent = `${mealText} + ${restText}`;
+  }
+
+  if (netHoursInput) {
+    netHoursInput.value = `${netHours.toFixed(1)}h`;
+  }
+}
+window.updateShiftBreakSummary = updateShiftBreakSummary;
 
 function renderSettingsPanel() {
   if (!state.settings) state.settings = {};
@@ -3598,6 +4345,15 @@ function renderSettingsPanel() {
   // Also prefill Organization Name
   const settingsName = document.getElementById('settings-company-name');
   if (settingsName) settingsName.value = state.settings.companyName || 'Amcal Pharmacy Woywoy Rosters';
+
+  // Dynamic Guard: Ensure Owner option is present in invite-role dropdown (forces instant UI update even if cached HTML)
+  const inviteRoleSelect = document.getElementById('invite-role');
+  if (inviteRoleSelect && !inviteRoleSelect.querySelector('option[value="owner"]')) {
+    const ownerOpt = document.createElement('option');
+    ownerOpt.value = 'owner';
+    ownerOpt.textContent = 'Owner (Full administrative access & system owner)';
+    inviteRoleSelect.appendChild(ownerOpt);
+  }
 }
 window.renderSettingsPanel = renderSettingsPanel;
 
@@ -3622,11 +4378,19 @@ async function saveTradingHours(event) {
     const closedCheckbox = document.getElementById(`trading-closed-${d}`);
     const openInput = document.getElementById(`trading-open-${d}`);
     const closeInput = document.getElementById(`trading-close-${d}`);
-    
+    const isClosed = closedCheckbox ? closedCheckbox.checked : false;
+    const openVal = openInput ? openInput.value : '08:30';
+    const closeVal = closeInput ? closeInput.value : '17:30';
+
+    if (!isClosed && openVal >= closeVal) {
+      showToast(`Trading hours for ${DAY_NAMES[d]} are invalid (Opening time must be earlier than Closing time).`, 'error');
+      return;
+    }
+
     th[String(d)] = {
-      closed: closedCheckbox ? closedCheckbox.checked : false,
-      open: openInput ? openInput.value : '08:30',
-      close: closeInput ? closeInput.value : '17:30'
+      closed: isClosed,
+      open: openVal,
+      close: closeVal
     };
   }
   
@@ -3756,14 +4520,87 @@ function renderDailyPanel() {
         bar.style.textOverflow = 'ellipsis';
         bar.style.lineHeight = '22px';
         bar.style.fontWeight = '500';
-        bar.title = `${empName}: ${s.startTime} - ${s.endTime} (${s.role})`;
-        bar.textContent = `${empName} (${s.role})`;
+        const grossHours = calculateShiftHours(s.startTime, s.endTime, 0);
+        const breakEntitlement = getAwardBreakEntitlements(grossHours);
+        const unpaidMeal = (s.unpaidMealMins !== undefined && s.unpaidMealMins !== null) ? s.unpaidMealMins : breakEntitlement.unpaidMealMins;
+
+        let breakSummary = '';
+        if (grossHours >= 4) {
+          const parts = [];
+          if (unpaidMeal > 0) parts.push(`${unpaidMeal}m Lunch`);
+          if (breakEntitlement.paidBreaks > 0) parts.push(`${breakEntitlement.paidBreaks}x 10m Paid`);
+          breakSummary = parts.join(' + ');
+        }
+
+        bar.title = `${empName}: ${formatTimeAmPm(s.startTime)} - ${formatTimeAmPm(s.endTime)} (${s.role}) | ${breakEntitlement.description}`;
+        bar.innerHTML = `<span style="font-weight:600;">${empName} (${s.role})</span>${breakSummary ? ` <span style="font-size:0.68rem; opacity:0.95; background:rgba(0,0,0,0.38); padding:1px 6px; border-radius:4px; margin-left:6px; display:inline-flex; align-items:center; gap:4px; vertical-align:middle;"><i class="fa-solid fa-mug-hot" style="font-size:0.65rem; color:#0ea5e9;"></i> ${breakSummary}</span>` : ''}`;
         
         timelineVisual.appendChild(bar);
       });
       
       // Adjust timeline container height dynamically
       timelineVisual.style.height = `${Math.max(60, rowCount * 28 + 20)}px`;
+
+      // === IMPROVEMENT #2: Coverage Gap Warning ===
+      const pharmacistRoles = ['pharmacist', 'pharmacist manager'];
+      if (dayShifts.length > 0) {
+        // Scan each 30-min slot for understaffing and pharmacist absence
+        const gapWarnings = [];
+        for (let t = timelineStart; t < timelineEnd; t += 0.5) {
+          const slotStart = t;
+          const slotEnd = t + 0.5;
+          const staffInSlot = dayShifts.filter(s => {
+            const sStart = timeToDecimal(s.startTime);
+            let sEnd = timeToDecimal(s.endTime);
+            if (sEnd <= sStart) sEnd += 24; // Handle overnight shifts crossing midnight
+            return sStart < slotEnd && sEnd > slotStart;
+          });
+          const pharmacistsInSlot = staffInSlot.filter(s => {
+            const roleLower = s.role.toLowerCase().trim();
+            return roleLower === 'pharmacist' || roleLower === 'pharmacist manager';
+          });
+
+          if (staffInSlot.length <= 1 && staffInSlot.length > 0) {
+            const h = Math.floor(slotStart);
+            const m = (slotStart % 1) * 60;
+            const timeLabel = formatTimeAmPm(`${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}`);
+            gapWarnings.push({ type: 'low', time: timeLabel, detail: `${staffInSlot.length} staff only` });
+          }
+          if (pharmacistsInSlot.length === 0 && staffInSlot.length > 0) {
+            const h = Math.floor(slotStart);
+            const m = (slotStart % 1) * 60;
+            const timeLabel = formatTimeAmPm(`${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}`);
+            gapWarnings.push({ type: 'pharmacist', time: timeLabel, detail: 'No Pharmacist' });
+          }
+        }
+
+        // Collapse consecutive warnings of same type into ranges
+        if (gapWarnings.length > 0) {
+          const gapContainer = document.createElement('div');
+          gapContainer.style.cssText = 'margin-top:8px; display:flex; flex-wrap:wrap; gap:6px;';
+
+          // Deduplicate: just show unique types
+          const hasLowStaff = gapWarnings.some(g => g.type === 'low');
+          const hasNoPharmacist = gapWarnings.some(g => g.type === 'pharmacist');
+          const pharmacistGapCount = gapWarnings.filter(g => g.type === 'pharmacist').length;
+          const lowStaffCount = gapWarnings.filter(g => g.type === 'low').length;
+
+          if (hasNoPharmacist) {
+            const badge = document.createElement('span');
+            badge.style.cssText = 'display:inline-flex; align-items:center; gap:5px; padding:4px 10px; background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.3); color:#ef4444; border-radius:6px; font-size:0.78rem; font-weight:600;';
+            badge.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> No Pharmacist coverage in ${pharmacistGapCount} time slot${pharmacistGapCount > 1 ? 's' : ''}`;
+            gapContainer.appendChild(badge);
+          }
+          if (hasLowStaff) {
+            const badge = document.createElement('span');
+            badge.style.cssText = 'display:inline-flex; align-items:center; gap:5px; padding:4px 10px; background:rgba(245,158,11,0.1); border:1px solid rgba(245,158,11,0.3); color:#f59e0b; border-radius:6px; font-size:0.78rem; font-weight:600;';
+            badge.innerHTML = `<i class="fa-solid fa-user-minus"></i> Only 1 staff in ${lowStaffCount} time slot${lowStaffCount > 1 ? 's' : ''}`;
+            gapContainer.appendChild(badge);
+          }
+
+          timelineVisual.parentElement.appendChild(gapContainer);
+        }
+      }
     }
   }
   
@@ -3775,7 +4612,7 @@ function renderDailyPanel() {
     if (dayShifts.length === 0) {
       tbody.innerHTML = `
         <tr>
-          <td colspan="4" class="text-muted" style="text-align: center; padding: 24px;">
+          <td colspan="5" class="text-muted" style="text-align: center; padding: 24px;">
             No shifts scheduled for this date.
           </td>
         </tr>
@@ -3787,6 +4624,17 @@ function renderDailyPanel() {
         const empRole = emp ? emp.role : 'N/A';
         const roleColor = state.roles.find(r => r.name.toLowerCase() === s.role.toLowerCase())?.color || '#ef4444';
         
+        const grossHours = calculateShiftHours(s.startTime, s.endTime, 0);
+        const breakEntitlement = getAwardBreakEntitlements(grossHours);
+        const unpaidMeal = (s.unpaidMealMins !== undefined && s.unpaidMealMins !== null) ? s.unpaidMealMins : breakEntitlement.unpaidMealMins;
+        
+        let breakHtml = '<span style="color:var(--text-muted); font-size:0.78rem;">No breaks (<4h)</span>';
+        if (grossHours >= 4) {
+          const mealBadge = unpaidMeal > 0 ? `<span class="badge" style="background:rgba(16, 185, 129, 0.12); color:#10b981; border:1px solid rgba(16, 185, 129, 0.25); font-size:0.75rem; display:inline-flex; align-items:center; gap:4px;"><i class="fa-solid fa-utensils"></i> ${unpaidMeal}m Lunch</span>` : '';
+          const restBadge = breakEntitlement.paidBreaks > 0 ? `<span class="badge" style="background:rgba(14, 165, 233, 0.12); color:#0ea5e9; border:1px solid rgba(14, 165, 233, 0.25); font-size:0.75rem; display:inline-flex; align-items:center; gap:4px;"><i class="fa-solid fa-mug-hot"></i> ${breakEntitlement.paidBreaks}x 10m Paid</span>` : '';
+          breakHtml = `<div style="display:flex; flex-direction:column; align-items:center; gap:4px;">${mealBadge} ${restBadge}</div>`;
+        }
+
         const tr = document.createElement('tr');
         tr.innerHTML = `
           <td style="padding-left: 16px; font-weight: 500;">
@@ -3794,12 +4642,15 @@ function renderDailyPanel() {
             <div style="font-size: 0.75rem; color: var(--text-muted); font-weight: 400;">${empRole}</div>
           </td>
           <td style="text-align: center; font-weight: 600;">
-            <i class="fa-regular fa-clock" style="margin-right: 4px; color: var(--accent-cyan);"></i> ${s.startTime} - ${s.endTime}
+            <i class="fa-regular fa-clock" style="margin-right: 4px; color: var(--accent-cyan);"></i> ${formatTimeAmPm(s.startTime)} - ${formatTimeAmPm(s.endTime)}
           </td>
           <td style="text-align: center;">
             <span class="badge" style="background: rgba(${hexToRgb(roleColor)}, 0.12); color: ${roleColor}; border: 1px solid rgba(${hexToRgb(roleColor)}, 0.25); font-weight: 600;">
               ${s.role}
             </span>
+          </td>
+          <td style="text-align: center; padding: 6px 4px;">
+            ${breakHtml}
           </td>
           <td style="padding-left: 16px; font-size: 0.85rem; color: var(--text-muted); font-style: ${s.notes ? 'normal' : 'italic'};">
             ${s.notes ? s.notes : 'No special notes/instructions for this shift.'}
@@ -3883,7 +4734,7 @@ window.requestShiftCover = async function(shiftId) {
   if (!shift) return;
 
   try {
-    const existing = state.swaps.find(s => s.shiftId === shiftId && s.status === 'PENDING');
+    const existing = state.swaps.find(s => s.shiftId === shiftId && (s.status || '').toUpperCase() === 'PENDING');
     if (existing) {
       showToast('Cover request already exists for this shift.', 'info');
       return;
@@ -3903,7 +4754,7 @@ window.requestShiftCover = async function(shiftId) {
 window.cancelShiftCover = async function(shiftId) {
   try {
     await SwapDB.cancelSwap(shiftId);
-    state.swaps = state.swaps.filter(s => !(s.shiftId === shiftId && s.status === 'PENDING'));
+    state.swaps = state.swaps.filter(s => !(s.shiftId === shiftId && (s.status || '').toUpperCase() === 'PENDING'));
     
     showToast('Cover request cancelled.', 'info');
     renderSwapBoard('my');
@@ -3932,7 +4783,7 @@ window.offerToCover = async function(shiftId) {
     const swap = await SwapDB.coverSwap(shiftId, state.currentUser.employeeId);
     
     // Update local state
-    const index = state.swaps.findIndex(s => s.shiftId === shiftId && s.status === 'PENDING');
+    const index = state.swaps.findIndex(s => s.shiftId === shiftId && (s.status || '').toUpperCase() === 'PENDING');
     if (index !== -1) {
       state.swaps[index] = swap;
     }
@@ -3997,13 +4848,16 @@ window.renderSwapBoard = function(tab) {
   const myEmpId = state.currentUser.employeeId;
 
   if (tab === 'available') {
-    targetSwaps = state.swaps.filter(s => s.status === 'PENDING' && s.requestingEmployeeId !== myEmpId);
+    targetSwaps = state.swaps.filter(s => (s.status || '').toUpperCase() === 'PENDING' && s.requestingEmployeeId !== myEmpId);
   } else if (tab === 'my') {
     if (state.currentUser.role === 'employee') {
-      targetSwaps = state.swaps.filter(s => s.status === 'PENDING' && s.requestingEmployeeId === myEmpId);
+      targetSwaps = state.swaps.filter(s => (s.status || '').toUpperCase() === 'PENDING' && s.requestingEmployeeId === myEmpId);
     }
   } else if (tab === 'manager') {
-    targetSwaps = state.swaps.filter(s => s.status === 'COVERED');
+    targetSwaps = state.swaps.filter(s => {
+      const st = (s.status || '').toUpperCase();
+      return st === 'ACCEPTED' || st === 'COVERED';
+    });
   }
 
   // Filter out past shifts and map to shift object
@@ -4051,7 +4905,7 @@ window.renderSwapBoard = function(tab) {
 
     card.innerHTML = `
       <div>
-        <div style="font-weight: 600; font-size: 1.1rem;">${shift.date} (${shift.startTime} - ${shift.endTime})</div>
+        <div style="font-weight: 600; font-size: 1.1rem;">${shift.date} (${formatTimeAmPm(shift.startTime)} - ${formatTimeAmPm(shift.endTime)})</div>
         <div style="color: var(--text-muted); font-size: 0.9rem;">${empName} - ${shift.role}</div>
       </div>
       <div>
@@ -4088,3 +4942,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   }
 });
+
+function openChangelogModal() {
+  const modal = document.getElementById('modal-changelog');
+  if (modal) modal.classList.add('active');
+}
+
+function closeChangelogModal() {
+  const modal = document.getElementById('modal-changelog');
+  if (modal) window.closeModal(modal);
+}
+
+window.openChangelogModal = openChangelogModal;
+window.closeChangelogModal = closeChangelogModal;
