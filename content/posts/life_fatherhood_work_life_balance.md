@@ -229,7 +229,7 @@ The first step in achieving work-life balance is setting clear priorities. Under
 - **Identify non-negotiables**: What are the aspects of your life that are indispensable? These could include family dinners, attending your children's school events, or maintaining a consistent exercise routine.
 - **Align your career goals**: Ensure your professional objectives do not compromise your family values. If necessary, recalibrate your goals to maintain this integrity.
 
-![A man focusing intently on both his laptop and a family picture on his desk, symbolizing the balance between career and family](/images/life_fatherhood_wlb_focus.svg)
+![A man focusing intently on both his laptop and a family picture on his desk, symbolizing the balance between career and family](/images/life_fatherhood_wlb_focus.png)
 
 ### Develop a Time Management Strategy
 
@@ -255,7 +255,7 @@ Self-discipline is the backbone of any successful endeavor. By mastering self-co
 - **Set personal boundaries**: Learn to say no to non-essential tasks that detract from your family time.
 - **Commit to self-care**: Regularly engage in activities that nurture your physical and mental well-being, ensuring you have the energy to support both career and family.
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, which offers valuable perspectives on maintaining strength and wisdom in family leadership.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog.vercel.app/) portal, which offers valuable perspectives on maintaining strength and wisdom in family leadership.
 
 ## Actionable Strategies for Work-Life Balance
 
@@ -269,7 +269,7 @@ To effectively balance career and family, consider integrating the following str
 
 Achieving balance between career and family is an ongoing process that requires constant adjustment and dedication. By focusing on core values, practicing disciplined [time management](/posts/discipline_self_discipline_in_digital_age), and investing in long-term assets, you can create a fulfilling life that honors both professional aspirations and family responsibilities.
 
-![A serene landscape depicting balance and tranquility, symbolizing the theme of achieving harmony between career and family](/images/life_fatherhood_wlb_theme.svg)
+![A serene landscape depicting balance and tranquility, symbolizing the theme of achieving harmony between career and family](/images/life_fatherhood_wlb_theme.png)
 
 In conclusion, the journey towards [work-life balance](/posts/life_work_life_balance) is deeply personal and requires a tailored approach. By implementing these strategies, you can navigate the complexities of modern life with integrity and purpose, ensuring that neither career success nor family priorities are compromised.
 
