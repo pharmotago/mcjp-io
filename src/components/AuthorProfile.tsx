@@ -2,22 +2,32 @@ import React from 'react';
 
 export default function AuthorProfile() {
   return (
-    <div className="flex flex-col md:flex-row items-center md:items-start gap-6 p-6 rounded-xl bg-slate-50 border border-slate-200 mt-12 mb-8 shadow-sm">
+    <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 p-6 sm:p-8 rounded-2xl bg-white border border-slate-200/90 shadow-xs mt-12 mb-8">
       <div className="flex-shrink-0">
-        <div className="w-24 h-24 rounded-full bg-amber-100 border-2 border-amber-500 overflow-hidden flex items-center justify-center text-amber-700">
-          <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-          </svg>
+        <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-br from-amber-500 to-amber-700 p-0.5 shadow-md">
+          <div className="w-full h-full rounded-full bg-slate-900 flex items-center justify-center text-amber-300 font-bold text-2xl tracking-wider">
+            PK
+          </div>
         </div>
       </div>
-      <div className="text-center md:text-left space-y-2 flex-1">
-        <h3 className="text-xl font-bold text-slate-900">Peter K.</h3>
-        <p className="text-amber-700 font-semibold text-sm tracking-wide uppercase">
-          15+ Year Pharmacist & System Builder
+      <div className="text-center sm:text-left space-y-2 flex-1">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+          <h3 className="text-xl font-bold text-slate-900">Peter K.</h3>
+          <span className="text-xs font-semibold text-amber-700 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200/60 inline-block self-center sm:self-auto">
+            15+ Years Clinical Lead & Systems Architect
+          </span>
+        </div>
+        <p className="text-slate-600 text-sm leading-relaxed">
+          Pharmacist, father, and software systems builder. Creator of sovereign workflow automations, SaaS management platforms, and autonomous intelligence engines. Dedicated to sharing field-tested protocols on leveraged wealth, stoic fatherhood, and high-performance cognitive discipline.
         </p>
-        <p className="text-slate-600 text-sm leading-relaxed max-w-2xl">
-          Peter is a pharmacist with over 15 years of clinical and leadership experience. He builds automated systems, AI-driven agencies, and operates multiple digital assets. At MCJP.io, he shares actionable blueprints on leveraged wealth, resilient leadership, and mental discipline.
-        </p>
+        <div className="pt-2 flex flex-wrap items-center justify-center sm:justify-start gap-4 text-xs font-medium text-slate-500">
+          <span className="flex items-center gap-1">
+            <span className="text-amber-500">📍</span> Sydney & Central Coast, NSW
+          </span>
+          <span className="flex items-center gap-1">
+            <span className="text-amber-500">🛡️</span> Sovereign Intelligence Hub
+          </span>
+        </div>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import Link from 'next/link';
 import NewsletterForm from '../components/NewsletterForm';
 
 interface Post {
@@ -13,6 +14,24 @@ interface Post {
   published?: boolean;
 }
 
+function normalizeKeywords(raw: any): string[] {
+  if (Array.isArray(raw)) return raw.map(k => String(k).trim()).filter(Boolean);
+  if (typeof raw === 'string') {
+    let clean = raw.trim();
+    if (clean.startsWith('[') && clean.endsWith(']')) {
+      clean = clean.slice(1, -1);
+    }
+    // Match quoted strings or comma separated items
+    const matches = clean.match(/"([^"]+)"|'([^']+)'|([^,]+)/g);
+    if (matches) {
+      return matches
+        .map(k => k.replace(/^["']|["']$/g, '').trim())
+        .filter(k => k.length > 0 && k !== ',');
+    }
+  }
+  return [];
+}
+
 function parseMarkdown(fileContent: string) {
   const match = fileContent.match(/^---\r?\n([\s\S]+?)\r?\n---\r?\n([\s\S]*)$/);
   if (!match) return { data: {} as any, content: fileContent };
@@ -20,21 +39,18 @@ function parseMarkdown(fileContent: string) {
   const content = match[2];
   const data: any = {};
   yaml.split('\n').forEach(line => {
-    const parts = line.split(':');
-    if (parts.length >= 2) {
-      const key = parts[0].trim();
-      let val = parts.slice(1).join(':').trim();
-      if (val.startsWith('"') && val.endsWith('"')) {
+    const colonIdx = line.indexOf(':');
+    if (colonIdx !== -1) {
+      const key = line.slice(0, colonIdx).trim();
+      let val = line.slice(colonIdx + 1).trim();
+      if (val.startsWith('"') && val.endsWith('"') && val.length >= 2) {
         val = val.slice(1, -1);
       }
-      try {
-        if (val.startsWith('[') && val.endsWith(']')) {
-          val = JSON.parse(val.replace(/'/g, '"'));
-        }
-      } catch (e) {}
       data[key] = val;
     }
   });
+
+  data.keywords = normalizeKeywords(data.keywords);
   return { data, content };
 }
 
@@ -51,7 +67,6 @@ function getPosts(): Post[] {
       const fileContent = fs.readFileSync(fullPath, 'utf8');
       const { data, content } = parseMarkdown(fileContent);
 
-      // Calculate reading time based on word count
       const wordCount = content.trim().split(/\s+/).length;
       const readingTime = Math.ceil(wordCount / 200);
 
@@ -67,7 +82,6 @@ function getPosts(): Post[] {
       };
     });
 
-  // Filter out future posts, unless in development mode
   const todayStr = new Date().toISOString().split('T')[0];
   const isDev = process.env.NODE_ENV === 'development';
   const filtered = isDev ? allPosts : allPosts.filter(post => post.published && post.date <= todayStr);
@@ -84,6 +98,14 @@ export default async function Home({
   const posts = getPosts();
   const activeCategory = params.category || '';
   const searchQuery = params.q || '';
+
+  // Calculate dynamic category counts
+  const counts = {
+    all: posts.length,
+    money: posts.filter(p => p.category.toLowerCase() === 'money').length,
+    life: posts.filter(p => p.category.toLowerCase() === 'life').length,
+    discipline: posts.filter(p => p.category.toLowerCase() === 'discipline').length,
+  };
   
   const filteredPosts = posts.filter(post => {
     const matchesCategory = !activeCategory || post.category.toLowerCase() === activeCategory.toLowerCase();
@@ -99,32 +121,38 @@ export default async function Home({
   const displayPosts = featuredPost ? filteredPosts.slice(1) : filteredPosts;
 
   return (
-    <div className="space-y-12">
-      {/* Hero Header */}
-      <section className="text-center py-6 space-y-4">
-        <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight text-slate-900">
-          Sovereign Guidance for the <span className="gold-gradient">Modern Man</span>
+    <div className="space-y-14">
+      {/* Editorial Hero Header */}
+      <section className="text-center pt-4 pb-2 space-y-5">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-800 text-xs font-semibold tracking-wide">
+          <span className="flex h-2 w-2 rounded-full bg-amber-600 animate-pulse" />
+          <span>Field Notes from a Pharmacist & Systems Builder</span>
+        </div>
+
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.12] text-slate-900 max-w-4xl mx-auto">
+          Sovereign Playbooks on <span className="gold-gradient">Wealth, Fatherhood</span> & Mastery
         </h1>
-        <p className="max-w-2xl mx-auto text-slate-600 text-sm md:text-base leading-relaxed">
-          Actionable blueprints on building leveraged wealth, leading with familial integrity, and mastering mental discipline in the digital era.
+
+        <p className="max-w-2xl mx-auto text-slate-600 text-sm sm:text-base leading-relaxed">
+          Actionable blueprints and clinical frameworks for building leveraged digital assets, leading your family with unshakeable integrity, and executing daily deep work.
         </p>
 
         {/* Search Bar */}
-        <form action="/" method="GET" className="relative max-w-md mx-auto mt-6">
+        <form action="/" method="GET" className="relative max-w-lg mx-auto mt-6">
           <input
             type="text"
             name="q"
             defaultValue={searchQuery}
-            placeholder="Search articles..."
-            className="w-full bg-white border border-slate-200 rounded-full px-5 py-2.5 pl-11 pr-10 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all shadow-xs"
+            placeholder="Search 270+ articles on wealth, stoicism, focus..."
+            className="w-full bg-white border border-slate-200/90 rounded-full px-5 py-3 pl-12 pr-10 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all shadow-xs"
           />
           <span className="absolute left-4 top-3.5 text-slate-400">
-            <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
           </span>
           {searchQuery && (
-            <a
+            <Link
               href="/"
               className="absolute right-4 top-3.5 text-slate-400 hover:text-slate-600 cursor-pointer flex items-center justify-center"
               title="Clear search"
@@ -132,129 +160,216 @@ export default async function Home({
               <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
               </svg>
-            </a>
+            </Link>
           )}
           {activeCategory && <input type="hidden" name="category" value={activeCategory} />}
         </form>
 
-        {/* Category Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mt-8 border-b border-slate-200 pb-6">
+        {/* Category Navigation Pills with Live Counts */}
+        <div className="flex flex-wrap items-center justify-center gap-2.5 pt-4">
           {[
-            { name: "All", href: "/" },
-            { name: "Money", href: "/?category=Money" },
-            { name: "Life", href: "/?category=Life" },
-            { name: "Discipline", href: "/?category=Discipline" }
+            { name: "All", label: `All Insights (${counts.all})`, href: "/" },
+            { name: "Money", label: `Money & Wealth (${counts.money})`, href: "/?category=Money" },
+            { name: "Life", label: `Life & Fatherhood (${counts.life})`, href: "/?category=Life" },
+            { name: "Discipline", label: `Discipline & Mind (${counts.discipline})`, href: "/?category=Discipline" }
           ].map((tab) => {
             const isActive = tab.name === "All" ? !activeCategory : activeCategory.toLowerCase() === tab.name.toLowerCase();
             return (
-              <a
+              <Link
                 key={tab.name}
                 href={tab.href}
-                className={`px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 shadow-xs border ${
+                className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wider transition-all duration-200 shadow-xs border ${
                   isActive
-                    ? "bg-amber-600 border-amber-600 text-white"
-                    : "bg-white border-slate-200 text-slate-500 hover:text-slate-800 hover:border-slate-300"
+                    ? "bg-slate-900 border-slate-900 text-white shadow-md"
+                    : "bg-white border-slate-200/90 text-slate-600 hover:text-slate-900 hover:border-slate-300"
                 }`}
               >
-                {tab.name}
-              </a>
+                {tab.label}
+              </Link>
             );
           })}
         </div>
       </section>
 
-      {/* Featured Post (Only on main page with no filters) */}
-      {featuredPost && (
-        <section className="space-y-4">
-          <h2 className="text-xs font-semibold uppercase tracking-widest text-slate-400 border-b border-slate-200 pb-2">
-            Featured Article
-          </h2>
-          <a
-            href={`/posts/${featuredPost.id}`}
-            className="block p-6 md:p-8 rounded-lg glass-panel hover:border-amber-500/50 transition-all duration-300 space-y-4"
+      {/* Core Focus Tracks (Only when browsing all) */}
+      {isBrowsingAll && (
+        <section className="grid sm:grid-cols-3 gap-4">
+          <Link
+            href="/?category=Money"
+            className="p-5 rounded-2xl bg-white border border-slate-200/80 hover:border-amber-500/40 transition-all group shadow-xs"
           >
-            <div className="flex items-center justify-between text-xs">
-              <div className="flex items-center gap-3">
-                <span className="px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-700 font-semibold uppercase tracking-wider">
-                  {featuredPost.category}
-                </span>
-                {featuredPost.readingTime && (
-                  <span className="text-slate-500 font-medium">{featuredPost.readingTime} min read</span>
-                )}
-              </div>
-              <span className="text-slate-400">{featuredPost.date}</span>
+            <div className="w-10 h-10 rounded-xl bg-amber-50 border border-amber-100 flex items-center justify-center text-amber-700 font-bold mb-3 group-hover:scale-105 transition-transform">
+              💼
             </div>
-            <h3 className="text-2xl md:text-4xl font-bold text-slate-900 hover:text-amber-600 transition-colors leading-tight">
-              {featuredPost.title}
+            <h3 className="font-bold text-slate-900 text-base group-hover:text-amber-600 transition-colors">
+              Leveraged Wealth
             </h3>
-            <p className="text-slate-600 text-sm md:text-base leading-relaxed line-clamp-3">
-              {featuredPost.description}
+            <p className="text-slate-500 text-xs mt-1 leading-relaxed">
+              Algorithmic assets, SaaS cashflows, and asymmetric financial engines.
             </p>
-            <div className="flex flex-wrap gap-2 pt-2">
-              {featuredPost.keywords.map((kw, i) => (
-                <span key={i} className="text-xs text-slate-400">
-                  #{kw}
-                </span>
-              ))}
+          </Link>
+
+          <Link
+            href="/?category=Life"
+            className="p-5 rounded-2xl bg-white border border-slate-200/80 hover:border-amber-500/40 transition-all group shadow-xs"
+          >
+            <div className="w-10 h-10 rounded-xl bg-amber-50 border border-amber-100 flex items-center justify-center text-amber-700 font-bold mb-3 group-hover:scale-105 transition-transform">
+              🛡️
             </div>
-          </a>
+            <h3 className="font-bold text-slate-900 text-base group-hover:text-amber-600 transition-colors">
+              Stoic Fatherhood
+            </h3>
+            <p className="text-slate-500 text-xs mt-1 leading-relaxed">
+              Family leadership, intentional parenting, and unbreakable marital resilience.
+            </p>
+          </Link>
+
+          <Link
+            href="/?category=Discipline"
+            className="p-5 rounded-2xl bg-white border border-slate-200/80 hover:border-amber-500/40 transition-all group shadow-xs"
+          >
+            <div className="w-10 h-10 rounded-xl bg-amber-50 border border-amber-100 flex items-center justify-center text-amber-700 font-bold mb-3 group-hover:scale-105 transition-transform">
+              ⚡
+            </div>
+            <h3 className="font-bold text-slate-900 text-base group-hover:text-amber-600 transition-colors">
+              Cognitive Mastery
+            </h3>
+            <p className="text-slate-500 text-xs mt-1 leading-relaxed">
+              Neuroplasticity protocols, deep focus habits, and physical endurance systems.
+            </p>
+          </Link>
         </section>
       )}
 
-      {/* Grid List */}
-      <div className="space-y-6">
-        <h2 className="text-xs font-semibold uppercase tracking-widest text-slate-400 border-b border-slate-200 pb-2">
-          {searchQuery
-            ? `Search Results for "${searchQuery}"`
-            : activeCategory
-            ? `${activeCategory} Articles`
-            : "Recent Insights"}
-        </h2>
+      {/* Featured Lead Story */}
+      {featuredPost && (
+        <section className="space-y-4">
+          <div className="flex items-center justify-between border-b border-slate-200/80 pb-2">
+            <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+              Editor's Featured Story
+            </span>
+            <span className="text-xs font-medium text-amber-700">Must-Read Deep Dive</span>
+          </div>
+
+          <Link
+            href={`/posts/${featuredPost.id}`}
+            className="block p-7 sm:p-9 rounded-2xl bg-white border border-slate-200 hover:border-amber-500/50 hover:shadow-lg transition-all duration-300 space-y-4 group"
+          >
+            <div className="flex items-center justify-between text-xs">
+              <div className="flex items-center gap-3">
+                <span className="px-3 py-1 rounded-full bg-amber-500/10 text-amber-700 font-bold uppercase tracking-wider text-[11px]">
+                  {featuredPost.category}
+                </span>
+                {featuredPost.readingTime && (
+                  <span className="text-slate-500 font-medium">
+                    {featuredPost.readingTime} min read
+                  </span>
+                )}
+              </div>
+              <span className="text-slate-400 font-mono">{featuredPost.date}</span>
+            </div>
+
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 group-hover:text-amber-600 transition-colors leading-[1.2]">
+              {featuredPost.title}
+            </h2>
+
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed line-clamp-3">
+              {featuredPost.description}
+            </p>
+
+            <div className="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-slate-100">
+              <div className="flex items-center gap-2 text-xs font-semibold text-slate-700">
+                <div className="w-5 h-5 rounded-full bg-slate-900 text-amber-300 flex items-center justify-center text-[9px] font-bold">
+                  PK
+                </div>
+                <span>By Peter K.</span>
+              </div>
+
+              <div className="flex flex-wrap gap-1.5">
+                {featuredPost.keywords.slice(0, 4).map((kw, i) => (
+                  <span key={i} className="text-xs text-slate-400 bg-slate-50 px-2 py-0.5 rounded">
+                    #{kw}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </Link>
+        </section>
+      )}
+
+      {/* Main Articles Feed Grid */}
+      <section className="space-y-6">
+        <div className="flex items-center justify-between border-b border-slate-200/80 pb-2">
+          <h2 className="text-xs font-bold uppercase tracking-widest text-slate-400">
+            {searchQuery
+              ? `Results for "${searchQuery}" (${filteredPosts.length})`
+              : activeCategory
+              ? `${activeCategory} Feed (${filteredPosts.length})`
+              : "Latest Field Reports"}
+          </h2>
+          <span className="text-xs text-slate-400">Updated Daily</span>
+        </div>
         
         {filteredPosts.length === 0 ? (
-          <div className="text-center py-12 text-slate-400 text-sm">
-            No articles found matching the query.
+          <div className="text-center py-16 bg-white rounded-2xl border border-slate-200/80 p-8 space-y-3">
+            <span className="text-3xl">🔍</span>
+            <p className="text-slate-800 font-semibold text-base">No articles found</p>
+            <p className="text-slate-500 text-xs max-w-sm mx-auto">
+              We couldn't find any articles matching &ldquo;{searchQuery}&rdquo;. Try another search term or browse by category.
+            </p>
+            <Link
+              href="/"
+              className="inline-block mt-2 text-xs font-bold text-amber-600 hover:text-amber-700"
+            >
+              Clear Filters &rarr;
+            </Link>
           </div>
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Newsletter module injected dynamically as first item if browsing all */}
+            {/* Newsletter & Partner Cards injected organically */}
             {isBrowsingAll && (
               <>
                 <NewsletterForm />
 
                 {/* Hostinger Partner Offer Widget */}
-                <div className="p-6 rounded-lg glass-panel bg-amber-50/20 border border-amber-200/40 flex flex-col justify-between min-h-[220px] shadow-xs">
+                <div className="p-6 rounded-2xl bg-gradient-to-br from-amber-50/40 to-orange-50/20 border border-amber-200/60 flex flex-col justify-between min-h-[220px] shadow-xs">
                   <div className="space-y-2">
-                    <span className="text-xs font-semibold text-amber-700 uppercase tracking-widest">Recommended Setup</span>
-                    <h3 className="text-xl font-bold text-slate-900">Launch Your Digital Income Stream</h3>
+                    <span className="text-[10px] font-bold text-amber-700 uppercase tracking-widest">
+                      Founder's Infrastructure
+                    </span>
+                    <h3 className="text-xl font-bold text-slate-900">
+                      Launch Your Digital Business
+                    </h3>
                     <p className="text-slate-600 text-xs leading-relaxed">
-                      We host MCJP.io on Hostinger for its superior speed, security, and affordability. Host your assets with our partner link to claim 20% off plus a free domain.
+                      We run and recommend Hostinger for reliable SSD hosting, free domain, and unmatched speed. Claim an exclusive 20% reader discount.
                     </p>
                   </div>
                   <a
                     href="https://www.hostinger.com?REFERRALCODE=OYBPHARMOWCY"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block w-full text-center bg-slate-900 hover:bg-slate-800 text-white py-2.5 rounded text-xs font-semibold transition-colors mt-4 cursor-pointer shadow-sm"
+                    className="block w-full text-center bg-slate-900 hover:bg-slate-800 text-white py-2.5 rounded-lg text-xs font-semibold transition-colors mt-4 shadow-sm"
                   >
                     Claim 20% Discount &rarr;
                   </a>
                 </div>
 
-                {/* The Stoic Dad Portal Widget */}
-                <div className="p-6 rounded-lg glass-panel bg-white/70 border border-slate-200 flex flex-col justify-between min-h-[220px] shadow-xs">
+                {/* The Stoic Dad Sister Project */}
+                <div className="p-6 rounded-2xl bg-white border border-slate-200/90 flex flex-col justify-between min-h-[220px] shadow-xs">
                   <div className="space-y-2">
-                    <span className="text-xs font-semibold text-amber-600 uppercase tracking-widest">Sister Project</span>
+                    <span className="text-[10px] font-bold text-amber-600 uppercase tracking-widest">
+                      Sister Project
+                    </span>
                     <h3 className="text-xl font-bold text-slate-900">The Stoic Dad</h3>
                     <p className="text-slate-600 text-xs leading-relaxed">
-                      Daily wisdom, philosophy journals, and parenting strategies for the modern father. Achieve absolute mental resilience.
+                      Daily philosophy journals, parenting blueprints, and stoic wisdom designed for fathers raising anti-fragile families.
                     </p>
                   </div>
                   <a
                     href="https://the-stoic-dad.vercel.app"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block w-full text-center bg-amber-600 hover:bg-amber-500 text-white py-2.5 rounded text-xs font-semibold transition-colors mt-4 cursor-pointer shadow-sm"
+                    className="block w-full text-center bg-amber-600 hover:bg-amber-500 text-white py-2.5 rounded-lg text-xs font-semibold transition-colors mt-4 shadow-sm"
                   >
                     Explore The Stoic Dad &rarr;
                   </a>
@@ -262,57 +377,43 @@ export default async function Home({
               </>
             )}
 
-            {displayPosts.map((post, index) => (
-              <div key={post.id} className="space-y-6 flex flex-col justify-between">
-                <a
+            {displayPosts.map((post) => (
+              <div key={post.id} className="flex flex-col justify-between">
+                <Link
                   href={`/posts/${post.id}`}
-                  className="block p-6 rounded-lg glass-panel hover:border-amber-500/50 transition-all duration-300 flex flex-col justify-between min-h-[220px]"
+                  className="p-6 rounded-2xl bg-white border border-slate-200/90 hover:border-amber-500/50 hover:shadow-md transition-all duration-300 flex flex-col justify-between min-h-[240px] group"
                 >
-                  <div className="space-y-4">
+                  <div className="space-y-3">
                     <div className="flex items-center justify-between text-xs">
-                      <div className="flex items-center gap-2">
-                        <span className="px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-700 font-semibold uppercase tracking-wider">
-                          {post.category}
-                        </span>
-                        {post.readingTime && (
-                          <span className="text-slate-500 font-medium">{post.readingTime} min read</span>
-                        )}
-                      </div>
-                      <span className="text-slate-400">{post.date}</span>
+                      <span className="px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-700 font-bold uppercase tracking-wider text-[10px]">
+                        {post.category}
+                      </span>
+                      <span className="text-slate-400 font-mono text-[11px]">{post.date}</span>
                     </div>
-                    <h3 className="text-xl font-bold text-slate-900 hover:text-amber-600 transition-colors">
+
+                    <h3 className="text-lg font-bold text-slate-900 group-hover:text-amber-600 transition-colors line-clamp-2 leading-snug">
                       {post.title}
                     </h3>
-                    <p className="text-slate-600 text-xs md:text-sm leading-relaxed line-clamp-3">
+
+                    <p className="text-slate-600 text-xs leading-relaxed line-clamp-3">
                       {post.description}
                     </p>
                   </div>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {post.keywords.map((kw, i) => (
-                      <span key={i} className="text-xs text-slate-400">
-                        #{kw}
-                      </span>
-                    ))}
-                  </div>
-                </a>
 
-                {/* Inline Ad slot injected after display post index 1 */}
-                {index === 1 && process.env.NEXT_PUBLIC_ADSENSE_APPROVED === 'true' && process.env.NEXT_PUBLIC_ADSENSE_IN_FEED_SLOT && (
-                  <div className="col-span-full p-4 rounded border border-slate-200 bg-slate-50 text-center text-xs text-slate-500 min-h-[110px] flex flex-col justify-center items-center relative shadow-xs">
-                    <div className="absolute top-1 left-2 uppercase tracking-widest text-[8px] text-slate-400 font-semibold select-none">Advertisement</div>
-                    <ins className="adsbygoogle"
-                         style={{ display: 'block', width: '100%', minHeight: '90px' }}
-                         data-ad-client={process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || 'ca-pub-1966724508656296'}
-                         data-ad-slot={process.env.NEXT_PUBLIC_ADSENSE_IN_FEED_SLOT}
-                         data-ad-format="fluid"
-                         data-full-width-responsive="true"></ins>
+                  <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
+                    {post.readingTime && (
+                      <span className="font-medium text-slate-500">{post.readingTime} min read</span>
+                    )}
+                    <span className="font-semibold text-amber-600 group-hover:translate-x-1 transition-transform inline-flex items-center gap-0.5">
+                      Read &rarr;
+                    </span>
                   </div>
-                )}
+                </Link>
               </div>
             ))}
           </div>
         )}
-      </div>
+      </section>
     </div>
   );
 }

@@ -2,9 +2,14 @@ import fs from 'fs';
 import path from 'path';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import AuthorProfile from '@/components/AuthorProfile';
 import NewsletterForm from '@/components/NewsletterForm';
 import AffiliateCTA from '@/components/AffiliateCTA';
+import ReadingProgress from '@/components/ReadingProgress';
+import ShareBar from '@/components/ShareBar';
+import TableOfContents, { TocItem } from '@/components/TableOfContents';
+import KeyTakeaways from '@/components/KeyTakeaways';
 
 interface PostData {
   title: string;
@@ -29,6 +34,23 @@ interface Post {
   published?: boolean;
 }
 
+function normalizeKeywords(raw: any): string[] {
+  if (Array.isArray(raw)) return raw.map(k => String(k).trim()).filter(Boolean);
+  if (typeof raw === 'string') {
+    let clean = raw.trim();
+    if (clean.startsWith('[') && clean.endsWith(']')) {
+      clean = clean.slice(1, -1);
+    }
+    const matches = clean.match(/"([^"]+)"|'([^']+)'|([^,]+)/g);
+    if (matches) {
+      return matches
+        .map(k => k.replace(/^["']|["']$/g, '').trim())
+        .filter(k => k.length > 0 && k !== ',');
+    }
+  }
+  return [];
+}
+
 function parseMarkdown(fileContent: string) {
   const match = fileContent.match(/^---\r?\n([\s\S]+?)\r?\n---\r?\n([\s\S]*)$/);
   if (!match) return { data: {} as any, content: fileContent };
@@ -36,21 +58,18 @@ function parseMarkdown(fileContent: string) {
   const content = match[2];
   const data: any = {};
   yaml.split('\n').forEach(line => {
-    const parts = line.split(':');
-    if (parts.length >= 2) {
-      const key = parts[0].trim();
-      let val = parts.slice(1).join(':').trim();
-      if (val.startsWith('"') && val.endsWith('"')) {
+    const colonIdx = line.indexOf(':');
+    if (colonIdx !== -1) {
+      const key = line.slice(0, colonIdx).trim();
+      let val = line.slice(colonIdx + 1).trim();
+      if (val.startsWith('"') && val.endsWith('"') && val.length >= 2) {
         val = val.slice(1, -1);
       }
-      try {
-        if (val.startsWith('[') && val.endsWith(']')) {
-          val = JSON.parse(val.replace(/'/g, '"'));
-        }
-      } catch (e) {}
       data[key] = val;
     }
   });
+
+  data.keywords = normalizeKeywords(data.keywords);
   return { data, content };
 }
 
@@ -63,7 +82,6 @@ function getPost(id: string) {
   const fileContent = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = parseMarkdown(fileContent);
 
-  // Calculate reading time based on word count
   const wordCount = content.trim().split(/\s+/).length;
   const readingTime = Math.ceil(wordCount / 200);
 
@@ -80,6 +98,7 @@ function getPost(id: string) {
       readingTime,
     } as PostData,
     content,
+    wordCount,
   };
 }
 
@@ -94,7 +113,6 @@ export async function generateMetadata(
     };
   }
 
-  // Check if post-specific focus image exists in public folder or if frontmatter has ogImage
   let ogImageUrl = 'https://mcjp-blog-git-main-mcjp.vercel.app/og-image.png';
   if (post.data.ogImage) {
     ogImageUrl = post.data.ogImage.startsWith('http')
@@ -141,52 +159,44 @@ export async function generateMetadata(
   };
 }
 
-let cachedAllPosts: Post[] | null = null;
+function getAllPublishedPosts(): Post[] {
+  const postsDir = path.join(process.cwd(), 'content', 'posts');
+  if (!fs.existsSync(postsDir)) return [];
+  const files = fs.readdirSync(postsDir);
+  const posts: Post[] = [];
 
-function getRelatedPosts(currentId: string, category: string): Post[] {
-  if (!cachedAllPosts) {
-    const postsDir = path.join(process.cwd(), 'content', 'posts');
-    if (!fs.existsSync(postsDir)) {
-      cachedAllPosts = [];
-    } else {
-      const files = fs.readdirSync(postsDir);
-      cachedAllPosts = files
-        .filter(file => file.endsWith('.md'))
-        .map(file => {
-          const id = file.replace(/\.md$/, '');
-          const fullPath = path.join(postsDir, file);
-          const fileContent = fs.readFileSync(fullPath, 'utf8');
-          const { data, content } = parseMarkdown(fileContent);
-
-          const wordCount = content.trim().split(/\s+/).length;
-          const readingTime = Math.ceil(wordCount / 200);
-
-          return {
-            id,
-            title: data.title || id,
-            date: data.date || '',
-            category: data.category || 'General',
-            description: data.description || '',
-            keywords: data.keywords || [],
-            readingTime,
-            published: data.published === 'true' || data.published === true,
-          };
-        });
-    }
-  }
-    
   const todayStr = new Date().toISOString().split('T')[0];
   const isDev = process.env.NODE_ENV === 'development';
-  const publishedPosts = isDev ? cachedAllPosts : cachedAllPosts.filter(p => p.published && p.date <= todayStr);
-    
-  let related = publishedPosts.filter(p => p.id !== currentId && p.category.toLowerCase() === category.toLowerCase());
-  
-  if (related.length < 3) {
-    const others = publishedPosts.filter(p => p.id !== currentId && p.category.toLowerCase() !== category.toLowerCase());
-    related = [...related, ...others];
-  }
-  
-  return related.slice(0, 3);
+
+  files.forEach(file => {
+    if (file.endsWith('.md')) {
+      const id = file.replace(/\.md$/, '');
+      const fullPath = path.join(postsDir, file);
+      const fileContent = fs.readFileSync(fullPath, 'utf8');
+      const { data, content } = parseMarkdown(fileContent);
+
+      const isPublished = data.published === 'true' || data.published === true;
+      if (!isDev && (!isPublished || (data.date && data.date > todayStr))) {
+        return;
+      }
+
+      const wordCount = content.trim().split(/\s+/).length;
+      const readingTime = Math.ceil(wordCount / 200);
+
+      posts.push({
+        id,
+        title: data.title || id,
+        date: data.date || '',
+        category: data.category || 'General',
+        description: data.description || '',
+        keywords: data.keywords || [],
+        readingTime,
+        published: isPublished,
+      });
+    }
+  });
+
+  return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
 export async function generateStaticParams() {
@@ -213,6 +223,14 @@ export async function generateStaticParams() {
     .filter(Boolean) as { id: string }[];
 }
 
+function slugify(text: string) {
+  return text
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
 export default async function PostPage({
   params,
 }: {
@@ -225,96 +243,119 @@ export default async function PostPage({
     notFound();
   }
 
-  const relatedPosts = getRelatedPosts(resolvedParams.id, post.data.category);
+  const allPosts = getAllPublishedPosts();
+  const currentIndex = allPosts.findIndex(p => p.id === resolvedParams.id);
+  const prevPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
+  const nextPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
 
-  // Markdown formatter with mid-content ad slot injection (light theme optimized)
-  const formatMarkdown = (text: string) => {
-    // Basic HTML escaping to prevent Stored XSS
-    const escapeHtml = (unsafe: string) => {
-      return unsafe
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-    };
+  // Curated Related Posts (same category preferred)
+  let relatedPosts = allPosts.filter(
+    p => p.id !== resolvedParams.id && p.category.toLowerCase() === post.data.category.toLowerCase()
+  );
+  if (relatedPosts.length < 3) {
+    const others = allPosts.filter(
+      p => p.id !== resolvedParams.id && p.category.toLowerCase() !== post.data.category.toLowerCase()
+    );
+    relatedPosts = [...relatedPosts, ...others];
+  }
+  relatedPosts = relatedPosts.slice(0, 3);
 
-    const lines = text.split('\n');
-    const midIndex = Math.floor(lines.length / 2);
-    
-    const parseInline = (lineText: string) => {
-      // First escape raw HTML
-      let safeText = escapeHtml(lineText);
-      
-      // Then parse markdown
-      return safeText
-        .replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-slate-950">$1</strong>')
-        .replace(/\*(.*?)\*/g, '<em class="italic text-slate-800">$1</em>')
-        // Safely parse links, rejecting javascript: and data: protocols
-        .replace(/\[(.*?)\]\((.*?)\)/g, (match, text, url) => {
-          if (url.trim().toLowerCase().startsWith('javascript:') || url.trim().toLowerCase().startsWith('data:')) {
-            return `<span class="text-slate-500 line-through">${text} (blocked link)</span>`;
-          }
-          return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-amber-600 hover:underline font-semibold">${text}</a>`;
-        });
-    };
+  // Extract Table of Contents items and format Markdown
+  const tocItems: TocItem[] = [];
 
-    return lines
-      .map((line, index) => {
-        let formattedLine = '';
-        const trimmed = line.trim();
-        if (trimmed.startsWith('![') && trimmed.endsWith(')')) {
-          const match = trimmed.match(/^!\[(.*?)\]\((.*?)\)$/);
-          if (match) {
-            const alt = match[1];
-            const src = match[2];
-            formattedLine = `
-              <div class="my-8 overflow-hidden rounded-xl border border-slate-200 bg-slate-50 shadow-xs max-w-2xl mx-auto">
-                <img src="${src}" alt="${alt}" loading="lazy" decoding="async" class="w-full h-auto object-cover" />
-                ${alt ? `<div class="p-3 text-center text-[11px] text-slate-500 border-t border-slate-100 bg-white italic">${alt}</div>` : ''}
-              </div>
-            `;
-          }
-        } else if (trimmed.startsWith('## ')) {
-          formattedLine = `<h2 class="text-2xl font-semibold mt-8 mb-4 text-slate-900">${parseInline(trimmed.slice(3))}</h2>`;
-        } else if (trimmed.startsWith('### ')) {
-          formattedLine = `<h3 class="text-xl font-semibold mt-6 mb-3 text-slate-900">${parseInline(trimmed.slice(4))}</h3>`;
-        } else if (trimmed.startsWith('> ')) {
-          formattedLine = `<blockquote class="border-l-2 border-amber-500 pl-4 my-6 italic text-slate-600 bg-amber-500/5 py-2 pr-2 rounded-r-md">${parseInline(trimmed.slice(2))}</blockquote>`;
-        } else if (trimmed.startsWith('- ') || trimmed.startsWith('* ')) {
-          formattedLine = `<li class="list-disc list-inside ml-4 my-1 text-slate-700 text-sm md:text-base leading-relaxed">${parseInline(trimmed.slice(2))}</li>`;
-        } else if (trimmed === '---') {
-          formattedLine = `<hr class="border-slate-200 my-8" />`;
-        } else if (trimmed === '') {
-          formattedLine = `<br />`;
-        } else {
-          formattedLine = `<p class="text-slate-700 text-sm md:text-base leading-relaxed my-4">${parseInline(line)}</p>`;
-        }
-
-        // Dynamically inject in-article ad slot right in the middle if environment variable is defined
-        if (index === midIndex && process.env.NEXT_PUBLIC_ADSENSE_APPROVED === 'true' && process.env.NEXT_PUBLIC_ADSENSE_MID_SLOT) {
-          const midAdSlot = `
-            <div class="my-8">
-              <ins class="adsbygoogle"
-                   style="display:block; text-align:center;"
-                   data-ad-layout="in-article"
-                   data-ad-format="fluid"
-                   data-ad-client="${process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || 'ca-pub-1966724508656296'}"
-                   data-ad-slot="${process.env.NEXT_PUBLIC_ADSENSE_MID_SLOT}"></ins>
-            </div>
-          `;
-          return formattedLine + midAdSlot;
-        }
-
-        return formattedLine;
-      })
-      .join('');
+  const escapeHtml = (unsafe: string) => {
+    return unsafe
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
   };
 
-  const formattedContent = formatMarkdown(post.content);
+  const lines = post.content.split('\n');
+  const midIndex = Math.floor(lines.length / 2);
+
+  const parseInline = (lineText: string) => {
+    let safeText = escapeHtml(lineText);
+    return safeText
+      .replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-slate-950">$1</strong>')
+      .replace(/\*(.*?)\*/g, '<em class="italic text-slate-800">$1</em>')
+      .replace(/`([^`]+)`/g, '<code class="px-1.5 py-0.5 rounded bg-slate-100 text-amber-800 font-mono text-xs border border-slate-200/80">$1</code>')
+      .replace(/\[(.*?)\]\((.*?)\)/g, (match, text, url) => {
+        if (url.trim().toLowerCase().startsWith('javascript:') || url.trim().toLowerCase().startsWith('data:')) {
+          return `<span class="text-slate-500 line-through">${text} (blocked link)</span>`;
+        }
+        return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-amber-600 hover:text-amber-700 underline underline-offset-2 font-medium transition-colors">${text}</a>`;
+      });
+  };
+
+  const formattedContent = lines
+    .map((line, index) => {
+      let formattedLine = '';
+      const trimmed = line.trim();
+
+      if (trimmed.startsWith('![') && trimmed.endsWith(')')) {
+        const match = trimmed.match(/^!\[(.*?)\]\((.*?)\)$/);
+        if (match) {
+          const alt = match[1];
+          const src = match[2];
+          formattedLine = `
+            <figure class="my-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xs max-w-2xl mx-auto">
+              <img src="${src}" alt="${alt}" loading="lazy" decoding="async" class="w-full h-auto object-cover" />
+              ${alt ? `<figcaption class="p-3 text-center text-xs text-slate-500 border-t border-slate-100 italic bg-slate-50/50">${alt}</figcaption>` : ''}
+            </figure>
+          `;
+        }
+      } else if (trimmed.startsWith('## ')) {
+        const titleText = trimmed.slice(3).trim();
+        const slug = slugify(titleText) || `section-${index}`;
+        tocItems.push({ id: slug, text: titleText, level: 2 });
+        formattedLine = `<h2 id="${slug}" class="scroll-mt-24 text-2xl md:text-3xl font-bold mt-10 mb-4 text-slate-900 tracking-tight border-b border-slate-100 pb-2">${parseInline(titleText)}</h2>`;
+      } else if (trimmed.startsWith('### ')) {
+        const titleText = trimmed.slice(4).trim();
+        const slug = slugify(titleText) || `sub-section-${index}`;
+        tocItems.push({ id: slug, text: titleText, level: 3 });
+        formattedLine = `<h3 id="${slug}" class="scroll-mt-24 text-xl font-bold mt-8 mb-3 text-slate-900 tracking-tight">${parseInline(titleText)}</h3>`;
+      } else if (trimmed.startsWith('> ')) {
+        formattedLine = `<blockquote class="border-l-4 border-amber-500 pl-4 my-6 italic text-slate-700 bg-amber-50/30 py-3 pr-4 rounded-r-lg shadow-xs">${parseInline(trimmed.slice(2))}</blockquote>`;
+      } else if (trimmed.startsWith('- ') || trimmed.startsWith('* ')) {
+        formattedLine = `<li class="list-disc list-inside ml-2 my-2 text-slate-700 text-base leading-relaxed">${parseInline(trimmed.slice(2))}</li>`;
+      } else if (/^\d+\.\s/.test(trimmed)) {
+        const itemText = trimmed.replace(/^\d+\.\s*/, '');
+        formattedLine = `<li class="list-decimal list-inside ml-2 my-2 text-slate-700 text-base leading-relaxed">${parseInline(itemText)}</li>`;
+      } else if (trimmed === '---') {
+        formattedLine = `<hr class="border-slate-200 my-10" />`;
+      } else if (trimmed === '') {
+        formattedLine = `<br />`;
+      } else {
+        formattedLine = `<p class="text-slate-700 text-base md:text-lg leading-relaxed my-5 font-normal">${parseInline(line)}</p>`;
+      }
+
+      // In-article ad placement if configured
+      if (index === midIndex && process.env.NEXT_PUBLIC_ADSENSE_APPROVED === 'true' && process.env.NEXT_PUBLIC_ADSENSE_MID_SLOT) {
+        const midAdSlot = `
+          <div class="my-8">
+            <ins class="adsbygoogle"
+                 style="display:block; text-align:center;"
+                 data-ad-layout="in-article"
+                 data-ad-format="fluid"
+                 data-ad-client="${process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || 'ca-pub-1966724508656296'}"
+                 data-ad-slot="${process.env.NEXT_PUBLIC_ADSENSE_MID_SLOT}"></ins>
+          </div>
+        `;
+        return formattedLine + midAdSlot;
+      }
+
+      return formattedLine;
+    })
+    .join('');
+
+  const postUrl = `https://mcjp-blog-git-main-mcjp.vercel.app/posts/${post.id}`;
 
   return (
     <div className="space-y-12">
+      <ReadingProgress />
+
       {/* JSON-LD Article Schema Markup */}
       <script
         type="application/ld+json"
@@ -327,7 +368,7 @@ export default async function PostPage({
             "datePublished": post.data.date,
             "dateModified": post.data.lastUpdated || post.data.date,
             "image": `https://mcjp-blog-git-main-mcjp.vercel.app/images/${post.id}_focus.png`,
-            "wordCount": post.data.readingTime ? post.data.readingTime * 200 : undefined,
+            "wordCount": post.wordCount,
             "author": {
               "@type": "Person",
               "name": "Peter K.",
@@ -343,143 +384,192 @@ export default async function PostPage({
             },
             "mainEntityOfPage": {
               "@type": "WebPage",
-              "@id": `https://mcjp-blog-git-main-mcjp.vercel.app/posts/${post.id}`
+              "@id": postUrl
             }
           })
         }}
       />
 
       <article className="max-w-3xl mx-auto space-y-8">
+        {/* Navigation Breadcrumb */}
+        <div className="flex items-center justify-between text-xs text-slate-500 pt-2">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-1.5 font-medium hover:text-amber-600 transition-colors"
+          >
+            <span>←</span> Back to All Insights
+          </Link>
+          <Link
+            href={`/?category=${encodeURIComponent(post.data.category)}`}
+            className="px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-700 font-semibold uppercase tracking-wider hover:bg-amber-500/20 transition-colors"
+          >
+            {post.data.category}
+          </Link>
+        </div>
+
         {/* Title Header */}
-        <header className="space-y-4 border-b border-slate-200 pb-6">
-          <div className="flex gap-2">
-            <span className="px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-700 font-semibold text-xs uppercase tracking-wider">
-              {post.data.category}
-            </span>
-          </div>
-          <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 leading-tight">
+        <header className="space-y-4 border-b border-slate-200/90 pb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-slate-900 leading-[1.18]">
             {post.data.title}
           </h1>
-          <div className="flex justify-between items-center text-xs text-slate-400">
-            <span>Published on {post.data.date}</span>
-            {post.data.readingTime && (
-              <span className="font-medium text-slate-500">{post.data.readingTime} min read</span>
-            )}
+          
+          <div className="flex flex-wrap items-center justify-between gap-4 text-xs text-slate-500 pt-2">
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 rounded-full bg-slate-900 text-amber-300 font-bold flex items-center justify-center text-[10px]">
+                PK
+              </div>
+              <span className="font-semibold text-slate-800">Peter K.</span>
+              <span className="text-slate-300">•</span>
+              <span>Published {post.data.date}</span>
+            </div>
+            
+            <div className="flex items-center gap-3">
+              {post.data.readingTime && (
+                <span className="font-medium text-slate-600 bg-slate-100 px-2 py-0.5 rounded">
+                  {post.data.readingTime} min read
+                </span>
+              )}
+              <span className="text-slate-400 font-mono text-[11px]">
+                {post.wordCount} words
+              </span>
+            </div>
           </div>
         </header>
 
+        {/* Executive Summary Takeaways Card */}
+        <KeyTakeaways
+          category={post.data.category}
+          description={post.data.description}
+          readingTime={post.data.readingTime}
+        />
+
+        {/* Table of Contents */}
+        {tocItems.length > 1 && <TableOfContents items={tocItems} />}
+
         {/* FTC Affiliate Disclosure */}
-        <div className="text-xs text-slate-500 bg-slate-50 border border-slate-200 rounded-lg p-4 italic leading-relaxed">
-          <strong>Disclosure:</strong> This post may contain affiliate links. If you make a purchase through our links, we may earn a small commission at no extra cost to you. We only recommend products and services we genuinely believe in.
+        <div className="text-xs text-slate-500 bg-slate-50/90 border border-slate-200/80 rounded-xl p-4 italic leading-relaxed">
+          <strong>Editorial Integrity & Disclosure:</strong> This journal is free and supported by readers. Certain curated recommendations may contain affiliate partner links. If you make a purchase, we may receive a commission at no additional cost to you.
         </div>
 
         {/* Body content */}
         <div 
-          className="prose prose-slate max-w-none text-slate-700" 
+          className="prose prose-slate max-w-none text-slate-800" 
           dangerouslySetInnerHTML={{ __html: formattedContent }} 
         />
 
-        {/* Social Share Bar */}
-        <div className="flex flex-wrap items-center gap-4 py-4 border-t border-b border-slate-200 my-8">
-          <span className="text-xs font-semibold text-slate-400 uppercase tracking-widest">Share Article:</span>
-          <div className="flex gap-2">
-            <a
-              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.data.title)}&url=${encodeURIComponent(`https://mcjp-blog-git-main-mcjp.vercel.app/posts/${post.id}`)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-3 py-1.5 rounded bg-white hover:bg-amber-500/10 text-slate-600 hover:text-amber-600 transition-colors text-xs font-medium border border-slate-200 shadow-xs"
-            >
-              Twitter/X
-            </a>
-            <a
-              href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://mcjp-blog-git-main-mcjp.vercel.app/posts/${post.id}`)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-3 py-1.5 rounded bg-white hover:bg-amber-500/10 text-slate-600 hover:text-amber-600 transition-colors text-xs font-medium border border-slate-200 shadow-xs"
-            >
-              Facebook
-            </a>
-            <a
-              href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://mcjp-blog-git-main-mcjp.vercel.app/posts/${post.id}`)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-3 py-1.5 rounded bg-white hover:bg-amber-500/10 text-slate-600 hover:text-amber-600 transition-colors text-xs font-medium border border-slate-200 shadow-xs"
-            >
-              LinkedIn
-            </a>
-          </div>
-        </div>
+        {/* Share Bar */}
+        <ShareBar title={post.data.title} url={postUrl} />
 
-        {/* Hostinger Referral Banner */}
-        <div className="p-5 rounded-lg border border-amber-200/40 bg-amber-50/20 my-6 space-y-3 shadow-xs">
+        {/* Keyword Tags */}
+        {post.data.keywords && post.data.keywords.length > 0 && (
+          <div className="flex flex-wrap gap-2 pt-2">
+            {post.data.keywords.map((kw, i) => (
+              <span
+                key={i}
+                className="px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 text-xs font-medium hover:bg-slate-200 transition-colors"
+              >
+                #{kw}
+              </span>
+            ))}
+          </div>
+        )}
+
+        {/* Hostinger Partner Recommendation */}
+        <div className="p-6 rounded-2xl border border-amber-200/60 bg-gradient-to-br from-amber-50/40 to-orange-50/20 my-8 space-y-3 shadow-xs">
           <div className="flex items-center gap-2">
-            <span className="px-2 py-0.5 rounded bg-amber-100 text-amber-800 text-[10px] font-bold uppercase tracking-wider">Launch Your Web Asset</span>
-            <span className="text-xs font-semibold text-slate-700">Start Your Own Blog or Online Business</span>
+            <span className="px-2 py-0.5 rounded bg-amber-100 text-amber-800 text-[10px] font-bold uppercase tracking-wider">
+              Recommended Infrastructure
+            </span>
+            <span className="text-xs font-semibold text-slate-800">
+              Host Your Digital Assets on Hostinger
+            </span>
           </div>
           <p className="text-xs text-slate-600 leading-relaxed">
-            Ready to build a digital asset like MCJP.io? We recommend hosting your website with Hostinger. It is exceptionally fast, secure, and cost-effective. Use our referral link to get an exclusive discount on your plan:
+            Building sovereign blogs or business web applications? We run and recommend Hostinger for world-class uptime, NVMe SSD speed, and unmatched affordability. Claim 20% off plus a free domain with our partner link:
           </p>
           <a
             href="https://www.hostinger.com?REFERRALCODE=OYBPHARMOWCY"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block text-xs font-bold text-amber-700 hover:text-amber-800 hover:underline cursor-pointer"
+            className="inline-block text-xs font-bold text-amber-700 hover:text-amber-800 underline transition-colors"
           >
-            Get Started with Hostinger (Discount Applied) &rarr;
+            Claim 20% Hostinger Discount &rarr;
           </a>
         </div>
 
         {/* Superloop Affiliate CTA */}
         <AffiliateCTA />
 
-        {/* Google AdSense Post-Body Ad Unit Slot */}
-        {process.env.NEXT_PUBLIC_ADSENSE_APPROVED === 'true' && process.env.NEXT_PUBLIC_ADSENSE_POST_SLOT && (
-          <div className="mt-8">
-            <ins className="adsbygoogle"
-                 style={{ display: 'block' }}
-                 data-ad-client={process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || 'ca-pub-1966724508656296'}
-                 data-ad-slot={process.env.NEXT_PUBLIC_ADSENSE_POST_SLOT}
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-          </div>
-        )}
+        {/* Previous & Next Post Navigation */}
+        <div className="grid sm:grid-cols-2 gap-4 pt-8 border-t border-slate-200/80 my-8">
+          {prevPost ? (
+            <Link
+              href={`/posts/${prevPost.id}`}
+              className="p-4 rounded-xl border border-slate-200 hover:border-amber-500/40 bg-white hover:bg-slate-50 transition-all flex flex-col justify-between"
+            >
+              <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">
+                ← Newer Insight
+              </span>
+              <span className="text-sm font-semibold text-slate-800 mt-1 line-clamp-2">
+                {prevPost.title}
+              </span>
+            </Link>
+          ) : <div />}
+
+          {nextPost ? (
+            <Link
+              href={`/posts/${nextPost.id}`}
+              className="p-4 rounded-xl border border-slate-200 hover:border-amber-500/40 bg-white hover:bg-slate-50 transition-all flex flex-col justify-between text-right"
+            >
+              <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">
+                Older Insight →
+              </span>
+              <span className="text-sm font-semibold text-slate-800 mt-1 line-clamp-2">
+                {nextPost.title}
+              </span>
+            </Link>
+          ) : <div />}
+        </div>
       </article>
 
       <div className="max-w-3xl mx-auto space-y-8">
         <AuthorProfile />
-        <div className="mt-8">
-          <NewsletterForm />
-        </div>
+        <NewsletterForm />
       </div>
 
       {/* Related Posts Section */}
       {relatedPosts.length > 0 && (
-        <section className="max-w-3xl mx-auto pt-8 border-t border-slate-200 space-y-6">
-          <h3 className="text-lg font-bold text-slate-900 uppercase tracking-wider">
-            Related Articles
-          </h3>
-          <div className="grid md:grid-cols-3 gap-4">
+        <section className="max-w-3xl mx-auto pt-10 border-t border-slate-200 space-y-6">
+          <div className="flex items-center justify-between">
+            <h3 className="text-lg font-bold text-slate-900 tracking-tight">
+              Recommended Follow-Up Reading
+            </h3>
+            <Link href="/" className="text-xs font-semibold text-amber-600 hover:text-amber-700">
+              View All Articles →
+            </Link>
+          </div>
+          <div className="grid sm:grid-cols-3 gap-4">
             {relatedPosts.map(rel => (
-              <a
+              <Link
                 key={rel.id}
                 href={`/posts/${rel.id}`}
-                className="block p-4 rounded-lg glass-panel bg-white hover:border-amber-500/30 transition-all flex flex-col justify-between min-h-[140px]"
+                className="p-5 rounded-xl bg-white border border-slate-200/90 hover:border-amber-500/40 hover:shadow-sm transition-all flex flex-col justify-between min-h-[160px]"
               >
                 <div className="space-y-2">
-                  <span className="text-[10px] uppercase font-semibold text-amber-600 tracking-wider">
+                  <span className="text-[10px] uppercase font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded tracking-wider">
                     {rel.category}
                   </span>
-                  <h4 className="text-sm font-bold text-slate-800 hover:text-amber-600 transition-colors line-clamp-2">
+                  <h4 className="text-sm font-bold text-slate-800 hover:text-amber-600 transition-colors line-clamp-2 leading-snug">
                     {rel.title}
                   </h4>
                 </div>
-                <div className="flex items-center justify-between text-[10px] text-slate-400 mt-2">
+                <div className="flex items-center justify-between text-[11px] text-slate-400 mt-4 pt-2 border-t border-slate-100">
                   <span>{rel.date}</span>
                   {rel.readingTime && (
-                    <span className="font-medium text-slate-500">{rel.readingTime} min read</span>
+                    <span className="font-medium text-slate-500">{rel.readingTime}m read</span>
                   )}
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </section>
