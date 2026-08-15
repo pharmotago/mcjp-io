@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 :root {
-  --background: 210 40% 98%;      /* slate-50 */
-  --foreground: 222.2 84% 4.9%;    /* slate-950 */
-  --card: 0 0% 100%;               /* white */
+  --background: 210 40% 98%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
   --card-foreground: 222.2 84% 4.9%;
   --popover: 0 0% 100%;
   --popover-foreground: 222.2 84% 4.9%;
@@ -25,9 +25,66 @@ body {
   color: #1e293b;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Glassmorphism Classes for Light Theme */
+/* ==========================================================================
+   Reading Themes (Light / Sepia Paper / Deep Dark)
+   ========================================================================== */
+
+/* 1. Sepia Paper Mode (Warm Bookish Feel) */
+html.theme-sepia body {
+  background-color: #fbf7ee !important;
+  color: #2d2a26 !important;
+}
+
+html.theme-sepia .glass-panel {
+  background: rgba(245, 239, 226, 0.85) !important;
+  border-color: rgba(180, 83, 9, 0.15) !important;
+  color: #2d2a26 !important;
+}
+
+html.theme-sepia .text-slate-900,
+html.theme-sepia .text-slate-800 {
+  color: #1a1714 !important;
+}
+
+html.theme-sepia .text-slate-600,
+html.theme-sepia .text-slate-500 {
+  color: #5c5449 !important;
+}
+
+/* 2. Deep Dark Mode (Obsidian Focus) */
+html.theme-dark body {
+  background-color: #0b0f19 !important;
+  color: #e2e8f0 !important;
+}
+
+html.theme-dark .glass-panel {
+  background: rgba(15, 23, 42, 0.75) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #e2e8f0 !important;
+}
+
+html.theme-dark .text-slate-900,
+html.theme-dark .text-slate-800 {
+  color: #f8fafc !important;
+}
+
+html.theme-dark .text-slate-600,
+html.theme-dark .text-slate-500 {
+  color: #94a3b8 !important;
+}
+
+html.theme-dark header,
+html.theme-dark footer {
+  background-color: #0b0f19 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* ==========================================================================
+   Glassmorphism Classes
+   ========================================================================== */
 .glass-panel {
   background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(12px);
@@ -37,7 +94,6 @@ body {
 }
 
 .glass-panel:hover {
-  background: rgba(255, 255, 255, 0.95);
   border-color: rgba(217, 119, 6, 0.3);
   transform: translateY(-2px);
   box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);

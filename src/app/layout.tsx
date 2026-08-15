@@ -19,15 +19,17 @@ export const metadata: Metadata = {
   }
 };
 
+import Navbar from "@/components/Navbar";
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased">
+    <html lang="en" className="h-full antialiased theme-light">
       <head>
-        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
         {/* Google AdSense Verification Script */}
         <script 
           async 
@@ -56,29 +58,9 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-[#f8fafc] text-slate-800">
+      <body className="min-h-full flex flex-col transition-colors duration-200">
         {/* Navigation */}
-        <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur-md">
-          <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="/" className="text-xl font-bold tracking-tight text-slate-900 hover:opacity-80 transition-opacity">
-              MCJP<span className="text-amber-600">.io</span>
-            </a>
-            <nav className="flex items-center gap-6 text-sm font-medium text-slate-500">
-              <a href="/" className="hover:text-slate-900 transition-colors">Home</a>
-              <a href="/?category=Money" className="hover:text-slate-900 transition-colors">Money</a>
-              <a href="/?category=Life" className="hover:text-slate-900 transition-colors">Life</a>
-              <a href="/?category=Discipline" className="hover:text-slate-900 transition-colors">Discipline</a>
-              <a href="/about" className="hover:text-slate-900 transition-colors">About</a>
-              <span className="text-slate-300">|</span>
-              <a href="https://the-stoic-dad.vercel.app" target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:text-amber-700 font-semibold transition-colors">The Stoic Dad ↗</a>
-              <a href="/rss.xml" className="text-slate-400 hover:text-amber-600 transition-colors" title="RSS Feed">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z" />
-                </svg>
-              </a>
-            </nav>
-          </div>
-        </header>
+        <Navbar />
 
         {/* Top Leaderboard Ad Unit */}
         {process.env.NEXT_PUBLIC_ADSENSE_APPROVED === 'true' && process.env.NEXT_PUBLIC_ADSENSE_TOP_SLOT && (

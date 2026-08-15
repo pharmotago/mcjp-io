@@ -10,6 +10,7 @@ import ReadingProgress from '@/components/ReadingProgress';
 import ShareBar from '@/components/ShareBar';
 import TableOfContents, { TocItem } from '@/components/TableOfContents';
 import KeyTakeaways from '@/components/KeyTakeaways';
+import BookmarkButton from '@/components/BookmarkButton';
 
 interface PostData {
   title: string;
@@ -113,7 +114,7 @@ export async function generateMetadata(
     };
   }
 
-  let ogImageUrl = 'https://mcjp-blog-git-main-mcjp.vercel.app/og-image.png';
+  let ogImageUrl = `https://mcjp-blog-git-main-mcjp.vercel.app/api/og?title=${encodeURIComponent(post.data.title)}&category=${encodeURIComponent(post.data.category)}&readTime=${encodeURIComponent((post.data.readingTime || 5) + ' min read')}`;
   if (post.data.ogImage) {
     ogImageUrl = post.data.ogImage.startsWith('http')
       ? post.data.ogImage
@@ -317,7 +318,18 @@ export default async function PostPage({
         tocItems.push({ id: slug, text: titleText, level: 3 });
         formattedLine = `<h3 id="${slug}" class="scroll-mt-24 text-xl font-bold mt-8 mb-3 text-slate-900 tracking-tight">${parseInline(titleText)}</h3>`;
       } else if (trimmed.startsWith('> ')) {
-        formattedLine = `<blockquote class="border-l-4 border-amber-500 pl-4 my-6 italic text-slate-700 bg-amber-50/30 py-3 pr-4 rounded-r-lg shadow-xs">${parseInline(trimmed.slice(2))}</blockquote>`;
+        const quoteContent = trimmed.slice(2).trim();
+        if (quoteContent.startsWith('[!CLINICAL]')) {
+          formattedLine = `<div class="my-6 p-4 rounded-xl border border-emerald-500/30 bg-emerald-500/10 text-emerald-950 dark:text-emerald-100 shadow-xs"><div class="flex items-center gap-2 font-bold text-xs uppercase tracking-wider text-emerald-600 dark:text-emerald-400 mb-1"><span>🩺</span> Clinical Insight &amp; Evidence</div><p class="text-sm md:text-base leading-relaxed m-0">${parseInline(quoteContent.replace('[!CLINICAL]', '').trim())}</p></div>`;
+        } else if (quoteContent.startsWith('[!FRAMEWORK]')) {
+          formattedLine = `<div class="my-6 p-4 rounded-xl border border-sky-500/30 bg-sky-500/10 text-sky-950 dark:text-sky-100 shadow-xs"><div class="flex items-center gap-2 font-bold text-xs uppercase tracking-wider text-sky-600 dark:text-sky-400 mb-1"><span>⚙️</span> Systems Thinking Framework</div><p class="text-sm md:text-base leading-relaxed m-0">${parseInline(quoteContent.replace('[!FRAMEWORK]', '').trim())}</p></div>`;
+        } else if (quoteContent.startsWith('[!ACTION]')) {
+          formattedLine = `<div class="my-6 p-4 rounded-xl border border-amber-500/30 bg-amber-500/10 text-amber-950 dark:text-amber-100 shadow-xs"><div class="flex items-center gap-2 font-bold text-xs uppercase tracking-wider text-amber-600 dark:text-amber-400 mb-1"><span>🎯</span> Protocol Action Steps</div><p class="text-sm md:text-base leading-relaxed m-0">${parseInline(quoteContent.replace('[!ACTION]', '').trim())}</p></div>`;
+        } else if (quoteContent.startsWith('[!NOTE]') || quoteContent.startsWith('[!TIP]')) {
+          formattedLine = `<div class="my-6 p-4 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-100/70 dark:bg-slate-800/60 shadow-xs"><div class="flex items-center gap-2 font-bold text-xs uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1"><span>💡</span> Key Takeaway</div><p class="text-sm md:text-base leading-relaxed m-0">${parseInline(quoteContent.replace(/\[!(NOTE|TIP)\]/, '').trim())}</p></div>`;
+        } else {
+          formattedLine = `<blockquote class="border-l-4 border-amber-500 pl-4 my-6 italic text-slate-700 dark:text-slate-300 bg-amber-50/40 dark:bg-amber-500/5 py-3 pr-4 rounded-r-lg shadow-xs">${parseInline(quoteContent)}</blockquote>`;
+        }
       } else if (trimmed.startsWith('- ') || trimmed.startsWith('* ')) {
         formattedLine = `<li class="list-disc list-inside ml-2 my-2 text-slate-700 text-base leading-relaxed">${parseInline(trimmed.slice(2))}</li>`;
       } else if (/^\d+\.\s/.test(trimmed)) {
@@ -423,15 +435,21 @@ export default async function PostPage({
               <span>Published {post.data.date}</span>
             </div>
             
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               {post.data.readingTime && (
-                <span className="font-medium text-slate-600 bg-slate-100 px-2 py-0.5 rounded">
+                <span className="font-medium text-slate-600 bg-slate-100 dark:bg-slate-800 dark:text-slate-300 px-2 py-0.5 rounded">
                   {post.data.readingTime} min read
                 </span>
               )}
-              <span className="text-slate-400 font-mono text-[11px]">
+              <span className="text-slate-400 font-mono text-[11px] hidden sm:inline">
                 {post.wordCount} words
               </span>
+              <BookmarkButton
+                postId={post.id}
+                title={post.data.title}
+                category={post.data.category}
+                date={post.data.date}
+              />
             </div>
           </div>
         </header>
