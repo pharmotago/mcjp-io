@@ -65,6 +65,6 @@ Developing both focus and resilience creates a powerful synergy. When individual
 
 In cultivating a masculine mindset, the journey toward greater focus and resilience is both rewarding and transformative. By implementing these actionable strategies, you will not only enhance your personal and professional life but also inspire those around you to pursue their own paths of growth and development.
 
-As you embark on this journey, remember that the principles of focus and resilience are not just skills to be learned but habits to be cultivated. The more you practice them, the more they will become a natural part of your life.
+As you embark on this journey, remember that the principles of focus and resilience are not just skills to be learned but habits to be cultivated. The more you practice them, the more they will become a natural part of your life. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
 
 ![Visual aid summarizing the themes of masculinity, focus, and resilience](images/discipline_masculine_mindset_development_theme.svg)

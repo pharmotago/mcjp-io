@@ -50,3 +50,5 @@ As you embark on your journey in the world of blockchain-based investing, rememb
 
 ---
 > **Legal Disclaimer:** The information provided on MCJP.io, including but not limited to business models, financial assets, and wealth strategies, is for general educational and informational purposes only. It does not constitute professional financial, legal, or investment advice. Always consult with a certified financial planner or legal professional before making any financial decisions.
+
+For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.

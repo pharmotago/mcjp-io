@@ -21,7 +21,7 @@ In a rapidly evolving societal landscape, the concept of masculinity is undergoi
 #### For the Mentor
 
 1. **[Personal Growth](/posts/discipline_self_awareness_journey)**: Engaging in mentorship allows experienced men to reflect on their own journeys, reinforcing their values and beliefs.
-2. **Legacy Building**: Mentorship is a means of passing down wisdom and insights, contributing to a legacy that extends beyond personal achievements.
+2. **[Legacy Building](/posts/money_strategic_business_exits)**: Mentorship is a means of passing down wisdom and insights, contributing to a legacy that extends beyond personal achievements.
 3. **Community Impact**: Mentors can positively influence their communities by nurturing the qualities of responsible leadership in younger generations.
 
 #### For the Mentee

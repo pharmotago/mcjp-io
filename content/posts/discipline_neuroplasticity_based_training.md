@@ -58,7 +58,7 @@ In conclusion, neuroplasticity-based training is a powerful tool for achieving o
 
 ![A stylized representation of the human brain, symbolizing the theme of neuroplasticity-based training, with vibrant colors and dynamic shapes, highlighting the potential for growth, change, and self-improvement](/images/discipline_neuroplasticity_based_training_theme.svg)
 
-To take your training to the next level, consider launching your [digital assets](/posts/money_ai_content_licensing) on a reliable web host, such as Hostinger, to secure their exclusive partner discount and ensure high-performance and speed. With the right tools and mindset, you can unlock your full potential and achieve greatness. 
+To take your training to the next level, consider launching your [digital assets](/posts/money_ai_content_licensing) on a reliable web host, such as Hostinger, to secure their exclusive partner discount and ensure high-performance and speed. With the right tools and mindset, you can unlock your full potential and achieve greatness. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
 
 Here is a bulleted action plan to get you started:
 

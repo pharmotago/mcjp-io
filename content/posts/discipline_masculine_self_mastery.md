@@ -74,4 +74,4 @@ In moments of doubt or difficulty, revisit your [core values](/posts/life_100_pe
 
 Cultivating discipline in the pursuit of greatness is an ongoing process that requires dedication, self-reflection, and a commitment to growth. By focusing on self-mastery, you empower yourself to achieve not only personal excellence but also to inspire those around you. The journey may be challenging, but the rewards—integrity, respect, and fulfillment—are invaluable. 
 
-Embrace the principles outlined in this article, and take the first steps toward mastering yourself for a life of greatness. Remember, the road to success is paved with disciplined choices.
+Embrace the principles outlined in this article, and take the first steps toward mastering yourself for a life of greatness. Remember, the road to success is paved with disciplined choices. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
