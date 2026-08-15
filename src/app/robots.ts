@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/_next/',
     },
-    sitemap: 'https://mcjp-blog-git-main-mcjp.vercel.app/sitemap.xml',
+    sitemap: 'https://mcjp-blog.vercel.app/sitemap.xml',
   };
 }

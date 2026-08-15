@@ -114,15 +114,15 @@ export async function generateMetadata(
     };
   }
 
-  let ogImageUrl = `https://mcjp-blog-git-main-mcjp.vercel.app/api/og?title=${encodeURIComponent(post.data.title)}&category=${encodeURIComponent(post.data.category)}&readTime=${encodeURIComponent((post.data.readingTime || 5) + ' min read')}`;
+  let ogImageUrl = `https://mcjp-blog.vercel.app/api/og?title=${encodeURIComponent(post.data.title)}&category=${encodeURIComponent(post.data.category)}&readTime=${encodeURIComponent((post.data.readingTime || 5) + ' min read')}`;
   if (post.data.ogImage) {
     ogImageUrl = post.data.ogImage.startsWith('http')
       ? post.data.ogImage
-      : `https://mcjp-blog-git-main-mcjp.vercel.app${post.data.ogImage.startsWith('/') ? '' : '/'}${post.data.ogImage}`;
+      : `https://mcjp-blog.vercel.app${post.data.ogImage.startsWith('/') ? '' : '/'}${post.data.ogImage}`;
   } else {
     const focusImgPath = path.join(process.cwd(), 'public', 'images', `${resolvedParams.id}_focus.png`);
     if (fs.existsSync(focusImgPath)) {
-      ogImageUrl = `https://mcjp-blog-git-main-mcjp.vercel.app/images/${resolvedParams.id}_focus.png`;
+      ogImageUrl = `https://mcjp-blog.vercel.app/images/${resolvedParams.id}_focus.png`;
     }
   }
 
@@ -140,7 +140,7 @@ export async function generateMetadata(
       title,
       description,
       type: 'article',
-      url: `https://mcjp-blog-git-main-mcjp.vercel.app/posts/${resolvedParams.id}`,
+      url: `https://mcjp-blog.vercel.app/posts/${resolvedParams.id}`,
       siteName: 'MCJP.io',
       images: [
         {
@@ -362,7 +362,7 @@ export default async function PostPage({
     })
     .join('');
 
-  const postUrl = `https://mcjp-blog-git-main-mcjp.vercel.app/posts/${post.id}`;
+  const postUrl = `https://mcjp-blog.vercel.app/posts/${post.id}`;
 
   return (
     <div className="space-y-12">
@@ -379,19 +379,19 @@ export default async function PostPage({
             "description": post.data.description,
             "datePublished": post.data.date,
             "dateModified": post.data.lastUpdated || post.data.date,
-            "image": `https://mcjp-blog-git-main-mcjp.vercel.app/images/${post.id}_focus.png`,
+            "image": `https://mcjp-blog.vercel.app/images/${post.id}_focus.png`,
             "wordCount": post.wordCount,
             "author": {
               "@type": "Person",
               "name": "Peter K.",
-              "url": "https://mcjp-blog-git-main-mcjp.vercel.app/about"
+              "url": "https://mcjp-blog.vercel.app/about"
             },
             "publisher": {
               "@type": "Organization",
               "name": "MCJP.io",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://mcjp-blog-git-main-mcjp.vercel.app/globe.svg"
+                "url": "https://mcjp-blog.vercel.app/globe.svg"
               }
             },
             "mainEntityOfPage": {

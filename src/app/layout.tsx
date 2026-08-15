@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "MCJP.io | Master of Family, Money & Life",
     description: "Automated guide map for wealth creation, masculine family leadership, and cognitive sovereignty in the modern era.",
-    url: "https://mcjp-blog-git-main-mcjp.vercel.app",
+    url: "https://mcjp-blog.vercel.app",
     type: "website",
   }
 };
@@ -44,14 +44,14 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebSite",
               "name": "MCJP.io",
-              "url": "https://mcjp-blog-git-main-mcjp.vercel.app",
+              "url": "https://mcjp-blog.vercel.app",
               "description": "Automated guide map for wealth creation, masculine family leadership, and cognitive sovereignty in the modern era.",
               "publisher": {
                 "@type": "Organization",
                 "name": "MCJP.io",
                 "logo": {
                   "@type": "ImageObject",
-                  "url": "https://mcjp-blog-git-main-mcjp.vercel.app/globe.svg"
+                  "url": "https://mcjp-blog.vercel.app/globe.svg"
                 }
               }
             })
