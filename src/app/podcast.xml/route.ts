@@ -43,10 +43,12 @@ export async function GET() {
   }
 
   const siteUrl = 'https://mcjp-blog.vercel.app';
-  const podcastTitle = 'The Sovereign Dispatch with Peter K.';
-  const podcastAuthor = 'Peter K. (Clinical Pharmacist & Systems Architect)';
-  const podcastDescription = 'Actionable blueprints on leveraged wealth creation, stoic fatherhood, and cognitive mastery in an age of exponential acceleration. Hosted by Peter K.';
+  const podcastTitle = 'The Better Signal';
+  const podcastAuthor = 'Peter K. (The Better Signal)';
+  const podcastDescription = 'The Better Signal: Actionable blueprints on leveraged wealth creation, stoic fatherhood, healthspan longevity, and cognitive mastery in an age of exponential acceleration. Hosted by Peter K.';
   const podcastCover = `${siteUrl}/og-image.png`;
+  const spotifyUrl = 'https://open.spotify.com/show/5aE6GrjxFmJoGD2QITKIV1';
+  const youtubeUrl = 'https://www.youtube.com/@TheBetterSignal';
 
   const itemsXml = episodes.map(ep => `
     <item>

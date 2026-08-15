@@ -86,6 +86,32 @@ export default function Navbar() {
             {/* Reading Theme Switch */}
             <ReadingThemeSwitch />
 
+            {/* Spotify Show Link */}
+            <a
+              href="https://open.spotify.com/show/5aE6GrjxFmJoGD2QITKIV1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-1.5 text-slate-400 hover:text-emerald-500 transition-colors inline-flex items-center gap-1 text-xs font-semibold"
+              title="The Better Signal on Spotify"
+            >
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424a.625.625 0 0 1-.86.207c-2.355-1.44-5.32-1.766-8.812-.968a.625.625 0 0 1-.28-1.218c3.824-.874 7.106-.504 9.745 1.119a.625.625 0 0 1 .207.86zm1.226-2.727a.782.782 0 0 1-1.077.258c-2.696-1.657-6.806-2.136-9.995-1.168a.782.782 0 0 1-.468-1.492c3.64-1.106 8.188-.574 11.282 1.325a.782.782 0 0 1 .258 1.077zm.105-2.836C14.69 8.91 9.07 8.724 5.81 9.714a.938.938 0 1 1-.546-1.794c3.75-1.139 9.948-.922 13.784 1.355a.938.938 0 1 1-.94 1.624z" />
+              </svg>
+            </a>
+
+            {/* YouTube Channel Link */}
+            <a
+              href="https://www.youtube.com/@TheBetterSignal"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-1.5 text-slate-400 hover:text-red-500 transition-colors inline-flex items-center gap-1 text-xs font-semibold"
+              title="@TheBetterSignal on YouTube"
+            >
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+              </svg>
+            </a>
+
             {/* RSS Link */}
             <a
               href="/rss.xml"
