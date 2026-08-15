@@ -11,6 +11,8 @@ import ShareBar from '@/components/ShareBar';
 import TableOfContents, { TocItem } from '@/components/TableOfContents';
 import KeyTakeaways from '@/components/KeyTakeaways';
 import BookmarkButton from '@/components/BookmarkButton';
+import ArticleAudioPlayer from '@/components/ArticleAudioPlayer';
+import ShareButtons from '@/components/ShareButtons';
 
 interface PostData {
   title: string;
@@ -450,9 +452,19 @@ export default async function PostPage({
                 category={post.data.category}
                 date={post.data.date}
               />
+              <ShareButtons
+                title={post.data.title}
+                url={postUrl}
+              />
             </div>
           </div>
         </header>
+
+        {/* Audio Narration Player */}
+        <ArticleAudioPlayer
+          title={post.data.title}
+          content={post.content}
+        />
 
         {/* Executive Summary Takeaways Card */}
         <KeyTakeaways

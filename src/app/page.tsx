@@ -265,6 +265,63 @@ export default async function Home({
         </section>
       )}
 
+      {/* Official Media & Podcast Channel Card */}
+      {isBrowsingAll && (
+        <section className="p-6 sm:p-8 rounded-3xl bg-linear-to-br from-slate-950 via-slate-900 to-amber-950/70 text-white shadow-xl relative overflow-hidden">
+          <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div className="space-y-2 max-w-xl">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold tracking-wider uppercase border border-amber-500/30">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                <span>Official Show &amp; Video Channel</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
+                The Better Signal <span className="text-amber-400">with Peter K.</span>
+              </h2>
+              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                Stream actionable insights on wealth creation, stoic discipline, longevity frameworks, and sovereign living.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3">
+              {/* Spotify Button */}
+              <a
+                href="https://open.spotify.com/show/5aE6GrjxFmJoGD2QITKIV1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-[#1DB954] hover:bg-[#1ed760] text-black font-bold text-xs transition-all shadow-md active:scale-95 cursor-pointer"
+              >
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424a.625.625 0 0 1-.86.207c-2.355-1.44-5.32-1.766-8.812-.968a.625.625 0 0 1-.28-1.218c3.824-.874 7.106-.504 9.745 1.119a.625.625 0 0 1 .207.86zm1.226-2.727a.782.782 0 0 1-1.077.258c-2.696-1.657-6.806-2.136-9.995-1.168a.782.782 0 0 1-.468-1.492c3.64-1.106 8.188-.574 11.282 1.325a.782.782 0 0 1 .258 1.077zm.105-2.836C14.69 8.91 9.07 8.724 5.81 9.714a.938.938 0 1 1-.546-1.794c3.75-1.139 9.948-.922 13.784 1.355a.938.938 0 1 1-.94 1.624z" />
+                </svg>
+                <span>Spotify Show</span>
+              </a>
+
+              {/* YouTube Button */}
+              <a
+                href="https://www.youtube.com/@TheBetterSignal"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-[#FF0000] hover:bg-[#cc0000] text-white font-bold text-xs transition-all shadow-md active:scale-95 cursor-pointer"
+              >
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                </svg>
+                <span>YouTube Channel</span>
+              </a>
+
+              {/* Podcast RSS Link */}
+              <a
+                href="/podcast.xml"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-xs border border-white/15 transition-all cursor-pointer"
+                title="Podcast RSS Feed"
+              >
+                <span>📡 RSS</span>
+              </a>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Featured Lead Story */}
       {featuredPost && (
         <section className="space-y-4">
