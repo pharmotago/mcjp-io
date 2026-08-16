@@ -1183,16 +1183,89 @@ const BriskDB = (function() {
       if (error) console.error('Failed to save settings to Supabase:', error);
     },
 
+    supabase: supabase,
+
     apiResetPasswordForEmail: async function(email) {
       try {
         const targetEmail = (email || '').toLowerCase().trim();
         if (!targetEmail) return { error: 'Email address is required.' };
 
+        // 1. Primary Method: Call Serverless Reset API (generates instant recovery link & auto-provisions)
+        try {
+          const res = await fetch('/api/schedule/auth/reset', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: targetEmail })
+          });
+
+          if (res.ok) {
+            const data = await res.json();
+            if (data && data.success) {
+              return { 
+                success: true, 
+                resetActionLink: data.resetActionLink, 
+                message: data.message || 'Password reset link generated!' 
+              };
+            }
+            if (data && data.error) {
+              return { error: data.error };
+            }
+          }
+        } catch (apiErr) {
+          console.warn('[BriskDB] Serverless reset API fallback to Supabase SDK:', apiErr);
+        }
+
+        // 2. Secondary Fallback: Supabase Client SDK
         const { error } = await supabase.auth.resetPasswordForEmail(targetEmail, {
           redirectTo: 'https://woywoyamcalroster.vercel.app'
         });
         if (error) throw error;
-        return { success: true };
+        return { success: true, message: 'Password reset link sent to your email!' };
+      } catch (err) {
+        return { error: err.message || 'Failed to send password reset email.' };
+      }
+    },
+
+    apiGenerateRecoveryLink: async function(email) {
+      try {
+        const token = await getValidToken();
+        const res = await fetch('/api/schedule/auth/reset', {
+          method: 'POST',
+          headers: { 
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify({ 
+            email: (email || '').toLowerCase().trim(),
+            managerAction: true
+          })
+        });
+        const data = await res.json();
+        if (!res.ok || data.error) throw new Error(data.error || 'Failed to generate link');
+        return { success: true, resetActionLink: data.resetActionLink, message: data.message };
+      } catch (err) {
+        return { error: err.message };
+      }
+    },
+
+    apiManagerSetPassword: async function(email, newPassword) {
+      try {
+        const token = await getValidToken();
+        const res = await fetch('/api/schedule/auth/reset', {
+          method: 'POST',
+          headers: { 
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify({ 
+            email: (email || '').toLowerCase().trim(), 
+            managerAction: true, 
+            newPassword 
+          })
+        });
+        const data = await res.json();
+        if (!res.ok || data.error) throw new Error(data.error || 'Failed to update staff password');
+        return { success: true, message: data.message };
       } catch (err) {
         return { error: err.message };
       }

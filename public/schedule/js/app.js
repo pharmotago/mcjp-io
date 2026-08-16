@@ -3769,6 +3769,7 @@ function openResetPasswordModal(event) {
   if (loginEmail && resetEmailInput && !resetEmailInput.value) {
     resetEmailInput.value = loginEmail;
   }
+
   const modal = document.getElementById('modal-reset-password');
   if (modal) {
     modal.classList.add('active');
@@ -3786,27 +3787,82 @@ function closeResetPasswordModal() {
 
 async function handleResetPasswordSubmit(event) {
   event.preventDefault();
-  const email = document.getElementById('reset-email').value;
+  const emailInput = document.getElementById('reset-email');
+  const email = (emailInput ? emailInput.value : '').toLowerCase().trim();
   if (!email) return;
 
-  const btn = document.querySelector('#modal-reset-password button[type="submit"]');
-  const origText = btn.innerHTML;
-  btn.disabled = true;
-  btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+  const btn = document.getElementById('btn-submit-reset') || document.querySelector('#modal-reset-password button[type="submit"]');
+  const origText = btn ? btn.innerHTML : 'Send Reset Link';
+  if (btn) {
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+  }
 
   try {
     const res = await BriskDB.apiResetPasswordForEmail(email);
     if (res.error) {
       showToast('Error: ' + res.error, 'error');
     } else {
-      showToast('Password reset link sent to your email!', 'success');
+      showToast('Password reset instructions sent to your email inbox.', 'success');
       closeResetPasswordModal();
     }
   } catch (err) {
-    showToast('Failed to send reset link.', 'error');
+    showToast('Failed to send reset request.', 'error');
   } finally {
-    btn.disabled = false;
-    btn.innerHTML = origText;
+    if (btn) {
+      btn.disabled = false;
+      btn.innerHTML = origText;
+    }
+  }
+}
+
+async function handleManagerGenerateStaffLink() {
+  const emailInput = document.getElementById('emp-email');
+  const nameInput = document.getElementById('emp-name');
+  const email = (emailInput ? emailInput.value : '').toLowerCase().trim();
+  const name = nameInput ? nameInput.value : 'Staff';
+
+  if (!email) {
+    showToast('Please enter an employee email address first.', 'error');
+    return;
+  }
+
+  const choice = prompt(
+    `Manager Password Reset for ${name} (${email}):\n\n` +
+    `Type "1" to Generate 1-Click Instant Login Link (Copy to clipboard for SMS/WhatsApp)\n` +
+    `Type "2" to Set a New Password directly (e.g. Amcal2026!)`,
+    "1"
+  );
+
+  if (!choice) return;
+
+  if (choice.trim() === '2') {
+    const newPass = prompt(`Enter new password for ${name} (min 6 characters):`, "Amcal2026!");
+    if (!newPass || newPass.trim().length < 6) {
+      showToast('Password must be at least 6 characters.', 'error');
+      return;
+    }
+    showToast('Updating staff password...', 'info');
+    const res = await BriskDB.apiManagerSetPassword(email, newPass.trim());
+    if (res.error) {
+      showToast('Error: ' + res.error, 'error');
+    } else {
+      showToast(`Password for ${name} set to "${newPass.trim()}"!`, 'success');
+    }
+  } else {
+    showToast('Generating instant login link...', 'info');
+    const res = await BriskDB.apiGenerateRecoveryLink(email);
+    if (res.error) {
+      showToast('Error: ' + res.error, 'error');
+    } else if (res.resetActionLink) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(res.resetActionLink);
+        alert(`🎉 1-Click Login Link for ${name} has been COPIED to your clipboard!\n\nYou can now paste and send it to ${name} via SMS, WhatsApp, or iMessage.`);
+      } else {
+        prompt(`1-Click Login Link for ${name}:`, res.resetActionLink);
+      }
+      showToast('1-Click Login Link copied!', 'success');
+    }
   }
 }
 
@@ -3819,9 +3875,11 @@ async function handleUpdatePasswordSubmit(event) {
   }
 
   const btn = document.querySelector('#modal-update-password button[type="submit"]');
-  const origText = btn.innerHTML;
-  btn.disabled = true;
-  btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Saving...';
+  const origText = btn ? btn.innerHTML : 'Save Password';
+  if (btn) {
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Saving...';
+  }
 
   try {
     const res = await BriskDB.apiUpdatePassword(password);
@@ -3830,14 +3888,17 @@ async function handleUpdatePasswordSubmit(event) {
     } else {
       showToast('Password updated successfully! Please log in.', 'success');
       window.location.hash = ''; // Clear recovery hash
-      document.getElementById('modal-update-password').classList.remove('active');
+      const updateModal = document.getElementById('modal-update-password');
+      if (updateModal) updateModal.classList.remove('active');
       showLoginScreen();
     }
   } catch (err) {
     showToast('Failed to update password.', 'error');
   } finally {
-    btn.disabled = false;
-    btn.innerHTML = origText;
+    if (btn) {
+      btn.disabled = false;
+      btn.innerHTML = origText;
+    }
   }
 }
 
@@ -3882,6 +3943,7 @@ window.openResetPasswordModal = openResetPasswordModal;
 window.closeResetPasswordModal = closeResetPasswordModal;
 window.handleResetPasswordSubmit = handleResetPasswordSubmit;
 window.handleUpdatePasswordSubmit = handleUpdatePasswordSubmit;
+window.handleManagerGenerateStaffLink = handleManagerGenerateStaffLink;
 
 /* ==========================================================================
    ROLE CUSTOMIZATION HANDLERS

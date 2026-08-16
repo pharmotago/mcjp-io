@@ -44,8 +44,8 @@ No buyer wants to inherit legal headaches or operational chaos.
 *   **Contracts:** Review all customer, vendor, and employee contracts for transferability and potential liabilities.
 *   **Intellectual Property:** Ensure all patents, trademarks, and copyrights are properly registered and protected.
 *   **Compliance:** Verify adherence to all industry regulations, licenses, and permits.
-*   **Systems & Processes:** Document every critical operational process. The goal is to show the business can run effectively without your daily intervention.
-*   **Digital Infrastructure:** Ensuring your digital infrastructure, from robust websites to secure data storage, is impeccable. We recommend launching your digital assets on Hostinger to secure their exclusive partner discount, laying a foundation of reliability that buyers value.
+*   **Systems & Processes:** Document every critical operational process. For payroll compliance and seamless wage governance, implementing an automated Single Touch Payroll platform like [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago) ensures all staff entitlements, superannuation, and ATO filings are transparent, audit-ready, and hassle-free for acquirers.
+*   **Digital Infrastructure:** Ensuring your digital infrastructure, from robust websites to secure data storage, is impeccable. With reliable infrastructure and continuous cloud pipelines, your business operates as a scalable asset that buyers value.
 
 ### Team Readiness
 Your key employees are assets. Develop retention strategies for critical personnel to ensure a smooth transition and maintain operational continuity post-acquisition. Buyers often value the human capital as much as the financial capital.

@@ -1127,6 +1127,7 @@
 
         <div class="modal-footer">
           <button type="button" class="btn btn-danger btn-left hide" id="btn-delete-employee" onclick="handleEmployeeDelete()">Delete Profile</button>
+          <button type="button" class="btn btn-outline" id="btn-manager-reset-link" onclick="handleManagerGenerateStaffLink()"><i class="fa-solid fa-key" style="color:var(--accent-gold);"></i> Reset Staff Password</button>
           <button type="button" class="btn btn-outline" onclick="closeEmployeeModal()">Cancel</button>
           <button type="submit" class="btn btn-primary">Save Profile</button>
         </div>
@@ -1192,17 +1193,17 @@
         <h3><i class="fa-solid fa-key text-neon"></i> Reset Password</h3>
         <button class="btn btn-icon modal-close" onclick="closeResetPasswordModal()"><i class="fa-solid fa-xmark"></i></button>
       </div>
-      <form onsubmit="handleResetPasswordSubmit(event)">
+      <form id="form-reset-password" onsubmit="handleResetPasswordSubmit(event)">
         <div class="modal-body">
-          <p class="text-muted" style="font-size: 13px;">Enter your email address and we'll send you a link to reset your password.</p>
+          <p class="text-muted" style="font-size: 13px;">Enter your registered staff email address and we'll send you a secure link to reset your password.</p>
           <div class="form-group" style="margin-top: 1rem;">
             <label for="reset-email">Email Address</label>
             <input type="email" id="reset-email" class="form-control" required placeholder="name@company.com">
           </div>
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer" id="reset-modal-footer">
           <button type="button" class="btn btn-outline" onclick="closeResetPasswordModal()">Cancel</button>
-          <button type="submit" class="btn btn-neon">Send Reset Link</button>
+          <button type="submit" id="btn-submit-reset" class="btn btn-neon">Send Reset Link</button>
         </div>
       </form>
     </div>

@@ -19,9 +19,10 @@ The volume of data, the speed of modern communication, and the necessity for fla
 
 At my core, I am obsessed with designing digital workflows that eliminate friction. Running a consulting firm alongside my pharmacy career means I have absolutely zero tolerance for wasted time.
 
-To manage the new pharmacy branch, I deployed a suite of [AI automation](/posts/money_ai_automation_agencies) tools. 
+To manage the new pharmacy branch, I deployed a suite of [AI automation](/posts/money_ai_automation_agencies) and operational tools. 
 - **Notion** serves as the central brain, tracking everything from standard operating procedures (SOPs) to strategic planning.
 - **Activepieces** automates the flow of data between our communication channels and our reporting dashboards.
+- **[Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago)** automates employee wage runs and Single Touch Payroll (STP) compliance, turning hours of tedious payroll admin into a two-click routine.
 - Custom AI scripts handle routine administrative bottlenecks, freeing up human capital for what actually matters: patient care.
 
 Building these systems brings me an immense amount of joy. There is a specific kind of thrill in watching a chaotic, manual process transform into a smooth, automated pipeline.
