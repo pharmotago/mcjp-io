@@ -5,8 +5,8 @@ const BriskScheduler = (function() {
   
   // Helper: Convert shift to absolute start and end dates
   function shiftToDateRanges(dateStr, startStr, endStr) {
-    const sStr = startStr || '00:00';
-    const eStr = endStr || '00:00';
+    const sStr = (startStr || '00:00').substring(0, 5);
+    const eStr = (endStr || '00:00').substring(0, 5);
     const start = new Date(`${dateStr}T${sStr}:00`);
     const end = new Date(`${dateStr}T${eStr}:00`);
     if (isNaN(start.getTime()) || isNaN(end.getTime())) {
@@ -75,19 +75,19 @@ const BriskScheduler = (function() {
     ];
 
     // 1. Owner & Retail Manager can do everything
-    if (pos === 'owner' || pos === 'retail manager' || pos === 'manager') {
+    if (pos.includes('owner') || pos.includes('retail manager') || pos.includes('partner') || pos === 'manager') {
       return ['dispensary', 'webster', ...retailRoles];
     }
     // 2. Pharmacist Manager & Pharmacist
-    if (pos === 'pharmacist manager' || pos === 'pharmacist') {
+    if (pos.includes('pharmacist') || pos.includes('pic') || pos.includes('locum')) {
       return ['dispensary', 'webster', 'scripts in/out', 'floating/floors', 'floor', 'tills', 'brand strategy'];
     }
     // 3. Dispense Technician
-    if (pos === 'dispense technician') {
+    if (pos.includes('technician') || pos.includes('dispensary')) {
       return ['dispensary', 'webster', 'tills', 'floor', 'floating/floors', 'scripts in/out', 'stock receive & orders', 'stock control & gap scan'];
     }
     // 4. Pharmacy Assistant & Retail Associate
-    if (pos === 'pharmacy assistant' || pos === 'retail associate') {
+    if (pos.includes('assistant') || pos.includes('associate') || pos.includes('floor') || pos.includes('till')) {
       return retailRoles;
     }
     
@@ -292,6 +292,22 @@ const BriskScheduler = (function() {
             const restHours = (nRange.start.getTime() - curRange.end.getTime()) / (1000 * 60 * 60);
             if (restHours < 10) return false;
           }
+
+          // Constraint G: Maximum 6 Consecutive Days Limit (Pharmacy Award Clause 13.3)
+          let consecutiveDays = 1;
+          for (let b = 1; b <= 6; b++) {
+            const checkD = getOffsetDateStr(shift.date, -b);
+            const hadShift = (employeeSchedules[`${emp.id}_${checkD}`] || []).length > 0;
+            if (hadShift) consecutiveDays++;
+            else break;
+          }
+          for (let f = 1; f <= 6; f++) {
+            const checkD = getOffsetDateStr(shift.date, f);
+            const hadShift = (employeeSchedules[`${emp.id}_${checkD}`] || []).length > 0;
+            if (hadShift) consecutiveDays++;
+            else break;
+          }
+          if (consecutiveDays > 6) return false;
 
           return true;
         });

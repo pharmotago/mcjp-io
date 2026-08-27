@@ -420,22 +420,63 @@ body.theme-light {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 8px 12px;
 }
 .week-picker {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 12px;
-  background: rgba(0, 0, 0, 0.2);
-  padding: 4px 12px;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 4px 8px;
   border-radius: var(--radius-md);
   border: 1px solid var(--border-glass);
+  flex-wrap: wrap;
 }
 .week-range-text {
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   font-weight: 600;
-  min-width: 250px;
+  min-width: 175px;
   text-align: center;
+  white-space: nowrap;
+}
+.scheduler-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.action-bar .btn {
+  height: 34px !important;
+  padding: 0 10px !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  white-space: nowrap !important;
+  border-radius: var(--radius-sm) !important;
+}
+.action-bar .btn-icon {
+  width: 32px !important;
+  height: 32px !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+#labor-cost-forecast-badge,
+#wage-ratio-forecast-badge {
+  height: 32px !important;
+  padding: 0 10px !important;
+  font-size: 0.82rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  white-space: nowrap !important;
 }
 
 .search-box {
@@ -605,38 +646,59 @@ body.theme-light {
 /* Scheduler Workspace Layout */
 .calendar-workspace {
   padding: 0 !important;
+  overflow: hidden;
 }
 .scheduler-grid-container {
   overflow-x: auto;
+  overflow-y: auto;
+  max-height: calc(100vh - 175px);
+  max-height: calc(100dvh - 175px);
   width: 100%;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius-md);
 }
 .scheduler-grid-table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   table-layout: fixed;
-  min-width: 1000px;
+  min-width: 960px;
 }
-.scheduler-grid-table th {
-  background: rgba(0, 0, 0, 0.25);
+.scheduler-grid-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: #11141a !important;
   color: var(--text-secondary);
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.85rem;
   text-align: center;
-  padding: 12px 6px;
+  padding: 10px 4px;
   border-right: 1px solid var(--border-glass);
-  border-bottom: 2px solid var(--border-glass);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.16) !important;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
 }
 .col-employee {
-  width: 180px;
+  width: 15%;
+  min-width: 130px;
+  max-width: 170px;
   text-align: left !important;
-  padding-left: 1rem !important;
+  padding-left: 0.85rem !important;
+}
+.scheduler-grid-table thead th.col-employee {
   position: sticky;
+  top: 0;
   left: 0;
-  background: rgba(13, 15, 18, 0.95) !important;
-  z-index: 2;
+  z-index: 35 !important;
+  background: #11141a !important;
+  border-right: 2px solid rgba(255, 255, 255, 0.18) !important;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
 }
 .col-day {
-  width: 130px;
+  width: 12.14%;
+  min-width: 95px;
 }
 .day-date {
   display: block;
@@ -648,24 +710,34 @@ body.theme-light {
 .scheduler-grid-table td {
   border-right: 1px solid var(--border-glass);
   border-bottom: 1px solid var(--border-glass);
-  height: 100px;
+  height: 95px;
   vertical-align: top;
-  padding: 6px;
+  padding: 5px;
   position: relative;
+  background: rgba(13, 15, 18, 0.4);
 }
 
 /* Employee Sticky Profile Column in Grid */
-.grid-employee-cell {
+.grid-employee-cell,
+.scheduler-grid-table tbody td:first-child,
+.scheduler-grid-table tbody td.col-employee {
   position: sticky;
   left: 0;
-  background: rgba(22, 26, 33, 0.95);
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-  border-right: 2px solid var(--border-glass) !important;
-  padding: 8px 12px !important;
+  background: #11141a !important;
+  z-index: 15 !important;
+  display: table-cell;
+  vertical-align: middle;
+  border-right: 2px solid rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.45);
+  padding: 8px 10px !important;
+}
+
+.scheduler-grid-table tfoot td:first-child {
+  position: sticky;
+  left: 0;
+  background: #11141a !important;
+  z-index: 15 !important;
+  border-right: 2px solid rgba(255, 255, 255, 0.18) !important;
 }
 .menu-item span {
   font-weight: 500;
@@ -683,17 +755,20 @@ body.theme-light {
   line-height: 1;
 }
 .grid-emp-name {
-  font-weight: 600;
-  font-size: 0.9rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #ffffff;
+  letter-spacing: 0.2px;
 }
 .grid-emp-role {
-  font-size: 0.75rem;
-  color: var(--text-muted);
+  font-size: 0.78rem;
+  color: #cbd5e1;
   margin-top: 2px;
 }
 .grid-emp-hours {
-  font-size: 0.7rem;
-  color: var(--accent-gold);
+  font-size: 0.78rem;
+  color: var(--accent-cyan, #00e5ff);
+  font-weight: 600;
   margin-top: 4px;
 }
 
@@ -858,7 +933,7 @@ body.theme-light {
   min-width: 0;
   width: 100%;
 }
-@media (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
   .timeclock-layout {
     grid-template-columns: 1fr;
     width: 100%;
@@ -988,7 +1063,7 @@ body.theme-light {
   min-width: 0;
   width: 100%;
 }
-@media (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
   .timeoff-layout {
     grid-template-columns: 1fr;
     width: 100%;
@@ -1002,7 +1077,7 @@ body.theme-light {
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 1.5rem;
 }
-@media (min-width: 769px) {
+@media screen and (min-width: 769px) {
   .settings-grid .flex-2 {
     grid-column: span 2;
   }
@@ -1110,17 +1185,20 @@ select.form-control option {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.78);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  z-index: 10000; /* Set above mobile bottom nav (999) */
-  align-items: center;
-  justify-content: center;
+  z-index: 99999 !important;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 24px 12px;
+  box-sizing: border-box;
   animation: fadeInModal 0.2s ease-in-out;
 }
 .modal.active {
   display: flex !important;
-  z-index: 99999 !important;
+  align-items: flex-start;
+  justify-content: center;
 }
 @keyframes fadeInModal {
   from { opacity: 0; }
@@ -1135,21 +1213,29 @@ select.form-control option {
 }
 
 .modal-content {
-  width: 90%;
-  max-width: 500px;
+  width: 100%;
+  max-width: 540px;
+  margin: auto;
   padding: 1.5rem;
+  max-height: calc(100vh - 48px);
+  max-height: calc(100dvh - 48px);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
   animation: slideInModal 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .max-w-lg {
-  max-width: 640px !important;
+  max-width: 660px !important;
 }
 @keyframes slideInModal {
-  from { transform: translateY(-30px); opacity: 0; }
+  from { transform: translateY(-20px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
 @keyframes slideOutModal {
   from { transform: translateY(0); opacity: 1; }
-  to { transform: translateY(-30px); opacity: 0; }
+  to { transform: translateY(-20px); opacity: 0; }
 }
 .modal.closing .modal-content {
   animation: slideOutModal 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
@@ -1159,9 +1245,10 @@ select.form-control option {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
   padding-bottom: 0.75rem;
   border-bottom: 1px solid var(--border-glass);
+  flex-shrink: 0;
 }
 .modal-header h3 {
   font-family: var(--font-title);
@@ -1170,13 +1257,53 @@ select.form-control option {
 .modal-close {
   color: var(--text-secondary);
 }
+
+.modal-content form,
+.modal-body {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-right: 6px;
+  flex: 1;
+  min-height: 0;
+}
+
+/* Custom Sleek Scrollbar for Modals & Table */
+.modal-content form::-webkit-scrollbar,
+.modal-body::-webkit-scrollbar,
+.scheduler-grid-container::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.modal-content form::-webkit-scrollbar-thumb,
+.modal-body::-webkit-scrollbar-thumb,
+.scheduler-grid-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 4px;
+}
+.modal-content form::-webkit-scrollbar-thumb:hover,
+.modal-body::-webkit-scrollbar-thumb:hover,
+.scheduler-grid-container::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-cyan, #00e5ff);
+}
+
 .modal-footer {
+  position: sticky;
+  bottom: 0;
+  background: rgba(18, 24, 38, 0.98);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  padding-bottom: 0.25rem;
+  border-top: 1px solid var(--border-glass);
+  z-index: 20;
   display: flex;
   justify-content: flex-end;
   gap: 8px;
-  margin-top: 1.5rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--border-glass);
+  flex-shrink: 0;
 }
 
 .hide { display: none !important; }
@@ -1273,19 +1400,16 @@ select.form-control option {
   pointer-events: auto;
 }
 
-/* Tablet and Smaller */
-@media (max-width: 1024px) {
+/* Tablet and Mobile Screens */
+@media screen and (max-width: 1024px) {
   .dashboard-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
   .dashboard-split {
     flex-direction: column;
     gap: 16px;
   }
-}
 
-/* Mobile Screens */
-@media (max-width: 768px) {
   .card-header {
     flex-direction: column;
     align-items: flex-start;
@@ -1296,32 +1420,58 @@ select.form-control option {
   }
 
   .app-container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    overflow: hidden;
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 100vh !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
   }
   
   .mobile-header {
-    display: flex;
-    flex-shrink: 0;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 0.75rem 1rem !important;
+    background: rgba(13, 15, 18, 0.96) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border-bottom: 1px solid var(--border-glass) !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 50 !important;
+    width: 100% !important;
+    flex-shrink: 0 !important;
   }
 
   .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 190px;
-    height: 100vh;
-    z-index: 30;
-    transform: translateX(-100%);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 80px; /* Space for bottom nav bar */
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 280px !important;
+    max-width: 82vw !important;
+    height: 100vh !important;
+    z-index: 1000 !important;
+    transform: translateX(-100%) !important;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding-bottom: 90px !important; /* Space for bottom nav bar */
+    background: rgba(13, 15, 18, 0.98) !important;
+    box-shadow: 4px 0 25px rgba(0, 0, 0, 0.5) !important;
   }
   .sidebar.open {
-    transform: translateX(0);
+    transform: translateX(0) !important;
+  }
+
+  .mobile-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.65) !important;
+    z-index: 999 !important;
+    backdrop-filter: blur(4px) !important;
+    -webkit-backdrop-filter: blur(4px) !important;
   }
   
   .sidebar-brand h2 {
@@ -1333,18 +1483,18 @@ select.form-control option {
   }
 
   .main-content {
-    padding: 1.25rem 1rem 80px 1rem !important; /* Extra bottom padding for bottom nav */
-    gap: 1.5rem;
-    flex: 1;
-    overflow-y: auto;
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-    width: 100%;
-    max-width: 100vw;
+    padding: 1rem 0.85rem calc(80px + env(safe-area-inset-bottom, 0px)) 0.85rem !important; /* Extra bottom padding for bottom nav */
+    gap: 1.25rem !important;
+    flex: 1 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    width: 100% !important;
+    max-width: 100vw !important;
   }
 
-  .topbar .live-clock {
-    display: none;
+  .topbar {
+    display: none !important; /* Mobile header replaces topbar cleanly */
   }
 
   .dashboard-grid {
@@ -1353,17 +1503,20 @@ select.form-control option {
 
   .dashboard-split {
     flex-direction: column;
+    gap: 1rem;
   }
   .flex-2, .flex-1 {
     flex: none;
     width: 100%;
   }
   .glass-card {
+    padding: 1rem !important;
     max-width: 100% !important;
     min-width: 0 !important;
     overflow-x: auto !important;
     overflow-y: visible !important;
     box-sizing: border-box !important;
+    border-radius: var(--radius-md) !important;
   }
   .glass-card .empty-state h4,
   .glass-card .empty-state p {
@@ -1423,12 +1576,69 @@ select.form-control option {
     -webkit-overflow-scrolling: touch;
   }
   .shift-list-scroll .data-table,
-  .timesheet-scroll .data-table,
-  .leave-list-scroll .data-table {
+  .timesheet-scroll .data-table {
     min-width: 0;
     width: 100%;
     table-layout: auto;
   }
+
+  /* Mobile Responsive Cards for Leave Requests */
+  .leave-list-scroll .data-table,
+  .leave-list-scroll .data-table thead,
+  .leave-list-scroll .data-table tbody,
+  .leave-list-scroll .data-table tr.leave-request-row,
+  .leave-list-scroll .data-table tr.leave-request-row td {
+    display: block !important;
+    width: 100% !important;
+  }
+  .leave-list-scroll .data-table thead {
+    display: none !important;
+  }
+  .leave-list-scroll .data-table tr.leave-request-row {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid var(--border-glass) !important;
+    border-radius: var(--radius-md) !important;
+    margin-bottom: 12px !important;
+    padding: 12px 14px !important;
+    box-sizing: border-box !important;
+  }
+  .leave-list-scroll .data-table tr.leave-request-row td {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 6px 0 !important;
+    border: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04) !important;
+    white-space: normal !important;
+  }
+  .leave-list-scroll .data-table tr.leave-request-row td:last-child {
+    border-bottom: none !important;
+    padding-top: 10px !important;
+  }
+  .leave-list-scroll .data-table tr.leave-request-row td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    flex-shrink: 0;
+    margin-right: 12px;
+  }
+  .leave-list-scroll .data-table tr.leave-request-row td.leave-actions-cell {
+    justify-content: stretch !important;
+  }
+  .leave-list-scroll .data-table tr.leave-request-row td.leave-actions-cell .action-group {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
+  .leave-list-scroll .data-table tr.leave-request-row td.leave-actions-cell button {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 8px 12px !important;
+    font-size: 0.85rem !important;
+  }
+
   .data-table th,
   .data-table td {
     padding: 8px 6px !important;
@@ -1453,25 +1663,43 @@ select.form-control option {
     display: flex;
     flex-direction: column;
   }
-
-  .topbar {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
   
   .login-card {
-    padding: 2rem 1.5rem;
+    padding: 2rem 1.25rem !important;
+    margin: 1rem !important;
+    width: calc(100vw - 2rem) !important;
+    max-width: 420px !important;
   }
 
   .modal-content {
-    max-height: 90vh;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+    width: 95vw !important;
+    max-width: 95vw !important;
+    max-height: calc(100dvh - 24px) !important;
+    padding: 1rem !important;
+    margin: 12px auto !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    border-radius: var(--radius-md) !important;
   }
   
   .metrics-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem !important;
+  }
+  .metric-card {
+    padding: 0.85rem 1rem !important;
+    gap: 10px !important;
+  }
+  .metric-icon {
+    width: 38px !important;
+    height: 38px !important;
+    font-size: 1rem !important;
+  }
+  .metric-value {
+    font-size: 1.25rem !important;
+  }
+  .metric-label {
+    font-size: 0.7rem !important;
   }
 
   .employees-grid {
@@ -1480,14 +1708,16 @@ select.form-control option {
 
   .action-bar {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     width: 100%;
+    gap: 8px;
+    padding: 8px !important;
   }
   .action-bar .week-picker {
     width: 100% !important;
     justify-content: space-between !important;
     gap: 6px !important;
-    padding: 4px 8px !important;
+    padding: 6px 8px !important;
   }
   .action-bar .week-range-text {
     min-width: 0 !important;
@@ -1500,12 +1730,12 @@ select.form-control option {
   .action-bar .scheduler-controls {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 6px;
     width: 100%;
   }
 
   .form-control, input, select, textarea {
-    font-size: 16px !important;
+    font-size: 16px !important; /* Prevents auto-zoom on iOS */
   }
 
   /* Prevent Safari from intercepting touch events with huge blurred orbs */
@@ -1644,7 +1874,7 @@ select.form-control option {
   display: none;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .desktop-only-grid {
     display: none !important;
   }
@@ -1785,7 +2015,7 @@ select.form-control option {
   opacity: 1;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .shift-card .btn-icon {
     opacity: 1;
   }
@@ -1796,7 +2026,7 @@ select.form-control option {
   display: none;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .mobile-bottom-nav {
     display: flex !important;
     position: fixed;
@@ -1804,7 +2034,7 @@ select.form-control option {
     left: 0;
     right: 0;
     height: calc(62px + env(safe-area-inset-bottom, 0px));
-    background: rgba(18, 18, 26, 0.85);
+    background: rgba(13, 15, 18, 0.95);
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
     border-top: 1px solid var(--border-glass);
@@ -1894,208 +2124,731 @@ select.form-control option {
   z-index: 10;
 }
 
-/* =====================================
-   PRINT STYLESHEET — A4 Landscape & Clean Layout
-   ===================================== */
-@media print {
-  @page {
-    size: A4 landscape;
-    margin: 5mm 7mm 5mm 7mm;
-  }
+/* ==========================================================================
+   GOOGLE AI SUITE & STITCH VIBE DESIGN SYSTEM (BriskSchedules)
+   ========================================================================== */
 
-  body, .app-root, .main-content, .app-container {
-    background: #ffffff !important;
-    color: #000000 !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    overflow: visible !important;
-    height: auto !important;
-    width: 100% !important;
-  }
+.ai-ops-hero {
+  background: linear-gradient(135deg, rgba(0, 229, 255, 0.08) 0%, rgba(168, 85, 247, 0.06) 50%, rgba(16, 185, 129, 0.04) 100%);
+  border: 1px solid rgba(0, 229, 255, 0.25);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
 
-  .sidebar,
-  .topbar,
-  .app-header,
-  .week-picker button,
-  .scheduler-controls,
-  .cell-add-btn,
-  .btn-icon,
-  .mobile-only-timeline,
-  .mobile-bottom-nav,
-  .loading-overlay,
-  .orb,
-  .modal,
-  .action-bar button,
-  #trading-hours-form,
-  .staff-reorder-btn,
-  .staff-reorder-btn-group,
-  .print-hide {
-    display: none !important;
-  }
+.ai-ops-hero::after {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(0, 229, 255, 0.2), transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
 
-  .tab-panel:not(.active) {
-    display: none !important;
-  }
-  .tab-panel.active {
-    display: block !important;
-  }
+.ai-suite-nav-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--border-glass);
+  padding-bottom: 8px;
+}
 
-  .glass-card, .calendar-workspace, .report-workspace {
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    color: #000000 !important;
-  }
+.ai-tab-btn {
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-glass);
+  color: var(--text-secondary);
+  transition: var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
 
-  /* Scheduler Grid Print */
-  .scheduler-grid-container {
-    overflow: visible !important;
-    width: 100% !important;
-  }
+.ai-tab-btn:hover {
+  background: rgba(0, 229, 255, 0.08);
+  border-color: rgba(0, 229, 255, 0.3);
+  color: var(--text-primary);
+}
 
-  .scheduler-grid-table {
-    border-collapse: collapse !important;
-    width: 100% !important;
-    table-layout: fixed !important;
-    color: #000000 !important;
-  }
+.ai-tab-btn.active {
+  background: linear-gradient(135deg, rgba(0, 229, 255, 0.18) 0%, rgba(168, 85, 247, 0.12) 100%);
+  border-color: var(--accent-cyan);
+  color: var(--text-primary);
+  box-shadow: 0 0 14px rgba(0, 229, 255, 0.2);
+}
 
-  .scheduler-grid-table th, 
-  .scheduler-grid-table td {
-    border: 1px solid #000000 !important;
-    color: #000000 !important;
-    font-size: 8.5pt !important;
-    padding: 4px !important;
-    background: #ffffff !important;
-    text-align: center !important;
-    vertical-align: top !important;
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
-  }
+.ai-workflow-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
 
-  .scheduler-grid-table th:first-child,
-  .scheduler-grid-table td:first-child {
-    text-align: left !important;
-    width: 14% !important;
-  }
+.ai-workflow-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: var(--transition-fast);
+  position: relative;
+}
 
-  .scheduler-grid-table th {
-    background: #f1f5f9 !important;
-    font-weight: bold !important;
-  }
+.ai-workflow-card:hover {
+  border-color: rgba(0, 229, 255, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
 
-  .shift-card {
-    border: 1px solid #334155 !important;
-    border-left: 4px solid #0f172a !important;
-    background: #ffffff !important;
-    color: #000000 !important;
-    padding: 3px 5px !important;
-    margin: 3px 0 !important;
-    border-radius: 3px !important;
-    box-shadow: none !important;
-    opacity: 1 !important;
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
-  }
+.ai-workflow-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
 
-  .shift-card-header {
-    font-weight: bold !important;
-    font-size: 8.5pt !important;
+.ai-workflow-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.ai-node-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.82rem;
+}
+
+.ai-node-step:last-child {
+  border-bottom: none;
+}
+
+.ai-step-num {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(0, 229, 255, 0.15);
+  color: var(--accent-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.broadcast-output-box {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.82rem;
+  color: #e2e8f0;
+  white-space: pre-wrap;
+  max-height: 260px;
+  overflow-y: auto;
+  line-height: 1.4;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.sparkle-glow {
+  animation: sparklePulse 2.5s infinite alternate ease-in-out;
+}
+
+@keyframes sparklePulse {
+  0% { text-shadow: 0 0 4px rgba(0, 229, 255, 0.4); }
+  100% { text-shadow: 0 0 16px rgba(0, 229, 255, 0.9), 0 0 24px rgba(168, 85, 247, 0.6); }
+}
+
+/* ==========================================================================
+   COMPACT & SMALL SCREEN SCROLLABILITY SUITE (Mobile, Tablet, Small Laptops)
+   ========================================================================== */
+
+@media screen and (max-width: 1024px) {
+  .ai-ops-hero {
+    padding: 1.1rem;
+    margin-bottom: 1rem;
   }
   
-  .shift-card-time {
-    font-size: 8pt !important;
-    color: #0f172a !important;
-  }
-  
-  .shift-card-notes {
-    font-style: italic !important;
-    font-size: 7.5pt !important;
-    color: #334155 !important;
-  }
-
-  .scheduler-grid-table tfoot tr {
-    background: #f8fafc !important;
-  }
-  .scheduler-grid-table tfoot tr.grand-total {
-    background: #e2e8f0 !important;
-    font-weight: bold !important;
-  }
-
-  /* Daily View Print Header/Footer */
-  #panel-daily::before {
-    content: 'Amcal Pharmacy Woy Woy — Daily Roster';
-    display: block;
-    font-size: 16pt;
-    font-weight: 900;
-    font-family: 'Outfit', 'Inter', system-ui, sans-serif;
-    text-align: center;
-    color: #000;
-    margin-bottom: 6px;
+  .ai-suite-nav-tabs {
+    display: flex;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    gap: 6px;
     padding-bottom: 6px;
-    border-bottom: 2px solid #0f172a;
+    scrollbar-width: thin;
   }
 
-  #panel-daily .daily-timeline-container {
-    margin-bottom: 12px !important;
+  .ai-tab-btn {
+    flex-shrink: 0;
+    white-space: nowrap;
+    font-size: 0.8rem;
+    padding: 6px 12px;
   }
 
-  #panel-daily .daily-timeline-visual {
-    border: 1px solid #ccc !important;
-    background: #f8fafc !important;
+  .ai-workflow-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
-  #panel-daily .timeline-bar {
-    opacity: 1 !important;
-    color: #000 !important;
-    font-weight: 700 !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
+  .broadcast-output-box {
+    max-height: 220px;
+    font-size: 0.78rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 
-  #panel-daily .daily-timeline-labels {
-    color: #000 !important;
-    font-weight: 600 !important;
+  .mixboard-palette-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important;
   }
 
-  #panel-daily .badge {
-    border: 1px solid #334155 !important;
-    color: #000 !important;
-    background: #f1f5f9 !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
+  /* Modal small screen scrolling guarantee */
+  .modal {
+    padding: 12px 8px !important;
   }
 
-  #panel-daily::after {
-    content: 'Printed from Amcal Woy Woy Roster — https://woywoyamcalroster.vercel.app';
-    display: block;
-    font-size: 7pt;
-    color: #94a3b8;
-    text-align: center;
-    margin-top: 12px;
-    padding-top: 6px;
-    border-top: 1px solid #e2e8f0;
+  .modal-content {
+    width: 96vw !important;
+    max-height: calc(100dvh - 20px) !important;
+    padding: 1rem !important;
   }
 
-  /* Reports Panel Print */
-  .report-header-print {
-    display: block !important;
-    margin-bottom: 1.5rem;
+  .modal-body,
+  .modal-content form {
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    max-height: calc(100dvh - 120px) !important;
   }
-  .report-header-print h2 {
-    font-size: 1.5rem;
-    color: #000;
-  }
-  .data-table th {
-    background: #f1f5f9 !important;
-    color: #000 !important;
-    border-bottom: 2px solid #000 !important;
-  }
-  .data-table td {
-    border-bottom: 1px solid #ddd !important;
-    color: #000 !important;
+
+  /* Ensure all horizontal data tables can scroll seamlessly on touch devices */
+  .scheduler-grid-container,
+  .timesheet-scroll,
+  .leave-list-scroll,
+  .shift-list-scroll,
+  .data-table-container,
+  .table-responsive {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    touch-action: pan-x pan-y;
   }
 }
 
+@media screen and (max-width: 480px) {
+  .topbar {
+    padding-bottom: 0.5rem;
+  }
+
+  .topbar-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    width: 100%;
+  }
+
+  .page-title h1 {
+    font-size: 1.35rem;
+  }
+
+  .btn {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+}
+
+/* ==========================================================================
+   ROSTER PRINT PDF & FULL-COLOR WEEKLY ROSTER ENGINE
+   ========================================================================== */
+
+.print-only {
+  display: none !important;
+}
+
+@page {
+  size: landscape;
+  margin: 5mm 6mm 5mm 6mm;
+}
+
+@media print {
+  @page {
+    size: landscape;
+    margin: 5mm 6mm 5mm 6mm;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    padding: 0 !important;
+    font-size: 11px !important;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Completely hide all UI navigation, controls, sidebars, buttons, badges, modals, overlays, and wage stats */
+  .sidebar, 
+  #app-sidebar,
+  aside.sidebar,
+  .topbar, 
+  header.topbar,
+  .mobile-header,
+  header.mobile-header,
+  .mobile-nav, 
+  .mobile-bottom-nav,
+  .action-bar, 
+  div.action-bar,
+  .glass-card.action-bar,
+  .week-picker,
+  .scheduler-controls,
+  .controls-row,
+  .btn, 
+  .btn-icon,
+  .cell-add-btn,
+  .staff-reorder-btn,
+  .staff-reorder-btn-group,
+  .text-danger i.fa-trash,
+  .modal-backdrop,
+  .modal,
+  .orb,
+  .toast-container,
+  .loading-overlay,
+  .pulse-indicator,
+  .mobile-only-timeline,
+  .print-hide,
+  .print-hide-wage,
+  .wage-val,
+  #labor-cost-forecast-badge,
+  #wage-ratio-forecast-badge,
+  #btn-auto-schedule,
+  #btn-clear-week,
+  #btn-copy-week,
+  #sync-pending-badge,
+  #btn-changelog-modal,
+  #btn-global-refresh,
+  #theme-toggle,
+  #dash-quick-actions-card,
+  #dash-staff-actions-card,
+  #toast-container {
+    display: none !important;
+  }
+
+  /* Show print-only banners & headers */
+  .print-only,
+  .roster-print-header {
+    display: block !important;
+  }
+
+  html, body, .app-root {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    position: static !important;
+    background: #ffffff !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .app-container {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    grid-template-columns: 1fr !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    position: static !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  .tab-panel {
+    display: none !important;
+  }
+
+  .tab-panel.active {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+    position: static !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .main-content {
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+    position: static !important;
+    background: #ffffff !important;
+  }
+
+  /* Remove overflow restrictions on all grid wrappers */
+  .calendar-workspace, 
+  .scheduler-grid-container,
+  .desktop-only-grid {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Scheduler Table Layout in Print */
+  .scheduler-grid-table,
+  .scheduler-grid-table tbody,
+  .scheduler-grid-table tr,
+  .scheduler-grid-table td,
+  .calendar-grid-cell {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    box-shadow: none !important;
+  }
+
+  .scheduler-grid-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    page-break-inside: auto;
+    font-size: 10px !important;
+    color: #0f172a !important;
+  }
+
+  .scheduler-grid-table tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+
+  .scheduler-grid-table th,
+  .scheduler-grid-table td {
+    border: 1px solid #cbd5e1 !important;
+    padding: 4px 6px !important;
+    position: static !important;
+  }
+
+  .scheduler-grid-table thead th {
+    background: #f1f5f9 !important;
+    color: #0f172a !important;
+    font-weight: 800 !important;
+    text-align: center !important;
+    font-size: 11px !important;
+    border-bottom: 2px solid #94a3b8 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .scheduler-grid-table thead th.col-employee {
+    text-align: left !important;
+    width: 160px !important;
+    background: #f1f5f9 !important;
+    color: #0f172a !important;
+  }
+
+  .grid-employee-cell,
+  .scheduler-grid-table tbody td:first-child,
+  .scheduler-grid-table tbody td.col-employee,
+  .scheduler-grid-table tfoot td:first-child {
+    background: #f8fafc !important;
+    color: #0f172a !important;
+    border: 1px solid #cbd5e1 !important;
+    border-right: 2px solid #94a3b8 !important;
+    box-shadow: none !important;
+    padding: 6px 8px !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .grid-emp-name,
+  .scheduler-grid-table td .grid-emp-name {
+    font-size: 12px !important;
+    font-weight: 800 !important;
+    color: #0f172a !important; /* Bold Jet Black */
+    display: block !important;
+    line-height: 1.3 !important;
+    text-decoration: none !important;
+  }
+
+  .grid-emp-role,
+  .scheduler-grid-table td .grid-emp-role {
+    font-size: 9.5px !important;
+    font-weight: 600 !important;
+    color: #334155 !important; /* Dark Slate Grey */
+    display: block !important;
+    margin-top: 2px !important;
+  }
+
+  .grid-emp-hours,
+  .scheduler-grid-table td .grid-emp-hours {
+    font-size: 9.5px !important;
+    font-weight: 700 !important;
+    color: #0284c7 !important; /* Vibrant Ocean Blue */
+    display: block !important;
+    margin-top: 3px !important;
+  }
+
+  /* Full Color Shift Cards */
+  .shift-card {
+    margin-bottom: 4px !important;
+    padding: 4px 6px !important;
+    border-radius: 4px !important;
+    box-shadow: none !important;
+    page-break-inside: avoid !important;
+    font-size: 9.5px !important;
+    color: #0f172a !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .shift-card-header {
+    font-weight: 700 !important;
+    font-size: 9.5px !important;
+    color: #0f172a !important;
+    display: flex !important;
+    justify-content: space-between !important;
+  }
+
+  .shift-card-time {
+    font-size: 9px !important;
+    font-weight: 700 !important;
+    color: #1e293b !important;
+  }
+
+  .shift-card-breaks {
+    font-size: 8px !important;
+    color: #64748b !important;
+  }
+
+  .shift-card-notes {
+    font-size: 8px !important;
+    color: #475569 !important;
+    font-style: italic !important;
+  }
+
+  .calendar-grid-cell {
+    vertical-align: top !important;
+  }
+
+  /* Clean Summary Footer (Hours Only, Wage $ and % Hidden) */
+  .scheduler-grid-table tfoot tr.summary-row {
+    background: #f8fafc !important;
+    font-weight: 600 !important;
+    font-size: 9.5px !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .scheduler-grid-table tfoot tr.grand-total {
+    background: #e2e8f0 !important;
+    font-weight: 800 !important;
+    border-top: 2px solid #64748b !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .scheduler-grid-table tfoot td {
+    text-align: center !important;
+  }
+
+  .scheduler-grid-table tfoot td:first-child {
+    text-align: left !important;
+  }
+
+  /* Badges in print */
+  .badge {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    padding: 2px 4px !important;
+    border-radius: 3px !important;
+  }
+
+  .badge-danger {
+    background: #fee2e2 !important;
+    color: #b91c1c !important;
+    border: 1px solid #f87171 !important;
+  }
+
+  /* ==========================================================================
+     DAILY VIEW PRINT ENGINE (Clinical Timeline & Hourly Staffing Density)
+     ========================================================================== */
+  #panel-daily .glass-card {
+    background: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    box-shadow: none !important;
+    padding: 8px !important;
+    margin-bottom: 10px !important;
+    color: #0f172a !important;
+  }
+
+  #panel-daily h4 {
+    color: #0284c7 !important;
+    font-size: 11px !important;
+    font-weight: 800 !important;
+  }
+
+  #daily-hourly-heatmap {
+    min-width: 0 !important;
+    width: 100% !important;
+    gap: 3px !important;
+  }
+
+  #daily-hourly-heatmap > div {
+    background: #f8fafc !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #0f172a !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    padding: 4px 2px !important;
+    min-height: 48px !important;
+  }
+
+  #daily-hourly-heatmap > div > div:first-child {
+    color: #0f172a !important;
+    font-weight: 800 !important;
+    font-size: 10px !important;
+  }
+
+  #panel-daily div[style*="background: rgba(0, 0, 0, 0.25)"] {
+    background: #f8fafc !important;
+    border: 1px solid #cbd5e1 !important;
+  }
+
+  #daily-dispensing-safety-badge {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  #daily-pharm-hours-text {
+    color: #0f172a !important;
+    font-weight: 700 !important;
+  }
+
+  #daily-scripts-input,
+  #panel-daily label[for="daily-scripts-input"] {
+    display: none !important;
+  }
+
+  #panel-daily .daily-timeline-container {
+    background: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    padding: 6px !important;
+    overflow: visible !important;
+  }
+
+  #daily-timeline-visual {
+    min-width: 0 !important;
+    width: 100% !important;
+    background: #f8fafc !important;
+    border: 1px solid #cbd5e1 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  #daily-timeline-visual .timeline-bar {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    border: 1px solid rgba(0, 0, 0, 0.2) !important;
+  }
+
+  #daily-timeline-labels {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+
+  #daily-timeline-labels span {
+    color: #334155 !important;
+    font-weight: 700 !important;
+    font-size: 9px !important;
+  }
+
+  #daily-shifts-tbody tr td {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    border: 1px solid #cbd5e1 !important;
+    padding: 6px 10px !important;
+  }
+
+  #daily-shifts-tbody tr td:first-child div:first-child {
+    color: #0f172a !important;
+    font-weight: 800 !important;
+    font-size: 11.5px !important;
+  }
+
+  #daily-shifts-tbody tr td:first-child div:last-child {
+    color: #475569 !important;
+    font-weight: 600 !important;
+    font-size: 9.5px !important;
+  }
+
+  #daily-shifts-tbody tr td .badge {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    font-weight: 700 !important;
+  }
+
+  #main-panel {
+    display: block !important;
+    overflow: visible !important;
+    height: auto !important;
+  }
+}
+
+/* ==========================================================================
+   STRICT ROLE-BASED ACCESS CONTROL & FINANCIAL DATA PRIVACY
+   ========================================================================== */
+body.role-employee .manager-only,
+body.role-employee .wage-val,
+body.role-employee #labor-cost-forecast-badge,
+body.role-employee #wage-ratio-forecast-badge,
+body.role-employee #rep-wage-kpi-card,
+body.role-employee #rep-sales-reconcile-card,
+body.role-employee #menu-employees,
+body.role-employee #menu-reports,
+body.role-employee #menu-settings,
+body.role-employee #scheduler-manager-controls,
+body.role-employee .staff-reorder-btn-group,
+body.role-employee .cell-add-btn,
+body.role-employee #timeclock-admin-panel {
+  display: none !important;
+}
