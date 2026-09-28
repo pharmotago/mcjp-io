@@ -80,3 +80,5 @@ This framework equips you to view market downturns as opportunities for strategi
 ### The Discipline of Becoming Anti-Fragile
 
 The journey to cognitive fortification is ongoing. It requires unwavering discipline, self-awareness, and a courageous embrace of the unknown. It is a commitment to seeing every disruption as an invitation to evolve, every stressor as a signal for adaptation, and every moment of unpredictability as a chance to demonstrate superior capability. By consciously applying these principles, you don't just prepare for a volatile world; you become an active participant in its shaping, drawing strength from its very nature. This is the ultimate form of self-mastery, a true long-term asset in an era of constant change.
+
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
