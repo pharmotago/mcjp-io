@@ -65,4 +65,4 @@ The ultimate goal of fatherhood is not to raise a boy who is comfortable, but to
 
 The strategy is demanding, but the ROI is generational. A capable man, forged by a deliberate father, becomes a pillar of strength for his own family and his community. This is the legacy of intentional parenting.
 
-> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.

@@ -62,4 +62,4 @@ When a father successfully executes his duty, the result is a woman who is intel
 
 This is the father's highest calling. It requires an unflinching commitment to personal excellence, a relentless dedication to [family duties](/posts/life_family_duties), and the courage to set the standard in a world desperately in need of strong, principled women. Embrace the duty. Hold the line. Build the asset. The future depends on the standard you set today.
 
-> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.

@@ -54,7 +54,7 @@ You can build a portfolio of [digital assets](/posts/money_automated_content_emp
 
 The faceless AI YouTube empire is more than a [side hustle](/posts/money_ai_automation_agencies); it is a modern manifestation of [asset building](/posts/money_content_site_acquisitions). It requires a strategic mind, a disciplined hand, and the foresight to leverage technology not as a crutch, but as a multiplier of human intent. Build the system, refine the process, and let the machines work. The wealth will follow.
 
-> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 
 ---
 > **Legal Disclaimer:** The information provided on MCJP.io, including but not limited to business models, financial assets, and wealth strategies, is for general educational and informational purposes only. It does not constitute professional financial, legal, or investment advice. Always consult with a certified financial planner or legal professional before making any financial decisions.

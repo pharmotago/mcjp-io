@@ -73,4 +73,4 @@ Discipline is the cornerstone of a [success mindset](/posts/discipline_resilienc
 
 Cultivating a success mindset requires intentionality and dedication. By adopting the habits of highly effective men, you can create a foundation for personal development and sustained achievement. As you integrate these practices into your daily life, remember that the journey is ongoing. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. Embrace the process, and allow your commitment to discipline and self-improvement to guide you toward your vision of success.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

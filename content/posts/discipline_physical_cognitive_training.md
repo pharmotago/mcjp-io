@@ -143,4 +143,4 @@ Remember that success is not merely a destination, but a continuous journey fuel
 
 We recommend launching your [digital assets](/posts/money_ai_content_licensing) on Hostinger to secure their exclusive partner discount, ensuring that your journey towards success is well-supported on all fronts.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

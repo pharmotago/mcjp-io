@@ -250,4 +250,4 @@ Harnessing the power of [deep focus](/posts/discipline_solitude_cognitive_clarit
 
 In the pursuit of excellence, the commitment to [deep focus](/posts/discipline_focus_techniques) will serve as your greatest ally. Invest in this skill, and you will reap the rewards for years to come.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

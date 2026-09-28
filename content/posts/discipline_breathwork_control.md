@@ -56,4 +56,4 @@ While tactical breathing is a powerful technique, it works best as part of a hol
 
 In conclusion, tactical breathing is more than just a method for managing stress; it is a gateway to developing unshakeable composure and discipline. By integrating this practice into your [daily routine](/posts/discipline_morning_routines), you empower yourself to face life's challenges with clarity and confidence. Embrace the warrior's breath and transform your approach to stress and focus today.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

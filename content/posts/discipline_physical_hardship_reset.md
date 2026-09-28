@@ -64,4 +64,4 @@ In conclusion, the pathway to mastering dopamine and enhancing [mental clarity](
 
 As you embark on this journey, remember that every step taken toward physical hardship is a step toward a more disciplined, fulfilling life. Your mind and body will thank you.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

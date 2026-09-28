@@ -82,7 +82,7 @@ In an increasingly interconnected world, your network is your net worth. Invest 
 
 For those embarking on digital ventures, we recommend launching your [digital assets](/posts/money_crypto_investments) on Hostinger to secure their exclusive partner discount.
 
-> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 
 Embrace the power of connections, and watch your entrepreneurial journey flourish.
 

@@ -54,7 +54,7 @@ In conclusion, the journey to side hustle success is a rewarding and challenging
 
 To get started, take the first step today. Identify your passion, develop a business plan, and establish a routine. Stay committed, and you'll be on your way to turning your [side hustle](/posts/money_side_hustle) into a full-time business. Remember to celebrate your successes, learn from your failures, and stay adaptable in an ever-changing market. With persistence and dedication, you can achieve your goals and build a thriving business that brings you financial autonomy and personal fulfillment.
 
-> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 
 ---
 > **Legal Disclaimer:** The information provided on MCJP.io, including but not limited to business models, financial assets, and wealth strategies, is for general educational and informational purposes only. It does not constitute professional financial, legal, or investment advice. Always consult with a certified financial planner or legal professional before making any financial decisions.

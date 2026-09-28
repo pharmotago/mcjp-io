@@ -86,4 +86,4 @@ For deeper insights on masculine resilience and active parenting, explore [The S
 
 Embark on this transformative journey today, armed with the knowledge and strategies detailed in this guide. The power to change lies within you.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

@@ -50,4 +50,4 @@ In conclusion, the power of neuroplasticity is a game-changer for individuals se
 
 As individuals embark on this journey of self-discovery and growth, they can trust that the rewards will be well worth the effort. With persistence, patience, and dedication, anyone can rewire their brain for success and achieve their dreams. The journey begins with a single step, and the first step is to take control of one's own [brain development](/posts/discipline_neuroplasticity_based_learning) and destiny.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

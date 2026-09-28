@@ -75,4 +75,4 @@ Mastering dopamine control is a critical component of developing unshakeable dis
 
 Remember, the journey toward discipline is not merely about resisting temptation; it is about building a life that aligns with your values and ambitions. Embrace the challenge, and you will find that the rewards of self-discipline are well worth the effort. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

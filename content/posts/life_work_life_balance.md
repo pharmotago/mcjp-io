@@ -4,7 +4,7 @@ date: "2026-07-18"
 category: "Life"
 description: "Explore strategies for maintaining a healthy work-life balance in today's fast-paced world. Learn techniques to manage your time effectively and reduce stress while achieving success."
 keywords: ["work-life balance","time management","stress reduction","lifestyle"]
-canonical: "https://mcjp-blog-git-main-mcjp.vercel.app/posts/life_fatherhood_work_life_balance"
+canonical: "https://mcjp-blog.vercel.app/posts/life_fatherhood_work_life_balance"
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
 published: true

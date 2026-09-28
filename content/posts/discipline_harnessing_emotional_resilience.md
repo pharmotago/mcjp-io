@@ -109,4 +109,4 @@ In a fast-paced world, emotional resilience and [mental toughness](/posts/discip
 
 For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. As you embark on this journey of self-discovery and emotional fortitude, remember that resilience is a lifelong endeavor—each step taken is a testament to your strength and commitment to personal excellence.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

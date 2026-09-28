@@ -55,4 +55,4 @@ Preventing cognitive burnout is a proactive process that requires commitment, se
 ![Illustration symbolizing the theme of cognitive burnout prevention, featuring elements of nature, productivity, and mental clarity](/images/discipline_cognitive_burnout_prevention_theme.svg)
 This image encapsulates the essence of preventing cognitive burnout, highlighting the importance of harmony between work, nature, and personal well-being for optimal [mental performance](/posts/discipline_cognitive_load_management).
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

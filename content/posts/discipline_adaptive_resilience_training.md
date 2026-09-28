@@ -67,4 +67,4 @@ Remember, the path to resilience is a journey, not a destination. It requires on
 
 Ultimately, the cultivation of [mental toughness](/posts/discipline_harnessing_emotional_resilience) through adaptive resilience training is an investment in your long-term well-being and [personal growth](/posts/discipline_emotional_intelligence_training). Embrace the challenges ahead with confidence, and watch as you emerge stronger and more capable than ever before.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

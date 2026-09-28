@@ -58,4 +58,4 @@ Push through this friction. The payoff is an extraordinary return to baseline [c
 
 Your capacity for deep work is the ultimate lever for long-term [asset building](/posts/money_micro_saas_flipping). Every hour spent in a state of uninterrupted concentration compounds over months and years, separating you exponentially from the distracted masses. By mastering your neurochemistry through dopamine fasting, you are not just improving your productivity; you are forging the mental architecture of an elite performer. Guard your attention with ruthless integrity, and let your focus become your most formidable asset.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

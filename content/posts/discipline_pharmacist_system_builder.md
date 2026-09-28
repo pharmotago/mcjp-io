@@ -22,7 +22,7 @@ At my core, I am obsessed with designing digital workflows that eliminate fricti
 To manage the new pharmacy branch, I deployed a suite of [AI automation](/posts/money_ai_automation_agencies) and operational tools. 
 - **Notion** serves as the central brain, tracking everything from standard operating procedures (SOPs) to strategic planning.
 - **Activepieces** automates the flow of data between our communication channels and our reporting dashboards.
-- **[Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago)** automates employee wage runs and Single Touch Payroll (STP) compliance, turning hours of tedious payroll admin into a two-click routine.
+- **Payroller** automates employee wage runs and Single Touch Payroll (STP) compliance, turning hours of tedious payroll admin into a two-click routine.
 - Custom AI scripts handle routine administrative bottlenecks, freeing up human capital for what actually matters: patient care.
 
 Building these systems brings me an immense amount of joy. There is a specific kind of thrill in watching a chaotic, manual process transform into a smooth, automated pipeline.
@@ -43,4 +43,4 @@ But a good system should give you time back, not consume it. For those looking t
 
 The ultimate goal of building all these systems is simple: to create a machine that handles the noise of the world, leaving me with the time and [mental clarity](/posts/discipline_biohacking_focus_and_productivity) to focus on the signal.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

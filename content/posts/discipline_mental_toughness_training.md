@@ -70,4 +70,4 @@ Cultivating [mental toughness](/posts/discipline_rucking_mental_toughness) is ak
 
 For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. By integrating these practices into your daily life, you will not only prepare yourself to face adversity but also position yourself for sustained success in any endeavor you choose to pursue. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

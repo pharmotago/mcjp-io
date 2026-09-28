@@ -4,7 +4,7 @@ date: "2026-07-18"
 category: "Life"
 description: "Learn strategies for achieving equilibrium between demanding careers and fulfilling personal lives, ensuring long-term success and happiness."
 keywords: ["work-life balance","career success","personal life","time management","happiness"]
-canonical: "https://mcjp-blog-git-main-mcjp.vercel.app/posts/life_fatherhood_work_life_balance"
+canonical: "https://mcjp-blog.vercel.app/posts/life_fatherhood_work_life_balance"
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
 published: true

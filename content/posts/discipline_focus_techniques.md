@@ -87,4 +87,4 @@ For deeper insights on masculine resilience and active parenting, explore [The S
 
 In a world filled with distractions, the ability to concentrate deeply is not just a competitive advantage; it is a life skill that can transform your professional and personal outcomes. Start today, and witness the profound impact of [deep focus](/posts/discipline_focus_productivity) on your journey towards success.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

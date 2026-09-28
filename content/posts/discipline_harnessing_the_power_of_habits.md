@@ -61,4 +61,4 @@ Harnessing the power of habits is an empowering journey that requires self-disci
 
 For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. As you embark on this transformative journey, embrace the power of your habits and let them guide you toward the success you envision.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

@@ -67,4 +67,4 @@ Incorporating these strategies into your family life will create a solid foundat
 
 By implementing these actionable strategies, you will not only be prepared to face financial hardships but also inspire your family to embody resilience and unity. Together, you can navigate any storm, reinforcing the bonds that hold you together as you reach for brighter horizons. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
 
-> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.

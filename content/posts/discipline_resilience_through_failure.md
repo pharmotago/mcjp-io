@@ -81,4 +81,4 @@ To help you on your journey, consider the following checklist:
 
 By actively engaging with these strategies, you will not only enhance your resilience but also empower yourself to turn failures into the stepping stones of success.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

@@ -41,7 +41,7 @@ To maintain integrity and focus, consider the following principles:
 * Be transparent with your customers, providing them with accurate information about your products or services.
 * Continuously evaluate and improve your business strategies, seeking feedback from customers and making adjustments as needed. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
 
-> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 
 ## Conclusion and Future Outlook
 Scaling your side hustle is a challenging but rewarding journey that requires careful planning, self-discipline, and a deep understanding of entrepreneurial principles. By understanding your side hustle's potential, building a strong foundation, implementing scalable systems, and maintaining integrity and focus, you can create a sustainable and scalable business model that achieves [financial freedom](/posts/money_passive_income_streams). Remember, scaling a side hustle is not a destination; it's a continuous process of growth and improvement. 

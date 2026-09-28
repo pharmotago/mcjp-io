@@ -49,4 +49,4 @@ In conclusion, neuroplasticity hacking is a powerful tool for [personal growth](
 ![Illustration of a brain with glowing, interconnected neural networks, representing improved cognitive function and success](/images/discipline_neuroplasticity_hacking_theme.svg)
 By following these strategies and staying committed to your goals, you can harness the power of neuroplasticity to rewire your brain for success. Remember to stay disciplined, focused, and motivated, and you will be well on your way to achieving your full potential.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

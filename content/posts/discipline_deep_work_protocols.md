@@ -86,4 +86,4 @@ To maintain seamless connectivity during your deep work sessions, consider signi
 
 By committing to these strategies, you will not only improve your cognitive output but also build a strong foundation for [personal growth](/posts/discipline_emotional_intelligence_training) and professional achievement. Remember, the journey toward mastery is a marathon, not a sprint. Embrace the process and cultivate the discipline necessary for lasting success.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

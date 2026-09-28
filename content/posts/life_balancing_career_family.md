@@ -4,7 +4,7 @@ date: "2026-07-18"
 category: "Life"
 description: "Examine practical strategies to achieve a harmonious balance between career aspirations and family responsibilities. Discover how to prioritize effectively and maintain a fulfilling life."
 keywords: ["work-life balance","career success","family priorities","time management"]
-canonical: "https://mcjp-blog-git-main-mcjp.vercel.app/posts/life_fatherhood_work_life_balance"
+canonical: "https://mcjp-blog.vercel.app/posts/life_fatherhood_work_life_balance"
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
 published: true

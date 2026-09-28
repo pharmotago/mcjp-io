@@ -65,4 +65,4 @@ For deeper insights into masculine resilience and active parenting, explore [The
 
 In conclusion, the rucking renaissance is here to remind us that lifting weights is just one facet of [physical training](/posts/discipline_cold_exposure_grit). The heavier carries offered by rucking build not only physical strength but also mental fortitude, discipline, and integrity. As you embark on this journey, remember that every step is an opportunity for growth. Embrace the challenge and let the lessons of rucking resonate in every aspect of your life.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

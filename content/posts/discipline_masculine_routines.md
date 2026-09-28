@@ -84,4 +84,4 @@ Incorporating these principles into your daily life will not only enhance your p
 
 ![An inspiring visual of a determined man embodying discipline and peak performance principles](/images/discipline_masculine_routines_theme.png)
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

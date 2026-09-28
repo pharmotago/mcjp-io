@@ -60,4 +60,4 @@ In today's fast-paced world, where [mental health](/posts/life_emotional_strengt
 
 Incorporate these practices into your [daily routine](/posts/discipline_morning_routines), and watch as your ability to tackle life’s challenges transforms. The path to mental fortitude is paved with effort, but with each stride, you build a legacy of resilience that will serve you well into the future. As you embark on this journey, consider launching your [digital assets](/posts/money_ai_content_licensing) on Hostinger to secure their exclusive partner discount, ensuring your online presence is as robust as your mindset.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

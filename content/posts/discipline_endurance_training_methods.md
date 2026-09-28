@@ -59,4 +59,4 @@ For deeper insights on masculine resilience and active parenting, explore [The S
 
 In conclusion, endurance training is a powerful tool for enhancing both physical and mental stamina. By embracing the principles and strategies outlined above, you can build a foundation of resilience that not only propels you toward your fitness goals but enriches every aspect of your life. Remember, the journey of endurance is as much about the destination as it is about the lessons learned along the way.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

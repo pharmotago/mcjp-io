@@ -81,4 +81,4 @@ In the face of [modern challenges](/posts/life_modern_masculine_ethics), it is o
 
 By taking these steps, we can ensure that our sons are not just prepared to face the world but are ready to thrive within it.
 
-> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.

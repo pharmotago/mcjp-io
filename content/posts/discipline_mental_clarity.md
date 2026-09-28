@@ -85,4 +85,4 @@ As you embark on this path of self-improvement, consider the insights offered by
 
 In a world that often demands your attention, developing [mental clarity](/posts/discipline_focus_fasting) through structured techniques is an investment in your future. Embrace these strategies, and watch as your life transforms into a focused, productive, and fulfilling experience. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

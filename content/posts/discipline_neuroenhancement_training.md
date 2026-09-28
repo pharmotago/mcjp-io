@@ -51,4 +51,4 @@ As the field of neuroenhancement continues to evolve, it's likely that new techn
 
 In conclusion, the journey to unlocking human potential through neuroenhancement training is a rewarding and challenging pursuit. By embracing this journey, individuals can not only enhance their cognitive abilities but also cultivate a deeper understanding of themselves and their capabilities, leading to a more fulfilling and successful life. With dedication, persistence, and the right strategies, anyone can unlock their full potential and achieve [peak performance](/posts/discipline_optimal_sleep_habits).
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

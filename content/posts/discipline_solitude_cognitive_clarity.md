@@ -58,4 +58,4 @@ Intentional solitude is the ultimate competitive advantage. It is the practice o
 
 Step away from the noise. Embrace the silence. Train your mind. The assets you build in the quiet will speak for themselves in the noise.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

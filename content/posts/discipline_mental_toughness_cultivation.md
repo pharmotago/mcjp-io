@@ -85,4 +85,4 @@ Cultivating [mental toughness](/posts/discipline_mental_toughness_training) is a
 
 For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. As you embark on this path of personal development, remember that mental toughness is not just about enduring hardship; it is about thriving in the face of adversity and emerging stronger than before. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

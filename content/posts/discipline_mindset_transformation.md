@@ -63,4 +63,4 @@ This is the true power of mindset transformation. It is the realization that fre
 
 By wielding discipline as your primary masculine tool, you transition from a passenger in your own life to the pilot. You build an empire of competence, integrity, and quiet power. The journey of self-improvement is arduous, but the alternative—a life dictated by external forces and unfulfilled potential—is far more painful. Choose the pain of discipline today, and secure the peace of mastery tomorrow.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

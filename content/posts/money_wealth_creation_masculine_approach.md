@@ -85,7 +85,7 @@ As you embark on your journey toward [financial independence](/posts/money_infin
 
 Incorporate these practices into your [daily routine](/posts/discipline_morning_routines), and watch as your financial landscape transforms, fueled by the powerful energies of determination, integrity, and strategic foresight.
 
-> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 
 ---
 > **Legal Disclaimer:** The information provided on MCJP.io, including but not limited to business models, financial assets, and wealth strategies, is for general educational and informational purposes only. It does not constitute professional financial, legal, or investment advice. Always consult with a certified financial planner or legal professional before making any financial decisions.

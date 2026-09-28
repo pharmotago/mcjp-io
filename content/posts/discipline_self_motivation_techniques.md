@@ -76,4 +76,4 @@ For deeper insights on masculine resilience and active parenting, explore [The S
 
 In closing, remember that self-motivation is a skill that can be honed. As you embark on this journey, embrace the challenges as opportunities for growth, and remain steadfast in your pursuit of excellence. The tools and techniques outlined here are a stepping stone toward a life marked by integrity, discipline, and unwavering determination.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

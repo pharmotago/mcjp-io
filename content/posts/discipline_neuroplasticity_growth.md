@@ -4,7 +4,7 @@ date: "2026-07-18"
 category: "Discipline"
 description: "Learn how to leverage the science of neuroplasticity to foster personal development and cultivate the discipline needed for success."
 keywords: ["neuroplasticity","personal growth","brain training","mental discipline"]
-canonical: "https://mcjp-blog-git-main-mcjp.vercel.app/posts/discipline_neuroplasticity_enhancement"
+canonical: "https://mcjp-blog.vercel.app/posts/discipline_neuroplasticity_enhancement"
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
 published: true
@@ -97,4 +97,4 @@ Harnessing the power of neuroplasticity for [personal growth](/posts/discipline_
 
 As you embark on this journey, remain steadfast in your commitment to self-improvement. Building a disciplined mind is an investment in your future—one that yields dividends in the form of resilience, intelligence, and [emotional strength](/posts/discipline_mental_resilience).
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

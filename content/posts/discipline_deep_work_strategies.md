@@ -53,4 +53,4 @@ In conclusion, mastering [deep work](/posts/discipline_deep_work_protocols) is a
 
 By following these steps and staying committed to the process, individuals can develop the skills and habits necessary to achieve [deep work](/posts/discipline_deep_work_protocols) and unlock their full potential. Remember, building long-term assets and integrity takes time, patience, and dedication, but the rewards are well worth the effort.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

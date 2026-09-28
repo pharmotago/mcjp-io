@@ -4,7 +4,7 @@ date: "2026-07-18"
 category: "Life"
 description: "Explore the transformative potential of modern mentorship and how building relationships across generations can foster personal growth and professional success."
 keywords: ["mentorship","generational bridges","personal growth","guidance"]
-canonical: "https://mcjp-blog-git-main-mcjp.vercel.app/posts/life_masculine_mentorship"
+canonical: "https://mcjp-blog.vercel.app/posts/life_masculine_mentorship"
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
 published: true

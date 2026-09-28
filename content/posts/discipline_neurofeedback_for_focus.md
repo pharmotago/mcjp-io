@@ -97,4 +97,4 @@ Neurofeedback is more than just a technological intervention; it is a testament 
 
 Embrace this opportunity to invest in your cognitive future. The disciplined application of neurofeedback can unlock a level of focus and productivity that not only elevates your professional output but fundamentally transforms your capacity for intentional living, allowing you to build the life you envision with clarity and unwavering resolve.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

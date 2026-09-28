@@ -105,4 +105,4 @@ Emotional intelligence training offers a robust framework for enhancing personal
 
 As you embark on this journey of self-improvement, remember that discipline is not merely a trait; it is a skill that can be developed. Embrace emotional intelligence as a powerful ally in your quest for personal growth and mastery over your life’s direction. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

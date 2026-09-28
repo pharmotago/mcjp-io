@@ -111,4 +111,4 @@ Turning these exercises and practices into routine habits is key. Here’s a che
 
 Building mental agility is not a one-time endeavor but a lifelong commitment to self-improvement. By incorporating these exercises into your daily routine, you will enhance your ability to think quickly and make sound decisions. Remember, the journey toward mental agility is as significant as the destination. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal to complement your growth in all facets of life. Embrace the challenge of cultivating your mental agility, and watch as it transforms your approach to life’s complexities.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

@@ -84,7 +84,7 @@ For those looking to secure their [digital assets](/posts/money_ai_content_licen
 
 As you refine your investment ethos, remain steadfast in your pursuit of knowledge and self-discipline. The principles you adopt today will pave the way for [financial freedom](/posts/money_financial_freedom_habits) tomorrow.
 
-> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 
 ---
 > **Legal Disclaimer:** The information provided on MCJP.io, including but not limited to business models, financial assets, and wealth strategies, is for general educational and informational purposes only. It does not constitute professional financial, legal, or investment advice. Always consult with a certified financial planner or legal professional before making any financial decisions.

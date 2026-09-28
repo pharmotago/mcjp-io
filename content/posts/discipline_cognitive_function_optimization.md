@@ -49,4 +49,4 @@ In conclusion, optimizing cognitive function is a critical component of achievin
 ![Illustration of a person standing on a mountain peak, symbolizing peak performance and achievement](/images/discipline_cognitive_function_optimization_theme.svg)
 By following these steps and staying dedicated to your goals, you'll be well on your way to unlocking [peak performance](/posts/discipline_neuroenhancement_training) and achieving greatness in all areas of life. Remember, cognitive function optimization is a long-term process that requires patience, discipline, and perseverance. With the right mindset and strategies, however, you can overcome any obstacle and achieve your dreams.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

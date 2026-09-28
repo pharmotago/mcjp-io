@@ -51,4 +51,4 @@ The ice bath is an investment in this asset. It is a daily, deliberate withdrawa
 
 The modern world will continue to offer you an easy way out. It will provide you with excuses, conveniences, and soft landings. Reject them. Forge your edge in the freezing water. Embrace the discomfort, regulate your dopamine, accelerate your physical recovery, and build the unbreakable grit required to command your life. The cold does not care about your excuses; it only reveals who you are. Step in, breathe deeply, and emerge sharper. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

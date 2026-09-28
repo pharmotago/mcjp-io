@@ -4,7 +4,7 @@ date: "2026-07-18"
 category: "Discipline"
 description: "Uncover the powerful connection between physical fitness and cognitive performance. This article provides insights on how physical training can enhance mental clarity and overall success."
 keywords: ["physical training","cognitive training","success habits"]
-canonical: "https://mcjp-blog-git-main-mcjp.vercel.app/posts/discipline_physical_cognitive_training"
+canonical: "https://mcjp-blog.vercel.app/posts/discipline_physical_cognitive_training"
 author: "Peter Kim"
 lastUpdated: "2026-07-18"
 published: true
@@ -79,7 +79,7 @@ As you embark on this transformative journey, remember that both physical and [c
 
 ![A group of people engaged in physical training, illustrating the theme of discipline and cognitive enhancement](/images/discipline_physical_training_theme.png)
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.
 
 ---
 

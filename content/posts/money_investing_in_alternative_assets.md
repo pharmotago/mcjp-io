@@ -23,7 +23,7 @@ Alternative assets break this correlation. They are tied to different economic d
 
 ## The Pillars of Alternative Wealth
 
-To build a fortress portfolio, you must understand the primary categories of alternative investments and the specific role each plays in your financial architecture.
+To build a fortress portfolio, you must understand the primary categories of [alternative investments](/posts/money_niche_asset_diversification) and the specific role each plays in your financial architecture.
 
 ### 1. Tangible Real Estate and Land
 
@@ -75,7 +75,7 @@ Wealth is not built in a quarter; it is built over decades. The new frontier of 
 
 Step into the arena with clear eyes and a disciplined hand. Do the hard work of understanding these assets, allocate your capital with intention, and build a portfolio that will endure whatever the future holds.
 
-> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 
 ---
 > **Legal Disclaimer:** The information provided on MCJP.io, including but not limited to business models, financial assets, and wealth strategies, is for general educational and informational purposes only. It does not constitute professional financial, legal, or investment advice. Always consult with a certified financial planner or legal professional before making any financial decisions.

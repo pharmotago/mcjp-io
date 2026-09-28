@@ -95,7 +95,7 @@ For those looking to establish a strong digital presence while managing investme
 
 In summary, adopting a masculine investing mindset is about more than just numbers; it’s about cultivating a character that can withstand the tests of time and market challenges. By implementing these strategies, you will find yourself not only on the path to [financial growth](/posts/money_art_of_negotiation) but also on a journey of [personal development](/posts/discipline_mindset_habits) and integrity.
 
-> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 
 ---
 > **Legal Disclaimer:** The information provided on MCJP.io, including but not limited to business models, financial assets, and wealth strategies, is for general educational and informational purposes only. It does not constitute professional financial, legal, or investment advice. Always consult with a certified financial planner or legal professional before making any financial decisions.

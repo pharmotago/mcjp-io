@@ -64,7 +64,7 @@ Extended fasting stands as a formidable strategy for those seeking to elevate th
 
 In a world where distractions abound, the ability to fast and maintain discipline can truly set you apart. Whether you are an entrepreneur, a student, or a professional, the journey toward elite [cognitive performance](/posts/discipline_flow_state_optimization) through extended fasting is one worth embarking on.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.
 
 ---
 

@@ -81,4 +81,4 @@ In conclusion, view these mental sharpening rituals not just as tasks but as int
 
 For a seamless, high-speed remote work setup, we highly recommend **[Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690)**. Reliable internet is the backbone of any stoic and productive home office. Sign up using our referral link to save on your plan!
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

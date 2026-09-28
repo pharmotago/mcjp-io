@@ -56,4 +56,4 @@ Building resilience through discipline is not a one-time event; it is a continuo
 
 The environments we operate in will continue to change, often faster than we can adapt. But by anchoring your growth in relentless discipline, you transform uncertainty from a source of threat into a landscape of opportunity. You do not merely survive the adaptive challenge; you leverage it to forge a more capable, resilient, and formidable version of yourself.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

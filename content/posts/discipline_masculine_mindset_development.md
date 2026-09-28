@@ -69,4 +69,4 @@ As you embark on this journey, remember that the principles of focus and resilie
 
 ![Visual aid summarizing the themes of masculinity, focus, and resilience](images/discipline_masculine_mindset_development_theme.svg)
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

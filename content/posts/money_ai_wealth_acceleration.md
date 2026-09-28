@@ -40,7 +40,7 @@ In conclusion, embracing AI as a tool for [wealth creation](/posts/money_ai_driv
 
 For individuals seeking to build a strong foundation in financial literacy and [investment strategies](/posts/money_ai_driven_portfolio), there are numerous resources available. While our focus here has been on the application of AI in wealth creation, it's also important to note that foundational knowledge in finance and investment is crucial. Whether through formal education, self-study, or working with financial advisors, building a deep understanding of financial principles and practices is essential for making informed decisions in the AI-driven investment landscape. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
 
-> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 
 ---
 > **Legal Disclaimer:** The information provided on MCJP.io, including but not limited to business models, financial assets, and wealth strategies, is for general educational and informational purposes only. It does not constitute professional financial, legal, or investment advice. Always consult with a certified financial planner or legal professional before making any financial decisions.

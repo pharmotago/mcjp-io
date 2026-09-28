@@ -49,4 +49,4 @@ In today's digital age, it's also essential to have a reliable and high-performa
 
 By embracing neuroplasticity-based learning and incorporating targeted strategies into daily life, individuals can take the first step towards unlocking their full potential and achieving long-term success. Remember to stay focused, disciplined, and committed to your goals, and always be open to new experiences and opportunities for growth and learning. With neuroplasticity-based learning, the possibilities are endless, and the potential for [personal growth](/posts/discipline_emotional_intelligence_training) and development is limitless.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

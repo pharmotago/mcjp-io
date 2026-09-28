@@ -75,4 +75,4 @@ In our pursuit of a more focused life, we can leverage high-performance tools th
 
 Technology minimalism is more than a trend; it is a lifestyle choice that empowers us to take control of our attention and our lives. By cultivating focus through intentional technology use, we can enhance our productivity and ultimately achieve greater success in a distracted world. Embrace the principles of minimalism today and unlock your potential for profound focus and accomplishment.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

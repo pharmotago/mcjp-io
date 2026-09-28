@@ -71,7 +71,7 @@ As you explore the vast landscape of emerging markets, remember that opportunity
 
 For deeper insights on how to cultivate resilience and active engagement in your investments, consider the principles of self-discipline that can be found in various resources, including [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/), which emphasizes the importance of a grounded and thoughtful approach in all aspects of life, including financial decisions. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
 
-> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 
 ---
 > **Legal Disclaimer:** The information provided on MCJP.io, including but not limited to business models, financial assets, and wealth strategies, is for general educational and informational purposes only. It does not constitute professional financial, legal, or investment advice. Always consult with a certified financial planner or legal professional before making any financial decisions.

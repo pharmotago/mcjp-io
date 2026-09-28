@@ -32,7 +32,7 @@ One of the most significant challenges to developing cognitive resilience is ove
 
 This may involve setting up a dedicated workspace, using tools like website blockers or productivity apps, and establishing clear boundaries with colleagues, friends, and family. By creating a distraction-free environment, you can improve your ability to concentrate, stay focused, and achieve your goals more efficiently.
 
-In addition to creating a conducive work environment, it's also essential to develop strategies for managing stress and adversity. This may involve practicing relaxation techniques, such as deep breathing or progressive muscle relaxation, or engaging in activities that bring you joy and fulfillment. By developing these strategies, you can improve your ability to cope with challenging situations, build cognitive resilience, and achieve greater success in your personal and professional life.
+In addition to creating a conducive work environment, it's also essential to develop strategies for managing stress and adversity. This may involve practicing relaxation techniques, such as deep breathing or progressive muscle relaxation, or engaging in activities that bring you joy and fulfillment. By developing these strategies, you can improve your ability to cope with challenging situations, build [cognitive resilience](/posts/discipline_anti_fragile_mindset), and achieve greater success in your personal and professional life.
 
 For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee. A reliable and fast internet connection is crucial for staying focused, productive, and connected in today's digital age.
 
@@ -51,4 +51,4 @@ To get started on your journey to cognitive resilience, take the following actio
 
 By taking these steps, you can develop the cognitive resilience and [mental toughness](/posts/discipline_harnessing_emotional_resilience) needed to achieve greater success and fulfillment in your life. Remember to stay focused, motivated, and committed to your goals, and you will be well on your way to building a strong foundation for lasting success.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

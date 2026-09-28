@@ -57,7 +57,7 @@ Mastering your spending habits is not just about cutting costs; it’s about mak
 
 4. **Diversify Investments**: As you build wealth, consider diversifying your investments. This can include stocks, [real estate](/posts/money_asset_diversification), and other assets that appreciate over time.
 
-5. **Review and Adjust Regularly**: Periodically reassess your financial strategy and spending habits. Adjust your budget and goals as necessary to stay aligned with your evolving financial situation.
+5. **Review and Adjust Regularly**: Periodically reassess your [financial strategy](/posts/money_personal_holding_company) and spending habits. Adjust your budget and goals as necessary to stay aligned with your evolving financial situation.
 
 By adopting these practices, you not only improve your financial habits but also lay a solid foundation for building lasting wealth.
 
@@ -71,7 +71,7 @@ For those embarking on this path, consider launching your [digital assets](/post
 
 As you navigate this journey, remember that true wealth is not merely about accumulating money—it's about fostering a mindset of integrity, discipline, and purpose. Embrace the challenge, remain steadfast in your goals, and watch as your financial landscape transforms.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.
 
 ---
 > **Legal Disclaimer:** The information provided on MCJP.io, including but not limited to business models, financial assets, and wealth strategies, is for general educational and informational purposes only. It does not constitute professional financial, legal, or investment advice. Always consult with a certified financial planner or legal professional before making any financial decisions.

@@ -69,4 +69,4 @@ Here is a bulleted action plan to get you started:
 * Stay motivated and focused by rewarding yourself for your achievements and celebrating your successes
 * Overcome obstacles by breaking down large goals into smaller, manageable tasks and creating a support network of friends, family, or colleagues.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

@@ -45,4 +45,4 @@ Building physical resilience is a long-term commitment that requires patience, d
 In conclusion, the path to physical resilience is paved with discipline, hard work, and a commitment to overall wellbeing. As you continue on this journey, remember to stay focused, motivated, and patient. The rewards of physical resilience are numerous, and with the right mindset and strategies, anyone can achieve a stronger, more resilient body.
 ![Alt text describing a person achieving physical resilience, symbolizing the culmination of discipline, training, and commitment to physical wellbeing, with a background that represents the theme of resilience](/images/discipline_physical_resilience_theme.svg)
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

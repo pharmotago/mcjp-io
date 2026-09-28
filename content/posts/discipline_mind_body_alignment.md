@@ -78,4 +78,4 @@ Aligning the mind and body is a continuous journey rather than a fixed endpoint.
 
 The discipline of holistic success is not merely about achieving personal goals; it is about creating a legacy of integrity, resilience, and growth. Embrace the practices outlined in this article, and embark on a transformative journey towards a balanced and successful life. Remember, the path to holistic success is not walked alone; engaging with others and sharing your journey can enrich the experience and foster mutual growth.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

@@ -38,4 +38,4 @@ Implementing high-performance habits into your [daily routine](/posts/discipline
 
 ![The theme of high-performance habits is often represented by a combination of elements symbolizing growth, focus, and the pursuit of excellence, emphasizing the holistic approach to achieving success](/images/discipline_high_performance_habits_theme.svg)
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

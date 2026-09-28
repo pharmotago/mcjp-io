@@ -85,4 +85,4 @@ For deeper insights on masculine resilience and active parenting, explore [The S
 
 ![A visual representation of various biohacking tools and techniques that contribute to enhanced focus and productivity](/images/discipline_biohacking_focus_and_productivity_theme.png)
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

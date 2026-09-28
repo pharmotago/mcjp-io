@@ -75,4 +75,4 @@ Incorporating the daily habits of high achievers into your life is not an overni
 
 To ensure your digital endeavors are as successful as your [personal growth](/posts/discipline_neuroplasticity_growth), consider launching your projects on Hostinger for reliable, high-performance web hosting. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

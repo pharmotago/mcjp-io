@@ -96,7 +96,7 @@ For those looking to establish a digital presence and share their financial wisd
 
 As you embark on this journey toward financial literacy, remember that the discipline you cultivate today will pave the way for a prosperous tomorrow. Embrace the challenge, and invest in your [financial education](/posts/life_fatherhood_financial_teaching)—it is the most powerful asset you can acquire.
 
-> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 
 ---
 > **Legal Disclaimer:** The information provided on MCJP.io, including but not limited to business models, financial assets, and wealth strategies, is for general educational and informational purposes only. It does not constitute professional financial, legal, or investment advice. Always consult with a certified financial planner or legal professional before making any financial decisions.

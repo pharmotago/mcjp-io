@@ -64,4 +64,4 @@ In conclusion, neuroplasticity-based training offers a powerful means of unlocki
 
 By embracing the principles of neuroplasticity-based training and integrating these practices into daily life, individuals can unlock their full potential, achieve [peak performance](/posts/discipline_cognitive_function_optimization), and cultivate a mindset that is resilient, adaptable, and open to growth and development. Remember, the brain is a highly dynamic and adaptable entity, and with the right strategies and mindset, anything is possible. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

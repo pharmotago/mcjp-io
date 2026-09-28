@@ -91,7 +91,7 @@ For those looking to build a digital presence alongside their investment journey
 
 As you pursue sustainable [investment strategies](/posts/money_investing_for_long_term_weath), remember that you possess the power to shape a better future for yourself and the planet. Embrace this opportunity with integrity and discipline, for the rewards—both financial and ethical—are well worth the effort.
 
-> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 
 ---
 > **Legal Disclaimer:** The information provided on MCJP.io, including but not limited to business models, financial assets, and wealth strategies, is for general educational and informational purposes only. It does not constitute professional financial, legal, or investment advice. Always consult with a certified financial planner or legal professional before making any financial decisions.

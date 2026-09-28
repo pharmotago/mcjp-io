@@ -52,4 +52,4 @@ In a world where distractions are rife and attention is the most valuable curren
 
 Seize control of your life today. Transform your productivity from chaos to clarity by getting your copy of "The Low-Friction ADHD Planner" by Josh Smith. [Buy on Amazon](https://www.amazon.com/dp/B0H36TC1FP?tag=mcjpio-20) and embark on a journey of disciplined success. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

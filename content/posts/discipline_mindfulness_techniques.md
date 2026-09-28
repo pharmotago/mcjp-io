@@ -95,4 +95,4 @@ As you embark on this path, consider establishing a digital presence to share yo
 
 Embrace mindfulness as a cornerstone of your self-improvement journey, and watch as your focus sharpens and your stress diminishes, paving the way for a more fulfilling life.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

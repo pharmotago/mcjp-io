@@ -69,4 +69,4 @@ Don’t let opportunity pass you by. Equip yourself with the strategies and insi
 
 [Buy on Amazon](https://www.amazon.com/dp/B0H38J3S4M?tag=mcjpio-20) and commit to building the resilient body and disciplined life you deserve.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

@@ -79,7 +79,7 @@ As you embark on this journey, consider launching your [digital assets](/posts/m
 
 The potential for [wealth creation](/posts/money_ai_entrepreneurship) through micro-private equity is immense. Embrace this opportunity to build not just a portfolio, but a legacy. As you navigate this landscape, remember: it’s not merely about the wealth you accumulate but the impact you create along the way. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
 
-> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 
 ---
 > **Legal Disclaimer:** The information provided on MCJP.io, including but not limited to business models, financial assets, and wealth strategies, is for general educational and informational purposes only. It does not constitute professional financial, legal, or investment advice. Always consult with a certified financial planner or legal professional before making any financial decisions.

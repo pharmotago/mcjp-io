@@ -44,4 +44,4 @@ Embarking on the path of cognitive athleticism is a journey of self-discovery an
 
 In the pursuit of cognitive athleticism, it's crucial to remain open to new methods and technologies that can aid in [brain training](/posts/discipline_neurofeedback_training). Whether through traditional disciplines or modern digital tools, the key to success lies in consistency, dedication, and a willingness to challenge and adapt. By fostering a culture of cognitive athleticism, we can collectively elevate our potential, achieving greater heights of personal and professional success.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

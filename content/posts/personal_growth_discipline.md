@@ -83,4 +83,4 @@ To ensure you maintain a seamless connection for your home office setup, we reco
 
 ![Image illustrating themes of personal growth and discipline for focus and productivity](/images/personal_growth_discipline_theme.png)
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

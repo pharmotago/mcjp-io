@@ -81,7 +81,7 @@ Escaping the hourly rate and transitioning to leveraged wealth assets represents
 
 As you embark on this journey, remember that integrity and long-term vision are paramount. [Wealth building](/posts/money_asset_diversification) is not just about accumulating money; it is about creating a legacy. Commit to self-discipline, embrace the challenges ahead, and harness the power of leveraged income to transform your financial future. Your journey to financial freedom begins now.
 
-> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 
 ---
 > **Legal Disclaimer:** The information provided on MCJP.io, including but not limited to business models, financial assets, and wealth strategies, is for general educational and informational purposes only. It does not constitute professional financial, legal, or investment advice. Always consult with a certified financial planner or legal professional before making any financial decisions.

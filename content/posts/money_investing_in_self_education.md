@@ -80,7 +80,7 @@ We recommend launching your [digital assets](/posts/money_ai_content_licensing) 
 
 As you reflect on your journey, consider how your commitment to learning can not only enrich your life but also create a legacy of financial empowerment for future generations. Embrace self-education as a lifelong investment, and watch as the dividends of your knowledge compound into lasting wealth.
 
-> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 
 ---
 > **Legal Disclaimer:** The information provided on MCJP.io, including but not limited to business models, financial assets, and wealth strategies, is for general educational and informational purposes only. It does not constitute professional financial, legal, or investment advice. Always consult with a certified financial planner or legal professional before making any financial decisions.

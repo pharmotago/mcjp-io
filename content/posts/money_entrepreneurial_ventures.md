@@ -82,7 +82,7 @@ Navigating the entrepreneurial landscape requires a blend of vision, strategy, a
 
 For deeper insights on masculine resilience and active parenting that can complement your entrepreneurial journey, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal.
 
-> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 
 ---
 > **Legal Disclaimer:** The information provided on MCJP.io, including but not limited to business models, financial assets, and wealth strategies, is for general educational and informational purposes only. It does not constitute professional financial, legal, or investment advice. Always consult with a certified financial planner or legal professional before making any financial decisions.

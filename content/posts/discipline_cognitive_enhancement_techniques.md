@@ -85,4 +85,4 @@ For deeper insights on masculine resilience and active parenting, explore [The S
 
 In conclusion, the pursuit of cognitive enhancement is a journey worth undertaking for the [modern man](/posts/life_masculine_self_reliance). By embracing a lifestyle rooted in discipline and intentionality, you can unlock your full potential, achieving not only your personal and professional goals but also a deeper sense of self-awareness and integrity. Start today, and let the techniques outlined guide you toward a sharper, more focused mind and a disciplined life. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
 
-> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

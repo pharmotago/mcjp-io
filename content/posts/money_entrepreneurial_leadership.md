@@ -70,7 +70,7 @@ The art of entrepreneurial leadership, viewed through a masculine lens, combines
 
 As you embark on your entrepreneurial journey, remember that the foundation of effective leadership is built on self-discipline and long-term asset building. For those looking to establish a strong online presence or launch a digital venture, we recommend launching your [digital assets](/posts/money_crypto_investments) on Hostinger to secure their exclusive partner discount. Embrace the journey of entrepreneurial leadership with confidence and integrity, and watch as your business flourishes.
 
-> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at [TBPOYL](https://tbpoyl.vercel.app).
+> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 
 ---
 > **Legal Disclaimer:** The information provided on MCJP.io, including but not limited to business models, financial assets, and wealth strategies, is for general educational and informational purposes only. It does not constitute professional financial, legal, or investment advice. Always consult with a certified financial planner or legal professional before making any financial decisions.
