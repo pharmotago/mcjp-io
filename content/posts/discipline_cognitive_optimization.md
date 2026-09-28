@@ -38,3 +38,5 @@ The science of cognitive optimization offers a powerful framework for individual
 
 ![Illustration of a person surrounded by glowing, interconnected nodes, representing the optimization of cognitive function and overall well-being](/images/discipline_cognitive_optimization_theme.svg)
 This visual representation highlights the interconnected nature of cognitive optimization, emphasizing the importance of adopting a holistic approach that encompasses multiple aspects of human function and overall well-being. By recognizing the intricate relationships between [cognitive function](/posts/discipline_cognitive_function_optimization), productivity, and overall quality of life, individuals can embark on a journey of self-discovery and growth, unlocking their full potential and achieving a more fulfilling, purpose-driven life.
+
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).

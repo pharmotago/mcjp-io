@@ -68,3 +68,5 @@ In cultivating a masculine mindset, the journey toward greater focus and resilie
 As you embark on this journey, remember that the principles of focus and resilience are not just skills to be learned but habits to be cultivated. The more you practice them, the more they will become a natural part of your life. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
 
 ![Visual aid summarizing the themes of masculinity, focus, and resilience](images/discipline_masculine_mindset_development_theme.svg)
+
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).

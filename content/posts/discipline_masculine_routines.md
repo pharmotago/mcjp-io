@@ -34,7 +34,7 @@ To develop a robust routine that promotes [peak performance](/posts/discipline_m
    - **Wake Up Early**: Rise before dawn to seize the day. This time is often free from distractions, allowing for deep focus.
    - **Physical Activity**: Engage in a workout or physical exercise to boost energy levels and mental clarity.
    - **Mindfulness Practice**: Incorporate meditation or journaling to set intentions and foster a positive mindset.
-   
+
 2. **Daily Work Structure**:
    - **Prioritize Tasks**: Identify the top three tasks for the day that align with your long-term goals.
    - **Time Blocking**: Allocate specific time slots for focused work sessions, interspersed with short breaks to maintain high levels of productivity.
@@ -83,3 +83,5 @@ As you embark on this transformative path, consider leveraging high-performance 
 Incorporating these principles into your daily life will not only enhance your performance but also foster a sense of integrity and purpose. Embrace the challenge, cultivate discipline, and watch as your life transforms in profound ways. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
 
 ![An inspiring visual of a determined man embodying discipline and peak performance principles](/images/discipline_masculine_routines_theme.png)
+
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).

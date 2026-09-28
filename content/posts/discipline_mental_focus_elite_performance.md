@@ -33,7 +33,7 @@ Discipline is the bridge that connects mental focus with [elite performance](/po
 Discipline can be cultivated through intentional practices. Here are some strategies to fortify your self-discipline:
 
 1. **Set Clear Goals:** Outline specific, measurable, achievable, relevant, and time-bound (SMART) goals. This clarity helps direct your focus and maintain motivation.
-   
+
 2. **Establish Routines:** Create [daily habits](/posts/discipline_routine_success) that reinforce your objectives. Consistency in your routines leads to automaticity in behavior.
 
 3. **Limit Distractions:** Identify and eliminate distractions in your environment. This may involve organizing your workspace or setting specific times for checking emails and social media.
@@ -78,3 +78,5 @@ For deeper insights on masculine resilience and active parenting, explore [The S
 ### Conclusion
 
 The journey towards elite performance is intricately tied to the development of mental focus and discipline. By implementing the strategies outlined in this article, you can enhance your cognitive capabilities and build a foundation for sustained success. As you cultivate these skills, remember that the path to excellence is a continuous process of growth, reflection, and adaptation. Embrace the challenge, commit to your journey, and watch as you elevate your performance to unprecedented heights. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
+
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).

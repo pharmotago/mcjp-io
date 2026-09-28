@@ -72,3 +72,5 @@ For deeper insights on masculine resilience and active parenting, explore [The S
 In the digital age, mastering technology distractions is not merely beneficial; it is essential for cultivating a focused and productive life. By implementing actionable strategies and fostering a disciplined mindset, you can reclaim your attention and significantly enhance your productivity. Remember, the journey towards optimal focus is an ongoing process—embrace it with integrity, patience, and a commitment to continuous improvement.
 
 For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee. This investment in connectivity can further facilitate your focus and productivity, allowing you to thrive in an increasingly digital world.
+
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).

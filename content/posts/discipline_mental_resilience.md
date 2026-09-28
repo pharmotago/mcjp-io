@@ -93,3 +93,5 @@ Building [mental resilience](/posts/discipline_endurance_training_methods) is an
 For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. This resource complements your journey toward resilience, offering a wealth of knowledge on emotional strength and discipline.
 
 In a world that constantly tests our limits, investing in [mental resilience](/posts/discipline_masculine_mental_resilience) is one of the most valuable assets you can cultivate. Commit to the process, embrace the challenges, and watch as you transform into a more resilient version of yourself.
+
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).

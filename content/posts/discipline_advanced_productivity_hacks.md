@@ -32,6 +32,8 @@ In today's digital age, technology plays a pivotal role in enhancing productivit
 
 For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee. A reliable internet connection is essential for remote work, ensuring that you can stay connected and productive without interruptions.
 
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+
 ## Creating a Productive Environment
 The environment in which you work can significantly impact your productivity. A cluttered, noisy space can be distracting and hinder your ability to focus. On the other hand, a well-organized, quiet area can foster concentration and creativity. When setting up your workspace, consider the following:
 - **Minimize Clutter**: Keep your workspace tidy and organized. This helps in reducing stress and saving time that would be spent searching for misplaced items.

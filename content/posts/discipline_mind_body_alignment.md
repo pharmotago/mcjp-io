@@ -22,9 +22,9 @@ Mind-body alignment refers to the harmonious interaction between mental facultie
 Discipline is the cornerstone of achieving mind-body alignment. It involves establishing routines and practices that foster both [mental clarity](/posts/discipline_digital_detox) and physical vitality. Without discipline, even the most well-intentioned goals may falter. Here are key principles to consider:
 
 - **Consistency**: Regularly engaging in activities that promote mental and physical health is essential. Consistency builds momentum and reinforces positive habits.
-  
+
 - **Intentionality**: Every action taken should be purposeful, contributing to the overarching goal of holistic success. Intentionality helps maintain focus and direction.
-  
+
 - **Reflection**: Regularly assessing one’s progress and recalibrating as necessary ensures that individuals remain aligned with their objectives.
 
 ### Principles of Holistic Success
@@ -77,3 +77,5 @@ To translate these principles into practice, here is a straightforward action pl
 Aligning the mind and body is a continuous journey rather than a fixed endpoint. It requires ongoing self-discipline, a commitment to personal harmony, and an unwavering focus on integrating various life dimensions. By cultivating this alignment, individuals not only enhance their well-being but also pave the way for a more fulfilling and successful life.
 
 The discipline of holistic success is not merely about achieving personal goals; it is about creating a legacy of integrity, resilience, and growth. Embrace the practices outlined in this article, and embark on a transformative journey towards a balanced and successful life. Remember, the path to holistic success is not walked alone; engaging with others and sharing your journey can enrich the experience and foster mutual growth.
+
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).

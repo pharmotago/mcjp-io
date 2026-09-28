@@ -96,3 +96,5 @@ As you embark on this journey, remember that effective communication is a lifelo
 - **Seek Resources**: Consider enrolling in a communication workshop or reading books on effective communication strategies.
 
 By integrating these practices into your daily life, you will not only enhance your [communication skills](/posts/life_modern_fatherhood_communication) but also build long-term relationships that are both meaningful and fulfilling.
+
+> 💎 **Recommended Resource**: To master executive discipline, physical resilience, and antifragile thinking, discover curated field manuals at [TBPOYL eBooks](https://tbpoyl.vercel.app).

@@ -39,3 +39,5 @@ In conclusion, the importance of self-improvement for modern fathers cannot be o
 As fathers embark on this journey, they not only improve themselves but also contribute to the well-being and prosperity of their families, leaving a lasting legacy for generations to come.
 
 For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
+
+> 💎 **Recommended Resource**: To master executive discipline, physical resilience, and antifragile thinking, discover curated field manuals at [TBPOYL eBooks](https://tbpoyl.vercel.app).

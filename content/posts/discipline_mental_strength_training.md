@@ -24,9 +24,9 @@ Mental strength can be defined as the ability to manage thoughts, emotions, and 
 To build [mental strength](/posts/life_masculine_emotional_resilience) effectively, one must focus on several key pillars:
 
 1. **Self-Discipline**: The cornerstone of [mental fortitude](/posts/discipline_mental_fortitude_development), self-discipline allows individuals to resist temptations and stay focused on their long-term goals.
-   
+
 2. **Resilience**: The ability to bounce back from setbacks and maintain a positive outlook is crucial for overcoming obstacles and learning from failures.
-   
+
 3. **Emotional Regulation**: Cultivating awareness of one’s emotions and managing them effectively is vital for maintaining clarity in decision-making.
 
 4. **Continuous Learning**: Embracing a growth mindset fosters adaptability and encourages individuals to seek knowledge and self-improvement.
@@ -85,3 +85,5 @@ For deeper insights on masculine resilience and active parenting, explore [The S
 ![A serene landscape representing the journey of building mental strength, emphasizing tranquility and resilience](/images/discipline_mental_strength_training_theme.png)
 
 In conclusion, your mind is your greatest asset. By fostering mental strength, you are investing in a long-term foundation for personal and professional success. Embrace the discipline of mind training, and watch how it transforms your life. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
+
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).

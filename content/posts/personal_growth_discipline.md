@@ -82,3 +82,5 @@ In a world rife with distractions, the ability to focus and engage in [deep work
 To ensure you maintain a seamless connection for your home office setup, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee. 
 
 ![Image illustrating themes of personal growth and discipline for focus and productivity](/images/personal_growth_discipline_theme.png)
+
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).

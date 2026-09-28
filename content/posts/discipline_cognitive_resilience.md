@@ -50,3 +50,5 @@ To get started on your journey to cognitive resilience, take the following actio
 * Stay committed to your values and goals, even in the face of adversity or challenge
 
 By taking these steps, you can develop the cognitive resilience and [mental toughness](/posts/discipline_harnessing_emotional_resilience) needed to achieve greater success and fulfillment in your life. Remember to stay focused, motivated, and committed to your goals, and you will be well on your way to building a strong foundation for lasting success.
+
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).

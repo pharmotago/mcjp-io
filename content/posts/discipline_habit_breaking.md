@@ -85,3 +85,5 @@ Breaking bad habits is not just about eliminating negative behavior; it is about
 For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. Remember, the journey to personal growth requires patience and persistence. Every effort you make in breaking bad habits is an investment in your future success. 
 
 Embark on this transformative journey today, armed with the knowledge and strategies detailed in this guide. The power to change lies within you.
+
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).

@@ -85,3 +85,5 @@ As you navigate this journey, remember that resilience is not an innate trait; i
 For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. This resource can provide additional strategies and perspectives on fostering a strong family dynamic.
 
 In conclusion, resilient fatherhood is about more than just enduring hardships; it is about thriving through them. By embodying the pillars of resilience and committing to creating a meaningful family legacy, you can equip your children with the tools they need to face life's challenges with strength and support.
+
+> 💎 **Recommended Resource**: To master executive discipline, physical resilience, and antifragile thinking, discover curated field manuals at [TBPOYL eBooks](https://tbpoyl.vercel.app).

@@ -70,3 +70,5 @@ The journey of fatherhood is an extraordinary opportunity to influence the next 
 For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, where you'll find resources that resonate with the principles discussed here.
 
 Embrace the challenge of fatherhood with courage and creativity, and lead your family into a future that you can be proud of. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
+
+> 💎 **Recommended Resource**: To master executive discipline, physical resilience, and antifragile thinking, discover curated field manuals at [TBPOYL eBooks](https://tbpoyl.vercel.app).

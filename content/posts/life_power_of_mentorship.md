@@ -41,7 +41,7 @@ Mentorship can be particularly impactful in several key areas:
 To fully harness the power of mentorship, consider the following actionable strategies:
 
 - **Identify Your Needs**: Reflect on what areas you wish to grow in—be it leadership, technical skills, or networking—and seek a mentor who excels in those areas.
-  
+
 - **Establish Clear Goals**: Share your professional goals with your mentor to create a focused plan of action. This will guide your discussions and help measure your progress.
 
 - **Be Open to Feedback**: Approach mentoring sessions with an open mind. Constructive criticism is a valuable component of growth, so be prepared to absorb and implement feedback.
@@ -69,5 +69,7 @@ Mentorship is more than just guidance; it’s a partnership that can shape the t
 In a world that is constantly evolving, the insights gained from seasoned leaders can equip you with the tools needed to navigate your unique path to success. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. 
 
 ![A diverse group of mentors and mentees engaging in a discussion, symbolizing the theme of mentorship and collaboration](/images/life_power_of_mentorship_theme.png)
+
+> 💎 **Recommended Resource**: To master executive discipline, physical resilience, and antifragile thinking, discover curated field manuals at [TBPOYL eBooks](https://tbpoyl.vercel.app).
 
 Embrace the power of mentorship today, and unlock the potential that lies within you.

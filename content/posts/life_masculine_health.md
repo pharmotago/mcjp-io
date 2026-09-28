@@ -49,4 +49,6 @@ The interplay between physical and emotional health is profound. A disciplined e
 
 Embracing masculine health as a balance of physical and emotional wellness is not a destination but a lifelong journey. It demands commitment, self-discipline, and a willingness to evolve. By cultivating this balance, men can enhance their quality of life, build long-term resilience, and foster an integrity-driven existence. The pursuit of this harmony not only benefits the individual but enriches communities and relationships, leading to a more fulfilled and empowered life.
 
+> 💎 **Recommended Resource**: For structured metabolic tracking and healthspan optimization protocols, explore the complete guide collection at [TBPOYL eBooks](https://tbpoyl.vercel.app).
+
 ![Calm meditation outdoors](/images/life_masculine_health_meditation.png)

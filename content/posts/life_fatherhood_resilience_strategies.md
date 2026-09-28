@@ -42,3 +42,5 @@ Building resilience as a father is a journey that requires dedication, hard work
 ![Alt text describing a father and child engaged in a creative activity, highlighting the importance of spending quality time together to build resilience and foster a sense of wonder and curiosity](/images/life_fatherhood_resilience_strategies_theme.svg)
 
 As you continue on your journey as a father, remember to stay focused on your goals and to prioritize your values. By doing so, you'll be able to build a stronger, more resilient family and to achieve long-term success and fulfillment. With the right mindset, strategies, and support, you can overcome any obstacle and achieve greatness as a father.
+
+> 💎 **Recommended Resource**: To master executive discipline, physical resilience, and antifragile thinking, discover curated field manuals at [TBPOYL eBooks](https://tbpoyl.vercel.app).

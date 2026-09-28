@@ -20,7 +20,7 @@ In an increasingly complex world, the ability to think quickly and adaptively is
 ### The Importance of Mental Agility
 
 1. **Enhanced Decision-Making**: Quick thinking allows for better decision-making in high-pressure situations. This is particularly crucial in leadership roles where timely choices can impact teams and outcomes.
-  
+
 2. **Improved Problem-Solving**: Agility in thought facilitates innovative solutions to problems, empowering individuals to overcome obstacles with creativity and resourcefulness.
 
 3. **Increased Adaptability**: Life is inherently unpredictable. Those who can think on their feet are often better equipped to embrace change and turn challenges into opportunities.
@@ -110,3 +110,5 @@ Turning these exercises and practices into routine habits is key. Here’s a che
 ### Conclusion
 
 Building mental agility is not a one-time endeavor but a lifelong commitment to self-improvement. By incorporating these exercises into your daily routine, you will enhance your ability to think quickly and make sound decisions. Remember, the journey toward mental agility is as significant as the destination. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal to complement your growth in all facets of life. Embrace the challenge of cultivating your mental agility, and watch as it transforms your approach to life’s complexities.
+
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).

@@ -91,4 +91,6 @@ Adopting these techniques will not only enhance your relationships with your chi
 
 By investing in [emotional intelligence](/posts/life_fatherhood_emotional_intelligence), you are building a long-term asset that will yield benefits for generations to come. Let us strive to be fathers who not only lead but also connect with our children on a deeper emotional level.
 
+> 💎 **Recommended Resource**: To master executive discipline, physical resilience, and antifragile thinking, discover curated field manuals at [TBPOYL eBooks](https://tbpoyl.vercel.app).
+
 ![Family bonding through shared activities](/images/life_fatherhood_empathy_building_theme.svg)

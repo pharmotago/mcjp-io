@@ -22,8 +22,11 @@ export default function ReadingThemeSwitch() {
 
   const applyTheme = (t: Theme) => {
     const root = document.documentElement;
-    root.classList.remove("theme-dark", "theme-sepia", "theme-light");
+    root.classList.remove("theme-dark", "theme-sepia", "theme-light", "dark");
     root.classList.add(`theme-${t}`);
+    if (t === "dark") {
+      root.classList.add("dark");
+    }
   };
 
   const handleSelect = (t: Theme) => {

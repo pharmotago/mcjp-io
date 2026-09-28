@@ -67,3 +67,5 @@ Building a masculine legacy is a lifelong endeavor that requires commitment, sel
 For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, where you can gain further guidance on navigating the complexities of fatherhood and personal development. 
 
 In a rapidly changing world, take the time to reflect on the legacy you wish to leave behind. Commit to building a foundation that not only honors your aspirations but also uplifts those around you. Through intentional actions and unwavering dedication, you possess the power to craft a legacy that is genuinely masculine—one that stands the test of time.
+
+> 💎 **Recommended Resource**: To master executive discipline, physical resilience, and antifragile thinking, discover curated field manuals at [TBPOYL eBooks](https://tbpoyl.vercel.app).

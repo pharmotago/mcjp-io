@@ -87,6 +87,8 @@ As you embark on this journey, remember that emotional maturity is not a destina
 
 By committing to these practices, you lay the groundwork for a life rich in emotional maturity, ultimately leading to greater fulfillment and success.
 
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+
 ---
 
 ### Optimization for the Modern Workspace

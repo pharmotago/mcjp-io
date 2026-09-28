@@ -62,4 +62,6 @@ For deeper insights on masculine resilience and active parenting, explore [The S
 
 Achieving work-life balance is an ongoing process that requires dedication and self-discipline. By implementing effective time management strategies, reducing stress, and committing to a balanced lifestyle, modern men can thrive in both their personal and professional lives. Remember, the key lies in making conscious choices that align with your values and goals. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
 
+> 💎 **Recommended Resource**: To master executive discipline, physical resilience, and antifragile thinking, discover curated field manuals at [TBPOYL eBooks](https://tbpoyl.vercel.app).
+
 Embrace these strategies to cultivate a life that is not only successful but also fulfilling.

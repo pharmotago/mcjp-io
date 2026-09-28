@@ -88,6 +88,8 @@ As you move forward, remember that resilience is not merely about bouncing back 
 
 By integrating these principles into your daily life, you not only enhance your [mental resilience](/posts/discipline_endurance_training_methods) but also contribute positively to your community, inspiring others to do the same. Embrace the journey of resilience, and transform challenges into stepping stones for growth.
 
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+
 ---
 
 ### Optimization for the Modern Workspace

@@ -52,3 +52,5 @@ In conclusion, mastering [deep work](/posts/discipline_deep_work_protocols) is a
 ![Alt text: Illustration of a person working in a cozy, well-organized home office with a few plants, emphasizing the importance of a comfortable and distraction-free environment for deep work and personal growth](/images/discipline_deep_work_strategies_theme.svg)
 
 By following these steps and staying committed to the process, individuals can develop the skills and habits necessary to achieve [deep work](/posts/discipline_deep_work_protocols) and unlock their full potential. Remember, building long-term assets and integrity takes time, patience, and dedication, but the rewards are well worth the effort.
+
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).

@@ -81,6 +81,8 @@ In conclusion, discipline is not the antithesis of creativity; rather, it is its
 
 To ensure your [digital assets](/posts/money_crypto_investments) are secure and high-performing, consider launching your projects on Hostinger—a reliable web host that can provide the infrastructure you need to thrive in your creative pursuits.
 
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
+
 ---
 
 ### Optimization for the Modern Workspace

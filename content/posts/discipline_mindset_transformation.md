@@ -62,3 +62,5 @@ Discipline is not a sprint; it is the ultimate compounding asset. In the same wa
 This is the true power of mindset transformation. It is the realization that freedom is not the absence of constraints, but the presence of self-imposed boundaries that protect your highest priorities. As a man, your primary duty is to become the strongest, most capable version of yourself—not for vanity, but for utility. 
 
 By wielding discipline as your primary masculine tool, you transition from a passenger in your own life to the pilot. You build an empire of competence, integrity, and quiet power. The journey of self-improvement is arduous, but the alternative—a life dictated by external forces and unfulfilled potential—is far more painful. Choose the pain of discipline today, and secure the peace of mastery tomorrow.
+
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).

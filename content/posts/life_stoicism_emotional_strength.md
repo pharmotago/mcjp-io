@@ -26,7 +26,7 @@ At its core, Stoicism teaches the importance of distinguishing between what we c
 ### Key Stoic Practices for Crisis Management
 
 1. **Daily Reflection**: Spend a few moments each day to reflect on your actions, emotions, and decisions. This practice fosters self-awareness and prepares you for future challenges.
-   
+
 2. **Negative Visualization**: Imagine the worst-case scenarios. This technique, known as "premeditatio malorum," helps to prepare the mind for adversity, reducing fear and anxiety about potential outcomes.
 
 3. **Journaling**: Maintain a Stoic journal to document your thoughts, feelings, and reflections. This process encourages clarity and solidifies your commitment to Stoic principles.
@@ -62,3 +62,5 @@ The journey to becoming a modern Stoic man is not without its challenges, but th
 ![An inspiring visual representation of Stoicism, embodying strength and resilience in the face of challenges](/images/life_stoicism_emotional_strength_theme.png)
 
 As you navigate through life's complexities, remember that true strength lies not in the avoidance of hardship, but in your ability to confront and transcend it. Embrace the Stoic way, and you will find a path to not only survive but thrive, leading others with integrity and resilience.
+
+> 💎 **Recommended Resource**: To master executive discipline, physical resilience, and antifragile thinking, discover curated field manuals at [TBPOYL eBooks](https://tbpoyl.vercel.app).

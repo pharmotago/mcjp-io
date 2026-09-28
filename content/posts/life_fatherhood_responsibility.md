@@ -40,3 +40,5 @@ Fatherhood is not without its challenges, and it's essential to stay focused and
 Embracing responsibility and leadership as a father is a journey that requires commitment, dedication, and self-discipline. By adopting the qualities and strategies outlined in this guide, you can create a positive and nurturing environment for your family to thrive. Remember to stay focused, adaptable, and motivated, and don't hesitate to seek guidance and support when needed. 
 ![A stylized representation of a father and child engaging in a fun outdoor activity, symbolizing the themes of fatherhood, responsibility, and leadership](/images/life_fatherhood_responsibility_theme.svg)
 As you embark on this journey, recognize that fatherhood is a lifelong commitment, and the choices you make today will shape the lives of your family members tomorrow. By prioritizing responsibility, leadership, and self-discipline, you can build a strong foundation for your family's well-being and success.
+
+> 💎 **Recommended Resource**: To master executive discipline, physical resilience, and antifragile thinking, discover curated field manuals at [TBPOYL eBooks](https://tbpoyl.vercel.app).

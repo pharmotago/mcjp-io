@@ -91,3 +91,5 @@ Children learn significantly from observing their parents. Demonstrating [financ
 Teaching financial savvy is an essential aspect of fatherhood that transcends simple [money management](/posts/money_financial_literacy). It is about cultivating a mindset of responsibility, integrity, and long-term thinking in your children. By employing these strategies, you can empower them to navigate the complexities of financial life with confidence and skill.
 
 For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. As you embark on this influential journey, remember that the gifts of financial wisdom and independence will serve your children for a lifetime. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
+
+> 💎 **Recommended Resource**: To master executive discipline, physical resilience, and antifragile thinking, discover curated field manuals at [TBPOYL eBooks](https://tbpoyl.vercel.app).

@@ -79,3 +79,5 @@ Incorporating these strategies into your [daily routine](/posts/discipline_morni
 ### Conclusion
 
 In conclusion, emotional resilience is an indispensable component of the modern [masculine identity](/posts/life_masculine_identity). By investing in this trait, men can unlock a wealth of benefits that extend beyond personal satisfaction to professional success and enriched relationships. The journey may require dedication and effort, but the rewards are profound. Embrace the challenge, cultivate your emotional resilience, and leverage this modern masculine advantage to thrive in every aspect of life.
+
+> 💎 **Recommended Resource**: To master executive discipline, physical resilience, and antifragile thinking, discover curated field manuals at [TBPOYL eBooks](https://tbpoyl.vercel.app).

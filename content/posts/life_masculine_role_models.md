@@ -76,3 +76,5 @@ As we navigate the complexities of modern life, let us strive to become the role
 - [ ] Share your experiences and lessons learned with others.
 
 Embrace the responsibility of being a role model, and watch as it transforms not only your life but also the lives of those around you.
+
+> 💎 **Recommended Resource**: To master executive discipline, physical resilience, and antifragile thinking, discover curated field manuals at [TBPOYL eBooks](https://tbpoyl.vercel.app).

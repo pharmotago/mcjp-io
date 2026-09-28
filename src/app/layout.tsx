@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://mcjp-blog-git-main-mcjp.vercel.app'),
+  metadataBase: new URL('https://mcjp-blog.vercel.app'),
   title: "MCJP.io | Master of Family, Money & Life",
   description: "Automated guide map for wealth creation, masculine family leadership, and cognitive sovereignty in the modern era.",
   verification: {
@@ -30,6 +30,35 @@ export default function RootLayout({
     <html lang="en" className="h-full antialiased theme-light">
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+        {/* Anti-FOUC Theme Initializer */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                var theme = localStorage.getItem('mcjp_theme') || 'light';
+                document.documentElement.classList.remove('theme-light', 'theme-sepia', 'theme-dark', 'dark');
+                document.documentElement.classList.add('theme-' + theme);
+                if (theme === 'dark') document.documentElement.classList.add('dark');
+              } catch (e) {}
+            `,
+          }}
+        />
+        {/* Google Analytics 4 */}
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <>
+            <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}></script>
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
+                `,
+              }}
+            />
+          </>
+        )}
         {/* Google AdSense Verification Script */}
         <script 
           async 

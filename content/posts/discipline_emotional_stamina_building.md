@@ -89,3 +89,5 @@ For deeper insights on masculine resilience and active parenting, explore [The S
 In conclusion, emotional stamina is a vital component of mental fortitude that can transform how you face life's challenges. By employing the strategies outlined in this article, you can build the resilience needed to navigate adversity effectively. Remember, this journey requires commitment and discipline, but the rewards are profound—greater confidence, enhanced [personal growth](/posts/discipline_emotional_intelligence_training), and the ability to rise above life's inevitable setbacks.
 
 As you embark on this journey, consider using reliable tools and resources to support your efforts. For those interested in launching their [digital assets](/posts/money_ai_content_licensing) or pursuing online ventures, we recommend securing your online presence with Hostinger to enjoy their exclusive partner discount.
+
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).

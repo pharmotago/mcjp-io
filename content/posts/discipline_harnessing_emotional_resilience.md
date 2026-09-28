@@ -88,9 +88,9 @@ Being kind to yourself during tough times is essential for [emotional resilience
 Even with the best strategies, challenges will arise. Here are common barriers to [emotional resilience](/posts/life_fatherhood_emotional_resilience) and how to overcome them:
 
 - **Negative Self-Talk**: Combat this by reframing your thoughts. Instead of saying, “I can’t handle this,” try, “I will do my best and learn from this experience.”
-  
+
 - **Fear of Failure**: Understand that failure is a natural part of growth. Embrace it as a step towards success.
-  
+
 - **Avoidance**: Confront challenges head-on rather than avoiding them. This builds confidence and reinforces your resilience.
 
 ### The Long-Term Benefits of Emotional Resilience
@@ -108,3 +108,5 @@ Investing time and effort into building [emotional resilience](/posts/life_fathe
 In a fast-paced world, emotional resilience and [mental toughness](/posts/discipline_rucking_mental_toughness) are not just desirable traits; they are critical skills for thriving amid uncertainty. By implementing the strategies outlined in this article, you can cultivate a robust framework for [personal growth](/posts/discipline_emotional_intelligence_training) that empowers you to face life's challenges with confidence and grace. 
 
 For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. As you embark on this journey of self-discovery and emotional fortitude, remember that resilience is a lifelong endeavor—each step taken is a testament to your strength and commitment to personal excellence.
+
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).

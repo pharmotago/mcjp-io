@@ -77,3 +77,5 @@ As you embark on this journey, remember that emotional resilience is a skill tha
 ![Father and child enjoying a moment of connection, emphasizing the importance of emotional resilience in family life](/images/life_fatherhood_emotional_resilience_theme.png)
 
 By implementing these strategies, modern dads can not only enhance their own [emotional intelligence](/posts/life_emotional_intelligence) but also build a solid emotional foundation for their children, preparing them for the challenges and joys of life ahead.
+
+> 💎 **Recommended Resource**: To master executive discipline, physical resilience, and antifragile thinking, discover curated field manuals at [TBPOYL eBooks](https://tbpoyl.vercel.app).

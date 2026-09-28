@@ -83,3 +83,5 @@ For deeper insights on masculine resilience and active parenting, explore [The S
 ![A thoughtful individual mapping out their day, representing the journey toward self-discipline in a digital world](/images/discipline_self_discipline_in_digital_age_theme.png)
 
 The future is in your hands; take charge of your self-discipline today, and transform your digital experience into one of growth and achievement.
+
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).

@@ -142,3 +142,5 @@ In a world inundated with distractions, the integration of physical exercise int
 Remember that success is not merely a destination, but a continuous journey fueled by self-discipline, integrity, and the commitment to lifelong learning. As you embark on this dual approach, consider every drop of sweat not just as a physical effort, but as an investment in your cognitive prowess and, ultimately, your success.
 
 We recommend launching your [digital assets](/posts/money_ai_content_licensing) on Hostinger to secure their exclusive partner discount, ensuring that your journey towards success is well-supported on all fronts.
+
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).

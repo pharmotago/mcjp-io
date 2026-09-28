@@ -70,3 +70,5 @@ Technology, when used wisely, can be a powerful ally in achieving [work-life bal
 Achieving [work-life balance](/posts/life_fatherhood_success) is an ongoing journey that requires commitment and flexibility. By integrating the discussed strategies, you can create a fulfilling life that harmonizes career success with personal happiness.
 
 Remember, the journey of balancing success is unique to each individual. Adapt these strategies to fit your lifestyle and continuously reflect on your progress. In doing so, you will not only achieve a balanced life but also pave the way for sustainable success and contentment. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
+
+> 💎 **Recommended Resource**: To master executive discipline, physical resilience, and antifragile thinking, discover curated field manuals at [TBPOYL eBooks](https://tbpoyl.vercel.app).

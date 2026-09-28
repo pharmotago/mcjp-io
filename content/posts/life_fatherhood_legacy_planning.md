@@ -90,3 +90,5 @@ In conclusion, fatherhood is an opportunity to create a lasting impact on future
 Consider the steps outlined above as you embark on this journey. Each action you take today is a seed planted for tomorrow’s growth. Together, we can ensure that our legacies are not only remembered but cherished.
 
 ![Fatherhood legacy and future planning](https://mcjp-io.vercel.app/images/life_fatherhood_legacy_planning_theme.png)
+
+> 💎 **Recommended Resource**: To master executive discipline, physical resilience, and antifragile thinking, discover curated field manuals at [TBPOYL eBooks](https://tbpoyl.vercel.app).

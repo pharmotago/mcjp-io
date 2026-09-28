@@ -64,3 +64,5 @@ Moreover, for those looking to create a digital presence or build wealth through
 In a world filled with distractions and emotional demands, "Let Them + Let Me: The Boundary Reset Guide" is an essential read for any man seeking to reclaim his emotional sovereignty and cultivate healthier relationships. [Jordan R Clark](/posts/book_unburden_your_brain)’s expertise offers a transformative perspective that is both practical and empowering.
 
 Don't wait to start your journey toward emotional and relational mastery. Take the first step today—[Buy on Amazon](https://www.amazon.com/dp/B0GHMTMVKC?tag=mcjpio-20) and discover how establishing boundaries can lead to a more fulfilling, respectful, and peaceful life.
+
+> 💎 **Recommended Resource**: To master executive discipline, physical resilience, and antifragile thinking, discover curated field manuals at [TBPOYL eBooks](https://tbpoyl.vercel.app).

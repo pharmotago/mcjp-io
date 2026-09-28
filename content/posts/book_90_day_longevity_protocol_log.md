@@ -61,3 +61,5 @@ Don’t wait for tomorrow to start your journey. Invest in yourself today.
 ![Official Release Asset](/images/book_90_day_longevity_protocol_log_theme.svg)
 
 In conclusion, embracing longevity is a commitment to excellence in every facet of your life. By adopting the strategies outlined in this essential guide, you can transform your health and, by extension, your life. Remember, the pursuit of longevity is not a destination; it's a journey worthy of every man who seeks to live at his peak.
+
+> 💎 **Recommended Resource**: For structured metabolic tracking and healthspan optimization protocols, explore the complete guide collection at [TBPOYL eBooks](https://tbpoyl.vercel.app).

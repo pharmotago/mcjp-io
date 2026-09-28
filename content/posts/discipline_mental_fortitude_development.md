@@ -77,3 +77,5 @@ Developing [mental fortitude](/posts/discipline_emotional_stamina_building) is a
 For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. Remember, mental fortitude is not an innate trait but a skill that can be developed and perfected over time. Embrace the process, stay disciplined, and watch as your ability to maintain focus transforms your life. 
 
 By harnessing the power of mental fortitude, you set yourself on a path toward lasting success and [personal growth](/posts/discipline_emotional_intelligence_training).
+
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).

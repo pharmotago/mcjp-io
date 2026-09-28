@@ -44,3 +44,5 @@ For a seamless and high-speed home office connection that supports your learning
 ![Embracing the theme of mental performance optimization as a holistic approach to fatherhood, emphasizing the interconnectedness of personal and professional success](/images/life_fatherhood_mental_performance_theme.svg)
 
 By embracing the strategies and mindset outlined in this article, you're not only investing in your own [mental performance](/posts/discipline_cognitive_load_management) but also in the well-being and future of your family. The path to becoming a more effective, disciplined, and successful father is available to you, and the first step is making the decision to start your journey today.
+
+> 💎 **Recommended Resource**: To master executive discipline, physical resilience, and antifragile thinking, discover curated field manuals at [TBPOYL eBooks](https://tbpoyl.vercel.app).

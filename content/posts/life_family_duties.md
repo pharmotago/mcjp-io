@@ -24,7 +24,7 @@ Men are often taught to equate strength with emotional stoicism, but true streng
 Family duties encompass a wide array of responsibilities, from financial provision to emotional support. They are the bedrock of a thriving family dynamic. Here are several key responsibilities that define effective [family leadership](/posts/family_role_of_man):
 
 1. **Financial Stewardship**: Providing for the family is foundational, but it goes beyond just earning a paycheck. It involves strategic planning, budgeting, and ensuring that financial decisions align with [family values](/posts/life_masculine_legacy) and long-term goals.
-   
+
 2. **Emotional Availability**: As a leader, it is crucial to be emotionally present. This means actively listening, engaging in meaningful conversations, and being available during times of need.
 
 3. **Role Modeling**: Children learn through observation. By embodying integrity, discipline, and a strong [work ethic](/posts/life_fatherhood_work_ethic), men can instill these values in their children.
@@ -40,7 +40,7 @@ Embracing your duties as a family leader requires intentionality and a commitmen
 #### Self-Reflection and Goal Setting
 
 - **Assess Your Current Role**: Reflect on your current contributions to your family. Identify areas where you excel and those that require improvement.
-  
+
 - **Set Clear Goals**: Define what being a family leader means to you. Set specific, measurable, attainable, relevant, and time-bound (SMART) goals that align with your vision.
 
 #### Develop Financial Acumen
@@ -78,3 +78,5 @@ This journey requires courage, self-discipline, and a commitment to [personal gr
 ### Conclusion
 
 As we redefine masculinity through the lens of responsibility, we must acknowledge that true leadership is rooted in service, empathy, and integrity. By fully embracing our duties as family leaders, we can cultivate environments that foster growth, resilience, and love. It is through this transformative journey that we will not only redefine masculinity but also elevate the standards of what it means to lead a family in today’s world.
+
+> 💎 **Recommended Resource**: To master executive discipline, physical resilience, and antifragile thinking, discover curated field manuals at [TBPOYL eBooks](https://tbpoyl.vercel.app).

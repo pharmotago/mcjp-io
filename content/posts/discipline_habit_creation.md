@@ -31,7 +31,7 @@ Understanding this timeline is crucial for anyone seeking to establish new routi
 #### Action Plan for Habit Creation
 
 1. **Identify Your Goals**: Clearly define what you want to achieve. Write down your goals and categorize them into short-term and long-term aspirations.
-   
+
 2. **Select a Keystone Habit**: Choose a singular habit that can act as a catalyst for other positive behaviors. For example, regular exercise can lead to better nutrition, improved sleep, and increased productivity.
 
 3. **Establish Cues**: Determine specific cues that will trigger your new habit. This could be a time of day, an environmental trigger, or a preceding action that reminds you to engage in your desired behavior.
@@ -115,7 +115,7 @@ By understanding this loop, you can strategically intervene at the cue or routin
 Breaking a habit doesn?�t simply mean stopping a behavior; it involves replacing it with something more constructive. Here?�s how to effectively substitute bad habits:
 
 1. **Choose Replacement Behaviors:** Identify positive habits that can fulfill the same need as the bad habit. For example, if you snack mindlessly while watching TV, consider preparing healthy snacks or engaging in a different activity.
-   
+
 2. **Start Small:** Change is daunting, and attempting to overhaul your entire routine at once can be counterproductive. Focus on making small, manageable adjustments.
 
 3. **Use Implementation Intentions:** This technique involves specifying when, where, and how you will implement the new behavior. For instance, if you want to exercise more, say, ?�I will go for a run every morning at 7 AM.??
@@ -223,3 +223,5 @@ For deeper insights on masculine resilience and active parenting, explore [The S
 ![Image representing the theme of discipline, showcasing success through habit change and personal growth](/images/discipline_habit_creation_theme.png)
 
 In conclusion, the path to breaking bad habits is not merely about cessation but about building a sustainable, disciplined life that aligns with your aspirations. Each deliberate action you take is an investment in your future success. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
+
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).

@@ -37,3 +37,5 @@ High-performance habits are not about short-term gains but about building a foun
 Implementing high-performance habits into your [daily routine](/posts/discipline_morning_routines) is a journey that requires commitment, patience, and persistence. It involves a deep understanding of what drives success and a willingness to adapt and evolve. By focusing on developing habits that enhance productivity, discipline, and integrity, individuals can set themselves on a path to achieving their goals and realizing their full potential. Remember, the key to high performance is not in the habits themselves, but in the consistent practice and the unwavering commitment to excellence.
 
 ![The theme of high-performance habits is often represented by a combination of elements symbolizing growth, focus, and the pursuit of excellence, emphasizing the holistic approach to achieving success](/images/discipline_high_performance_habits_theme.svg)
+
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).

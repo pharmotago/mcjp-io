@@ -98,3 +98,5 @@ For deeper insights on masculine resilience and active parenting, explore [The S
 ![A serene workspace representing focus and discipline in a modern environment](/images/discipline_masculine_focus_techniques_theme.png)
 
 By adopting these masculine [focus techniques](/posts/discipline_mental_clarity), you are not only investing in your performance today but also building a foundation for success that will pay dividends in the future. Stay disciplined, remain focused, and watch as you achieve the heights of your potential. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
+
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).

@@ -10,15 +10,9 @@ window.SwapDB = SwapDB;
 
 // Application State
 import BriskScheduler from './scheduler.js';
-window.BriskScheduler = BriskScheduler;
 
-// Static Module Imports (Guarantees synchronous availability of all 87 handlers)
-import './modules/role-customization.js';
-import './modules/compliance.js';
-import './modules/payroll-engine.js';
-import './modules/ai-ops.js';
 // Toast Notification System
-function showToast(message, type = 'success') {
+window.showToast = function(message, type = 'success') {
   const container = document.getElementById('toast-container');
   if (!container) return;
   const toast = document.createElement('div');
@@ -40,608 +34,7 @@ function showToast(message, type = 'success') {
     toast.classList.remove('toast-show');
     setTimeout(() => toast.remove(), 300);
   }, 4000);
-}
-window.showToast = showToast;
-
-
-// ==========================================
-// CORE UTILITIES & MODULE DELEGATORS (SYNCHRONOUS GUARANTEES)
-// ==========================================
-function hexToRgb(hex) {
-  if (!hex || typeof hex !== 'string') return '79, 70, 229';
-  const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-  const fullHex = hex.replace(shorthandRegex, (m, r, g, b) => r + r + g + g + b + b);
-  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(fullHex);
-  return result ? `${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}` : '79, 70, 229';
-}
-window.hexToRgb = hexToRgb;
-
-function timeToDecimal(timeStr) {
-  if (!timeStr) return 0;
-  const [h, m] = timeStr.split(':').map(Number);
-  return (h || 0) + (m || 0) / 60;
-}
-window.timeToDecimal = timeToDecimal;
-
-function calculateShiftHours(start, end, unpaidMealMins = null) {
-  if (!start || !end) return 0;
-  const [sh, sm] = start.split(':').map(Number);
-  const [eh, em] = end.split(':').map(Number);
-  let diffMinutes = (eh * 60 + em) - (sh * 60 + sm);
-  if (diffMinutes < 0) diffMinutes += 24 * 60; // Overnight shift midnight crossover
-  
-  const grossHours = diffMinutes / 60;
-  let mealMins = 0;
-  if (unpaidMealMins !== null && unpaidMealMins !== undefined) {
-    mealMins = Number(unpaidMealMins) || 0;
-  } else {
-    // Fair Work Default: 30m unpaid break if shift >= 5h
-    mealMins = grossHours >= 5 ? 30 : 0;
-  }
-  return Math.max(0, grossHours - (mealMins / 60));
-}
-window.calculateShiftHours = calculateShiftHours;
-
-function getAwardBreakEntitlements(grossHours) {
-  if (grossHours < 4) {
-    return { paidBreaks: 0, unpaidMealMins: 0, description: 'No breaks required (< 4h)' };
-  } else if (grossHours < 5) {
-    return { paidBreaks: 1, unpaidMealMins: 0, description: '☕ 1x 10m Paid Rest Break' };
-  } else if (grossHours < 7.6) {
-    return { paidBreaks: 1, unpaidMealMins: 30, description: '🍱 1x 30m Unpaid Lunch + ☕ 1x 10m Paid Rest' };
-  } else {
-    return { paidBreaks: 2, unpaidMealMins: 30, description: '🍱 1x 30m Unpaid Lunch + ☕ 2x 10m Paid Rest' };
-  }
-}
-window.getAwardBreakEntitlements = getAwardBreakEntitlements;
-
-function formatTradingHoursSummary(th) {
-  if (!th || typeof th !== 'object') {
-    return 'Mon–Fri 08:30–17:30 | Sat 09:00–13:00 | Sun Closed';
-  }
-  
-  const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-  const getDayStr = (d) => {
-    const data = th[String(d)] || th[d];
-    if (!data) return (d === 0 ? 'Closed' : (d === 6 ? '09:00–13:00' : '08:30–17:30'));
-    if (data.closed) return 'Closed';
-    const op = data.open ? String(data.open).substring(0, 5) : '08:30';
-    const cl = data.close ? String(data.close).substring(0, 5) : '17:30';
-    return `${op}–${cl}`;
-  };
-
-  const mon = getDayStr(1);
-  const tue = getDayStr(2);
-  const wed = getDayStr(3);
-  const thu = getDayStr(4);
-  const fri = getDayStr(5);
-  const sat = getDayStr(6);
-  const sun = getDayStr(0);
-
-  const parts = [];
-
-  // Check if Mon-Fri are identical
-  if (mon === tue && tue === wed && wed === thu && thu === fri) {
-    parts.push(mon === 'Closed' ? 'Mon–Fri Closed' : `Mon–Fri ${mon}`);
-  } else {
-    // If weekdays differ
-    for (let i = 1; i <= 5; i++) {
-      parts.push(`${dayNames[i]} ${getDayStr(i)}`);
-    }
-  }
-
-  // Sat & Sun
-  parts.push(`Sat ${sat}`);
-  parts.push(`Sun ${sun}`);
-
-  return parts.join(' | ');
-}
-window.formatTradingHoursSummary = formatTradingHoursSummary;
-
-function getDailySalesTargets() {
-  const defaultTargets = { 1: 11000, 2: 10500, 3: 10500, 4: 12000, 5: 13500, 6: 8500, 0: 6000 };
-  try {
-    if (typeof BriskDB !== 'undefined' && BriskDB.getSettings) {
-      const dbSettings = BriskDB.getSettings();
-      if (dbSettings && dbSettings.salesTargets) {
-        return { ...defaultTargets, ...dbSettings.salesTargets };
-      }
-    }
-  } catch (e) {}
-  return defaultTargets;
-}
-window.getDailySalesTargets = getDailySalesTargets;
-
-function getWageKpiHealth(percentage) {
-  if (percentage <= 0) return { color: 'var(--text-muted)', label: 'No Data', badgeClass: 'badge-outline' };
-  if (percentage < 10.5) return { color: '#10b981', label: '🟢 Optimal (<10.5%)', badgeClass: 'badge-success' };
-  if (percentage <= 13.5) return { color: 'var(--accent-cyan)', label: '🔵 Healthy Benchmark (10.5–13.5%)', badgeClass: 'badge-cyan' };
-  if (percentage <= 16.0) return { color: '#fbbf24', label: '🟡 Warning (13.5–16.0%)', badgeClass: 'badge-warning' };
-  return { color: '#f87171', label: '🔴 Critical High (>16.0%)', badgeClass: 'badge-danger' };
-}
-window.getWageKpiHealth = getWageKpiHealth;
-
-function updateShiftBreakSummary() {
-  const start = document.getElementById('shift-start')?.value;
-  const end = document.getElementById('shift-end')?.value;
-  const breakSelectVal = document.getElementById('shift-unpaid-break')?.value || 'auto';
-  const summaryEl = document.getElementById('shift-award-summary');
-  const netHoursInput = document.getElementById('shift-net-hours');
-
-  if (!start || !end) {
-    if (summaryEl) summaryEl.textContent = 'Select times to calculate';
-    if (netHoursInput) netHoursInput.value = '0.0h';
-    return;
-  }
-
-  const grossHours = calculateShiftHours(start, end, 0); // 0 meal mins to get gross duration
-  const entitlements = getAwardBreakEntitlements(grossHours);
-  
-  let mealMins = entitlements.unpaidMealMins;
-  let isCrib = false;
-  if (breakSelectVal === 'crib_paid') {
-    mealMins = 0;
-    isCrib = true;
-  } else if (breakSelectVal !== 'auto') {
-    mealMins = parseInt(breakSelectVal, 10) || 0;
-  }
-
-  const netHours = calculateShiftHours(start, end, isCrib ? 'crib_paid' : mealMins);
-  
-  if (summaryEl) {
-    if (isCrib) {
-      summaryEl.innerHTML = `<span style="color:#10b981;"><i class="fa-solid fa-mug-hot"></i> 30m Paid Crib Break (Clause 20.2 - Sole Pharmacist On-Premises, 100% Paid)</span>`;
-    } else {
-      const mealText = mealMins > 0 ? `🍱 ${mealMins}m Unpaid Lunch` : (grossHours > 5.0 ? '⚠️ No Lunch (Clause 20: 5h+ work requires 30m break)' : '🍱 No Unpaid Lunch');
-      const restText = entitlements.paidBreaks > 0 ? ` | ☕ ${entitlements.paidBreaks}x 10m Paid Rest` : '';
-      summaryEl.innerHTML = `${mealText}${restText} (${grossHours.toFixed(1)}h gross)`;
-    }
-  }
-
-  if (netHoursInput) {
-    netHoursInput.value = `${netHours.toFixed(1)}h`;
-  }
-}
-window.updateShiftBreakSummary = updateShiftBreakSummary;
-
-function updatePasteButtonState() {
-  const container = document.getElementById('shift-paste-container');
-  if (!container) return;
-  if (state.copiedShift) {
-    container.style.display = 'block';
-    container.innerHTML = `
-      <div style="background: rgba(0, 229, 255, 0.08); border: 1px dashed var(--accent-cyan); border-radius: var(--radius-sm); padding: 8px 12px; display: flex; justify-content: space-between; align-items: center;">
-        <span style="font-size: 0.8rem; color: var(--accent-cyan);"><i class="fa-regular fa-copy"></i> Copied: ${state.copiedShift.role} (${formatTimeAmPm(state.copiedShift.startTime)} - ${formatTimeAmPm(state.copiedShift.endTime)})</span>
-        <button type="button" class="btn btn-primary" style="padding: 2px 8px; font-size: 0.75rem;" onclick="pasteCopiedShiftDetails()">Paste</button>
-      </div>
-    `;
-  } else {
-    container.style.display = 'none';
-    container.innerHTML = '';
-  }
-}
-window.updatePasteButtonState = updatePasteButtonState;
-
-function pasteCopiedShiftDetails() {
-  if (!state.copiedShift) return;
-  if (state.copiedShift.role) document.getElementById('shift-role').value = state.copiedShift.role;
-  if (state.copiedShift.startTime) document.getElementById('shift-start').value = (state.copiedShift.startTime || '09:00').substring(0, 5);
-  if (state.copiedShift.endTime) document.getElementById('shift-end').value = (state.copiedShift.endTime || '17:00').substring(0, 5);
-  if (state.copiedShift.notes) document.getElementById('shift-notes').value = state.copiedShift.notes;
-  if (state.copiedShift.unpaidMealMins !== undefined && state.copiedShift.unpaidMealMins !== null && document.getElementById('shift-unpaid-break')) {
-    document.getElementById('shift-unpaid-break').value = String(state.copiedShift.unpaidMealMins);
-  }
-  updateShiftBreakSummary();
-  showToast('Copied shift details pasted!', 'info');
-}
-window.pasteCopiedShiftDetails = pasteCopiedShiftDetails;
-
-function getHigherDutiesMinimumRate(roleName) {
-  if (!roleName || typeof roleName !== 'string') return 0;
-  const r = roleName.toLowerCase();
-  if (r.includes('pharmacist manager')) return 52.15;
-  if (r.includes('pharmacist in charge') || r.includes('pic')) return 46.50;
-  if (r.includes('pharmacist')) return 41.74;
-  if (r.includes('intern') || r.includes('graduate')) return 34.50;
-  if (r.includes('dispense technician') || r.includes('technician') || r.includes('level 4')) return 30.66;
-  if (r.includes('webster') || r.includes('level 3')) return 29.45;
-  if (r.includes('level 2')) return 28.45;
-  return 0;
-}
-window.getHigherDutiesMinimumRate = getHigherDutiesMinimumRate;
-
-function getEmployeeLaborCostBreakdown(emp, shiftDate, hours, shiftRole) {
-  if (!emp) return { base: 0, super: 0, gst: 0, total: 0, isLocum: false, label: 'PAYG' };
-  let hourlyRate = parseFloat(emp.hourlyRate) || 0;
-  const isPubHol = isNswPublicHoliday(shiftDate);
-  const tcDay = new Date(shiftDate + 'T00:00:00').getDay();
-  const empType = emp.employmentType || 'permanent';
-
-  if (empType === 'locum_invoice') {
-    const base = hours * hourlyRate;
-    const gst = base * 0.10;
-    const superCost = base * 0.12;
-    const total = base + gst + superCost;
-    return { base, super: superCost, gst, total, isLocum: true, label: 'Locum Contractor', effectiveRate: hourlyRate };
-  } else if (empType === 'locum_invoice_no_gst') {
-    const base = hours * hourlyRate;
-    const superCost = base * 0.12;
-    const total = base + superCost;
-    return { base, super: superCost, gst: 0, total, isLocum: true, label: 'Locum Contractor', effectiveRate: hourlyRate };
-  } else if (empType === 'locum_all_inclusive') {
-    const base = hours * hourlyRate;
-    return { base, super: 0, gst: 0, total: base, isLocum: true, label: 'Locum Contractor (All-Inclusive)', effectiveRate: hourlyRate };
-  }
-
-  // Pharmacy Award 2026 Clause 27 Higher Duties Allowance
-  let isHigherDuties = false;
-  if (shiftRole) {
-    const higherRate = getHigherDutiesMinimumRate(shiftRole);
-    if (higherRate > hourlyRate) {
-      hourlyRate = higherRate;
-      isHigherDuties = true;
-    }
-  }
-
-  // Standard PAYG Employee
-  let penaltyMultiplier = 1.0;
-  const isCasual = empType === 'casual';
-  
-  if (isPubHol) {
-    penaltyMultiplier = isCasual ? 2.50 : 2.25;
-  } else if (tcDay === 0) {
-    penaltyMultiplier = isCasual ? 2.00 : 1.75;
-  } else if (tcDay === 6) {
-    penaltyMultiplier = isCasual ? 1.50 : 1.25;
-  } else if (isCasual) {
-    penaltyMultiplier = 1.25;
-  }
-
-  const base = hours * hourlyRate * penaltyMultiplier;
-  const superCost = base * 0.12;
-  const total = isCasual ? (base * 1.135) : (base * 1.205);
-  return { 
-    base, 
-    super: superCost, 
-    gst: 0, 
-    total, 
-    isLocum: false, 
-    label: isCasual ? 'PAYG Casual' : 'PAYG Permanent',
-    penaltyMultiplier,
-    isHigherDuties,
-    effectiveRate: hourlyRate
-  };
-}
-window.getEmployeeLaborCostBreakdown = getEmployeeLaborCostBreakdown;
-
-function calculateLaborCostForecast() {
-  try {
-    const costBadge = document.getElementById('labor-cost-forecast-badge');
-    const costValEl = document.getElementById('labor-cost-forecast-value');
-    const wageBadge = document.getElementById('wage-ratio-forecast-badge');
-    const wageValEl = document.getElementById('wage-ratio-forecast-value');
-    const isManagerOrOwner = hasManagerPermissions(state.currentUser);
-    
-    if (!isManagerOrOwner) {
-      if (costBadge) costBadge.style.display = 'none';
-      if (wageBadge) wageBadge.style.display = 'none';
-      const repKpiCard = document.getElementById('rep-wage-kpi-card');
-      if (repKpiCard) repKpiCard.style.display = 'none';
-      return;
-    }
-
-    if (costBadge) costBadge.style.display = 'flex';
-    if (wageBadge) wageBadge.style.display = 'flex';
-    const repKpiCard = document.getElementById('rep-wage-kpi-card');
-    if (repKpiCard) repKpiCard.style.display = 'flex';
-
-    const mon = new Date(state.currentWeekStart);
-    const sun = new Date(mon);
-    sun.setDate(mon.getDate() + 6);
-    mon.setHours(0,0,0,0);
-    sun.setHours(23,59,59,999);
-
-    const monStr = formatDateISO(mon);
-    const sunStr = formatDateISO(sun);
-
-    const weekShifts = state.shifts.filter(s => {
-      return s && s.date && s.date >= monStr && s.date <= sunStr;
-    });
-
-    let totalLaborCost = 0;
-    let totalWeeklyHours = 0;
-
-    weekShifts.forEach(shift => {
-      if (!shift.employeeId) return;
-      const emp = state.employees.find(e => e.id === shift.employeeId);
-      if (!emp) return;
-      const r = (emp.role || '').toLowerCase().trim();
-      if (r === 'owner' || r === 'partner' || r === 'managing partner') return;
-
-      const duration = calculateShiftHours(shift.startTime, shift.endTime, shift.unpaidMealMins);
-      totalWeeklyHours += duration;
-      const breakdown = getEmployeeLaborCostBreakdown(emp, shift.date, duration, shift.role);
-      totalLaborCost += breakdown.total;
-    });
-
-    const targets = getDailySalesTargets();
-    let totalSalesTarget = 0;
-    for (let d = 0; d < 7; d++) {
-      totalSalesTarget += Number(targets[String(d)] || 0);
-    }
-    if (totalSalesTarget <= 0) totalSalesTarget = 75000;
-
-    const wageRatio = totalSalesTarget > 0 ? (totalLaborCost / totalSalesTarget) * 100 : 0;
-    const health = getWageKpiHealth(wageRatio);
-
-    if (costValEl) costValEl.textContent = `${Math.round(totalLaborCost).toLocaleString('en-AU')}`;
-    if (wageValEl) {
-      wageValEl.textContent = `${wageRatio.toFixed(1)}%`;
-      wageValEl.style.color = health.color;
-    }
-  } catch (e) {
-    console.warn('calculateLaborCostForecast error:', e);
-  }
-}
-window.calculateLaborCostForecast = calculateLaborCostForecast;
-
-async function saveDailySalesTargets(targets) {
-  try {
-    if (!state.settings) state.settings = {};
-    state.settings.salesTargets = targets;
-    localStorage.setItem('brisk_daily_sales_targets', JSON.stringify(targets));
-    if (typeof BriskDB !== 'undefined' && BriskDB.saveSettings) {
-      await BriskDB.saveSettings(state.settings);
-    }
-  } catch (e) {
-    console.warn('Failed to save sales targets:', e);
-  }
-}
-window.saveDailySalesTargets = saveDailySalesTargets;
-
-function openSalesTargetsModal() {
-  if (!hasManagerPermissions(state.currentUser)) {
-    showToast('Permission denied: Sales Forecast & Wage KPI is only available to Managers and Owners.', 'warning');
-    return;
-  }
-  const modal = document.getElementById('modal-sales-kpi');
-  if (!modal) return;
-
-  const daysListContainer = document.getElementById('sales-kpi-days-list');
-  if (daysListContainer) {
-    daysListContainer.innerHTML = '';
-    const targets = getDailySalesTargets();
-    const DAY_IDX_MAP = [1, 2, 3, 4, 5, 6, 0]; // Mon..Sun
-    const DAY_NAMES_LOCAL = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-
-    for (let i = 0; i < 7; i++) {
-      const dayIdx = DAY_IDX_MAP[i];
-      const dayName = DAY_NAMES_LOCAL[i];
-      const d = new Date(state.currentWeekStart);
-      d.setDate(state.currentWeekStart.getDate() + i);
-      const dateStr = formatDateISO(d);
-      
-      const dayShifts = state.shifts.filter(s => s.date === dateStr && s.employeeId);
-      let dayLaborCost = 0;
-      let dayHours = 0;
-      dayShifts.forEach(shift => {
-        const emp = state.employees.find(e => e.id === shift.employeeId);
-        if (!emp) return;
-        const r = (emp.role || '').toLowerCase().trim();
-        if (r === 'owner' || r === 'partner' || r === 'managing partner') return;
-
-        const hours = calculateShiftHours(shift.startTime, shift.endTime, shift.unpaidMealMins);
-        dayHours += hours;
-        dayLaborCost += getEmployeeLaborCostBreakdown(emp, shift.date, hours, shift.role).total;
-      });
-
-      const currentTarget = targets[String(dayIdx)] !== undefined ? targets[String(dayIdx)] : 10000;
-      const initialPct = currentTarget > 0 ? (dayLaborCost / currentTarget) * 100 : 0;
-      const initialKpi = getWageKpiHealth(initialPct);
-
-      const row = document.createElement('div');
-      row.className = 'sales-kpi-row glass-card';
-      row.style.padding = '10px 14px';
-      row.style.background = 'rgba(255, 255, 255, 0.03)';
-      row.style.border = '1px solid var(--border-glass)';
-      row.style.borderRadius = 'var(--radius-sm)';
-      row.style.display = 'flex';
-      row.style.alignItems = 'center';
-      row.style.justifyContent = 'space-between';
-      row.style.gap = '12px';
-      row.style.flexWrap = 'wrap';
-
-      row.innerHTML = `
-        <div style="min-width: 120px;">
-          <strong style="display:block; font-size:0.9rem;">${dayName}</strong>
-          <span class="text-muted" style="font-size:0.75rem;">${dateStr.slice(5)} (${dayHours.toFixed(1)}h | ${dayLaborCost.toFixed(0)})</span>
-        </div>
-        <div style="display:flex; align-items:center; gap:6px; flex:1; min-width: 150px;">
-          <span style="font-size:0.85rem; color:var(--text-muted);">$</span>
-          <input type="number" id="sales-target-input-${dayIdx}" class="form-control sales-target-input" style="height:34px; font-size:0.9rem; padding:4px 8px;" value="${currentTarget}" min="0" step="100" oninput="recalculateSalesKpiModal()">
-        </div>
-        <div style="min-width: 100px; text-align:right;">
-          <span id="sales-row-pct-${dayIdx}" style="font-weight:700; font-size:1rem; color:${initialKpi.color};">${initialPct.toFixed(1)}%</span>
-          <span style="font-size:0.7rem; color:var(--text-muted); display:block;">Wage Ratio</span>
-        </div>
-      `;
-      daysListContainer.appendChild(row);
-    }
-  }
-
-  recalculateSalesKpiModal();
-  modal.classList.add('active');
-}
-window.openSalesTargetsModal = openSalesTargetsModal;
-
-function recalculateSalesKpiModal() {
-  const DAY_IDX_MAP = [1, 2, 3, 4, 5, 6, 0];
-  let totalLabor = 0;
-  let totalSales = 0;
-
-  for (let i = 0; i < 7; i++) {
-    const dayIdx = DAY_IDX_MAP[i];
-    const d = new Date(state.currentWeekStart);
-    d.setDate(state.currentWeekStart.getDate() + i);
-    const dateStr = formatDateISO(d);
-    
-    const dayShifts = state.shifts.filter(s => s.date === dateStr && s.employeeId);
-    let dayLaborCost = 0;
-    dayShifts.forEach(shift => {
-      const emp = state.employees.find(e => e.id === shift.employeeId);
-      if (!emp) return;
-      const r = (emp.role || '').toLowerCase().trim();
-      if (r === 'owner' || r === 'partner' || r === 'managing partner') return;
-
-      const hours = calculateShiftHours(shift.startTime, shift.endTime, shift.unpaidMealMins);
-      dayLaborCost += getEmployeeLaborCostBreakdown(emp, shift.date, hours, shift.role).total;
-    });
-
-    const input = document.getElementById(`sales-target-input-${dayIdx}`);
-    const salesVal = input ? parseFloat(input.value) || 0 : 0;
-    const pct = salesVal > 0 ? (dayLaborCost / salesVal) * 100 : 0;
-    const health = getWageKpiHealth(pct);
-
-    const rowPctEl = document.getElementById(`sales-row-pct-${dayIdx}`);
-    if (rowPctEl) {
-      rowPctEl.textContent = `${pct.toFixed(1)}%`;
-      rowPctEl.style.color = health.color;
-    }
-
-    totalLabor += dayLaborCost;
-    totalSales += salesVal;
-  }
-
-  const weeklyRatio = totalSales > 0 ? (totalLabor / totalSales) * 100 : 0;
-  const overallHealth = getWageKpiHealth(weeklyRatio);
-
-  const laborEl = document.getElementById('sales-kpi-modal-labor');
-  const salesEl = document.getElementById('sales-kpi-modal-sales');
-  const ratioEl = document.getElementById('sales-kpi-modal-ratio');
-  const statusBadge = document.getElementById('sales-kpi-modal-status-badge');
-
-  if (laborEl) laborEl.textContent = `${totalLabor.toFixed(2)}`;
-  if (salesEl) salesEl.textContent = `${totalSales.toLocaleString('en-AU', { minimumFractionDigits: 0 })}`;
-  if (ratioEl) {
-    ratioEl.textContent = `${weeklyRatio.toFixed(1)}%`;
-    ratioEl.style.color = overallHealth.color;
-  }
-  if (statusBadge) {
-    statusBadge.textContent = overallHealth.label;
-    statusBadge.style.background = `${overallHealth.color}22`;
-    statusBadge.style.color = overallHealth.color;
-    statusBadge.style.border = `1px solid ${overallHealth.color}66`;
-  }
-}
-window.recalculateSalesKpiModal = recalculateSalesKpiModal;
-
-function applySalesPreset(amount) {
-  const DAY_IDX_MAP = [1, 2, 3, 4, 5, 6, 0];
-  DAY_IDX_MAP.forEach(idx => {
-    const input = document.getElementById(`sales-target-input-${idx}`);
-    if (input) input.value = amount;
-  });
-  recalculateSalesKpiModal();
-}
-window.applySalesPreset = applySalesPreset;
-
-function resetSalesToDefault() {
-  const defaultTargets = { 1: 11000, 2: 10500, 3: 10500, 4: 12000, 5: 13500, 6: 8500, 0: 6000 };
-  Object.keys(defaultTargets).forEach(idx => {
-    const input = document.getElementById(`sales-target-input-${idx}`);
-    if (input) input.value = defaultTargets[idx];
-  });
-  recalculateSalesKpiModal();
-}
-window.resetSalesToDefault = resetSalesToDefault;
-
-function closeSalesTargetsModal() {
-  const modal = document.getElementById('modal-sales-kpi');
-  if (modal) modal.classList.remove('active');
-}
-window.closeSalesTargetsModal = closeSalesTargetsModal;
-
-async function handleSaveSalesTargets(event) {
-  if (event) event.preventDefault();
-  const DAY_IDX_MAP = [1, 2, 3, 4, 5, 6, 0];
-  const newTargets = {};
-  DAY_IDX_MAP.forEach(idx => {
-    const input = document.getElementById(`sales-target-input-${idx}`);
-    newTargets[idx] = input ? parseFloat(input.value) || 0 : 10000;
-  });
-
-  await saveDailySalesTargets(newTargets);
-  closeSalesTargetsModal();
-  calculateLaborCostForecast();
-  renderScheduler();
-  showToast('Sales forecast targets saved and synced live across all devices.', 'success');
-}
-window.handleSaveSalesTargets = handleSaveSalesTargets;
-
-function renderSettingsPanel() {
-  const DEFAULT_TRADING_HOURS = {
-    '0': { open: '08:30', close: '17:30', closed: false },
-    '1': { open: '08:00', close: '20:00', closed: false },
-    '2': { open: '08:00', close: '20:00', closed: false },
-    '3': { open: '08:00', close: '20:00', closed: false },
-    '4': { open: '08:00', close: '20:00', closed: false },
-    '5': { open: '08:00', close: '20:00', closed: false },
-    '6': { open: '08:00', close: '18:00', closed: false }
-  };
-  if (!state.settings) state.settings = {};
-  if (!state.settings.tradingHours) {
-    state.settings.tradingHours = DEFAULT_TRADING_HOURS;
-  }
-  const th = state.settings.tradingHours;
-  
-  for (let d = 0; d < 7; d++) {
-    const dayData = th[String(d)] || DEFAULT_TRADING_HOURS[String(d)];
-    if (!dayData) continue;
-    
-    const closedCheckbox = document.getElementById(`trading-closed-${d}`);
-    const openInput = document.getElementById(`trading-open-${d}`);
-    const closeInput = document.getElementById(`trading-close-${d}`);
-    
-    if (closedCheckbox) closedCheckbox.checked = !!dayData.closed;
-    if (openInput) {
-      openInput.value = dayData.open || '08:30';
-      openInput.disabled = !!dayData.closed;
-    }
-    if (closeInput) {
-      closeInput.value = dayData.close || '17:30';
-      closeInput.disabled = !!dayData.closed;
-    }
-  }
-
-  const settingsName = document.getElementById('settings-company-name');
-  if (settingsName) settingsName.value = state.settings.companyName || 'Amcal Pharmacy Woywoy Rosters';
-}
-window.renderSettingsPanel = renderSettingsPanel;
-
-function renderAiOpsPanel() {}
-window.renderAiOpsPanel = renderAiOpsPanel;
-
-function onEmployeeDobChange() {
-  const dobVal = document.getElementById('emp-dob')?.value;
-  if (!dobVal) return;
-  const age = Math.floor((new Date() - new Date(dobVal)) / (365.25 * 24 * 3600 * 1000));
-  const ageEl = document.getElementById('emp-calculated-age');
-  if (ageEl) ageEl.textContent = `Age: ${age} years`;
-}
-window.onEmployeeDobChange = onEmployeeDobChange;
-
-function renderModalCertificatesList() {
-  const container = document.getElementById('emp-certificates-list');
-  if (!container) return;
-  const certs = state.activeEmployeeModalCerts || [];
-  container.innerHTML = certs.map((c, i) => `
-    <span class="badge badge-cyan" style="display:inline-flex; align-items:center; gap:4px; margin:2px;">
-      ${c}
-      <i class="fa-solid fa-xmark" style="cursor:pointer;" onclick="removeCertificateFromEmployeeModal(${i})"></i>
-    </span>
-  `).join('') || '<span style="font-size:0.8rem; color:var(--text-muted);">No compliance certificates added</span>';
-}
-window.renderModalCertificatesList = renderModalCertificatesList;
+};
 
 let state = {
   currentTab: 'dashboard',
@@ -658,157 +51,23 @@ let state = {
   positions: [],
   copiedShift: null
 };
-window.state = state;
 
 const DAY_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-window.DAY_NAMES = DAY_NAMES;
-window.MONTH_NAMES = MONTH_NAMES;
-
-/* ==========================================================================
-   WHITELIST LEADERSHIP ACCESS CONTROL & RBAC
-   Authorized Owners & Managers: Glen, Katherine Nguyen, Vicky Duffy, Peter Kim
-   ========================================================================== */
-const AUTHORIZED_MANAGERS = [
-  'peter kim',
-  'peter',
-  'pharmotago',
-  'glen',
-  'katherine nguyen',
-  'katherine',
-  'vicky duffy',
-  'vicky'
-];
-
-function hasManagerPermissions(user = state.currentUser) {
-  if (!user) return false;
-  
-  const name = String(user.name || '').toLowerCase().trim();
-  const email = String(user.email || '').toLowerCase().trim();
-  const role = String(user.role || '').toLowerCase().trim();
-
-  // 1. Explicit Named Whitelist Leaders:
-  // Peter Kim, Glen Kanawati, Katherine Nguyen, Vicki Duffy
-  const WHITELIST = [
-    'peter kim', 'peter', 'pharmotago',
-    'glen kanawati', 'glen', 'glenkanawati',
-    'katherine nguyen', 'katherine', 'nguyek',
-    'vicki duffy', 'vicki', 'vicky duffy', 'vicky', 'vickilorraine75'
-  ];
-  for (const w of WHITELIST) {
-    if (name.includes(w) || email.includes(w.replace(/\s+/g, ''))) {
-      return true;
-    }
-  }
-
-  // 2. Explicit Management Roles:
-  if (
-    role.includes('owner') ||
-    role.includes('admin') ||
-    role.includes('manager') ||
-    role.includes('lead') ||
-    role.includes('partner')
-  ) {
-    return true;
-  }
-
-  // 3. Match against employee record in state.employees
-  if (user.employeeId && state.employees && state.employees.length > 0) {
-    const emp = state.employees.find(e => e.id === user.employeeId);
-    if (emp && emp.role) {
-      const empRole = emp.role.toLowerCase();
-      if (
-        empRole.includes('owner') ||
-        empRole.includes('manager') ||
-        empRole.includes('partner') ||
-        empRole.includes('admin')
-      ) {
-        return true;
-      }
-    }
-  }
-
-  // All other staff (Pharmacists, Techs, Assistants, Casuals) are read-only
-  return false;
-}
-window.hasManagerPermissions = hasManagerPermissions;
-
-// Robust Auth Session Resolver: checks localStorage and Supabase Auth client storage
-async function resolveAndRestoreAuthSession() {
-  // 1. Check local session
-  let currentSession = BriskDB.getSession();
-  if (currentSession && currentSession.email) {
-    return currentSession;
-  }
-
-  // 2. Check Supabase Auth client session (auto-restores from sb-*-auth-token)
-  if (BriskDB.supabase && BriskDB.supabase.auth) {
-    try {
-      const { data: { session: sbSession } } = await BriskDB.supabase.auth.getSession();
-      if (sbSession && sbSession.user && sbSession.user.email) {
-        const cleanEmail = sbSession.user.email.toLowerCase().trim();
-        const isWhitelistedLeader = ['peter', 'glen', 'katherine', 'vicky', 'vicki', 'pharmotago', 'nguyek', 'glenkanawati'].some(l => cleanEmail.includes(l));
-        
-        let resolvedRole = isWhitelistedLeader ? 'owner' : 'employee';
-        let empId = null;
-        let empName = sbSession.user.user_metadata?.name || cleanEmail.split('@')[0];
-
-        try {
-          const { data: prof } = await BriskDB.supabase
-            .from('brisk_users')
-            .select('*')
-            .eq('email', cleanEmail)
-            .maybeSingle();
-          if (prof) {
-            resolvedRole = isWhitelistedLeader ? 'owner' : (prof.role || resolvedRole);
-            empId = prof.employee_id || null;
-            empName = prof.name || empName;
-          }
-        } catch (pErr) {}
-
-        const restoredSession = {
-          email: cleanEmail,
-          role: resolvedRole,
-          employeeId: empId,
-          name: empName,
-          token: sbSession.access_token || ''
-        };
-
-        BriskDB.setSession(restoredSession);
-        return restoredSession;
-      }
-    } catch (sbErr) {
-      console.warn('[App] Supabase session restore note:', sbErr);
-    }
-  }
-
-  return null;
-}
 
 // On Page Load
 document.addEventListener('DOMContentLoaded', async () => {
-  // 1. Listen for Supabase Auth Events (SIGNED_IN, PASSWORD_RECOVERY, TOKEN_REFRESHED)
+  // Listen for Supabase Auth Events (PASSWORD_RECOVERY link clicks)
   if (typeof BriskDB !== 'undefined' && BriskDB.supabase && BriskDB.supabase.auth) {
-    BriskDB.supabase.auth.onAuthStateChange(async (event, sbSession) => {
-      console.log('[Auth Event]', event);
+    BriskDB.supabase.auth.onAuthStateChange((event, session) => {
       if (event === 'PASSWORD_RECOVERY') {
         const modal = document.getElementById('modal-update-password');
         if (modal) modal.classList.add('active');
       }
-      if ((event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED' || event === 'USER_UPDATED') && sbSession && sbSession.user) {
-        if (!state.currentUser || state.currentUser.email !== sbSession.user.email.toLowerCase().trim()) {
-          const restored = await resolveAndRestoreAuthSession();
-          if (restored) {
-            state.currentUser = restored;
-            if (!window._modulesLoaded) { await window.bootModularSystem(); window._modulesLoaded = true; }
-      await bootApplication();
-          }
-        }
-      }
     });
   }
 
-  // 2. Check if this is a password recovery redirect, magic link, or error
+  // Check if this is a password recovery redirect or error
   const hash = window.location.hash;
   if (hash) {
     if (hash.includes('error_code=otp_expired') || hash.includes('error=access_denied')) {
@@ -817,40 +76,21 @@ document.addEventListener('DOMContentLoaded', async () => {
         showToast('This password reset link has expired or was already used. Please request a new link below.', 'error');
         openResetPasswordModal();
       }, 500);
-    } else if (hash.includes('access_token=')) {
-      try {
-        const hashParams = new URLSearchParams(hash.startsWith('#') ? hash.substring(1) : hash);
-        const accessToken = hashParams.get('access_token');
-        const refreshToken = hashParams.get('refresh_token');
-        const type = hashParams.get('type');
-
-        if (accessToken && BriskDB.supabase) {
-          await BriskDB.supabase.auth.setSession({
-            access_token: accessToken,
-            refresh_token: refreshToken || ''
-          });
-
-          history.replaceState(null, '', window.location.pathname + window.location.search);
-
-          if (type === 'recovery') {
-            const modal = document.getElementById('modal-update-password');
-            if (modal) modal.classList.add('active');
-          }
-        }
-      } catch (hashErr) {
-        console.error('Failed to process auth hash:', hashErr);
-      }
+    } else if (hash.includes('type=recovery') || hash.includes('access_token=')) {
+      document.getElementById('modal-update-password').classList.add('active');
     }
   }
 
-  // 3. Resolve session from local storage or Supabase token
-  state.currentUser = await resolveAndRestoreAuthSession();
+  // Set current week to this week
   state.currentWeekStart = getMondayOfCurrentWeek(new Date());
-
+  
+  // Check login state
+  state.currentUser = BriskDB.getSession();
+  
   if (!state.currentUser) {
     // Show login screen
     showLoginScreen();
-
+    
     // Bind forgot password button click
     const forgotBtn = document.getElementById('btn-forgot-password');
     if (forgotBtn) {
@@ -868,9 +108,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       document.getElementById('reg-invite-code').value = inviteCode.toUpperCase();
     }
   } else {
-    // Session exists, boot application immediately
-    if (!window._modulesLoaded) { await window.bootModularSystem(); window._modulesLoaded = true; }
-      await bootApplication();
+    // Session exists, boot application
+    await bootApplication();
   }
 
   // Setup Sidebar Tab Events
@@ -914,55 +153,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
     }
   });
-
-  // ───────────────────────────────────────────────────────────
-  // LIVE SYNC GUARDIAN & BACKGROUND HEARTBEAT (ZERO DATA LOSS)
-  // ───────────────────────────────────────────────────────────
-  document.addEventListener('visibilitychange', async () => {
-    if (document.visibilityState === 'visible' && state.currentUser && typeof BriskDB !== 'undefined' && BriskDB.syncFromServer) {
-      try {
-        await BriskDB.syncFromServer();
-        loadDataFromState();
-        renderActivePanel();
-      } catch (e) {
-        console.warn('[LiveSync] Visibility sync note:', e);
-      }
-    }
-  });
-
-  window.addEventListener('focus', async () => {
-    if (state.currentUser && typeof BriskDB !== 'undefined' && BriskDB.syncFromServer) {
-      try {
-        await BriskDB.syncFromServer();
-        loadDataFromState();
-        renderActivePanel();
-      } catch (e) {
-        console.warn('[LiveSync] Window focus sync note:', e);
-      }
-    }
-  });
-
-  window.addEventListener('online', async () => {
-    showToast('Internet connection restored. Syncing data with cloud...', 'success');
-    if (typeof BriskDB !== 'undefined' && BriskDB.syncFromServer) {
-      try {
-        await BriskDB.syncFromServer();
-        loadDataFromState();
-        renderActivePanel();
-      } catch (e) {}
-    }
-  });
-
-  // Background Heartbeat Sync every 30s (non-intrusive)
-  setInterval(async () => {
-    if (state.currentUser && document.visibilityState === 'visible' && !document.hidden && typeof BriskDB !== 'undefined' && BriskDB.syncFromServer) {
-      try {
-        await BriskDB.syncFromServer();
-      } catch (e) {
-        // silent background sync catch
-      }
-    }
-  }, 30000);
 
   // Check initial offline queue
   if (typeof BriskDB !== 'undefined' && BriskDB.getOfflineQueueLength) {
@@ -1021,13 +211,8 @@ async function bootApplication() {
 
     // Sync data from cloud (employees, shifts, timecards, leave, swaps)
     await BriskDB.syncFromServer();
-    try {
-      state.swaps = (typeof SwapDB !== 'undefined' && SwapDB.getSwaps) ? await SwapDB.getSwaps() : [];
-      state.swapsLoaded = true;
-    } catch (swapErr) {
-      console.warn('Swap sync note:', swapErr);
-      state.swaps = [];
-    }
+    state.swaps = await SwapDB.getSwaps();
+    state.swapsLoaded = true;
     loadDataFromState();
 
     // BUG 4 FIX: Re-read the actual user profile name from freshly synced brisk_users
@@ -1064,64 +249,36 @@ async function bootApplication() {
   } catch (err) {
     console.error('Failed to sync from server on boot:', err);
     showToast('Syncing is taking longer than expected. Loading in background...', 'info');
-    loadDataFromState();
-    applyRoleAccessControl();
-    renderActivePanel();
   } finally {
     // Hide loading overlay
     const loadingOverlay = document.getElementById('loading-overlay');
     if (loadingOverlay) loadingOverlay.classList.add('hide');
-    document.getElementById('app-root').style.display = '';
   }
+
+  // Set the main layout mode (clear inline 'none' to allow CSS to control display via flex/grid)
+  document.getElementById('app-root').style.display = '';
 }
 
 
-function loadDataFromState() {
-  const isManager = hasManagerPermissions(state.currentUser);
-  const myEmpId = state.currentUser?.employeeId || state.currentUser?.id;
-
-  const rawEmployees = BriskDB.getEmployees();
-  if (isManager) {
-    state.employees = rawEmployees;
-    state.leaveRequests = BriskDB.getLeaveRequests();
-    state.timecards = BriskDB.getTimecards();
-  } else {
-    // C-4 Guard: Sanitize employee list for non-managers (mask colleague wages, DOB, phone)
-    state.employees = rawEmployees.map(e => {
-      if (e.id === myEmpId) return { ...e };
-      return {
-        ...e,
-        hourlyRate: 0,
-        awardLevel: '',
-        dob: undefined,
-        phone: undefined,
-        availability: { ...(e.availability || {}) }
-      };
-    });
-    // C-4 Guard: Non-managers only access their own leave requests in memory
-    state.leaveRequests = BriskDB.getLeaveRequests().filter(lr => lr.employeeId === myEmpId);
-    // C-4 Guard: Non-managers only access their own timecards in memory
-    state.timecards = BriskDB.getTimecards().filter(tc => tc.employeeId === myEmpId);
-  }
+async function loadDataFromState() {
+  state.employees = BriskDB.getEmployees();
   state.shifts = BriskDB.getShifts();
+  state.timecards = BriskDB.getTimecards();
+  state.leaveRequests = BriskDB.getLeaveRequests();
   state.settings = BriskDB.getSettings();
   state.roles = BriskDB.getRoles();
   state.positions = BriskDB.getPositions();
   
   if (!state.swapsLoaded) {
     state.swapsLoaded = true;
-    try {
-      if (typeof SwapDB !== 'undefined' && SwapDB && SwapDB.getSwaps) {
-        SwapDB.getSwaps().then(swaps => { state.swaps = swaps || []; }).catch(() => {});
-      }
-    } catch (e) {}
+    SwapDB.getSwaps().then(swaps => state.swaps = swaps);
   }
   
   if (typeof renderRolesSettingsList === 'function') {
-    window.renderRolesSettingsList();
+    renderRolesSettingsList();
   }
   if (typeof renderPositionsSettingsList === 'function') {
-    window.renderPositionsSettingsList();
+    renderPositionsSettingsList();
   }
 
   const sidebarName = document.getElementById('sidebar-company-name');
@@ -1130,7 +287,7 @@ function loadDataFromState() {
   if (settingsName) settingsName.value = state.settings.companyName || 'Amcal Pharmacy Woywoy Rosters';
 
   if (state.currentUser) {
-    if (hasManagerPermissions(state.currentUser)) {
+    if (state.currentUser.role !== 'employee') {
       const pendingTimecards = state.timecards.filter(tc => !tc.approved).length;
       const badgeTc = document.getElementById('badge-timeclock');
       if (badgeTc) { badgeTc.style.display = pendingTimecards > 0 ? 'inline-block' : 'none'; badgeTc.textContent = pendingTimecards; }
@@ -1192,13 +349,7 @@ if (localStorage.getItem('theme') === 'light') {
 
 // Role-Based UI visibility
 function applyRoleAccessControl() {
-  const isManager = hasManagerPermissions(state.currentUser);
-
-  // Set global body class for CSS-level privacy lockdown
-  if (document.body) {
-    document.body.classList.toggle('role-employee', !isManager);
-    document.body.classList.toggle('role-manager', isManager);
-  }
+  const role = state.currentUser.role;
 
   const menuEmployees = document.getElementById('menu-employees');
   const menuReports = document.getElementById('menu-reports');
@@ -1214,23 +365,14 @@ function applyRoleAccessControl() {
   const clockEmpSelect = document.getElementById('clock-emp-select');
   const adminPanel = document.getElementById('timeclock-admin-panel');
   const leaveSelectorGroup = document.getElementById('leave-employee-selector-group');
-  const costBadge = document.getElementById('labor-cost-forecast-badge');
-  const wageBadge = document.getElementById('wage-ratio-forecast-badge');
-  const repKpiCard = document.getElementById('rep-wage-kpi-card');
-  const repReconcileCard = document.getElementById('rep-sales-reconcile-card');
 
-  if (!isManager) {
-    // Hide manager menus & financial metrics, show staff actions
+  if (role === 'employee') {
+    // Hide manager menus, show staff actions
     if (menuEmployees) menuEmployees.classList.add('hide');
     if (menuReports) menuReports.classList.add('hide');
     if (menuSettings) menuSettings.classList.add('hide');
     if (schedulerControls) schedulerControls.classList.add('hide');
     if (quickActionsCard) quickActionsCard.classList.add('hide');
-    if (costBadge) { costBadge.classList.add('hide'); costBadge.style.display = 'none'; }
-    if (wageBadge) { wageBadge.classList.add('hide'); wageBadge.style.display = 'none'; }
-    if (repKpiCard) { repKpiCard.classList.add('hide'); repKpiCard.style.display = 'none'; }
-    if (repReconcileCard) { repReconcileCard.classList.add('hide'); repReconcileCard.style.display = 'none'; }
-
     if (staffActionsCard) staffActionsCard.classList.remove('hide');
     if (personalSummaryCard) personalSummaryCard.classList.remove('hide');
     if (nextShiftCard) nextShiftCard.classList.remove('hide');
@@ -1245,17 +387,12 @@ function applyRoleAccessControl() {
       clockEmpSelect.disabled = true;
     }
   } else {
-    // Show manager menus & financial metrics, hide staff actions
+    // Show manager menus, hide staff actions
     if (menuEmployees) menuEmployees.classList.remove('hide');
     if (menuReports) menuReports.classList.remove('hide');
     if (menuSettings) menuSettings.classList.remove('hide');
     if (schedulerControls) schedulerControls.classList.remove('hide');
     if (quickActionsCard) quickActionsCard.classList.remove('hide');
-    if (costBadge) { costBadge.classList.remove('hide'); costBadge.style.display = 'inline-flex'; }
-    if (wageBadge) { wageBadge.classList.remove('hide'); wageBadge.style.display = 'inline-flex'; }
-    if (repKpiCard) { repKpiCard.classList.remove('hide'); repKpiCard.style.display = 'flex'; }
-    if (repReconcileCard) { repReconcileCard.classList.remove('hide'); repReconcileCard.style.display = 'block'; }
-
     if (staffActionsCard) staffActionsCard.classList.add('hide');
     if (personalSummaryCard) personalSummaryCard.classList.add('hide');
     if (nextShiftCard) nextShiftCard.classList.add('hide');
@@ -1273,12 +410,6 @@ function applyRoleAccessControl() {
 
 // Switch tabs routing
 function switchTab(tabName) {
-  const isManager = hasManagerPermissions(state.currentUser);
-  if (!isManager && (tabName === 'employees' || tabName === 'reports' || tabName === 'settings')) {
-    showToast('Access restricted: Only Owners and Managers can access this panel.', 'warning');
-    tabName = 'dashboard';
-  }
-
   state.currentTab = tabName;
 
   // Toggle active class and ARIA selected on menu buttons
@@ -1307,7 +438,6 @@ function switchTab(tabName) {
     timeclock: 'Time Clock',
     timeoff: 'Time Off',
     reports: 'Reports & Payroll',
-    'ai-ops': 'AI Operations & Autonomous Hub',
     settings: 'Data & Backup'
   };
   const titleEl = document.getElementById('current-panel-title');
@@ -1317,7 +447,7 @@ function switchTab(tabName) {
   renderActivePanel();
   
   // Close sidebar on mobile after navigating
-  if (window.innerWidth <= 1024) {
+  if (window.innerWidth <= 768) {
     const sidebar = document.querySelector('.sidebar');
     const overlay = document.getElementById('mobile-overlay');
     if (sidebar) sidebar.classList.remove('open');
@@ -1350,7 +480,7 @@ function renderActivePanel() {
       renderScheduler();
       break;
     case 'daily':
-      window.renderDailyPanel();
+      renderDailyPanel();
       break;
     case 'employees':
       renderEmployeesList();
@@ -1395,13 +525,6 @@ async function handleLoginSubmit(event) {
   const email = (document.getElementById('login-email').value || '').trim();
   const password = document.getElementById('login-password').value;
 
-  const btn = event.target ? event.target.querySelector('button[type="submit"]') : null;
-  const origText = btn ? btn.innerHTML : 'Log In';
-  if (btn) {
-    btn.disabled = true;
-    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Logging in...';
-  }
-
   try {
     const res = await BriskDB.apiLogin(email, password);
 
@@ -1410,19 +533,14 @@ async function handleLoginSubmit(event) {
       return;
     }
 
+    // apiLogin already calls setSession internally (database.js:621)
     if (res.email) {
       state.currentUser = res;
       document.getElementById('login-form').reset();
-      if (!window._modulesLoaded) { await window.bootModularSystem(); window._modulesLoaded = true; }
       await bootApplication();
     }
   } catch (err) {
     showToast(err.message || 'Login failed. Please check network connection.', 'error');
-  } finally {
-    if (btn) {
-      btn.disabled = false;
-      btn.innerHTML = origText;
-    }
   }
 }
 
@@ -1453,8 +571,7 @@ async function handleRegisterSubmit(event) {
 
   document.getElementById('register-form').reset();
   document.getElementById('invite-code-group').classList.remove('hide'); // restore field
-  if (!window._modulesLoaded) { await window.bootModularSystem(); window._modulesLoaded = true; }
-      await bootApplication();
+  await bootApplication();
 }
 
 function handleLogout() {
@@ -1571,12 +688,6 @@ function getWeekRangeText(monday) {
   };
   return `${formatDate(monday)} - ${formatDate(sunday)}`;
 }
-window.getMondayOfCurrentWeek = getMondayOfCurrentWeek;
-window.formatDateISO = formatDateISO;
-window.getFormattedDateString = getFormattedDateString;
-window.getWeekRangeText = getWeekRangeText;
-window.checkLeaveStatus = checkLeaveStatus;
-window.loadDataFromState = loadDataFromState;
 
 let renderGeneration = 0;
 async function checkHistoricalDataAndRender(renderCallback) {
@@ -1628,18 +739,8 @@ function setupWeekPickers() {
     await checkHistoricalDataAndRender(renderReportsPanel);
   });
 
-  const btnAuto = document.getElementById('btn-auto-schedule');
-  if (btnAuto) {
-    btnAuto.addEventListener('click', () => {
-      if (typeof window.triggerAutoScheduler === 'function') window.triggerAutoScheduler();
-    });
-  }
-  const btnClear = document.getElementById('btn-clear-week');
-  if (btnClear) {
-    btnClear.addEventListener('click', () => {
-      if (typeof window.triggerClearWeek === 'function') window.triggerClearWeek();
-    });
-  }
+  document.getElementById('btn-auto-schedule').addEventListener('click', triggerAutoScheduler);
+  document.getElementById('btn-clear-week').addEventListener('click', triggerClearWeek);
 }
 
 
@@ -1694,7 +795,7 @@ function renderDashboard() {
   document.getElementById('dash-shifts-count').textContent = weekShifts.length;
 
   // Calculate employee personal weekly summary
-  if (state.currentUser && !hasManagerPermissions(state.currentUser)) {
+  if (state.currentUser.role === 'employee') {
     const empRecord = state.employees.find(e => e.id === state.currentUser.employeeId);
     const hourlyRate = empRecord ? Number(empRecord.hourlyRate || 0) : 0;
     
@@ -1895,7 +996,7 @@ function renderDashboard() {
 
   // Today's roster list (restricted based on role)
   let todayShifts = state.shifts.filter(s => s.date === todayStr);
-  if (!hasManagerPermissions(state.currentUser)) {
+  if (state.currentUser.role === 'employee') {
     // Employees can see everyone working today (team awareness)
   }
 
@@ -1929,20 +1030,14 @@ function renderDashboard() {
     `;
     // Insert before the table
     const existingBanner = document.getElementById('dash-coverage-summary-banner');
-    if (existingBanner) {
-      if (typeof existingBanner.remove === 'function') existingBanner.remove();
-      else if (existingBanner.parentElement) existingBanner.parentElement.removeChild(existingBanner);
-    }
+    if (existingBanner) existingBanner.remove();
     const shiftListScroll = tbody.closest('.shift-list-scroll');
     if (shiftListScroll && shiftListScroll.parentElement) shiftListScroll.parentElement.insertBefore(summaryBanner, shiftListScroll);
   }
 
   if (todayShifts.length === 0 && todayLeaveRequests.length === 0) {
     const existingBanner = document.getElementById('dash-coverage-summary-banner');
-    if (existingBanner) {
-      if (typeof existingBanner.remove === 'function') existingBanner.remove();
-      else if (existingBanner.parentElement) existingBanner.parentElement.removeChild(existingBanner);
-    }
+    if (existingBanner) existingBanner.remove();
     tbody.innerHTML = `<tr><td colspan="4" style="padding: 0;"><div class="empty-state"><i class="fa-solid fa-mug-hot text-neon" style="animation: activeTerminalPulse 1.8s infinite alternate;"></i><h4>No shifts today</h4><p>Enjoy your day! All staff are scheduled off today.</p></div></td></tr>`;
     return;
   }
@@ -1998,16 +1093,9 @@ function renderDashboard() {
    PANEL: SCHEDULER
    ========================================================================== */
 
-function getOrderedActiveEmployees(includeOwners = false) {
+function getOrderedActiveEmployees() {
   const customOrder = (state.settings && Array.isArray(state.settings.employeeOrder)) ? state.settings.employeeOrder : [];
-  return state.employees.filter(e => {
-    if (e.active === false) return false;
-    if (!includeOwners) {
-      const r = (e.role || '').toLowerCase().trim();
-      if (r === 'owner' || r === 'partner' || r === 'managing partner') return false;
-    }
-    return true;
-  }).sort((a, b) => {
+  return state.employees.filter(e => e.active !== false).sort((a, b) => {
     const idxA = customOrder.indexOf(a.id);
     const idxB = customOrder.indexOf(b.id);
     if (idxA !== -1 && idxB !== -1) return idxA - idxB;
@@ -2053,72 +1141,18 @@ window.getOrderedActiveEmployees = getOrderedActiveEmployees;
 window.moveEmployeeOrder = moveEmployeeOrder;
 
 function renderScheduler() {
-  const weekRange = getWeekRangeText(state.currentWeekStart);
-  const weekRangeEl = document.getElementById('scheduler-week-range');
-  if (weekRangeEl) weekRangeEl.textContent = weekRange;
-
-  const printWeekRangeEl = document.getElementById('print-roster-week-range');
-  if (printWeekRangeEl) printWeekRangeEl.textContent = `Week: ${weekRange}`;
-
-  const printTimestampEl = document.getElementById('print-roster-timestamp');
-  if (printTimestampEl) {
-    const now = new Date();
-    printTimestampEl.textContent = `${formatDateISO(now)} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
-  }
-
-  const printTradingHoursEl = document.getElementById('print-roster-trading-hours');
-  if (printTradingHoursEl) {
-    const summary = formatTradingHoursSummary(state.settings?.tradingHours);
-    printTradingHoursEl.innerHTML = `<strong>Trading Hours:</strong> ${summary}`;
-  }
-
-  const printTitleEl = document.getElementById('print-roster-title');
-  if (printTitleEl) {
-    printTitleEl.textContent = `${state.settings?.companyName || 'Amcal Pharmacy Woy Woy'} — Staff Roster`;
-  }
+  document.getElementById('scheduler-week-range').textContent = getWeekRangeText(state.currentWeekStart);
 
   for (let i = 0; i < 7; i++) {
     const d = new Date(state.currentWeekStart);
     d.setDate(state.currentWeekStart.getDate() + i);
     const mm = String(d.getMonth() + 1).padStart(2, '0');
     const dd = String(d.getDate()).padStart(2, '0');
-    const dateStr = formatDateISO(d);
-    const dayOfWeek = d.getDay();
-
-    const th = (state.settings && state.settings.tradingHours) ? state.settings.tradingHours[String(dayOfWeek)] : null;
-    const isOpen = th ? !th.closed : (dayOfWeek !== 0);
-
-    const pharmacistShifts = state.shifts.filter(s => {
-      if (s.date !== dateStr || !s.employeeId) return false;
-      const r = (s.role || '').toLowerCase();
-      return r.includes('pharmacist') || r.includes('pic') || r.includes('locum') || r.includes('manager');
-    });
-
-    let pharmacistCoverageBadge = '';
-    if (isOpen) {
-      if (pharmacistShifts.length === 0) {
-        pharmacistCoverageBadge = `<span class="badge" style="background:rgba(239,68,68,0.2); color:#f87171; border:1px solid rgba(239,68,68,0.5); font-size:8px; padding:1px 3px; display:block; margin-top:2px; font-weight:700;" title="Clinical Warning: No Pharmacist scheduled while pharmacy is open">⚠️ No Pharmacist</span>`;
-      } else if (pharmacistShifts.length >= 2) {
-        pharmacistShifts.sort((a, b) => a.startTime.localeCompare(b.startTime));
-        const p1 = pharmacistShifts[0];
-        const p2 = pharmacistShifts[1];
-        const overlapStart = p1.startTime > p2.startTime ? p1.startTime : p2.startTime;
-        const overlapEnd = p1.endTime < p2.endTime ? p1.endTime : p2.endTime;
-        if (overlapEnd > overlapStart) {
-          const overlapH = BriskScheduler.getShiftDuration(overlapStart, overlapEnd);
-          pharmacistCoverageBadge = `<span class="badge" style="background:rgba(0,229,255,0.12); color:var(--accent-cyan); border:1px solid rgba(0,229,255,0.3); font-size:8px; padding:1px 3px; display:block; margin-top:2px;" title="Dual Pharmacist Overlap: ${overlapStart} - ${overlapEnd} (${overlapH.toFixed(1)}h)">👨‍⚕️ 2x (${overlapH.toFixed(1)}h)</span>`;
-        } else {
-          pharmacistCoverageBadge = `<span class="badge" style="background:rgba(16,185,129,0.1); color:#10b981; font-size:8px; padding:1px 3px; display:block; margin-top:2px;">👨‍⚕️ 1x Active</span>`;
-        }
-      } else {
-        pharmacistCoverageBadge = `<span class="badge" style="background:rgba(16,185,129,0.1); color:#10b981; font-size:8px; padding:1px 3px; display:block; margin-top:2px;">👨‍⚕️ 1x Active</span>`;
-      }
-    }
-
+    
     const elId = `head-date-${d.getDay()}`;
     const headerEl = document.getElementById(elId);
     if (headerEl) {
-      headerEl.innerHTML = `${dd}/${mm} ${pharmacistCoverageBadge}`;
+      headerEl.textContent = `${dd}/${mm}`;
     }
   }
 
@@ -2153,7 +1187,7 @@ function getEffectiveShiftHourlyRate(shift) {
   const websterCosts = Array(7).fill(0);
   const grandCosts = Array(7).fill(0);
 
-  // Accumulate hours and fully loaded costs (including Super 12% + On-costs) for table cells
+  // Accumulate hours and fully loaded costs (including Super 11.5% + On-costs) for table cells
   for (let i = 0; i < 7; i++) {
     const d = new Date(state.currentWeekStart);
     d.setDate(state.currentWeekStart.getDate() + i);
@@ -2161,22 +1195,21 @@ function getEffectiveShiftHourlyRate(shift) {
     const dayShifts = state.shifts.filter(s => s.date === dateStr);
     const dayOfWeek = d.getDay();
 
-    // Weekend Award Penalty Multiplier (Pharmacy Award MA000012)
+    // Weekend Award Penalty Multiplier (Pharmacy Award MA000084)
     let penaltyMultiplier = 1.0;
     if (dayOfWeek === 0) penaltyMultiplier = 1.5;      // Sunday 150%
     else if (dayOfWeek === 6) penaltyMultiplier = 1.25; // Saturday 125%
     
     dayShifts.forEach(s => {
       const hours = calculateShiftHours(s.startTime, s.endTime);
-      const emp = state.employees.find(e => e.id === s.employeeId);
-      let fullyLoadedCost = 0;
-      if (emp) {
-        fullyLoadedCost = window.getEmployeeLaborCostBreakdown(emp, s.date, hours).total;
-      }
-
-      const roleLower = (s.role || '').toLowerCase();
+      const hourlyRate = getEffectiveShiftHourlyRate(s);
       
-      if (roleLower.includes('dispensary') || roleLower.includes('pharmacist') || roleLower.includes('dispense technician') || roleLower.includes('locum')) {
+      const basePay = hours * hourlyRate * penaltyMultiplier;
+      const fullyLoadedCost = basePay * 1.20; // Includes Super 11.5% + Workers Comp + Leave Accruals
+
+      const roleLower = s.role.toLowerCase();
+      
+      if (roleLower.includes('dispensary') || roleLower === 'pharmacist' || roleLower === 'pharmacist manager' || roleLower === 'dispense technician') {
         dispTotals[i] += hours;
         dispCosts[i] += fullyLoadedCost;
       } else if (roleLower.includes('webster')) {
@@ -2201,7 +1234,7 @@ function getEffectiveShiftHourlyRate(shift) {
     const empWeekHours = calculateEmployeeWeekHours(emp.id, state.currentWeekStart);
     const isFirst = empIdx === 0;
     const isLast = empIdx === activeEmployees.length - 1;
-    const isManagerOrOwner = hasManagerPermissions(state.currentUser);
+    const isManagerOrOwner = state.currentUser && state.currentUser.role !== 'employee';
     const reorderBtns = isManagerOrOwner ? `
       <span class="staff-reorder-btn-group print-hide" style="display:inline-flex; gap:2px; margin-left:4px; vertical-align:middle;">
         <button class="btn-icon staff-reorder-btn" style="padding:1px 4px; font-size:9px;" onclick="moveEmployeeOrder('${emp.id}', 'up')" title="Move Up" ${isFirst ? 'disabled style="opacity:0.2;"' : ''}>
@@ -2213,17 +1246,13 @@ function getEffectiveShiftHourlyRate(shift) {
       </span>
     ` : '';
 
-    const maxH = emp.maxHours || 38;
-    const otH = empWeekHours > maxH ? (empWeekHours - maxH) : 0;
-    const otBadge = otH > 0 ? ` <span class="badge" style="background:rgba(239,68,68,0.2); color:#f87171; border:1px solid rgba(239,68,68,0.4); font-size:9px; padding:1px 4px; font-weight:700;" title="Overtime: ${otH.toFixed(1)}h exceeding ${maxH}h ordinary limit">+${otH.toFixed(1)}h OT</span>` : '';
-
     tdProfile.innerHTML = `
       <div style="display:flex; justify-content:space-between; align-items:flex-start; width:100%;">
         <span class="grid-emp-name" ${isManagerOrOwner ? `onclick="openEditEmployeeModal('${emp.id}')" style="cursor:pointer; text-decoration: underline;"` : ''}>${emp.name}</span>
         ${reorderBtns}
       </div>
       <span class="grid-emp-role">${emp.role}</span>
-      <span class="grid-emp-hours"><i class="fa-solid fa-clock"></i> ${empWeekHours.toFixed(1)}h / ${maxH}h${otBadge}</span>
+      <span class="grid-emp-hours"><i class="fa-solid fa-clock"></i> ${empWeekHours.toFixed(1)}h / ${emp.maxHours}h${empWeekHours > (emp.maxHours || 38) ? ' <span style="color:#ef4444; font-weight:700; font-size:0.7rem;">⚠️ OT</span>' : ''}</span>
     `;
     tr.appendChild(tdProfile);
 
@@ -2238,7 +1267,7 @@ function getEffectiveShiftHourlyRate(shift) {
       tdDay.setAttribute('data-date', dateStr);
 
       // Drag & Drop event handlers on target cell
-      if (hasManagerPermissions(state.currentUser)) {
+      if (state.currentUser.role === 'owner' || state.currentUser.role === 'manager') {
         tdDay.addEventListener('dragover', (e) => {
           e.preventDefault();
           tdDay.classList.add('drag-hover');
@@ -2300,13 +1329,13 @@ function getEffectiveShiftHourlyRate(shift) {
               const shiftStartMs = new Date(`${targetDate}T${shift.startTime}:00`).getTime();
               const shiftEndMs = new Date(`${targetDate}T${shift.endTime}:00`).getTime();
               for (const s of empShifts) {
-                const sStartMs = new Date(`${s.date}T${(s.startTime || '00:00').substring(0, 5)}:00`).getTime();
-                const sEndMs = new Date(`${s.date}T${(s.endTime || '00:00').substring(0, 5)}:00`).getTime();
+                const sStartMs = new Date(`${s.date}T${s.startTime}:00`).getTime();
+                const sEndMs = new Date(`${s.date}T${s.endTime}:00`).getTime();
                 let gapHours = 999;
                 if (shiftStartMs >= sEndMs) gapHours = (shiftStartMs - sEndMs) / (1000 * 60 * 60);
                 else if (sStartMs >= shiftEndMs) gapHours = (sStartMs - shiftEndMs) / (1000 * 60 * 60);
                 if (gapHours < 10) {
-                  if (!confirm(`Warning (Pharmacy Industry Award 2026 [MA000012]): This employee has another shift on ${s.date} (${formatTimeAmPm(s.startTime)} - ${formatTimeAmPm(s.endTime)}), leaving only ${gapHours.toFixed(1)}h rest (minimum 10h required). Move anyway?`)) {
+                  if (!confirm(`Warning (Pharmacy Industry Award 2026 [MA000084]): This employee has another shift on ${s.date} (${formatTimeAmPm(s.startTime)} - ${formatTimeAmPm(s.endTime)}), leaving only ${gapHours.toFixed(1)}h rest (minimum 10h required). Move anyway?`)) {
                     return;
                   }
                   break;
@@ -2331,9 +1360,8 @@ function getEffectiveShiftHourlyRate(shift) {
       cellShifts.forEach(shift => {
         const div = document.createElement('div');
         div.className = 'shift-card';
-        if (hasManagerPermissions(state.currentUser)) {
+        if (state.currentUser.role === 'owner' || state.currentUser.role === 'manager') {
           div.draggable = true;
-          div.style.cursor = 'pointer';
           div.addEventListener('dragstart', (e) => {
             e.dataTransfer.setData('text/plain', shift.id);
             div.classList.add('dragging');
@@ -2341,16 +1369,12 @@ function getEffectiveShiftHourlyRate(shift) {
           div.addEventListener('dragend', () => {
             div.classList.remove('dragging');
           });
-          div.addEventListener('click', (e) => {
-            if (e.target.closest('button')) return;
-            openEditShiftModal(shift);
-          });
         }
 
         // Color coding style
-        const roleColor = state.roles.find(r => r.name.toLowerCase() === shift.role.toLowerCase())?.color || '#0284c7';
+        const roleColor = state.roles.find(r => r.name.toLowerCase() === shift.role.toLowerCase())?.color || '#4f46e5';
         div.style.borderLeft = `4px solid ${roleColor}`;
-        div.style.background = `rgba(${hexToRgb(roleColor)}, 0.12)`;
+        div.style.background = `rgba(${hexToRgb(roleColor)}, 0.08)`;
 
         const shiftDuration = calculateShiftHours(shift.startTime, shift.endTime, 0);
         const breakEntitlement = getAwardBreakEntitlements(shiftDuration);
@@ -2359,7 +1383,7 @@ function getEffectiveShiftHourlyRate(shift) {
         let breakBadgeHtml = '';
         if (shiftDuration >= 4) {
           const mealText = unpaidMeal > 0 ? `${unpaidMeal}m Lunch` : '';
-          const restText = '';
+          const restText = breakEntitlement.paidBreaks > 0 ? `${breakEntitlement.paidBreaks}x 10m Paid` : '';
           const combined = [mealText, restText].filter(Boolean).join(' | ');
           if (combined) {
             breakBadgeHtml = `<div class="shift-card-breaks" style="font-size: 7.5pt; color: var(--text-muted); margin-top: 2px;"><i class="fa-solid fa-mug-hot"></i> ${combined}</div>`;
@@ -2367,10 +1391,7 @@ function getEffectiveShiftHourlyRate(shift) {
         }
 
         div.innerHTML = `
-          <div class="shift-card-header" style="display:flex; justify-content:space-between; align-items:center;">
-            <span class="shift-role-title" style="color:${roleColor}; font-weight:700;">${shift.role}</span>
-            <button class="btn-icon text-danger" onclick="deleteShiftRapid('${shift.id}', event)" title="Delete Shift" style="padding:0; margin:0; font-size:12px; opacity:0.6;"><i class="fa-solid fa-trash"></i></button>
-          </div>
+          <div class="shift-card-header">${shift.role}</div>
           <div class="shift-card-time"><i class="fa-regular fa-clock"></i> ${formatTimeAmPm(shift.startTime)} - ${formatTimeAmPm(shift.endTime)}</div>
           ${breakBadgeHtml}
           ${shift.notes ? `<div class="shift-card-notes">${shift.notes}</div>` : ''}
@@ -2379,7 +1400,7 @@ function getEffectiveShiftHourlyRate(shift) {
         const btnGroup = document.createElement('div');
         btnGroup.className = 'flex gap-2 align-center';
 
-        if (hasManagerPermissions(state.currentUser)) {
+        if (state.currentUser.role === 'owner' || state.currentUser.role === 'manager') {
           const dupBtn = document.createElement('button');
           dupBtn.className = 'btn-icon';
           dupBtn.innerHTML = '<i class="fa-regular fa-copy"></i>';
@@ -2413,7 +1434,7 @@ function getEffectiveShiftHourlyRate(shift) {
         leaveDiv.style.marginTop = '4px';
         leaveDiv.textContent = '🏖️ On Leave';
         tdDay.appendChild(leaveDiv);
-      } else if (hasManagerPermissions(state.currentUser)) {
+      } else if (state.currentUser.role !== 'employee') {
         const addBtn = document.createElement('div');
         addBtn.className = 'cell-add-btn';
         addBtn.innerHTML = '<i class="fa-solid fa-plus"></i>';
@@ -2429,7 +1450,7 @@ function getEffectiveShiftHourlyRate(shift) {
   });
 
   // Render Unassigned row (only managers see or manipulate this)
-  if (hasManagerPermissions(state.currentUser)) {
+  if (state.currentUser.role !== 'employee') {
     const trUnassigned = document.createElement('tr');
     const tdUnassignedProfile = document.createElement('td');
     tdUnassignedProfile.className = 'grid-employee-cell';
@@ -2451,7 +1472,7 @@ function getEffectiveShiftHourlyRate(shift) {
       const dateStr = formatDateISO(d);
       tdDay.setAttribute('data-date', dateStr);
 
-      if (hasManagerPermissions(state.currentUser)) {
+      if (state.currentUser.role === 'owner' || state.currentUser.role === 'manager') {
         tdDay.addEventListener('dragover', (e) => {
           e.preventDefault();
           tdDay.classList.add('drag-hover');
@@ -2511,7 +1532,7 @@ function getEffectiveShiftHourlyRate(shift) {
       cellShifts.forEach(shift => {
         const div = document.createElement('div');
         div.className = 'shift-card unassigned';
-        if (hasManagerPermissions(state.currentUser)) {
+        if (state.currentUser.role === 'owner' || state.currentUser.role === 'manager') {
           div.draggable = true;
           div.addEventListener('dragstart', (e) => {
             e.dataTransfer.setData('text/plain', shift.id);
@@ -2528,10 +1549,7 @@ function getEffectiveShiftHourlyRate(shift) {
         div.style.background = `rgba(${hexToRgb(roleColor)}, 0.08)`;
 
         div.innerHTML = `
-          <div class="shift-card-header" style="display:flex; justify-content:space-between; align-items:center;">
-            <span>${shift.role}</span>
-            <button class="btn-icon text-danger" onclick="deleteShiftRapid('${shift.id}', event)" title="Delete Shift" style="padding:0; margin:0; font-size:12px; opacity:0.6;"><i class="fa-solid fa-trash"></i></button>
-          </div>
+          <div class="shift-card-header">${shift.role}</div>
           <div class="shift-card-time"><i class="fa-regular fa-clock"></i> ${formatTimeAmPm(shift.startTime)} - ${formatTimeAmPm(shift.endTime)}</div>
           ${shift.notes ? `<div class="shift-card-notes">${shift.notes}</div>` : ''}
         `;
@@ -2539,7 +1557,7 @@ function getEffectiveShiftHourlyRate(shift) {
         const btnGroup = document.createElement('div');
         btnGroup.className = 'flex gap-2 align-center';
 
-        if (hasManagerPermissions(state.currentUser)) {
+        if (state.currentUser.role === 'owner' || state.currentUser.role === 'manager') {
           const dupBtn = document.createElement('button');
           dupBtn.className = 'btn-icon';
           dupBtn.innerHTML = '<i class="fa-regular fa-copy"></i>';
@@ -2575,7 +1593,7 @@ function getEffectiveShiftHourlyRate(shift) {
     tbody.appendChild(trUnassigned);
   }
 
-  const isManagerOrOwner = hasManagerPermissions(state.currentUser);
+  const isManagerOrOwner = state.currentUser.role === 'manager' || state.currentUser.role === 'owner';
 
   const tfoot = document.getElementById('scheduler-grid-foot');
   if (tfoot) {
@@ -2592,38 +1610,22 @@ function getEffectiveShiftHourlyRate(shift) {
     const headcountRow = `<tr class="summary-row"><td style="font-weight:600;"><i class="fa-solid fa-users" style="margin-right:4px; color:var(--accent-cyan);"></i>Staff Count</td>${headcountCells.join('')}</tr>`;
 
     if (isManagerOrOwner) {
-      const salesTargets = getDailySalesTargets();
-      const wagePctCells = grandTotals.map((h, i) => {
-        const d = new Date(state.currentWeekStart);
-        d.setDate(state.currentWeekStart.getDate() + i);
-        const dayOfWeek = d.getDay();
-        const sales = parseFloat(salesTargets[dayOfWeek] || 0);
-        if (sales <= 0 || grandCosts[i] <= 0) return '<td>-</td>';
-        const pct = (grandCosts[i] / sales) * 100;
-        const health = getWageKpiHealth(pct);
-        return `<td><span style="font-size:11px; font-weight:700; color:${health.color};">${pct.toFixed(1)}%</span><br><span style="font-size:9px; color:var(--text-muted);">$${sales.toLocaleString()}</span></td>`;
-      }).join('');
-
       tfoot.innerHTML = headcountRow + `
         <tr class="summary-row">
-          <td>Dispensary Hours <span class="wage-val print-hide-wage">(Labor Cost)</span></td>
-          ${dispTotals.map((h, i) => `<td>${h > 0 ? `${h.toFixed(1)}h<span class="wage-val print-hide-wage"><br><span style="font-size:10px; color:#10b981; font-weight:600;">$${dispCosts[i].toFixed(0)}</span></span>` : '-'}</td>`).join('')}
+          <td>Dispensary (Hours & Est. Total Cost)</td>
+          ${dispTotals.map((h, i) => `<td>${h > 0 ? `${h.toFixed(1)}h<br><span style="font-size:10px; color:#10b981; font-weight:600;">$${dispCosts[i].toFixed(0)}</span>` : '-'}</td>`).join('')}
         </tr>
         <tr class="summary-row">
-          <td>Front of Shop Hours <span class="wage-val print-hide-wage">(Labor Cost)</span></td>
-          ${frontTotals.map((h, i) => `<td>${h > 0 ? `${h.toFixed(1)}h<span class="wage-val print-hide-wage"><br><span style="font-size:10px; color:#f59e0b; font-weight:600;">$${frontCosts[i].toFixed(0)}</span></span>` : '-'}</td>`).join('')}
+          <td>Front of Shop (Hours & Est. Total Cost)</td>
+          ${frontTotals.map((h, i) => `<td>${h > 0 ? `${h.toFixed(1)}h<br><span style="font-size:10px; color:#f59e0b; font-weight:600;">$${frontCosts[i].toFixed(0)}</span>` : '-'}</td>`).join('')}
         </tr>
         <tr class="summary-row">
-          <td>Webster Hours <span class="wage-val print-hide-wage">(Labor Cost)</span></td>
-          ${websterTotals.map((h, i) => `<td>${h > 0 ? `${h.toFixed(1)}h<span class="wage-val print-hide-wage"><br><span style="font-size:10px; color:#a855f7; font-weight:600;">$${websterCosts[i].toFixed(0)}</span></span>` : '-'}</td>`).join('')}
+          <td>Webster (Hours & Est. Total Cost)</td>
+          ${websterTotals.map((h, i) => `<td>${h > 0 ? `${h.toFixed(1)}h<br><span style="font-size:10px; color:#a855f7; font-weight:600;">$${websterCosts[i].toFixed(0)}</span>` : '-'}</td>`).join('')}
         </tr>
         <tr class="summary-row grand-total">
-          <td>Total Scheduled Hours <span class="wage-val print-hide-wage">& Total Labor Cost</span></td>
-          ${grandTotals.map((h, i) => `<td>${h > 0 ? `${h.toFixed(1)}h<span class="wage-val print-hide-wage"><br><span style="font-size:11px; color:var(--accent-cyan); font-weight:700;">$${grandCosts[i].toFixed(0)}</span></span>` : '-'}</td>`).join('')}
-        </tr>
-        <tr class="summary-row print-hide-wage" style="background: rgba(0, 229, 255, 0.04); border-top: 1px dashed rgba(0, 229, 255, 0.2);">
-          <td style="font-weight:700; color:var(--accent-cyan);"><i class="fa-solid fa-chart-pie" style="margin-right:4px;"></i> Wage % of Projected Sales (Benchmark: 10.5–13.5%)</td>
-          ${wagePctCells}
+          <td>Total Scheduled Hours & Total Labor Cost (incl. Super 11.5% + On-costs)</td>
+          ${grandTotals.map((h, i) => `<td>${h > 0 ? `${h.toFixed(1)}h<br><span style="font-size:11px; color:var(--accent-cyan); font-weight:700;">$${grandCosts[i].toFixed(0)}</span>` : '-'}</td>`).join('')}
         </tr>
       `;
     } else {
@@ -2681,14 +1683,14 @@ function getEffectiveShiftHourlyRate(shift) {
         const bgStyle = isNeedsCover ? 'rgba(249, 115, 22, 0.04)' : `rgba(${hexToRgb(roleColor)}, 0.04)`;
 
         let actionBtnHtml = '';
-        if (hasManagerPermissions(state.currentUser)) {
+        if (state.currentUser.role !== 'employee') {
           actionBtnHtml = `
             <button class="btn btn-outline" style="padding: 2px 8px; font-size: 11px;" onclick="openEditShiftModalById('${shift.id}')">
               <i class="fa-solid fa-pen"></i> Edit
             </button>
           `;
         } else {
-          const isMyShift = state.currentUser && (shift.employeeId === state.currentUser.employeeId);
+          const isMyShift = shift.employeeId === state.currentUser.employeeId;
           if (isMyShift) {
             if (isNeedsCover) {
               actionBtnHtml = `
@@ -2713,7 +1715,7 @@ function getEffectiveShiftHourlyRate(shift) {
         }
 
         shiftsHtml += `
-          <div class="mobile-shift-item" style="border-left: ${borderLeftStyle}; background: ${bgStyle}; cursor: ${hasManagerPermissions(state.currentUser) ? 'pointer' : 'default'};" onclick="${hasManagerPermissions(state.currentUser) ? `if (!event.target.closest('button')) openEditShiftModalById('${shift.id}')` : ''}">
+          <div class="mobile-shift-item" style="border-left: ${borderLeftStyle}; background: ${bgStyle};">
             <div class="mobile-shift-header">
               <span class="mobile-shift-staff">${emp.name}</span>
               <span class="mobile-shift-role">${shift.role}</span>
@@ -2739,7 +1741,7 @@ function getEffectiveShiftHourlyRate(shift) {
       });
 
       // 2. Unassigned Shifts (Only visible to manager/owner)
-      if (hasManagerPermissions(state.currentUser)) {
+      if (state.currentUser.role !== 'employee') {
         const unassignedShifts = state.shifts.filter(s => s.date === dateStr && (s.employeeId === null || !state.employees.find(e => e.id === s.employeeId)?.active));
         unassignedShifts.forEach(shift => {
           const roleColor = state.roles.find(r => r.name.toLowerCase() === shift.role.toLowerCase())?.color || '#ef4444';
@@ -2783,7 +1785,7 @@ function getEffectiveShiftHourlyRate(shift) {
 
       // Add Day Action button (Add Shift) for Managers
       let addBtnHtml = '';
-      if (hasManagerPermissions(state.currentUser)) {
+      if (state.currentUser.role !== 'employee') {
         addBtnHtml = `
           <button class="btn btn-outline" style="width: 100%; margin-top: 8px; padding: 6px; font-size: 12px;" onclick="openAddShiftModal('', '${dateStr}')">
             <i class="fa-solid fa-plus"></i> Add Shift for ${dayName}
@@ -2800,7 +1802,7 @@ function getEffectiveShiftHourlyRate(shift) {
         const hours = calculateShiftHours(s.startTime, s.endTime);
         const roleLower = s.role.toLowerCase();
         
-        if (roleLower.includes('dispensary') || roleLower.includes('pharmacist') || roleLower.includes('technician')) {
+        if (roleLower.includes('dispensary') || roleLower === 'pharmacist' || roleLower === 'pharmacist manager' || roleLower === 'dispense technician') {
           dispHours += hours;
         } else if (roleLower.includes('webster')) {
           websterHours += hours;
@@ -2841,35 +1843,8 @@ function getEffectiveShiftHourlyRate(shift) {
 }
 
 window.openEditShiftModalById = function(id) {
-  const shift = state.shifts.find(s => String(s.id) === String(id));
+  const shift = state.shifts.find(s => s.id === id);
   if (shift) openEditShiftModal(shift);
-};
-
-window.openEditShiftModal = openEditShiftModal;
-window.openAddShiftModal = openAddShiftModal;
-
-window.deleteShiftRapid = async function(id, event) {
-  if (event) event.stopPropagation();
-  if (!hasManagerPermissions(state.currentUser)) {
-    showToast('Permission denied: Only Owners and Managers can delete shifts.', 'error');
-    return;
-  }
-  if (!confirm('Delete this shift?')) return;
-  try {
-    const shiftToDelete = state.shifts.find(s => String(s.id) === String(id));
-    const emp = shiftToDelete ? state.employees.find(e => e.id === shiftToDelete.employeeId) : null;
-    await BriskDB.deleteShift(id);
-    if (typeof BriskDB.logAudit === 'function') {
-      BriskDB.logAudit('SHIFT_DELETE', `Deleted shift #${id} on ${shiftToDelete ? shiftToDelete.date : ''} (${emp ? emp.name : 'Unassigned'})`, id);
-    }
-    loadDataFromState();
-    renderScheduler();
-    calculateLaborCostForecast();
-    showToast('Shift deleted.', 'info');
-  } catch (error) {
-    console.error('Rapid delete failed:', error);
-    showToast('Failed to delete shift: ' + error.message, 'error');
-  }
 };
 
 function calculateEmployeeWeekHours(employeeId, weekStart) {
@@ -2935,15 +1910,250 @@ function checkLeaveStatus(employeeId, dateStr) {
   });
 }
 
+function calculateLaborCostForecast() {
+  try {
+    const badge = document.getElementById('labor-cost-forecast-badge');
+    const valEl = document.getElementById('labor-cost-forecast-value');
+    if (!badge || !valEl) return;
+
+    if (state.currentUser.role === 'employee') {
+      badge.style.display = 'none';
+      return;
+    }
+    badge.style.display = 'flex';
+
+    const mon = new Date(state.currentWeekStart);
+    const sun = new Date(mon);
+    sun.setDate(mon.getDate() + 6);
+    mon.setHours(0,0,0,0);
+    sun.setHours(23,59,59,999);
+
+    // Get all shifts for the current week that are assigned
+    const weekShifts = state.shifts.filter(s => {
+      if (!s.employeeId) return false;
+      const [y, m, d] = s.date.split('-');
+      const sDate = new Date(y, m-1, d);
+      sDate.setHours(0,0,0,0);
+      return sDate >= mon && sDate <= sun;
+    });
+
+    let totalCost = 0;
+    weekShifts.forEach(shift => {
+      const emp = state.employees.find(e => e.id === shift.employeeId);
+      if (!emp) return;
+      
+      const rate = parseFloat(emp.hourlyRate) || 0;
+      let hours = BriskScheduler.getShiftDuration(shift.startTime, shift.endTime);
+      
+      const [y, m, d] = shift.date.split('-');
+      const sDate = new Date(y, m-1, d);
+      const dayOfWeek = sDate.getDay();
+      
+      // Penalty Rates
+      let effectiveRate = rate;
+      if (dayOfWeek === 6) { // Saturday
+        effectiveRate = rate * 1.25;
+      } else if (dayOfWeek === 0) { // Sunday
+        effectiveRate = rate * 1.5;
+      }
+      
+      totalCost += (hours * effectiveRate);
+    });
+
+    valEl.textContent = `$${totalCost.toFixed(2)}`;
+  } catch (err) {
+    console.error('Failed to calculate labor cost forecast:', err);
+  }
+}
+
+async function triggerClearWeek() {
+  if (!confirm('Are you sure you want to unassign all employee shifts for this week?')) return;
+
+  const mon = new Date(state.currentWeekStart);
+  const sun = new Date(mon);
+  sun.setDate(mon.getDate() + 6);
+  mon.setHours(0,0,0,0);
+  sun.setHours(23,59,59,999);
+
+  const weekShifts = state.shifts.filter(s => {
+    const sDate = new Date(s.date);
+    sDate.setHours(0,0,0,0);
+    return sDate >= mon && sDate <= sun;
+  });
+
+  // Update each shift using batch operation
+  try {
+    const updatedShifts = weekShifts.map(s => ({ ...s, employeeId: null }));
+    await BriskDB.batchUpdateShifts(updatedShifts);
+    renderScheduler();
+  } catch (err) {
+    console.error('Clear Week Error:', err);
+    showToast('Failed to clear week shifts. Please try again.', 'error');
+  }
+}
+
+async function copyCurrentWeekToNextWeek() {
+  const mon = new Date(state.currentWeekStart);
+  mon.setHours(0, 0, 0, 0);
+  const sun = new Date(mon);
+  sun.setDate(mon.getDate() + 6);
+  sun.setHours(23, 59, 59, 999);
+
+  // Find all shifts in the currently selected week
+  const currentWeekShifts = state.shifts.filter(s => {
+    if (!s.date) return false;
+    const sDate = new Date(s.date + 'T00:00:00');
+    return sDate >= mon && sDate <= sun;
+  });
+
+  if (currentWeekShifts.length === 0) {
+    showToast('No shifts found in the current week to copy.', 'warning');
+    return;
+  }
+
+  // Calculate next week's Monday & Sunday
+  const nextMon = new Date(mon);
+  nextMon.setDate(mon.getDate() + 7);
+  const nextSun = new Date(nextMon);
+  nextSun.setDate(nextMon.getDate() + 6);
+
+  const currentWeekRange = getWeekRangeText(mon);
+  const nextWeekRange = getWeekRangeText(nextMon);
+
+  const nextMonStr = formatDateISO(nextMon);
+  const nextSunStr = formatDateISO(nextSun);
+  const existingNextWeekShifts = state.shifts.filter(s => s.date >= nextMonStr && s.date <= nextSunStr);
+  if (existingNextWeekShifts.length > 0) {
+    if (!confirm(`Warning: Next week (${nextWeekRange}) already has ${existingNextWeekShifts.length} scheduled shift(s).\n\nDo you want to proceed and copy ${currentWeekShifts.length} shift(s) into next week?`)) {
+      return;
+    }
+  } else {
+    const confirmMsg = `Copy all ${currentWeekShifts.length} shift(s) from current week (${currentWeekRange}) to next week (${nextWeekRange})?`;
+    if (!confirm(confirmMsg)) return;
+  }
+
+  const btn = document.getElementById('btn-copy-week');
+  const origBtnHtml = btn ? btn.innerHTML : 'Copy to Next Week';
+  if (btn) {
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Copying...';
+  }
+
+  try {
+    let createdCount = 0;
+
+    for (const shift of currentWeekShifts) {
+      // Calculate day offset from current Monday (0 = Monday, ..., 6 = Sunday)
+      const shiftDate = new Date(shift.date + 'T00:00:00');
+      const dayOffset = Math.round((shiftDate.getTime() - mon.getTime()) / (24 * 60 * 60 * 1000));
+      
+      const targetDate = new Date(nextMon);
+      targetDate.setDate(nextMon.getDate() + dayOffset);
+      const targetDateStr = formatDateISO(targetDate);
+
+      const duplicatedShift = {
+        employeeId: shift.employeeId || null,
+        role: shift.role,
+        date: targetDateStr,
+        startTime: shift.startTime,
+        endTime: shift.endTime,
+        unpaidMealMins: (shift.unpaidMealMins !== undefined && shift.unpaidMealMins !== null) ? shift.unpaidMealMins : null,
+        notes: shift.notes || ''
+      };
+
+      const added = await BriskDB.addShift(duplicatedShift);
+      if (added) {
+        createdCount++;
+      }
+    }
+
+    // Switch view to next week automatically
+    state.currentWeekStart = nextMon;
+    
+    // Refresh local state and UI
+    await loadDataFromState();
+    renderScheduler();
+
+    showToast(`Successfully copied ${createdCount} shift(s) to next week! (${nextWeekRange})`, 'success');
+  } catch (err) {
+    console.error('Copy Week Error:', err);
+    showToast('Failed to copy roster: ' + (err.message || 'Unknown error'), 'error');
+  } finally {
+    if (btn) {
+      btn.disabled = false;
+      btn.innerHTML = origBtnHtml;
+    }
+  }
+}
+window.copyCurrentWeekToNextWeek = copyCurrentWeekToNextWeek;
+
+async function triggerAutoScheduler() {
+  const submitBtn = document.getElementById('btn-auto-schedule');
+  const origText = submitBtn ? submitBtn.innerHTML : 'Auto-Schedule';
+  
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Scheduling...';
+  }
+
+  try {
+    const targetWeekStr = formatDateISO(state.currentWeekStart);
+    const clonedShifts = structuredClone(state.shifts);
+    const result = BriskScheduler.run(clonedShifts, state.employees, state.leaveRequests, targetWeekStr, state.timecards, true);
+    
+    if (result.success) {
+      // Save generated shifts to Supabase for target week only
+      const targetWeekStart = new Date(targetWeekStr + 'T00:00:00');
+      const targetWeekEnd = new Date(targetWeekStart);
+      targetWeekEnd.setDate(targetWeekStart.getDate() + 6);
+      targetWeekStart.setHours(0,0,0,0);
+      targetWeekEnd.setHours(23,59,59,999);
+
+      const weekShifts = result.shifts.filter(s => {
+        const sDate = new Date(s.date + 'T00:00:00');
+        sDate.setHours(0,0,0,0);
+        return sDate >= targetWeekStart && sDate <= targetWeekEnd;
+      });
+
+      try {
+        await BriskDB.batchUpdateShifts(weekShifts);
+        
+        // Update state.shifts in-place with the assigned shifts
+        result.shifts.forEach(updatedShift => {
+          const idx = state.shifts.findIndex(s => s.id === updatedShift.id);
+          if (idx !== -1) {
+            state.shifts[idx] = updatedShift;
+          } else {
+            state.shifts.push(updatedShift);
+          }
+        });
+
+        renderScheduler();
+        
+        showToast(`📅 Auto-Scheduler Complete!\n\n- Shifts successfully assigned: ${result.assignedCount}\n- Shifts left unassigned: ${result.unassignedCount}\n\n[Placement Logs]\n${result.logs.slice(0, 10).join('\n')}\n${result.logs.length > 10 ? '...and more' : ''}`, 'success');
+      } catch (err) {
+        console.error('Auto-Scheduler Save Error:', err);
+        showToast('Auto-Scheduler calculated the schedule, but failed to save to the database. Please try again.', 'error');
+      }
+    } else {
+      showToast(result.message, 'success');
+    }
+  } catch (err) {
+    console.error('Auto-Scheduler Run Error:', err);
+    showToast(`Auto-Scheduler error: ${err.message}`, 'error');
+  } finally {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = origText;
+    }
+  }
+}
+
 /* ==========================================================================
    MODAL: SHIFT ADD/EDIT FORM
    ========================================================================== */
 
 function openAddShiftModal(employeeId = '', dateStr = '') {
-  if (!hasManagerPermissions(state.currentUser)) {
-    showToast('Permission denied: Only Owners and Managers can add or edit shifts.', 'warning');
-    return;
-  }
   document.getElementById('shift-modal-title').textContent = 'Add New Shift';
   document.getElementById('shift-id').value = '';
   document.getElementById('shift-notes').value = '';
@@ -2953,24 +2163,13 @@ function openAddShiftModal(employeeId = '', dateStr = '') {
   document.getElementById('shift-start').value = '09:00';
   document.getElementById('shift-end').value = '17:00';
 
-  // Comprehensive Roles select
+  // Populate Roles select
   const roleSelect = document.getElementById('shift-role');
   roleSelect.innerHTML = '<option value="">-- Select Roster Role --</option>';
-  const allRolesSet = new Set([
-    'Pharmacist 1', 'Pharmacist 2', 'Dispensary', 'Webster',
-    'Floor', 'Tills', 'Scripts In/Out', 'Deliveries',
-    'Stock Receive & Orders', 'Stock Control & Gap Scan',
-    'Till Up & Banking', 'Brand Strategy', 'Promotions & Catalogue',
-    'Promotional Ends & Displays', 'Counter & Merchandising',
-    'Owner / Partner'
-  ]);
-  if (state.roles && Array.isArray(state.roles)) {
-    state.roles.forEach(r => allRolesSet.add(r.name));
-  }
-  allRolesSet.forEach(rName => {
+  state.roles.forEach(role => {
     const opt = document.createElement('option');
-    opt.value = rName;
-    opt.textContent = rName;
+    opt.value = role.name;
+    opt.textContent = role.name;
     roleSelect.appendChild(opt);
   });
 
@@ -2978,27 +2177,20 @@ function openAddShiftModal(employeeId = '', dateStr = '') {
   if (employeeId) {
     const emp = state.employees.find(e => e.id === employeeId);
     if (emp && emp.role) {
-      if (emp.role.toLowerCase().includes('pharmacist')) roleSelect.value = 'Pharmacist 1';
-      else if (emp.role.toLowerCase().includes('technician')) roleSelect.value = 'Dispensary';
-      else if (allRolesSet.has(emp.role)) roleSelect.value = emp.role;
-      else roleSelect.value = 'Floor';
+      roleSelect.value = emp.role;
     }
   }
 
   const select = document.getElementById('shift-employee');
   select.innerHTML = '<option value="">-- Unassigned --</option>';
   
-  getOrderedActiveEmployees(false).forEach(emp => {
+  state.employees.filter(e => e.active).forEach(emp => {
     const opt = document.createElement('option');
     opt.value = emp.id;
     opt.textContent = `${emp.name} (${emp.role})`;
     if (emp.id === employeeId) opt.selected = true;
     select.appendChild(opt);
   });
-
-  select.onchange = updateShiftBreakSummary;
-  const dateInput = document.getElementById('shift-date');
-  if (dateInput) dateInput.onchange = updateShiftBreakSummary;
 
   updatePasteButtonState();
   if (document.getElementById('shift-unpaid-break')) {
@@ -3010,93 +2202,54 @@ function openAddShiftModal(employeeId = '', dateStr = '') {
 }
 
 function openEditShiftModal(shift) {
-  if (!hasManagerPermissions(state.currentUser)) {
-    showToast('Permission denied: Only Owners and Managers can add or edit shifts.', 'warning');
-    return;
-  }
   document.getElementById('shift-modal-title').textContent = 'Edit Shift';
   document.getElementById('shift-id').value = shift.id;
   document.getElementById('shift-date').value = shift.date;
-  document.getElementById('shift-start').value = (shift.startTime || '09:00').substring(0, 5);
-  document.getElementById('shift-end').value = (shift.endTime || '17:00').substring(0, 5);
+  document.getElementById('shift-start').value = shift.startTime;
+  document.getElementById('shift-end').value = shift.endTime;
   document.getElementById('shift-notes').value = shift.notes || '';
   
   if (document.getElementById('shift-unpaid-break')) {
     document.getElementById('shift-unpaid-break').value = (shift.unpaidMealMins !== undefined && shift.unpaidMealMins !== null) ? String(shift.unpaidMealMins) : 'auto';
   }
+  updateShiftBreakSummary();
 
   document.getElementById('btn-delete-shift').classList.remove('hide');
 
   // Populate Roles select
   const roleSelect = document.getElementById('shift-role');
   roleSelect.innerHTML = '<option value="">-- Select Roster Role --</option>';
-  const allRolesSet = new Set([
-    'Pharmacist 1', 'Pharmacist 2', 'Dispensary', 'Webster',
-    'Floor', 'Tills', 'Scripts In/Out', 'Deliveries',
-    'Stock Receive & Orders', 'Stock Control & Gap Scan',
-    'Till Up & Banking', 'Brand Strategy', 'Promotions & Catalogue',
-    'Promotional Ends & Displays', 'Counter & Merchandising',
-    'Owner / Partner'
-  ]);
-  if (state.roles && Array.isArray(state.roles)) {
-    state.roles.forEach(r => allRolesSet.add(r.name));
-  }
-  if (shift && shift.role) {
-    allRolesSet.add(shift.role);
-  }
-  allRolesSet.forEach(rName => {
+  state.roles.forEach(role => {
     const opt = document.createElement('option');
-    opt.value = rName;
-    opt.textContent = rName;
-    if (shift && shift.role === rName) opt.selected = true;
+    opt.value = role.name;
+    opt.textContent = role.name;
     roleSelect.appendChild(opt);
   });
-  if (shift && shift.role) {
-    roleSelect.value = shift.role;
-  }
+  roleSelect.value = shift.role;
 
   const select = document.getElementById('shift-employee');
   select.innerHTML = '<option value="">-- Unassigned --</option>';
   
-  state.employees.forEach(emp => {
-    if (!emp.active && emp.id !== shift.employeeId) return;
-    const r = (emp.role || '').toLowerCase().trim();
-    if ((r === 'owner' || r === 'partner' || r === 'managing partner') && emp.id !== shift.employeeId) return;
+  state.employees.filter(e => e.active).forEach(emp => {
     const opt = document.createElement('option');
     opt.value = emp.id;
-    opt.textContent = `${emp.name} (${emp.role || 'Staff'})`;
+    opt.textContent = `${emp.name} (${emp.role})`;
     if (emp.id === shift.employeeId) opt.selected = true;
     select.appendChild(opt);
   });
-  if (shift.employeeId) select.value = shift.employeeId;
 
-  select.onchange = updateShiftBreakSummary;
-  const dateInput = document.getElementById('shift-date');
-  if (dateInput) dateInput.onchange = updateShiftBreakSummary;
-
-  updateShiftBreakSummary();
   updatePasteButtonState();
 
   document.getElementById('modal-shift').classList.add('active');
 }
 
 function closeShiftModal() {
-  const modal = document.getElementById('modal-shift');
-  if (modal) {
-    if (typeof window.closeModal === 'function') {
-      window.closeModal(modal);
-    } else {
-      modal.classList.remove('active');
-    }
-  }
+  window.closeModal(document.getElementById('modal-shift'));
+  renderScheduler();
 }
 
 async function handleShiftSubmit(event) {
   event.preventDefault();
-  if (!hasManagerPermissions(state.currentUser)) {
-    showToast('Permission denied: Only Owners and Managers can save shifts.', 'error');
-    return;
-  }
   const submitBtn = event.target.querySelector('button[type="submit"]');
   const originalBtnText = submitBtn ? submitBtn.innerHTML : 'Save Shift';
   if (submitBtn) { submitBtn.disabled = true; submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Saving...'; }
@@ -3111,13 +2264,13 @@ async function handleShiftSubmit(event) {
     const notes = document.getElementById('shift-notes').value;
 
     if (start === end) {
-      showToast('Shift start time and end time cannot be identical. (Tip: For 8:00 PM, enter 20:00 in 24-hour format)', 'error');
+      showToast('Shift start time and end time cannot be identical.', 'error');
       return;
     }
 
     if (empId) {
       // Strict Overlap validation only if assigned
-      const empShifts = state.shifts.filter(s => s.employeeId === empId && String(s.id) !== String(id));
+      const empShifts = state.shifts.filter(s => s.employeeId === empId && s.id !== id);
       const hasOverlap = empShifts.some(s => BriskScheduler.isOverlapping(date, start, end, s.date, s.startTime, s.endTime));
       if (hasOverlap) {
         showToast('This shift overlaps with another shift for this employee.', 'error');
@@ -3125,13 +2278,13 @@ async function handleShiftSubmit(event) {
       }
 
       // Fair Work MA000012 / Pharmacy Industry Award 2026 10-Hour Rest Break Warning
-      const shiftStartMs = new Date(`${date}T${start.substring(0, 5)}:00`).getTime();
-      let shiftEndMs = new Date(`${date}T${end.substring(0, 5)}:00`).getTime();
+      const shiftStartMs = new Date(`${date}T${start}:00`).getTime();
+      let shiftEndMs = new Date(`${date}T${end}:00`).getTime();
       if (shiftEndMs <= shiftStartMs) shiftEndMs += 86400000;
 
       for (const s of empShifts) {
-        const sStartMs = new Date(`${s.date}T${(s.startTime || '00:00').substring(0, 5)}:00`).getTime();
-        let sEndMs = new Date(`${s.date}T${(s.endTime || '00:00').substring(0, 5)}:00`).getTime();
+        const sStartMs = new Date(`${s.date}T${s.startTime}:00`).getTime();
+        let sEndMs = new Date(`${s.date}T${s.endTime}:00`).getTime();
         if (sEndMs <= sStartMs) sEndMs += 86400000;
         
         let gapHours = 999;
@@ -3142,7 +2295,7 @@ async function handleShiftSubmit(event) {
         }
         
         if (gapHours < 10) {
-          if (!confirm(`Warning (Pharmacy Industry Award 2026 [MA000012]): This employee has another shift on ${s.date} (${formatTimeAmPm(s.startTime)} - ${formatTimeAmPm(s.endTime)}), leaving only ${gapHours.toFixed(1)}h rest (minimum 10h required). Assign anyway?`)) {
+          if (!confirm(`Warning (Pharmacy Industry Award 2026 [MA000084]): This employee has another shift on ${s.date} (${formatTimeAmPm(s.startTime)} - ${formatTimeAmPm(s.endTime)}), leaving only ${gapHours.toFixed(1)}h rest (minimum 10h required). Assign anyway?`)) {
             return;
           }
           break;
@@ -3150,37 +2303,18 @@ async function handleShiftSubmit(event) {
       }
     }
 
-    // Award Compliance Checks: Casual 3h minimum (Clause 11.4) & Daily 12h max ordinary hours (Clause 13.2)
+    // Award Compliance Checks: Casual 3h minimum (Clause 11.4) & Daily 10h max (Clause 19)
     const singleShiftDuration = BriskScheduler.getShiftDuration(start, end);
     if (empId) {
       const emp = state.employees.find(e => e.id === empId);
       if (emp) {
         if (emp.employmentType === 'casual' && singleShiftDuration < 3.0) {
-          if (!confirm(`Notice (Pharmacy Industry Award 2026 [MA000012] Clause 11.4): Casual employees have a minimum engagement of 3 hours per shift (scheduled: ${singleShiftDuration.toFixed(1)}h).\n\nAssign this shift anyway?`)) {
+          if (!confirm(`Notice (Pharmacy Industry Award 2026 [MA000084] Clause 11.4): Casual employees have a minimum engagement of 3 hours per shift (scheduled: ${singleShiftDuration.toFixed(1)}h).\n\nAssign this shift anyway?`)) {
             return;
           }
         }
-        if (singleShiftDuration > 12.0) {
-          if (!confirm(`Notice (Pharmacy Industry Award 2026 [MA000012] Clause 13.2): Maximum ordinary daily shift length is 12.0 hours (scheduled: ${singleShiftDuration.toFixed(1)}h).\n\nOvertime penalty rates may apply for hours exceeding 12 hours. Schedule anyway?`)) {
-            return;
-          }
-        }
-      }
-
-      // Check Maximum 6 Consecutive Days Worked (Clause 13.3)
-      const consec = checkConsecutiveDaysWorked(empId, date, id);
-      if (consec.exceeded) {
-        if (!confirm(`Warning (Pharmacy Industry Award 2026 [MA000012] Clause 13.3): Scheduling this shift will result in ${consec.count} consecutive days worked (maximum 6 consecutive days permitted).\n\nSchedule this shift anyway?`)) {
-          return;
-        }
-      }
-
-      // Clinical Governance: AHPRA Registration & CPR Expiration Guard
-      if (emp && emp.certificates && Array.isArray(emp.certificates)) {
-        const todayStr = formatDateISO(new Date());
-        const expiredAhpra = emp.certificates.find(c => (c.type || '').includes('AHPRA') && c.expiryDate && c.expiryDate < todayStr);
-        if (expiredAhpra && (role.toLowerCase().includes('pharmacist') || role.toLowerCase().includes('dispensary'))) {
-          if (!confirm(`⚠️ Clinical Governance Warning: ${emp.name}'s AHPRA Registration expired on ${expiredAhpra.expiryDate}.\n\nAre you sure you want to schedule this employee for ${role}?`)) {
+        if (singleShiftDuration > 10.0) {
+          if (!confirm(`Notice (Pharmacy Industry Award 2026 [MA000084] Clause 19): Ordinary daily hours must not exceed 10 hours (scheduled: ${singleShiftDuration.toFixed(1)}h).\n\nOvertime penalty rates may apply. Schedule anyway?`)) {
             return;
           }
         }
@@ -3266,59 +2400,8 @@ async function handleShiftSubmit(event) {
 
     const unpaidMealVal = document.getElementById('shift-unpaid-break') ? document.getElementById('shift-unpaid-break').value : 'auto';
     let unpaidMealMins = null;
-    if (unpaidMealVal === 'crib_paid') {
-      unpaidMealMins = 0; // 0 unpaid minutes for Paid Crib Break
-    } else if (unpaidMealVal !== 'auto') {
+    if (unpaidMealVal !== 'auto') {
       unpaidMealMins = parseInt(unpaidMealVal, 10);
-    }
-
-    // Clause 20 5-Hour Work Meal Break Guard
-    const grossShiftDuration = BriskScheduler.getShiftDuration(start, end);
-    if (grossShiftDuration > 5.0 && unpaidMealVal === '0') {
-      if (!confirm(`⚠️ Fair Work Award Notice (Pharmacy Award Clause 20):\n\nEmployees working more than 5 continuous hours (${grossShiftDuration.toFixed(1)}h) must be rostered for a meal break of at least 30 minutes (or Paid Crib Break for sole pharmacists).\n\nProceed without scheduling a meal break?`)) {
-        return;
-      }
-    }
-
-    const targetEmp = state.employees.find(e => e.id === empId);
-    const empName = targetEmp ? targetEmp.name : 'Unassigned';
-
-    // Clause 23: Mandatory 10-Hour Rest Gap / Clopening Guard
-    if (empId && date && start && end) {
-      const getOffsetDateStr = (dStr, offset) => {
-        const [y, m, d] = dStr.split('-').map(Number);
-        const dt = new Date(Date.UTC(y, m - 1, d + offset));
-        return dt.toISOString().split('T')[0];
-      };
-      
-      const prevDate = getOffsetDateStr(date, -1);
-      const nextDate = getOffsetDateStr(date, 1);
-      
-      // Check yesterday's shifts for this employee
-      const prevShifts = state.shifts.filter(s => s.employeeId === empId && s.date === prevDate && String(s.id) !== String(id));
-      for (const ps of prevShifts) {
-        const prevEndDt = new Date(`${prevDate}T${(ps.endTime || '00:00').substring(0, 5)}:00`);
-        const curStartDt = new Date(`${date}T${start.substring(0, 5)}:00`);
-        const gapHrs = (curStartDt - prevEndDt) / (1000 * 3600);
-        if (gapHrs > 0 && gapHrs < 10.0) {
-          if (!confirm(`⚠️ Fair Work Award Notice (Pharmacy Award Clause 23 - 10h Rest Gap):\n\n${empName} finished their shift yesterday at ${ps.endTime} and starts today at ${start}, providing only ${gapHrs.toFixed(1)} hours of rest (Minimum required: 10.0 hours).\n\nIf rostered with < 10h rest, overtime rates (200%) apply until a 10h break is provided.\n\nProceed with this schedule?`)) {
-            return;
-          }
-        }
-      }
-
-      // Check tomorrow's shifts for this employee
-      const nextShifts = state.shifts.filter(s => s.employeeId === empId && s.date === nextDate && String(s.id) !== String(id));
-      for (const ns of nextShifts) {
-        const curEndDt = new Date(`${date}T${end.substring(0, 5)}:00`);
-        const nextStartDt = new Date(`${nextDate}T${(ns.startTime || '00:00').substring(0, 5)}:00`);
-        const gapHrs = (nextStartDt - curEndDt) / (1000 * 3600);
-        if (gapHrs > 0 && gapHrs < 10.0) {
-          if (!confirm(`⚠️ Fair Work Award Notice (Pharmacy Award Clause 23 - 10h Rest Gap):\n\n${empName} will finish this shift at ${end} and start tomorrow at ${ns.startTime}, providing only ${gapHrs.toFixed(1)} hours of rest (Minimum required: 10.0 hours).\n\nIf rostered with < 10h rest, overtime rates (200%) apply until a 10h break is provided.\n\nProceed with this schedule?`)) {
-            return;
-          }
-        }
-      }
     }
 
     const shiftData = {
@@ -3334,21 +2417,13 @@ async function handleShiftSubmit(event) {
     if (id) {
       shiftData.id = id;
       await BriskDB.updateShift(shiftData);
-      if (typeof BriskDB.logAudit === 'function') {
-        BriskDB.logAudit('SHIFT_UPDATE', `Updated shift for ${empName} on ${date} (${start}-${end}, ${role}${unpaidMealVal === 'crib_paid' ? ', Paid Crib' : ''})`, id);
-      }
       showToast('Shift updated successfully.', 'success');
     } else {
-      const created = await BriskDB.addShift(shiftData);
-      if (typeof BriskDB.logAudit === 'function') {
-        BriskDB.logAudit('SHIFT_CREATE', `Created shift for ${empName} on ${date} (${start}-${end}, ${role}${unpaidMealVal === 'crib_paid' ? ', Paid Crib' : ''})`, created ? created.id : null);
-      }
+      await BriskDB.addShift(shiftData);
       showToast('Shift added successfully.', 'success');
     }
-    loadDataFromState();
-    renderScheduler();
-    calculateLaborCostForecast();
     closeShiftModal();
+    loadDataFromState();
   } catch (err) {
     console.error('Save Shift Error:', err);
     showToast(err.message || 'Failed to save shift.', 'error');
@@ -3361,174 +2436,18 @@ async function handleShiftSubmit(event) {
 }
 
 async function handleShiftDelete() {
-  if (!hasManagerPermissions(state.currentUser)) {
-    showToast('Permission denied: Only Owners and Managers can delete shifts.', 'error');
-    return;
-  }
   const id = document.getElementById('shift-id').value;
   if (id && confirm('Delete this shift permanently?')) {
     try {
-      const shiftToDelete = state.shifts.find(s => s.id === id);
-      const emp = shiftToDelete ? state.employees.find(e => e.id === shiftToDelete.employeeId) : null;
       await BriskDB.deleteShift(id);
-      if (typeof BriskDB.logAudit === 'function') {
-        BriskDB.logAudit('SHIFT_DELETE', `Deleted shift #${id} on ${shiftToDelete ? shiftToDelete.date : ''} (${emp ? emp.name : 'Unassigned'}, ${shiftToDelete ? shiftToDelete.startTime + '-' + shiftToDelete.endTime : ''})`, id);
-      }
-      loadDataFromState();
-      renderScheduler();
-      calculateLaborCostForecast();
       closeShiftModal();
+      renderActivePanel();
     } catch (error) {
       console.error('Failed to delete shift:', error);
       showToast('Failed to delete shift: ' + error.message, 'error');
     }
   }
 }
-
-async function copyCurrentWeekToNextWeek() {
-  const mon = getMondayOfCurrentWeek(state.currentWeekStart || new Date());
-  const sun = new Date(mon);
-  sun.setDate(mon.getDate() + 6);
-
-  const monStr = formatDateISO(mon);
-  const sunStr = formatDateISO(sun);
-
-  // Find all shifts in the currently selected week
-  const currentWeekShifts = state.shifts.filter(s => {
-    return s && s.date && s.date >= monStr && s.date <= sunStr;
-  });
-
-  if (currentWeekShifts.length === 0) {
-    showToast('No shifts found in the current week to copy.', 'warning');
-    return;
-  }
-
-  // Calculate next week's Monday & Sunday
-  const nextMon = new Date(mon);
-  nextMon.setDate(mon.getDate() + 7);
-  const nextSun = new Date(nextMon);
-  nextSun.setDate(nextMon.getDate() + 6);
-
-  const nextMonStr = formatDateISO(nextMon);
-  const nextSunStr = formatDateISO(nextSun);
-
-  const currentWeekRange = getWeekRangeText(mon);
-  const nextWeekRange = getWeekRangeText(nextMon);
-
-  const existingNextWeekShifts = state.shifts.filter(s => s && s.date && s.date >= nextMonStr && s.date <= nextSunStr);
-  if (existingNextWeekShifts.length > 0) {
-    if (!confirm(`Warning: Next week (${nextWeekRange}) already has ${existingNextWeekShifts.length} scheduled shift(s).\n\nDo you want to proceed and copy ${currentWeekShifts.length} shift(s) into next week?`)) {
-      return;
-    }
-  } else {
-    const confirmMsg = `Copy all ${currentWeekShifts.length} shift(s) from current week (${currentWeekRange}) to next week (${nextWeekRange})?`;
-    if (!confirm(confirmMsg)) return;
-  }
-
-  const btn = document.getElementById('btn-copy-week');
-  const origBtnHtml = btn ? btn.innerHTML : '<i class="fa-solid fa-copy text-cyan"></i> Copy to Next Week';
-  if (btn) {
-    btn.disabled = true;
-    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Copying...';
-  }
-
-  try {
-    let leaveConflictCount = 0;
-    const duplicatedShifts = currentWeekShifts.map(shift => {
-      const [y, m, d] = shift.date.split('-').map(Number);
-      const targetDate = new Date(Date.UTC(y, m - 1, d + 7));
-      const targetDateStr = targetDate.toISOString().split('T')[0];
-
-      let empId = null;
-      if (shift.employeeId && state.employees.some(e => e.id === shift.employeeId)) {
-        if (checkLeaveStatus(shift.employeeId, targetDateStr)) {
-          empId = null; // Auto unassign to protect approved leave!
-          leaveConflictCount++;
-        } else {
-          empId = shift.employeeId;
-        }
-      }
-
-      const newShift = {
-        employeeId: empId,
-        role: shift.role || 'Floor',
-        date: targetDateStr,
-        startTime: (shift.startTime || '09:00').substring(0, 5),
-        endTime: (shift.endTime || '17:00').substring(0, 5),
-        notes: shift.notes || ''
-      };
-      if (shift.unpaidMealMins !== undefined && shift.unpaidMealMins !== null) {
-        newShift.unpaidMealMins = shift.unpaidMealMins;
-      }
-      return newShift;
-    });
-
-    let createdCount = 0;
-    if (typeof BriskDB.addShiftsBatch === 'function') {
-      const addedList = await BriskDB.addShiftsBatch(duplicatedShifts);
-      createdCount = (addedList && addedList.length) ? addedList.length : duplicatedShifts.length;
-    } else {
-      for (const s of duplicatedShifts) {
-        const added = await BriskDB.addShift(s);
-        if (added) createdCount++;
-      }
-    }
-
-    // Switch view to next week automatically
-    state.currentWeekStart = nextMon;
-    
-    // Refresh local state and UI
-    loadDataFromState();
-    renderScheduler();
-    calculateLaborCostForecast();
-
-    const leaveNote = leaveConflictCount > 0 ? `\n(⚠️ ${leaveConflictCount} shift(s) moved to Unassigned due to approved leave)` : '';
-    showToast(`Successfully copied ${createdCount} shift(s) to next week! (${nextWeekRange})${leaveNote}`, 'success');
-  } catch (err) {
-    console.error('Copy Week Error:', err);
-    showToast('Failed to copy roster: ' + (err.message || 'Unknown error'), 'error');
-  } finally {
-    if (btn) {
-      btn.disabled = false;
-      btn.innerHTML = origBtnHtml;
-    }
-  }
-}
-window.copyCurrentWeekToNextWeek = copyCurrentWeekToNextWeek;
-
-async function triggerClearWeek() {
-  if (!confirm('Are you sure you want to unassign all employee shifts for this week?')) return;
-
-  const mon = new Date(state.currentWeekStart);
-  const sun = new Date(mon);
-  sun.setDate(mon.getDate() + 6);
-  mon.setHours(0,0,0,0);
-  sun.setHours(23,59,59,999);
-
-  const weekShifts = state.shifts.filter(s => {
-    const sDate = new Date(s.date + 'T00:00:00');
-    return sDate >= mon && sDate <= sun;
-  });
-
-  try {
-    const updatedShifts = weekShifts.map(s => ({ ...s, employeeId: null }));
-    if (typeof BriskDB.batchUpdateShifts === 'function') {
-      await BriskDB.batchUpdateShifts(updatedShifts);
-    } else {
-      for (const s of updatedShifts) {
-        await BriskDB.updateShift(s);
-      }
-    }
-    loadDataFromState();
-    renderScheduler();
-    calculateLaborCostForecast();
-    showToast('Week shifts unassigned successfully.', 'info');
-  } catch (err) {
-    console.error('Clear Week Error:', err);
-    showToast('Failed to clear week shifts: ' + (err.message || 'Unknown error'), 'error');
-  }
-}
-window.triggerClearWeek = triggerClearWeek;
 
 
 /* ==========================================================================
@@ -3540,7 +2459,7 @@ function renderEmployeesList() {
   container.innerHTML = '';
 
   const searchVal = document.getElementById('employee-search-input').value.toLowerCase();
-  const orderedActive = getOrderedActiveEmployees(true);
+  const orderedActive = getOrderedActiveEmployees();
   
   const filtered = orderedActive.filter(emp => {
     return emp.name.toLowerCase().includes(searchVal) || 
@@ -3552,7 +2471,7 @@ function renderEmployeesList() {
     return;
   }
 
-  const isManagerOrOwner = hasManagerPermissions(state.currentUser);
+  const isManagerOrOwner = state.currentUser && state.currentUser.role !== 'employee';
 
   filtered.forEach(emp => {
     const card = document.createElement('div');
@@ -3591,47 +2510,7 @@ function renderEmployeesList() {
       <div class="employee-card-meta">
         <span>Email: <strong>${emp.email}</strong></span>
         <span>Limit: <strong>Max ${emp.maxHours}h / week</strong></span>
-        ${isManagerOrOwner ? `
-          <span style="grid-column: 1/-1; color: var(--accent-cyan);">
-            Pay Structure: <strong>$${(emp.hourlyRate || 0).toFixed(2)}/h</strong> 
-            <span class="badge" style="font-size:10px; margin-left:4px; ${emp.employmentType && emp.employmentType.startsWith('locum') ? 'background:rgba(168,85,247,0.15); color:#c084fc; border:1px solid rgba(168,85,247,0.3);' : 'background:rgba(0,229,255,0.1); color:var(--accent-cyan);'}">
-              ${emp.employmentType === 'locum_invoice' ? 'Locum Invoice (+GST+Super)' : (emp.employmentType === 'locum_invoice_no_gst' ? 'Locum (No GST)' : (emp.employmentType === 'locum_all_inclusive' ? 'Locum (Flat Rate)' : (emp.employmentType === 'casual' ? 'PAYG Casual' : 'PAYG Permanent')))}
-            </span>
-          </span>
-        ` : ''}
       </div>
-      ${(() => {
-        let certBadges = '';
-        const todayStr = formatDateISO(new Date());
-        if (emp.certificates && Array.isArray(emp.certificates) && emp.certificates.length > 0) {
-          certBadges = '<div style="display:flex; flex-wrap:wrap; gap:4px; margin: 8px 0 4px 0;">';
-          emp.certificates.forEach(c => {
-            const isExpired = c.expiryDate && c.expiryDate < todayStr;
-            const daysLeft = c.expiryDate ? Math.round((new Date(c.expiryDate + 'T00:00:00') - new Date(todayStr + 'T00:00:00')) / (1000 * 3600 * 24)) : null;
-            const isExpiringSoon = daysLeft !== null && daysLeft >= 0 && daysLeft <= 30;
-
-            let bg = 'rgba(16,185,129,0.12)';
-            let color = '#10b981';
-            let border = '1px solid rgba(16,185,129,0.3)';
-            let text = c.type.split(' ')[0] + (c.certNumber ? ` #${c.certNumber}` : '');
-
-            if (isExpired) {
-              bg = 'rgba(239,68,68,0.15)';
-              color = '#f87171';
-              border = '1px solid rgba(239,68,68,0.4)';
-              text = `🔴 Expired: ${c.type}`;
-            } else if (isExpiringSoon) {
-              bg = 'rgba(245,158,11,0.15)';
-              color = '#fbbf24';
-              border = '1px solid rgba(245,158,11,0.4)';
-              text = `⚠️ ${daysLeft}d left: ${c.type}`;
-            }
-            certBadges += `<span class="badge" style="background:${bg}; color:${color}; border:${border}; font-size:10px; padding:2px 6px;" title="${c.type} (${c.expiryDate ? 'Expires: ' + c.expiryDate : 'No Expiry'})">${text}</span>`;
-          });
-          certBadges += '</div>';
-        }
-        return certBadges;
-      })()}
       <div class="employee-card-avail">
         <span>Work Availability:</span>
         <div class="avail-list">
@@ -3639,12 +2518,10 @@ function renderEmployeesList() {
         </div>
       </div>
       ${reorderBtns}
-      <div class="employee-card-actions" style="margin-top: 8px; display:flex; gap:6px;">
-        <button class="btn btn-outline" style="flex:1;" onclick="openEditEmployeeModal('${emp.id}')">
+      <div class="employee-card-actions" style="margin-top: 8px;">
+        <button class="btn btn-outline btn-block" onclick="openEditEmployeeModal('${emp.id}')">
           <i class="fa-solid fa-user-pen"></i> Edit Profile
         </button>
-        ${isManagerOrOwner ? `
-        ` : ''}
       </div>
     `;
     container.appendChild(card);
@@ -3695,36 +2572,19 @@ function onAwardClassificationChange() {
   const levelSelect = document.getElementById('emp-award-level');
   const typeSelect = document.getElementById('emp-employment-type');
   const rateInput = document.getElementById('emp-rate');
-  const locumBadge = document.getElementById('locum-indicator-badge');
-  const locumNote = document.getElementById('locum-details-note');
   if (!levelSelect || !typeSelect || !rateInput) return;
 
   const selectedOpt = levelSelect.options[levelSelect.selectedIndex];
-  const isLocum = (selectedOpt && selectedOpt.value.startsWith('locum')) || typeSelect.value.startsWith('locum');
-
-  if (locumBadge) locumBadge.style.display = isLocum ? 'inline-block' : 'none';
-  if (locumNote) locumNote.classList.toggle('hide', !isLocum);
-
-  if (selectedOpt && (selectedOpt.value === 'locum' || selectedOpt.value === 'locum_weekend')) {
-    if (!typeSelect.value.startsWith('locum_')) {
-      typeSelect.value = 'locum_invoice';
-    }
-  }
-
   if (!selectedOpt || selectedOpt.value === 'custom') return;
 
   const baseRate = parseFloat(selectedOpt.getAttribute('data-rate') || 0);
   if (!baseRate) return;
 
-  if (typeSelect.value.startsWith('locum_')) {
-    rateInput.value = baseRate.toFixed(2);
-  } else {
-    const isCasual = typeSelect.value === 'casual';
-    const finalRate = isCasual ? (baseRate * 1.25) : baseRate;
-    rateInput.value = finalRate.toFixed(2);
-  }
+  const isCasual = typeSelect.value === 'casual';
+  const finalRate = isCasual ? (baseRate * 1.25) : baseRate;
+
+  rateInput.value = finalRate.toFixed(2);
 }
-window.onAwardClassificationChange = onAwardClassificationChange;
 
 /* ==========================================================================
    MODAL: EMPLOYEE ADD/EDIT FORM
@@ -3743,8 +2603,6 @@ function openAddEmployeeModal() {
   const typeSelect = document.getElementById('emp-employment-type');
   if (levelSelect) levelSelect.value = 'custom';
   if (typeSelect) typeSelect.value = 'permanent';
-
-  onAwardClassificationChange();
 
   document.getElementById('btn-delete-employee').classList.add('hide');
 
@@ -3768,14 +2626,6 @@ function openAddEmployeeModal() {
   };
   renderAvailabilityFormInputs(defaultAvail);
 
-  const dobInput = document.getElementById('emp-dob');
-  if (dobInput) dobInput.value = '';
-  const alertBox = document.getElementById('junior-rate-upgrade-alert');
-  if (alertBox) alertBox.classList.add('hide');
-
-  window.currentEditingCertificates = [];
-  renderModalCertificatesList();
-
   document.getElementById('modal-employee').classList.add('active');
 }
 
@@ -3791,20 +2641,10 @@ function openEditEmployeeModal(empId) {
   document.getElementById('emp-rate').value = emp.hourlyRate != null ? emp.hourlyRate : '';
   document.getElementById('emp-max-hours').value = emp.maxHours;
 
-  const dobInput = document.getElementById('emp-dob');
-  if (dobInput) dobInput.value = emp.dob || '';
-
   const levelSelect = document.getElementById('emp-award-level');
   const typeSelect = document.getElementById('emp-employment-type');
   if (levelSelect) levelSelect.value = emp.awardLevel || 'custom';
   if (typeSelect) typeSelect.value = emp.employmentType || 'permanent';
-
-  onAwardClassificationChange();
-  onEmployeeDobChange();
-
-  const isManagerOrOwner = hasManagerPermissions(state.currentUser);
-  const rateInput = document.getElementById('emp-rate');
-  if (rateInput) rateInput.disabled = !isManagerOrOwner;
 
   const roleSelect = document.getElementById('emp-role');
   roleSelect.innerHTML = '<option value="">-- Select Default Position --</option>';
@@ -3823,9 +2663,6 @@ function openEditEmployeeModal(empId) {
   }
 
   renderAvailabilityFormInputs(emp.availability);
-
-  window.currentEditingCertificates = Array.isArray(emp.certificates) ? [...emp.certificates] : [];
-  renderModalCertificatesList();
 
   document.getElementById('modal-employee').classList.add('active');
 }
@@ -3851,7 +2688,6 @@ async function handleEmployeeSubmit(event) {
   const maxHours = isNaN(rawMax) ? 38 : rawMax;
   const awardLevel = document.getElementById('emp-award-level') ? document.getElementById('emp-award-level').value : 'custom';
   const employmentType = document.getElementById('emp-employment-type') ? document.getElementById('emp-employment-type').value : 'permanent';
-  const dob = document.getElementById('emp-dob') ? document.getElementById('emp-dob').value : null;
 
   const availability = {};
   for (let i = 0; i < 7; i++) {
@@ -3871,42 +2707,29 @@ async function handleEmployeeSubmit(event) {
     }
   }
 
-  const existingEmp = id ? state.employees.find(e => e.id === id) : null;
   const employeeData = {
-    name,
-    role,
-    email,
-    phone,
-    hourlyRate,
-    maxHours,
-    awardLevel,
-    employmentType,
-    dob: dob,
-    certificates: window.currentEditingCertificates || [],
-    availability,
-    active: existingEmp ? existingEmp.active : true
+    name: name,
+    role: role,
+    email: email,
+    phone: phone,
+    hourlyRate: hourlyRate,
+    maxHours: maxHours,
+    awardLevel: awardLevel,
+    employmentType: employmentType,
+    availability: availability
   };
 
   try {
     if (id) {
       employeeData.id = id;
       await BriskDB.updateEmployee(employeeData);
-      if (typeof BriskDB.logAudit === 'function') {
-        BriskDB.logAudit('EMPLOYEE_UPDATE', `Updated staff profile for ${name} (${role}, Rate: $${hourlyRate.toFixed(2)}/h, ${employmentType})`, id);
-      }
       showToast('Employee updated successfully.', 'success');
     } else {
-      const added = await BriskDB.addEmployee(employeeData);
-      if (typeof BriskDB.logAudit === 'function') {
-        BriskDB.logAudit('EMPLOYEE_CREATE', `Created staff profile for ${name} (${role}, Rate: $${hourlyRate.toFixed(2)}/h, ${employmentType})`, added ? added.id : null);
-      }
+      await BriskDB.addEmployee(employeeData);
       showToast('Employee added successfully.', 'success');
     }
     closeEmployeeModal();
     loadDataFromState();
-    renderEmployeesList();
-    renderScheduler();
-    calculateLaborCostForecast();
   } catch (err) {
     showToast('Failed to save employee.', 'error');
   } finally {
@@ -3919,12 +2742,10 @@ async function handleEmployeeDelete() {
   if (id && confirm('Delete this employee permanently? Future shifts will be unassigned.')) {
     try {
       const todayStr = formatDateISO(new Date());
+      // Only unassign future shifts to prevent Firestore 500-batch limit crash and preserve history
       const empShifts = state.shifts.filter(s => s.employeeId === id && s.date >= todayStr).map(s => ({ ...s, employeeId: null }));
       await BriskDB.batchUpdateShifts(empShifts);
       await BriskDB.deleteEmployee(id);
-      if (typeof BriskDB.logAudit === 'function') {
-        BriskDB.logAudit('EMPLOYEE_DELETE', `Deleted staff profile #${id}`, id);
-      }
       closeEmployeeModal();
       renderActivePanel();
     } catch (error) {
@@ -3943,15 +2764,17 @@ function renderTimeClockPanel() {
   const select = document.getElementById('clock-emp-select');
   select.innerHTML = '';
   
-  if (!hasManagerPermissions(state.currentUser)) {
-    if (!state.currentUser || !state.currentUser.employeeId) {
+  const role = state.currentUser.role;
+  
+  if (role === 'employee') {
+    if (!state.currentUser.employeeId) {
       select.innerHTML = '<option>Profile not found</option>';
       return;
     }
     // Only add self
     const opt = document.createElement('option');
     opt.value = state.currentUser.employeeId;
-    opt.textContent = state.currentUser.name || 'Current User';
+    opt.textContent = state.currentUser.name;
     opt.selected = true;
     select.appendChild(opt);
   } else {
@@ -3960,7 +2783,7 @@ function renderTimeClockPanel() {
       const opt = document.createElement('option');
       opt.value = emp.id;
       opt.textContent = `${emp.name} (${emp.role})`;
-      if (state.currentUser && emp.id === state.currentUser.employeeId) opt.selected = true;
+      if (emp.id === state.currentUser.employeeId) opt.selected = true;
       select.appendChild(opt);
     });
   }
@@ -4053,15 +2876,8 @@ function updateTerminalStatus() {
 }
 
 async function handleClockAction(action) {
-  const isManager = hasManagerPermissions(state.currentUser);
-  const empId = isManager
-    ? document.getElementById('clock-emp-select').value
-    : (state.currentUser?.employeeId || state.currentUser?.id);
-
-  if (!empId) {
-    showToast('Employee profile not identified for timeclock.', 'error');
-    return;
-  }
+  const empId = document.getElementById('clock-emp-select').value;
+  if (!empId) return;
 
   // Disable all clock buttons immediately to prevent double-tap
   const btns = ['btn-clock-in','btn-clock-out','btn-start-lunch','btn-start-paid-break','btn-end-break'];
@@ -4092,9 +2908,30 @@ async function handleClockAction(action) {
 
   try {
     if (action === 'in') {
-      if (tc) {
-        showToast('Already clocked in.', 'warning');
-        return;
+      if (tc) return; // already clocked in
+
+      // Geofencing Check (Amcal Pharmacy Woy Woy: -33.4842, 151.3259)
+      try {
+        const position = await new Promise((resolve, reject) => {
+          navigator.geolocation.getCurrentPosition(resolve, reject, { timeout: 10000, enableHighAccuracy: true });
+        });
+        const lat = position.coords.latitude;
+        const lng = position.coords.longitude;
+        
+        const WOY_WOY_LAT = -33.4842;
+        const WOY_WOY_LNG = 151.3259;
+        const ALLOWED_RADIUS = 0.005; // Roughly 500m
+        
+        const dist = Math.sqrt(Math.pow(lat - WOY_WOY_LAT, 2) + Math.pow(lng - WOY_WOY_LNG, 2));
+        
+        if (dist > ALLOWED_RADIUS) {
+          alert('Clock in denied: You must be near Amcal Pharmacy Woy Woy to clock in.');
+          return;
+        }
+        console.log(`Clocking in from Lat: ${lat}, Lng: ${lng}, Dist: ${dist}`);
+      } catch (err) {
+        alert('Geolocation is required to clock in. Please enable location services.');
+        return; // Block clock-in
       }
 
       tc = {
@@ -4108,19 +2945,16 @@ async function handleClockAction(action) {
         approvedBy: ''
       };
       await BriskDB.addTimecard(tc);
-      showToast('Clocked in successfully!', 'success');
+      // Optimistically update local state so UI reflects instantly
+      state.timecards.push(tc);
 
     } else if (action === 'out') {
-      if (!tc || tc.clockOut) {
-        showToast('No active clock-in session found to clock out.', 'warning');
-        return;
-      }
+      if (!tc || tc.clockOut) return;
       const lastBreak = tc.breaks && tc.breaks.length > 0 ? tc.breaks[tc.breaks.length - 1] : null;
       if (lastBreak && !lastBreak.end) lastBreak.end = nowISO;
       tc.clockOut = nowISO;
       tc.totalHours = calculateTimecardHours(tc);
       await BriskDB.updateTimecard(tc);
-      showToast('Clocked out successfully!', 'success');
 
     } else if (action === 'break-start' || action === 'break-start-lunch' || action === 'break-start-paid') {
       if (!tc || tc.clockOut) return;
@@ -4128,7 +2962,6 @@ async function handleClockAction(action) {
       const breakType = action === 'break-start-paid' ? 'paid_rest' : 'unpaid_lunch';
       tc.breaks.push({ start: nowISO, end: null, type: breakType });
       await BriskDB.updateTimecard(tc);
-      showToast(action === 'break-start-paid' ? 'Paid 10-min rest break started.' : '30-min unpaid meal break started.', 'info');
 
     } else if (action === 'break-end') {
       if (!tc || tc.clockOut) return;
@@ -4136,7 +2969,6 @@ async function handleClockAction(action) {
       if (lastBreak && !lastBreak.end) lastBreak.end = nowISO;
       tc.totalHours = calculateTimecardHours(tc);
       await BriskDB.updateTimecard(tc);
-      showToast('Break ended.', 'info');
     }
   } catch (err) {
     showToast('Clock action failed: ' + err.message, 'error');
@@ -4203,7 +3035,7 @@ function renderAdminTimesheets() {
     return tcDate >= mon && tcDate <= sun;
   });
 
-  if (!hasManagerPermissions(state.currentUser)) {
+  if (state.currentUser.role === 'employee') {
     // Employees can't see the admin panel list at all (handled in applyRoleAccessControl)
     return;
   }
@@ -4230,20 +3062,14 @@ function renderAdminTimesheets() {
     let actionHtml = '';
 
     if (tc.approved) {
-      statusHtml = `<span class="badge badge-success"><i class="fa-solid fa-lock"></i> Approved</span>`;
-      actionHtml = `
-        <div class="action-group">
-          <button class="btn btn-outline" style="padding: 4px 8px; font-size:11px; color:#f87171; border-color:rgba(239,68,68,0.4);" onclick="unapproveTimecard('${tc.id}')" title="Unlock timecard to allow adjustments">
-            <i class="fa-solid fa-lock-open"></i> Unlock
-          </button>
-        </div>
-      `;
+      statusHtml = `<span class="badge badge-success"><i class="fa-solid fa-check"></i> Approved</span>`;
+      actionHtml = `<span class="text-muted" style="font-size:11px;">Manager: ${tc.approvedBy}</span>`;
     } else {
       statusHtml = `<span class="badge badge-warning"><i class="fa-solid fa-clock"></i> Pending</span>`;
       actionHtml = `
         <div class="action-group">
           <button class="btn btn-primary" style="padding: 4px 8px; font-size:11px;" onclick="approveTimecard('${tc.id}')">
-            Approve
+          Approve
           </button>
           <button class="btn btn-outline" style="padding: 4px 8px; font-size:11px;" onclick="openTimecardEditModal('${tc.id}')">Edit</button>
         </div>
@@ -4261,8 +3087,8 @@ function renderAdminTimesheets() {
       <td>${formatTimeHM(tc.clockIn)}</td>
       <td>${formatTimeHM(tc.clockOut)}</td>
       <td>
-        <div style="font-weight: 500;">Total: ${tc.totalHours.toFixed(1)}h${otBadge}${tc.totalHours >= 14 || (!tc.clockOut && tc.totalHours === 0) ? ' <span class="badge badge-danger" style="font-size:10px; margin-left:4px;" title="Abnormal duration or missing clock-out. Please review before approving."><i class="fa-solid fa-triangle-exclamation"></i> Review Hours</span>' : ''}
-        ${!tc.approved ? `<button class="btn btn-icon" onclick="openTimecardEditModal('${tc.id}')" style="padding: 2px 6px; margin-left: 8px;"><i class="fa-solid fa-pen"></i></button>` : ''}
+        <div style="font-weight: 500;">Total: ${tc.totalHours.toFixed(1)}h${otBadge}
+        <button class="btn btn-icon" onclick="openTimecardEditModal('${tc.id}')" style="padding: 2px 6px; margin-left: 8px;"><i class="fa-solid fa-pen"></i></button>
         </div>
       </td>
       <td>${statusHtml}</td>
@@ -4272,45 +3098,7 @@ function renderAdminTimesheets() {
   });
 }
 
-function checkConsecutiveDaysWorked(employeeId, targetDateStr, excludeShiftId) {
-  if (!employeeId || !targetDateStr) return { exceeded: false, count: 1 };
-  
-  const getOffsetDateStr = (dStr, offset) => {
-    const [y, m, d] = dStr.split('-').map(Number);
-    const dt = new Date(Date.UTC(y, m - 1, d + offset));
-    return dt.toISOString().split('T')[0];
-  };
-
-  const otherShifts = state.shifts.filter(s => s.employeeId === employeeId && s.id !== excludeShiftId);
-  const workedDates = new Set(otherShifts.map(s => s.date));
-  
-  let backwardCount = 0;
-  for (let b = 1; b <= 7; b++) {
-    const prevD = getOffsetDateStr(targetDateStr, -b);
-    if (workedDates.has(prevD)) backwardCount++;
-    else break;
-  }
-
-  let forwardCount = 0;
-  for (let f = 1; f <= 7; f++) {
-    const nextD = getOffsetDateStr(targetDateStr, f);
-    if (workedDates.has(nextD)) forwardCount++;
-    else break;
-  }
-
-  const totalConsecutive = backwardCount + 1 + forwardCount;
-  return {
-    exceeded: totalConsecutive > 6,
-    count: totalConsecutive
-  };
-}
-
 async function approveTimecard(tcId) {
-  const isManagerOrOwner = hasManagerPermissions(state.currentUser);
-  if (!isManagerOrOwner) {
-    showToast('Permission denied: Only managers can approve timecards.', 'error');
-    return;
-  }
   const tc = state.timecards.find(t => t.id === tcId);
   if (!tc) return;
 
@@ -4318,36 +3106,8 @@ async function approveTimecard(tcId) {
   tc.approvedBy = state.currentUser.name;
   
   await BriskDB.updateTimecard(tc);
-  const tcEmp = state.employees.find(e => e.id === tc.employeeId);
-  if (typeof BriskDB.logAudit === 'function') {
-    BriskDB.logAudit('TIMECARD_APPROVE', `Approved & locked timecard for ${tcEmp ? tcEmp.name : tc.employeeId} on ${tc.date} (${tc.totalHours}h)`, tc.id);
-  }
   loadDataFromState();
   renderAdminTimesheets();
-  showToast('Timecard approved and locked for payroll.', 'success');
-}
-
-async function unapproveTimecard(tcId) {
-  const isManagerOrOwner = hasManagerPermissions(state.currentUser);
-  if (!isManagerOrOwner) {
-    showToast('Only managers can unlock approved timecards.', 'error');
-    return;
-  }
-  const tc = state.timecards.find(t => t.id === tcId);
-  if (!tc) return;
-  
-  if (!confirm('Unlock this approved timecard to allow editing?')) return;
-  
-  tc.approved = false;
-  tc.approvedBy = null;
-  await BriskDB.updateTimecard(tc);
-  const tcEmp = state.employees.find(e => e.id === tc.employeeId);
-  if (typeof BriskDB.logAudit === 'function') {
-    BriskDB.logAudit('TIMECARD_UNLOCK', `Unlocked approved timecard for ${tcEmp ? tcEmp.name : tc.employeeId} on ${tc.date}`, tc.id);
-  }
-  loadDataFromState();
-  renderAdminTimesheets();
-  showToast('Timecard unlocked for editing.', 'info');
 }
 
 function openTimecardEditModal(tcId) {
@@ -4386,9 +3146,7 @@ async function saveTimecardEdit() {
   const tc = state.timecards.find(t => t.id === tcId);
   if (!tc) return;
   
-  if (!tc.originalClockIn) tc.originalClockIn = tc.clockIn;
-    if (!tc.originalClockOut) tc.originalClockOut = tc.clockOut;
-    if (inVal) tc.clockIn = new Date(inVal).toISOString();
+  if (inVal) tc.clockIn = new Date(inVal).toISOString();
   if (outVal) tc.clockOut = new Date(outVal).toISOString();
   
   if (tc.breaks && tc.breaks.length > 0) {
@@ -4442,16 +3200,7 @@ function renderTimeOffPanel() {
       state.employees.map(e => `<option value="${e.id}">${e.name}</option>`).join('');
   }
 
-  const isManager = hasManagerPermissions(state.currentUser);
-
-  // Employees only see their own leave requests; managers/owners see all
-  let requests;
-  if (isManager) {
-    requests = [...state.leaveRequests];
-  } else {
-    const myEmpId = state.currentUser?.employeeId || state.currentUser?.id;
-    requests = state.leaveRequests.filter(lr => lr.employeeId === myEmpId);
-  }
+  const requests = [...state.leaveRequests];
   
   requests.sort((a,b) => {
     if (a.status === 'Pending' && b.status !== 'Pending') return -1;
@@ -4459,6 +3208,8 @@ function renderTimeOffPanel() {
     return b.startDate.localeCompare(a.startDate);
   });
 
+  const isManager = state.currentUser.role !== 'employee';
+  
   // Hide Decisions header column if employee
   const thDec = document.querySelector('.manager-action-th');
   if (thDec) {
@@ -4467,8 +3218,7 @@ function renderTimeOffPanel() {
   }
 
   if (requests.length === 0) {
-    const emptyMsg = isManager ? 'There are no leave requests filed at this time.' : 'You have no leave requests. Submit one using the form above.';
-    tbody.innerHTML = `<tr><td colspan="${isManager ? 5 : 4}" style="padding: 0;"><div class="empty-state"><i class="fa-solid fa-plane-slash"></i><h4>No leave requests</h4><p>${emptyMsg}</p></div></td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="${isManager ? 5 : 4}" style="padding: 0;"><div class="empty-state"><i class="fa-solid fa-plane-slash"></i><h4>No leave requests</h4><p>There are no leave requests filed at this time.</p></div></td></tr>`;
     return;
   }
 
@@ -4480,34 +3230,28 @@ function renderTimeOffPanel() {
     let actionsHtml = '';
 
     if (req.status === 'Pending') {
-      statusBadge = '<span class="badge badge-warning" style="font-weight:700;">PENDING</span>';
+      statusBadge = '<span class="badge badge-warning">Pending</span>';
       actionsHtml = `
-        <div class="action-group" style="display:flex; gap:6px; flex-wrap:wrap;">
-          <button class="btn btn-success" style="padding: 6px 12px; font-size:12px; font-weight:700; border-radius:6px; display:inline-flex; align-items:center; gap:4px;" onclick="decideLeaveRequest('${req.id}', 'Approved')"><i class="fa-solid fa-check"></i> Approve</button>
-          <button class="btn btn-danger" style="padding: 6px 12px; font-size:12px; font-weight:700; border-radius:6px; display:inline-flex; align-items:center; gap:4px;" onclick="decideLeaveRequest('${req.id}', 'Rejected')"><i class="fa-solid fa-xmark"></i> Reject</button>
+        <div class="action-group">
+        <button class="btn btn-success" style="padding: 4px 8px; font-size:11px;" onclick="decideLeaveRequest('${req.id}', 'Approved')">Approve</button>
+        <button class="btn btn-danger" style="padding: 4px 8px; font-size:11px;" onclick="decideLeaveRequest('${req.id}', 'Rejected')">Reject</button>
         </div>
       `;
     } else if (req.status === 'Approved') {
-      statusBadge = '<span class="badge badge-success" style="font-weight:700;">APPROVED</span>';
-      actionsHtml = `<button class="btn btn-outline" style="padding: 5px 10px; font-size:11px; border-radius:6px; display:inline-flex; align-items:center; gap:4px;" onclick="decideLeaveRequest('${req.id}', 'Pending')"><i class="fa-solid fa-rotate-left"></i> Set Pending</button>`;
+      statusBadge = '<span class="badge badge-success">Approved</span>';
+      actionsHtml = `<button class="btn btn-outline" style="padding: 4px 8px; font-size:11px;" onclick="decideLeaveRequest('${req.id}', 'Pending')">Set Pending</button>`;
     } else {
-      statusBadge = '<span class="badge badge-danger" style="font-weight:700;">REJECTED</span>';
-      actionsHtml = `<button class="btn btn-outline" style="padding: 5px 10px; font-size:11px; border-radius:6px; display:inline-flex; align-items:center; gap:4px;" onclick="decideLeaveRequest('${req.id}', 'Pending')"><i class="fa-solid fa-rotate-left"></i> Set Pending</button>`;
+      statusBadge = '<span class="badge badge-danger">Rejected</span>';
+      actionsHtml = `<button class="btn btn-outline" style="padding: 4px 8px; font-size:11px;" onclick="decideLeaveRequest('${req.id}', 'Pending')">Set Pending</button>`;
     }
 
-    const certBadge = req.medicalCertSighted ? `<span class="badge" style="background:rgba(16,185,129,0.12); color:#10b981; border:1px solid rgba(16,185,129,0.3); font-size:10px; margin-top:4px; display:inline-flex; align-items:center; gap:4px;"><i class="fa-solid fa-file-medical"></i> Cert Sighted</span>` : '';
-
     const tr = document.createElement('tr');
-    tr.className = 'leave-request-row';
     tr.innerHTML = `
-      <td data-label="Staff Name"><strong style="color:var(--text-primary); font-size:0.95rem;">${empName}</strong></td>
-      <td data-label="Period"><span style="color:var(--accent-gold); font-weight:600;">${req.startDate} ~ ${req.endDate}</span></td>
-      <td data-label="Reason" style="max-width: 260px; overflow: hidden; text-overflow: ellipsis; white-space: normal;">
-        <div style="font-size:0.88rem; color:var(--text-secondary);">${req.reason || 'No reason provided'}</div>
-        ${certBadge}
-      </td>
-      <td data-label="Status">${statusBadge}</td>
-      ${isManager ? `<td data-label="Action" class="leave-actions-cell">${actionsHtml}</td>` : ''}
+      <td><strong>${empName}</strong></td>
+      <td>${req.startDate} ~ ${req.endDate}</td>
+      <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${req.reason}</td>
+      <td>${statusBadge}</td>
+      ${isManager ? `<td><div style="display:flex; gap: 4px;">${actionsHtml}</div></td>` : ''}
     `;
     tbody.appendChild(tr);
   });
@@ -4517,7 +3261,7 @@ async function handleLeaveSubmit(event) {
   event.preventDefault();
 
   // If employee role, automatically set empId to current user employeeId
-  const empId = !hasManagerPermissions(state.currentUser) ? state.currentUser.employeeId : document.getElementById('leave-emp-select').value;
+  const empId = state.currentUser.role === 'employee' ? state.currentUser.employeeId : document.getElementById('leave-emp-select').value;
   if (!empId) {
     showToast('Please select an employee for the leave request.', 'error');
     return;
@@ -4525,7 +3269,6 @@ async function handleLeaveSubmit(event) {
   const start = document.getElementById('leave-start-date').value;
   const end = document.getElementById('leave-end-date').value;
   const reason = document.getElementById('leave-reason').value;
-  const medCertSighted = document.getElementById('leave-med-cert') ? document.getElementById('leave-med-cert').checked : false;
 
   if (start > end) {
     showToast('End date cannot be earlier than start date.', 'error');
@@ -4553,16 +3296,11 @@ async function handleLeaveSubmit(event) {
     employeeId: empId,
     startDate: start,
     endDate: end,
-    reason: reason,
-    medicalCertSighted: !!medCertSighted
+    reason: reason
   };
 
   try {
-    const addedReq = await BriskDB.addLeaveRequest(req);
-    const targetEmp = state.employees.find(e => e.id === empId);
-    if (typeof BriskDB.logAudit === 'function') {
-      BriskDB.logAudit('LEAVE_REQUEST', `Submitted leave for ${targetEmp ? targetEmp.name : empId} (${start} ~ ${end}, Reason: ${reason}, Med Cert: ${medCertSighted ? 'Yes' : 'No'})`, addedReq ? addedReq.id : null);
-    }
+    await BriskDB.addLeaveRequest(req);
     showToast('Leave request submitted successfully!', 'success');
     document.getElementById('leave-request-form').reset();
     
@@ -4588,86 +3326,68 @@ async function handleLeaveSubmit(event) {
 }
 
 async function decideLeaveRequest(reqId, decision) {
-  const isManagerOrOwner = hasManagerPermissions(state.currentUser);
-  if (!isManagerOrOwner) {
-    showToast('Permission denied: Only managers can approve or reject leave requests.', 'error');
-    return;
-  }
   const req = state.leaveRequests.find(r => r.id === reqId);
   if (!req) return;
 
-  try {
-    req.status = decision;
-    await BriskDB.updateLeaveRequest(req);
-    const reqEmp = state.employees.find(e => e.id === req.employeeId);
-    const empDisplayName = reqEmp ? reqEmp.name : 'Employee';
+  req.status = decision;
+  await BriskDB.updateLeaveRequest(req);
 
-    if (typeof BriskDB.logAudit === 'function') {
-      BriskDB.logAudit('LEAVE_DECIDE', `Leave request for ${empDisplayName} (${req.startDate} ~ ${req.endDate}) set to '${decision}'`, req.id);
-    }
+  if (decision === 'Approved') {
+    const start = new Date(req.startDate + 'T00:00:00');
+    const end = new Date(req.endDate + 'T00:00:00');
+    start.setHours(0,0,0,0);
+    end.setHours(23,59,59,999);
 
-    if (decision === 'Approved') {
-      showToast(`Leave request for ${empDisplayName} approved!`, 'success');
-      const start = new Date(req.startDate + 'T00:00:00');
-      const end = new Date(req.endDate + 'T00:00:00');
-      start.setHours(0,0,0,0);
-      end.setHours(23,59,59,999);
+    const conflictingShifts = state.shifts.filter(s => {
+      if (s.employeeId !== req.employeeId) return false;
+      const sDate = new Date(s.date + 'T00:00:00');
+      sDate.setHours(0,0,0,0);
+      return sDate >= start && sDate <= end;
+    });
 
-      const conflictingShifts = state.shifts.filter(s => {
-        if (s.employeeId !== req.employeeId) return false;
-        const sDate = new Date(s.date + 'T00:00:00');
-        sDate.setHours(0,0,0,0);
-        return sDate >= start && sDate <= end;
-      });
-
-      if (conflictingShifts.length > 0) {
-        try {
-          const updatedShifts = conflictingShifts.map(s => ({ ...s, employeeId: null }));
-          await BriskDB.batchUpdateShifts(updatedShifts);
-          
-          // Partial auto-schedule to fill the gaps using the leave's week
-          const targetWeekStart = getMondayOfCurrentWeek(new Date(req.startDate + 'T00:00:00'));
-          const targetWeekStr = formatDateISO(targetWeekStart);
-          // Refresh state.shifts to reflect the unassignments locally before running scheduler
-          state.shifts = state.shifts.map(s => {
-            if (updatedShifts.find(us => us.id === s.id)) return { ...s, employeeId: null };
-            return s;
-          });
-          const result = BriskScheduler.run(state.shifts, state.employees, state.leaveRequests, targetWeekStr, state.timecards, false);
-          
-          if (result.success && result.assignedCount > 0) {
-            const reAssignedShifts = result.shifts.filter(s => updatedShifts.find(us => us.id === s.id && s.employeeId !== null));
-            if (reAssignedShifts.length > 0) {
-               await BriskDB.batchUpdateShifts(reAssignedShifts);
-               showToast(`Automatically unassigned ${updatedShifts.length} conflicting shifts.\nAuto-scheduler backfilled ${reAssignedShifts.length} shifts!`, 'success');
-            }
+    if (conflictingShifts.length > 0) {
+      try {
+        const updatedShifts = conflictingShifts.map(s => ({ ...s, employeeId: null }));
+        await BriskDB.batchUpdateShifts(updatedShifts);
+        
+        // Partial auto-schedule to fill the gaps using the leave's week
+        const targetWeekStart = getMondayOfCurrentWeek(new Date(req.startDate + 'T00:00:00'));
+        const targetWeekStr = formatDateISO(targetWeekStart);
+        // Refresh state.shifts to reflect the unassignments locally before running scheduler
+        state.shifts = state.shifts.map(s => {
+          if (updatedShifts.find(us => us.id === s.id)) return { ...s, employeeId: null };
+          return s;
+        });
+        const result = BriskScheduler.run(state.shifts, state.employees, state.leaveRequests, targetWeekStr, state.timecards, false);
+        
+        if (result.success && result.assignedCount > 0) {
+          const reAssignedShifts = result.shifts.filter(s => updatedShifts.find(us => us.id === s.id && s.employeeId !== null));
+          if (reAssignedShifts.length > 0) {
+             await BriskDB.batchUpdateShifts(reAssignedShifts);
+             showToast(`Automatically unassigned ${updatedShifts.length} conflicting shifts.\nAuto-scheduler was able to backfill ${reAssignedShifts.length} of them immediately!`, 'success');
           } else {
-            showToast(`Unassigned ${updatedShifts.length} conflicting shifts for ${empDisplayName}.`, 'info');
+             showToast(`Automatically unassigned ${updatedShifts.length} conflicting shifts.\nCould not find available staff to auto-backfill them.`, 'success');
           }
-        } catch(err) {
-          console.error('Failed to unassign conflicting shifts:', err);
+        } else {
+          showToast(`Successfully unassigned ${updatedShifts.length} conflicting shifts.`, 'success');
         }
+      } catch(err) {
+        console.error('Failed to unassign conflicting shifts:', err);
+        showToast('Failed to automatically unassign conflicting shifts.', 'error');
       }
-    } else if (decision === 'Rejected') {
-      showToast(`Leave request for ${empDisplayName} rejected.`, 'info');
-    } else {
-      showToast(`Leave request for ${empDisplayName} set to pending.`, 'info');
     }
-
-    loadDataFromState();
-    renderTimeOffPanel();
-
-    // Trigger instant background sync to match server state parity
-    BriskDB.syncFromServer()
-      .then(() => {
-        loadDataFromState();
-        renderTimeOffPanel();
-      })
-      .catch(e => console.warn('Background sync after decide leave failed:', e));
-  } catch (err) {
-    console.error('Failed to decide leave request:', err);
-    showToast('Failed to update leave status: ' + (err.message || err), 'error');
   }
+
+  loadDataFromState();
+  renderTimeOffPanel();
+
+  // Trigger instant background sync to match server state parity
+  BriskDB.syncFromServer()
+    .then(() => {
+      loadDataFromState();
+      renderTimeOffPanel();
+    })
+    .catch(e => console.warn('Background sync after decide leave failed:', e));
 }
 
 
@@ -4676,7 +3396,7 @@ async function decideLeaveRequest(reqId, decision) {
    ========================================================================== */
 
 function renderReportsPanel() {
-  if (!hasManagerPermissions(state.currentUser)) {
+  if (state.currentUser.role === 'employee') {
     const tbody = document.getElementById('report-table-body');
     if (tbody) tbody.innerHTML = `<tr><td colspan="8" class="text-center text-muted" style="padding: 2rem;">🔒 Access Denied: Payroll & Financial Reports are restricted to Managers and Owners only.</td></tr>`;
     return;
@@ -4716,33 +3436,37 @@ function renderReportsPanel() {
 
     let actualHours = 0;
     let grossPay = 0;
-    let superCost = 0;
-    let loadedCost = 0;
     const hourlyRate = emp.hourlyRate || 0;
-    const isLocum = emp.employmentType && emp.employmentType.startsWith('locum');
 
     empTimecards.forEach(tc => {
       actualHours += tc.totalHours;
-      const breakdown = window.getEmployeeLaborCostBreakdown(emp, tc.date, tc.totalHours, null, tc.clockIn, tc.clockOut);
-      grossPay += breakdown.base;
-      superCost += breakdown.super;
-      loadedCost += breakdown.total;
-      totalSuperCostSum += breakdown.super;
-      totalLoadedCostSum += breakdown.total;
+      
+      // Calculate Weekend & Public Holiday Penalty Rates (Pharmacy Industry Award 2026 [MA000084])
+      const isPubHol = isNswPublicHoliday(tc.date);
+      const tcDay = new Date(tc.date + 'T00:00:00').getDay();
+      let multiplier = 1.0;
+      if (isPubHol) multiplier = 2.5; // Public Holiday 250% (Clause 21)
+      else if (tcDay === 0) multiplier = 1.5; // Sunday 150% (Clause 20)
+      else if (tcDay === 6) multiplier = 1.25; // Saturday 125% (Clause 20)
+      
+      grossPay += tc.totalHours * hourlyRate * multiplier;
     });
+
+    // Australian Pharmacy Payroll Taxes & On-costs
+    const superCost = grossPay * 0.115; // 11.5% Superannuation Guarantee
+    const loadedCost = grossPay * 1.20;  // Fully Loaded Cost (+20% Super 11.5%, Workers Comp 1.5%, Leave Accruals 7%)
 
     totalSchedHoursSum += empWeekHours;
     totalActualHoursSum += actualHours;
     totalActualCostSum += grossPay;
+    totalSuperCostSum += superCost;
+    totalLoadedCostSum += loadedCost;
 
     const otBadge = (actualHours > (emp.maxHours || 38) + 0.001) ? ' <span class="badge badge-danger">OT Exceeded</span>' : '';
 
     const tr = document.createElement('tr');
     tr.innerHTML = `
-      <td>
-        <strong>${emp.name}</strong> <span class="text-muted" style="font-size:11px;">(${emp.role})</span>
-        ${isLocum ? '<span class="badge" style="font-size:9px; margin-left:4px; background:rgba(168,85,247,0.15); color:#c084fc; border:1px solid rgba(168,85,247,0.3);">Locum Contractor</span>' : '<span class="badge" style="font-size:9px; margin-left:4px; background:rgba(16,185,129,0.1); color:#10b981;">PAYG</span>'}
-      </td>
+      <td><strong>${emp.name}</strong> <span class="text-muted" style="font-size:11px;">(${emp.role})</span></td>
       <td class="text-right">$${hourlyRate.toFixed(2)}</td>
       <td class="text-right">${empWeekHours.toFixed(1)}h</td>
       <td class="text-right">${actualHours.toFixed(1)}h${otBadge}</td>
@@ -4750,16 +3474,9 @@ function renderReportsPanel() {
       <td class="text-right" style="color: #10b981;">$${superCost.toFixed(2)}</td>
       <td class="text-right" style="color: #a855f7; font-weight: 600;">$${loadedCost.toFixed(2)}</td>
       <td class="text-center print-hide">
-        <div style="display:flex; justify-content:center; gap:4px; flex-wrap:wrap;">
-          <button class="btn btn-outline" style="padding:4px 8px; font-size:11px;" onclick="openEmailRosterModal('${emp.id}')" ${empWeekHours === 0 ? 'disabled' : ''}>
-            <i class="fa-solid fa-envelope"></i> Email
-          </button>
-          ${isLocum ? `
-          <button class="btn btn-outline" style="padding:4px 8px; font-size:11px; color:#c084fc; border-color:rgba(168,85,247,0.4);" onclick="openLocumRemittanceModal('${emp.id}')" title="Generate Locum Contractor Remittance Slip">
-            <i class="fa-solid fa-file-invoice-dollar"></i> Remittance
-          </button>
-          ` : ''}
-        </div>
+        <button class="btn btn-outline" style="padding:4px 8px; font-size:11px;" onclick="openEmailRosterModal('${emp.id}')" ${empWeekHours === 0 ? 'disabled' : ''}>
+          <i class="fa-solid fa-envelope"></i> Email Roster
+        </button>
       </td>
     `;
     tbody.appendChild(tr);
@@ -4772,12 +3489,9 @@ function renderReportsPanel() {
   if (repSuperEl) repSuperEl.textContent = `$${totalSuperCostSum.toFixed(2)}`;
   const repLoadedEl = document.getElementById('rep-total-loaded-cost');
   if (repLoadedEl) repLoadedEl.textContent = `$${totalLoadedCostSum.toFixed(2)}`;
-  
-  // Sync Reports Sales & Wage Ratio summary card
-  calculateLaborCostForecast();
 }
 
-// Gazetted NSW Public Holidays (Pharmacy Industry Award 2026 [MA000012] Clause 21)
+// Gazetted NSW Public Holidays (Pharmacy Industry Award 2026 [MA000084] Clause 21)
 function isNswPublicHoliday(dateStr) {
   if (!dateStr) return false;
   const parts = dateStr.split('-');
@@ -4813,7 +3527,7 @@ function exportToXeroCsv() {
 
   const activeEmployees = state.employees.filter(e => e.active);
   const rows = [
-    ['Employee Name', 'Email', 'Position', 'Award Classification', 'Shift Date', 'Day', 'Pay Rate Category', 'Base Rate ($/h)', 'Approved Hours (h)', 'Penalty Multiplier', 'Gross Pay ($)', 'Superannuation 12% ($)', 'Timesheet Status']
+    ['Employee Name', 'Email', 'Position', 'Award Classification', 'Shift Date', 'Day', 'Pay Rate Category', 'Base Rate ($/h)', 'Approved Hours (h)', 'Penalty Multiplier', 'Gross Pay ($)', 'Superannuation 11.5% ($)', 'Timesheet Status']
   ];
 
   let totalExportedRecords = 0;
@@ -4827,48 +3541,33 @@ function exportToXeroCsv() {
     });
 
     const hourlyRate = emp.hourlyRate || 0;
-    const isLocum = emp.employmentType && emp.employmentType.startsWith('locum');
 
     empTimecards.forEach(tc => {
       const tcDate = new Date(tc.date + 'T00:00:00');
       const isPubHol = isNswPublicHoliday(tc.date);
       const dayIdx = tcDate.getDay();
-      const isCasual = emp.employmentType === 'casual';
       let multiplier = 1.0;
-      let payCategory = 'Ordinary Hours (1.0x)';
+      let payCategory = 'Ordinary Ordinary Hours (1.0x)';
 
-      if (isLocum) {
-        payCategory = emp.employmentType === 'locum_all_inclusive' ? 'Locum Contractor (All-Inclusive Invoice)' : 'Locum Contractor Invoicing';
-        multiplier = 1.0;
-      } else if (isPubHol) {
-        multiplier = isCasual ? 2.50 : 2.25;
-        payCategory = `Public Holiday Loading (${multiplier}x)`;
+      if (isPubHol) {
+        multiplier = 2.5;
+        payCategory = 'Public Holiday Loading (2.5x)';
       } else if (dayIdx === 0) {
-        multiplier = isCasual ? 2.00 : 1.75;
-        payCategory = `Sunday Penalty (${multiplier}x)`;
+        multiplier = 1.5;
+        payCategory = 'Sunday Penalty (1.5x)';
       } else if (dayIdx === 6) {
-        multiplier = isCasual ? 1.50 : 1.25;
-        payCategory = `Saturday Penalty (${multiplier}x)`;
-      } else if (isCasual) {
         multiplier = 1.25;
-        payCategory = 'Casual Loading (1.25x)';
-      }
-      
-      // Calculate Overtime
-      let cumulativeWeeklyHours = (empTimecards._cumul = (empTimecards._cumul || 0) + tc.totalHours);
-      if (tc.totalHours > 12 || cumulativeWeeklyHours > 38) {
-         multiplier = isCasual ? 2.25 : 2.00;
-         payCategory = 'Overtime Penalty (' + multiplier + 'x)';
+        payCategory = 'Saturday Penalty (1.25x)';
       }
 
       const gross = tc.totalHours * hourlyRate * multiplier;
-      const superAmount = (emp.employmentType === 'locum_all_inclusive') ? 0 : (gross * 0.12);
+      const superAmount = gross * 0.115;
 
       rows.push([
         `"${emp.name}"`,
         `"${emp.email || ''}"`,
         `"${emp.role || ''}"`,
-        `"${emp.awardLevel || (isLocum ? 'Locum Contractor' : 'Standard Award')}"`,
+        `"${emp.awardLevel || 'Standard Award'}"`,
         tc.date,
         DAY_NAMES[dayIdx],
         `"${payCategory}"`,
@@ -5187,20 +3886,11 @@ async function handleUpdatePasswordSubmit(event) {
     if (res.error) {
       showToast('Error: ' + res.error, 'error');
     } else {
-      showToast('Password updated successfully!', 'success');
+      showToast('Password updated successfully! Please log in.', 'success');
       window.location.hash = ''; // Clear recovery hash
       const updateModal = document.getElementById('modal-update-password');
       if (updateModal) updateModal.classList.remove('active');
-
-      if (!state.currentUser) {
-        state.currentUser = BriskDB.getSession();
-        if (state.currentUser) {
-          if (!window._modulesLoaded) { await window.bootModularSystem(); window._modulesLoaded = true; }
-      await bootApplication();
-        } else {
-          showLoginScreen();
-        }
-      }
+      showLoginScreen();
     }
   } catch (err) {
     showToast('Failed to update password.', 'error');
@@ -5214,14 +3904,9 @@ async function handleUpdatePasswordSubmit(event) {
 
 /* ==========================================================================
    GLOBAL WINDOW BINDINGS — Required because app.js is loaded as type="module"
+   which scopes all functions to the module. Inline HTML handlers (onclick,
+   onsubmit) can only call functions on the global window object.
    ========================================================================== */
-window.state = state;
-window.DAY_NAMES = DAY_NAMES;
-window.MONTH_NAMES = MONTH_NAMES;
-window.hasManagerPermissions = hasManagerPermissions;
-window.renderActivePanel = renderActivePanel;
-window.formatDateISO = formatDateISO;
-if (typeof getOrderedActiveEmployees !== 'undefined') window.getOrderedActiveEmployees = getOrderedActiveEmployees;
 window.handleLoginSubmit = handleLoginSubmit;
 window.handleRegisterSubmit = handleRegisterSubmit;
 window.handleLogout = handleLogout;
@@ -5252,413 +3937,1083 @@ window.toggleTheme = toggleTheme;
 window.updateTerminalStatus = updateTerminalStatus;
 window.renderEmployeesList = renderEmployeesList;
 window.renderScheduler = renderScheduler;
-// Removed moved binding: triggerClearWeek
-// Removed moved binding: triggerAutoScheduler
+window.triggerClearWeek = triggerClearWeek;
+window.triggerAutoScheduler = triggerAutoScheduler;
 window.openResetPasswordModal = openResetPasswordModal;
 window.closeResetPasswordModal = closeResetPasswordModal;
 window.handleResetPasswordSubmit = handleResetPasswordSubmit;
 window.handleUpdatePasswordSubmit = handleUpdatePasswordSubmit;
 window.handleManagerGenerateStaffLink = handleManagerGenerateStaffLink;
-// Removed moved binding: openSalesTargetsModal
-// Removed moved binding: closeSalesTargetsModal
-// Removed moved binding: handleSaveSalesTargets
-// Removed moved binding: applySalesPreset
-// Removed moved binding: resetSalesToDefault
-// Removed moved binding: recalculateSalesKpiModal
-window.onAwardClassificationChange = onAwardClassificationChange;
-// Removed moved binding: recalculateActualSalesReconciliation
-// Removed moved binding: saveActualPosSales
-// Removed moved binding: onEmployeeDobChange
-// Removed moved binding: applyJuniorUpgrade
-window.unapproveTimecard = unapproveTimecard;
+
+/* ==========================================================================
+   ROLE CUSTOMIZATION HANDLERS
+   ========================================================================== */
+
+function hexToRgb(hex) {
+  if (!hex || typeof hex !== 'string') return '79, 70, 229';
+  const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+  const fullHex = hex.replace(shorthandRegex, (m, r, g, b) => r + r + g + g + b + b);
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(fullHex);
+  return result ? `${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}` : '79, 70, 229';
+}
+
+function renderRolesSettingsList() {
+  const container = document.getElementById('roles-settings-list');
+  if (!container) return;
+
+  container.innerHTML = '';
+  
+  if (state.roles.length === 0) {
+    container.innerHTML = '<div class="text-muted">No custom roles defined.</div>';
+    return;
+  }
+
+  state.roles.forEach(role => {
+    const div = document.createElement('div');
+    div.className = 'role-item-row';
+    div.style.display = 'flex';
+    div.style.alignItems = 'center';
+    div.style.gap = '8px';
+    div.style.padding = '8px';
+    div.style.background = 'var(--bg-card)';
+    div.style.border = '1px solid var(--border-color)';
+    div.style.borderRadius = 'var(--radius-sm)';
+
+    div.innerHTML = `
+      <input type="text" value="${role.name}" class="form-control" style="flex:1; height:34px; font-size:0.9rem;" onchange="handleRoleNameChange('${role.id}', this.value)">
+      <input type="color" value="${role.color}" style="width:34px; height:34px; padding:0 2px; cursor:pointer; border:1px solid var(--border-color); border-radius:var(--radius-sm); background:transparent;" onchange="handleRoleColorChange('${role.id}', this.value)">
+      <button class="btn btn-danger btn-icon" style="height:34px; width:34px; padding:0; display:flex; align-items:center; justify-content:center;" onclick="handleRoleDelete('${role.id}')"><i class="fa-solid fa-trash-can"></i></button>
+    `;
+    container.appendChild(div);
+  });
+}
+
+async function handleAddRoleSubmit(event) {
+  event.preventDefault();
+  const nameInput = document.getElementById('new-role-name');
+  const colorInput = document.getElementById('new-role-color');
+  if (!nameInput || !colorInput) return;
+
+  const name = nameInput.value.trim();
+  const color = colorInput.value;
+
+  if (!name) return;
+
+  if (state.roles.some(r => r.name.toLowerCase() === name.toLowerCase())) {
+    showToast('A role with this name already exists.', 'error');
+    return;
+  }
+
+  try {
+    await BriskDB.addRole({ name, color });
+    nameInput.value = '';
+    showToast('Role added successfully.', 'success');
+    loadDataFromState();
+    renderRolesSettingsList();
+  } catch (err) {
+    showToast('Failed to add role.', 'error');
+  }
+}
+
+async function handleRoleNameChange(id, newName) {
+  const name = newName.trim();
+  if (!name) return;
+
+  const role = state.roles.find(r => r.id === id);
+  if (!role) return;
+
+  if (role.name === name) return;
+
+  if (state.roles.some(r => r.id !== id && r.name.toLowerCase() === name.toLowerCase())) {
+    showToast('Another role already has this name.', 'error');
+    loadDataFromState();
+    renderRolesSettingsList();
+    return;
+  }
+
+  try {
+    role.name = name;
+    await BriskDB.updateRole(role);
+    showToast('Role name updated.', 'success');
+    loadDataFromState();
+    renderRolesSettingsList();
+  } catch (err) {
+    showToast('Failed to update role name.', 'error');
+  }
+}
+
+async function handleRoleColorChange(id, newColor) {
+  const role = state.roles.find(r => r.id === id);
+  if (!role) return;
+
+  if (role.color === newColor) return;
+
+  try {
+    role.color = newColor;
+    await BriskDB.updateRole(role);
+    showToast('Role color updated.', 'success');
+    loadDataFromState();
+    renderScheduler();
+    renderRolesSettingsList();
+  } catch (err) {
+    showToast('Failed to update role color.', 'error');
+  }
+}
+
+async function handleRoleDelete(id) {
+  if (!confirm('Are you sure you want to delete this role? Any employee or shift assigned to this role will remain assigned, but the role color coding will be lost.')) {
+    return;
+  }
+
+  try {
+    await BriskDB.deleteRole(id);
+    showToast('Role deleted successfully.', 'success');
+    loadDataFromState();
+    renderRolesSettingsList();
+  } catch (err) {
+    showToast('Failed to delete role.', 'error');
+  }
+}
+
+function renderPositionsSettingsList() {
+  const container = document.getElementById('positions-settings-list');
+  if (!container) return;
+
+  container.innerHTML = '';
+  
+  if (state.positions.length === 0) {
+    container.innerHTML = '<div class="text-muted">No custom positions defined.</div>';
+    return;
+  }
+
+  state.positions.forEach(pos => {
+    const div = document.createElement('div');
+    div.className = 'position-item-row';
+    div.style.display = 'flex';
+    div.style.alignItems = 'center';
+    div.style.gap = '8px';
+    div.style.padding = '8px';
+    div.style.background = 'var(--bg-card)';
+    div.style.border = '1px solid var(--border-color)';
+    div.style.borderRadius = 'var(--radius-sm)';
+
+    div.innerHTML = `
+      <input type="text" value="${pos.name}" class="form-control" style="flex:1; height:34px; font-size:0.9rem;" onchange="handlePositionNameChange('${pos.id}', this.value)">
+      <button class="btn btn-danger btn-icon" style="height:34px; width:34px; padding:0; display:flex; align-items:center; justify-content:center;" onclick="handlePositionDelete('${pos.id}')"><i class="fa-solid fa-trash-can"></i></button>
+    `;
+    container.appendChild(div);
+  });
+}
+
+async function handleAddPositionSubmit(event) {
+  event.preventDefault();
+  const nameInput = document.getElementById('new-position-name');
+  if (!nameInput) return;
+
+  const name = nameInput.value.trim();
+  if (!name) return;
+
+  if (state.positions.some(p => p.name.toLowerCase() === name.toLowerCase())) {
+    showToast('A position with this name already exists.', 'error');
+    return;
+  }
+
+  try {
+    await BriskDB.addPosition(name);
+    nameInput.value = '';
+    showToast('Position added successfully.', 'success');
+    loadDataFromState();
+    renderPositionsSettingsList();
+  } catch (err) {
+    showToast('Failed to add position.', 'error');
+  }
+}
+
+async function handlePositionNameChange(id, newName) {
+  const name = newName.trim();
+  if (!name) return;
+
+  const pos = state.positions.find(p => p.id === id);
+  if (!pos) return;
+
+  if (pos.name === name) return;
+
+  if (state.positions.some(p => p.id !== id && p.name.toLowerCase() === name.toLowerCase())) {
+    showToast('Another position already has this name.', 'error');
+    loadDataFromState();
+    renderPositionsSettingsList();
+    return;
+  }
+
+  try {
+    pos.name = name;
+    await BriskDB.updatePosition(pos);
+    showToast('Position name updated.', 'success');
+    loadDataFromState();
+    renderPositionsSettingsList();
+  } catch (err) {
+    showToast('Failed to update position name.', 'error');
+  }
+}
+
+async function handlePositionDelete(id) {
+  if (!confirm('Are you sure you want to delete this position? Employees with this default position will remain assigned, but it will no longer show in the register options.')) {
+    return;
+  }
+
+  try {
+    await BriskDB.deletePosition(id);
+    showToast('Position deleted successfully.', 'success');
+    loadDataFromState();
+    renderPositionsSettingsList();
+  } catch (err) {
+    showToast('Failed to delete position.', 'error');
+  }
+}
+
+function updatePasteButtonState() {
+  const pasteContainer = document.getElementById('shift-paste-container');
+  if (!pasteContainer) return;
+  
+  if (state.copiedShift) {
+    pasteContainer.style.display = 'block';
+    pasteContainer.innerHTML = `
+      <button type="button" class="btn btn-outline btn-block" onclick="pasteCopiedShiftDetails()" style="border-style: dashed; border-color: var(--accent-cyan); display: flex; align-items: center; justify-content: center; gap: 8px;">
+        <i class="fa-regular fa-clipboard"></i> Paste Copied Shift (${formatTimeAmPm(state.copiedShift.startTime)} - ${formatTimeAmPm(state.copiedShift.endTime)} ${state.copiedShift.role})
+      </button>
+    `;
+  } else {
+    pasteContainer.style.display = 'none';
+  }
+}
+
+function pasteCopiedShiftDetails() {
+  if (!state.copiedShift) return;
+  
+  const roleSelect = document.getElementById('shift-role');
+  if (roleSelect) roleSelect.value = state.copiedShift.role;
+  
+  const startInput = document.getElementById('shift-start');
+  if (startInput) startInput.value = state.copiedShift.startTime;
+  
+  const endInput = document.getElementById('shift-end');
+  if (endInput) endInput.value = state.copiedShift.endTime;
+  
+  const notesInput = document.getElementById('shift-notes');
+  if (notesInput) notesInput.value = state.copiedShift.notes || '';
+  
+  showToast('Copied shift details pasted!', 'success');
+}
+
+window.renderRolesSettingsList = renderRolesSettingsList;
+window.handleAddRoleSubmit = handleAddRoleSubmit;
+window.handleRoleNameChange = handleRoleNameChange;
+window.handleRoleColorChange = handleRoleColorChange;
+window.handleRoleDelete = handleRoleDelete;
+window.renderPositionsSettingsList = renderPositionsSettingsList;
+window.handleAddPositionSubmit = handleAddPositionSubmit;
+window.handlePositionNameChange = handlePositionNameChange;
+window.handlePositionDelete = handlePositionDelete;
+window.pasteCopiedShiftDetails = pasteCopiedShiftDetails;
+window.hexToRgb = hexToRgb;
+window.updatePasteButtonState = updatePasteButtonState;
 window.approveTimecard = approveTimecard;
 window.decideLeaveRequest = decideLeaveRequest;
-window.openLocumRemittanceModal = openLocumRemittanceModal;
-window.closeLocumRemittanceModal = closeLocumRemittanceModal;
-window.printLocumRemittance = printLocumRemittance;
-window.openAuditTrailModal = openAuditTrailModal;
-window.closeAuditTrailModal = closeAuditTrailModal;
-window.renderAuditTrailList = renderAuditTrailList;
-window.exportAuditTrailCsv = exportAuditTrailCsv;
-window.clearAuditTrailLogs = clearAuditTrailLogs;
-// Removed moved binding: renderModalCertificatesList
-// Removed moved binding: addCertificateToEmployeeModal
-// Removed moved binding: removeCertificateFromEmployeeModal
-// Removed moved binding: openEmployeePaySlipModal
-// Removed moved binding: closeEmployeePaySlipModal
-// Removed moved binding: printEmployeePaySlip
-// Removed moved binding: exportRosterIcs
-// Removed moved binding: copyRosterBriefToClipboard
-// Removed moved binding: copyDailyBriefToClipboard
-window.openShiftReplacementMatcher = openShiftReplacementMatcher;
-window.closeShiftReplacementMatcher = closeShiftReplacementMatcher;
-window.assignCandidateToShiftModal = assignCandidateToShiftModal;
-window.loadDataFromState = loadDataFromState;
-window.showLoginScreen = showLoginScreen;
-window.bootApplication = bootApplication;
-if (typeof isNswPublicHoliday !== 'undefined') window.isNswPublicHoliday = isNswPublicHoliday;
-if (typeof getMondayOfCurrentWeek !== 'undefined') window.getMondayOfCurrentWeek = getMondayOfCurrentWeek;
 
-/* ==========================================================================
-   LOCUM REMITTANCE ADVICE & REPLACEMENT STAFF MATCHER
-   ========================================================================== */
+window.openChangePasswordModal = function() {
+  document.getElementById('modal-change-password').classList.add('active');
+};
 
-function openShiftReplacementMatcher() {
-  const box = document.getElementById('shift-replacement-matcher-box');
-  const list = document.getElementById('shift-replacement-candidates-list');
-  const shiftDate = document.getElementById('shift-date')?.value;
-  const shiftStart = document.getElementById('shift-start')?.value;
-  const shiftEnd = document.getElementById('shift-end')?.value;
-  const shiftRole = document.getElementById('shift-role')?.value || '';
+window.closeChangePasswordModal = function() {
+  document.getElementById('modal-change-password').classList.remove('active');
+  const newPass = document.getElementById('change-new-password');
+  const confirmPass = document.getElementById('change-confirm-password');
+  if (newPass) newPass.value = '';
+  if (confirmPass) confirmPass.value = '';
+};
 
-  if (!box || !list) return;
-  if (!shiftDate || !shiftStart || !shiftEnd) {
-    showToast('Please specify shift date, start time, and end time first.', 'warning');
+window.handleChangePasswordSubmit = async function(event) {
+  event.preventDefault();
+  const newPass = document.getElementById('change-new-password').value;
+  const confirmPass = document.getElementById('change-confirm-password').value;
+
+  if (newPass !== confirmPass) {
+    showToast('Passwords do not match.', 'error');
     return;
   }
 
-  list.innerHTML = '';
-  const shiftHours = BriskScheduler.getShiftDuration(shiftStart, shiftEnd);
-  const shiftDayIdx = new Date(shiftDate + 'T00:00:00').getDay();
-  const shiftMonday = getMondayOfCurrentWeek(new Date(shiftDate + 'T00:00:00'));
+  const submitBtn = event.target.querySelector('button[type="submit"]');
+  const origText = submitBtn.innerHTML;
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Updating...';
 
-  const activeEmployees = state.employees.filter(e => e.active);
-  const candidateScores = [];
-
-  activeEmployees.forEach(emp => {
-    const maxH = emp.maxHours || 38;
-    const currentWeekHours = calculateEmployeeWeekHours(emp.id, shiftMonday);
-    const onLeave = checkLeaveStatus(emp.id, shiftDate);
-    
-    // Check weekday availability
-    const avail = (emp.availability && typeof emp.availability === 'object') ? emp.availability[shiftDayIdx] : null;
-    let isAvail = false;
-    let availLabel = 'No availability set';
-    if (avail && avail.start && avail.end) {
-      isAvail = (shiftStart >= avail.start && shiftEnd <= avail.end);
-      availLabel = `${avail.start} - ${avail.end}`;
-    } else if (avail === null || avail === undefined) {
-      isAvail = true;
-      availLabel = 'Open Availability';
-    }
-
-    const roleMatch = emp.role.toLowerCase() === shiftRole.toLowerCase() || (shiftRole.toLowerCase().includes('assistant') && emp.role.toLowerCase().includes('assistant'));
-    const resultingHours = currentWeekHours + shiftHours;
-    const causesOt = resultingHours > maxH;
-    const otAmount = causesOt ? (resultingHours - maxH) : 0;
-
-    candidateScores.push({
-      emp,
-      currentWeekHours,
-      resultingHours,
-      maxH,
-      onLeave,
-      isAvail,
-      availLabel,
-      roleMatch,
-      causesOt,
-      otAmount
-    });
-  });
-
-  candidateScores.sort((a, b) => {
-    if (a.onLeave !== b.onLeave) return a.onLeave ? 1 : -1;
-    if (a.isAvail !== b.isAvail) return a.isAvail ? -1 : 1;
-    if (a.roleMatch !== b.roleMatch) return a.roleMatch ? -1 : 1;
-    if (a.causesOt !== b.causesOt) return a.causesOt ? 1 : -1;
-    return a.resultingHours - b.resultingHours;
-  });
-
-  if (candidateScores.length === 0) {
-    list.innerHTML = '<div style="font-size:0.78rem; color:var(--text-muted); padding:4px;">No active staff found.</div>';
-  } else {
-    candidateScores.forEach(c => {
-      const card = document.createElement('div');
-      card.style.padding = '6px 8px';
-      card.style.background = 'rgba(255,255,255,0.03)';
-      card.style.border = '1px solid var(--border-glass)';
-      card.style.borderRadius = 'var(--radius-sm)';
-      card.style.display = 'flex';
-      card.style.justifyContent = 'space-between';
-      card.style.alignItems = 'center';
-      card.style.gap = '8px';
-
-      const leaveTag = c.onLeave ? '<span class="badge badge-danger" style="font-size:8px;">On Leave</span>' : '';
-      const availTag = c.isAvail ? '<span class="badge badge-success" style="font-size:8px;">Avail</span>' : '<span class="badge badge-warning" style="font-size:8px;">Partial/Unavail</span>';
-      const otTag = c.causesOt ? `<span class="badge badge-danger" style="font-size:8px;">+${c.otAmount.toFixed(1)}h OT</span>` : `<span class="badge" style="font-size:8px; background:rgba(16,185,129,0.1); color:#10b981;">${(c.maxH - c.resultingHours).toFixed(1)}h rem</span>`;
-
-      card.innerHTML = `
-        <div style="flex:1; min-width:0;">
-          <div style="display:flex; align-items:center; gap:4px;">
-            <strong style="font-size:0.82rem; color:var(--text-primary);">${c.emp.name}</strong>
-            <span class="text-muted" style="font-size:0.72rem;">(${c.emp.role})</span>
-          </div>
-          <div style="display:flex; gap:4px; margin-top:2px; flex-wrap:wrap;">
-            ${leaveTag} ${availTag} ${otTag}
-            <span class="text-muted" style="font-size:0.7rem;">(Week: ${c.currentWeekHours.toFixed(1)}h ➔ ${c.resultingHours.toFixed(1)}h / ${c.maxH}h)</span>
-          </div>
-        </div>
-        <button type="button" class="btn btn-primary" style="padding:2px 8px; font-size:0.75rem; white-space:nowrap;" onclick="assignCandidateToShiftModal('${c.emp.id}')">
-          Select
-        </button>
-      `;
-      list.appendChild(card);
-    });
-  }
-
-  box.style.display = 'block';
-}
-
-function closeShiftReplacementMatcher() {
-  const box = document.getElementById('shift-replacement-matcher-box');
-  if (box) box.style.display = 'none';
-}
-
-function assignCandidateToShiftModal(empId) {
-  const select = document.getElementById('shift-employee');
-  if (select) {
-    select.value = empId;
-    updateShiftBreakSummary();
-    closeShiftReplacementMatcher();
-    showToast('Employee selected for shift.', 'info');
-  }
-}
-
-function openLocumRemittanceModal(empId) {
-  const isManagerOrOwner = hasManagerPermissions(state.currentUser);
-  if (!isManagerOrOwner) {
-    showToast('Locum Remittance Statements are restricted to Managers.', 'warning');
-    return;
-  }
-
-  const emp = state.employees.find(e => e.id === empId);
-  if (!emp) return;
-
-  const modal = document.getElementById('modal-locum-remittance');
-  if (!modal) return;
-
-  document.getElementById('locum-slip-contractor-name').textContent = emp.name;
-  document.getElementById('locum-slip-contractor-email').textContent = `${emp.email} ${emp.phone ? `· ${emp.phone}` : ''}`;
-  document.getElementById('locum-slip-contractor-type').textContent = `${emp.role} · ${emp.employmentType || 'Locum Contractor'}`;
-
-  const mon = new Date(state.currentWeekStart);
-  const sun = new Date(mon);
-  sun.setDate(mon.getDate() + 6);
-  mon.setHours(0,0,0,0);
-  sun.setHours(23,59,59,999);
-
-  document.getElementById('locum-slip-period').textContent = `Period: ${formatDateISO(mon)} ~ ${formatDateISO(sun)}`;
-
-  const weekShifts = state.shifts.filter(s => {
-    if (s.employeeId !== emp.id) return false;
-    const sDate = new Date(s.date + 'T00:00:00');
-    sDate.setHours(0,0,0,0);
-    return sDate >= mon && sDate <= sun;
-  });
-
-  weekShifts.sort((a,b) => a.date.localeCompare(b.date));
-
-  const tbody = document.getElementById('locum-slip-table-body');
-  const tfoot = document.getElementById('locum-slip-table-foot');
-  tbody.innerHTML = '';
-
-  let totalHours = 0;
-  let totalBase = 0;
-  let totalGst = 0;
-  let totalSuper = 0;
-  let totalPayable = 0;
-
-  if (weekShifts.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="8" class="text-center text-muted" style="padding:16px;">No shifts scheduled for this locum in the selected period.</td></tr>`;
-  } else {
-    weekShifts.forEach(s => {
-      const hours = BriskScheduler.getShiftDuration(s.startTime, s.endTime);
-      const b = window.getEmployeeLaborCostBreakdown(emp, s.date, hours, s.role, s.startTime, s.endTime);
-      
-      totalHours += hours;
-      totalBase += b.base;
-      totalGst += b.gst;
-      totalSuper += b.super;
-      totalPayable += b.total;
-
-      const tr = document.createElement('tr');
-      tr.innerHTML = `
-        <td><strong>${s.date}</strong></td>
-        <td>${s.startTime} - ${s.endTime} (${s.role || 'Pharmacist'})</td>
-        <td class="text-right">${hours.toFixed(1)}h</td>
-        <td class="text-right">$${parseFloat(emp.hourlyRate || 0).toFixed(2)}/h</td>
-        <td class="text-right">$${b.base.toFixed(2)}</td>
-        <td class="text-right" style="color:#c084fc;">$${b.gst.toFixed(2)}</td>
-        <td class="text-right" style="color:#10b981;">$${b.super.toFixed(2)}</td>
-        <td class="text-right" style="font-weight:700;">$${b.total.toFixed(2)}</td>
-      `;
-      tbody.appendChild(tr);
-    });
-  }
-
-  tfoot.innerHTML = `
-    <tr>
-      <td colspan="2"><strong>Grand Totals (${weekShifts.length} Shifts)</strong></td>
-      <td class="text-right">${totalHours.toFixed(1)}h</td>
-      <td class="text-right">-</td>
-      <td class="text-right">$${totalBase.toFixed(2)}</td>
-      <td class="text-right" style="color:#c084fc;">$${totalGst.toFixed(2)}</td>
-      <td class="text-right" style="color:#10b981;">$${totalSuper.toFixed(2)}</td>
-      <td class="text-right text-neon" style="font-size:0.95rem;">$${totalPayable.toFixed(2)}</td>
-    </tr>
-  `;
-
-  modal.classList.add('active');
-}
-
-function closeLocumRemittanceModal() {
-  const modal = document.getElementById('modal-locum-remittance');
-  if (modal) modal.classList.remove('active');
-}
-
-function printLocumRemittance() {
-  window.print();
-}
-
-/* ==========================================================================
-   SECURITY & AUDIT TRAIL LOG SYSTEM
-   ========================================================================== */
-
-function openAuditTrailModal() {
-  const isManagerOrOwner = hasManagerPermissions(state.currentUser);
-  if (!isManagerOrOwner) {
-    showToast('Audit logs are restricted to Managers & Owners.', 'warning');
-    return;
-  }
-  const modal = document.getElementById('modal-audit-trail');
-  if (!modal) return;
-  renderAuditTrailList();
-  modal.classList.add('active');
-}
-
-function closeAuditTrailModal() {
-  const modal = document.getElementById('modal-audit-trail');
-  if (modal) modal.classList.remove('active');
-}
-
-function renderAuditTrailList() {
-  const tbody = document.getElementById('audit-trail-tbody');
-  const searchInput = document.getElementById('audit-search-input');
-  if (!tbody) return;
-
-  const logs = (typeof BriskDB.getAuditLogs === 'function') ? BriskDB.getAuditLogs() : [];
-  const query = (searchInput ? searchInput.value : '').toLowerCase().trim();
-
-  const filtered = logs.filter(l => {
-    if (!query) return true;
-    const txt = `${l.action} ${l.actorName} ${l.actorEmail} ${l.details} ${l.timestamp}`.toLowerCase();
-    return txt.includes(query);
-  });
-
-  tbody.innerHTML = '';
-  if (filtered.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="4" class="text-center text-muted" style="padding:24px;">No audit events found.</td></tr>`;
-    return;
-  }
-
-  filtered.forEach(item => {
-    const d = new Date(item.timestamp);
-    const dateFormatted = !isNaN(d.getTime()) ? `${formatDateISO(d)} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}:${String(d.getSeconds()).padStart(2,'0')}` : item.timestamp;
-
-    let actionBadgeColor = 'var(--accent-cyan)';
-    let actionBg = 'rgba(0, 229, 255, 0.1)';
-    if (item.action.includes('DELETE') || item.action.includes('REJECT')) {
-      actionBadgeColor = '#f87171';
-      actionBg = 'rgba(239, 68, 68, 0.15)';
-    } else if (item.action.includes('APPROVE') || item.action.includes('CREATE')) {
-      actionBadgeColor = '#34d399';
-      actionBg = 'rgba(16, 185, 129, 0.15)';
-    } else if (item.action.includes('UNLOCK')) {
-      actionBadgeColor = '#fbbf24';
-      actionBg = 'rgba(245, 158, 11, 0.15)';
-    }
-
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td style="padding-left:12px; font-family:monospace; font-size:0.75rem; color:var(--text-muted);">${dateFormatted}</td>
-      <td>
-        <strong style="color:var(--text-primary);">${item.actorName || 'System'}</strong>
-        <span style="font-size:0.72rem; color:var(--text-muted); display:block;">${item.actorEmail || ''}</span>
-      </td>
-      <td style="text-align:center;">
-        <span class="badge" style="background:${actionBg}; color:${actionBadgeColor}; border:1px solid ${actionBadgeColor}44; font-size:0.72rem;">
-          ${item.action}
-        </span>
-      </td>
-      <td style="padding-left:12px; font-size:0.8rem; color:var(--text-secondary); line-height:1.4;">${item.details}</td>
-    `;
-    tbody.appendChild(tr);
-  });
-}
-
-function exportAuditTrailCsv() {
-  const logs = (typeof BriskDB.getAuditLogs === 'function') ? BriskDB.getAuditLogs() : [];
-  if (logs.length === 0) {
-    showToast('No audit logs to export.', 'warning');
-    return;
-  }
-
-  const rows = [
-    ['Audit_ID', 'Timestamp_ISO', 'Action', 'Actor_Name', 'Actor_Email', 'Actor_Role', 'Target_ID', 'Details']
-  ];
-
-  logs.forEach(l => {
-    rows.push([
-      `"${l.id || ''}"`,
-      `"${l.timestamp || ''}"`,
-      `"${l.action || ''}"`,
-      `"${l.actorName || ''}"`,
-      `"${l.actorEmail || ''}"`,
-      `"${l.actorRole || ''}"`,
-      `"${l.targetId || ''}"`,
-      `"${(l.details || '').replace(/"/g, '""')}"`
-    ]);
-  });
-
-  const csvContent = 'data:text/csv;charset=utf-8,' + rows.map(e => e.join(',')).join('\n');
-  const encodedUri = encodeURI(csvContent);
-  const link = document.createElement('a');
-  link.setAttribute('href', encodedUri);
-  link.setAttribute('download', `amcal_audit_trail_${formatDateISO(new Date())}.csv`);
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-  showToast(`Exported ${logs.length} audit records to CSV!`, 'success');
-}
-
-function clearAuditTrailLogs() {
-  const isOwner = hasManagerPermissions(state.currentUser);
-  if (!isOwner) {
-    showToast('Only Organization Owners and Managers can clear audit history.', 'error');
-    return;
-  }
-
-  if (confirm('Permanently clear all local audit trail logs? This action cannot be undone.')) {
-    if (typeof BriskDB.clearAuditLogs === 'function') {
-      BriskDB.clearAuditLogs();
-      renderAuditTrailList();
-      renderSettingsPanel();
-      showToast('Audit trail logs cleared.', 'info');
-    }
-  }
-}
-
-// ==========================================
-// DYNAMIC MODULE LOADER
-// ==========================================
-window.bootModularSystem = async function() {
   try {
-    await import('./modules/payroll-engine.js');
-    await import('./modules/compliance.js');
-    await import('./modules/role-customization.js');
-    await import('./modules/ai-ops.js');
-    console.log('[BriskSchedules] Modular system fully booted.');
+    const res = await BriskDB.apiUpdatePassword(newPass);
+    if (res.error) throw new Error(res.error);
+
+    showToast('Password changed successfully!', 'success');
+    closeChangePasswordModal();
   } catch (err) {
-    console.error('[BriskSchedules] Failed to load modules:', err);
+    showToast(err.message || 'Failed to update password.', 'error');
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = origText;
+  }
+};
+
+window.triggerGlobalRefresh = async function() {
+  if (state.isRefreshing) return; // Prevent duplicate concurrent sync requests
+  state.isRefreshing = true;
+
+  const refreshBtn = document.getElementById('btn-global-refresh');
+  const icon = refreshBtn ? refreshBtn.querySelector('i') : null;
+  
+  if (refreshBtn) refreshBtn.disabled = true;
+  if (icon) icon.classList.add('fa-spin');
+  showToast('Refreshing data from Supabase...', 'info');
+
+  try {
+    // Force sync and reload
+    await BriskDB.syncFromServer();
+    loadDataFromState();
+    renderActivePanel();
+    showToast('Data refreshed successfully!', 'success');
+  } catch (err) {
+    showToast('Failed to refresh: ' + err.message, 'error');
+  } finally {
+    state.isRefreshing = false;
+    if (refreshBtn) refreshBtn.disabled = false;
+    if (icon) {
+      setTimeout(() => {
+        icon.classList.remove('fa-spin');
+      }, 700);
+    }
+  }
+};
+
+// --- Trading Hours and Daily View Helpers ---
+
+const DEFAULT_TRADING_HOURS = {
+  "1": { "open": "08:30", "close": "17:30", "closed": false },
+  "2": { "open": "08:30", "close": "17:30", "closed": false },
+  "3": { "open": "08:30", "close": "17:30", "closed": false },
+  "4": { "open": "08:30", "close": "17:30", "closed": false },
+  "5": { "open": "08:30", "close": "17:30", "closed": false },
+  "6": { "open": "09:00", "close": "13:00", "closed": false },
+  "0": { "open": "00:00", "close": "00:00", "closed": true }
+};
+
+function timeToDecimal(timeStr) {
+  if (!timeStr) return 0;
+  const [h, m] = timeStr.split(':').map(Number);
+  return h + m / 60;
+}
+window.timeToDecimal = timeToDecimal;
+
+function getAwardBreakEntitlements(grossHours) {
+  if (grossHours < 4) {
+    return { paidBreaks: 0, unpaidMealMins: 0, description: 'No breaks required (< 4h)' };
+  } else if (grossHours < 5) {
+    return { paidBreaks: 1, unpaidMealMins: 0, description: '☕ 1x 10m Paid Rest' };
+  } else if (grossHours < 7.6) {
+    return { paidBreaks: 1, unpaidMealMins: 30, description: '🍱 1x 30m Unpaid Lunch + ☕ 1x 10m Paid Rest' };
+  } else {
+    return { paidBreaks: 2, unpaidMealMins: 30, description: '🍱 1x 30m Unpaid Lunch + ☕ 2x 10m Paid Rest (Morning & Afternoon)' };
   }
 }
+window.getAwardBreakEntitlements = getAwardBreakEntitlements;
+
+function calculateShiftHours(start, end, unpaidMealMins = null) {
+  if (!start || !end) return 0;
+  const [sh, sm] = start.split(':').map(Number);
+  const [eh, em] = end.split(':').map(Number);
+  let diffMinutes = (eh * 60 + em) - (sh * 60 + sm);
+  if (diffMinutes < 0) diffMinutes += 24 * 60; // Overnight shift midnight crossover
+  
+  const grossHours = diffMinutes / 60;
+  let mealMins = unpaidMealMins;
+  if (mealMins === null || mealMins === undefined || mealMins === 'auto') {
+    mealMins = grossHours >= 5 ? 30 : 0;
+  } else {
+    mealMins = parseInt(mealMins, 10) || 0;
+  }
+  
+  const netMinutes = Math.max(0, diffMinutes - mealMins);
+  return Math.max(0, parseFloat((netMinutes / 60).toFixed(2)));
+}
+window.calculateShiftHours = calculateShiftHours;
+
+function updateShiftBreakSummary() {
+  const start = document.getElementById('shift-start')?.value;
+  const end = document.getElementById('shift-end')?.value;
+  const breakSelectVal = document.getElementById('shift-unpaid-break')?.value || 'auto';
+  const summaryEl = document.getElementById('shift-award-summary');
+  const netHoursInput = document.getElementById('shift-net-hours');
+
+  if (!start || !end) {
+    if (summaryEl) summaryEl.textContent = 'Select times to calculate';
+    if (netHoursInput) netHoursInput.value = '0.0h';
+    return;
+  }
+
+  const grossHours = calculateShiftHours(start, end, 0); // 0 meal mins to get gross duration
+  const entitlements = getAwardBreakEntitlements(grossHours);
+  
+  let mealMins = entitlements.unpaidMealMins;
+  if (breakSelectVal !== 'auto') {
+    mealMins = parseInt(breakSelectVal, 10) || 0;
+  }
+
+  const netHours = calculateShiftHours(start, end, mealMins);
+  
+  if (summaryEl) {
+    const mealText = mealMins > 0 ? `🍱 ${mealMins}m Unpaid Lunch` : '🍱 No Unpaid Lunch';
+    const restText = entitlements.paidBreaks > 0 ? `☕ ${entitlements.paidBreaks}x 10m Paid Rest` : 'No Paid Rest';
+    summaryEl.textContent = `${mealText} + ${restText}`;
+  }
+
+  if (netHoursInput) {
+    netHoursInput.value = `${netHours.toFixed(1)}h`;
+  }
+}
+window.updateShiftBreakSummary = updateShiftBreakSummary;
+
+function renderSettingsPanel() {
+  if (!state.settings) state.settings = {};
+  if (!state.settings.tradingHours) {
+    state.settings.tradingHours = DEFAULT_TRADING_HOURS;
+  }
+  const th = state.settings.tradingHours;
+  
+  for (let d = 0; d < 7; d++) {
+    const dayData = th[String(d)] || DEFAULT_TRADING_HOURS[String(d)];
+    if (!dayData) continue;
+    
+    const closedCheckbox = document.getElementById(`trading-closed-${d}`);
+    const openInput = document.getElementById(`trading-open-${d}`);
+    const closeInput = document.getElementById(`trading-close-${d}`);
+    
+    if (closedCheckbox) closedCheckbox.checked = !!dayData.closed;
+    if (openInput) {
+      openInput.value = dayData.open || '08:30';
+      openInput.disabled = !!dayData.closed;
+    }
+    if (closeInput) {
+      closeInput.value = dayData.close || '17:30';
+      closeInput.disabled = !!dayData.closed;
+    }
+  }
+
+  // Also prefill Organization Name
+  const settingsName = document.getElementById('settings-company-name');
+  if (settingsName) settingsName.value = state.settings.companyName || 'Amcal Pharmacy Woywoy Rosters';
+
+  // Dynamic Guard: Ensure Owner option is present in invite-role dropdown (forces instant UI update even if cached HTML)
+  const inviteRoleSelect = document.getElementById('invite-role');
+  if (inviteRoleSelect && !inviteRoleSelect.querySelector('option[value="owner"]')) {
+    const ownerOpt = document.createElement('option');
+    ownerOpt.value = 'owner';
+    ownerOpt.textContent = 'Owner (Full administrative access & system owner)';
+    inviteRoleSelect.appendChild(ownerOpt);
+  }
+}
+window.renderSettingsPanel = renderSettingsPanel;
+
+function toggleTradingDayClosed(dayNum) {
+  const closedCheckbox = document.getElementById(`trading-closed-${dayNum}`);
+  const openInput = document.getElementById(`trading-open-${dayNum}`);
+  const closeInput = document.getElementById(`trading-close-${dayNum}`);
+  
+  if (closedCheckbox && openInput && closeInput) {
+    const isClosed = closedCheckbox.checked;
+    openInput.disabled = isClosed;
+    closeInput.disabled = isClosed;
+  }
+}
+window.toggleTradingDayClosed = toggleTradingDayClosed;
+
+async function saveTradingHours(event) {
+  event.preventDefault();
+  const th = {};
+  
+  for (let d = 0; d < 7; d++) {
+    const closedCheckbox = document.getElementById(`trading-closed-${d}`);
+    const openInput = document.getElementById(`trading-open-${d}`);
+    const closeInput = document.getElementById(`trading-close-${d}`);
+    const isClosed = closedCheckbox ? closedCheckbox.checked : false;
+    const openVal = openInput ? openInput.value : '08:30';
+    const closeVal = closeInput ? closeInput.value : '17:30';
+
+    if (!isClosed && openVal >= closeVal) {
+      showToast(`Trading hours for ${DAY_NAMES[d]} are invalid (Opening time must be earlier than Closing time).`, 'error');
+      return;
+    }
+
+    th[String(d)] = {
+      closed: isClosed,
+      open: openVal,
+      close: closeVal
+    };
+  }
+  
+  const submitBtn = event.target.querySelector('button[type="submit"]');
+  const origText = submitBtn ? submitBtn.innerHTML : 'Save Trading Hours';
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Saving...';
+  }
+  
+  try {
+    const updatedSettings = {
+      ...state.settings,
+      tradingHours: th
+    };
+    await BriskDB.saveSettings(updatedSettings);
+    state.settings = updatedSettings;
+    showToast('Pharmacy Trading Hours saved successfully!', 'success');
+  } catch (err) {
+    console.error('Save Trading Hours Error:', err);
+    showToast('Failed to save trading hours: ' + err.message, 'error');
+  } finally {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = origText;
+    }
+  }
+}
+window.saveTradingHours = saveTradingHours;
+
+function adjustDailyDate(offset) {
+  const d = new Date(state.dailyDate);
+  d.setDate(state.dailyDate.getDate() + offset);
+  state.dailyDate = d;
+  renderDailyPanel();
+}
+window.adjustDailyDate = adjustDailyDate;
+
+function setDailyDateToday() {
+  state.dailyDate = new Date();
+  renderDailyPanel();
+}
+window.setDailyDateToday = setDailyDateToday;
+
+function renderDailyPanel() {
+  const dateDisplay = document.getElementById('daily-date-display');
+  if (dateDisplay) {
+    // Australian Date Format: Friday, 10 July 2026
+    const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+    dateDisplay.textContent = state.dailyDate.toLocaleDateString('en-AU', options);
+  }
+  
+  const dateStr = formatDateISO(state.dailyDate);
+  const dayShifts = state.shifts.filter(s => s.date === dateStr);
+  
+  // Sort shifts by start time
+  dayShifts.sort((a, b) => {
+    return timeToDecimal(a.startTime) - timeToDecimal(b.startTime);
+  });
+  
+  // Render timeline visual
+  const timelineVisual = document.getElementById('daily-timeline-visual');
+  const timelineLabels = document.getElementById('daily-timeline-labels');
+  
+  if (timelineVisual && timelineLabels) {
+    timelineVisual.innerHTML = '';
+    timelineLabels.innerHTML = '';
+    
+    // Get trading hours for the active day of week
+    const dayOfWeek = state.dailyDate.getDay();
+    const th = (state.settings && state.settings.tradingHours) 
+      ? state.settings.tradingHours[String(dayOfWeek)] 
+      : DEFAULT_TRADING_HOURS[String(dayOfWeek)];
+    
+    if (th && th.closed) {
+      timelineVisual.innerHTML = `
+        <div style="text-align: center; line-height: 60px; color: var(--text-danger); font-weight: 600;">
+          <i class="fa-solid fa-store-slash"></i> Pharmacy Closed Today
+        </div>
+      `;
+      timelineVisual.style.height = '60px';
+    } else {
+      // Determine timeline range: start 30m before open, end 30m after close (default to 8am - 6pm if closed/missing)
+      const openHour = th ? timeToDecimal(th.open) : 8.5;
+      const closeHour = th ? timeToDecimal(th.close) : 17.5;
+      const timelineStart = Math.floor(openHour - 0.5);
+      const timelineEnd = Math.ceil(closeHour + 0.5);
+      const span = timelineEnd - timelineStart;
+      
+      // Render hours markers/labels
+      for (let h = timelineStart; h <= timelineEnd; h++) {
+        const spanLabel = document.createElement('span');
+        const hour12 = h % 12 === 0 ? 12 : h % 12;
+        const ampm = h >= 12 ? 'pm' : 'am';
+        spanLabel.textContent = `${hour12}${ampm}`;
+        timelineLabels.appendChild(spanLabel);
+      }
+      
+      // Render visual timeline bars stacked vertically to handle overlap
+      let rowCount = 0;
+      dayShifts.forEach((s, idx) => {
+        const emp = state.employees.find(e => e.id === s.employeeId);
+        const empName = emp ? emp.name : 'Unassigned Shift';
+        
+        const left = Math.max(0, Math.min(100, ((timeToDecimal(s.startTime) - timelineStart) / span) * 100));
+        const width = Math.max(1, Math.min(100 - left, ((timeToDecimal(s.endTime) - timeToDecimal(s.startTime)) / span) * 100));
+        const roleColor = state.roles.find(r => r.name.toLowerCase() === s.role.toLowerCase())?.color || '#ef4444';
+        
+        const rowTop = 10 + (idx * 28);
+        rowCount++;
+        
+        const bar = document.createElement('div');
+        bar.className = 'timeline-bar';
+        bar.style.position = 'absolute';
+        bar.style.left = `${left}%`;
+        bar.style.width = `${width}%`;
+        bar.style.top = `${rowTop}px`;
+        bar.style.height = '22px';
+        bar.style.background = roleColor;
+        bar.style.opacity = '0.9';
+        bar.style.borderRadius = 'var(--radius-sm)';
+        bar.style.fontSize = '0.75rem';
+        bar.style.color = '#fff';
+        bar.style.padding = '0 8px';
+        bar.style.whiteSpace = 'nowrap';
+        bar.style.overflow = 'hidden';
+        bar.style.textOverflow = 'ellipsis';
+        bar.style.lineHeight = '22px';
+        bar.style.fontWeight = '500';
+        const grossHours = calculateShiftHours(s.startTime, s.endTime, 0);
+        const breakEntitlement = getAwardBreakEntitlements(grossHours);
+        const unpaidMeal = (s.unpaidMealMins !== undefined && s.unpaidMealMins !== null) ? s.unpaidMealMins : breakEntitlement.unpaidMealMins;
+
+        let breakSummary = '';
+        if (grossHours >= 4) {
+          const parts = [];
+          if (unpaidMeal > 0) parts.push(`${unpaidMeal}m Lunch`);
+          if (breakEntitlement.paidBreaks > 0) parts.push(`${breakEntitlement.paidBreaks}x 10m Paid`);
+          breakSummary = parts.join(' + ');
+        }
+
+        bar.title = `${empName}: ${formatTimeAmPm(s.startTime)} - ${formatTimeAmPm(s.endTime)} (${s.role}) | ${breakEntitlement.description}`;
+        bar.innerHTML = `<span style="font-weight:600;">${empName} (${s.role})</span>${breakSummary ? ` <span style="font-size:0.68rem; opacity:0.95; background:rgba(0,0,0,0.38); padding:1px 6px; border-radius:4px; margin-left:6px; display:inline-flex; align-items:center; gap:4px; vertical-align:middle;"><i class="fa-solid fa-mug-hot" style="font-size:0.65rem; color:#0ea5e9;"></i> ${breakSummary}</span>` : ''}`;
+        
+        timelineVisual.appendChild(bar);
+      });
+      
+      // Adjust timeline container height dynamically
+      timelineVisual.style.height = `${Math.max(60, rowCount * 28 + 20)}px`;
+
+      // === IMPROVEMENT #2: Coverage Gap Warning ===
+      const pharmacistRoles = ['pharmacist', 'pharmacist manager'];
+      if (dayShifts.length > 0) {
+        // Scan each 30-min slot for understaffing and pharmacist absence
+        const gapWarnings = [];
+        for (let t = timelineStart; t < timelineEnd; t += 0.5) {
+          const slotStart = t;
+          const slotEnd = t + 0.5;
+          const staffInSlot = dayShifts.filter(s => {
+            const sStart = timeToDecimal(s.startTime);
+            let sEnd = timeToDecimal(s.endTime);
+            if (sEnd <= sStart) sEnd += 24; // Handle overnight shifts crossing midnight
+            return sStart < slotEnd && sEnd > slotStart;
+          });
+          const pharmacistsInSlot = staffInSlot.filter(s => {
+            const roleLower = s.role.toLowerCase().trim();
+            return roleLower === 'pharmacist' || roleLower === 'pharmacist manager';
+          });
+
+          if (staffInSlot.length <= 1 && staffInSlot.length > 0) {
+            const h = Math.floor(slotStart);
+            const m = (slotStart % 1) * 60;
+            const timeLabel = formatTimeAmPm(`${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}`);
+            gapWarnings.push({ type: 'low', time: timeLabel, detail: `${staffInSlot.length} staff only` });
+          }
+          if (pharmacistsInSlot.length === 0 && staffInSlot.length > 0) {
+            const h = Math.floor(slotStart);
+            const m = (slotStart % 1) * 60;
+            const timeLabel = formatTimeAmPm(`${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}`);
+            gapWarnings.push({ type: 'pharmacist', time: timeLabel, detail: 'No Pharmacist' });
+          }
+        }
+
+        // Collapse consecutive warnings of same type into ranges
+        if (gapWarnings.length > 0) {
+          const gapContainer = document.createElement('div');
+          gapContainer.style.cssText = 'margin-top:8px; display:flex; flex-wrap:wrap; gap:6px;';
+
+          // Deduplicate: just show unique types
+          const hasLowStaff = gapWarnings.some(g => g.type === 'low');
+          const hasNoPharmacist = gapWarnings.some(g => g.type === 'pharmacist');
+          const pharmacistGapCount = gapWarnings.filter(g => g.type === 'pharmacist').length;
+          const lowStaffCount = gapWarnings.filter(g => g.type === 'low').length;
+
+          if (hasNoPharmacist) {
+            const badge = document.createElement('span');
+            badge.style.cssText = 'display:inline-flex; align-items:center; gap:5px; padding:4px 10px; background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.3); color:#ef4444; border-radius:6px; font-size:0.78rem; font-weight:600;';
+            badge.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> No Pharmacist coverage in ${pharmacistGapCount} time slot${pharmacistGapCount > 1 ? 's' : ''}`;
+            gapContainer.appendChild(badge);
+          }
+          if (hasLowStaff) {
+            const badge = document.createElement('span');
+            badge.style.cssText = 'display:inline-flex; align-items:center; gap:5px; padding:4px 10px; background:rgba(245,158,11,0.1); border:1px solid rgba(245,158,11,0.3); color:#f59e0b; border-radius:6px; font-size:0.78rem; font-weight:600;';
+            badge.innerHTML = `<i class="fa-solid fa-user-minus"></i> Only 1 staff in ${lowStaffCount} time slot${lowStaffCount > 1 ? 's' : ''}`;
+            gapContainer.appendChild(badge);
+          }
+
+          timelineVisual.parentElement.appendChild(gapContainer);
+        }
+      }
+    }
+  }
+  
+  // Render table checklist body
+  const tbody = document.getElementById('daily-shifts-tbody');
+  if (tbody) {
+    tbody.innerHTML = '';
+    
+    if (dayShifts.length === 0) {
+      tbody.innerHTML = `
+        <tr>
+          <td colspan="5" class="text-muted" style="text-align: center; padding: 24px;">
+            No shifts scheduled for this date.
+          </td>
+        </tr>
+      `;
+    } else {
+      dayShifts.forEach(s => {
+        const emp = state.employees.find(e => e.id === s.employeeId);
+        const empName = emp ? emp.name : '<span style="color:var(--text-danger);"><i class="fa-solid fa-triangle-exclamation"></i> Unassigned</span>';
+        const empRole = emp ? emp.role : 'N/A';
+        const roleColor = state.roles.find(r => r.name.toLowerCase() === s.role.toLowerCase())?.color || '#ef4444';
+        
+        const grossHours = calculateShiftHours(s.startTime, s.endTime, 0);
+        const breakEntitlement = getAwardBreakEntitlements(grossHours);
+        const unpaidMeal = (s.unpaidMealMins !== undefined && s.unpaidMealMins !== null) ? s.unpaidMealMins : breakEntitlement.unpaidMealMins;
+        
+        let breakHtml = '<span style="color:var(--text-muted); font-size:0.78rem;">No breaks (<4h)</span>';
+        if (grossHours >= 4) {
+          const mealBadge = unpaidMeal > 0 ? `<span class="badge" style="background:rgba(16, 185, 129, 0.12); color:#10b981; border:1px solid rgba(16, 185, 129, 0.25); font-size:0.75rem; display:inline-flex; align-items:center; gap:4px;"><i class="fa-solid fa-utensils"></i> ${unpaidMeal}m Lunch</span>` : '';
+          const restBadge = breakEntitlement.paidBreaks > 0 ? `<span class="badge" style="background:rgba(14, 165, 233, 0.12); color:#0ea5e9; border:1px solid rgba(14, 165, 233, 0.25); font-size:0.75rem; display:inline-flex; align-items:center; gap:4px;"><i class="fa-solid fa-mug-hot"></i> ${breakEntitlement.paidBreaks}x 10m Paid</span>` : '';
+          breakHtml = `<div style="display:flex; flex-direction:column; align-items:center; gap:4px;">${mealBadge} ${restBadge}</div>`;
+        }
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td style="padding-left: 16px; font-weight: 500;">
+            <div>${empName}</div>
+            <div style="font-size: 0.75rem; color: var(--text-muted); font-weight: 400;">${empRole}</div>
+          </td>
+          <td style="text-align: center; font-weight: 600;">
+            <i class="fa-regular fa-clock" style="margin-right: 4px; color: var(--accent-cyan);"></i> ${formatTimeAmPm(s.startTime)} - ${formatTimeAmPm(s.endTime)}
+          </td>
+          <td style="text-align: center;">
+            <span class="badge" style="background: rgba(${hexToRgb(roleColor)}, 0.12); color: ${roleColor}; border: 1px solid rgba(${hexToRgb(roleColor)}, 0.25); font-weight: 600;">
+              ${s.role}
+            </span>
+          </td>
+          <td style="text-align: center; padding: 6px 4px;">
+            ${breakHtml}
+          </td>
+          <td style="padding-left: 16px; font-size: 0.85rem; color: var(--text-muted); font-style: ${s.notes ? 'normal' : 'italic'};">
+            ${s.notes ? s.notes : 'No special notes/instructions for this shift.'}
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+  }
+}
+window.renderDailyPanel = renderDailyPanel;
+
+window.openStaffDirectoryModal = function() {
+  const listContainer = document.getElementById('staff-directory-list');
+  if (listContainer) {
+    listContainer.innerHTML = '';
+    
+    // Sort active employees by name
+    const activeEmps = state.employees.filter(e => e.active !== false).sort((a, b) => a.name.localeCompare(b.name));
+    
+    if (activeEmps.length === 0) {
+      listContainer.innerHTML = '<div class="text-muted text-center" style="font-size: 0.9rem; padding: 1rem 0;">No active staff records found.</div>';
+    } else {
+      activeEmps.forEach(emp => {
+        const phone = emp.phone || 'No phone recorded';
+        const email = emp.email || 'No email recorded';
+        const roleColor = state.roles.find(r => r.name.toLowerCase() === emp.role.toLowerCase())?.color || '#a855f7';
+        
+        const card = document.createElement('div');
+        card.style.background = 'rgba(255, 255, 255, 0.03)';
+        card.style.padding = '12px 16px';
+        card.style.borderRadius = '8px';
+        card.style.border = '1px solid var(--border-glass)';
+        card.style.display = 'flex';
+        card.style.justifyContent = 'space-between';
+        card.style.alignItems = 'center';
+        card.style.gap = '12px';
+        
+        card.innerHTML = `
+          <div style="flex: 1;">
+            <div style="font-weight: 600; font-size: 0.95rem; display: flex; align-items: center; gap: 8px;">
+              ${emp.name}
+              <span style="font-size: 0.72rem; padding: 2px 6px; border-radius: 4px; background: rgba(${hexToRgb(roleColor)}, 0.1); color: ${roleColor}; border: 1px solid rgba(${hexToRgb(roleColor)}, 0.2); font-weight: 500;">
+                ${emp.role}
+              </span>
+            </div>
+            <div style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 5px;">
+              <i class="fa-solid fa-phone" style="font-size: 11px; margin-right: 4px; color: var(--accent-cyan);"></i> ${phone}
+            </div>
+            <div style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 3px;">
+              <i class="fa-solid fa-envelope" style="font-size: 11px; margin-right: 4px; color: var(--accent-gold);"></i> ${email}
+            </div>
+          </div>
+          <div>
+            ${emp.phone ? `
+              <a href="tel:${emp.phone}" class="btn btn-icon" style="background: rgba(0, 229, 255, 0.1); color: var(--accent-cyan); width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px;">
+                <i class="fa-solid fa-phone"></i>
+              </a>
+            ` : ''}
+          </div>
+        `;
+        listContainer.appendChild(card);
+      });
+    }
+  }
+  document.getElementById('modal-staff-directory').classList.add('active');
+};
+
+window.closeStaffDirectoryModal = function() {
+  document.getElementById('modal-staff-directory').classList.remove('active');
+};
+
+// Clean cover tags to keep shift notes clean
+const cleanCoverTags = (notes) => {
+  if (!notes) return '';
+  return notes.replace(/\[NEEDS COVER\]|\[COVERED BY [^\]]+\]/gi, '').trim();
+};
+
+window.requestShiftCover = async function(shiftId) {
+  const shift = state.shifts.find(s => s.id === shiftId);
+  if (!shift) return;
+
+  try {
+    const existing = state.swaps.find(s => s.shiftId === shiftId && (s.status || '').toUpperCase() === 'PENDING');
+    if (existing) {
+      showToast('Cover request already exists for this shift.', 'info');
+      return;
+    }
+
+    const swap = await SwapDB.createSwap(shiftId, state.currentUser.employeeId);
+    state.swaps.push(swap);
+
+    showToast('Cover request submitted to board!', 'success');
+    renderSwapBoard('my');
+  } catch (err) {
+    console.error(err);
+    showToast('Failed to submit cover request.', 'error');
+  }
+};
+
+window.cancelShiftCover = async function(shiftId) {
+  try {
+    await SwapDB.cancelSwap(shiftId);
+    state.swaps = state.swaps.filter(s => !(s.shiftId === shiftId && (s.status || '').toUpperCase() === 'PENDING'));
+    
+    showToast('Cover request cancelled.', 'info');
+    renderSwapBoard('my');
+  } catch (err) {
+    console.error(err);
+    showToast('Failed to cancel cover request.', 'error');
+  }
+};
+
+window.offerToCover = async function(shiftId) {
+  const shift = state.shifts.find(s => s.id === shiftId);
+  if (!shift) return;
+
+  // Conflict validation: Check if user has an approved leave request on the target shift date
+  const hasApprovedLeave = state.leaveRequests.some(r => {
+    if (r.employeeId !== state.currentUser.employeeId || r.status !== 'Approved') return false;
+    return shift.date >= r.startDate && shift.date <= r.endDate;
+  });
+
+  if (hasApprovedLeave) {
+    showToast('You have an approved leave request on this day. Cannot cover this shift!', 'error');
+    return;
+  }
+
+  try {
+    const swap = await SwapDB.coverSwap(shiftId, state.currentUser.employeeId);
+    
+    // Update local state
+    const index = state.swaps.findIndex(s => s.shiftId === shiftId && (s.status || '').toUpperCase() === 'PENDING');
+    if (index !== -1) {
+      state.swaps[index] = swap;
+    }
+    
+    // Assign shift to covering employee
+    shift.employeeId = state.currentUser.employeeId;
+    await BriskDB.updateShift(shift);
+
+    showToast(`Roster Cover matched! You are now scheduled for this shift.`, 'success');
+    
+    loadDataFromState();
+    renderActivePanel();
+    closeSwapBoardModal();
+
+    // Background sync to ensure instant multi-client state parity
+    BriskDB.syncFromServer()
+      .then(async () => {
+        state.swaps = await SwapDB.getSwaps();
+        loadDataFromState();
+        renderActivePanel();
+      })
+      .catch(e => console.warn('Background sync after offer cover failed:', e));
+  } catch (err) {
+    console.error(err);
+    showToast('Failed to cover this shift.', 'error');
+  }
+};
+
+
+
+window.openSwapBoardModal = function() {
+  document.getElementById('modal-swap-board').classList.add('active');
+  switchSwapTab('available');
+};
+
+window.closeSwapBoardModal = function() {
+  document.getElementById('modal-swap-board').classList.remove('active');
+};
+
+window.switchSwapTab = function(tab) {
+  document.getElementById('tab-swap-available').classList.toggle('active', tab === 'available');
+  document.getElementById('tab-swap-my').classList.toggle('active', tab === 'my');
+  document.getElementById('tab-swap-manager').classList.toggle('active', tab === 'manager');
+  
+  if (state.currentUser.role === 'employee') {
+    document.getElementById('tab-swap-manager').classList.add('hide');
+  } else {
+    document.getElementById('tab-swap-manager').classList.remove('hide');
+  }
+
+  renderSwapBoard(tab);
+};
+
+window.renderSwapBoard = function(tab) {
+  const container = document.getElementById('swap-board-content');
+  if (!container) return;
+  container.innerHTML = '';
+
+  const todayStr = formatDateISO(new Date());
+  
+  let targetSwaps = [];
+  const myEmpId = state.currentUser.employeeId;
+
+  if (tab === 'available') {
+    targetSwaps = state.swaps.filter(s => (s.status || '').toUpperCase() === 'PENDING' && s.requestingEmployeeId !== myEmpId);
+  } else if (tab === 'my') {
+    if (state.currentUser.role === 'employee') {
+      targetSwaps = state.swaps.filter(s => (s.status || '').toUpperCase() === 'PENDING' && s.requestingEmployeeId === myEmpId);
+    }
+  } else if (tab === 'manager') {
+    targetSwaps = state.swaps.filter(s => {
+      const st = (s.status || '').toUpperCase();
+      return st === 'ACCEPTED' || st === 'COVERED';
+    });
+  }
+
+  // Filter out past shifts and map to shift object
+  let displayItems = targetSwaps.map(swap => {
+    return {
+      swap,
+      shift: state.shifts.find(sh => sh.id === swap.shiftId)
+    };
+  }).filter(item => item.shift && item.shift.date >= todayStr);
+
+  if (displayItems.length === 0) {
+    container.innerHTML = '<div class="text-muted text-center" style="padding: 2rem 0;">No shifts found in this category.</div>';
+    return;
+  }
+
+  // Sort by date ascending
+  displayItems.sort((a, b) => new Date(a.shift.date) - new Date(b.shift.date));
+
+  displayItems.forEach(item => {
+    const shift = item.shift;
+    const swap = item.swap;
+    const origEmp = state.employees.find(e => e.id === swap.requestingEmployeeId);
+    const empName = origEmp ? origEmp.name : 'Unknown';
+    
+    const card = document.createElement('div');
+    card.style.padding = '12px 16px';
+    card.style.background = 'rgba(255, 255, 255, 0.03)';
+    card.style.border = '1px solid var(--border-glass)';
+    card.style.borderRadius = '8px';
+    card.style.display = 'flex';
+    card.style.justifyContent = 'space-between';
+    card.style.alignItems = 'center';
+
+    let actionHtml = '';
+    
+    if (tab === 'available') {
+      actionHtml = `<button class="btn btn-neon" onclick="offerToCover('${shift.id}')"><i class="fa-solid fa-handshake"></i> Offer to Cover</button>`;
+    } else if (tab === 'my') {
+      actionHtml = `<button class="btn btn-outline" onclick="cancelShiftCover('${shift.id}')"><i class="fa-solid fa-xmark"></i> Cancel</button>`;
+    } else if (tab === 'manager') {
+      const coverEmp = state.employees.find(e => e.id === swap.coveringEmployeeId);
+      const coverName = coverEmp ? coverEmp.name : 'Unknown';
+      actionHtml = `<span class="badge badge-success"><i class="fa-solid fa-check"></i> Covered by ${coverName}</span>`;
+    }
+
+    card.innerHTML = `
+      <div>
+        <div style="font-weight: 600; font-size: 1.1rem;">${shift.date} (${formatTimeAmPm(shift.startTime)} - ${formatTimeAmPm(shift.endTime)})</div>
+        <div style="color: var(--text-muted); font-size: 0.9rem;">${empName} - ${shift.role}</div>
+      </div>
+      <div>
+        ${actionHtml}
+      </div>
+    `;
+    container.appendChild(card);
+  });
+};
+
+// --- CAPACITOR PUSH NOTIFICATIONS INIT ---
+document.addEventListener('DOMContentLoaded', async () => {
+  if (window.Capacitor && window.Capacitor.isNativePlatform()) {
+    try {
+      const { PushNotifications } = window.Capacitor.Plugins;
+      if (PushNotifications) {
+        let permStatus = await PushNotifications.checkPermissions();
+        if (permStatus.receive === 'prompt') {
+          permStatus = await PushNotifications.requestPermissions();
+        }
+        if (permStatus.receive !== 'granted') {
+          console.warn('Push permission denied');
+        } else {
+          await PushNotifications.register();
+        }
+
+        PushNotifications.addListener('registration', (token) => {
+          console.log('Push registration success, token: ' + token.value);
+          // In a real app, send token to Supabase here
+        });
+      }
+    } catch (e) {
+      console.warn('Capacitor Push API not loaded or errored:', e);
+    }
+  }
+});
+
+function openChangelogModal() {
+  const modal = document.getElementById('modal-changelog');
+  if (modal) modal.classList.add('active');
+}
+
+function closeChangelogModal() {
+  const modal = document.getElementById('modal-changelog');
+  if (modal) window.closeModal(modal);
+}
+
+window.openChangelogModal = openChangelogModal;
+window.closeChangelogModal = closeChangelogModal;

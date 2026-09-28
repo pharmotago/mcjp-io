@@ -65,7 +65,6 @@ const BriskDB = (function() {
   // Helper to load session
   function getSession() {
     try {
-      if (typeof window === 'undefined' || !window.localStorage) return null;
       const val = localStorage.getItem(STORAGE_KEYS.SESSION);
       return val ? JSON.parse(val) : null;
     } catch (e) {
@@ -89,15 +88,6 @@ const BriskDB = (function() {
     } catch (e) {
       console.warn('Failed to retrieve fresh session token:', e);
     }
-    const localSession = getSession();
-    return localSession ? localSession.token : '';
-  }
-
-  async function getMutateAuthToken() {
-    try {
-      const freshToken = await getValidToken();
-      if (freshToken) return freshToken;
-    } catch (e) {}
     const localSession = getSession();
     return localSession ? localSession.token : '';
   }
@@ -128,9 +118,6 @@ const BriskDB = (function() {
 
   // --- SQL Mapper Functions to resolve DB Snake Case vs JS Camel Case ---
   function mapEmployeeToDb(emp) {
-    const avail = { ...(emp.availability || {}) };
-    if (emp.dob) avail.dob = emp.dob;
-    if (Array.isArray(emp.certificates)) avail.certificates = emp.certificates;
     const obj = {
       name: emp.name,
       email: emp.email,
@@ -138,7 +125,7 @@ const BriskDB = (function() {
       phone: emp.phone || null,
       hourly_rate: (emp.hourlyRate != null && !isNaN(emp.hourlyRate)) ? emp.hourlyRate : 0,
       max_hours: (emp.maxHours != null && !isNaN(emp.maxHours)) ? emp.maxHours : 38,
-      availability: avail,
+      availability: emp.availability,
       active: emp.active
     };
     if (emp.awardLevel) obj.award_level = emp.awardLevel;
@@ -149,7 +136,6 @@ const BriskDB = (function() {
 
   function mapEmployeeFromDb(emp) {
     if (!emp) return null;
-    const avail = emp.availability || {};
     return {
       id: emp.id,
       name: emp.name,
@@ -160,32 +146,24 @@ const BriskDB = (function() {
       maxHours: parseInt(emp.max_hours || 38) || 38,
       awardLevel: emp.award_level || emp.awardLevel || 'custom',
       employmentType: emp.employment_type || emp.employmentType || 'permanent',
-      dob: avail.dob || emp.dob || null,
-      certificates: Array.isArray(avail.certificates) ? avail.certificates : (Array.isArray(emp.certificates) ? emp.certificates : []),
-      availability: avail,
+      availability: emp.availability,
       active: (emp.active !== undefined && emp.active !== null) ? !!emp.active : true
     };
   }
 
-  function formatTimeHHmm(t) {
-    if (!t) return '';
-    const str = String(t).trim();
-    return str.length >= 5 ? str.substring(0, 5) : str;
-  }
-
   function mapShiftToDb(shift) {
     const obj = {
-      employee_id: shift.employeeId || null,
+      employee_id: shift.employeeId,
       date: shift.date,
-      start_time: formatTimeHHmm(shift.startTime),
-      end_time: formatTimeHHmm(shift.endTime),
-      role: shift.role || 'Pharmacy Assistant',
-      notes: shift.notes || ''
+      start_time: shift.startTime,
+      end_time: shift.endTime,
+      role: shift.role,
+      notes: shift.notes
     };
     if (shift.status && shift.status !== 'draft') obj.status = shift.status;
-    if (shift.id && /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(shift.id)) {
-      obj.id = shift.id;
-    }
+    if (shift.unpaidMealMins !== undefined) obj.unpaid_meal_mins = shift.unpaidMealMins;
+    if (shift.color) obj.color = shift.color;
+    if (shift.id) obj.id = shift.id;
     return obj;
   }
 
@@ -195,8 +173,8 @@ const BriskDB = (function() {
       id: shift.id,
       employeeId: shift.employee_id,
       date: shift.date,
-      startTime: formatTimeHHmm(shift.start_time),
-      endTime: formatTimeHHmm(shift.end_time),
+      startTime: shift.start_time,
+      endTime: shift.end_time,
       role: shift.role,
       status: shift.status || 'draft',
       unpaidMealMins: shift.unpaid_meal_mins,
@@ -260,46 +238,29 @@ const BriskDB = (function() {
   }
 
   function mapSettingsToDb(settings) {
-    const th = { ...(settings.tradingHours || _settings.tradingHours || DEFAULT_TRADING_HOURS) };
-    if (settings.salesTargets) {
-      th._sales_targets = settings.salesTargets;
-    } else if (_settings.salesTargets) {
-      th._sales_targets = _settings.salesTargets;
-    }
-    if (settings.actualPosSales) {
-      th._actual_pos_sales = settings.actualPosSales;
-    } else if (_settings.actualPosSales) {
-      th._actual_pos_sales = _settings.actualPosSales;
-    }
-    const order = settings.employeeOrder || _settings.employeeOrder;
-    if (Array.isArray(order)) {
-      th._employee_order = order;
-    }
     const payload = {
       id: 'global_settings',
-      company_name: settings.companyName || _settings.companyName || 'Amcal Pharmacy Woywoy Rosters',
-      trading_hours: th
+      company_name: settings.companyName,
+      trading_hours: settings.tradingHours
     };
+    if (Array.isArray(settings.employeeOrder)) {
+      payload.employee_order = settings.employeeOrder;
+    }
     return payload;
   }
 
   function mapSettingsFromDb(settings) {
     if (!settings) return null;
-    const rawTh = settings.trading_hours || DEFAULT_TRADING_HOURS;
-    let order = rawTh._employee_order || settings.employee_order || [];
+    let order = settings.employee_order || [];
     if (!Array.isArray(order) || order.length === 0) {
       try {
         order = JSON.parse(localStorage.getItem('amcal_employee_order') || '[]');
       } catch (e) { order = []; }
     }
-    const salesTargets = rawTh._sales_targets || null;
-    const actualPosSales = rawTh._actual_pos_sales || null;
     return {
-      companyName: settings.company_name || 'Amcal Pharmacy Woywoy Rosters',
-      tradingHours: rawTh,
-      employeeOrder: order,
-      salesTargets: salesTargets,
-      actualPosSales: actualPosSales
+      companyName: settings.company_name,
+      tradingHours: settings.trading_hours || DEFAULT_TRADING_HOURS,
+      employeeOrder: order
     };
   }
 
@@ -520,27 +481,6 @@ const BriskDB = (function() {
       })
       .subscribe();
     _listeners.push(() => supabase.removeChannel(leaveChannel));
-
-    // 5. Settings Listener (Real-time Live Sync for Sales Targets, POS Actuals, Trading Hours)
-    const settingsChannel = supabase.channel('realtime:brisk_settings')
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'brisk_settings' }, payload => {
-        const { new: newRec } = payload;
-        if (newRec) {
-          const mapped = mapSettingsFromDb(newRec);
-          if (mapped) {
-            _settings = { ..._settings, ...mapped };
-            if (mapped.salesTargets) {
-              localStorage.setItem('brisk_daily_sales_targets', JSON.stringify(mapped.salesTargets));
-            }
-            if (mapped.actualPosSales) {
-              localStorage.setItem('brisk_actual_pos_sales_map', JSON.stringify(mapped.actualPosSales));
-            }
-            window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'settings' } }));
-          }
-        }
-      })
-      .subscribe();
-    _listeners.push(() => supabase.removeChannel(settingsChannel));
   }
 
   async function createOrUpdateSystemRolesInDb(rolesList, positionsList) {
@@ -584,118 +524,124 @@ const BriskDB = (function() {
 
   // Triggered on app load
   async function syncFromServer() {
-    const session = getSession() || {};
+    const session = getSession();
+    if (!session) return false;
 
-    // 1. Primary Strategy: Serverless Data Sync (100% reliable, zero token expiry / RLS lockouts)
-    try {
-      const res = await fetch('/api/schedule/sync', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': session.token ? ('Bearer ' + session.token) : ''
-        },
-        body: JSON.stringify({ email: session.email || '' })
-      });
-
-      const contentType = res.headers.get('content-type') || '';
-      if (contentType.includes('application/json')) {
-        const syncData = await res.json();
-        if (syncData.success && Array.isArray(syncData.employees) && syncData.employees.length > 0) {
-          _employees = syncData.employees.map(mapEmployeeFromDb);
-          _initialLoadCompleted.employees = true;
-
-          if (Array.isArray(syncData.shifts)) {
-            _shifts = syncData.shifts.map(mapShiftFromDb);
-            _initialLoadCompleted.shifts = true;
-          }
-
-          if (Array.isArray(syncData.timecards)) {
-            _timecards = syncData.timecards.map(mapTimecardFromDb);
-            _initialLoadCompleted.timecards = true;
-          }
-
-          if (Array.isArray(syncData.leaveRequests)) {
-            _leaveRequests = syncData.leaveRequests.map(mapLeaveRequestFromDb);
-            _initialLoadCompleted.leaveRequests = true;
-          }
-
-          if (syncData.settings) {
-            _settings = mapSettingsFromDb(syncData.settings);
-          }
-
-          if (syncData.systemRoles) {
-            if (Array.isArray(syncData.systemRoles.roles)) {
-              _roles = syncData.systemRoles.roles;
-              localStorage.setItem('brisk_roles', JSON.stringify(_roles));
-            }
-            if (Array.isArray(syncData.systemRoles.positions)) {
-              _positions = syncData.systemRoles.positions;
-              localStorage.setItem('brisk_positions', JSON.stringify(_positions));
-            }
-          }
-
-          if (typeof window !== 'undefined') {
-            window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'all' } }));
-          }
-          try { setupListeners(); } catch (slErr) { console.warn('[BriskDB] setupListeners note:', slErr); }
-          return true;
-        }
+    // Validate Supabase Auth session
+    const { data: { session: sbSession }, error: sbSessionErr } = await supabase.auth.getSession();
+    if (sbSessionErr || !sbSession) {
+      console.warn('[BriskDB] Supabase session is invalid or expired. Clearing session.');
+      setSession(null);
+      if (typeof window !== 'undefined') {
+        window.location.reload();
       }
-    } catch (syncApiErr) {
-      console.warn('[BriskDB] Sync API route notice, falling back to direct Supabase client:', syncApiErr.message);
+      return false;
     }
 
-    // 2. Fallback: Direct Supabase Client
-    try {
-      const { data: { session: sbSession } } = await supabase.auth.getSession();
-      if (sbSession && sbSession.access_token) {
-        session.token = sbSession.access_token;
-        setSession(session);
-      }
-    } catch (authCheckErr) {
-      console.warn('[BriskDB] Non-blocking session check note:', authCheckErr);
-    }
-
+    // Bounding window: 14 days ago (optimized to reduce network reads)
     const fourteenDaysAgo = new Date();
     fourteenDaysAgo.setDate(fourteenDaysAgo.getDate() - 14);
     const windowStr = fourteenDaysAgo.toISOString().split('T')[0];
 
     try {
+      // 1. Employees Load
       const { data: emps, error: empErr } = await supabase.from('brisk_employees').select('*');
-      if (!empErr && emps && emps.length > 0) {
-        const allEmployees = emps.map(mapEmployeeFromDb);
-        _employees = allEmployees.filter(e => e.email !== 'system_roles@brisk.internal');
-        _initialLoadCompleted.employees = true;
-      }
+      if (empErr) throw empErr;
+      
+      const allEmployees = (emps || []).map(mapEmployeeFromDb);
+      const systemRolesEmp = allEmployees.find(e => e.email === 'system_roles@brisk.internal');
+      
+      // Filter out virtual role storage employee
+      _employees = allEmployees.filter(e => e.email !== 'system_roles@brisk.internal');
+      _initialLoadCompleted.employees = true;
 
+      // 2. Shifts Load (>= 14 days ago)
       const { data: sfs, error: sfErr } = await supabase.from('brisk_shifts').select('*').gte('date', windowStr);
-      if (!sfErr && sfs && sfs.length > 0) {
-        _shifts = sfs.map(mapShiftFromDb);
-        _initialLoadCompleted.shifts = true;
-      }
+      if (sfErr) throw sfErr;
+      _shifts = (sfs || []).map(mapShiftFromDb);
+      _initialLoadCompleted.shifts = true;
 
+      // 3. Timecards Load (>= 14 days ago)
       const { data: tcs, error: tcErr } = await supabase.from('brisk_timecards').select('*').gte('date', windowStr);
-      if (!tcErr && tcs) {
-        _timecards = tcs.map(mapTimecardFromDb);
-        _initialLoadCompleted.timecards = true;
-      }
+      if (tcErr) throw tcErr;
+      _timecards = (tcs || []).map(mapTimecardFromDb);
+      _initialLoadCompleted.timecards = true;
 
+      // 4. Leave Requests Load (>= 14 days ago)
       const { data: lrs, error: lrErr } = await supabase.from('brisk_leave_requests').select('*').gte('end_date', windowStr);
-      if (!lrErr && lrs) {
-        _leaveRequests = lrs.map(mapLeaveRequestFromDb);
-        _initialLoadCompleted.leaveRequests = true;
-      }
+      if (lrErr) throw lrErr;
+      _leaveRequests = (lrs || []).map(mapLeaveRequestFromDb);
+      _initialLoadCompleted.leaveRequests = true;
 
+      // 5. Settings Load
       const { data: sets } = await supabase.from('brisk_settings').select('*').limit(1).maybeSingle();
       if (sets) {
         _settings = mapSettingsFromDb(sets);
+      } else {
+        _settings = { companyName: 'Amcal Pharmacy Woywoy Rosters', tradingHours: DEFAULT_TRADING_HOURS };
       }
 
-      try { setupListeners(); } catch (slErr) { console.warn('[BriskDB] setupListeners note:', slErr); }
+      // 6. Roles & Positions Load
+      let loadedRoles = null;
+      let loadedPositions = null;
+
+      if (systemRolesEmp && systemRolesEmp.availability) {
+        if (Array.isArray(systemRolesEmp.availability.roles)) {
+          loadedRoles = systemRolesEmp.availability.roles;
+        }
+        if (Array.isArray(systemRolesEmp.availability.positions)) {
+          loadedPositions = systemRolesEmp.availability.positions;
+        }
+      }
+
+      // Handle Roles
+      if (loadedRoles) {
+        _roles = loadedRoles;
+        localStorage.setItem('brisk_roles', JSON.stringify(_roles));
+      } else {
+        const cachedRoles = localStorage.getItem('brisk_roles');
+        if (cachedRoles) {
+          try {
+            _roles = JSON.parse(cachedRoles);
+          } catch (e) {
+            console.warn('[DB] Failed to parse cached roles:', e);
+            _roles = [...DEFAULT_ROLES];
+          }
+        } else {
+          _roles = [...DEFAULT_ROLES];
+          localStorage.setItem('brisk_roles', JSON.stringify(_roles));
+        }
+      }
+
+      // Handle Positions
+      if (loadedPositions) {
+        _positions = loadedPositions;
+        localStorage.setItem('brisk_positions', JSON.stringify(_positions));
+      } else {
+        const cachedPositions = localStorage.getItem('brisk_positions');
+        if (cachedPositions) {
+          try {
+            _positions = JSON.parse(cachedPositions);
+          } catch (e) {
+            console.warn('[DB] Failed to parse cached positions:', e);
+            _positions = [...DEFAULT_POSITIONS];
+          }
+        } else {
+          _positions = [...DEFAULT_POSITIONS];
+          localStorage.setItem('brisk_positions', JSON.stringify(_positions));
+        }
+      }
+
+      // Push back to database if missing from server roles record
+      if (systemRolesEmp && (!systemRolesEmp.availability || !systemRolesEmp.availability.roles || !systemRolesEmp.availability.positions)) {
+        createOrUpdateSystemRolesInDb(_roles, _positions).catch(console.error);
+      }
+
+      setupListeners();
       return true;
-    } catch (directErr) {
-      console.warn('[BriskDB] Direct Supabase sync notice:', directErr);
-      return false;
+    } catch (err) {
+      console.error('Failed to sync from server:', err);
+      throw err;
     }
   }
 
@@ -707,163 +653,48 @@ const BriskDB = (function() {
   // Cloud API Call wrapper for Login using Supabase Auth Client SDK
   async function apiLogin(email, password) {
     try {
-      const cleanEmail = (email || '').toLowerCase().trim();
-      if (!cleanEmail || !password) {
-        return { error: 'Email and password are required.' };
-      }
-
-      // 1. Try serverless login API first (auto-provisions missing auth.users and confirms email)
-      try {
-        const res = await fetch('/api/schedule/auth/login', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: cleanEmail, password })
-        });
-
-        const contentType = res.headers.get('content-type') || '';
-        if (contentType.includes('application/json')) {
-          const apiData = await res.json();
-          if (apiData.session && apiData.success) {
-            try {
-              if (apiData.session.token) {
-                await supabase.auth.setSession({
-                  access_token: apiData.session.token,
-                  refresh_token: apiData.session.refreshToken || ''
-                });
-              } else {
-                await supabase.auth.signInWithPassword({ email: cleanEmail, password });
-              }
-            } catch (e) {
-              console.warn('[BriskDB] Client auth setSession note:', e);
-            }
-
-            setSession(apiData.session);
-            setupListeners();
-            return apiData.session;
-          } else if (apiData.error) {
-            return { error: apiData.error };
-          }
-        }
-      } catch (apiErr) {
-        console.warn('[BriskDB] Login API route notice, falling back to direct client:', apiErr.message);
-      }
-
       const { data, error } = await supabase.auth.signInWithPassword({
-        email: cleanEmail,
+        email,
         password
       });
+      if (error) throw error;
 
-      if (error) {
-        if (error.message && error.message.toLowerCase().includes('invalid login credentials')) {
-          return { error: 'Invalid email or password. If you forgot your password, please use the Forgot Password link below.' };
-        }
-        if (error.message && error.message.toLowerCase().includes('email not confirmed')) {
-          return { error: 'Email address has not been confirmed. Please check your inbox or request a password reset link.' };
-        }
-        return { error: error.message };
+      // Get user role document from brisk_users profile table
+      const { data: userProfile, error: profErr } = await supabase
+        .from('brisk_users')
+        .select('*')
+        .eq('email', email.toLowerCase().trim())
+        .maybeSingle();
+
+      if (profErr || !userProfile) {
+        throw new Error('User profile record not found in database.');
       }
 
-      if (!data || !data.user) {
-        return { error: 'Authentication failed. Please try again.' };
-      }
-
-      // 1. Get user profile from brisk_users (check by ID first, then by email)
-      let userProfile = null;
-      if (data.user.id) {
-        const { data: byId } = await supabase
-          .from('brisk_users')
-          .select('*')
-          .eq('id', data.user.id)
-          .maybeSingle();
-        if (byId) userProfile = byId;
-      }
-
-      if (!userProfile) {
-        const { data: byEmail } = await supabase
-          .from('brisk_users')
-          .select('*')
-          .eq('email', cleanEmail)
-          .maybeSingle();
-        if (byEmail) userProfile = byEmail;
-      }
-
-      // 2. Self-Healing Fallback: If brisk_users record is missing, auto-link to brisk_employees
-      if (!userProfile) {
+      let resolvedRole = userProfile.role;
+      if (userProfile.employee_id) {
         const { data: empData } = await supabase
           .from('brisk_employees')
-          .select('*')
-          .eq('email', cleanEmail)
+          .select('role')
+          .eq('id', userProfile.employee_id)
           .maybeSingle();
-
-        const isWhitelisted = ['peter', 'glen', 'katherine', 'vicky', 'pharmotago'].some(l => cleanEmail.includes(l));
-        const autoRole = (empData?.role && empData.role.toLowerCase().includes('manager')) || isWhitelisted ? 'manager' : 'employee';
-        const autoName = empData?.name || data.user.user_metadata?.name || cleanEmail.split('@')[0];
-
-        try {
-          const { data: createdProf } = await supabase
-            .from('brisk_users')
-            .upsert({
-              id: data.user.id,
-              email: cleanEmail,
-              name: autoName,
-              role: autoRole,
-              employee_id: empData?.id || null,
-              password_hash: 'SUPABASE_AUTH_MANAGED'
-            })
-            .select()
-            .maybeSingle();
-          userProfile = createdProf;
-        } catch (insertErr) {
-          console.warn('[BriskDB] Auto-profile creation note:', insertErr);
+        if (empData && empData.role && empData.role.toLowerCase().trim() === 'pharmacist manager') {
+          resolvedRole = 'manager';
         }
-
-        if (!userProfile) {
-          userProfile = {
-            id: data.user.id,
-            email: cleanEmail,
-            name: autoName,
-            role: autoRole,
-            employee_id: empData?.id || null
-          };
-        }
-      }
-
-      let resolvedRole = userProfile ? (userProfile.role || 'employee') : 'employee';
-      if (userProfile && userProfile.employee_id) {
-        try {
-          const { data: empData } = await supabase
-            .from('brisk_employees')
-            .select('role')
-            .eq('id', userProfile.employee_id)
-            .maybeSingle();
-          if (empData && empData.role && empData.role.toLowerCase().trim() === 'pharmacist manager') {
-            resolvedRole = 'manager';
-          }
-        } catch (empRoleErr) {
-          console.warn('[BriskDB] Employee role lookup note:', empRoleErr);
-        }
-      }
-
-      // Whitelist leaders always resolve as manager/owner
-      const isWhitelistedLeader = ['peter', 'glen', 'katherine', 'vicky', 'pharmotago'].some(l => cleanEmail.includes(l));
-      if (isWhitelistedLeader) {
-        resolvedRole = 'owner';
       }
 
       const session = {
         email: data.user.email,
         role: resolvedRole,
-        employeeId: userProfile ? (userProfile.employee_id || null) : null,
-        name: userProfile?.name || data.user.user_metadata?.name || cleanEmail.split('@')[0] || 'Staff Member',
-        token: (data.session && data.session.access_token) ? data.session.access_token : ''
+        employeeId: userProfile.employee_id || null,
+        name: userProfile.name || 'Staff Member',
+        token: data.session.access_token
       };
 
       setSession(session);
       setupListeners();
       return session;
     } catch (err) {
-      console.error('[BriskDB] apiLogin unexpected error:', err);
-      return { error: err.message || 'Login failed.' };
+      return { error: err.message };
     }
   }
 
@@ -1051,7 +882,10 @@ const BriskDB = (function() {
           created_at: new Date().toISOString()
         });
 
-      const origin = 'https://woywoyamcalroster.vercel.app';
+      let origin = window.location.origin || 'https://woywoyamcalroster.vercel.app';
+      if (origin.includes('mcjp.io')) {
+        origin = 'https://woywoyamcalroster.vercel.app';
+      }
       return {
         success: true,
         code,
@@ -1202,39 +1036,6 @@ const BriskDB = (function() {
     addEmployee: async function(emp) {
       const newEmp = { ...emp, active: true };
       const dbObj = mapEmployeeToDb(newEmp);
-
-      // 1. Primary Strategy: Unified Serverless Mutate API
-      try {
-        const token = await getMutateAuthToken();
-        const res = await fetch('/api/schedule/mutate', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': token ? ('Bearer ' + token) : ''
-          },
-          body: JSON.stringify({
-            entity: 'employee',
-            action: 'create',
-            employee: dbObj
-          })
-        });
-
-        if (res.ok) {
-          const data = await res.json();
-          if (data && data.success && data.employee) {
-            const mapped = mapEmployeeFromDb(data.employee);
-            const idx = _employees.findIndex(e => e.id === mapped.id);
-            if (idx !== -1) _employees[idx] = mapped;
-            else _employees.push(mapped);
-            if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'employees' } }));
-            return mapped;
-          }
-        }
-      } catch (apiErr) {
-        console.warn('[BriskDB] Serverless addEmployee notice, fallback to Supabase SDK:', apiErr);
-      }
-
-      // 2. Direct Supabase Client fallback
       let { data, error } = await supabase.from('brisk_employees').insert(dbObj).select().maybeSingle();
       if (error && error.message && (error.message.includes('award_level') || error.message.includes('employment_type'))) {
         delete dbObj.award_level;
@@ -1244,53 +1045,10 @@ const BriskDB = (function() {
         error = retry.error;
       }
       if (error) throw error;
-      const mapped = mapEmployeeFromDb(data);
-      const idx = _employees.findIndex(e => e.id === mapped.id);
-      if (idx !== -1) _employees[idx] = mapped;
-      else _employees.push(mapped);
-      if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'employees' } }));
-      return mapped;
+      return mapEmployeeFromDb(data);
     },
     updateEmployee: async function(updated) {
       const dbObj = mapEmployeeToDb(updated);
-
-      // Optimistic in-memory update
-      const mappedLocal = mapEmployeeFromDb({ ...dbObj, id: updated.id });
-      const idx = _employees.findIndex(e => e.id === updated.id);
-      if (idx !== -1) _employees[idx] = { ..._employees[idx], ...mappedLocal };
-      else _employees.push(mappedLocal);
-
-      // 1. Primary Strategy: Unified Serverless Mutate API
-      try {
-        const token = await getMutateAuthToken();
-        const res = await fetch('/api/schedule/mutate', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': token ? ('Bearer ' + token) : ''
-          },
-          body: JSON.stringify({
-            entity: 'employee',
-            action: 'update',
-            employee: dbObj
-          })
-        });
-
-        if (res.ok) {
-          const data = await res.json();
-          if (data && data.success && data.employee) {
-            const mapped = mapEmployeeFromDb(data.employee);
-            const curIdx = _employees.findIndex(e => e.id === mapped.id);
-            if (curIdx !== -1) _employees[curIdx] = mapped;
-            if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'employees' } }));
-            return mapped;
-          }
-        }
-      } catch (apiErr) {
-        console.warn('[BriskDB] Serverless updateEmployee notice, fallback to Supabase SDK:', apiErr);
-      }
-
-      // 2. Direct Supabase Client fallback
       let { error } = await supabase.from('brisk_employees').update(dbObj).eq('id', updated.id);
       if (error && error.message && (error.message.includes('award_level') || error.message.includes('employment_type'))) {
         delete dbObj.award_level;
@@ -1299,82 +1057,20 @@ const BriskDB = (function() {
         error = retry.error;
       }
       if (error) throw error;
-      if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'employees' } }));
     },
     deleteEmployee: async function(id) {
-      const idx = _employees.findIndex(e => e.id === id);
-      if (idx !== -1) _employees[idx].active = false;
-
-      // 1. Primary Strategy: Unified Serverless Mutate API
-      try {
-        const token = await getMutateAuthToken();
-        const res = await fetch('/api/schedule/mutate', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': token ? ('Bearer ' + token) : ''
-          },
-          body: JSON.stringify({
-            entity: 'employee',
-            action: 'delete',
-            id
-          })
-        });
-
-        if (res.ok) {
-          if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'employees' } }));
-          return;
-        }
-      } catch (apiErr) {
-        console.warn('[BriskDB] Serverless deleteEmployee notice, fallback to Supabase SDK:', apiErr);
-      }
-
-      // 2. Fallback
       const { error } = await supabase.from('brisk_employees').update({ active: false }).eq('id', id);
       if (error) throw error;
-      if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'employees' } }));
     },
 
     addShift: async function(shift) {
-      const dbObj = mapShiftToDb(shift);
-
-      // 1. Primary Strategy: Unified Serverless Mutate API
-      try {
-        const token = await getMutateAuthToken();
-        const res = await fetch('/api/schedule/mutate', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': token ? ('Bearer ' + token) : ''
-          },
-          body: JSON.stringify({
-            entity: 'shift',
-            action: 'create',
-            shift: dbObj
-          })
-        });
-
-        if (res.ok) {
-          const data = await res.json();
-          if (data && data.success && data.shift) {
-            const mapped = mapShiftFromDb(data.shift);
-            const existing = _shifts.findIndex(s => s.id === mapped.id);
-            if (existing !== -1) _shifts[existing] = mapped;
-            else _shifts.push(mapped);
-            if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'shifts' } }));
-            return mapped;
-          }
-        }
-      } catch (apiErr) {
-        console.warn('[BriskDB] Serverless addShift notice, fallback to Supabase SDK:', apiErr);
+      if (!shift.id) {
+        shift.id = (typeof crypto !== 'undefined' && crypto.randomUUID) ? crypto.randomUUID() : 'shift-' + Date.now() + '-' + Math.random().toString(36).substring(2, 9);
       }
-
-      // 2. Direct Supabase Client fallback
+      const dbObj = mapShiftToDb(shift);
       let { data, error } = await supabase.from('brisk_shifts').insert(dbObj).select().maybeSingle();
-      if (error && (error.message.includes('status') || error.message.includes('unpaid_meal_mins') || error.message.includes('color') || error.code === 'PGRST204')) {
+      if (error && error.message && error.message.includes('status')) {
         delete dbObj.status;
-        delete dbObj.unpaid_meal_mins;
-        delete dbObj.color;
         const retry = await supabase.from('brisk_shifts').insert(dbObj).select().maybeSingle();
         data = retry.data;
         error = retry.error;
@@ -1384,165 +1080,36 @@ const BriskDB = (function() {
       const existing = _shifts.findIndex(s => s.id === mapped.id);
       if (existing !== -1) _shifts[existing] = mapped;
       else _shifts.push(mapped);
-      if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'shifts' } }));
       return mapped;
-    },
-    addShiftsBatch: async function(shiftsArray) {
-      if (!shiftsArray || shiftsArray.length === 0) return [];
-      let mappedShifts = shiftsArray.map(mapShiftToDb);
-
-      // 1. Primary Strategy: Unified Serverless Mutate API
-      try {
-        const token = await getMutateAuthToken();
-        const res = await fetch('/api/schedule/mutate', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': token ? ('Bearer ' + token) : ''
-          },
-          body: JSON.stringify({
-            entity: 'shift',
-            action: 'batchInsert',
-            shifts: mappedShifts
-          })
-        });
-
-        if (res.ok) {
-          const data = await res.json();
-          if (data && data.success && Array.isArray(data.shifts)) {
-            const inserted = data.shifts.map(mapShiftFromDb);
-            inserted.forEach(mapped => {
-              const existing = _shifts.findIndex(s => s.id === mapped.id);
-              if (existing !== -1) _shifts[existing] = mapped;
-              else _shifts.push(mapped);
-            });
-            if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'shifts' } }));
-            return inserted;
-          }
-        }
-      } catch (apiErr) {
-        console.warn('[BriskDB] Serverless addShiftsBatch notice, fallback to Supabase SDK:', apiErr);
-      }
-
-      // 2. Direct Supabase Client fallback
-      let { data, error } = await supabase.from('brisk_shifts').insert(mappedShifts).select();
-      if (error && (error.message.includes('status') || error.message.includes('unpaid_meal_mins') || error.message.includes('color') || error.code === 'PGRST204')) {
-        mappedShifts.forEach(s => {
-          delete s.status;
-          delete s.unpaid_meal_mins;
-          delete s.color;
-        });
-        const retry = await supabase.from('brisk_shifts').insert(mappedShifts).select();
-        data = retry.data;
-        error = retry.error;
-      }
-      if (error) {
-        console.warn('[DB] Batch insert failed, falling back to sequential addShift:', error);
-        const results = [];
-        for (const s of shiftsArray) {
-          try {
-            const res = await this.addShift(s);
-            results.push(res);
-          } catch (seqErr) {
-            console.error('[DB] Sequential addShift fallback failed for shift:', s, seqErr);
-          }
-        }
-        return results;
-      }
-
-      const inserted = (data || []).map(mapShiftFromDb);
-      inserted.forEach(mapped => {
-        const existing = _shifts.findIndex(s => s.id === mapped.id);
-        if (existing !== -1) _shifts[existing] = mapped;
-        else _shifts.push(mapped);
-      });
-      if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'shifts' } }));
-      return inserted;
     },
     updateShift: async function(updated) {
       const dbObj = mapShiftToDb(updated);
-
-      // Optimistic in-memory update
-      const idx = _shifts.findIndex(s => s.id === updated.id);
-      if (idx !== -1) _shifts[idx] = { ..._shifts[idx], ...updated };
-
-      // 1. Primary Strategy: Unified Serverless Mutate API
-      try {
-        const token = await getMutateAuthToken();
-        const res = await fetch('/api/schedule/mutate', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': token ? ('Bearer ' + token) : ''
-          },
-          body: JSON.stringify({
-            entity: 'shift',
-            action: 'update',
-            shift: dbObj
-          })
-        });
-
-        if (res.ok) {
-          const data = await res.json();
-          if (data && data.success && data.shift) {
-            const mapped = mapShiftFromDb(data.shift);
-            if (idx !== -1) _shifts[idx] = mapped;
-            if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'shifts' } }));
-            return mapped;
-          }
-        }
-      } catch (apiErr) {
-        console.warn('[BriskDB] Serverless updateShift notice, fallback to Supabase SDK:', apiErr);
-      }
-
-      // 2. Direct Supabase Client fallback
       let { error } = await supabase.from('brisk_shifts').update(dbObj).eq('id', updated.id);
-      if (error && (error.message.includes('status') || error.message.includes('unpaid_meal_mins') || error.message.includes('color') || error.code === 'PGRST204')) {
+      if (error && error.message && error.message.includes('status')) {
         delete dbObj.status;
-        delete dbObj.unpaid_meal_mins;
-        delete dbObj.color;
         const retry = await supabase.from('brisk_shifts').update(dbObj).eq('id', updated.id);
         error = retry.error;
       }
       if (error) throw error;
-      if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'shifts' } }));
+      const idx = _shifts.findIndex(s => s.id === updated.id);
+      if (idx !== -1) _shifts[idx] = { ..._shifts[idx], ...updated };
       return updated;
     },
     deleteShift: async function(id) {
-      _shifts = _shifts.filter(s => s.id !== id);
-
-      // 1. Primary Strategy: Unified Serverless Mutate API
-      try {
-        const token = await getMutateAuthToken();
-        const res = await fetch('/api/schedule/mutate', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': token ? ('Bearer ' + token) : ''
-          },
-          body: JSON.stringify({
-            entity: 'shift',
-            action: 'delete',
-            id
-          })
-        });
-
-        if (res.ok) {
-          if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'shifts' } }));
-          return;
-        }
-      } catch (apiErr) {
-        console.warn('[BriskDB] Serverless deleteShift notice, fallback to Supabase SDK:', apiErr);
-      }
-
-      // 2. Fallback
       const { error } = await supabase.from('brisk_shifts').delete().eq('id', id);
       if (error) throw error;
-      if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'shifts' } }));
+      _shifts = _shifts.filter(s => s.id !== id);
     },
     batchUpdateShifts: async function(shiftsArray) {
       if (!shiftsArray || shiftsArray.length === 0) return;
       const mappedShifts = shiftsArray.map(mapShiftToDb);
+      let { error } = await supabase.from('brisk_shifts').upsert(mappedShifts);
+      if (error && error.message && error.message.includes('status')) {
+        mappedShifts.forEach(s => delete s.status);
+        const retry = await supabase.from('brisk_shifts').upsert(mappedShifts);
+        error = retry.error;
+      }
+      if (error) throw error;
 
       // Optimistic in-memory update
       shiftsArray.forEach(updated => {
@@ -1551,181 +1118,50 @@ const BriskDB = (function() {
         if (idx !== -1) _shifts[idx] = { ..._shifts[idx], ...mapped };
         else _shifts.push(mapped);
       });
-
-      // 1. Primary Strategy: Unified Serverless Mutate API
-      try {
-        const token = await getMutateAuthToken();
-        const res = await fetch('/api/schedule/mutate', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': token ? ('Bearer ' + token) : ''
-          },
-          body: JSON.stringify({
-            entity: 'shift',
-            action: 'batchUpdate',
-            shifts: mappedShifts
-          })
-        });
-
-        if (res.ok) {
-          if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'shifts' } }));
-          return;
-        }
-      } catch (apiErr) {
-        console.warn('[BriskDB] Serverless batchUpdateShifts notice, fallback to Supabase SDK:', apiErr);
-      }
-
-      // 2. Direct Supabase Client fallback
-      let { error } = await supabase.from('brisk_shifts').upsert(mappedShifts);
-      if (error && (error.message.includes('status') || error.message.includes('unpaid_meal_mins') || error.message.includes('color') || error.code === 'PGRST204')) {
-        mappedShifts.forEach(s => {
-          delete s.status;
-          delete s.unpaid_meal_mins;
-          delete s.color;
-        });
-        const retry = await supabase.from('brisk_shifts').upsert(mappedShifts);
-        error = retry.error;
-      }
-      if (error) throw error;
-      if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent('brisk-db-updated', { detail: { type: 'shifts' } }));
     },
 
     addTimecard: async function(tc) {
       if (!tc.id) {
-        tc.id = (typeof crypto !== 'undefined' && crypto.randomUUID) ? crypto.randomUUID() : 'tc_' + Date.now() + '_' + Math.random().toString(36).substring(2, 9);
+        tc.id = (typeof crypto !== 'undefined' && crypto.randomUUID) ? crypto.randomUUID() : 'temp-' + Date.now() + '-' + Math.random().toString(36).substring(2, 9);
       }
-
-      // Optimistic in-memory update
-      const existing = _timecards.findIndex(t => t.id === tc.id);
-      if (existing !== -1) _timecards[existing] = tc;
-      else _timecards.push(tc);
-
-      // 1. Primary Strategy: Unified Serverless Mutate API
       try {
-        const token = await getMutateAuthToken();
-        const res = await fetch('/api/schedule/mutate', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': token ? ('Bearer ' + token) : ''
-          },
-          body: JSON.stringify({
-            entity: 'timecard',
-            action: 'upsert',
-            timecard: mapTimecardToDb(tc)
-          })
-        });
-
-        if (res.ok) {
-          const data = await res.json();
-          if (data && data.success && data.timecard) {
-            const mapped = mapTimecardFromDb(data.timecard);
-            const idx = _timecards.findIndex(t => t.id === mapped.id);
-            if (idx !== -1) _timecards[idx] = mapped;
-            return mapped;
-          }
-        }
-      } catch (apiErr) {
-        console.warn('[BriskDB] Serverless addTimecard notice, fallback to Supabase SDK:', apiErr);
-      }
-
-      // 2. Direct Supabase Client fallback
-      try {
-        const { data, error } = await supabase.from('brisk_timecards').upsert([mapTimecardToDb(tc)]).select().maybeSingle();
+        const { data, error } = await supabase.from('brisk_timecards').insert(mapTimecardToDb(tc)).select().maybeSingle();
         if (error) throw error;
         const mapped = mapTimecardFromDb(data || tc);
-        const idx = _timecards.findIndex(t => t.id === mapped.id);
-        if (idx !== -1) _timecards[idx] = mapped;
+        const existing = _timecards.findIndex(t => t.id === mapped.id);
+        if (existing !== -1) _timecards[existing] = mapped;
+        else _timecards.push(mapped);
         return mapped;
       } catch (err) {
         console.warn('[BriskDB] addTimecard offline fallback:', err);
+        const existing = _timecards.findIndex(t => t.id === tc.id);
+        if (existing !== -1) _timecards[existing] = tc;
+        else _timecards.push(tc);
         enqueueOfflineOperation('add', tc);
         return tc;
       }
     },
     updateTimecard: async function(updated) {
-      // Optimistic in-memory update
-      const idx = _timecards.findIndex(t => t.id === updated.id);
-      if (idx !== -1) _timecards[idx] = { ..._timecards[idx], ...updated };
-      else _timecards.push(updated);
-
-      // 1. Primary Strategy: Unified Serverless Mutate API
-      try {
-        const token = await getMutateAuthToken();
-        const res = await fetch('/api/schedule/mutate', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': token ? ('Bearer ' + token) : ''
-          },
-          body: JSON.stringify({
-            entity: 'timecard',
-            action: 'upsert',
-            timecard: mapTimecardToDb(updated)
-          })
-        });
-
-        if (res.ok) {
-          const data = await res.json();
-          if (data && data.success && data.timecard) {
-            const mapped = mapTimecardFromDb(data.timecard);
-            const curIdx = _timecards.findIndex(t => t.id === mapped.id);
-            if (curIdx !== -1) _timecards[curIdx] = mapped;
-            return;
-          }
-        }
-      } catch (apiErr) {
-        console.warn('[BriskDB] Serverless updateTimecard notice, fallback to Supabase SDK:', apiErr);
-      }
-
-      // 2. Direct Supabase Client fallback
       try {
         const { error } = await supabase.from('brisk_timecards').update(mapTimecardToDb(updated)).eq('id', updated.id);
         if (error) throw error;
+        const idx = _timecards.findIndex(t => t.id === updated.id);
+        if (idx !== -1) _timecards[idx] = { ..._timecards[idx], ...updated };
+        else _timecards.push(updated);
       } catch (err) {
         console.warn('[BriskDB] updateTimecard offline fallback:', err);
+        const idx = _timecards.findIndex(t => t.id === updated.id);
+        if (idx !== -1) _timecards[idx] = { ..._timecards[idx], ...updated };
+        else _timecards.push(updated);
         enqueueOfflineOperation('update', updated);
       }
     },
 
     addLeaveRequest: async function(lr) {
-      const newLr = { ...lr, status: lr.status || 'Pending' };
+      const newLr = { ...lr, status: 'Pending' };
       if (!newLr.id) {
         newLr.id = (typeof crypto !== 'undefined' && crypto.randomUUID) ? crypto.randomUUID() : 'lr-' + Date.now() + '-' + Math.random().toString(36).substring(2, 9);
       }
-
-      // 1. Primary Strategy: Unified Serverless Mutate API
-      try {
-        const token = await getMutateAuthToken();
-        const res = await fetch('/api/schedule/mutate', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': token ? ('Bearer ' + token) : ''
-          },
-          body: JSON.stringify({
-            entity: 'leave',
-            action: 'create',
-            leaveRequest: mapLeaveRequestToDb(newLr)
-          })
-        });
-
-        if (res.ok) {
-          const data = await res.json();
-          if (data && data.success && data.leaveRequest) {
-            const mapped = mapLeaveRequestFromDb(data.leaveRequest);
-            const existing = _leaveRequests.findIndex(r => r.id === mapped.id);
-            if (existing !== -1) _leaveRequests[existing] = mapped;
-            else _leaveRequests.push(mapped);
-            return mapped;
-          }
-        }
-      } catch (apiErr) {
-        console.warn('[BriskDB] Serverless addLeaveRequest notice, fallback to Supabase SDK:', apiErr);
-      }
-
-      // 2. Direct Supabase Client fallback
       const { data, error } = await supabase.from('brisk_leave_requests').insert(mapLeaveRequestToDb(newLr)).select().maybeSingle();
       if (error) throw error;
       const mapped = mapLeaveRequestFromDb(data || newLr);
@@ -1735,63 +1171,16 @@ const BriskDB = (function() {
       return mapped;
     },
     updateLeaveRequest: async function(updated) {
-      // Optimistic in-memory update
-      const idx = _leaveRequests.findIndex(r => r.id === updated.id);
-      if (idx !== -1) _leaveRequests[idx] = { ..._leaveRequests[idx], ...updated };
-
-      // 1. Primary Strategy: Unified Serverless Mutate API (Bypasses RLS locks)
-      try {
-        const token = await getMutateAuthToken();
-        const res = await fetch('/api/schedule/mutate', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': token ? ('Bearer ' + token) : ''
-          },
-          body: JSON.stringify({
-            entity: 'leave',
-            action: 'decide',
-            id: updated.id,
-            status: updated.status
-          })
-        });
-
-        if (res.ok) {
-          const data = await res.json();
-          if (data && data.success && data.leaveRequest) {
-            const mapped = mapLeaveRequestFromDb(data.leaveRequest);
-            if (idx !== -1) _leaveRequests[idx] = { ..._leaveRequests[idx], ...mapped };
-            return mapped;
-          }
-        }
-      } catch (apiErr) {
-        console.warn('[BriskDB] Serverless updateLeaveRequest notice, fallback to Supabase SDK:', apiErr);
-      }
-
-      // 2. Direct Supabase Client fallback
       const { error } = await supabase.from('brisk_leave_requests').update(mapLeaveRequestToDb(updated)).eq('id', updated.id);
       if (error) throw error;
+      const idx = _leaveRequests.findIndex(r => r.id === updated.id);
+      if (idx !== -1) _leaveRequests[idx] = { ..._leaveRequests[idx], ...updated };
     },
 
     saveSettings: async function(settings) {
       _settings = { ..._settings, ...settings };
       const { error } = await supabase.from('brisk_settings').upsert(mapSettingsToDb(_settings));
       if (error) console.error('Failed to save settings to Supabase:', error);
-    },
-
-    exportData: function() {
-      const currentUser = (typeof window !== 'undefined' && window.state && window.state.currentUser) ? window.state.currentUser : null;
-      if (!currentUser || (currentUser.role !== 'owner' && currentUser.role !== 'admin' && currentUser.role !== 'manager')) {
-        return JSON.stringify({ error: 'Permission denied: Manager access required.' });
-      }
-      return JSON.stringify({
-        employees: _employees,
-        shifts: [..._shifts, ..._historicalShifts],
-        timecards: [..._timecards, ..._historicalTimecards],
-        leaveRequests: [..._leaveRequests, ..._historicalLeaveRequests],
-        settings: _settings,
-        exportedAt: new Date().toISOString()
-      }, null, 2);
     },
 
     supabase: supabase,
@@ -1909,65 +1298,6 @@ const BriskDB = (function() {
 
     syncOfflineQueue: async function() {
       await processOfflineQueue();
-    },
-
-    logAudit: function(action, details, targetId) {
-      try {
-        const currentUser = (window.state && window.state.currentUser) ? window.state.currentUser : null;
-        const auditEntry = {
-          id: 'audit_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6),
-          timestamp: new Date().toISOString(),
-          action: action || 'GENERAL_MUTATION',
-          actorEmail: currentUser ? currentUser.email : 'system',
-          actorName: currentUser ? currentUser.name : 'System',
-          actorRole: currentUser ? currentUser.role : 'system',
-          targetId: targetId || null,
-          details: details || ''
-        };
-
-        const existingRaw = localStorage.getItem('brisk_audit_logs');
-        let logs = [];
-        if (existingRaw) {
-          try { logs = JSON.parse(existingRaw); } catch(e) { logs = []; }
-        }
-        logs.unshift(auditEntry);
-        if (logs.length > 500) logs = logs.slice(0, 500);
-        localStorage.setItem('brisk_audit_logs', JSON.stringify(logs));
-
-        // Asynchronous non-blocking Supabase sync attempt
-        if (supabase) {
-          supabase.from('brisk_audit_logs').insert([{
-            action: auditEntry.action,
-            actor_email: auditEntry.actorEmail,
-            actor_name: auditEntry.actorName,
-            actor_role: auditEntry.actorRole,
-            target_id: auditEntry.targetId,
-            details: auditEntry.details,
-            created_at: auditEntry.timestamp
-          }]).then(() => {}).catch(() => {});
-        }
-        return auditEntry;
-      } catch (err) {
-        console.warn('Audit log write error:', err);
-      }
-    },
-
-    getAuditLogs: function() {
-      try {
-        const raw = localStorage.getItem('brisk_audit_logs');
-        return raw ? JSON.parse(raw) : [];
-      } catch (e) {
-        return [];
-      }
-    },
-
-    clearAuditLogs: function() {
-      try {
-        localStorage.removeItem('brisk_audit_logs');
-        return true;
-      } catch (e) {
-        return false;
-      }
     }
   };
 })();

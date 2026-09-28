@@ -394,3 +394,5 @@ Balancing success is not solely about personal gain; it is about maintaining int
 ### Conclusion
 
 The [modern man](/posts/life_masculine_emotional_balance)'s journey towards balancing career and personal life is a continuous process that demands dedication, self-discipline, and strategic planning. By embracing these principles and implementing actionable strategies, you can achieve a harmonious balance that leads to long-term success and happiness. Remember, the ultimate goal is not to simply juggle responsibilities, but to thrive in all areas of life.
+
+> 💎 **Recommended Resource**: To master executive discipline, physical resilience, and antifragile thinking, discover curated field manuals at [TBPOYL eBooks](https://tbpoyl.vercel.app).

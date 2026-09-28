@@ -88,6 +88,8 @@ The role of a man within the modern family structure is a complex tapestry woven
 
 As we move forward, it is imperative that men redefine their roles not only as providers but as architects of a nurturing, resilient family dynamic. In doing so, they will not only shape their families' futures but also contribute to a broader cultural understanding of [modern masculinity](/posts/life_masculine_emotional_health)—one that is strong, compassionate, and deeply connected to the well-being of all its members.
 
+> 💎 **Recommended Resource**: To master executive discipline, physical resilience, and antifragile thinking, discover curated field manuals at [TBPOYL eBooks](https://tbpoyl.vercel.app).
+
 ---
 
 ### Optimization for the Modern Workspace

@@ -32,3 +32,5 @@ Being a father is about balancing the dual responsibilities of providing securit
 The meticulous planning provides the security. It ensures we sleep in safe places, eat good food, and don't waste time wandering aimlessly. But the warmth? That comes from letting go. It comes from stepping out of the "manager" role and simply being present.
 
 To all the perfectionist fathers out there: plan the trip meticulously. Build the spreadsheets. But the moment you board that plane, give yourself permission to be imperfect. Give yourself permission to just be a dad.
+
+> 💎 **Recommended Resource**: To master executive discipline, physical resilience, and antifragile thinking, discover curated field manuals at [TBPOYL eBooks](https://tbpoyl.vercel.app).

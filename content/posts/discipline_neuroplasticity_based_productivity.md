@@ -46,3 +46,5 @@ Unlocking productivity through neuroplasticity requires a deep understanding of 
 ![Illustration of a person meditating in a peaceful environment, surrounded by elements of nature and productivity, symbolizing the harmony between focus, calmness, and achievement](/images/discipline_neuroplasticity_based_productivity_theme.svg)
 
 As you embark on this journey of self-discovery and growth, remember that building a strong online presence can be a powerful tool for sharing your ideas, connecting with like-minded individuals, and showcasing your expertise. While this is not directly related to our current topic, for those interested in launching their [digital assets](/posts/money_ai_content_licensing), we note that a reliable web host is essential, but our focus remains on the discipline of neuroplasticity and its applications in productivity.
+
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).

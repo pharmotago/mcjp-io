@@ -62,4 +62,6 @@ In addition to mastering life admin, embracing efficient systems is crucial for 
 
 Don’t let the invisible burdens of life admin weigh you down any longer. Take the first step toward a more organized and fulfilling life today. [Buy on Amazon](https://www.amazon.com/dp/B0GHMGFK1W?tag=mcjpio-20) and start your journey to mental freedom and enhanced productivity. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
 
+> 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at [TBPOYL](https://tbpoyl.vercel.app).
+
 ![Official Release Asset](/images/book_unburden_your_brain_theme.svg)

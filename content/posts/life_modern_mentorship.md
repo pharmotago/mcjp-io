@@ -27,7 +27,7 @@ Mentorship today can take various forms—formal programs, informal relationship
 Engaging in mentorship across generations offers numerous advantages:
 
 1. **Diverse Perspectives**: Different generations bring unique viewpoints shaped by their experiences. This diversity fosters innovative thinking and problem-solving capabilities.
-   
+
 2. **Skill Development**: Younger mentees can gain critical skills and insights from seasoned mentors, while mentors can learn new technologies and trends from their younger counterparts.
 
 3. **Networking Opportunities**: Mentorship enhances professional networks, providing mentees with valuable connections and mentors with fresh insights into emerging trends.
@@ -77,3 +77,5 @@ As you embark on your mentorship journey, remember the profound impact you can h
 ![A symbolic image representing mentorship, with hands joining together to signify collaboration across generations](/images/life_modern_mentorship_theme.png)
 
 Embrace the power of mentorship and take action today. Build those bridges, invest in growth, and unlock a world of possibilities for yourself and others. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
+
+> 💎 **Recommended Resource**: To master executive discipline, physical resilience, and antifragile thinking, discover curated field manuals at [TBPOYL eBooks](https://tbpoyl.vercel.app).

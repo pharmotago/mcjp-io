@@ -65,3 +65,5 @@ True leadership in marriage involves a delicate dance between being a pillar of 
 ![A harmonious, balanced marital relationship where stoic leadership and empathy coexist](/images/life_stoic_leadership_marriage_theme.png)
 
 In conclusion, stoic leadership in marriage is about embracing a dual role: one of strength and empathy. By cultivating [emotional resilience](/posts/life_fatherhood_mental_health) and fostering deep connections, men can lead their families with wisdom and compassion. The journey is continuous, but with the right mindset and tools, it's one that enriches not just the marriage but the entire family dynamic.
+
+> 💎 **Recommended Resource**: To master executive discipline, physical resilience, and antifragile thinking, discover curated field manuals at [TBPOYL eBooks](https://tbpoyl.vercel.app).

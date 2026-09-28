@@ -44,3 +44,5 @@ As you continue on this path, consider how technology can play a role in facilit
 ![An abstract representation of a father surrounded by a supportive community, symbolizing the theme of community building and mutual support in fatherhood, with interconnected elements and warm, inviting colors](/images/life_fatherhood_community_building_theme.svg)
 
 By embracing the power of community and leveraging the tools and resources available to you, you can not only enhance your own life as a father but also contribute to the well-being and success of those around you. Remember, the journey of building a supportive community is one of growth, connection, and mutual support, and it's a path worth embarking on for the sake of yourself, your family, and your community.
+
+> 💎 **Recommended Resource**: To master executive discipline, physical resilience, and antifragile thinking, discover curated field manuals at [TBPOYL eBooks](https://tbpoyl.vercel.app).

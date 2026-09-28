@@ -61,3 +61,5 @@ For those interested in additional resources related to masculinity and parentin
 As you take steps to enhance your habits, consider leveraging digital assets and [wealth creation](/posts/money_ai_entrepreneurship) strategies. Platforms like Hostinger can be instrumental in establishing your online presence and building a foundation for financial independence.
 
 The journey toward high productivity and self-mastery starts now. Embrace the challenge, and let “The 90-Day Habit System” be your guide. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
+
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).

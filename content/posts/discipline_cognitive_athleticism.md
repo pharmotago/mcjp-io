@@ -45,3 +45,5 @@ The pursuit of cognitive athleticism is a lifelong journey that requires dedicat
 ![An inspirational depiction of a person engaged in a mentally demanding task, surrounded by elements of nature and technology, symbolizing the harmonious integration of human cognition and digital tools in the pursuit of peak performance and productivity](/images/discipline_cognitive_athleticism_theme.svg)
 
 Ultimately, the path to cognitive athleticism is unique to each individual, and the journey is just as important as the destination. By embracing the principles of [cognitive training](/posts/discipline_deep_work_protocols), [mental discipline](/posts/discipline_neuroplasticity_growth), and continuous learning, individuals can unlock their full potential and achieve a state of [peak performance](/posts/discipline_masculine_focus_techniques) that enhances all aspects of life.
+
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).

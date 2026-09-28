@@ -21,7 +21,7 @@ Emerging research suggests that physical exercise is not merely a tool for bodil
 The connection between physical and [cognitive training](/posts/discipline_breathwork_control) can be attributed to several physiological mechanisms:
 
 - **Increased Blood Flow:** Physical exercise boosts circulation, delivering more oxygen and nutrients to the brain. This enhanced blood flow promotes neurogenesis, the formation of new neurons, and improves synaptic plasticity, which is essential for learning.
-  
+
 - **Stress Reduction:** Exercise acts as a natural antidote to stress, reducing cortisol levels and promoting a sense of well-being. Lower stress levels translate into improved cognitive performance, particularly in high-pressure situations.
 
 - **Improved Sleep Quality:** Regular physical activity contributes to better sleep patterns, which are critical for memory consolidation and cognitive functioning. A well-rested mind is more adept at processing information and making decisions.
@@ -78,6 +78,8 @@ In conclusion, the journey toward success is multifaceted, and the integration o
 As you embark on this transformative journey, remember that both physical and [cognitive training](/posts/discipline_deep_work_protocols) require sustained effort and dedication. Embrace the process, remain steadfast in your pursuits, and watch as the benefits unfold in your personal and professional life.
 
 ![A group of people engaged in physical training, illustrating the theme of discipline and cognitive enhancement](/images/discipline_physical_training_theme.png)
+
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
 
 ---
 

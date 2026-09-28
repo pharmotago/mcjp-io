@@ -16,7 +16,7 @@ Understanding the psychology of spending is crucial for anyone looking to achiev
 Spending is not just a financial decision; it’s often an emotional one. Psychologists have identified several key emotional triggers that influence our spending habits:
 
 1. **Emotional Satisfaction**: Many individuals engage in "retail therapy" to alleviate stress or sadness. This short-lived joy can lead to detrimental financial consequences.
-   
+
 2. **[Social Influence](/posts/life_masculine_community_leadership)**: The desire to fit in or impress peers can lead to impulsive spending. Social media often exacerbates this behavior, creating an illusion of wealth and success that pressures individuals to keep up.
 
 3. **Instant Gratification**: Our brains are wired to seek immediate rewards. This tendency can lead to impulse purchases rather than long-term [financial planning](/posts/money_advanced_budgeting_strategies).
@@ -70,6 +70,8 @@ For those embarking on this path, consider launching your [digital assets](/post
 ![Strategies for mastering financial habits](https://mcjp-io.vercel.app/images/money_psychology_of_spending_theme.svg)
 
 As you navigate this journey, remember that true wealth is not merely about accumulating money—it's about fostering a mindset of integrity, discipline, and purpose. Embrace the challenge, remain steadfast in your goals, and watch as your financial landscape transforms.
+
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
 
 ---
 > **Legal Disclaimer:** The information provided on MCJP.io, including but not limited to business models, financial assets, and wealth strategies, is for general educational and informational purposes only. It does not constitute professional financial, legal, or investment advice. Always consult with a certified financial planner or legal professional before making any financial decisions.

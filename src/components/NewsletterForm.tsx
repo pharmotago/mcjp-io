@@ -52,12 +52,12 @@ export default function NewsletterForm() {
             Download PDF Checklist ↓
           </a>
           <a
-            href="https://ebook-landing-ruddy-delta.vercel.app"
+            href="https://tbpoyl.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
             className="block w-full text-center bg-amber-600 hover:bg-amber-500 text-white py-2.5 rounded text-xs font-bold transition-colors cursor-pointer shadow-xs"
           >
-            🔥 Unlock 100% of AI's Potential at The AI Vault &rarr;
+            💎 Explore Curated eBooks at TBPOYL &rarr;
           </a>
           <button
             onClick={handleReset}

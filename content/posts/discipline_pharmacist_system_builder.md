@@ -42,3 +42,5 @@ This obsession with efficiency bleeds into my everyday life. Whether I am analyz
 But a good system should give you time back, not consume it. For those looking to streamline their own digital environments and reclaim lost hours, upgrading your foundational infrastructure is a great place to start. For a seamless and high-speed home office connection, I recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
 
 The ultimate goal of building all these systems is simple: to create a machine that handles the noise of the world, leaving me with the time and [mental clarity](/posts/discipline_biohacking_focus_and_productivity) to focus on the signal.
+
+> 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at [TBPOYL](https://tbpoyl.vercel.app).
