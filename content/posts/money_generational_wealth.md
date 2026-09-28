@@ -57,7 +57,7 @@ Wealth without wisdom can lead to financial mismanagement. Empower your heirs th
 
 ### The Role of Integrity in Legacy Building
 
-Integrity is a critical component of building generational wealth. It ensures that the values associated with wealth are upheld and that wealth is accumulated in a manner that aligns with personal ethics. When wealth is built with integrity, it fosters trust and respect within families and communities. 
+Integrity is a critical component of building [generational wealth](/posts/money_personal_holding_company). It ensures that the values associated with wealth are upheld and that wealth is accumulated in a manner that aligns with personal ethics. When wealth is built with integrity, it fosters trust and respect within families and communities. 
 
 As you cultivate wealth, consider the impact of your financial decisions on your social footprint. Engage in philanthropic endeavors and support causes that resonate with your values. This not only enriches your community but also sets a powerful example for future generations on the importance of giving back.
 

@@ -42,7 +42,7 @@ Developing cognitive resilience and improving [mental toughness](/posts/discipli
 Remember, building cognitive resilience is a journey that takes time, effort, and dedication. It's essential to stay focused, motivated, and committed to your goals, even in the face of adversity or challenge. By doing so, you can develop the [mental toughness](/posts/discipline_adaptive_resilience_training) and resilience needed to navigate life's challenges with confidence and achieve lasting success. 
 ![Illustration of a person standing on a mountain peak, surrounded by elements that symbolize cognitive resilience and mental toughness, such as a sunrise, a compass, and a rocky landscape](/images/discipline_cognitive_resilience_theme.svg)
 
-To get started on your journey to cognitive resilience, take the following actions:
+To get started on your journey to [cognitive resilience](/posts/discipline_anti_fragile_mindset), take the following actions:
 * Set clear goals and priorities for your personal and professional life
 * Develop a daily routine that includes time for self-reflection, physical exercise, and deep focus
 * Practice mindfulness and meditation to enhance your self-awareness and emotional regulation

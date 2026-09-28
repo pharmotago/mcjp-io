@@ -53,7 +53,7 @@ Illiquidity enforces discipline. It removes the temptation to panic-sell during 
 
 ## An Action Plan for Alternative Allocation
 
-Transitioning into alternative investments should be methodical. Do not abandon traditional markets overnight. Instead, execute a measured transition.
+Transitioning into [alternative investments](/posts/money_niche_asset_diversification) should be methodical. Do not abandon traditional markets overnight. Instead, execute a measured transition.
 
 *   **Audit Your Current Portfolio:** Assess your current net worth. Identify your liquid reserves, public equity exposure, and existing debts. You must have a fully funded emergency reserve before locking capital into illiquid alternatives.
 *   **Define Your Allocation Strategy:** Determine what percentage of your total wealth you will allocate to alternatives. A common framework for aggressive growth is 10% to 30% in alternatives, depending on your age, risk tolerance, and time horizon.
