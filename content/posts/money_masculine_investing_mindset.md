@@ -17,7 +17,7 @@ In an era where [financial literacy](/posts/money_financial_literacy) is paramou
 
 ## Understanding the Masculine Investing Mindset
 
-The masculine investing mindset is characterized by taking decisive action, embracing responsibility, and maintaining a long-term vision. It rejects the allure of immediate gratification in favor of enduring success. This mindset is not merely about accumulating wealth but about building a legacy that reflects one’s values and aspirations.
+The masculine investing mindset is characterized by taking decisive action, embracing responsibility, and maintaining a [long-term vision](/posts/discipline_strategic_patience). It rejects the allure of immediate gratification in favor of enduring success. This mindset is not merely about accumulating wealth but about building a legacy that reflects one’s values and aspirations.
 
 ### Key Characteristics of a Masculine Investing Mindset:
 

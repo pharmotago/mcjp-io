@@ -25,7 +25,7 @@ Transforming dreams into actionable plans necessitates a methodical approach. He
 
 #### 1. Define Your Vision
 
-Begin by clarifying your long-term vision. What are the overarching aspirations that drive you? This holistic view will serve as the foundation for your goals. Write down your vision statement and ensure it resonates with your values and aspirations.
+Begin by clarifying your [long-term vision](/posts/discipline_strategic_patience). What are the overarching aspirations that drive you? This holistic view will serve as the foundation for your goals. Write down your vision statement and ensure it resonates with your values and aspirations.
 
 #### 2. Break Down Your Goals
 

@@ -39,7 +39,7 @@ The world of niche assets is vast, but certain categories consistently demonstra
 Investing in niche assets is not a passive endeavor. It demands an active, disciplined approach, mirroring the self-mastery required in all aspects of life.
 
 1.  **Knowledge as Currency:** The most successful niche asset investors are experts in their chosen fields. They understand market dynamics, historical context, authenticity markers, and [future trends](/posts/money_future_tech_investments). This deep knowledge allows them to identify undervalued assets and avoid pitfalls.
-2.  **Patience and Long-Term Vision:** These are not day-trading instruments. Niche assets often require years, even decades, for their full value to materialize. The discipline to hold, nurture, and protect these assets is paramount.
+2.  **Patience and [Long-Term Vision](/posts/discipline_strategic_patience):** These are not day-trading instruments. Niche assets often require years, even decades, for their full value to materialize. The discipline to hold, nurture, and protect these assets is paramount.
 3.  **Integrity in Acquisition:** Due diligence is non-negotiable. Authenticity, provenance (the history of ownership), and condition are critical. Engage reputable experts, auction houses, and dealers. Avoid shortcuts and prioritize transparent dealings.
 4.  **Actionable Strategy:** Do not over-allocate. Niche assets should complement, not replace, a foundation of traditional investments. Start small, learn the ropes, and gradually expand your exposure.
 

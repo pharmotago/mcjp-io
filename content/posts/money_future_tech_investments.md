@@ -61,7 +61,7 @@ As we look ahead, the potential for tech investments is vast. Emerging technolog
 
 ### Conclusion
 
-In conclusion, navigating the future of tech investments requires a deep understanding of emerging trends, a commitment to ethical practices, and a long-term vision. By focusing on key sectors, employing actionable strategies, and maintaining integrity, you can successfully build wealth in this dynamic landscape. As you embark on this journey, remember that the most successful investors are those who embrace change, remain disciplined, and are willing to learn continuously.
+In conclusion, navigating the future of tech investments requires a deep understanding of emerging trends, a commitment to ethical practices, and a [long-term vision](/posts/discipline_strategic_patience). By focusing on key sectors, employing actionable strategies, and maintaining integrity, you can successfully build wealth in this dynamic landscape. As you embark on this journey, remember that the most successful investors are those who embrace change, remain disciplined, and are willing to learn continuously.
 
 ![Tech investments driving change](/images/money_future_tech_investments_tech.png)
 

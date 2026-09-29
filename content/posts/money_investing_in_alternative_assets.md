@@ -67,7 +67,7 @@ Transitioning into [alternative investments](/posts/money_niche_asset_diversific
 
 Investing in alternative assets is fundamentally an exercise in taking absolute responsibility for your financial destiny. When you buy an index fund, you outsource your wealth to the aggregate decisions of the market. When you buy an alternative asset, you are making a concentrated, independent bet on your own judgment. 
 
-This requires integrity. You must be brutally honest with yourself about your risk tolerance and your competence. You must rely on verifiable data rather than hype. The world of alternative investments is rife with charlatans and get-rich-quick schemes. The only armor that protects your capital is your own discipline and unrelenting standard of truth.
+This requires integrity. You must be brutally honest with yourself about your risk tolerance and your competence. You must rely on verifiable data rather than hype. The world of [alternative investments](/posts/money_niche_asset_diversification) is rife with charlatans and get-rich-quick schemes. The only armor that protects your capital is your own discipline and unrelenting standard of truth.
 
 ## The Long Horizon
 

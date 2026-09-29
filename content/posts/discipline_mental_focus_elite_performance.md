@@ -38,7 +38,7 @@ Discipline can be cultivated through intentional practices. Here are some strate
 
 3. **Limit Distractions:** Identify and eliminate distractions in your environment. This may involve organizing your workspace or setting specific times for checking emails and social media.
 
-4. **Practice Delayed Gratification:** Train yourself to resist immediate pleasures in favor of long-term rewards. This practice strengthens your willpower and focus.
+4. **Practice [Delayed Gratification](/posts/discipline_strategic_patience):** Train yourself to resist immediate pleasures in favor of long-term rewards. This practice strengthens your willpower and focus.
 
 5. **Reflect and Adjust:** Regularly assess your progress and adjust your strategies as needed. Reflection fosters a growth mindset and encourages continuous improvement.
 

@@ -61,7 +61,7 @@ With your initial acquisitions optimized, focus on scaling your portfolio. This 
 
 ### The Importance of Integrity and Long-Term Vision
 
-Building a micro-private equity empire is not just about financial gain; it’s about integrity and a long-term vision. As you acquire businesses, ensure you maintain ethical practices and transparency with stakeholders. This approach not only fosters trust but also sets a strong foundation for sustainable growth. 
+Building a micro-private equity empire is not just about financial gain; it’s about integrity and a [long-term vision](/posts/discipline_strategic_patience). As you acquire businesses, ensure you maintain ethical practices and transparency with stakeholders. This approach not only fosters trust but also sets a strong foundation for sustainable growth. 
 
 Furthermore, beyond [financial success](/posts/money_venture_capital_basics), consider the impact you want your businesses to have on their respective communities. An empire built on positive contributions will resonate more profoundly and endure longer.
 

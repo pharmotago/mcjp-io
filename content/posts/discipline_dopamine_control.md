@@ -31,7 +31,7 @@ To combat this, it’s crucial to implement strategies that will help regulate d
 
 ### 1. Embrace the Power of Delayed Gratification
 
-One of the most effective ways to master dopamine control is through the practice of delayed gratification. This involves resisting immediate rewards in favor of long-term benefits. To cultivate this skill:
+One of the most effective ways to master dopamine control is through the practice of [delayed gratification](/posts/discipline_strategic_patience). This involves resisting immediate rewards in favor of long-term benefits. To cultivate this skill:
 
 - **Set Clear Goals**: Define what you want to achieve in the long run. Whether it’s a fitness target, a professional milestone, or personal development, having clear objectives helps you stay motivated.
 - **Break Down Goals**: Divide larger goals into smaller, manageable tasks. This way, you can celebrate minor victories without succumbing to instant distractions.
