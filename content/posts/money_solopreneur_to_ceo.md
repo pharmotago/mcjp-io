@@ -77,7 +77,7 @@ This phase demands a rigorous approach to financial management, understanding ke
 1.  **Audit Your Time:** Identify where your hours are currently spent. Categorize tasks by value and delegability.
 2.  **Document Core Processes:** Begin by documenting the most frequent and critical tasks in your business.
 3.  **Identify Your First Hire/Delegatee:** Pinpoint one key area where delegation will provide the most leverage. Start small, learn, and refine.
-4.  **Define Your Vision:** Articulate a clear, compelling long-term vision for your business.
+4.  **Define Your Vision:** Articulate a clear, compelling [long-term vision](/posts/discipline_strategic_patience) for your business.
 5.  **Set Strategic KPIs:** Establish key performance indicators that measure progress towards your strategic goals, not just daily output.
 6.  **Invest in Your Own Development:** Read books on leadership, strategy, and finance. Seek mentorship. Your growth as a leader is paramount to your business's growth.
 

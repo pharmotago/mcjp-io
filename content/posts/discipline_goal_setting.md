@@ -79,7 +79,7 @@ Self-discipline is the backbone of successful goal achievement. It is what trans
 
 ### Conclusion: Your Journey to Success
 
-The art of goal setting is a journey, not a destination. By applying the scientific principles outlined above, you can effectively transform your dreams into achievable plans. Embrace the process with integrity and self-discipline, and remain committed to your long-term vision.
+The art of goal setting is a journey, not a destination. By applying the scientific principles outlined above, you can effectively transform your dreams into achievable plans. Embrace the process with integrity and self-discipline, and remain committed to your [long-term vision](/posts/discipline_strategic_patience).
 
 For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, where you can find valuable resources to support your personal and familial development.
 

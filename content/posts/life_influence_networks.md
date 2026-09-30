@@ -66,7 +66,7 @@ To move from theory to execution, adopt a structured, disciplined approach.
 
 ## The Dividends of Discipline: Long-Term Impact
 
-Mastering strategic networking is not a quick fix; it is a long-term asset-building endeavor that demands discipline, patience, and unwavering integrity. The dividends, however, are profound and multifaceted:
+Mastering [strategic networking](/posts/life_cultivating_sovereign_networks) is not a quick fix; it is a long-term asset-building endeavor that demands discipline, patience, and unwavering integrity. The dividends, however, are profound and multifaceted:
 
 *   **Unparalleled Opportunity Creation**: Your network becomes a conduit for information, introductions, and opportunities that would otherwise remain inaccessible.
 *   **Enhanced Resilience and Support**: In times of challenge, a strong network provides a safety net of advice, support, and practical assistance.

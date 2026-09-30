@@ -36,7 +36,7 @@ The establishment of a personal holding company is not a passive endeavor; it is
 
 ### Phase 1: Foundation & Legal Structure
 
-The first step is to lay a robust legal and philosophical foundation. This involves more than just registering a name; it requires a clear understanding of your long-term vision.
+The first step is to lay a robust legal and philosophical foundation. This involves more than just registering a name; it requires a clear understanding of your [long-term vision](/posts/discipline_strategic_patience).
 
 *   **Define Your Mandate:** What kind of assets will your PHC acquire? What is its overarching purpose? Is it primarily for income generation, capital appreciation, or a blend of both?
 *   **Choose the Right Jurisdiction and Entity:** This is critical. Consult with experienced corporate attorneys and tax advisors. The choice between an LLC, C-Corp, S-Corp, or a trust structure will depend heavily on your specific goals, residency, and the types of assets you intend to hold. Jurisdictional differences in corporate law and taxation can have significant implications.

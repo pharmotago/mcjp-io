@@ -67,7 +67,7 @@ Furthermore, beyond [financial success](/posts/money_venture_capital_basics), co
 
 ### Wealth Strategy: Long-Term Asset Building
 
-The essence of a wealth strategy lies in the long-term vision. Micro-private equity through digital holdcos allows for the gradual accumulation of assets with a resilient income stream. Each acquisition becomes a stepping stone toward greater financial autonomy, enabling you to reinvest profits into further ventures or diversify into other investment classes.
+The essence of a wealth strategy lies in the [long-term vision](/posts/discipline_strategic_patience). Micro-private equity through digital holdcos allows for the gradual accumulation of assets with a resilient income stream. Each acquisition becomes a stepping stone toward greater financial autonomy, enabling you to reinvest profits into further ventures or diversify into other investment classes.
 
 ![An inspiring infographic illustrating the growth potential of a digital holdco strategy, with emphasis on asset building](/images/money_digital_holdco_theme.svg)
 
