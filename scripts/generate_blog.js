@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
-const gemini = require('../../scripts/gemini_client');
+const gemini = require('./gemini_bridge');
 
-const ROOT_DIR = 'C:\\Antigravity\\mcjp-io';
+const ROOT_DIR = path.resolve(__dirname, '..');
 const TOPICS_FILE = path.join(ROOT_DIR, 'content', 'topics.json');
 const POSTS_DIR = path.join(ROOT_DIR, 'content', 'posts');
 

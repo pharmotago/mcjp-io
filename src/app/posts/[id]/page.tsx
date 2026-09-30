@@ -477,13 +477,14 @@ export default async function PostPage({
         {tocItems.length > 1 && <TableOfContents items={tocItems} />}
 
         {/* FTC Affiliate Disclosure */}
-        <div className="text-xs text-slate-500 bg-slate-50/90 border border-slate-200/80 rounded-xl p-4 italic leading-relaxed">
+        {/* FTC Affiliate Disclosure */}
+        <div className="text-xs text-slate-500 dark:text-slate-400 bg-slate-50/90 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 rounded-xl p-4 italic leading-relaxed">
           <strong>Editorial Integrity & Disclosure:</strong> This journal is free and supported by readers. Certain curated recommendations may contain affiliate partner links. If you make a purchase, we may receive a commission at no additional cost to you.
         </div>
 
         {/* Body content */}
         <div 
-          className="prose prose-slate max-w-none text-slate-800" 
+          className="prose prose-slate max-w-none text-slate-800 dark:text-slate-200" 
           dangerouslySetInnerHTML={{ __html: formattedContent }} 
         />
 
@@ -496,7 +497,7 @@ export default async function PostPage({
             {post.data.keywords.map((kw, i) => (
               <span
                 key={i}
-                className="px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 text-xs font-medium hover:bg-slate-200 transition-colors"
+                className="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-medium hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
               >
                 #{kw}
               </span>
@@ -505,23 +506,23 @@ export default async function PostPage({
         )}
 
         {/* Hostinger Partner Recommendation */}
-        <div className="p-6 rounded-2xl border border-amber-200/60 bg-gradient-to-br from-amber-50/40 to-orange-50/20 my-8 space-y-3 shadow-xs">
+        <div className="p-6 rounded-2xl border border-amber-200/60 dark:border-amber-500/30 bg-gradient-to-br from-amber-50/40 to-orange-50/20 dark:from-slate-900/80 dark:to-slate-900/50 my-8 space-y-3 shadow-xs">
           <div className="flex items-center gap-2">
-            <span className="px-2 py-0.5 rounded bg-amber-100 text-amber-800 text-[10px] font-bold uppercase tracking-wider">
+            <span className="px-2 py-0.5 rounded bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300 text-[10px] font-bold uppercase tracking-wider">
               Recommended Infrastructure
             </span>
-            <span className="text-xs font-semibold text-slate-800">
+            <span className="text-xs font-semibold text-slate-800 dark:text-slate-200">
               Host Your Digital Assets on Hostinger
             </span>
           </div>
-          <p className="text-xs text-slate-600 leading-relaxed">
+          <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
             Building sovereign blogs or business web applications? We run and recommend Hostinger for world-class uptime, NVMe SSD speed, and unmatched affordability. Claim 20% off plus a free domain with our partner link:
           </p>
           <a
             href="https://www.hostinger.com?REFERRALCODE=OYBPHARMOWCY"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block text-xs font-bold text-amber-700 hover:text-amber-800 underline transition-colors"
+            className="inline-block text-xs font-bold text-amber-700 dark:text-amber-400 hover:text-amber-800 dark:hover:text-amber-300 underline transition-colors"
           >
             Claim 20% Hostinger Discount &rarr;
           </a>
@@ -531,16 +532,16 @@ export default async function PostPage({
         <AffiliateCTA />
 
         {/* Previous & Next Post Navigation */}
-        <div className="grid sm:grid-cols-2 gap-4 pt-8 border-t border-slate-200/80 my-8">
+        <div className="grid sm:grid-cols-2 gap-4 pt-8 border-t border-slate-200/80 dark:border-slate-800 my-8">
           {prevPost ? (
             <Link
               href={`/posts/${prevPost.id}`}
-              className="p-4 rounded-xl border border-slate-200 hover:border-amber-500/40 bg-white hover:bg-slate-50 transition-all flex flex-col justify-between"
+              className="p-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-amber-500/40 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/80 transition-all flex flex-col justify-between"
             >
-              <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">
+              <span className="text-[10px] uppercase font-bold text-slate-400 dark:text-slate-500 tracking-wider">
                 ← Newer Insight
               </span>
-              <span className="text-sm font-semibold text-slate-800 mt-1 line-clamp-2">
+              <span className="text-sm font-semibold text-slate-800 dark:text-slate-200 mt-1 line-clamp-2">
                 {prevPost.title}
               </span>
             </Link>
@@ -549,12 +550,12 @@ export default async function PostPage({
           {nextPost ? (
             <Link
               href={`/posts/${nextPost.id}`}
-              className="p-4 rounded-xl border border-slate-200 hover:border-amber-500/40 bg-white hover:bg-slate-50 transition-all flex flex-col justify-between text-right"
+              className="p-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-amber-500/40 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/80 transition-all flex flex-col justify-between text-right"
             >
-              <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">
+              <span className="text-[10px] uppercase font-bold text-slate-400 dark:text-slate-500 tracking-wider">
                 Older Insight →
               </span>
-              <span className="text-sm font-semibold text-slate-800 mt-1 line-clamp-2">
+              <span className="text-sm font-semibold text-slate-800 dark:text-slate-200 mt-1 line-clamp-2">
                 {nextPost.title}
               </span>
             </Link>
@@ -569,12 +570,12 @@ export default async function PostPage({
 
       {/* Related Posts Section */}
       {relatedPosts.length > 0 && (
-        <section className="max-w-3xl mx-auto pt-10 border-t border-slate-200 space-y-6">
+        <section className="max-w-3xl mx-auto pt-10 border-t border-slate-200 dark:border-slate-800 space-y-6">
           <div className="flex items-center justify-between">
-            <h3 className="text-lg font-bold text-slate-900 tracking-tight">
+            <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 tracking-tight">
               Recommended Follow-Up Reading
             </h3>
-            <Link href="/" className="text-xs font-semibold text-amber-600 hover:text-amber-700">
+            <Link href="/" className="text-xs font-semibold text-amber-600 dark:text-amber-400 hover:text-amber-700">
               View All Articles →
             </Link>
           </div>
@@ -583,20 +584,20 @@ export default async function PostPage({
               <Link
                 key={rel.id}
                 href={`/posts/${rel.id}`}
-                className="p-5 rounded-xl bg-white border border-slate-200/90 hover:border-amber-500/40 hover:shadow-sm transition-all flex flex-col justify-between min-h-[160px]"
+                className="p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 hover:border-amber-500/40 hover:shadow-sm transition-all flex flex-col justify-between min-h-[160px]"
               >
                 <div className="space-y-2">
-                  <span className="text-[10px] uppercase font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded tracking-wider">
+                  <span className="text-[10px] uppercase font-bold text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/60 px-2 py-0.5 rounded tracking-wider">
                     {rel.category}
                   </span>
-                  <h4 className="text-sm font-bold text-slate-800 hover:text-amber-600 transition-colors line-clamp-2 leading-snug">
+                  <h4 className="text-sm font-bold text-slate-800 dark:text-slate-100 hover:text-amber-600 dark:hover:text-amber-400 transition-colors line-clamp-2 leading-snug">
                     {rel.title}
                   </h4>
                 </div>
-                <div className="flex items-center justify-between text-[11px] text-slate-400 mt-4 pt-2 border-t border-slate-100">
+                <div className="flex items-center justify-between text-[11px] text-slate-400 dark:text-slate-500 mt-4 pt-2 border-t border-slate-100 dark:border-slate-800">
                   <span>{rel.date}</span>
                   {rel.readingTime && (
-                    <span className="font-medium text-slate-500">{rel.readingTime}m read</span>
+                    <span className="font-medium text-slate-500 dark:text-slate-400">{rel.readingTime}m read</span>
                   )}
                 </div>
               </Link>

@@ -1,0 +1,51 @@
+name: Daily Autonomous Blog Publisher
+
+on:
+  schedule:
+    # Runs at 00:00 UTC every day (11:00 AM Sydney AEDT)
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  auto-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm install --prefer-offline --no-audit
+
+      - name: Run Autonomous Article Generation & Publishing
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          node scripts/auto_publish.js 2
+
+      - name: Run SEO & Internal Linking Optimization
+        run: |
+          npm run seo-optimize || true
+
+      - name: Commit and Push New Articles
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain content/ public/)" ]; then
+            git add content/ public/
+            git commit -m "chore(auto-publish): cloud-native daily publishing [skip ci]"
+            git push origin main
+          else
+            echo "No new articles or content changes to commit."
+          fi
