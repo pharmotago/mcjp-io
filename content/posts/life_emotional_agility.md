@@ -31,7 +31,7 @@ Here are some actionable strategies for developing emotional agility:
 For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, which offers a wealth of resources and guidance on building emotional agility and achieving greater well-being.
 
 ## Overcoming Obstacles and Challenges
-Developing emotional agility is not always easy, and individuals may face numerous obstacles and challenges along the way. These can include negative self-talk, self-doubt, and fear of change. However, by developing a growth mindset and focusing on progress rather than perfection, individuals can overcome these challenges and achieve greater emotional agility.
+Developing emotional agility is not always easy, and individuals may face numerous obstacles and challenges along the way. These can include negative self-talk, self-doubt, and fear of change. However, by developing a [growth mindset](/posts/discipline_deliberate_discomfort) and focusing on progress rather than perfection, individuals can overcome these challenges and achieve greater emotional agility.
 
 It is also important to recognize that emotional agility is not a destination, but rather a journey. It is a skill that takes time and practice to develop, and it requires ongoing effort and commitment. By prioritizing emotional agility and making it a core part of one's personal and professional development, individuals can achieve greater well-being, resilience, and success.
 

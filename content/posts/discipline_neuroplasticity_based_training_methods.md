@@ -55,7 +55,7 @@ As with any training regimen, obstacles and challenges are inevitable. It is ess
 * Practicing self-compassion and self-forgiveness
 * Staying focused on the bigger picture and the reasons behind the commitment to neuroplasticity-based training
 
-By developing a growth mindset and adopting a long-term perspective, individuals can navigate obstacles with greater ease, stay motivated, and maintain a consistent level of effort and dedication to their neuroplasticity-based training regimen.
+By developing a [growth mindset](/posts/discipline_deliberate_discomfort) and adopting a long-term perspective, individuals can navigate obstacles with greater ease, stay motivated, and maintain a consistent level of effort and dedication to their neuroplasticity-based training regimen.
 
 ## Conclusion and Final Thoughts
 In conclusion, neuroplasticity-based training offers a powerful means of unlocking human potential, achieving [peak performance](/posts/discipline_cognitive_athleticism_training), and cultivating a mindset conducive to [personal growth](/posts/discipline_adaptive_resilience_training) and success. By harnessing the power of neuroplasticity, individuals can overcome limitations, enhance cognitive abilities, and develop greater resilience and [emotional intelligence](/posts/discipline_emotional_intelligence_training). As we strive to optimize our brains and achieve our full potential, it is essential to remain committed to our goals, stay disciplined, and prioritize our well-being and development.

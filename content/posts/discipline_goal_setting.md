@@ -71,7 +71,7 @@ Consider integrating mindfulness practices or reflective journaling into your ro
 
 ### The Role of Discipline in Goal Achievement
 
-Self-discipline is the backbone of successful goal achievement. It is what transforms intention into action. Cultivating discipline involves:
+Self-discipline is the backbone of successful [goal achievement](/posts/life_strategic_life_design). It is what transforms intention into action. Cultivating discipline involves:
 
 - **Establishing routines**: Build daily habits that align with your goals.
 - **Practicing delayed gratification**: Learn to prioritize long-term rewards over immediate pleasures.

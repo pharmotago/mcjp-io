@@ -197,7 +197,7 @@ In the realm of leadership, mentorship is particularly potent. Effective leaders
 2. **Enhancing Decision-Making Skills**  
    Mentorship provides a safe space for discussing dilemmas and decision-making processes. Mentors can share their experiences, offering insights into the consequences of various choices, ultimately honing a mentee's judgment.
 
-3. **Instilling a Growth Mindset**  
+3. **Instilling a [Growth Mindset](/posts/discipline_deliberate_discomfort)**  
    Mentorship reinforces the idea that challenges are opportunities for growth. This mindset is essential for leaders who must adapt to changing environments and inspire their teams to persevere.
 
 ### Conclusion: Embrace the Mentorship Journey

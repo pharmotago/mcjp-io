@@ -42,7 +42,7 @@ Understanding this timeline is crucial for anyone seeking to establish new routi
 
 6. **Track Your Progress**: Maintain a habit tracker to monitor your consistency. This visual representation of your progress can serve as significant motivation.
 
-7. **Be Patient and Persistent**: Understand that setbacks are a part of the journey. Maintain a growth mindset and be willing to adapt your approach if certain habits prove difficult to establish.
+7. **Be Patient and Persistent**: Understand that setbacks are a part of the journey. Maintain a [growth mindset](/posts/discipline_deliberate_discomfort) and be willing to adapt your approach if certain habits prove difficult to establish.
 
 ### Building Effective Routines
 

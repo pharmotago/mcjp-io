@@ -36,7 +36,7 @@ To maximize the benefits of technology while minimizing its drawbacks, individua
 For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, which offers a wealth of resources and guidance on cultivating discipline, integrity, and leadership in daily life. By embracing the principles of stoicism and discipline, individuals can develop the strength and resilience needed to overcome challenges and achieve long-term success.
 
 ## Overcoming Obstacles and Staying Motivated
-Rewiring the brain for success is not without its challenges. Individuals may encounter obstacles such as procrastination, self-doubt, and lack of motivation, which can hinder progress and undermine confidence. To overcome these challenges, it is essential to develop a growth mindset and cultivate a supportive environment that fosters growth and development.
+Rewiring the brain for success is not without its challenges. Individuals may encounter obstacles such as procrastination, self-doubt, and lack of motivation, which can hinder progress and undermine confidence. To overcome these challenges, it is essential to develop a [growth mindset](/posts/discipline_deliberate_discomfort) and cultivate a supportive environment that fosters growth and development.
 
 This can include surrounding oneself with positive influences, seeking guidance from mentors or coaches, and celebrating small victories along the way. By staying motivated and focused, individuals can push through obstacles and stay committed to their goals.
 

@@ -40,7 +40,7 @@ Discipline can be cultivated through intentional practices. Here are some strate
 
 4. **Practice [Delayed Gratification](/posts/discipline_strategic_patience):** Train yourself to resist immediate pleasures in favor of long-term rewards. This practice strengthens your willpower and focus.
 
-5. **Reflect and Adjust:** Regularly assess your progress and adjust your strategies as needed. Reflection fosters a growth mindset and encourages continuous improvement.
+5. **Reflect and Adjust:** Regularly assess your progress and adjust your strategies as needed. Reflection fosters a [growth mindset](/posts/discipline_deliberate_discomfort) and encourages continuous improvement.
 
 ### Action Plan for Elite Performance
 

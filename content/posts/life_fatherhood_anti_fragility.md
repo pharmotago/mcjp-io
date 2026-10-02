@@ -43,7 +43,7 @@ To prepare our sons for this turbulent environment, we must instill principles t
    - Help your sons articulate their feelings and understand the emotions of others. This can be done through role-playing scenarios or discussing characters in books and movies.
    - Encourage them to express empathy and to see adversity from multiple perspectives, fostering a deeper understanding of the human experience.
 
-4. **Instill a Growth Mindset**
+4. **Instill a [Growth Mindset](/posts/discipline_deliberate_discomfort)**
    - Praise effort over outcome. Celebrate the process of learning rather than just the achievements.
    - Introduce them to the concept of “yet.” For instance, instead of saying “You can’t do this,” say “You can’t do this yet,” emphasizing the potential for growth.
 

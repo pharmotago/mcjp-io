@@ -113,7 +113,7 @@ Implement mindfulness practices to enhance your awareness and emotional regulati
 
 #### 3. Embrace Continuous Learning
 
-Challenge your brain by engaging in new activities or learning new skills. This not only enhances cognitive flexibility but also fosters a growth mindset.
+Challenge your brain by engaging in new activities or learning new skills. This not only enhances cognitive flexibility but also fosters a [growth mindset](/posts/discipline_deliberate_discomfort).
 
 - Enroll in workshops or courses relevant to your interests.
 - Dedicate time weekly to explore a new hobby or skill.

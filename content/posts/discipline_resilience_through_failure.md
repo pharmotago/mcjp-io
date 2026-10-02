@@ -17,7 +17,7 @@ Resilience is not simply about bouncing back; it is about evolving and adapting.
 
 #### The Link Between Failure and Growth
 
-Failures are often perceived negatively, but they hold the potential for profound growth. Each setback can serve as a lesson, prompting critical self-reflection and informed decision-making in the future. A growth mindset, a concept popularized by psychologist Carol Dweck, emphasizes that intelligence and abilities can be developed through dedication and hard work. This mindset is fundamental to transforming failures into catalysts for success.
+Failures are often perceived negatively, but they hold the potential for profound growth. Each setback can serve as a lesson, prompting critical self-reflection and informed decision-making in the future. A [growth mindset](/posts/discipline_deliberate_discomfort), a concept popularized by psychologist Carol Dweck, emphasizes that intelligence and abilities can be developed through dedication and hard work. This mindset is fundamental to transforming failures into catalysts for success.
 
 ### Strategies for Building Resilience
 

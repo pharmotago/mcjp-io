@@ -39,7 +39,7 @@ Routines create structure and predictability, which can enhance focus. Establish
 
 #### 4. Embrace Failure
 
-Failure is an inevitable part of the journey toward success. Instead of viewing setbacks as insurmountable obstacles, reframe them as learning opportunities. Analyzing what went wrong and adjusting your approach fosters resilience and a growth mindset.
+Failure is an inevitable part of the journey toward success. Instead of viewing setbacks as insurmountable obstacles, reframe them as learning opportunities. Analyzing what went wrong and adjusting your approach fosters resilience and a [growth mindset](/posts/discipline_deliberate_discomfort).
 
 #### 5. Limit Distractions
 

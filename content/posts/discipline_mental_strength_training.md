@@ -29,7 +29,7 @@ To build [mental strength](/posts/life_masculine_emotional_resilience) effective
 
 3. **Emotional Regulation**: Cultivating awareness of one’s emotions and managing them effectively is vital for maintaining clarity in decision-making.
 
-4. **Continuous Learning**: Embracing a growth mindset fosters adaptability and encourages individuals to seek knowledge and self-improvement.
+4. **Continuous Learning**: Embracing a [growth mindset](/posts/discipline_deliberate_discomfort) fosters adaptability and encourages individuals to seek knowledge and self-improvement.
 
 ### Actionable Strategies for Building Mental Strength
 

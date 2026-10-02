@@ -40,7 +40,7 @@ Resilience is the capacity to withstand or recover quickly from difficulties. Fo
    - Engage in local parenting groups or online forums.
    - Don’t hesitate to seek professional help when needed, such as therapy or counseling.
 
-4. **Embrace a Growth Mindset**
+4. **Embrace a [Growth Mindset](/posts/discipline_deliberate_discomfort)**
    - View challenges as opportunities for growth rather than obstacles.
    - Encourage your children to adopt a similar mindset, reinforcing the value of perseverance.
    - Celebrate small victories, both yours and your children's, to build confidence.

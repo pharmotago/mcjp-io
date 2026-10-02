@@ -43,7 +43,7 @@ Mindfulness allows you to observe your thoughts and feelings without judgment, f
      - Dedicate 10-15 minutes daily to mindfulness meditation.
      - Use apps like Headspace or Calm to guide your practice.
 
-2. **Develop a Growth Mindset**
+2. **Develop a [Growth Mindset](/posts/discipline_deliberate_discomfort)**
 
 Cultivating a growth mindset—the belief that your abilities can be developed through dedication and hard work—can significantly enhance your [emotional resilience](/posts/life_fatherhood_mental_health).
 

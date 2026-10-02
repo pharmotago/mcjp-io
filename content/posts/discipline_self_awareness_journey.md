@@ -77,7 +77,7 @@ Embracing failure is essential for developing self-awareness. Each misstep offer
 - Surround yourself with individuals who inspire and challenge you to grow.
 - Continuously seek new experiences that push you out of your comfort zone.
 
-A growth mindset fosters an environment where self-awareness can thrive. By embracing challenges and viewing them as opportunities for growth, you lay the groundwork for continuous self-discovery.
+A [growth mindset](/posts/discipline_deliberate_discomfort) fosters an environment where self-awareness can thrive. By embracing challenges and viewing them as opportunities for growth, you lay the groundwork for continuous self-discovery.
 
 ### Integrating Self-Awareness into Daily Life
 

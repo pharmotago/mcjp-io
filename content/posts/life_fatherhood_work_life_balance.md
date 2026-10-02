@@ -368,7 +368,7 @@ At the heart of balancing success lies self-discipline. It is the foundational t
    - Use productivity apps to streamline tasks and reduce time spent on mundane activities.
    - Implement digital detox periods to disconnect and recharge.
 
-4. **Cultivate a Growth Mindset:**
+4. **Cultivate a [Growth Mindset](/posts/discipline_deliberate_discomfort):**
    - Embrace challenges as opportunities for growth, both in your career and personal life.
    - Continuously seek learning experiences that enhance your skills and personal development.
 

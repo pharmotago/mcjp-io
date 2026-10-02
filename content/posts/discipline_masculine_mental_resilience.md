@@ -70,7 +70,7 @@ Integrity and resilience are intertwined. As men, embodying integrity means alig
 
 ### The Role of Continuous Learning
 
-Resilience is not a fixed trait; it is developed over time through continuous learning and adaptation. Embrace a growth mindset that welcomes feedback and seeks knowledge.
+Resilience is not a fixed trait; it is developed over time through continuous learning and adaptation. Embrace a [growth mindset](/posts/discipline_deliberate_discomfort) that welcomes feedback and seeks knowledge.
 
 - **Action Plan**:
   - Commit to reading one book related to personal development or resilience each month.

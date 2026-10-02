@@ -49,7 +49,7 @@ To cultivate self-discipline, one must adopt a multifaceted approach that includ
 6. **Establish Accountability Systems**  
    Share your goals with a trusted friend or mentor. Regular check-ins can provide external motivation and help you stay committed.
 
-7. **Cultivate a Growth Mindset**  
+7. **Cultivate a [Growth Mindset](/posts/discipline_deliberate_discomfort)**  
    Embrace challenges and view setbacks as opportunities for learning. A growth mindset encourages resilience, which is essential for maintaining self-discipline.
 
 ### The Role of Environment in Self-Discipline

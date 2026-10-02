@@ -31,7 +31,7 @@ Rewiring your brain for enhanced productivity and focus requires a combination o
 In addition to these strategies, it's essential to create a conducive environment that supports productivity and focus. This can involve setting up a dedicated workspace, minimizing distractions, and using tools and technology to enhance workflow and organization. For those working from home, a reliable and high-speed internet connection is crucial for staying productive and connected. We recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee and enjoy a seamless and high-speed home office connection.
 
 ## Building Self-Discipline and Integrity
-Self-discipline and integrity are essential for achieving long-term success and fulfillment. By building these qualities, individuals can develop the resilience and perseverance needed to overcome obstacles and stay motivated. This involves setting clear values and principles, practicing self-awareness and self-regulation, and cultivating a growth mindset.
+Self-discipline and integrity are essential for achieving long-term success and fulfillment. By building these qualities, individuals can develop the resilience and perseverance needed to overcome obstacles and stay motivated. This involves setting clear values and principles, practicing self-awareness and self-regulation, and cultivating a [growth mindset](/posts/discipline_deliberate_discomfort).
 
 For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://the-stoic-dad.vercel.app/) portal, which offers practical guidance and wisdom on building strong relationships, leading with integrity, and cultivating a sense of purpose and direction.
 

@@ -12,7 +12,7 @@ In a world increasingly defined by volatility, uncertainty, complexity, and ambi
 
 Resilience allows a system to absorb shock and return to its original form. Robustness implies an inherent strength that resists damage. Anti-fragility, a concept popularized by Nassim Nicholas Taleb, goes further: it describes entities that *gain* from disorder, stress, and variability. Think of a muscle that grows stronger through resistance training, or a complex system that learns and optimizes from errors. In the human mind, this translates to a profound shift in perspective: challenges are not merely obstacles to be overcome, but stimuli to be leveraged for superior development.
 
-This advanced mental framework is built upon the bedrock of self-discipline. It demands a proactive engagement with the world, a willingness to expose oneself to controlled stressors, and an unwavering commitment to iterative self-improvement. It is the antithesis of comfort-seeking; it is the embrace of deliberate discomfort as a catalyst for growth.
+This advanced mental framework is built upon the bedrock of self-discipline. It demands a proactive engagement with the world, a willingness to expose oneself to controlled stressors, and an unwavering commitment to iterative self-improvement. It is the antithesis of comfort-seeking; it is the embrace of [deliberate discomfort](/posts/discipline_deliberate_discomfort) as a catalyst for growth.
 
 ### Pillars of Cognitive Fortification
 

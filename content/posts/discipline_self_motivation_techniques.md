@@ -47,7 +47,7 @@ Positive affirmations can significantly influence your mindset. By regularly aff
 
 #### 4. Embrace a Growth Mindset
 
-Adopting a growth mindset—believing that abilities can be developed through dedication and hard work—fosters resilience. When faced with challenges, view them as opportunities for learning and growth rather than setbacks. Reflect on your experiences and extract lessons that propel you forward.
+Adopting a [growth mindset](/posts/discipline_deliberate_discomfort)—believing that abilities can be developed through dedication and hard work—fosters resilience. When faced with challenges, view them as opportunities for learning and growth rather than setbacks. Reflect on your experiences and extract lessons that propel you forward.
 
 ### Action Plan for Self-Motivation
 

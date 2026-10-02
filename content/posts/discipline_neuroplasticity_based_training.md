@@ -27,7 +27,7 @@ So, how can we apply the principles of neuroplasticity to achieve optimal perfor
 * Get enough sleep and maintain a healthy diet to support brain health and function
 * Reduce stress and anxiety through relaxation techniques, such as deep breathing or yoga
 
-In addition to these techniques, it is essential to develop a growth mindset and believe in your ability to change and adapt. This involves embracing challenges, persisting in the face of obstacles, and viewing failures as opportunities for growth and learning.
+In addition to these techniques, it is essential to develop a [growth mindset](/posts/discipline_deliberate_discomfort) and believe in your ability to change and adapt. This involves embracing challenges, persisting in the face of obstacles, and viewing failures as opportunities for growth and learning.
 
 ## Creating a Personalized Training Plan
 To achieve optimal results, it is essential to create a personalized training plan that takes into account your individual needs and goals. Here are some steps to follow:

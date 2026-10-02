@@ -25,7 +25,7 @@ Discipline serves as the backbone of mental resilience. It is through discipline
 
 #### 1. Cultivate a Growth Mindset
 
-A growth mindset, as popularized by psychologist Carol Dweck, is the belief that abilities and intelligence can be developed through effort and perseverance. Embracing this mindset encourages individuals to view challenges as opportunities for growth rather than insurmountable obstacles.
+A [growth mindset](/posts/discipline_deliberate_discomfort), as popularized by psychologist Carol Dweck, is the belief that abilities and intelligence can be developed through effort and perseverance. Embracing this mindset encourages individuals to view challenges as opportunities for growth rather than insurmountable obstacles.
 
 - **Action Steps:**
   - Reflect on past challenges and identify the lessons learned.

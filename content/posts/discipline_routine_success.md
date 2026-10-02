@@ -25,7 +25,7 @@ At its core, a success routine is built on the principles of self-discipline, in
 
 4. **Continuous Learning**: A commitment to lifelong learning distinguishes high achievers from the rest. Reading books, attending workshops, or engaging in online courses are common practices that keep their skills sharp and their minds engaged.
 
-5. **Reflection and Adaptation**: Daily reflection allows successful individuals to assess their progress and adapt their strategies as necessary. This practice fosters a growth mindset, encouraging them to learn from both successes and failures.
+5. **Reflection and Adaptation**: Daily reflection allows successful individuals to assess their progress and adapt their strategies as necessary. This practice fosters a [growth mindset](/posts/discipline_deliberate_discomfort), encouraging them to learn from both successes and failures.
 
 ### Implementing Your Success Routine
 
