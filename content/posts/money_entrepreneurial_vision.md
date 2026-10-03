@@ -76,7 +76,7 @@ As you embark on this journey, remember that the road to success is often paved 
 
 ![A visionary entrepreneur planning for the future with innovative ideas](/images/money_entrepreneurial_vision_theme.svg)
 
-In conclusion, the cultivation of a visionary mindset is an ongoing process that requires diligence, self-discipline, and a focus on long-term [asset building](/posts/money_content_site_acquisitions). By adhering to these principles, you not only enhance your chances of entrepreneurial success but also contribute positively to your community and industry. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
+In conclusion, the cultivation of a visionary mindset is an ongoing process that requires diligence, self-discipline, and a focus on long-term [asset building](/posts/money_content_site_acquisitions). By adhering to these principles, you not only enhance your chances of entrepreneurial success but also contribute positively to your community and industry. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
 
 > 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 

@@ -73,6 +73,6 @@ In our pursuit of a more focused life, we can leverage high-performance tools th
 
 ### Conclusion
 
-Technology minimalism is more than a trend; it is a lifestyle choice that empowers us to take control of our attention and our lives. By cultivating focus through intentional technology use, we can enhance our productivity and ultimately achieve greater success in a distracted world. Embrace the principles of minimalism today and unlock your potential for profound focus and accomplishment.
+Technology minimalism is more than a trend; it is a lifestyle choice that empowers us to take control of our attention and our lives. By cultivating focus through intentional technology use, we can enhance our productivity and ultimately achieve greater success in a distracted world. Embrace the principles of minimalism today and unlock your potential for profound focus and accomplishment. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
 
 > 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

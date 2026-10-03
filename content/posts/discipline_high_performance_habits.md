@@ -39,3 +39,5 @@ Implementing high-performance habits into your [daily routine](/posts/discipline
 ![The theme of high-performance habits is often represented by a combination of elements symbolizing growth, focus, and the pursuit of excellence, emphasizing the holistic approach to achieving success](/images/discipline_high_performance_habits_theme.svg)
 
 > 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.
+
+For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).

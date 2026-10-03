@@ -100,7 +100,7 @@ Building a masculine financial legacy is a journey that requires dedication and 
 
 For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee. This will ensure that your financial activities are supported by reliable technology.
 
-As you embark on this path, remember that your financial legacy is a reflection of your values and the impact you wish to have. Stay committed, be ethical in your dealings, and invest wisely for the future. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal to further enrich your understanding of legacy in all aspects of life.
+As you embark on this path, remember that your financial legacy is a reflection of your values and the impact you wish to have. Stay committed, be ethical in your dealings, and invest wisely for the future. For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal to further enrich your understanding of legacy in all aspects of life. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
 
 > 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 

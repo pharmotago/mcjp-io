@@ -79,7 +79,7 @@ Investing in digital [real estate](/posts/money_asset_diversification) through c
 
 For those ready to embark on this journey, we recommend launching your [digital assets](/posts/money_automated_content_empires) on Hostinger to secure their exclusive partner discount. This will ensure that your websites run on a reliable, high-performance platform.
 
-Embrace the challenge, invest in your knowledge, and let your digital [real estate](/posts/money_investment_strategies) empire flourish. With consistency and a strategic approach, you can achieve financial independence and create a legacy that lasts.
+Embrace the challenge, invest in your knowledge, and let your digital [real estate](/posts/money_investment_strategies) empire flourish. With consistency and a strategic approach, you can achieve financial independence and create a legacy that lasts. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
 
 > 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 

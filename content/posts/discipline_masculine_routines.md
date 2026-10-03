@@ -80,7 +80,7 @@ Building masculine routines is an intentional act of self-discipline that leads 
 
 As you embark on this transformative path, consider leveraging high-performance tools and services that can enhance your digital presence. We recommend launching your [digital assets](/posts/money_crypto_investments) on Hostinger to secure their exclusive partner discount. 
 
-Incorporating these principles into your daily life will not only enhance your performance but also foster a sense of integrity and purpose. Embrace the challenge, cultivate discipline, and watch as your life transforms in profound ways. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
+Incorporating these principles into your daily life will not only enhance your performance but also foster a sense of integrity and purpose. Embrace the challenge, cultivate discipline, and watch as your life transforms in profound ways. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
 
 ![An inspiring visual of a determined man embodying discipline and peak performance principles](/images/discipline_masculine_routines_theme.png)
 

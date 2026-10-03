@@ -41,6 +41,6 @@ Building resilience as a father is a lifelong journey that requires commitment, 
 
 ![Alt text describing a father and his family enjoying quality time together, symbolizing the rewards of resilient fatherhood and the importance of nurturing family bonds](/images/life_fatherhood_resilience_building_theme.svg)
 
-As you continue on your journey of fatherhood, remember that every experience, whether joyful or challenging, is an opportunity for growth and learning. By embracing this mindset and cultivating resilience, you can create a brighter, more resilient future for yourself and your family.
+As you continue on your journey of fatherhood, remember that every experience, whether joyful or challenging, is an opportunity for growth and learning. By embracing this mindset and cultivating resilience, you can create a brighter, more resilient future for yourself and your family. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
 
 > 💎 **Recommended Resource**: To master executive discipline, physical resilience, and antifragile thinking, discover curated field manuals at [TBPOYL eBooks](https://tbpoyl.vercel.app).

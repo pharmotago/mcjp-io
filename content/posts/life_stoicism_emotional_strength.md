@@ -61,6 +61,6 @@ The journey to becoming a modern Stoic man is not without its challenges, but th
 
 ![An inspiring visual representation of Stoicism, embodying strength and resilience in the face of challenges](/images/life_stoicism_emotional_strength_theme.png)
 
-As you navigate through life's complexities, remember that true strength lies not in the avoidance of hardship, but in your ability to confront and transcend it. Embrace the Stoic way, and you will find a path to not only survive but thrive, leading others with integrity and resilience.
+As you navigate through life's complexities, remember that true strength lies not in the avoidance of hardship, but in your ability to confront and transcend it. Embrace the Stoic way, and you will find a path to not only survive but thrive, leading others with integrity and resilience. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
 
 > 💎 **Recommended Resource**: To master executive discipline, physical resilience, and antifragile thinking, discover curated field manuals at [TBPOYL eBooks](https://tbpoyl.vercel.app).

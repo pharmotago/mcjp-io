@@ -435,6 +435,34 @@ export default async function Home({
                   </a>
                 </div>
 
+                {/* Payroller Partner Offer Widget */}
+                <div className="p-6 rounded-2xl bg-gradient-to-br from-blue-50/60 to-indigo-50/30 dark:from-slate-900/90 dark:to-slate-900/60 border border-blue-200/80 dark:border-blue-500/30 flex flex-col justify-between min-h-[220px] shadow-xs">
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-bold text-blue-700 dark:text-blue-400 uppercase tracking-widest">
+                        Automated Operations
+                      </span>
+                      <span className="px-2 py-0.5 text-[9px] font-extrabold bg-blue-100 dark:bg-blue-950/80 text-blue-700 dark:text-blue-300 rounded-full">
+                        ATO STP Phase 2
+                      </span>
+                    </div>
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">
+                      Free Australian Payroll
+                    </h3>
+                    <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
+                      Run single touch payroll, issue compliant payslips, and automate superannuation tracking for your Australian company or contractor practice without monthly fees.
+                    </p>
+                  </div>
+                  <a
+                    href="https://app.payroller.com.au/signup?referredByFriend=pharmotago"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded-lg text-xs font-semibold transition-colors mt-4 shadow-sm"
+                  >
+                    Get Started with Payroller &rarr;
+                  </a>
+                </div>
+
                 {/* The Stoic Dad Sister Project */}
                 <div className="p-6 rounded-2xl bg-white border border-slate-200/90 flex flex-col justify-between min-h-[220px] shadow-xs">
                   <div className="space-y-2">

@@ -84,6 +84,6 @@ To maintain seamless connectivity during your deep work sessions, consider signi
 
 ![An inspiring workspace setup that promotes deep work and productivity](/images/discipline_deep_work_protocols_theme.png)
 
-By committing to these strategies, you will not only improve your cognitive output but also build a strong foundation for [personal growth](/posts/discipline_emotional_intelligence_training) and professional achievement. Remember, the journey toward mastery is a marathon, not a sprint. Embrace the process and cultivate the discipline necessary for lasting success.
+By committing to these strategies, you will not only improve your cognitive output but also build a strong foundation for [personal growth](/posts/discipline_emotional_intelligence_training) and professional achievement. Remember, the journey toward mastery is a marathon, not a sprint. Embrace the process and cultivate the discipline necessary for lasting success. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
 
 > 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

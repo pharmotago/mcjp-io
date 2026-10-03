@@ -87,7 +87,7 @@ A true legacy is not merely about the assets you leave behind; it is about the c
 
 In conclusion, fatherhood is an opportunity to create a lasting impact on future generations. By embracing the role of a thoughtful planner, you can cultivate a legacy that embodies your values, strengthens family bonds, and empowers your children to thrive. 
 
-Consider the steps outlined above as you embark on this journey. Each action you take today is a seed planted for tomorrow’s growth. Together, we can ensure that our legacies are not only remembered but cherished.
+Consider the steps outlined above as you embark on this journey. Each action you take today is a seed planted for tomorrow’s growth. Together, we can ensure that our legacies are not only remembered but cherished. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
 
 ![Fatherhood legacy and future planning](https://mcjp-io.vercel.app/images/life_fatherhood_legacy_planning_theme.png)
 

@@ -88,6 +88,20 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col transition-colors duration-200">
+        {/* Global Announcement Ribbon */}
+        <div className="bg-slate-900 text-slate-200 text-xs py-2 px-4 text-center font-medium border-b border-slate-800 flex items-center justify-center gap-2">
+          <span className="inline-block w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+          <span>Running an Australian business or solo practice? Manage STP-compliant weekly payroll for free with</span>
+          <a
+            href="https://app.payroller.com.au/signup?referredByFriend=pharmotago"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-bold text-blue-400 hover:text-blue-300 underline inline-flex items-center gap-0.5 ml-1"
+          >
+            Payroller &rarr;
+          </a>
+        </div>
+
         {/* Navigation */}
         <Navbar />
 
@@ -119,6 +133,8 @@ export default function RootLayout({
               <a href="/contact" className="hover:text-slate-800 transition-colors">Contact</a>
               <a href="/privacy" className="hover:text-slate-800 transition-colors">Privacy Policy</a>
               <a href="/terms" className="hover:text-slate-800 transition-colors">Terms of Service</a>
+              <a href="https://app.payroller.com.au/signup?referredByFriend=pharmotago" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors font-semibold text-blue-600">Free STP Payroll (Payroller)</a>
+              <span className="text-slate-300 hidden md:inline">|</span>
               <a href="https://www.hostinger.com?REFERRALCODE=OYBPHARMOWCY" target="_blank" rel="noopener noreferrer" className="hover:text-amber-600 transition-colors font-medium">Hosted on Hostinger (20% Off)</a>
               <span className="text-slate-300 hidden md:inline">|</span>
               <span>Sovereign Intelligence Systems</span>

@@ -79,6 +79,6 @@ In the face of [modern challenges](/posts/life_modern_masculine_ethics), it is o
 - Start conversations with your sons about resilience and the value of challenges.
 - Build a network of other fathers to share resources and support.
 
-By taking these steps, we can ensure that our sons are not just prepared to face the world but are ready to thrive within it.
+By taking these steps, we can ensure that our sons are not just prepared to face the world but are ready to thrive within it. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
 
 > 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.

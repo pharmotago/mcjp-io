@@ -77,7 +77,7 @@ Mastering the art of negotiation is not merely about securing favorable deals; i
 
 Remember, every negotiation is an opportunity to build wealth—not just in terms of financial assets but also in relationships and reputation. As you embark on this journey towards becoming a proficient negotiator, consider leveraging reliable tools and resources. For those looking to establish a strong digital presence as part of your negotiation strategy, we recommend launching your [digital assets](/posts/money_ai_content_licensing) on Hostinger to secure their exclusive partner discount.
 
-Embrace the challenge of negotiation with integrity, discipline, and a strategic mindset, and you will see your financial landscape transform in profound ways.
+Embrace the challenge of negotiation with integrity, discipline, and a strategic mindset, and you will see your financial landscape transform in profound ways. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
 
 > 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 

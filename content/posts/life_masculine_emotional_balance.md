@@ -70,6 +70,6 @@ Building emotional resilience is akin to investing in a long-term asset. It requ
 
 The masculine journey to emotional balance is a continuous process of self-discovery and growth. It demands courage to challenge traditional norms and the discipline to cultivate a more nuanced understanding of strength. By embracing this journey, modern men can achieve a harmonious balance that enhances their [mental health](/posts/life_emotional_strength) and enriches their lives.
 
-As you embark on this path, remember that [emotional balance](/posts/life_masculine_health) is not a destination but a way of life—one that offers profound rewards for those willing to take up the challenge.
+As you embark on this path, remember that [emotional balance](/posts/life_masculine_health) is not a destination but a way of life—one that offers profound rewards for those willing to take up the challenge. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
 
 > 💎 **Recommended Resource**: To master executive discipline, physical resilience, and antifragile thinking, discover curated field manuals at [TBPOYL eBooks](https://tbpoyl.vercel.app).

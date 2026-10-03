@@ -82,7 +82,7 @@ To support your digital presence as you embark on your investment journey, consi
 
 ![Visual representation of long-term wealth growth and investment themes](https://mcjp-io.vercel.app/images/money_investing_for_long_term_weath_theme.svg)
 
-Your path to [financial independence](/posts/money_infinite_banking_concept) is within reach. Embrace these strategies, and watch your wealth accumulate as you remain steadfast in your commitment to long-term investing.
+Your path to [financial independence](/posts/money_infinite_banking_concept) is within reach. Embrace these strategies, and watch your wealth accumulate as you remain steadfast in your commitment to long-term investing. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
 
 > 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 

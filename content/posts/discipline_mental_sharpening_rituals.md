@@ -79,6 +79,6 @@ In conclusion, view these mental sharpening rituals not just as tasks but as int
 
 ### ⚡ Upgrade Your Home Office Connectivity
 
-For a seamless, high-speed remote work setup, we highly recommend **[Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690)**. Reliable internet is the backbone of any stoic and productive home office. Sign up using our referral link to save on your plan!
+For a seamless, high-speed remote work setup, we highly recommend **[Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690)**. Reliable internet is the backbone of any stoic and productive home office. Sign up using our referral link to save on your plan! For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
 
 > 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

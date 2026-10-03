@@ -65,7 +65,7 @@ In conclusion, navigating the future of tech investments requires a deep underst
 
 ![Tech investments driving change](/images/money_future_tech_investments_tech.png)
 
-For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, where principles of discipline and long-term planning are emphasized, aligning with the foundational qualities needed for successful investing. Embrace the future with confidence, discipline, and a commitment to continuous growth. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee.
+For deeper insights on masculine resilience and active parenting, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal, where principles of discipline and long-term planning are emphasized, aligning with the foundational qualities needed for successful investing. Embrace the future with confidence, discipline, and a commitment to continuous growth. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
 
 > 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 

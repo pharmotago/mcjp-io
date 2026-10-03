@@ -528,6 +528,29 @@ export default async function PostPage({
           </a>
         </div>
 
+        {/* Payroller Partner Recommendation Box */}
+        <div className="p-6 rounded-2xl border border-blue-200/80 dark:border-blue-500/30 bg-gradient-to-br from-blue-50/50 to-indigo-50/20 dark:from-slate-900/80 dark:to-slate-900/50 my-8 space-y-3 shadow-xs">
+          <div className="flex items-center gap-2">
+            <span className="px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-950/80 text-blue-800 dark:text-blue-300 text-[10px] font-bold uppercase tracking-wider">
+              Recommended Payroll & STP
+            </span>
+            <span className="text-xs font-semibold text-slate-800 dark:text-slate-200">
+              Free Single Touch Payroll with Payroller
+            </span>
+          </div>
+          <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+            Managing staff wages, contractor payouts, or director remuneration for an Australian entity? We run and recommend <strong>Payroller</strong> for simple, seamless, and 100% ATO STP Phase 2 compliance without monthly software fees.
+          </p>
+          <a
+            href="https://app.payroller.com.au/signup?referredByFriend=pharmotago"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block text-xs font-bold text-blue-700 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 underline transition-colors"
+          >
+            Sign Up for Payroller (Free Referral Link) &rarr;
+          </a>
+        </div>
+
         {/* Superloop Affiliate CTA */}
         <AffiliateCTA />
 

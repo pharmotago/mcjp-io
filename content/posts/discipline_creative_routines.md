@@ -79,7 +79,7 @@ Incorporating creative routines into your life will not only enhance your innova
 
 In conclusion, discipline is not the antithesis of creativity; rather, it is its greatest ally. By establishing disciplined creative routines, you can unlock the door to innovation and success. Embrace the process, remain committed to your routines, and watch as your creative potential unfolds. The journey may be challenging, but the rewards of sustained creativity and success are well worth the effort. 
 
-To ensure your [digital assets](/posts/money_crypto_investments) are secure and high-performing, consider launching your projects on Hostinger—a reliable web host that can provide the infrastructure you need to thrive in your creative pursuits.
+To ensure your [digital assets](/posts/money_crypto_investments) are secure and high-performing, consider launching your projects on Hostinger—a reliable web host that can provide the infrastructure you need to thrive in your creative pursuits. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
 
 > 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.
 

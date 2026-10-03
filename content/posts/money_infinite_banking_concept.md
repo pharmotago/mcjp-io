@@ -63,7 +63,7 @@ In conclusion, the Infinite Banking Concept offers a modern, effective approach 
 
 As you embark on this transformative journey, consider the importance of a reliable digital presence in today’s financial landscape. We recommend launching your [digital assets](/posts/money_ai_content_licensing) on Hostinger to secure their exclusive partner discount and set the stage for your [financial success](/posts/money_venture_capital_basics). 
 
-Embrace the principles of IBC, remain disciplined, and watch as you unlock the doors to a more secure and prosperous financial future.
+Embrace the principles of IBC, remain disciplined, and watch as you unlock the doors to a more secure and prosperous financial future. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
 
 > 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 

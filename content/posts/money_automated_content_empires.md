@@ -76,7 +76,7 @@ Building automated content empires is not a get-rich-quick scheme; it is an exer
 
 The algorithms will fluctuate, and the specific AI tools will evolve, but the underlying principle remains immutable: create genuine value at scale, own the distribution channels, and maintain the discipline to iterate relentlessly. 
 
-The new wealth frontier is open. The tools are in your hands. The only question that remains is whether you possess the discipline to build the empire.
+The new wealth frontier is open. The tools are in your hands. The only question that remains is whether you possess the discipline to build the empire. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
 
 > 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 

@@ -102,6 +102,62 @@ export default function AboutPage() {
         </section>
 
         <section className="space-y-4 pt-4 border-t border-slate-100">
+          <h2 className="text-xl md:text-2xl font-bold text-slate-900">Sovereign Stack & Recommended Tools</h2>
+          <p className="text-slate-600 text-sm">
+            The reliable tools and infrastructure powering our automated business and remote workflows:
+          </p>
+          <div className="grid gap-4 md:grid-cols-3 mt-4">
+            <div className="p-4 rounded-xl border border-blue-200/80 bg-blue-50/30 flex flex-col justify-between space-y-3">
+              <div>
+                <span className="text-[10px] font-bold text-blue-700 uppercase tracking-wider block mb-1">Payroll & Compliance</span>
+                <h3 className="font-bold text-slate-900 text-sm">Payroller (ATO STP Phase 2)</h3>
+                <p className="text-xs text-slate-600 mt-1">Free Australian STP-compliant weekly payroll for small businesses, contractors, and director wages.</p>
+              </div>
+              <a
+                href="https://app.payroller.com.au/signup?referredByFriend=pharmotago"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-bold text-blue-700 hover:text-blue-800 underline"
+              >
+                Sign up free &rarr;
+              </a>
+            </div>
+
+            <div className="p-4 rounded-xl border border-amber-200/80 bg-amber-50/30 flex flex-col justify-between space-y-3">
+              <div>
+                <span className="text-[10px] font-bold text-amber-700 uppercase tracking-wider block mb-1">Web Infrastructure</span>
+                <h3 className="font-bold text-slate-900 text-sm">Hostinger</h3>
+                <p className="text-xs text-slate-600 mt-1">High-performance NVMe SSD hosting, ultra-fast TTFB, and reliable uptime for sovereign web applications.</p>
+              </div>
+              <a
+                href="https://www.hostinger.com?REFERRALCODE=OYBPHARMOWCY"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-bold text-amber-700 hover:text-amber-800 underline"
+              >
+                Claim 20% discount &rarr;
+              </a>
+            </div>
+
+            <div className="p-4 rounded-xl border border-orange-200/80 bg-orange-50/30 flex flex-col justify-between space-y-3">
+              <div>
+                <span className="text-[10px] font-bold text-orange-700 uppercase tracking-wider block mb-1">High-Speed Connectivity</span>
+                <h3 className="font-bold text-slate-900 text-sm">Superloop NBN</h3>
+                <p className="text-xs text-slate-600 mt-1">Low-latency, high-bandwidth home office connectivity optimized for remote engineering and AI pipelines.</p>
+              </div>
+              <a
+                href="https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-bold text-orange-700 hover:text-orange-800 underline"
+              >
+                Save on plan fee &rarr;
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section className="space-y-4 pt-4 border-t border-slate-100">
           <h2 className="text-xl md:text-2xl font-bold text-slate-900">Start with our most-read articles:</h2>
           <ul className="space-y-3">
             <li>

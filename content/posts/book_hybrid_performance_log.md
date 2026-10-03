@@ -67,6 +67,6 @@ The path to excellence in both body and mind is not a solitary endeavor. It is a
 
 Don’t let opportunity pass you by. Equip yourself with the strategies and insights contained in this book, and take the first step toward a transformative journey. 
 
-[Buy on Amazon](https://www.amazon.com/dp/B0H38J3S4M?tag=mcjpio-20) and commit to building the resilient body and disciplined life you deserve.
+[Buy on Amazon](https://www.amazon.com/dp/B0H38J3S4M?tag=mcjpio-20) and commit to building the resilient body and disciplined life you deserve. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
 
 > 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

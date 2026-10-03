@@ -248,6 +248,6 @@ Harnessing the power of [deep focus](/posts/discipline_solitude_cognitive_clarit
 
 ![An inspiring workspace that promotes productivity and deep focus, featuring organized tools and a calm ambiance](/images/discipline_focus_productivity_theme.png)
 
-In the pursuit of excellence, the commitment to [deep focus](/posts/discipline_focus_techniques) will serve as your greatest ally. Invest in this skill, and you will reap the rewards for years to come.
+In the pursuit of excellence, the commitment to [deep focus](/posts/discipline_focus_techniques) will serve as your greatest ally. Invest in this skill, and you will reap the rewards for years to come. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
 
 > 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.
