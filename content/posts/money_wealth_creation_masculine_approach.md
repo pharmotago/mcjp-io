@@ -83,7 +83,7 @@ As you embark on your journey toward [financial independence](/posts/money_infin
 
 ![Visual representation of wealth creation strategies](/images/money_wealth_creation_masculine_approach_theme.svg) 
 
-Incorporate these practices into your [daily routine](/posts/discipline_morning_routines), and watch as your financial landscape transforms, fueled by the powerful energies of determination, integrity, and strategic foresight. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
+Incorporate these practices into your [daily routine](/posts/discipline_morning_routines), and watch as your financial landscape transforms, fueled by the powerful energies of determination, integrity, and strategic foresight. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for Payroller.
 
 > 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 

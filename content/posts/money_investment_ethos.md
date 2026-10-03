@@ -82,7 +82,7 @@ Crafting your investment ethos is an ongoing journey that requires commitment, e
 
 For those looking to secure their [digital assets](/posts/money_ai_content_licensing), we recommend launching your digital ventures on Hostinger to access their exclusive partner discount. By investing in a reliable web host, you position yourself for future growth in the online marketplace.
 
-As you refine your investment ethos, remain steadfast in your pursuit of knowledge and self-discipline. The principles you adopt today will pave the way for [financial freedom](/posts/money_financial_freedom_habits) tomorrow. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
+As you refine your investment ethos, remain steadfast in your pursuit of knowledge and self-discipline. The principles you adopt today will pave the way for [financial freedom](/posts/money_financial_freedom_habits) tomorrow. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for Payroller.
 
 > 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 

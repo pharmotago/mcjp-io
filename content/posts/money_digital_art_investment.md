@@ -88,7 +88,7 @@ For a seamless and high-speed home office connection, we recommend signing up fo
 
 Investing in digital art is not merely a trend; it represents the future of artistic value and wealth accumulation. By embracing this innovative market, you position yourself at the forefront of the financial and cultural revolution. With self-discipline, integrity, and strategic action, you can navigate this dynamic landscape and cultivate a portfolio that reflects both your passion for art and your financial aspirations. 
 
-As you embark on this journey, remember that the most successful investors are those who continuously learn, adapt, and engage with their chosen markets. With the right mindset and approach, the canvas of digital art investment awaits your unique brushstroke. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
+As you embark on this journey, remember that the most successful investors are those who continuously learn, adapt, and engage with their chosen markets. With the right mindset and approach, the canvas of digital art investment awaits your unique brushstroke. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for Payroller.
 
 > 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 

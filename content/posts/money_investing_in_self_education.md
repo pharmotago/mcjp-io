@@ -78,7 +78,7 @@ We recommend launching your [digital assets](/posts/money_ai_content_licensing) 
 
 ![Wealth creation through continuous self-education](/images/money_investing_in_self_education_theme.png)
 
-As you reflect on your journey, consider how your commitment to learning can not only enrich your life but also create a legacy of financial empowerment for future generations. Embrace self-education as a lifelong investment, and watch as the dividends of your knowledge compound into lasting wealth. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
+As you reflect on your journey, consider how your commitment to learning can not only enrich your life but also create a legacy of financial empowerment for future generations. Embrace self-education as a lifelong investment, and watch as the dividends of your knowledge compound into lasting wealth. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for Payroller.
 
 > 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 

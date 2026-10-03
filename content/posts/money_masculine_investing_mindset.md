@@ -93,7 +93,7 @@ For those looking to establish a strong digital presence while managing investme
 
 ![A man reflecting on financial goals with determination and clarity](/images/money_masculine_investing_mindset_theme.svg)
 
-In summary, adopting a masculine investing mindset is about more than just numbers; it’s about cultivating a character that can withstand the tests of time and market challenges. By implementing these strategies, you will find yourself not only on the path to [financial growth](/posts/money_art_of_negotiation) but also on a journey of [personal development](/posts/discipline_mindset_habits) and integrity. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
+In summary, adopting a masculine investing mindset is about more than just numbers; it’s about cultivating a character that can withstand the tests of time and market challenges. By implementing these strategies, you will find yourself not only on the path to [financial growth](/posts/money_art_of_negotiation) but also on a journey of [personal development](/posts/discipline_mindset_habits) and integrity. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for Payroller.
 
 > 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 

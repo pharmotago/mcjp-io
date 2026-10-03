@@ -172,7 +172,7 @@ To leverage neuroplasticity for [personal growth](/posts/discipline_self_awarene
 
 3. **Embrace Lifelong Learning**: Actively seek out new knowledge and skills. Whether through formal education, reading, or online courses, continual learning stimulates neuroplasticity and fosters adaptability.
 
-4. **Develop a Growth Mindset**: Cultivate a mindset that embraces challenges and views failures as opportunities for learning. This perspective not only enhances resilience but also supports the brain?�s adaptability.
+4. **Develop a [Growth Mindset](/posts/discipline_deliberate_discomfort)**: Cultivate a mindset that embraces challenges and views failures as opportunities for learning. This perspective not only enhances resilience but also supports the brain?�s adaptability.
 
 5. **Establish Consistent Routines**: Create [daily habits](/posts/discipline_routine_success) that support your goals. Consistency is key to reinforcing the desired neural pathways, making it easier to maintain discipline over time.
 
@@ -210,6 +210,6 @@ Harnessing the power of neuroplasticity is not merely a theoretical endeavor; it
 
 The journey of transformation is continuous, requiring commitment and intentionality. For those who seek deeper insights into resilience and personal development, I encourage you to explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/). This resource offers invaluable perspectives on fostering strength and integrity in both personal and familial contexts.
 
-Ultimately, by embracing the principles of neuroplasticity and integrating actionable strategies into our lives, we can unlock our potential and navigate the complexities of growth with confidence and discipline. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
+Ultimately, by embracing the principles of neuroplasticity and integrating actionable strategies into our lives, we can unlock our potential and navigate the complexities of growth with confidence and discipline. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for Payroller.
 
 > 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

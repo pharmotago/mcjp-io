@@ -40,4 +40,4 @@ Implementing high-performance habits into your [daily routine](/posts/discipline
 
 > 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.
 
-For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
+For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for Payroller.

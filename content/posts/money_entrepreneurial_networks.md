@@ -80,7 +80,7 @@ Building entrepreneurial networks is not an overnight endeavor; it requires comm
 
 In an increasingly interconnected world, your network is your net worth. Invest in it wisely, and you will unlock pathways to prosperity and success. 
 
-For those embarking on digital ventures, we recommend launching your [digital assets](/posts/money_crypto_investments) on Hostinger to secure their exclusive partner discount. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
+For those embarking on digital ventures, we recommend launching your [digital assets](/posts/money_crypto_investments) on Hostinger to secure their exclusive partner discount. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for Payroller.
 
 > 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 

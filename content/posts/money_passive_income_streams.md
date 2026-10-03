@@ -76,7 +76,7 @@ To effectively implement these strategies and work towards [financial freedom](/
 
 Reflecting on my journey, I've learned that unlocking [passive income](/posts/money_ai_content_licensing) is not just about financial gain but about creating a life aligned with my values and priorities. It's about having the freedom to attend my daughters' school events or work on my tech projects at 2 am while they sleep peacefully. By embracing these strategies with dedication, you not only build wealth but also carve out the space to live life on your own terms.
 
-For more insights on building resilience and pursuing your goals, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. Remember, the path to financial freedom is a marathon, not a sprint. Invest wisely, stay disciplined, and watch your passive income grow. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
+For more insights on building resilience and pursuing your goals, explore [The Stoic Dad](https://mcjp-blog-git-main-mcjp.vercel.app/) portal. Remember, the path to financial freedom is a marathon, not a sprint. Invest wisely, stay disciplined, and watch your passive income grow. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for Payroller.
 
 > 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 

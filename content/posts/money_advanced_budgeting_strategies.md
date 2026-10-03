@@ -72,7 +72,7 @@ For those looking to build an online presence to share their financial journey o
 
 ![A thematic representation of wealth accumulation through advanced budgeting techniques](images/money_advanced_budgeting_strategies_theme.svg)
 
-As you embark on this transformative path, remember that self-discipline, long-term [asset building](/posts/money_content_site_acquisitions), and a commitment to integrity will be your most valuable allies in achieving financial independence. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
+As you embark on this transformative path, remember that self-discipline, long-term [asset building](/posts/money_content_site_acquisitions), and a commitment to integrity will be your most valuable allies in achieving financial independence. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for Payroller.
 
 > 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 

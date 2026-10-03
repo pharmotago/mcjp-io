@@ -89,7 +89,7 @@ In a world increasingly aware of its environmental and [social responsibilities]
 
 For those looking to build a digital presence alongside their investment journey, we recommend launching your [digital assets](/posts/money_crypto_investments) on Hostinger to secure their exclusive partner discount and ensure your ideas reach a wider audience.
 
-As you pursue sustainable [investment strategies](/posts/money_investing_for_long_term_weath), remember that you possess the power to shape a better future for yourself and the planet. Embrace this opportunity with integrity and discipline, for the rewards—both financial and ethical—are well worth the effort. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
+As you pursue sustainable [investment strategies](/posts/money_investing_for_long_term_weath), remember that you possess the power to shape a better future for yourself and the planet. Embrace this opportunity with integrity and discipline, for the rewards—both financial and ethical—are well worth the effort. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for Payroller.
 
 > 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 

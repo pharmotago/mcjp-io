@@ -38,7 +38,7 @@ An anti-fragile mind is a learning machine. It thrives on feedback, both positiv
 
 #### 3. Cultivating a Growth Mindset on Steroids
 
-Carol Dweck's concept of a growth mindset is foundational, but anti-fragility amplifies it. It's not just believing your abilities can develop; it's actively seeking the friction that *causes* that development. Challenges are not just opportunities to learn; they are *necessary inputs* for strengthening. This mindset embraces uncertainty and complexity as the very conditions that foster innovation and personal evolution. Integrity here means being honest about your current limitations and relentlessly pursuing their expansion.
+Carol Dweck's concept of a [growth mindset](/posts/discipline_deliberate_discomfort) is foundational, but anti-fragility amplifies it. It's not just believing your abilities can develop; it's actively seeking the friction that *causes* that development. Challenges are not just opportunities to learn; they are *necessary inputs* for strengthening. This mindset embraces uncertainty and complexity as the very conditions that foster innovation and personal evolution. Integrity here means being honest about your current limitations and relentlessly pursuing their expansion.
 
 #### 4. Strategic Redundancy and Optionality
 
@@ -79,6 +79,6 @@ This framework equips you to view market downturns as opportunities for strategi
 
 ### The Discipline of Becoming Anti-Fragile
 
-The journey to cognitive fortification is ongoing. It requires unwavering discipline, self-awareness, and a courageous embrace of the unknown. It is a commitment to seeing every disruption as an invitation to evolve, every stressor as a signal for adaptation, and every moment of unpredictability as a chance to demonstrate superior capability. By consciously applying these principles, you don't just prepare for a volatile world; you become an active participant in its shaping, drawing strength from its very nature. This is the ultimate form of self-mastery, a true long-term asset in an era of constant change. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
+The journey to cognitive fortification is ongoing. It requires unwavering discipline, self-awareness, and a courageous embrace of the unknown. It is a commitment to seeing every disruption as an invitation to evolve, every stressor as a signal for adaptation, and every moment of unpredictability as a chance to demonstrate superior capability. By consciously applying these principles, you don't just prepare for a volatile world; you become an active participant in its shaping, drawing strength from its very nature. This is the ultimate form of self-mastery, a true long-term asset in an era of constant change. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for Payroller.
 
 > 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

@@ -15,7 +15,7 @@ In an era defined by relentless competition and the ceaseless demands of modern 
 
 ### Understanding Mental Sharpness
 
-Mental sharpness refers to the clarity and agility of thought, enabling individuals to process information quickly, make decisions effectively, and maintain sustained focus. In a world filled with distractions, cultivating this quality is crucial. It is not merely an innate trait but a skill that can be sharpened through disciplined practices.
+[Mental sharpness](/posts/discipline_primal_movement_cognition) refers to the clarity and agility of thought, enabling individuals to process information quickly, make decisions effectively, and maintain sustained focus. In a world filled with distractions, cultivating this quality is crucial. It is not merely an innate trait but a skill that can be sharpened through disciplined practices.
 
 Achieving [peak performance](/posts/discipline_masculine_focus_techniques) hinges on the cultivation of this mental sharpness. Whether you are preparing for a crucial business presentation, studying for exams, or navigating complex life decisions, a sharp mind is your most reliable ally.
 
@@ -79,6 +79,6 @@ In conclusion, view these mental sharpening rituals not just as tasks but as int
 
 ### ⚡ Upgrade Your Home Office Connectivity
 
-For a seamless, high-speed remote work setup, we highly recommend **[Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690)**. Reliable internet is the backbone of any stoic and productive home office. Sign up using our referral link to save on your plan! For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
+For a seamless, high-speed remote work setup, we highly recommend **[Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690)**. Reliable internet is the backbone of any stoic and productive home office. Sign up using our referral link to save on your plan! For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for Payroller.
 
 > 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

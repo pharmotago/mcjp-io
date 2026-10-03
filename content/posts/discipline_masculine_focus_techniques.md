@@ -17,7 +17,7 @@ In today's fast-paced world, where distractions are pervasive, cultivating a sha
 
 ## Understanding Focus: The Foundation of Peak Performance
 
-Focus is more than mere attention; it is the ability to direct one's mental resources toward a specific task or goal while resisting distractions. In the context of masculine performance, focus is foundational. It enables men to channel their energy effectively, fostering a disciplined approach to challenges.
+Focus is more than mere attention; it is the ability to direct one's mental resources toward a specific task or goal while resisting distractions. In the context of [masculine performance](/posts/discipline_anti_distraction_mastery), focus is foundational. It enables men to channel their energy effectively, fostering a disciplined approach to challenges.
 
 ### The Neuroscience of Focus
 

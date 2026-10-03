@@ -37,7 +37,7 @@ To embark on this journey of mastering mindful technology use, consider the foll
 
 ### Tools for Enhancing Digital Discipline
 
-Several tools can aid in your quest for digital discipline:
+Several tools can aid in your quest for [digital discipline](/posts/discipline_anti_distraction_mastery):
 
 - **Time Management Apps**: Tools like Trello or Asana can help plan your day and keep track of tasks without getting lost in the digital noise.
 

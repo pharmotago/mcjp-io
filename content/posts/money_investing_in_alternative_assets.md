@@ -73,7 +73,7 @@ This requires integrity. You must be brutally honest with yourself about your ri
 
 Wealth is not built in a quarter; it is built over decades. The new frontier of alternative assets offers the tools necessary to break free from the limitations of the traditional financial system. It provides the means to protect your labor, compound your capital, and establish a foundation of unshakeable financial autonomy.
 
-Step into the arena with clear eyes and a disciplined hand. Do the hard work of understanding these assets, allocate your capital with intention, and build a portfolio that will endure whatever the future holds. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
+Step into the arena with clear eyes and a disciplined hand. Do the hard work of understanding these assets, allocate your capital with intention, and build a portfolio that will endure whatever the future holds. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for Payroller.
 
 > 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 

@@ -69,7 +69,7 @@ For those embarking on this path, consider launching your [digital assets](/post
 
 ![Strategies for mastering financial habits](https://mcjp-io.vercel.app/images/money_psychology_of_spending_theme.svg)
 
-As you navigate this journey, remember that true wealth is not merely about accumulating money—it's about fostering a mindset of integrity, discipline, and purpose. Embrace the challenge, remain steadfast in your goals, and watch as your financial landscape transforms. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
+As you navigate this journey, remember that true wealth is not merely about accumulating money—it's about fostering a mindset of integrity, discipline, and purpose. Embrace the challenge, remain steadfast in your goals, and watch as your financial landscape transforms. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for Payroller.
 
 > 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.
 

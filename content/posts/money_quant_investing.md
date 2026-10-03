@@ -77,7 +77,7 @@ As you embark on this journey towards financial autonomy, remember that the prin
 
 For those seeking to create a digital presence to share insights or track their investment journey, we recommend launching your [digital assets](/posts/money_ai_content_licensing) on Hostinger to secure their exclusive partner discount. 
 
-Embrace the power of quantitative investing, and take the first step towards a more prosperous future today. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
+Embrace the power of quantitative investing, and take the first step towards a more prosperous future today. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for Payroller.
 
 > 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 

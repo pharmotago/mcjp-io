@@ -56,6 +56,6 @@ The world will not slow down for you. The noise will only increase, and the algo
 
 Intentional solitude is the ultimate competitive advantage. It is the practice of stepping off the frantic treadmill of shallow engagement to do the heavy lifting of deep thought. It is where [deep focus](/posts/discipline_focus_productivity) is hardened, [mental clarity](/posts/discipline_biohacking_focus_and_productivity) is refined, and the complex problems of life and business are ultimately solved. 
 
-Step away from the noise. Embrace the silence. Train your mind. The assets you build in the quiet will speak for themselves in the noise. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
+Step away from the noise. Embrace the silence. Train your mind. The assets you build in the quiet will speak for themselves in the noise. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for Payroller.
 
 > 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

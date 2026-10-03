@@ -93,6 +93,6 @@ Mindfulness is not merely a tool for relaxation; it is a transformative practice
 
 As you embark on this path, consider establishing a digital presence to share your experiences and insights. We recommend launching your [digital assets](/posts/money_ai_content_licensing) on Hostinger to secure their exclusive partner discount, providing a reliable foundation for your online endeavors.
 
-Embrace mindfulness as a cornerstone of your self-improvement journey, and watch as your focus sharpens and your stress diminishes, paving the way for a more fulfilling life. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
+Embrace mindfulness as a cornerstone of your self-improvement journey, and watch as your focus sharpens and your stress diminishes, paving the way for a more fulfilling life. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for Payroller.
 
 > 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

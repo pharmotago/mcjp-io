@@ -45,7 +45,7 @@ By consistently engaging in ancestral movement, we unlock a multitude of cogniti
 
 1.  **Enhanced Focus and Attention:** The need for constant environmental assessment and physical adaptation trains the brain to stay present and filter out distractions.
 2.  **Improved Problem-Solving and Creativity:** Complex movements often require creative solutions and adaptive strategies, stimulating divergent thinking.
-3.  **Increased Mental Resilience:** Overcoming physical challenges, even small ones, builds a sense of self-efficacy and strengthens the mental fortitude needed to face life's intellectual and emotional hurdles.
+3.  **Increased [Mental Resilience](/posts/discipline_endurance_training_methods):** Overcoming physical challenges, even small ones, builds a sense of self-efficacy and strengthens the [mental fortitude](/posts/discipline_emotional_stamina_building) needed to face life's intellectual and emotional hurdles.
 4.  **Better Emotional Regulation:** Physical exertion, especially in natural environments, is a powerful antidote to stress and anxiety, promoting a more balanced emotional state.
 5.  **Long-Term Brain Health:** Regular, varied movement is a potent defense against age-related cognitive decline, promoting neurogenesis and maintaining neural network integrity.
 
@@ -72,6 +72,6 @@ Consistency is key. Like any long-term asset, the benefits of ancestral movement
 
 ## The Path to Peak Performance
 
-The journey to peak cognitive function and robust masculine vitality is not solely intellectual or purely physical; it is a profound integration of both. By consciously re-engaging with the fundamental movement patterns that shaped our ancestors, we don't just build a stronger body; we cultivate a sharper, more resilient, and more adaptable mind. This is the essence of true biohacking: returning to our innate design to unlock our highest potential.
+The journey to peak [cognitive function](/posts/discipline_cognitive_function_enhancement) and robust masculine vitality is not solely intellectual or purely physical; it is a profound integration of both. By consciously re-engaging with the fundamental movement patterns that shaped our ancestors, we don't just build a stronger body; we cultivate a sharper, more resilient, and more adaptable mind. This is the essence of true biohacking: returning to our innate design to unlock our highest potential.
 
 Embrace the discipline of ancestral movement. Challenge your body in varied, natural ways, and watch as your mind responds with renewed clarity, focus, and an unwavering capacity for high-performance living. This is not about nostalgia; it is about leveraging our evolutionary heritage to thrive in the modern age.

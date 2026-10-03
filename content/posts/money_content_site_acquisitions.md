@@ -93,7 +93,7 @@ Investing in digital [real estate](/posts/money_asset_diversification) through t
 
 For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee. This ensures that your digital endeavors are supported by a reliable internet infrastructure, enabling you to focus on building your digital empire. 
 
-Embrace the art of acquiring profitable content sites and watch as your digital [real estate](/posts/money_investment_strategies) portfolio flourishes. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
+Embrace the art of acquiring profitable content sites and watch as your digital [real estate](/posts/money_investment_strategies) portfolio flourishes. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for Payroller.
 
 > 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 

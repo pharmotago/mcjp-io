@@ -67,7 +67,7 @@ Additionally, as you refine your approach to financial agility, consider explori
 
 ![A visual representation of financial growth strategies, emphasizing the importance of resilience and adaptability](/images/money_financial_agility_theme.png)
 
-By committing to these strategies, you will not only enhance your financial stability but also foster a mindset that embraces change and seeks opportunities in adversity. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
+By committing to these strategies, you will not only enhance your financial stability but also foster a mindset that embraces change and seeks opportunities in adversity. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for Payroller.
 
 > 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 

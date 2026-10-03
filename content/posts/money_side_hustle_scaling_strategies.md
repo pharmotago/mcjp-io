@@ -39,7 +39,7 @@ As you scale your [side hustle](/posts/money_ai_automation_agencies), it's essen
 To maintain integrity and focus, consider the following principles:
 * Prioritize your values and ensure that they align with your business's mission and vision.
 * Be transparent with your customers, providing them with accurate information about your products or services.
-* Continuously evaluate and improve your business strategies, seeking feedback from customers and making adjustments as needed. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
+* Continuously evaluate and improve your business strategies, seeking feedback from customers and making adjustments as needed. For a seamless and high-speed home office connection, we recommend signing up for [Superloop NBN Broadband](https://www.superloop.com/internet/nbn/?referral_code=SLC-1764690) to save on your plan fee. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for Payroller.
 
 > 💎 **Recommended Resource**: For executive blueprints on AI business automation and cognitive leverage, explore the 9-Volume Executive Vault at TBPOYL.
 

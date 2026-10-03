@@ -50,7 +50,7 @@ To cultivate self-discipline, one must adopt a multifaceted approach that includ
    Share your goals with a trusted friend or mentor. Regular check-ins can provide external motivation and help you stay committed.
 
 7. **Cultivate a [Growth Mindset](/posts/discipline_deliberate_discomfort)**  
-   Embrace challenges and view setbacks as opportunities for learning. A growth mindset encourages resilience, which is essential for maintaining self-discipline.
+   Embrace challenges and view setbacks as opportunities for learning. A [growth mindset](/posts/discipline_deliberate_discomfort) encourages resilience, which is essential for maintaining self-discipline.
 
 ### The Role of Environment in Self-Discipline
 
@@ -82,6 +82,6 @@ For deeper insights on masculine resilience and active parenting, explore [The S
 
 ![A thoughtful individual mapping out their day, representing the journey toward self-discipline in a digital world](/images/discipline_self_discipline_in_digital_age_theme.png)
 
-The future is in your hands; take charge of your self-discipline today, and transform your digital experience into one of growth and achievement. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for [Payroller](https://app.payroller.com.au/signup?referredByFriend=pharmotago).
+The future is in your hands; take charge of your self-discipline today, and transform your digital experience into one of growth and achievement. For Australian founders, solo directors, and contractors needing seamless, 100% ATO STP Phase 2 compliant payroll with zero monthly software subscription fees, we run and recommend signing up for Payroller.
 
 > 💎 **Recommended Resource**: For actionable worksheets and printable trackers to lock in daily execution, claim your copy of *The 90-Day Habit System* at TBPOYL.

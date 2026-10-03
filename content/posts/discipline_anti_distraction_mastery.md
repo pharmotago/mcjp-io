@@ -93,7 +93,7 @@ An unshakeable mind cannot exist in an unwell body. Your physical and [mental re
 
 ## Your Unshakeable Mind Action Plan: A Checklist
 
-To forge an unshakeable mind capable of peak masculine performance, commit to these protocols:
+To forge an unshakeable mind capable of peak [masculine performance](/posts/discipline_masculine_focus_techniques), commit to these protocols:
 
 *   **Environmental Engineering:**
     *   Declutter your physical workspace.
@@ -120,4 +120,4 @@ To forge an unshakeable mind capable of peak masculine performance, commit to th
 
 Mastering anti-distraction protocols is not a one-time fix; it is a continuous journey of self-discipline, awareness, and refinement. The unshakeable mind is not born; it is built—through conscious effort, consistent application, and an unwavering commitment to your highest potential.
 
-Embrace these protocols not as constraints, but as liberation. Free yourself from the tyranny of constant distraction, and reclaim your inherent capacity for deep work, strategic thinking, and impactful action. Your legacy, your financial autonomy, and your personal integrity depend on it. Begin today. Forge your unshakeable mind.
+Embrace these protocols not as constraints, but as liberation. Free yourself from the tyranny of constant distraction, and reclaim your inherent capacity for [deep work](/posts/discipline_deep_work_protocols), strategic thinking, and impactful action. Your legacy, your financial autonomy, and your personal integrity depend on it. Begin today. Forge your unshakeable mind.
